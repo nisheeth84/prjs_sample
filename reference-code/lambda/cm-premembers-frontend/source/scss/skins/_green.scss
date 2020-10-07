@@ -1,0 +1,24 @@
+// Override variables
+// ------------------
+$color-primary: 'green';
+
+$color-green-50  : #e8f5e9 ;
+$color-green-100 : #c8e6c9 ;
+$color-green-200 : #00edaa ;
+$color-green-300 : #00e0a1 ;
+$color-green-400 : #00d498 ;
+$color-green-500 : #00c68d ;
+$color-green-600 : #1f9976 ;
+$color-green-700 : #1a8063 ;
+$color-green-800 : #14664f ;
+$color-green-900 : #296655 ;
+
+$color-green-a100: #b9f6ca ;
+$color-green-a200: #69f0ae ;
+$color-green-a300: #00e676 ;
+$color-green-a400: #00c853 ;
+
+// Load skin source
+// ----------------
+@import "skin";
+

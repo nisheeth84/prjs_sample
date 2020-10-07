@@ -1,0 +1,64 @@
+@startuml{Batch_チェック_チェックジョブランチャー.png}
+title [チェックバッチ_チェックジョブランチャー]
+hide footbox
+
+participant CloudWatch as cloudwatch <<cloudwatch>> #yellowgreen
+participant チェックジョブランチャー as batch_check_job_louncher <<lambda>> #violet
+database プロジェクト as table_projects <<dynamodb>> #royalblue
+database チェック履歴 as table_check_history <<dynamodb>> #royalblue
+database バッチジョブ定義 as table_batch_jobdef <<dynamodb>> #royalblue
+database チェックジョブ履歴 as storage_check_joblog <<s3>> #crimson
+database チェックジョブキュー as batchqueue_check <<batch>> #darkorange
+
+cloudwatch ->> batch_check_job_louncher :スケジュール実行
+activate batch_check_job_louncher
+    loop 1, プロジェクトを全件取得するまで
+    batch_check_job_louncher -> table_projects : scan
+    note right #FFAAAA :キャパシティユニットを使い潰さないように、何回かに分けて取得する必要がある
+    table_projects --> batch_check_job_louncher
+    |||
+    loop 1, プロジェクト数
+        note over batch_check_job_louncher, batchqueue_check :取得できたプロジェクトからジョブをサブミットする
+        batch_check_job_louncher -> batch_check_job_louncher :チェック処理実行
+        activate batch_check_job_louncher
+            batch_check_job_louncher -> table_check_history :レコード作成
+            note right :チェック実行ステータス=待機中(0)
+            table_check_history --> batch_check_job_louncher
+            group チェック処理
+            batch_check_job_louncher -> table_batch_jobdef :レコード取得
+            table_batch_jobdef --> batch_check_job_louncher
+            batch_check_job_louncher -> batchqueue_check :チェック処理をサブミット
+            batchqueue_check --> batch_check_job_louncher
+            batch_check_job_louncher -> storage_check_joblog :ファイル作成 {bucket}/check_batch/{CheckHistoryID}/{LogID}.json
+            storage_check_joblog --> batch_check_job_louncher
+            |||
+            end
+            group 集計処理
+            batch_check_job_louncher -> table_batch_jobdef :レコード取得
+            table_batch_jobdef --> batch_check_job_louncher
+            batch_check_job_louncher -> batchqueue_check :集計処理をサブミット
+            note right :チェック処理の後続処理として依存関係を設定
+            batchqueue_check --> batch_check_job_louncher
+            batch_check_job_louncher -> storage_check_joblog :ファイル作成 {bucket}/check_batch/{CheckHistoryID}/{LogID}.json
+            storage_check_joblog --> batch_check_job_louncher
+            |||
+            end
+            group レポート出力処理
+            batch_check_job_louncher -> table_batch_jobdef :レコード取得
+            table_batch_jobdef --> batch_check_job_louncher
+            batch_check_job_louncher -> batchqueue_check :レポート出力処理をサブミット
+            note right :集計処理の後続処理として依存関係を設定
+            batchqueue_check --> batch_check_job_louncher
+            batch_check_job_louncher -> storage_check_joblog :ファイル作成 {bucket}/check_batch/{CheckHistoryID}/{LogID}.json
+            storage_check_joblog --> batch_check_job_louncher
+            |||
+            end
+            batch_check_job_louncher --> batch_check_job_louncher
+            |||
+        deactivate batch_check_job_louncher
+    end
+    batch_check_job_louncher -> batch_check_job_louncher :ジョブサブミット実績をログ出力
+    |||
+    end
+deactivate batch_check_job_louncher
+@enduml

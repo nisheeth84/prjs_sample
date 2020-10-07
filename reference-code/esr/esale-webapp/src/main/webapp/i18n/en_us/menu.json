@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "searchGlobal": "Search all",
+    "userNew": "For beginner",
+    "feedback": "Feedback",
+    "setting": "Setting"
+  },
+  "notification": {
+    "title": "Notification",
+    "modelNoti": "Show all",
+    "detail": {
+      "placehoder": "Search notification"
+    }
+  },
+  "more": {
+    "employeeDetails": "Profile",
+    "setting": "Setting",
+    "logout": "Log Out"
+  },
+  "searchGlobal": {
+    "tittle": "Search All",
+    "tittle-snd": "Set search target by pulldown",
+    "search-all": "All",
+    "placehoder": "Search all",
+    "more": "Show more"
+  }
+}

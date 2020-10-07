@@ -1,0 +1,35 @@
+@startuml{API_組織_組織別通知メール宛先作成.png}
+title [組織_組織別通知メール宛先作成]
+hide footbox
+
+boundary 画面 as view
+participant 組織API as api_organizations #cyan
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database 宛先 as table_destinations <<dynamodb>> #royalblue
+
+view -> api_organizations : POST /organizations/{organization_id}/nofitymail/destinations
+note right :bodyに通知メールの宛先情報
+activate api_organizations
+    api_organizations -> api_organizations :ユーザーID取得
+    |||
+    ref over api_organizations, table_affiliation :アクセス権限チェック
+    |||
+    api_organizations -> api_organizations :バリデーションチェック
+    |||
+    api_organizations -> api_organizations :宛先情報作成
+    activate api_organizations
+        loop 1, 宛先に指定されたユーザー数
+            api_organizations -> table_affiliation :メールアドレス取得
+            table_affiliation --> api_organizations
+            |||
+        end
+        api_organizations -> table_destinations :宛先レコード作成（更新）
+        table_destinations --> api_organizations
+        api_organizations --> api_organizations
+    deactivate api_organizations
+    |||
+    api_organizations -> api_organizations :レスポンス作成
+    api_organizations --> view :201:作成した宛先情報
+deactivate api_organizations
+
+@enduml

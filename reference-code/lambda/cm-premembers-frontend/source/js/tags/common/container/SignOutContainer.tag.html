@@ -1,0 +1,7 @@
+<sign-out-container>
+    <script>
+        var tag = this;
+        const cognitoUser = riot.mixin('cognitoUser');
+        tag.commonUtils.signOut(cognitoUser)
+    </script>
+</sign-out-container>

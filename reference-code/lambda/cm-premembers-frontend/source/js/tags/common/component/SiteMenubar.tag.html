@@ -1,0 +1,88 @@
+<site-menubar>
+  <div class="site-menubar {classMarginTopContent}">
+    <div class="site-menubar-body">
+      <div>
+        <div>
+          <ul class="site-menu" data-plugin="menu">
+            <li class="hidden-float mt-20" id="toggleMenubar">
+                <a data-toggle="menubar" href="#" role="button">
+                    <i class="toggle-menu-bar site-menu-icon wb-menu"></i>
+                </a>
+            </li>
+            <li class="site-menu-item mt-20">
+              <a href="#/home/">
+                <i class="site-menu-icon wb-home"></i>
+                <span class="site-menu-title">{_t('home')}</span>
+              </a>
+            </li>
+            <!-- <li class="site-menu-category">レポート</li>
+            <li class="site-menu-item">
+              <a href="#/reports/">
+                <i class="site-menu-icon wb-list" aria-hidden="true"></i>
+                <span class="site-menu-title">レポート一覧</span>
+              </a>
+            </li> -->
+            <li class="site-menu-category">{_t('check')}</li>
+            <li class="site-menu-item">
+              <a href="#/check/">
+                <i class="site-menu-icon wb-check" aria-hidden="true"></i>
+                <span class="site-menu-title">{_t('check_result')}</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a href="#/check/history/">
+                <i class="site-menu-icon wb-file" aria-hidden="true"></i>
+                <span class="site-menu-title">{_t('check_history')}</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a href="#/check/execute/">
+                <i class="site-menu-icon wb-play" aria-hidden="true"></i>
+                <span class="site-menu-title">{_t('check_execution')}</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a href="#/organizations/notify/">
+                <i class="site-menu-icon fa-envelope" aria-hidden="true"></i>
+                <span class="site-menu-title">{_t('notify_settings')}</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a href="#/check/settings/">
+                <i class="site-menu-icon wb-settings" aria-hidden="true"></i>
+                <span class="site-menu-title">{_t('item_setting')}</span>
+              </a>
+            </li>
+            <li class="site-menu-category">{_t('organization')}</li>
+            <li class="site-menu-item">
+              <a href="#/organizations/">
+                <i class="site-menu-icon wb-list" aria-hidden="true"></i>
+                <span class="site-menu-title">{_t('organization_list')}</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a href="#/invitations/">
+                <i class="site-menu-icon wb-star" aria-hidden="true"></i>
+                <span class="site-menu-title">{_t('invitation_list')}</span>
+              </a>
+            </li>
+            <!-- <li class="site-menu-category">ユーザー管理</li>
+                <li class="site-menu-item">
+                  <a href="#">
+                    <i class="site-menu-icon fa fa-lg fa-users"></i>
+                    <span class="site-menu-title">ユーザー</span>
+                  </a>
+                </li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tag = this
+    tag.classMarginTopContent = tag.parent.classMarginTopContent
+    tag.on('mount', function() {
+      SiteCustomize.run()
+    })
+  </script>
+</site-menubar>

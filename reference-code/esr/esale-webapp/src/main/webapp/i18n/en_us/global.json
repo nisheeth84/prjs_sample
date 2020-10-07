@@ -1,0 +1,295 @@
+{
+  "global": {
+    "footer": {
+      "private.policy": "Privacy Policy",
+      "term.service": "Terms of service",
+      "copyright": "@SOFTBRAIN CO.,Ltd."
+    },
+    "messages": {
+      "validate": {
+        "newpassword": {
+          "required": "Please enter your password.",
+          "minlength": "Password must contain at least 8 characters.",
+          "maxlength": "Password must contain no more than 32 characters."
+        },
+        "confirmpassword": {
+          "required": "Please confirm your password.",
+          "minlength": "Password must contain at least 8 characters.",
+          "maxlength": "Password must contain no more than 32 characters.",
+          "dontmatch": "Passwords do not match!"
+        }
+      }
+    },
+    "layoutDateTime": {
+      "label.workDate": "（営業日数で算出-en）",
+      "label.oneDayBefore": "（日前-en）",
+      "label.oneDayAfter": "（日後-en）"
+    },
+    "title": {
+      "confirm": "Confirm",
+      "search-detail": "Advanced search"
+    },
+    "label": {
+      "local-filter": "Search",
+      "record-on-page": " results displayed",
+      "record-currentpage": "{{offsetDown}}-{{offsetUp}} item(s) / {{totalRecords}} item(s)"
+    },
+    "placeholder": {
+      "find-item": "Search item"
+    },
+    "menu-context": {
+      "select-all": "Select all",
+      "deselect-all": "Deselect all",
+      "select-all-in-page": "Select all of current page",
+      "deselect-all-in-page": "Deselect all of current page"
+    },
+    "button": {
+      "confirm": "Confirm",
+      "cancel": "Cancel",
+      "select-all": "Select all",
+      "deselect-all": "Deselect all",
+      "selection-inversion": "Invert",
+      "save-search-criteria": "Save search condition",
+      "edit-search-condition": "Edit search condition",
+      "search-all": "Edit item",
+      "save-change": "Save changes",
+      "switch-display": "Switch display",
+      "next-page": "Next",
+      "prev-page": "Prev"
+    },
+    "item-drag": {
+      "list": " employees (total)"
+    },
+    "over-flow-menu": {
+      "business-card": {
+        "history-activities": "Activity History",
+        "regist-activities": "Register activity",
+        "regist-schedules": "Register schedule",
+        "regist-task": "Register task",
+        "post-data": "Post",
+        "create-mail": "Create email"
+      },
+      "customer": {
+        "history-activities": "Activity History",
+        "regist-activities": "Register activity",
+        "regist-schedules": "Register schedule",
+        "regist-task": "Register task",
+        "post-data": "Post",
+        "create-mail": "Create email",
+        "regist-business-card": "Register business card",
+        "regist-business-child": "Register child customer"
+      },
+      "employee": {
+        "history-activities": "Activity History",
+        "regist-schedules": "Register schedule",
+        "regist-task": "Register task",
+        "post-data": "Post",
+        "create-mail": "Create email"
+      },
+      "task": {
+        "regist-task": "Register subtask",
+        "regist-milestone": "Register milestone",
+        "history-activities": "Activity History",
+        "regist-activities": "Register activity",
+        "post-data": "Post"
+      },
+      "sub-task": {
+        "history-activities": "Activity History",
+        "regist-activities": "Register activity",
+        "post-data": "Post"
+      },
+      "mile-stone": {
+        "regist-task": "Register subtask",
+        "history-activities": "Activity History",
+        "regist-activities": "Register activity",
+        "post-data": "Post"
+      },
+      "product-trading": {
+        "regist-activities": "Register activity",
+        "active-history": "Activity history",
+        "regist-task": "Register task",
+        "regist-schedules": "Register schedule"
+      }
+    },
+    "dialog-dirtycheck": {
+      "parttern1": {
+        "title": "Are you sure you want to leave this page?",
+        "confirm": "Leave this page",
+        "cancel": "Stay on this page"
+      },
+      "parttern2": {
+        "title": "Are you sure you want to discard changes?",
+        "confirm": "OK",
+        "cancel": "Cancel"
+      }
+    },
+    "title-popup": {
+      "confirm": "Are you sure you want to leave this page?",
+      "btn-cancel": "Stay on this page",
+      "btn-confirm": "Leave this page"
+    },
+    "title-restart": {
+      "confirm": "Are you sure you want to discard changes?",
+      "btn-cancel": "Cancel",
+      "btn-confirm": "OK"
+    },
+    "tab-display-setting": {
+      "display-basic-info": "Display in Basic Info",
+      "not-display-basic-info": "Do not display in Basic Info",
+      "max-display-number": "Display max ",
+      "unit": " items"
+    },
+    "group": {
+      "customer-shared-list-modal": {
+        "title-add": "Create shared list",
+        "title-edit": "Edit shared list",
+        "title-switch": "Convert to shared list",
+        "lb-create-list-with-records": "{{0}} item(s) will be added to a new list.",
+        "list-name-label": "List name",
+        "required": "※",
+        "lb-require": "※",
+        "radio-manual": "Manual",
+        "radio-auto": "Auto-added",
+        "list-name-placeholder": "Enter list name",
+        "list-search-placeholder": "Add participant",
+        "list_type": "Type of list",
+        "is-overwrite": "Delete updated items that do not match with these conditions from the list",
+        "lb-list-participants": "Participants",
+        "lb-list-participants-placeholder": "Add participant",
+        "permision.viewer": "Viewer",
+        "permision.owner": "Owner",
+        "lb-search-condition": "Search condition for automatically-added list",
+        "lb-setting-search": "Set search condition",
+        "lb-note-for-checkbox": "Delete updated items that do not match with these conditions from the list",
+        "list-update-time": "Update group automatically at {{0}} o’clock everyday",
+        "button-create": "Create",
+        "button-edit": "Update"
+      },
+      "customer-my-list-modal": {
+        "title-add": "Create my list",
+        "title-edit": "Edit my list",
+        "title-switch": "",
+        "lb-create-list-with-records": "{{0}} item(s) will be added to a new list.",
+        "list-name-label": "List name",
+        "required": "※",
+        "lb-require": "※",
+        "radio-manual": "Manual",
+        "radio-auto": "Auto-added",
+        "list-name-placeholder": "Enter list name",
+        "list-search-placeholder": "",
+        "list_type": "Type of list",
+        "is-overwrite": "Delete updated items that do not match with these conditions from the list",
+        "lb-list-participants": "",
+        "lb-list-participants-placeholder": "",
+        "permision.viewer": "",
+        "permision.owner": "",
+        "lb-search-condition": "Search condition for automatically-added list",
+        "lb-setting-search": "Set search condition",
+        "lb-note-for-checkbox": "Delete updated items that do not match with these conditions from the list",
+        "list-update-time": "Update group automatically at {{0}} o’clock everyday",
+        "button-create": "Create",
+        "button-edit": "Update"
+      },
+      "employee-my-list-modal": {
+        "title-add": "Create my group",
+        "title-edit": "Edit my group",
+        "title-switch": "",
+        "lb-create-list-with-records": "Create a group using {{0}} items.",
+        "list-name-label": "Group name",
+        "required": "required",
+        "lb-require": "required",
+        "radio-manual": "Manual",
+        "radio-auto": "Auto added",
+        "list-name-placeholder": "Enter group name",
+        "list-search-placeholder": "",
+        "list_type": "Type of group",
+        "is-overwrite": "Delete updated items that do not match with these conditions from the group.",
+        "lb-list-participants": "",
+        "lb-list-participants-placeholder": "",
+        "permision.viewer": "",
+        "permision.owner": "",
+        "lb-search-condition": "Search condition for automatically-added group",
+        "lb-setting-search": "Set search condition",
+        "lb-note-for-checkbox": "Delete updated items that do not match with these conditions from the group.",
+        "list-update-time": "Update group automatically at {{0}} o’clock everyday",
+        "button-create": "Create",
+        "button-edit": "Update"
+      },
+      "employee-shared-list-modal": {
+        "title-add": "Create shared group",
+        "title-edit": "Edit shared group",
+        "title-switch": "Convert to shared group",
+        "lb-create-list-with-records": "Create a group with {{0}} items",
+        "list-name-label": "Group name",
+        "required": "required",
+        "lb-require": "required",
+        "radio-manual": "Manual",
+        "radio-auto": "Auto-added",
+        "list-name-placeholder": "Enter group name",
+        "list-search-placeholder": "Add participants to list",
+        "list_type": "Type of group",
+        "is-overwrite": "Delete updated items that do not match with these conditions from the group.",
+        "lb-list-participants": "Participants",
+        "lb-list-participants-placeholder": "Add participant",
+        "permision.viewer": "Viewer",
+        "permision.owner": "Owner",
+        "lb-search-condition": "Search conditions for automatically added groups",
+        "lb-setting-search": "Setting search conditions",
+        "lb-note-for-checkbox": "Delete updated items that do not match with these conditions from the group",
+        "list-update-time": "Update group automatically at {{0}} o’clock everyday",
+        "button-create": "Create",
+        "button-edit": "Change"
+      },
+      "sales-shared-list-modal": {
+        "title-add": "Create shared list",
+        "title-edit": "Edit shared list",
+        "title-switch": "Change to shared list",
+        "lb-create-list-with-records": "Create a list with {{0}} items.",
+        "list-name-label": "list name",
+        "required": "required",
+        "lb-require": "required",
+        "radio-manual": "manual",
+        "radio-auto": "Automatic addition",
+        "list-name-placeholder": "Enter list name",
+        "list-search-placeholder": "Add list participant",
+        "list_type": "List type",
+        "is-overwrite": "If the condition is not met when updating, delete from list",
+        "lb-list-participants": "List Participants",
+        "lb-list-participants-placeholder": "Add list participants",
+        "permision.viewer": "viewer",
+        "permision.owner": "owner",
+        "lb-search-condition": "Search condition of automatic addition list",
+        "lb-setting-search": "Edit advanced search conditions",
+        "lb-note-for-checkbox": "Remove from list if conditions are not met when updating",
+        "list-update-time": "The list will be automatically updated at {{0}} every day",
+        "button-create": "Create",
+        "button-edit": "Update"
+      },
+      "sales-my-list-modal": {
+        "title-add": "Create my list",
+        "title-edit": "Edit mylist",
+        "title-switch": "Change to shared list",
+        "lb-create-list-with-records": "Create a list with {{0}} items.",
+        "list-name-label": "list name",
+        "required": "required",
+        "lb-require": "required",
+        "radio-manual": "manual",
+        "radio-auto": "Automatic addition",
+        "list-name-placeholder": "Enter list name",
+        "list-search-placeholder": "",
+        "list_type": "List type",
+        "is-overwrite": "Delete from group if condition is not met during update",
+        "lb-list-participants": "List Participants",
+        "lb-list-participants-placeholder": "List Participants",
+        "permision.viewer": "viewer",
+        "permision.owner": "owner",
+        "lb-search-condition": "Search condition of automatic addition list",
+        "lb-setting-search": "Edit advanced search conditions",
+        "lb-note-for-checkbox": "Remove from list if conditions are not met when updating",
+        "list-update-time": "The list will be automatically updated at {{0}} every day",
+        "button-create": "Create",
+        "button-edit": "Update"
+      }
+    }
+  }
+}

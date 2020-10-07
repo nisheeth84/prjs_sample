@@ -1,0 +1,434 @@
+{
+  "customers": {
+    "business-name": "Industry",
+    "is-display-child-customers": "Display child customers in search results",
+    "list": {
+      "dot": "・",
+      "show-more-next": "Other {{0}} item(s)",
+      "place-holder": {
+        "search": "Search list"
+      }
+    },
+    "move-to-list": {
+      "title": {
+        "header": "Move to another list"
+      },
+      "message": {
+        "record-number-info": "{{count}} item(s) will be moved to another list."
+      },
+      "form": {
+        "label": "List to move",
+        "nonselect": "Select a target list"
+      },
+      "button": {
+        "move": "Move"
+      }
+    },
+    "add-to-list": {
+      "title": {
+        "header": "Add to list"
+      },
+      "message": {
+        "record-number-info": "{{count}} item(s) will be added to another list."
+      },
+      "form": {
+        "label": "List to add",
+        "nonselect": "Select a target list"
+      },
+      "button": {
+        "add": "Add"
+      }
+    },
+    "option-group": {
+      "favorites-list": "Favorite list",
+      "my-list": "My list",
+      "shared-list": "Shared list"
+    },
+    "top": {
+      "title": {
+        "btn-registration": "Register employee",
+        "btn-group-operation": "Control group",
+        "btn-edit": "Simple edit",
+        "btn-cancel": "Cancel",
+        "btn-save": "Save changes",
+        "add-to-group": "Add to group",
+        "create-my-group": "Create my group",
+        "create-shared-group": "Create shared group",
+        "move-group": "Move to another group",
+        "leave-group": "Remove from group",
+        "register-employee": "Register employee",
+        "invite-employee": "Invite employees",
+        "register-department": "Register department",
+        "import-employee": "Import employee",
+        "import-department": "Import department"
+      },
+      "button": {
+        "btn-registration": "Register customer",
+        "btn-import": "Import customer",
+        "btn-buy-outside": "Buy from outside",
+        "btn-list-operator": "Control list",
+        "btn-add-to-list": "Add to list",
+        "btn-move-list": "Move to another list",
+        "btn-create-my-list": "Create my list",
+        "btn-create-share-list": "Create shared list",
+        "btn-remove-from-list": "Remove from list",
+        "btn-edit-simple": "Simple edit"
+      },
+      "place-holder": {
+        "search": "Search customer",
+        "searching": "Edit advanced search"
+      },
+      "popup": {
+        "lbl-customer": "Customer",
+        "title-delete": "Delete",
+        "title-confirm": "Are you sure you want to delete?",
+        "btn-cancel": "Cancel",
+        "btn-delete": "Delete"
+      },
+      "dialog": {
+        "title-move-customer": "Confirm",
+        "title-add-customers-to-auto-list": "Confirm",
+        "title-delete-list": "Delete",
+        "title-remove-favourite-list": "Remove",
+        "confirm-move-customer": "OK",
+        "confirm-add-customers-to-auto-list": "Convert",
+        "confirm-delete-list": "Delete",
+        "confirm-remove-favourite-list": "Remove",
+        "title-remove-manager": "Confirm",
+        "message-remove-manager": "Are you sure you want to remove the manager set for the selected employee?",
+        "confirm-remove-manager": "Remove",
+        "cancel-text": "Cancel",
+        "title-auto-group": "Confirm",
+        "confirm-auto-group": "Update",
+        "title-add-list-to-favourite-list": "Confirm"
+      },
+      "label-tooltip": {
+        "customer-integration": "Integrate",
+        "delete": "Delete",
+        "download": "Download",
+        "switch-display": "Switch display"
+      }
+    },
+    "sidebar": {
+      "title": {
+        "customer-charge": "Customer in charge",
+        "all-customer": "All customers",
+        "favourite-list": "Favorite list",
+        "my-list": "My list",
+        "shared-list": "Shared list"
+      },
+      "option": {
+        "update-list": "Update list",
+        "add-to-favorites-list": "Add to favorite",
+        "remove-from-favorites-list": "Remove from favorite",
+        "edit-list": "Edit list",
+        "delete-list": "Delete list",
+        "duplicate-list": "Update list",
+        "change-to-shared-list": "Convert to shared list"
+      }
+    },
+    "displayCondition": {
+      "buttonShowCondition": "Advanced search conditions",
+      "form": {
+        "conditionSearch": "Advanced search conditions",
+        "filter": "Filtering criteria",
+        "conditionSave": "Conditions to save auto-added list"
+      },
+      "buttonShowScroll": "Show all"
+    },
+    "create-edit-modal": {
+      "title-create-customer": "Register customer",
+      "title-edit-customer": "Edit customer",
+      "create-customer-title": "Register customer",
+      "title-required": "※",
+      "edit-customer-title": "Edit customer",
+      "create-button": "Register",
+      "edit-button": "Save",
+      "business": "Industry",
+      "business-main": "Select industry sector",
+      "business-sub": "Select industry",
+      "company-description": " JSC",
+      "product": "Trading product",
+      "employee": "Person in charge",
+      "picture-logo": "Customer logo",
+      "cancel-button": "Cancel",
+      "modal-title": "Register customer",
+      "customer-parent": "Parent customer",
+      "placeholder-customer-parent": "Select parent customer",
+      "placeholder-employee": "Select person in charge",
+      "text-customer-id": "Automatically numbered",
+      "text-created-date": "Automatically registered",
+      "text-created-user": "Automatically registered",
+      "text-updated-date": "Automatically registered",
+      "text-updated-user": "Automatically registered",
+      "msg-customer-logo": "Customer logo",
+      "btn-drag-drop-image": "Please click or drop file",
+      "title-intergation": "Select items to keep when integrating"
+    },
+    "scenario-popup": {
+      "btn-create-milestone": "Register milestone",
+      "btn-edit-scenario": "Save",
+      "btn-create-task": "Add task",
+      "btn-add-list": "Add new scenario",
+      "btn-add-remove-list": "Overwrite scenario",
+      "field-scenario": "Edit scenario",
+      "title-scenario": "Scenario",
+      "title-template": "Apply template",
+      "title-search": "Displayed period",
+      "title-no-template-selected": "Select template to apply",
+      "title-delete-milestone": "Delete milestone",
+      "title-delete-tasks": "Delete task",
+      "title-confirm-update-scenario": "Apply template",
+      "title-date-from-date": "~",
+      "msg-confirm-update-scenario-top": "Apply template to the scenario.",
+      "msg-confirm-update-scenario-bottom": "Please select a update method.",
+      "msg-delete-milestone": "Are you sure you want to delete?",
+      "btn-cancel": "Cancel",
+      "btn-delete": "Delete",
+      "btn-confirm": "OK",
+      "title-comfirm-close": "Confirm to discard chages",
+      "content-comfirm-close": "Are you sure you want to discard these chages?",
+      "placeholder-search-start-date": "Start date",
+      "placeholder-search-finish-date": "End date",
+      "info-number-task": "There are {{0}} uncompleted tasks.",
+      "place-holder-create-milestone": "Enter milestone name here.",
+      "place-holder-create-memo": "Enter memo name here.",
+      "place-holder-create-tasks": "Enter task name here."
+    },
+    "dialog-delete-logo": {
+      "title": "Delete customer logo",
+      "content": "Are you sure you want to delete?",
+      "cancel": "Cancel",
+      "submit": "Delete"
+    },
+    "customer-integration": {
+      "title": "Integrate",
+      "search-title": "Select items to keep when integrating",
+      "search-placeholder": "Add customer",
+      "check-all": "Select all",
+      "button-cancel": "Cancel",
+      "button-submit": "Integrate",
+      "required": "※",
+      "manual-input-text": "Enter manually",
+      "business": "Industry",
+      "cannot-enter-value": "Cannot enter value",
+      "customer-code": "Customer code"
+    },
+    "title": {
+      "popupErrorMessage.delete": "Delete",
+      "popupChangeStatus": "Confirm"
+    },
+    "warning": {
+      "popupErrorMessage.delete": "This can not be deleted because there is data related with it.",
+      "popupSettingFieldCreateField": "Items can be added by drag & drop.",
+      "popupSettingFieldEditField": "Items which have not been used can be added."
+    },
+    "suggest": {
+      "popupErrorMessage.delete": "Please try again after deleting such data."
+    },
+    "error": {
+      "delete": {
+        "countCustomers": "Customers for which {{employeeName}} has been set as person in charge: {{count}} items",
+        "countSchedules": "Schedules in which {{employeeName}} has been set as participants: {{count}} items",
+        "countSaleProducts": "Products traded by {{employeeName}}: {{count}} items",
+        "countNameCards": "Business cards received by {{employeeName}}: {{count}} items",
+        "countTimeLines": "Number of comments/posts on timeline of {{employeeName}}: {{count}} items",
+        "countTimeLineGroups": "Number of timeline groups {{employeeName}} has joined: {{count}} items",
+        "countTimeLineGroupsFavorites": "Number of timeline groups {{employeeName}} added to favorite: {{count}} items",
+        "countTimeLineWatchs": "Number of timelines {{employeeName}}’s following: {{count}} items",
+        "countTimeLineNotices": "Number of notifications sent to {{employeeName}}'s timeline : {{count}} items",
+        "countTimeLineStars": "Number of timeline posts {{employeeName}} liked: {{count}} items",
+        "countTimeLineReactions": "Number of reactions on {{employeeName}}'s timeline: {{count}} items",
+        "countTimeLineFilters": "Number of filtered information on {{employeeName}}'s timeline : {{count}} items",
+        "countActivities": "Activites reported by {{employeeName}}: {{count}} items",
+        "countAnalysisReports": "Reports {{employeeName}} has done as participants: {{count}} items",
+        "countTodos": "Tasks in which {{employeeName}} has been set as Person in charge: {{count}} items",
+        "countOcrNameCards": "Business cards {{employeeName}} received from mobile app: {{count}} items"
+      }
+    },
+    "detail": {
+      "label": {
+        "department.name": "'s manager has been appointed.",
+        "button.edit": "Edit screen",
+        "button.cancel": "Cancel",
+        "button.save": "Save",
+        "button.follow": "Follow",
+        "button.unfollow": "Unfollow",
+        "button.delete": "DELETE",
+        "button.participate": "Join",
+        "manager": "Manager",
+        "subordinate": "Staff",
+        "amountTotal": "Subtotal",
+        "moneyType": "Yen",
+        "tab.customer": "Customer",
+        "tab.businessCard": "Business card",
+        "tab.calendar": "Calendar",
+        "tab.calendarNoPlan": "No plan",
+        "tab.task": "Task",
+        "tab.changeHistory": "Changed history",
+        "tab.group": "Joined group",
+        "tab.tradingProduct": "Trading product",
+        "customerName": "Customer name",
+        "createdDate": "Created date",
+        "industry": "Industry",
+        "address": "Address",
+        "phoneNumber": "Phone number",
+        "faxNumber": "FAX",
+        "businessCardImage": "Business card image",
+        "customerNameBusinessCardName": "Customer name/Business card name",
+        "departmentTitle": "Department/Position",
+        "contactInformation": "Contact",
+        "deadline": "Due date",
+        "taskName": "Task name",
+        "productName": "Product name",
+        "status": "Status",
+        "personInCharge": "Person in charge",
+        "postedDate": "Posted date",
+        "product": "Product",
+        "customerContactPerson": "Completion date (estimated)",
+        "progress": "Progress",
+        "completionDate": "Completion date (Estimated)",
+        "amountOfMoney": "Subtotal",
+        "total": "Total",
+        "createDateGroup": "Posted date",
+        "history.day": " ",
+        "history.month": "/",
+        "history.year": "/",
+        "history.labelChange": " has been updated.",
+        "iconSubordinateInformation": "※",
+        "tab.newField": "Additional item(s)",
+        "tab.unVailableField": "Unused items",
+        "tab.revenueInfomation": "Revenue",
+        "tab.activityHistory": "Activity History",
+        "tab.contactHistory": "Contacted history",
+        "tab.schedule": "Schedule",
+        "tab.mail": "Email",
+        "button.preview": "Preview registration",
+        "history.employeeStatus": "Employee status",
+        "history.working": "Normal",
+        "history.retired": "Resigned",
+        "history.deleted": "Deleted",
+        "displayRange": "Display range",
+        "displayRange.showAll": "Show all",
+        "displayRange.displayOnlyUserLogin": "Display my contact only",
+        "displayRange.allCustomer": "All customers",
+        "displayRange.customerCurrentOpen": "Currently displayed customers",
+        "scenario": "Scenario",
+        "item": " item(s)",
+        "history.labelChangeCreate": "{{0}} has been registered.",
+        "history.labelChangeUpdate": "{{0}} has been updated.",
+        "history.labelChangeMerge": "{{0}} has been integrated to {{1}}.",
+        "business": "Industry",
+        "show-more": "{{count}} others",
+        "tab.calendarMonth": "Month",
+        "tab.calendarWeek": "Week",
+        "tab.calendarList": "List"
+      },
+      "title": {
+        "popupErrorMessage.delete": "Delete",
+        "popupChangeStatus": "Confirm"
+      },
+      "warning": {
+        "popupErrorMessage.delete": "This can not be deleted because there is data related with it.",
+        "popupSettingFieldCreateField": "Items can be added by drag & drop.",
+        "popupSettingFieldEditField": "Items which have not been used can be added."
+      },
+      "suggest": {
+        "popupErrorMessage.delete": "Please try again after deleting such data."
+      },
+      "error": {
+        "delete": {
+          "countCustomers": "Customers for which {{employeeName}} has been set as person in charge: {{count}} items",
+          "countSchedules": "Schedules in which {{employeeName}} has been set as participants: {{count}} items",
+          "countSaleProducts": "Products traded by {{employeeName}}: {{count}} items",
+          "countNameCards": "Business cards received by {{employeeName}}: {{count}} items",
+          "countTimeLines": "Number of comments/posts on timeline of {{employeeName}}: {{count}} items",
+          "countTimeLineGroups": "Number of timeline groups {{employeeName}} has joined: {{count}} items",
+          "countTimeLineGroupsFavorites": "Number of timeline groups {{employeeName}} added to favorite: {{count}} items",
+          "countTimeLineWatchs": "Number of timelines {{employeeName}}’s following: {{count}} items",
+          "countTimeLineNotices": "Number of notifications sent to {{employeeName}}'s timeline : {{count}} items",
+          "countTimeLineStars": "Number of timeline posts {{employeeName}} liked: {{count}} items",
+          "countTimeLineReactions": "Number of reactions on {{employeeName}}'s timeline: {{count}} items",
+          "countTimeLineFilters": "Number of filtered information on {{employeeName}}'s timeline : {{count}} items",
+          "countActivities": "Activites reported by {{employeeName}}: {{count}} items",
+          "countAnalysisReports": "Reports {{employeeName}} has done as participants: {{count}} items",
+          "countTodos": "Tasks in which {{employeeName}} has been set as Person in charge: {{count}} items",
+          "countOcrNameCards": "Business cards {{employeeName}} received from mobile app: {{count}} items"
+        }
+      }
+    },
+    "network-map": {
+      "title": "Customer network map",
+      "btn-save": "Save",
+      "btn-edit-network-map": "Edit network map",
+      "business-card-received": "Received business cards",
+      "mode-table": {
+        "btn-add-department": "Add department",
+        "btn-add-business-card": "Add business card"
+      },
+      "department-name-not-empty": "Please enter department name.",
+      "department-name-exist": "The department name you entered already exists. Please enter a different name.",
+      "notification-save": "Please add business card into {{0}}",
+      "department-new-name-default": "Department A",
+      "view-current-customer": "Show currently displayed customer",
+      "add-department": {
+        "title": "Add department",
+        "department-name.label": "Department name",
+        "department-name.placeholder": "Enter department name",
+        "department-belong.label": "Assigned department",
+        "department-belong.placeholder": "Select assigned department",
+        "btn-cancel": "Cancel",
+        "btn-add": "Add"
+      },
+      "business-card": {
+        "add-position": "Add role"
+      },
+      "department-card-network": {
+        "close": "Close",
+        "show-all": "Show all"
+      },
+      "tooltip-add-position": {
+        "position": "Role",
+        "motivation": "Willingness",
+        "memo": "Comment",
+        "memo-placeholder": "Your comment",
+        "button-cancel": "Cancel",
+        "button-add": "Add",
+        "button-edit": "Save"
+      },
+      "tooltip-position-network-detail": {
+        "position": "Role",
+        "motivation": "Willingness",
+        "memo": "Comment",
+        "memo-placeholder": "Your comment",
+        "button-cancel": "Cancel",
+        "button-add": "Add",
+        "button-edit": "Save"
+      },
+      "popup-warning": {
+        "warning": "Warning",
+        "ok": "OK"
+      },
+      "form-new-department": {
+        "department-placeholder": "Department name"
+      }
+    },
+    "field-info-network": {
+      "business-card-image": "Business card image",
+      "department": "Department",
+      "position": "Position",
+      "business-card-name": "Business card name",
+      "mail-address": "Email address",
+      "phone-number": "Phone number",
+      "last-contact-date": "Last contacted date",
+      "company-personnel": "Company personnel",
+      "motivation": "Willingness",
+      "stand": "Role",
+      "memo": "Comment",
+      "date-of-receipt": "Received date"
+    },
+    "search-controller": {
+      "placeholder": "Search network map"
+    }
+  }
+}

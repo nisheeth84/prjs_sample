@@ -1,0 +1,138 @@
+{
+    "schema_version": "1.0",
+    "IAM": {
+        "group": [ // 	{report_id}/raw/{account_id}/global/IAM_Groups.jsonから取得
+            {
+                "Arn": "arn:aws:iam::109054975408:group/di_app_manage",
+                "CreateDate": {
+                    "$date": 1470730185000
+                },
+                "GroupId": "AGPAI76IZOY76HN2CYPHC",
+                "GroupName": "di_app_manage",
+                "Path": "/",
+                "inline_policies": [],
+                "managed_policies": [
+                    "AdministratorAccess"
+                ],
+                "user": [ // {report_id}/raw/{account_id}/global/IAM_Groups_Info.json
+                    "cm-tsukuma.hirokazu",
+                    "cm-hakamata-s3-test",
+                    "cm-kawasaki.teruo",
+                    "cm-katsuki",
+                    "sushiro-alexa-user",
+                    "cm-abe.shinya",
+                    "cm-ishikawa.satoru",
+                    "cm-honda_tetsuyuki",
+                    "cm-kondo.shigenori",
+                    "cm-honda_shuntaro",
+                    "cm-mikami.yuki",
+                    "cm-tago.masayuki",
+                    "cmp-moriwaki",
+                    "cm-kajiwara",
+                    "cm-ootaki.kentaro",
+                    "cm-ozawa"
+                ]
+            }
+        ],
+        "iam_user": [ // {report_id}/raw/{account_id}/global/IAM_Users.jsonから取得
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cm-kajiwara",
+                "CreateDate": {
+                    "$date": 1470791196000
+                },
+                "PasswordLastUsed": {
+                    "$date": 1505472484000
+                },
+                "Path": "/",
+                "UserId": "AIDAJFEVB2XXC3RPGQDDW",
+                "UserName": "cm-kajiwara",
+                "access_key": [ // {report_id}/raw/{account_id}/global/IAM_AccessKeys.jsonから対象のユーザーの情報を取得
+                    {
+                        "AccessKeyId": "xxxxxxxxxxxxxxxx",
+                        "CreateDate": {
+                            "$date": 1470791197000
+                        },
+                        "Status": "Active",
+                        "UserName": "cm-kajiwara"
+                    }
+                ],
+                "mfa": [ // {report_id}/raw/{account_id}/global/IAM_MFADevices.jsonから対象のユーザーの情報を取得
+                    {
+                        "EnableDate": {
+                            "$date": 1470794106000
+                        },
+                        "SerialNumber": "arn:aws:iam::109054975408:mfa/cm-kajiwara",
+                        "UserName": "cm-kajiwara"
+                    }
+                ]
+            }
+        ],
+        "access_key":[ // {report_id}/raw/{account_id}/global/IAM_AccessKeys.json
+            {
+                "AccessKeyId": "AKIAJ****************",//(本来はフィルタリングしません。この例ではGithubに登録するためにフィルタリングしています。)
+                "CreateDate": {
+                    "$date": 1490777995000
+                },
+                "Status": "Active",
+                "UserName": "cm-abe.shinya",
+                "last_used_date": "2017-08-15T16:10:26.060358" //{report_id}/raw/{account_id}/global/IAM_AccessKeyLastUse_{AccessKey}.json
+            },
+            {
+                "AccessKeyId": "AKIAJ****************",
+                "CreateDate": {
+                    "$date": 1480930472000
+                },
+                "Status": "Active",
+                "UserName": "cm-abe.shinya",
+                "last_used_date": "2017-08-15T16:10:26.060358" //{report_id}/raw/{account_id}/global/IAM_AccessKeyLastUse_{AccessKey}.json
+            },
+            {
+                "AccessKeyId": "AKIAI****************",
+                "CreateDate": {
+                    "$date": 1504851955000
+                },
+                "Status": "Active",
+                "UserName": "cm-hakamata-s3-test",
+                "last_used_date": "2017-08-15T16:10:26.060358" //{report_id}/raw/{account_id}/global/IAM_AccessKeyLastUse_{AccessKey}.json
+            }
+        ],
+        "role": [ // {report_id}/raw/{account_id}/global/IAM_Roles.json
+            {
+                "Arn": "arn:aws:iam::109054975408:role/AltusEC2AccessRole",
+                "AssumeRolePolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": "sts:AssumeRole",
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "ec2.amazonaws.com"
+                            }
+                        },
+                        {
+                            "Action": "sts:AssumeRole",
+                            "Effect": "Allow",
+                            "Principal": {
+                                "AWS": "arn:aws:iam::109054975408:root"
+                            }
+                        }
+                    ],
+                    "Version": "2012-10-17"
+                },
+                "CreateDate": {
+                    "$date": 1501061714000
+                },
+                "Description": "Allows EC2 instances to call AWS services on your behalf.",
+                "Path": "/",
+                "RoleId": "AROAI3OR7ZPUNUMX3QULE",
+                "RoleName": "AltusEC2AccessRole",
+                "inline_policies": [], //	{report_id}/raw/{account_id}/global/IAM_AttachedRolePolicies_{RoleName}.json
+                "managed_policies": [ // {report_id}/raw/{account_id}/global/IAM_RolePolicies_{RoleName}.json
+                    {
+                        "PolicyArn": "arn:aws:iam::aws:policy/AmazonS3FullAccess",
+                        "PolicyName": "AmazonS3FullAccess"
+                    }
+                ]
+            }
+        ]
+    }
+}

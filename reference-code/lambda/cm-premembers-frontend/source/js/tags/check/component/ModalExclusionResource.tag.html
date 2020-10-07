@@ -1,0 +1,438 @@
+<modal-exclusion-resource>
+    <div class="modal fade modal-info" id="modal-exclusion-resource" aria-hidden="true" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">{_t('ModalExclusionResource.title')}：{informationModalExclusionResource.title}</h4>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="modal-body">
+                        <div id="choose-resource" show="{isChoiceResource}">
+                            <p if="{informationModalExclusionResource.checkItemCode}">{commonUtils.getTitleCheckItem(informationModalExclusionResource.checkItemCode)}</p>
+                            <p ref="descriptionModal" if="{informationModalExclusionResource.checkItemCode}">
+                                {commonUtils.parseHtmlByRef(this.refs.descriptionModal,
+                                commonUtils.getDescriptionCheckItem(informationModalExclusionResource.checkItemCode)[0])}
+                            </p>
+                            <hr>
+                            <div class="ml-lg-20">
+                                <p>{_t('organization_name')}：{informationModalExclusionResource.organizationName}<br>
+                                    {_t('project')}：{informationModalExclusionResource.projectName}<br>
+                                    {_t('aws_account')}：{informationModalExclusionResource.awsCoopName}</p>
+                            </div>
+                            <div class="text-center text-danger" show="{errorSelectResource}">{invalidRequireSelectResource}</div>
+                            <div class="m-20" show="{!resourcesExists}">{_t('ModalExclusionResource.notice_not_exists_resource')}</div>
+                            <resource-cis122 if="{resourcesExists && checkItemCode == 'CHECK_CIS12_ITEM_1_22'}" list_resources={informationModalExclusionResource.listResources}></resource-cis122>
+                            <resource-other if="{resourcesExists && listCheckCodeItemOther.includes(checkItemCode)}" list_resources={informationModalExclusionResource.listResources}></resource-other>
+                            <resource-user-iam if="{resourcesExists && listCheckCodeItemUseResourceUserIam.includes(checkItemCode)}" list_resources={informationModalExclusionResource.listResources}></resource-user-iam>
+                        </div>
+                        <div id="setting-except" show="{isSettingExcept}">
+                            <p>{_t('ModalExclusionResource.label_resource_selected_setting_except')}</p>
+                            <hr>
+                            <div class="ml-lg-10">
+                                <ul>
+                                    <li each="{resource in listResourceSelected}">{resource.resourceName}</li>
+                                </ul>
+                            </div>
+                            <hr>
+                            <textarea class="form-control" rows="6" ref="exclusionComment" name="exclusionComment" placeholder="{_t('notify_comment')}" maxlength="300"></textarea>
+                        </div>
+                        <div id="cancel-except" show="{isCancelExcept}">
+                            <p>{_t('ModalExclusionResource.label_resource_selected_cancel_except')}</p>
+                            <hr>
+                            <div class="ml-lg-10">
+                                <ul>
+                                    <li each="{resource in listResourceSelected}">{resource.resourceName}</li>
+                                </ul>
+                            </div>
+                            <hr>
+                            <p>
+                                {_t('ModalExclusionResource.notice_cancel_exclusion_resource_01')}<br>
+                                {_t('ModalExclusionResource.notice_cancel_exclusion_resource_02')}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" onclick="{back}">{_t('cancel')}</button>
+                        <button type="button" show="{isChoiceResource && resourcesExists}" onclick="{exceptSettingResource}" class="btn btn-success">{_t('ModalExclusionResource.setting_except')}</button>
+                        <button type="button" show="{isChoiceResource && resourcesExists}"  onclick={cancelExceptResource} class="btn btn-danger">{_t('ModalExclusionResource.cancel_exclusion')}</button>
+                        <button type="button" show="{isSettingExcept}" onclick="{confirmExceptSettingResource}" class="btn btn-success">{_t('ModalExclusionResource.regist')}</button>
+                        <button type="button" show="{isCancelExcept}" onclick="{confirmCancelExceptResource}" class="btn btn-danger">{_t('ModalExclusionResource.cancel')}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const tag = this
+        const obs = tag.parent.obs
+        tag.observer = obs
+        tag.cognitoUser = riot.mixin('cognitoUser')
+        tag.exceptSettingResource = exceptSettingResource
+        tag.cancelExceptResource = cancelExceptResource
+        tag.confirmExceptSettingResource = confirmExceptSettingResource
+        tag.confirmCancelExceptResource = confirmCancelExceptResource
+        tag.invalidRequireSelectResource = ''
+        tag.resourcesExists = false
+        tag.back = back
+        tag.isChoice = true
+        tag.isSetting = false
+        tag.isCancelExcept = false
+        tag.listResourceSelected = []
+        tag.errorSelectResource = false
+        tag.invalidRequireSelectResource = ''
+        tag.listCheckCodeItemUseResourceUserIam = [
+            "CHECK_CIS12_ITEM_1_02", "CHECK_CIS12_ITEM_1_03", "CHECK_CIS12_ITEM_1_04",
+            "CHECK_CIS12_ITEM_1_16", "CHECK_CIS12_ITEM_1_21"
+        ]
+        tag.listCheckCodeItemOther = [
+            "CHECK_CIS12_ITEM_1_19", "CHECK_CIS12_ITEM_2_02", "CHECK_CIS12_ITEM_2_03",
+            "CHECK_CIS12_ITEM_2_04", "CHECK_CIS12_ITEM_2_06", "CHECK_CIS12_ITEM_2_07",
+            "CHECK_CIS12_ITEM_2_08", "CHECK_CIS12_ITEM_2_09", "CHECK_CIS12_ITEM_4_01",
+            "CHECK_CIS12_ITEM_4_02", "CHECK_CIS12_ITEM_4_03"
+        ]
+
+        tag.informationModalExclusionResource = {
+            'title': '',
+            'checkItemCode': '',
+            'listResources': [],
+            'organizationName': '',
+            'projectName': '',
+            'awsCoopName': '',
+        }
+
+        tag.on('mount', function() {
+            showModalExclusionResource()
+
+            tag.modal.on('hidden.bs.modal', function(e) {
+                tag.isChoiceResource = true
+                tag.isSettingExcept = false
+                tag.isCancelExcept = false
+                tag.update()
+                tag.observer.trigger("modal-exclusion-resource-close")
+            })
+        })
+
+        tag.on('unmount', function() {
+            tag.modal.off('hidden.bs.modal')
+        })
+
+        function showModalExclusionResource() {
+            tag.modal = $('#modal-exclusion-resource')
+            tag.observer.on("modal-exclusion-resource-open", function(informationModalExclusionResource) {
+                tag.isChoiceResource = true
+                tag.isSettingExcept = false
+                tag.isCancelExcept = false
+                tag.resourcesExists = false
+                tag.errorSelectResource = false
+                tag.informationModalExclusionResource = informationModalExclusionResource
+                tag.organizationId = informationModalExclusionResource['organizationId']
+                tag.projectId = informationModalExclusionResource['projectId']
+                tag.coopId = informationModalExclusionResource['coopId']
+                tag.checkItemCode = informationModalExclusionResource['checkItemCode']
+                tag.observer.trigger("pm-loader-show")
+                tag.cognitoUser.getSession(function(err, session) {
+                    if (err) {
+                        tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    } else {
+                        let idToken = session.getIdToken().getJwtToken()
+                        getListResources(idToken, tag.organizationId, tag.projectId, tag.coopId, tag.checkItemCode)
+                            .then(function(response) {
+                                return response
+                            })
+                            .then(function(result) {
+                                tag.refs.exclusionComment.value = ''
+                                let resources = []
+                                if (result[0].length > 0) {
+                                    resources = result[0][0]['resources']
+                                }
+                                const excludedResource = result[1]
+                                tag.informationModalExclusionResource['listResources'] = tag.commonUtils.getExcludedResourcesByCheckCodeItem(tag.checkItemCode, resources, excludedResource)
+                                if (tag.informationModalExclusionResource['listResources'].length > 0) {
+                                    tag.resourcesExists = true
+                                }
+                                tag.update()
+                                tag.observer.trigger('pm-loader-hide')
+                                tag.modal.modal()
+                            }).catch(function(error) {
+                                tag.observer.trigger('pm-loader-hide')
+                                tag.observer.trigger('error-modal-open', error)
+                                tag.observer.one('error-modal-close', function(value) {
+                                    window.location.href = "#/check/settings/"
+                                })
+                            })
+                    }
+                })
+                tag.update()
+            })
+        }
+
+        function exceptSettingResource() {
+            const inputCheckBoxs = tag.tags[Object.keys(tag.tags)[0]].refs.inputCheckBox
+            let listResourceSelected = []
+            let isSelectedCheckBoxs = false
+            if (tag.informationModalExclusionResource['listResources'].length > 1) {
+                inputCheckBoxs.forEach(function(inputCheckBox, index) {
+                    if (inputCheckBox.checked === true) {
+                        if (isSelectedCheckBoxs == false) {
+                            isSelectedCheckBoxs = true
+                        }
+                        listResourceSelected.push(tag.informationModalExclusionResource['listResources'][index])
+                    }
+                })
+            } else {
+                if (inputCheckBoxs.checked === true) {
+                    if (isSelectedCheckBoxs == false) {
+                        isSelectedCheckBoxs = true
+                    }
+                    listResourceSelected.push(tag.informationModalExclusionResource['listResources'][0])
+                }
+            }
+            if (isSelectedCheckBoxs) {
+                tag.isChoiceResource = false
+                tag.isSettingExcept = true
+                tag.isCancelExcept = false
+                tag.errorSelectResource = false
+            } else {
+                tag.errorSelectResource = true
+                tag.invalidRequireSelectResource = tag._t('Validation_message.invalid_require_resource_regist')
+            }
+            tag.listResourceSelected = listResourceSelected
+            tag.update()
+        }
+
+        function cancelExceptResource() {
+            const inputCheckBoxs = tag.tags[Object.keys(tag.tags)[0]].refs.inputCheckBox
+            let listResourceSelected = []
+            let isSelectedCheckBoxs = false
+            let isSelectObjectNotResouce = false
+            if (tag.informationModalExclusionResource['listResources'].length > 1) {
+                inputCheckBoxs.forEach(function(inputCheckBox, index) {
+                    if (inputCheckBox.checked === true) {
+                        if (isSelectedCheckBoxs == false) {
+                            isSelectedCheckBoxs = true
+                        }
+                        if ((tag.informationModalExclusionResource['listResources'][index]['isExclusion'] == false) && (isSelectObjectNotResouce == false)) {
+                            isSelectObjectNotResouce = true
+                        }
+                        listResourceSelected.push(tag.informationModalExclusionResource['listResources'][index])
+                    }
+                })
+            } else {
+                if (inputCheckBoxs.checked === true) {
+                    if (isSelectedCheckBoxs == false) {
+                        isSelectedCheckBoxs = true
+                    }
+                    if (tag.informationModalExclusionResource['listResources'][0]['isExclusion'] == false) {
+                        isSelectObjectNotResouce = true
+                    }
+                    listResourceSelected.push(tag.informationModalExclusionResource['listResources'][0])
+                }
+            }
+            if (isSelectObjectNotResouce == true) {
+                tag.invalidRequireSelectResource = tag._t('Validation_message.invalid_choose_resource_not_excluded')
+                tag.errorSelectResource = true
+                tag.isChoiceResource = true
+                tag.isSettingExcept = false
+                tag.isCancelExcept = false
+            } else if (isSelectedCheckBoxs == false) {
+                tag.errorSelectResource = true
+                tag.invalidRequireSelectResource = tag._t('Validation_message.invalid_require_resource_delete')
+                tag.isChoiceResource = true
+                tag.isSettingExcept = false
+                tag.isCancelExcept = false
+            } else {
+                tag.isChoiceResource = false
+                tag.isSettingExcept = false
+                tag.isCancelExcept = true
+            }
+            tag.listResourceSelected = listResourceSelected
+            tag.update()
+        }
+
+        function back() {
+            if (tag.isChoiceResource) {
+                tag.modal.modal('hide')
+            } else {
+                tag.isChoiceResource = true
+                tag.isSettingExcept = false
+                tag.isCancelExcept = false
+                tag.update()
+            }
+        }
+
+        function registCreateExcludedResource(idToken) {
+            return new Promise(function(resolve, reject) {
+                tag.listResourceSelected.forEach(function(resource) {
+                    const body = {
+                        'regionName': resource['regionName'],
+                        'resourceType': resource['resourceType'],
+                        'resourceName': resource['resourceName'],
+                        'exclusionComment': tag.refs.exclusionComment.value
+                    }
+                    createExcludedResource(idToken, tag.organizationId, tag.projectId, tag.coopId, tag.checkItemCode, body).then(function(response) {
+                        fetchResponse = response
+                        return response
+                    }).then(tag.commonUtils.checkStatus).then(function(response) {
+                        resolve(response.json().catch(function() { }))
+                    }).catch(function(error) {
+                        tag.observer.trigger('pm-loader-hide')
+                        error.then(function(value) {
+                            value.responseStatus = fetchResponse.status
+                        })
+                        tag.observer.trigger('error-modal-open', error)
+                        tag.observer.one('error-modal-close', function(value) {
+                            window.location.href = "#/check/settings/"
+                        })
+                    })
+                })
+            })
+        }
+
+        function confirmExceptSettingResource() {
+            tag.modal.modal('hide')
+            tag.observer.trigger("pm-loader-show")
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    let idToken = session.getIdToken().getJwtToken()
+                    registCreateExcludedResource(idToken).then(function(value) {
+                        tag.observer.trigger('pm-loader-hide')
+                        const information = {
+                            'title': tag._t('ModalExclusionResource.information_except_setting_resource_complete.title'),
+                            'body': tag._t('ModalExclusionResource.information_except_setting_resource_complete.body')
+                        }
+                        tag.observer.trigger('information-modal-open', information)
+                        tag.observer.one('information-modal-close', function() {
+                            tag.observer.trigger('modal-exclusion-resource-open', tag.informationModalExclusionResource);
+                        })
+                    })
+                }
+            })
+        }
+
+        function registDeleteExcludedResource(idToken) {
+            return new Promise(function(resolve, reject) {
+                tag.listResourceSelected.forEach(function(resource) {
+                    deleteExcludedResource(idToken, tag.organizationId, tag.projectId, tag.coopId, tag.checkItemCode, resource['regionName'], resource['resourceType'], resource['resourceName']).then(function(response) {
+                        fetchResponse = response
+                        return response
+                    }).then(tag.commonUtils.checkStatus).then(function(response) {
+                        resolve({})
+                    }).catch(function(error) {
+                        error.then(function(value) {
+                            value.responseStatus = fetchResponse.status
+                        })
+                        tag.observer.trigger('pm-loader-hide')
+                        tag.observer.trigger('error-modal-open', error)
+                        tag.observer.one('error-modal-close', function(value) {
+                            window.location.href = "#/check/settings/"
+                        })
+                    })
+                })
+            })
+        }
+
+        function confirmCancelExceptResource() {
+            tag.modal.modal('hide')
+            tag.observer.trigger("pm-loader-show")
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    let idToken = session.getIdToken().getJwtToken()
+                    registDeleteExcludedResource(idToken).then(function(value) {
+                        tag.observer.trigger('pm-loader-hide')
+                        const information = {
+                            'title': tag._t('ModalExclusionResource.information_cancel_except_resource_complete.title'),
+                            'body': tag._t('ModalExclusionResource.information_cancel_except_resource_complete.body')
+                        }
+                        tag.observer.trigger('information-modal-open', information)
+                        tag.observer.one('information-modal-close', function() {
+                            tag.observer.trigger('modal-exclusion-resource-open', tag.informationModalExclusionResource);
+                        })
+                    })
+                }
+            })
+        }
+
+        function getListResources(idToken, organizationId, projectId, coopId, checkItemCode) {
+            let listResponse = {}
+            const listRequest = [
+                getSecurityCheckResourceNg(idToken, organizationId, projectId, coopId, checkItemCode).then(function(response) {
+                    listResponse["securityCheckResourceNg"] = response
+                    return response
+                }).then(tag.commonUtils.checkStatus).then(function(response) {
+                    return response.json()
+                }).catch(function(error) {
+                    error.then(function(value) {
+                        value.responseStatus = listResponse["securityCheckResourceNg"].status
+                    })
+                    throw error
+                }),
+                getExcludedResources(idToken, organizationId, projectId, coopId, checkItemCode).then(function(response) {
+                    listResponse["excludedResources"] = response
+                    return response
+                }).then(tag.commonUtils.checkStatus).then(function(response) {
+                    return response.json()
+                }).catch(function(error) {
+                    error.then(function(value) {
+                        value.responseStatus = listResponse["excludedResources"].status
+                    })
+                    throw error
+                })
+            ]
+            return Promise.all(listRequest)
+        }
+
+        function getSecurityCheckResourceNg(idToken, organizationId, projectId, coopId, checkItemCode) {
+            const requestGetSecurityCheckResourceNg = tag.config.APIGATEWAY_ADDRESS + '/check/securitycheck/' + organizationId + '/' + projectId + '/results/' + coopId + '/' + checkItemCode + '/abnormalresources'
+            return fetch(requestGetSecurityCheckResourceNg, {
+                method: 'GET',
+                headers: {
+                    'Authorization': idToken
+                }
+            })
+        }
+
+        function getExcludedResources(idToken, organizationId, projectId, coopId, checkItemCode) {
+            const requestGetExcludedResources = tag.config.APIGATEWAY_ADDRESS + '/check/securitycheck/' + organizationId + '/' + projectId + '/' + coopId + '/' + checkItemCode + '/excludedresources?' + tag.commonUtils.getCurrentTime()
+            return fetch(requestGetExcludedResources, {
+                method: 'GET',
+                headers: {
+                    'Authorization': idToken
+                }
+            })
+        }
+
+        function createExcludedResource(idToken, organizationId, projectId, coopId, checkItemCode, body) {
+            const requestCreateExcludedResource = tag.config.APIGATEWAY_ADDRESS + '/check/securitycheck/' + organizationId + '/' + projectId + '/' + coopId + '/' + checkItemCode + '/excludedresources'
+            return fetch(requestCreateExcludedResource, {
+                method: 'POST',
+                headers: {
+                    'Authorization': idToken
+                },
+                body: JSON.stringify(body)
+            })
+        }
+
+        function deleteExcludedResource(idToken, organizationId, projectId, coopId, checkItemCode, region_name, resource_type, resource_name) {
+            let paramQueryString = '?region_name=' + region_name + '&resource_type=' + resource_type + '&resource_name=' + resource_name
+            const requestDeleteExcludedResource = tag.config.APIGATEWAY_ADDRESS + '/check/securitycheck/' + organizationId + '/' + projectId + '/' + coopId + '/' + checkItemCode + '/excludedresources' + paramQueryString
+            return fetch(requestDeleteExcludedResource, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': idToken
+                }
+            })
+        }
+
+        require('./ResourceCIS122.tag.html')
+        require('./ResourceOther.tag.html')
+        require('./ResourceUserIAM.tag.html')
+    </script>
+</modal-exclusion-resource>

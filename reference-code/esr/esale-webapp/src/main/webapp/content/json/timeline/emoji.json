@@ -1,0 +1,1004 @@
+[
+  {
+    "group": "face",
+    "listEmoji": [
+      {
+        "icon": "emoji_u1f600",
+        "id": "emoji_u1f600",
+        "name_ja_jp": "あはは",
+        "name_en_us": "grinning",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f601",
+        "id": "emoji_u1f601",
+        "name_ja_jp": "ニヤ",
+        "name_en_us": "grin",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f602",
+        "id": "emoji_u1f602",
+        "name_ja_jp": "爆笑",
+        "name_en_us": "joy",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f603",
+        "id": "emoji_u1f603",
+        "name_ja_jp": "スマイリー",
+        "name_en_us": "smiley",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f604",
+        "id": "emoji_u1f604",
+        "name_ja_jp": "スマイル",
+        "name_en_us": "smile",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f605",
+        "id": "emoji_u1f605",
+        "name_ja_jp": "苦笑い",
+        "name_en_us": "sweat_smile",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f606",
+        "id": "emoji_u1f606",
+        "name_ja_jp": "ハハハ",
+        "name_en_us": "laughing",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f607",
+        "id": "emoji_u1f607",
+        "name_ja_jp": "天使の笑顔",
+        "name_en_us": "innocent",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f608",
+        "id": "emoji_u1f608",
+        "name_ja_jp": "笑うデビル",
+        "name_en_us": "smiling_imp",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f609",
+        "id": "emoji_u1f609",
+        "name_ja_jp": "ウィンク",
+        "name_en_us": "wink",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f60a",
+        "id": "emoji_u1f60a",
+        "name_ja_jp": "うふふ",
+        "name_en_us": "relaxed",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f60b",
+        "id": "emoji_u1f60b",
+        "name_ja_jp": "おいしい",
+        "name_en_us": "yum",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f60c",
+        "id": "emoji_u1f60c",
+        "name_ja_jp": "ほっ",
+        "name_en_us": "relieved",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f60d",
+        "id": "emoji_u1f60d",
+        "name_ja_jp": "ハート目",
+        "name_en_us": "heart_eyes",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f60e",
+        "id": "emoji_u1f60e",
+        "name_ja_jp": "キリッ",
+        "name_en_us": "sunglasses",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f60f",
+        "id": "emoji_u1f60f",
+        "name_ja_jp": "にやり",
+        "name_en_us": "smirk",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f610",
+        "id": "emoji_u1f610",
+        "name_ja_jp": "普通の顔",
+        "name_en_us": "neutral_face",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f611",
+        "id": "emoji_u1f611",
+        "name_ja_jp": "無表情",
+        "name_en_us": "expressionless",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f612",
+        "id": "emoji_u1f612",
+        "name_ja_jp": "ふーん",
+        "name_en_us": "unamused",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f613",
+        "id": "emoji_u1f613",
+        "name_ja_jp": "タラー",
+        "name_en_us": "sweat",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f614",
+        "id": "emoji_u1f614",
+        "name_ja_jp": "しゅん",
+        "name_en_us": "pensive",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f615",
+        "id": "emoji_u1f615",
+        "name_ja_jp": "困惑",
+        "name_en_us": "confused",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f616",
+        "id": "emoji_u1f616",
+        "name_ja_jp": "めっちゃ困った",
+        "name_en_us": "confounded",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f617",
+        "id": "emoji_u1f617",
+        "name_ja_jp": "ぶー",
+        "name_en_us": "kissing",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f618",
+        "id": "emoji_u1f618",
+        "name_ja_jp": "ハートキス",
+        "name_en_us": "kissing_heart",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f619",
+        "id": "emoji_u1f619",
+        "name_ja_jp": "チュ",
+        "name_en_us": "kissing_smiling_eyes",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f61a",
+        "id": "emoji_u1f61a",
+        "name_ja_jp": "チュチュチュ",
+        "name_en_us": "kissing_closed_eyes",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f61b",
+        "id": "emoji_u1f61b",
+        "name_ja_jp": "あっかんべえ",
+        "name_en_us": "stuck_out_tongue",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f61c",
+        "id": "emoji_u1f61c",
+        "name_ja_jp": "アカンベー",
+        "name_en_us": "stuck_out_tongue_winking_eye",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f61d",
+        "id": "emoji_u1f61d",
+        "name_ja_jp": "えへへ",
+        "name_en_us": "stuck_out_tongue_closed_eyes",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f61e",
+        "id": "emoji_u1f61e",
+        "name_ja_jp": "ガッカリ",
+        "name_en_us": "disappointed",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f61f",
+        "id": "emoji_u1f61f",
+        "name_ja_jp": "不安",
+        "name_en_us": "worried",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f620",
+        "id": "emoji_u1f620",
+        "name_ja_jp": "メラメラ",
+        "name_en_us": "rage",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f621",
+        "id": "emoji_u1f621",
+        "name_ja_jp": "プリプリ",
+        "name_en_us": "angry",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f622",
+        "id": "emoji_u1f622",
+        "name_ja_jp": "困ったあ",
+        "name_en_us": "disappointed_relieved",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f623",
+        "id": "emoji_u1f623",
+        "name_ja_jp": "困った",
+        "name_en_us": "persevere",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f624",
+        "id": "emoji_u1f624",
+        "name_ja_jp": "ふんっ",
+        "name_en_us": "triumph",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f625",
+        "id": "emoji_u1f625",
+        "name_ja_jp": "-",
+        "name_en_us": "-",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f626",
+        "id": "emoji_u1f626",
+        "name_ja_jp": "あきれた",
+        "name_en_us": "frowning",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f627",
+        "id": "emoji_u1f627",
+        "name_ja_jp": "信じらんない",
+        "name_en_us": "anguished",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f628",
+        "id": "emoji_u1f628",
+        "name_ja_jp": "ゾッ",
+        "name_en_us": "fearful",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f629",
+        "id": "emoji_u1f629",
+        "name_ja_jp": "げっそり",
+        "name_en_us": "weary",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f62a",
+        "id": "emoji_u1f62a",
+        "name_ja_jp": "眠い",
+        "name_en_us": "sleepy",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f62b",
+        "id": "emoji_u1f62b",
+        "name_ja_jp": "げっそり",
+        "name_en_us": "tired_face",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f62c",
+        "id": "emoji_u1f62c",
+        "name_ja_jp": "むっかー",
+        "name_en_us": "grimacing",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f62d",
+        "id": "emoji_u1f62d",
+        "name_ja_jp": "大泣き",
+        "name_en_us": "sob",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f62e",
+        "id": "emoji_u1f62e",
+        "name_ja_jp": "ポカーン",
+        "name_en_us": "open_mouth",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f62f",
+        "id": "emoji_u1f62f",
+        "name_ja_jp": "おお",
+        "name_en_us": "hushed",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f630",
+        "id": "emoji_u1f630",
+        "name_ja_jp": "たらり",
+        "name_en_us": "cold_sweat",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f631",
+        "id": "emoji_u1f631",
+        "name_ja_jp": "ギャー",
+        "name_en_us": "scream",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f632",
+        "id": "emoji_u1f632",
+        "name_ja_jp": "おお",
+        "name_en_us": "hushed",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f633",
+        "id": "emoji_u1f633",
+        "name_ja_jp": "ヒー",
+        "name_en_us": "astonished",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f634",
+        "id": "emoji_u1f634",
+        "name_ja_jp": "おやすみ",
+        "name_en_us": "sleeping",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f635",
+        "id": "emoji_u1f635",
+        "name_ja_jp": "まいった",
+        "name_en_us": "dizzy_face",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f636",
+        "id": "emoji_u1f636",
+        "name_ja_jp": "口なし",
+        "name_en_us": "no_mouth",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f637",
+        "id": "emoji_u1f637",
+        "name_ja_jp": "マスク",
+        "name_en_us": "mask",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f641",
+        "id": "emoji_u1f641",
+        "name_ja_jp": "ちょっと悲しい",
+        "name_en_us": "slightly_frowning_face",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f642",
+        "id": "emoji_u1f642",
+        "name_ja_jp": "にこっ",
+        "name_en_us": "slightly_smiling_face",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f643",
+        "id": "emoji_u1f643",
+        "name_ja_jp": "逆立ちでにこっ",
+        "name_en_us": "upside_down_face",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f644",
+        "id": "emoji_u1f644",
+        "name_ja_jp": "ぐる目顔",
+        "name_en_us": "face_with_rolling_eyes",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f910",
+        "id": "emoji_u1f910",
+        "name_ja_jp": "お口にチャック",
+        "name_en_us": "zipper_mouth_face",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f911",
+        "id": "emoji_u1f911",
+        "name_ja_jp": "大儲け",
+        "name_en_us": "money_mouth_face",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f912",
+        "id": "emoji_u1f912",
+        "name_ja_jp": "発熱",
+        "name_en_us": "face_with_thermometer",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f913",
+        "id": "emoji_u1f913",
+        "name_ja_jp": "オタク顔",
+        "name_en_us": "nerd_face",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f914",
+        "id": "emoji_u1f914",
+        "name_ja_jp": "考え中",
+        "name_en_us": "thinking_face",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f915",
+        "id": "emoji_u1f915",
+        "name_ja_jp": "怪我",
+        "name_en_us": "face_with_head_bandage",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f917",
+        "id": "emoji_u1f917",
+        "name_ja_jp": "やっほー",
+        "name_en_us": "hugging_face",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f923",
+        "id": "emoji_u1f923",
+        "name_ja_jp": "ウケる",
+        "name_en_us": "rolling_on_the_floor_laughing",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f924",
+        "id": "emoji_u1f924",
+        "name_ja_jp": "-",
+        "name_en_us": "-",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f925",
+        "id": "emoji_u1f925",
+        "name_ja_jp": "鼻がピノキオ",
+        "name_en_us": "lying_face",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f927",
+        "id": "emoji_u1f927",
+        "name_ja_jp": "ハクション",
+        "name_en_us": "sneezing_face",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f928",
+        "id": "emoji_u1f928",
+        "name_ja_jp": "ムムム",
+        "name_en_us": "face_with_raised_eyebrow",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f929",
+        "id": "emoji_u1f929",
+        "name_ja_jp": "目が星",
+        "name_en_us": "star-struck",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f92a",
+        "id": "emoji_u1f92a",
+        "name_ja_jp": "-",
+        "name_en_us": "-",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f92b",
+        "id": "emoji_u1f92b",
+        "name_ja_jp": "しーっ",
+        "name_en_us": "shushing_face",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f92c",
+        "id": "emoji_u1f92c",
+        "name_ja_jp": "放送禁止用語",
+        "name_en_us": "face_with_symbols_on_mouth",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f92d",
+        "id": "emoji_u1f92d",
+        "name_ja_jp": "クスクス",
+        "name_en_us": "face_with_hand_over_mouth",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f92e",
+        "id": "emoji_u1f92e",
+        "name_ja_jp": "ゲロゲロ",
+        "name_en_us": "face_vomiting",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f92f",
+        "id": "emoji_u1f92f",
+        "name_ja_jp": "のーみそバクハツ",
+        "name_en_us": "exploding_head",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f970",
+        "id": "emoji_u1f970",
+        "name_ja_jp": "-",
+        "name_en_us": "-",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f971",
+        "id": "emoji_u1f971",
+        "name_ja_jp": "-",
+        "name_en_us": "-",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f973",
+        "id": "emoji_u1f973",
+        "name_ja_jp": "-",
+        "name_en_us": "-",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f974",
+        "id": "emoji_u1f974",
+        "name_ja_jp": "-",
+        "name_en_us": "-",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f975",
+        "id": "emoji_u1f975",
+        "name_ja_jp": "-",
+        "name_en_us": "-",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f976",
+        "id": "emoji_u1f976",
+        "name_ja_jp": "-",
+        "name_en_us": "-",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f97a",
+        "id": "emoji_u1f97a",
+        "name_ja_jp": "-",
+        "name_en_us": "-",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u1f9d0",
+        "id": "emoji_u1f9d0",
+        "name_ja_jp": "モノクルスマイリー",
+        "name_en_us": "face_with_monocle",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u2639",
+        "id": "emoji_u2639",
+        "name_ja_jp": "むかっ",
+        "name_en_us": "white_frowning_face",
+        "type": "face"
+      },
+      {
+        "icon": "emoji_u263a",
+        "id": "emoji_u263a",
+        "name_ja_jp": "うふふ",
+        "name_en_us": "relaxed",
+        "type": "face"
+      }
+    ]
+  },
+  {
+    "group": "hand",
+    "listEmoji": [
+      {
+        "icon": "emoji_u1f44a",
+        "id": "emoji_u1f44a",
+        "name_ja_jp": "グーパンチ",
+        "name_en_us": "facepunch",
+        "type": "hand"
+      },
+      {
+        "icon": "emoji_u1f44b",
+        "id": "emoji_u1f44b",
+        "name_ja_jp": "ハロー ",
+        "name_en_us": "wave",
+        "type": "hand"
+      },
+      {
+        "icon": "emoji_u1f44c",
+        "id": "emoji_u1f44c",
+        "name_ja_jp": "okサイン",
+        "name_en_us": "ok_hand",
+        "type": "hand"
+      },
+      {
+        "icon": "emoji_u1f44d",
+        "id": "emoji_u1f44d",
+        "name_ja_jp": "いいね",
+        "name_en_us": "1",
+        "type": "hand"
+      },
+      {
+        "icon": "emoji_u1f44f",
+        "id": "emoji_u1f44f",
+        "name_ja_jp": "拍手",
+        "name_en_us": "clap",
+        "type": "hand"
+      },
+      {
+        "icon": "emoji_u1f64c",
+        "id": "emoji_u1f64c",
+        "name_ja_jp": "バンザイ",
+        "name_en_us": "raised_hands",
+        "type": "hand"
+      },
+      {
+        "icon": "emoji_u270a",
+        "id": "emoji_u270a",
+        "name_ja_jp": "こぶし",
+        "name_en_us": "fist",
+        "type": "hand"
+      },
+      {
+        "icon": "emoji_u270b",
+        "id": "emoji_u270b",
+        "name_ja_jp": "手",
+        "name_en_us": "hand",
+        "type": "hand"
+      },
+      {
+        "icon": "emoji_u270c",
+        "id": "emoji_u270c",
+        "name_ja_jp": "ピース",
+        "name_en_us": "v ",
+        "type": "hand"
+      }
+    ]
+  },
+  {
+    "group": "other",
+    "listEmoji": [
+      {
+        "icon": "emoji_u1f374",
+        "id": "emoji_u1f374",
+        "name_ja_jp": "ナイフとフォーク",
+        "name_en_us": "fork_and_knife",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f375",
+        "id": "emoji_u1f375",
+        "name_ja_jp": "日本茶",
+        "name_en_us": "tea",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f37a",
+        "id": "emoji_u1f37a",
+        "name_ja_jp": "ビール",
+        "name_en_us": "beer",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f37b",
+        "id": "emoji_u1f37b",
+        "name_ja_jp": "ビールで乾杯",
+        "name_en_us": "beers",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f37d",
+        "id": "emoji_u1f37d",
+        "name_ja_jp": "ディナーセット",
+        "name_en_us": "knife_fork_plate",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f37e",
+        "id": "emoji_u1f37e",
+        "name_ja_jp": "シャンパン",
+        "name_en_us": "champagne",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f382",
+        "id": "emoji_u1f382",
+        "name_ja_jp": "誕生日ケーキ",
+        "name_en_us": "birthday",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f389",
+        "id": "emoji_u1f389",
+        "name_ja_jp": "クラッカー",
+        "name_en_us": "tada",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f38a",
+        "id": "emoji_u1f38a",
+        "name_ja_jp": "くす玉",
+        "name_en_us": "confetti_ball",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f3b5",
+        "id": "emoji_u1f3b5",
+        "name_ja_jp": "音符",
+        "name_en_us": "musical_note",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f3b6",
+        "id": "emoji_u1f3b6",
+        "name_ja_jp": "複数の音符",
+        "name_en_us": "notes",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f3c5",
+        "id": "emoji_u1f3c5",
+        "name_ja_jp": "スポーツメダル",
+        "name_en_us": "sports_medal",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f3c6",
+        "id": "emoji_u1f3c6",
+        "name_ja_jp": "トロフィー",
+        "name_en_us": "trophy",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f3f3",
+        "id": "emoji_u1f3f3",
+        "name_ja_jp": "白い旗",
+        "name_en_us": "waving_white_flag",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f3f4",
+        "id": "emoji_u1f3f4",
+        "name_ja_jp": "黒い旗",
+        "name_en_us": "waving_black_flag",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f4a1",
+        "id": "emoji_u1f4a1",
+        "name_ja_jp": "電球",
+        "name_en_us": "bulb",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f4a2",
+        "id": "emoji_u1f4a2",
+        "name_ja_jp": "怒り",
+        "name_en_us": "anger",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f4a3",
+        "id": "emoji_u1f4a3",
+        "name_ja_jp": "爆弾",
+        "name_en_us": "bomb",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f4a4",
+        "id": "emoji_u1f4a4",
+        "name_ja_jp": "zzz",
+        "name_en_us": "zzz",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f4a5",
+        "id": "emoji_u1f4a5",
+        "name_ja_jp": "バーン",
+        "name_en_us": "boom ",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f4a6",
+        "id": "emoji_u1f4a6",
+        "name_ja_jp": "アセアセ",
+        "name_en_us": "sweat_drops",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f4a7",
+        "id": "emoji_u1f4a7",
+        "name_ja_jp": "しずく",
+        "name_en_us": "droplet",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f4a8",
+        "id": "emoji_u1f4a8",
+        "name_ja_jp": "ダッシュ",
+        "name_en_us": "dash",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f4ab",
+        "id": "emoji_u1f4ab",
+        "name_ja_jp": "目が回る",
+        "name_en_us": "dizzy",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f4ac",
+        "id": "emoji_u1f4ac",
+        "name_ja_jp": "入力中アイコン",
+        "name_en_us": "speech_balloon",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f4ad",
+        "id": "emoji_u1f4ad",
+        "name_ja_jp": "考えの吹き出し",
+        "name_en_us": "thought_balloon",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f4ae",
+        "id": "emoji_u1f4ae",
+        "name_ja_jp": "花マル",
+        "name_en_us": "white_flower",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f4af",
+        "id": "emoji_u1f4af",
+        "name_ja_jp": "100点 ",
+        "name_en_us": "100",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f514",
+        "id": "emoji_u1f514",
+        "name_ja_jp": "ベル",
+        "name_en_us": "bell",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f525",
+        "id": "emoji_u1f525",
+        "name_ja_jp": "火",
+        "name_en_us": "fire",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f530",
+        "id": "emoji_u1f530",
+        "name_ja_jp": "初心者マーク",
+        "name_en_us": "beginner",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f573",
+        "id": "emoji_u1f573",
+        "name_ja_jp": "穴",
+        "name_en_us": "hole",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f5d1",
+        "id": "emoji_u1f5d1",
+        "name_ja_jp": "その絵文字は見つかりませんでした",
+        "name_en_us": "wastebasket",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f6a9",
+        "id": "emoji_u1f6a9",
+        "name_ja_jp": "三角の旗",
+        "name_en_us": "triangular_flag_on_post",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u1f6ab",
+        "id": "emoji_u1f6ab",
+        "name_ja_jp": "通行止め",
+        "name_en_us": "no_entry_sign",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u23f3",
+        "id": "emoji_u23f3",
+        "name_ja_jp": "砂が落ちている砂時計",
+        "name_en_us": "hourglass_flowing_sand",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u26a0",
+        "id": "emoji_u26a0",
+        "name_ja_jp": "警告",
+        "name_en_us": "warning",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u26d4",
+        "id": "emoji_u26d4",
+        "name_ja_jp": "進入禁止",
+        "name_en_us": "no_entry",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u2709",
+        "id": "emoji_u2709",
+        "name_ja_jp": "手紙",
+        "name_en_us": "email",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u2716",
+        "id": "emoji_u2716",
+        "name_ja_jp": "バツ",
+        "name_en_us": "heavy_multiplication_x",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u2728",
+        "id": "emoji_u2728",
+        "name_ja_jp": "ピカピカ",
+        "name_en_us": "sparkles",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u2b50",
+        "id": "emoji_u2b50",
+        "name_ja_jp": "星1",
+        "name_en_us": "star",
+        "type": "other"
+      },
+      {
+        "icon": "emoji_u2b55",
+        "id": "emoji_u2b55",
+        "name_ja_jp": "赤丸_太字",
+        "name_en_us": "o",
+        "type": "other"
+      }
+    ]
+  }
+]

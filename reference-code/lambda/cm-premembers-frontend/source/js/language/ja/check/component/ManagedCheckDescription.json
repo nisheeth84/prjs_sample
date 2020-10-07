@@ -1,0 +1,20 @@
+{
+    "ManagedCheckDescription": {
+        "title_managed": "クラスメソッドメンバーズでの管理項目(マネージド)",
+        "description_managed_1": "クラスメソッドメンバーズをご利用いただきありがとうございます。",
+        "description_managed_2": "こちらの項目につきましては、クラスメソッドにて管理している項目になりますので、お客様での対応は不要です。",
+        "description_managed_3": "レポート結果には「マネージド」と表示されます。",
+        "list_account_members": "クラスメソッドメンバーズアカウント一覧",
+        "managed_checkitem_description": {
+            "root_account": "rootアカウントは第三者の認証(MSP、PCIDSS、ISMS)を取得し、クラスメソッドで厳重に管理しております。",
+            "classmethod_managed": "クラスメソッドで管理している項目のためお客様対応は不要です。",
+            "security_questions": "AWSカスタマーサービスでの本人認証に利用されます。",
+            "detailed_billing_1": "請求レポートを有効化することにより料金について確認できます。",
+            "detailed_billing_2": "クラスメソッドメンバーズのお客様は、CMP(クラスメソッソメンバーズポータル)より料金をご確認ください。",
+            "current_contact": "AWSからの連絡先になります。",
+            "security_contact": "AWSからの連絡先になります。お客様へは弊社サポート経由でご連絡します。",
+            "aws_support_1": "クラスメソッドメンバーズのお客様は、クラスメソッドにてサポートを提供しております。",
+            "aws_support_2": "問い合わせの際は、CMP(クラスメソッドポータル)よりお問い合わせください。"
+        }
+    }
+}

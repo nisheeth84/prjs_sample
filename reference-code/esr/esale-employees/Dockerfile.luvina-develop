@@ -1,0 +1,4 @@
+FROM registry.luvina.net/esr/esale-docker-dev:employees__develop
+RUN md5sum /app/employees-0.0.1.jar
+COPY target/employees-0.0.1.jar /app/employees-0.0.1.jar
+RUN md5sum /app/employees-0.0.1.jar

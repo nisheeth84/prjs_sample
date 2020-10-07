@@ -1,0 +1,39 @@
+{
+  "common": {
+    "calendar": "Calendar",
+    "employees": "Employee",
+    "products": "Product",
+    "tasks": "Task",
+    "sales": "Trading Product",
+    "milestone": "Milestone",
+    "customer": "Customer",
+    "product-trading": "Trading Product",
+    "business-card": "Bussiness Card"
+  },
+  "status": {
+    "online": "Online",
+    "offline": "Offline",
+    "away": "Away"
+  },
+  "commonCharacter": {
+    "comma": ", ",
+    "left-parenthesis": " (",
+    "right-parenthesis": ") ",
+    "minus": "－",
+    "splash": "/"
+  },
+  "business-card-details": {
+    "last-contact-date": "Last contacted date",
+    "acquainted": "Familiar",
+    "acquainted-disable": "Unfamiliar"
+  },
+  "dynamic-select-field-tab": {
+    "find-an-item": "Search item",
+    "switch-display": "Switch display"
+  },
+  "exception": {
+    "404": "Page not found",
+    "403": "Access is denied. Please contact the administrator.",
+    "back": "Back"
+  }
+}

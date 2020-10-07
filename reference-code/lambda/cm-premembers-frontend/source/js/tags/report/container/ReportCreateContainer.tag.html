@@ -1,0 +1,282 @@
+<report-create-container>
+    <div class="page">
+        <div class="page-header">
+            <h1 class="page-title mt-2">レポート作成</h1>
+        </div>
+        <form ref="form" autocomplete="off" onsubmit="{createReport}">
+            <div class="page-content container-fluid">
+                <div class="row">
+                    <div class="form-group floating col-lg-9">
+                        <label class="floating-label" for="report_name">組織名</label>
+                        <select ref="organization" class="form-control" onchange={changeOrganizationHandler} value={organizationId}>
+                            <option value="">組織を選択して下さい</option>
+                            <option each="{organization in filterOrganizations}" value="{organization.organization.id}" selected="{organizationId == organization.organization.id}">{ organization.organization.name } </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group floating col-lg-9">
+                        <label class="floating-label" for="report_name">プロジェクト名</label>
+                        <select ref="project" disabled="{! projectEnable}" class="form-control" onchange={changeProjectHandler}>
+                            <option value="">プロジェクトを選択して下さい</option>
+                            <option each="{project in projects}" value="{project.id}" selected="{projectId == project.id}">{ project.name }</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group floating col-lg-9">
+                        <label class="floating-label" for="report_name">レポート名</label>
+                        <input type="text" class="form-control" id="report_name" ref="reportName" name="reportName" required disabled="{!submitEnable}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group floating col-lg-12">
+                        <label class="floating-label">対象AWSアカウント</label>
+                        <ul>
+                            <li each="{awsAccount in awsAccounts}">{awsAccount}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <button type="button" onclick={back} class="btn btn-block btn-default">戻る</button>
+                    </div>
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-4">
+                        <button type="submit" class="btn btn-block btn-success" disabled="{!submitEnable}">作成</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <information-modal></information-modal>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        require('../../common/component/InformationModal.tag.html')
+        const tag = this
+        const obs = riot.observable()
+        const requestOrganizationUrl = tag.config.APIGATEWAY_ADDRESS + '/myorganizations';
+        const inviteParam = '?inviteStatus=1'
+        const effective = '?effective=1'
+        tag.cognitoUser = riot.mixin('cognitoUser');
+        tag.obs = obs
+        tag.changeOrganizationHandler = changeOrganizationHandler
+        tag.changeProjectHandler = changeProjectHandler
+        tag.organizations = []
+        tag.filterOrganizations = []
+        tag.awsAccounts = []
+        tag.projectEnable = false
+        tag.submitEnable = false
+        tag.createReport = createReport
+        tag.back = back
+        tag.on('mount', function() {
+            const organizations = tag.commonUtils.paramReceiver('reportOrganizations')
+            tag.organizations = organizations
+            if (!tag.organizations || !tag.organizations.length) {
+                back()
+            }
+            tag.filterOrganizations = tag.organizations.filter(trimViewerOrganization)
+            const organizationId = tag.commonUtils.paramReceiver('reportOrganizationId')
+            if (organizationId) {
+                tag.organizationId = organizationId
+            }
+            const projects = tag.commonUtils.paramReceiver('reportProjects')
+            tag.projects = projects
+            if (!tag.projects || !tag.projects.length) {
+                tag.projects = []
+            }
+            tag.projectEnable = !!tag.projects.length
+            const projectId = tag.commonUtils.paramReceiver('reportProjectId')
+            if (projectId) {
+                tag.projectId = projectId
+                changeProject(tag.projectId)
+            }
+            tag.update()
+        })
+        function trimViewerOrganization(organization) {
+            if (tag.commonUtils.isEditor(organization)) {
+                return organization
+            }
+        }
+        function changeOrganization(organizationId) {
+            if (organizationId) {
+                tag.obs.trigger('pm-loader-show');
+                tag.cognitoUser.getSession(function(err, session) {
+                    if (err) {
+                        tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                        // alert('getSession()でエラー\n' + err);
+                    } else {
+                        var idToken = session.getIdToken().getJwtToken();
+                        let fetchResponse = null
+                        const requestProjectUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + organizationId + '/projects';
+                        fetch(requestProjectUrl, {
+                            method: 'GET',
+                            headers: {
+                                'Authorization': idToken
+                            }
+                        })
+                            .then(function(response) {
+                                fetchResponse = response
+                                return response
+                            })
+                            .then(tag.commonUtils.checkStatus)
+                            .then(function(response) {
+                                tag.obs.trigger('pm-loader-hide');
+                                return response.json();
+                            }).then(function(projects) {
+                                tag.organizationId = organizationId
+                                tag.projects = projects;
+                                tag.projectEnable = !!tag.projects.length
+                                tag.awsAccounts = []
+                                tag.submitEnable = !!tag.awsAccounts.length
+                                tag.update();
+                            }).catch(function(error) {
+                                tag.obs.trigger('pm-loader-hide');
+                                error.then(function(value) {
+                                    value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                                })
+                                tag.obs.trigger('error-modal-open', error);
+                                tag.obs.one('error-modal-close', function(value) {
+                                    tag.commonUtils.backHome(value)
+                                })
+                            })
+                    }
+                });
+            } else {
+                tag.projects = []
+                tag.projectEnable = !!tag.projects.length
+                tag.awsAccounts = []
+                tag.submitEnable = !!tag.awsAccounts.length
+            }
+        }
+        function changeOrganizationHandler(event) {
+            const organizationId = event.target.value
+            changeOrganization(organizationId)
+        }
+        function changeProject(projectId) {
+            if (projectId) {
+                const organizationId = tag.organizationId
+                const requestAwsCoopsUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + organizationId + '/projects/' + projectId + '/awscoops'
+                tag.obs.trigger('pm-loader-show');
+                tag.cognitoUser.getSession(function(err, session) {
+                    if (err) {
+                        tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                        // alert('getSession()でエラー\n' + err);
+                    } else {
+                        var idToken = session.getIdToken().getJwtToken();
+                        fetch(requestAwsCoopsUrl + effective, {
+                            method: 'GET',
+                            headers: {
+                                'Authorization': idToken
+                            }
+                        })
+                            .then(function(response) {
+                                fetchResponse = response
+                                return response
+                            })
+                            .then(tag.commonUtils.checkStatus)
+                            .then(function(response) {
+                                tag.obs.trigger('pm-loader-hide');
+                                return response.json();
+                            }).then(function(json) {
+                                const awsAccounts = [];
+                                json.forEach(function(awsCoop) {
+                                    if (awsCoop.effective === 1) {
+                                        awsAccounts.push(awsCoop.awsAccount)
+                                    }
+                                })
+                                tag.projectId = projectId
+                                tag.awsAccounts = awsAccounts
+                                tag.submitEnable = !!awsAccounts.length
+                                tag.update();
+                            }).catch(function(error) {
+                                tag.obs.trigger('pm-loader-hide');
+                                error.then(function(value) {
+                                    value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                                })
+                                tag.obs.trigger('error-modal-open', error);
+                                tag.obs.one('error-modal-close', function(value) {
+                                    tag.commonUtils.backHome(value)
+                                })
+                            })
+                    }
+                });
+            } else {
+                tag.projectId = projectId
+                tag.awsAccounts = []
+                tag.submitEnable = !!tag.awsAccounts.length
+            }
+        }
+        function changeProjectHandler(event) {
+            const projectId = event.target.value
+            changeProject(projectId)
+        }
+        function createReport(event) {
+            event.preventDefault()
+            const form = tag.refs.form
+            const organizationId = tag.organizationId
+            const projectId = tag.projectId
+            const reportName = tag.refs.reportName.value
+            const requestAwsCoopsUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + organizationId + '/projects/' + projectId + '/reports'
+            tag.obs.trigger('pm-loader-show');
+            tag.commonUtils.submitDisable(form)
+            const report = {
+                'name': reportName,
+                'awsAccounts': tag.awsAccounts,
+                'outputFileType': 'EXCEL'
+            }
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    // alert('getSession()でエラー\n' + err);
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    let fetchResponse = null
+                    fetch(requestAwsCoopsUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': idToken
+                        },
+                        body: JSON.stringify(report)
+                    }).then(function(response) {
+                        fetchResponse = response
+                        return response
+                    })
+                        .then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            tag.obs.trigger('pm-loader-hide');
+                            const information = {
+                                'title': 'レポート作成処理を開始しました',
+                                'body': '作成処理を開始しました。作成状況については、レポート一覧もしくはレポート表示画面にて確認下さい。'
+                            }
+                            tag.obs.trigger('information-modal-open', information)
+                            tag.obs.one('information-modal-close', function(value) {
+                                back()
+                            })
+                        }).catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                            })
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            });
+        }
+        function back() {
+            const reportListParam = {
+                'reportOrganizations': tag.organizations,
+                'reportOrganizationId': tag.organizationId ? tag.organizationId : null,
+                'reportProjects': tag.projects ? tag.projects : null,
+                'reportProjectId': tag.projectId ? tag.projectId : null,
+                'isReportListBack': true
+            }
+            tag.commonUtils.paramSender(reportListParam)
+            window.location.href = "#/reports/"
+        }
+    </script>
+</report-create-container>

@@ -1,0 +1,12 @@
+{
+    "logGroupName": "CloudTrail/CIS3",
+    "filterName": "CIS-3-4",
+    "filterPattern": "{($.eventName=DeleteGroupPolicy)||($.eventName=DeleteRolePolicy)||($.eventName=DeleteUserPolicy)||($.eventName=PutGroupPolicy)||($.eventName=PutRolePolicy)||($.eventName=PutUserPolicy)||($.eventName=CreatePolicy)||($.eventName=DeletePolicy)||($.eventName=CreatePolicyVersion)||($.eventName=DeletePolicyVersion)||($.eventName=AttachRolePolicy)||($.eventName=DetachRolePolicy)||($.eventName=AttachUserPolicy)||($.eventName=DetachUserPolicy)||($.eventName=AttachGroupPolicy)||($.eventName=DetachGroupPolicy)}",
+    "metricTransformations": [
+        {
+            "metricName": "CIS-3-4",
+            "metricNamespace": "CISBenchmark",
+            "metricValue": "1"
+        }
+    ]
+}

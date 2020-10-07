@@ -1,0 +1,123 @@
+{
+  "account": {
+    "common": {},
+    "login": {
+      "form": {
+        "username": "电子邮件地址",
+        "username.placeholder": "输入电子邮件地址",
+        "password": "密码",
+        "password.placeholder": "输入密码",
+        "tenant": "租户ID",
+        "tenant.placeholder": "输入租户ID",
+        "link.reset-password": "如果您忘记了密码，请<a href=\"{{tenant}}/account/reset/password\">点击此处</a>",
+        "rememberme": "保持登录状态",
+        "button.login": "登录",
+        "button.next": "下一个",
+        "label.required": "必须"
+      },
+      "messages": {
+        "errors": {
+          "trial-left-days": "试用期还剩下{{trial}}天。",
+          "trial-ended": "试用期已到期。如果您想继续使用，请登录后再完成注册程序。",
+          "authentication": "用户ID 或密码不正确 。如果无法登录，请与管理员联系。",
+          "username.requried": "用户ID不能为空",
+          "password.requried": "密码不能为空",
+          "tenant.requried": "租户ID不能为空"
+        }
+      }
+    },
+    "password": {
+      "title": "重置密码",
+      "messages": {
+        "errors": {
+          "update-failed": "<strong>发生错误!</strong> 密码未更新。"
+        },
+        "success": "<strong>密码已更新!</strong>",
+        "info1": "发送用于重置密码的电子邮件。",
+        "info2": "请重置新密码。",
+        "suggest-info1": "设置的密码要符合以下条件。",
+        "suggest-info2": "密码有效期为设置后的90天。",
+        "suggest-info3": "密码长度为8-32个字符。",
+        "suggest-info4": "密码至少需要包含半角字母、半角数字、半角符号中的两种。",
+        "suggest-info5": "不能设置与电子邮件相同的密码。",
+        "expired-message": "密码的有效期限已结束。<br/>如果您想继续使用，请重置新密码。"
+      },
+      "form": {
+        "current-password": "当前密码",
+        "current-password-placeholder": "输入当前密码",
+        "new-password": "新密码",
+        "new-password-placeholder": "输入新密码",
+        "new-password-confirm": "新密码（确认）",
+        "new-password-confirm-placeholder": "输入新密码",
+        "button-update": "更改"
+      },
+      "reset": {
+        "messages": {
+          "info": "进行密码重置、"
+        },
+        "url-invalid": "URL无效或已过期。"
+      },
+      "change": {
+        "password-thesame-employee-id": "不能使用员工ID设置密码。",
+        "password-old-incorrect": "密码不正确。",
+        "password-upto-three": "不能重复最近3次已使用过的密码。"
+      },
+      "change-finish": {
+        "info": "重置密码已完成。<br/>请从登录页面再次登录。",
+        "button-back-login": "转到登录页面"
+      }
+    },
+    "newPassword": {
+      "NotBlank": "请输入密码。",
+      "Pattern": "密码至少需要包含半角字母、半角数字、半角符号中的两种。",
+      "Size": "密码长度为8-32个字符。"
+    },
+    "reset": {
+      "title": "重置密码",
+      "init": {
+        "info1": "已发送用于重置密码的电子邮件。",
+        "info2": "请通过您收到的邮件进行密码重置。",
+        "info3": "如果经过5分钟后，您没有收到该邮件，请与系统管理员联系。",
+        "form": {
+          "username": "电子邮件地址",
+          "username-placeholder": "输入电子邮件地址",
+          "code": "Reset Code",
+          "code-placeholder": "输入ResetCode",
+          "button-submit": "发送",
+          "button-back": "返回"
+        },
+        "messages": {
+          "info": "发送用于重置密码的电子邮件。",
+          "user-notfound": "用户ID 不正确 。",
+          "errors": {
+            "username.requried": "用户ID不能为空",
+            "code.requried": "ResetCode不能为空"
+          }
+        }
+      },
+      "finish": {
+        "info1": "URL无效或已过期。",
+        "info2": "请从登录页面执行密码重置程序。",
+        "button-back-login": "转到登录页面"
+      }
+    },
+    "popup": {
+      "destination.title": "确认目标链接",
+      "destination.message": "登录后请选择要连接的服务。",
+      "btn-contract": "订约人所使用的网站",
+      "btn-back-login": "进入登录页面",
+      "btn-esms": "esm's"
+    },
+    "tenant": {
+      "input-tenant.button": "下一个",
+      "contract-info.title": "[重要]环境停止的通知",
+      "contract-info.content1": "您的环境目前已停止。",
+      "contract-info.content2": "参考在",
+      "contract-info.content3": "以获得有关停止环境的更多信息。",
+      "contract-info.content4": "请登录承包商的网站检查环境停止的原因。"
+    },
+    "licenses": {
+      "error-licenses.message": "许可证数量不足。请与管理员联系"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+version: 0.2
+run-as: root
+phases:
+  install:
+    runtime-versions:
+     java: corretto11
+     docker: 19
+    commands:
+      - echo "Start Build"
+  pre_build:
+    commands:
+      - MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
+      - aws s3 sync $MAVEN_ROOT/m2 /root/.m2/
+      - aws ecr get-login-password | docker login --username AWS --password-stdin $ECR 
+      - REPOSITORY_URI=$ECR/$NAMESPACE-$SERVICE_NAME
+      - IMAGE_URI=$REPOSITORY_URI:$IMAGE_TAG
+      - NODE_OPTIONS="--max-old-space-size=2048"
+      - IPSONAR=$(aws servicediscovery discover-instances --namespace-name $NAMESPACE --service-name sonarqube | grep IPV4 | sed -e 's/"/ /g' | awk '{print $3}')
+      - HOST=http://$IPSONAR:9000
+      - Project=$(cat sonar-project.properties | grep "sonar.projectName" | sed 's/\=/ /g' | awk '{print $2}')
+      - curl -O $NEWRELIC_URL
+      - unzip newrelic-*.zip
+      - sed -i -e s*"MY_APP_NAME"*$SERVICE_NAME*g Dockerfile
+  build:
+    commands:
+      - mvn test
+      - echo $LOGIN
+      - mvn sonar:sonar -Dsonar.login=$LOGIN -Dsonar.host.url=$HOST -Dsonar.projectKey=$Project
+      - curl $HOST/api/qualitygates/project_status?projectKey=$Project >result.json
+      - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then aws codebuild stop-build --id $CODEBUILD_BUILD_ID ;fi
+      - mvn package -Ddev -DskipTests
+      - docker build -t $IMAGE_URI .
+  post_build:
+    commands:
+      - echo Push to ECR
+      - docker push $IMAGE_URI
+      - printf '[{"name":"%s","imageUri":"%s"}]' $SERVICE_NAME $IMAGE_URI > imagedefinitions.json
+      - printf '{"ImageURI":"%s"}' $IMAGE_URI > imageDetail.json
+      - printf '{"imageURI":"%s"}' $IMAGE_URI > imageUris.json
+      - aws s3 sync /root/.m2/repository $MAVEN_ROOT/m2/repository
+      - git clone --mirror https://phongbt-at-504903465441:$GIT_PASSWORD@git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/esale-employees
+      - cd esale-employees.git && git push --mirror https://buithephong:$GIT_TOKEN@git.luvina.net/esr/esale-employees.git
+cache:
+  paths:
+    - '/root/.m2/**/*'
+artifacts:
+  files:
+    - imagedefinitions.json
+    - imageUris.json
+    - imageDetail.json
+  discard-paths: yes

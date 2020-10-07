@@ -1,0 +1,257 @@
+{
+  "sales": {
+    "sidebar": {
+      "title": {
+        "myProductTrading": "My Trading Products",
+        "allProductTrading": "All Trading Products",
+        "listProductTrading": "Customers - Trading Products",
+        "list-favorite": "Favorite list",
+        "my-group": "My list",
+        "shared-group": "Shared list"
+      },
+      "place-holder": {
+        "searchCustomer": "Search customer",
+        "searchBusinessCard": "Search businesscard"
+      },
+      "search": {
+        "placeholder": "All trading products"
+      },
+      "duplicate": "_Copied ({{n}})"
+    },
+    "component": {
+      "change-display": {
+        "search-placeholder": "Search progress",
+        "lead-in": "Lead-in",
+        "edit-item": "Edit item"
+      },
+      "list-detail-product-trading": {
+        "analysis": "Trading product cart"
+      }
+    },
+    "top": {
+      "title": {
+        "change-progress-title": "Edit progress",
+        "change-progress-button": "Select progress",
+        "popupChangeStatus": "Confirm",
+        "btn-edit": "Simple edit",
+        "btn-cancel": "Cancel",
+        "btn-save": "Save changes",
+        "move-group": "Move to another list",
+        "add-to-group": "Add to list",
+        "create-my-list": "Create my list",
+        "create-share-list": "Create shared list",
+        "leave-group": "Remove from list",
+        "fieldLabel": "See what's different since this day",
+        "buttonText": "Import transaction"
+      },
+      "place-holder": {
+        "search": "Search trading product",
+        "searching": "Edit advanced search"
+      },
+      "list-operation": "Control list",
+      "dialog": {
+        "title-delete-group": "Delete",
+        "message-delete-group": "{{itemName}} will be deleted. Are you sure?",
+        "confirm-delete-group": "Delete",
+        "title-auto-group": "Confirm",
+        "confirm-auto-group": "Convert",
+        "title-leave-group": "Delete",
+        "message-leave-group": "Are you sure you want to remove?",
+        "confirm-leave-group": "Remove",
+        "title-remove-manager": "Confirm",
+        "message-remove-manager": "Are you sure you want to remove the manager set for the selected employee?",
+        "message-remove-manager-move": "The data you have entered will be discarded. Are you sure you want to leave the page?",
+        "confirm-remove-manager": "Remove",
+        "cancel-text": "Cancel",
+        "change-my-list-to-share-list": "Are you sure you want to convert this my list to a shared list?",
+        "confirm-change": "Confirm",
+        "message-leave-list": "{{0}} trading product(s) will be removed from the trading product management list. Are you sure?"
+      },
+      "label-tooltip": {
+        "button-edit": "Edit",
+        "button-erase": "Delete",
+        "button-switch-display": "Switch display",
+        "button-update": "Update",
+        "button-set-manager": "Set manager",
+        "button-remove-manager": "Remove manager",
+        "button-download": "Download",
+        "button-copy-group": "Copy group",
+        "button-send-email": "Send email",
+        "switch-view": "Card view",
+        "add-to-favourite": "Add to favorite",
+        "remove-from-favourite": "Remove from favorite",
+        "button-top-edit": "Edit list",
+        "button-top-delete": "Delete list",
+        "button-top-dupplicate": "Copy list",
+        "button-top-convert-sharelist": "Convert to shared list",
+        "list-view": "List view",
+        "board-view": "Board view"
+      }
+    },
+    "card-view": {
+      "total-quantity": " item(s)",
+      "end-plan-date": "Completion date (estimated)",
+      "totalAmount": "Total",
+      "employees": "Person in charge",
+      "collapse-expand": "Trading product cart"
+    },
+    "modal": {
+      "header": {
+        "create-my-list": "Create my list"
+      },
+      "body": {
+        "create-a-list-with-n-items": " item(s) will be added to a new list.",
+        "list-name": "List name",
+        "require": "※",
+        "enter-list": "Enter list name",
+        "show-other-language": "Show other languages",
+        "list-participants": "Participants",
+        "company": ".,Inc",
+        "sales-department": "Sales department",
+        "sales-taro-manager": "Chief Eigyo Taro",
+        "owner": "Owner",
+        "add-list-participants": "Add participant"
+      },
+      "footer": {
+        "create": "Create"
+      }
+    },
+    "group-card": {
+      "submenu": {
+        "edit-group": "Edit list",
+        "delete-group": "Delete list",
+        "duplicate-group": "Copy list",
+        "update-list": "Update list",
+        "remove-from-favorite": "Remove from favorite",
+        "add-to-favorite": "Add to favorite",
+        "remove-to-favorite": "Remove from favorite",
+        "change-my-list-to-share-list": "Convert to shared list"
+      }
+    },
+    "group": {
+      "group-modal-move-to-group": {
+        "title": "Move to another list",
+        "sale-checklist-length": "{{saleCheckListLength}} item(s) will be moved to another list.",
+        "group-title": "List to move",
+        "group-default-option": "Select a target list",
+        "button-move": "Move",
+        "button-cancel": "×",
+        "list-group": "Favorite list",
+        "my-group": "My list",
+        "share-group": "Shared list",
+        "required": "※"
+      },
+      "group-modal-add-to-group": {
+        "title": "Add to list",
+        "sale-checklist-length": "{{saleCheckListLength}} item(s) will be added to another list.",
+        "group-title": "List to add",
+        "group-default-option": "Select a target list",
+        "button-add": "Add",
+        "button-cancel": "×",
+        "list-group": "Favorite list",
+        "my-group": "My list",
+        "share-group": "Shared list",
+        "required": "※"
+      },
+      "group-modal-create-my-group": {
+        "title": "Create my list",
+        "sale-checklist-length": "{{empCheckListLength}} item(s) will be added to a new list.",
+        "group-title": "Group name",
+        "group-name-placeholder": "Enter list name",
+        "button-create": "Create",
+        "button-cancel": "×",
+        "required": "※"
+      },
+      "group-modal-create-shared-group": {
+        "title": "Create shared list",
+        "sale-checklist-length": "{{empCheckListLength}} item(s) will be added to a new list.",
+        "group-title": "Group name",
+        "group-name-placeholder": "Enter list name",
+        "button-create": "Create",
+        "button-cancel": "×",
+        "required": "※"
+      },
+      "group-modal-add-edit-my-group": {
+        "title": "Create my list",
+        "edit_title": "Edit my list",
+        "group-title": "List name",
+        "required": "※",
+        "group-name-placeholder": "Enter list name",
+        "display-other-language": "Show other languages",
+        "group_type": "Type of list",
+        "radio-manual": "Manual",
+        "radio-auto": "Auto-added",
+        "button-create": "Create",
+        "button-edit": "Update",
+        "button-cancel": "×",
+        "auto-group-condition-search-title": "Search condition for automatically-added list",
+        "btn-setting-search-condition": "Edit search condition",
+        "is-overwrite": "Delete updated items that do not match with these conditions from the group.",
+        "list-update-time": "Update list automatically at {{0}} o’clock everyday"
+      },
+      "setting-search-condition": {
+        "cancel": "Cancel",
+        "save-search-condition": "Save search condition",
+        "checkbox-select-all": "Select all",
+        "checkbox-deselect": "Deselect all",
+        "checkbox-select-inversion": "Invert",
+        "textbox-search-placeholder": "Search employee"
+      },
+      "department-card": {
+        "submenu": {
+          "edit-department": "Edit department",
+          "delete-department": "Delete department"
+        }
+      }
+    },
+    "sharegroup": {
+      "lbCreateGroup": "Create shared list",
+      "lbEditGroup": "Edit shared list",
+      "lbSwitchGroupType": "Convert to shared list",
+      "lbCreateGroupWith": " item(s) will be added to a new group",
+      "btnUpdate": "Update",
+      "btnChange": "Convert",
+      "btnCreate": "Create",
+      "radHideOtherLanguage": "Hide other languages",
+      "radShowOtherLanguage": "Show other languages",
+      "lbRequire": "※",
+      "lbGroupName": "List name",
+      "hintGroupName": "Enter list name",
+      "lbListParticipants": "Participants",
+      "hintListParticipants": "Participants",
+      "placeholderShareListTool": "Enter list name",
+      "placeholderParticipants": "Add participant",
+      "icCompany": "Co.",
+      "lbSearchCondition": "Search conditions for automatically-added list",
+      "lbSettingSearch": "Edit search condition",
+      "lbNoteForCheckBox": "Delete updated items that do not match with these conditions from the list",
+      "hintJapanese": "(Japanese)",
+      "hintChinese": "(中文（简体）)",
+      "hintEnglish": "(English （US）)",
+      "hintKorean": "(한국어)",
+      "lbGroupType": "Type of list",
+      "radManual": "Manual",
+      "radAuto": "Auto-added",
+      "permision.viewer": "Viewer",
+      "permision.owner": "Owner"
+    },
+    "add-to-favorite": "Would you like to add {{groupName}} to favorite?",
+    "remove-to-favorite": "Would you like to remove {{groupName}} from favorite?",
+    "INF_COM_0015": "{{0}} item(s) will be added to another list.",
+    "INF_COM_0016": "{{0}} item(s) will be moved to another list.",
+    "all-status": "all",
+    "complete-status": "End",
+    "not-complete-status": "On going",
+    "contact-date1": "From the final contact day",
+    "contact-date2": "days or more have passed",
+    "item-drag": {
+      "list": " trading products (total)"
+    },
+    "placeholder": {
+      "find-an-item": "Search progress"
+    },
+    "button":{
+      "edit-search-condition":"Edit advanced search conditions"
+    }
+  }
+}

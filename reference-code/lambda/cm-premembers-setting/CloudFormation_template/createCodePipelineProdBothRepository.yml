@@ -1,0 +1,204 @@
+Description : PreMembers Production Build and Deploy CodePipeline Template
+Parameters:
+  CodePipelineRoleArn:
+    Type: String
+    Default: arn:aws:iam::267458812797:role/AWS-CodePipeline-Service
+  CodePipelineS3:
+    Type: String
+    Default: codepipeline-ap-northeast-1-31820646703
+  CodeBuildRoleArn:
+    Type: String
+    Default: arn:aws:iam::267458812797:role/service-role/premembers-prod-build
+  PremembersBuildImage:
+    Type: String
+    Default: "267458812797.dkr.ecr.ap-northeast-1.amazonaws.com/premembers_builder:latest"
+    Description: Image used for CodeBuild project.
+  CodeBuildCreateDockerContainerImage:
+    Type: String
+    Default: "aws/codebuild/docker:1.12.1"
+    Description: Image used for Create Docker Container CodeBuild project.
+  FrontendEnvStack:
+    Type: String
+    Default: "premembers-frontend-environment"
+  BackendEnvStack:
+    Type: String
+    Default: "premembers-backend-environment"
+  CheckBatchEnvStack:
+    Type: String
+    Default: "premembers-check-batch-environment"
+  SourceCodeBucket:
+    Type: String
+    Default: "premembers-prd-deploy-source-bucket"
+  Stage:
+    Type: String
+    Default: "master"
+  Branch:
+    Type: String
+    Default: "master"
+  BackendStack:
+    Type: String
+    Default: "premembers-backend-master"
+  Tag:
+    Type: String
+Resources:
+  CreateDockerContainerProject:
+    Description: Creating AWS CodeBuild project
+    Type: AWS::CodeBuild::Project
+    Properties:
+      Artifacts:
+        Type: NO_ARTIFACTS
+      Description: !Sub Building Check Container for ${Branch}.
+      Environment:
+        ComputeType: BUILD_GENERAL1_SMALL
+        Image: !Ref CodeBuildCreateDockerContainerImage
+        Type: LINUX_CONTAINER
+        EnvironmentVariables:
+          - Name: CHECK_BATCH_ENV_STACK  
+            Value: !Ref CheckBatchEnvStack
+          - Name: RELEASE_TAG
+            Value: !Ref Tag
+      Name: !Sub cm-premembers-backend-${Branch}-Create-Container-Build
+      ServiceRole: !Ref CodeBuildRoleArn
+      Source:
+        Type: S3
+        Location: !Sub ${SourceCodeBucket}/${Tag}/backend/cm-premembers-backend-${Tag}.zip
+        BuildSpec: container_buildspec.yml
+      TimeoutInMinutes: 5
+  CodeBuildProjectFrontend:
+    Description: Creating AWS CodeBuild project
+    Type: AWS::CodeBuild::Project
+    Properties:
+      Artifacts:
+        Type: CODEPIPELINE
+      Description: !Sub Building stage for ${Branch}.
+      Environment:
+        ComputeType: BUILD_GENERAL1_SMALL
+        EnvironmentVariables:
+          - Name: BRANCH  
+            Value: !Ref Branch
+          - Name: FRONTEND_ENV_STACK
+            Value: !Ref FrontendEnvStack 
+          - Name: BACKEND_ENV_STACK
+            Value: !Ref BackendEnvStack 
+          - Name: BACKEND_STACK
+            Value: !Ref BackendStack 
+          - Name: RELEASE_TAG
+            Value: !Ref Tag
+          - Name: CLOUDFRONT_API_ENABLE
+            Value: true 
+        Image: !Ref PremembersBuildImage
+        Type: LINUX_CONTAINER
+      Name: !Sub premembers-${Branch}-frontend-build
+      ServiceRole: !Ref CodeBuildRoleArn
+      Source:
+        Type: CODEPIPELINE
+      TimeoutInMinutes: 8
+  CodeBuildProjectBackend:
+    Description: Creating AWS CodeBuild project
+    Type: AWS::CodeBuild::Project
+    Properties:
+      Artifacts:
+        Type: CODEPIPELINE
+      Description: !Sub Building stage for ${Branch}.
+      Environment:
+        ComputeType: BUILD_GENERAL1_SMALL
+        EnvironmentVariables:
+          - Name: BRANCH  
+            Value: !Ref Branch
+          - Name: BACKEND_ENV_STACK
+            Value: !Ref BackendEnvStack 
+        Image: !Ref PremembersBuildImage
+        Type: LINUX_CONTAINER
+      Name: !Sub premembers-${Branch}-backend-build
+      ServiceRole: !Ref CodeBuildRoleArn
+      Source:
+        Type: CODEPIPELINE
+      TimeoutInMinutes: 30
+  ProjectPipeline:
+    Type: AWS::CodePipeline::Pipeline
+    Properties:
+      ArtifactStore:
+        Location: !Sub ${CodePipelineS3}
+        Type: S3
+      Name: !Sub Premembers-${Branch}-Pipeline
+      RestartExecutionOnUpdate: false
+      RoleArn:
+        Ref: CodePipelineRoleArn
+      Stages: 
+        - 
+          Name: Source
+          Actions: 
+            - 
+              Name: SourceFrontAction
+              ActionTypeId: 
+                Category: Source
+                Owner: AWS
+                Provider: S3
+                Version: 1
+              OutputArtifacts: 
+                - 
+                  Name: SourceFrontendOutput
+              Configuration: 
+                S3Bucket: !Ref SourceCodeBucket 
+                S3ObjectKey: 
+                  Fn::Join:
+                    - "/"
+                    - - Ref: Tag
+                      - "frontend"
+                      - !Sub cm-premembers-frontend-${Tag}.zip
+              RunOrder: 1
+            - 
+              Name: SourceBackendAction
+              ActionTypeId: 
+                Category: Source
+                Owner: AWS
+                Provider: S3
+                Version: 1
+              OutputArtifacts: 
+                - 
+                  Name: SourceBackendOutput
+              Configuration: 
+                S3Bucket: !Ref SourceCodeBucket
+                S3ObjectKey: 
+                  Fn::Join:
+                    - "/"
+                    - - Ref: Tag
+                      - "backend"
+                      - !Sub cm-premembers-backend-${Tag}.zip
+              RunOrder: 1 
+            
+        -
+          Name: Build
+          Actions:
+            -
+              Name: CodeFrontendBuild
+              InputArtifacts:
+                -
+                  Name: SourceFrontendOutput
+              ActionTypeId:
+                Category: Build 
+                Owner: AWS
+                Version: 1
+                Provider: CodeBuild
+              Configuration:
+                ProjectName: !Ref CodeBuildProjectFrontend
+              OutputArtifacts: 
+                - 
+                  Name: CodebuilFrontenddOutput
+              RunOrder: 1
+            -
+              Name: CodeBackendBuild
+              InputArtifacts:
+                -
+                  Name: SourceBackendOutput
+              ActionTypeId:
+                Category: Build 
+                Owner: AWS
+                Version: 1
+                Provider: CodeBuild
+              Configuration:
+                ProjectName: !Ref CodeBuildProjectBackend
+              OutputArtifacts: 
+                - 
+                  Name: CodebuildBackendOutput
+              RunOrder: 1

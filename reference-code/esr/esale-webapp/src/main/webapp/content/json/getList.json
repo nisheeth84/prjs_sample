@@ -1,0 +1,48 @@
+{
+  "data": {
+    "listInfo": [
+      {
+        "listName": "shareList1",
+        "listId": 3001,
+        "displayOrder": 2,
+        "listType": 2,
+        "displayOrderOfFavoriteList": 1
+      },
+      {
+        "listName": "shareList2",
+        "listId": 3002,
+        "displayOrder": 3,
+        "listType": 1,
+        "displayOrderOfFavoriteList": 0
+      },
+      {
+        "listName": "shareList1",
+        "listId": 3001,
+        "displayOrder": 2,
+        "listType": 2,
+        "displayOrderOfFavoriteList": 1
+      },
+      {
+        "listName": "shareList2",
+        "listId": 3002,
+        "displayOrder": 3,
+        "listType": 1,
+        "displayOrderOfFavoriteList": 2
+      },
+      {
+        "listName": "shareList1",
+        "listId": 3001,
+        "displayOrder": 2,
+        "listType": 2,
+        "displayOrderOfFavoriteList": null
+      },
+      {
+        "listName": "shareList2",
+        "listId": 3002,
+        "displayOrder": 3,
+        "listType": 1,
+        "displayOrderOfFavoriteList": 2
+      }
+    ]
+  }
+}

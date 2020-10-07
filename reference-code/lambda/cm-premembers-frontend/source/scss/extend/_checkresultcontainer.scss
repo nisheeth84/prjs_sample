@@ -1,0 +1,50 @@
+.check-title {
+    position: relative;
+    background: #f1f4f5;
+}
+
+.plus-icon .managed-title[aria-expanded="false"]:before {
+    opacity: 1;
+    color: #66666d;
+}
+
+.plus-icon .managed-title[aria-expanded="true"]:after {
+    opacity: 1;
+    color: #66666d;
+}
+
+.empty-resources {
+    background: #e2d3d3;
+    color: #e83838;
+    font-weight: 700;
+    font-size: 15px;
+    border: 1px solid red;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    line-height: .8;
+}
+
+.check-ibp {
+    position: absolute !important;
+    right: 0;
+}
+
+.note_version {
+    padding: 0 6px;
+    background-color: #bbdefb;
+    border-radius: 7px;
+}
+
+@media screen and (max-width: 1250px)
+{
+    .check-ibp
+    {
+        position: relative !important;
+        padding-bottom: 0 !important;
+    }
+
+    .check-ibp p
+    {
+        margin-bottom: 0 !important;
+    }
+}

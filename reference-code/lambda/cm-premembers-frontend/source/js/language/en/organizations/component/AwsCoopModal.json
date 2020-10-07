@@ -1,0 +1,6 @@
+{
+    "AwsCoopModal": {
+        "title": "AWS account collaboration editing",
+        "info": "Please enter the information (AWS account ID, role name) of the AWS account to be linked."
+    }
+}

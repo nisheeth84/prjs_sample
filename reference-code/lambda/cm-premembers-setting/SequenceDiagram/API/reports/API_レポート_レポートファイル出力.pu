@@ -1,0 +1,49 @@
+@startuml{API_レポート_レポートファイル出力.png}
+title [レポートAPI_レポートファイル出力]
+hide footbox
+
+boundary 画面 as view
+participant レポートAPI as api_reports #cyan
+'database ユーザープール as user_pools <<cognito>> #purple
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database レポート as table_reports <<dynamodb>> #royalblue
+database レポートジョブ定義 as table_report_jobdef <<dynamodb>> #royalblue
+database レポートジョブ履歴 as table_report_joblog <<dynamodb>> #royalblue
+database レポートジョブキュー as batch_report_output <<batch>> #darkorange
+
+view -> api_reports :POST /organizations/{organization_id}/projects/{project_id}/reports/{report_id}/output
+note right :クエリストリングにレポート作成のパラメータ
+activate api_reports
+    api_reports -> api_reports :メールアドレス取得
+    |||
+    ref over api_reports, table_affiliation :アクセス権限チェック
+    |||
+    api_reports -> api_reports :バリデーションチェック
+    |||
+    api_reports -> api_reports :レポートファイル出力
+    activate api_reports
+        api_reports -> table_reports :query
+        table_reports --> api_reports
+        |||
+        api_reports -> api_reports :出力済みチェック
+        note right :指定されたファイル形式のレポートがすでに出力済みかどうかを確認
+        |||
+        alt レポートファイル未出力
+            group レポート出力処理
+                api_reports -> table_report_jobdef :レコード取得
+                table_report_jobdef --> api_reports
+                api_reports -> batch_report_output :レポート出力処理をサブミット
+                batch_report_output --> api_reports
+                api_reports -> table_report_joblog :レコード作成（レポート出力ジョブ履歴）
+                table_report_joblog --> api_reports
+                |||
+            end
+        end 
+        api_reports --> api_reports
+    deactivate api_reports
+    |||
+    api_reports -> api_reports :レスポンス作成
+    api_reports --> view : 201:タスクID
+deactivate api_reports
+
+@enduml

@@ -1,0 +1,19 @@
+{
+  "name": "serverless_cognito",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "sls deploy",
+    "remove": "sls remove"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "serverless": "1.46.1",
+    "serverless-plugin-split-stacks": "1.7.0",
+    "serverless-python-requirements": "^2.3.3",
+    "serverless-step-functions": "2.11.0"
+  }
+}

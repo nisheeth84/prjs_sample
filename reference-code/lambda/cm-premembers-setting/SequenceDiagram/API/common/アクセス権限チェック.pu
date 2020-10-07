@@ -1,0 +1,21 @@
+@startuml{共通_アクセス権限チェック.png}
+title [アクセス権限確認処理]
+hide footbox
+
+participant API as api #cyan
+participant アクセス権限確認処理 as permission_check #cyan
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+
+api -> permission_check :アクセス権限確認
+activate permission_check
+    permission_check -> table_affiliation :query
+    table_affiliation --> permission_check
+    permission_check -> permission_check :アクセス権限の確認
+    note right
+        ・サインインユーザーが指定の組織に所属しているかチェックする
+        ・サインインユーザーが指定の組織に対して適切な権限を持っているかチェックする
+    end note
+    api <-- permission_check:
+deactivate permission_check
+
+@enduml

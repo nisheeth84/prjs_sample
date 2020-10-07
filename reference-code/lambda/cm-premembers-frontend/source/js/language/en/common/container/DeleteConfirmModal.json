@@ -1,0 +1,8 @@
+{
+    "DeleteConfirmModal": {
+        "confirm_delete": "Confirm deletion",
+        "deletion_target": "Deleting target",
+        "delete_question": "Are you sure you want to delete it?",
+        "delete": "Delete"
+    }
+}

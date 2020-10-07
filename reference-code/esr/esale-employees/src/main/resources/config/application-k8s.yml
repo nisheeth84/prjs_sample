@@ -1,0 +1,175 @@
+spring:
+  profiles:
+    active: k8s
+    include: dev
+
+multitenant:
+  app:
+    tenant:
+      datasource:
+        masterUrl: jdbc:postgresql://10.0.0.38:30432/employees?stringtype=unspecified&currentSchema=tenant1
+        slaveUrl: jdbc:postgresql://10.0.0.38:30433/employees?stringtype=unspecified&currentSchema=tenant1
+        username: esr_dev
+        password: VNmqgQnwsqwpPKbn
+
+elasticsearch:
+  host: 10.0.0.38
+  port: 30200
+
+jhipster:
+  cache:
+    redis:
+      server: redis://10.0.0.38:30379
+
+
+eureka:
+  client:
+    enabled: false
+
+ribbon:
+  eureka:
+    enabled: false
+
+zuul:
+  routes:
+    oauth:
+      path: /oauth/**
+      serviceId: uaa
+    uaa:
+      path: /uaa/**
+      serviceId: uaa
+    employees:
+      path: /employees/**
+      serviceId: employees
+    mails:
+      path: /mails/**
+      serviceId: mails
+    commons:
+      path: /commons/**
+      serviceId: commons
+    schedules:
+      path: /schedules/**
+      serviceId: schedules
+    products:
+      path: /products/**
+      serviceId: products
+    customers:
+      path: /customers/**
+      serviceId: customers
+    activities:
+      path: /activities/**
+      serviceId: activities
+    timelines:
+      path: /timelines/**
+      serviceId: timelines
+    tenants:
+      path: /tenants/**
+      serviceId: tenants
+    ocrs:
+      path: /ocrs/**
+      serviceId: ocrs
+    businesscards:
+      path: /businesscards/**
+      serviceId: businesscards
+    chats:
+      path: /chats/**
+      serviceId: chats
+    externals:
+      path: /externals/**
+      serviceId: externals
+    sales:
+      path: /sales/**
+      serviceId: sales
+    tutorials:
+      path: /tutorials/**
+      serviceId: tutorials
+    analysis:
+      path: /analysis/**
+      serviceId: analysis
+
+uaa:
+  ribbon:
+    listOfServers: http://10.0.0.38:30999
+
+employees:
+  ribbon:
+    listOfServers: http://localhost:8081
+
+mails:
+  ribbon:
+    listOfServers: http://10.0.0.38:30082
+
+commons:
+  ribbon:
+    listOfServers: http://10.0.0.38:30083
+
+schedules:
+  ribbon:
+    listOfServers: http://10.0.0.38:30084
+
+products:
+  ribbon:
+    listOfServers: http://10.0.0.38:30085
+
+customers:
+  ribbon:
+    listOfServers: http://10.0.0.38:30086
+
+activities:
+  ribbon:
+    listOfServers: http://10.0.0.38:30087
+
+timelines:
+  ribbon:
+    listOfServers: http://10.0.0.38:30088
+
+tenants:
+  ribbon:
+    listOfServers: http://10.0.0.38:30089
+
+ocrs:
+  ribbon:
+    listOfServers: http://10.0.0.38:30090
+
+businesscards:
+  ribbon:
+    listOfServers: http://10.0.0.38:30091
+
+chats:
+  ribbon:
+    listOfServers: http://10.0.0.38:30092
+
+externals:
+  ribbon:
+    listOfServers: http://10.0.0.38:30093
+
+sales:
+  ribbon:
+    listOfServers: http://10.0.0.38:30094
+
+tutorials:
+  ribbon:
+    listOfServers: http://10.0.0.38:30095
+
+analysis:
+  ribbon:
+    listOfServers: http://10.0.0.38:30096
+
+grpc:
+  domain:
+    activities: 10.0.0.38:31087
+    analysis: 10.0.0.38:31096
+    businesscards: 10.0.0.38:31091
+    chats: 10.0.0.38:31092
+    commons: 10.0.0.38:31083
+    customers: 10.0.0.38:31086
+    employees: localhost:9081
+    externals: 10.0.0.38:31093
+    mails: 10.0.0.38:31082
+    ocrs: 10.0.0.38:31090
+    products: 10.0.0.38:31085
+    sales: 10.0.0.38:31094
+    schedules: 10.0.0.38:31084
+    tenants: 10.0.0.38:31089
+    timelines: 10.0.0.38:31088
+    tutorials: 10.0.0.38:31095

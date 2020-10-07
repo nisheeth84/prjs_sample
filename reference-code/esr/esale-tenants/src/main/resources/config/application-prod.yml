@@ -1,0 +1,180 @@
+# ===================================================================
+# Spring Boot configuration for the "prod" profile.
+#
+# This configuration overrides the application.yml file.
+#
+# More information on profiles: https://www.jhipster.tech/profiles/
+# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+logging:
+  level:
+    ROOT: INFO
+    io.github.jhipster: INFO
+    jp.co.softbrain.esales.tenants: INFO
+
+management:
+  metrics:
+    export:
+      prometheus:
+        enabled: false
+
+spring:
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: false
+  mail:
+    host: localhost
+    port: 1025
+    username:
+    password:
+  messages:
+    cache-duration: PT1S # 1 second, see the ISO 8601 standard
+    basename: i18n/messages # Comma-separated list of base names
+    encoding: UTF-8 # Message bundles encoding.
+    # Whether to fall back to the system Locale
+    # if no files for a specific Locale have been found.
+    fallback-to-system-locale: true
+  thymeleaf:
+    cache: true
+  sleuth:
+    sampler:
+      probability: 1 # report 100% of traces
+  zipkin: # Use the "zipkin" Maven profile to have the Spring Cloud Zipkin dependencies
+    base-url: http://localhost:9411
+    enabled: false
+    locator:
+      discovery:
+        enabled: true
+  flyway:
+    enabled: false
+
+# ===================================================================
+# To enable TLS in production, generate a certificate using:
+# keytool -genkey -alias tenants -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
+#
+# You can also use Let's Encrypt:
+# https://maximilian-boehm.com/hp2121/Create-a-Java-Keystore-JKS-from-Let-s-Encrypt-Certificates.htm
+#
+# Then, modify the server.ssl properties so your "server" configuration looks like:
+#
+# server:
+#    port: 443
+#    ssl:
+#        key-store: classpath:config/tls/keystore.p12
+#        key-store-password: password
+#        key-store-type: PKCS12
+#        key-alias: tenants
+#        # The ciphers suite enforce the security by deactivating some old and deprecated SSL cipher, this list was tested against SSL Labs (https://www.ssllabs.com/ssltest/)
+#        ciphers: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 ,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 ,TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 ,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA256,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_256_GCM_SHA384,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA,TLS_RSA_WITH_CAMELLIA_256_CBC_SHA,TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA,TLS_RSA_WITH_CAMELLIA_128_CBC_SHA
+# ===================================================================
+
+server:
+  port: 8089
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css, application/javascript, application/json
+    min-response-size: 1024
+
+# ===================================================================
+# JHipster specific properties
+#
+# Full reference is available at: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+jhipster:
+  http:
+    cache: # Used by the CachingHttpHeadersFilter
+      timeToLiveInDays: 1461
+  mail: # specific JHipster mail property, for standard properties see MailProperties
+    base-url: http://my-server-url-to-change # Modify according to your server's URL
+  metrics:
+    logs: # Reports metrics in the logs
+      enabled: false
+      report-frequency: 60 # in seconds
+  logging:
+    use-json-format: false # By default, logs are not in Json format
+    logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration
+      enabled: false
+      host: localhost
+      port: 5000
+      queue-size: 512
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the JHipsterProperties above
+#
+# More documentation is available at:
+# https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# application:
+
+# ===================================================================
+# MULTITENANCY MASTER/TENANT DATABASE SETUP
+# ===================================================================
+multitenant:
+  app:
+    tenant:
+      datasource:
+        masterUrl: jdbc:postgresql://localhost:32770/tenants?stringtype=unspecified
+        slaveUrl: jdbc:postgresql://localhost:32771/tenants?stringtype=unspecified
+        username: postgres
+        password:
+        driverClassName: org.postgresql.Driver
+        connectionTimeout: 20000
+        minIdle: 10
+        maxPoolSize: 30
+        idleTimeout: 10000
+        poolName: tenantdb-connection-pool
+        autoCommit: false
+        serviceSchema: tenants
+        maxLifetime: 72000
+        leakDetectionThreshold: 64800
+
+cognito:
+  call-back-url: https://loinv.esr.luvina.net
+  signature-verification:
+    region: ap-northeast-1
+
+elasticsearch:
+  host: localhost
+  port: 9200
+  ssl: false
+  username:
+  password:
+
+application:
+  upload-bucket: namph
+  expired-seconds: 1000
+
+aws:
+  template:
+    db-path: sb-dev-tenants/master_tenant/db_template/
+    es-path: sb-dev-tenants/master_tenant/elasticsearch_template/
+    migration-data-path: sb-dev-tenants/master_tenant/migration_data/script/
+  quick-sight:
+    aws-region: ap-northeast-1
+    aws-account-id: 504903465441
+    aws-admin-arn: arn:aws:quicksight:us-east-1:504903465441:user/default/phamhoainam
+    vpc-database-connection: arn:aws:quicksight:ap-northeast-1:504903465441:vpcConnection/Database
+
+ecs:
+  cluster: esale
+  batch-task-name: batch_batch-period
+  batch-container-name: batch
+  vpc-subnet: subnet-08b27cb0f7dabacbb
+  vpc-security-group: sg-0c63ddc3556a52d20
+
+lambda:
+  function:
+    pgdump: pgdump
+    preTokenGenArn: arn:aws:lambda:ap-northeast-1:008076363516:function:pre-token-gen

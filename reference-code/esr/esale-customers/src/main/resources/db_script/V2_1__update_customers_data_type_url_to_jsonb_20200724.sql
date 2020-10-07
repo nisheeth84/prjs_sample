@@ -1,0 +1,1 @@
+ALTER TABLE "customers" ALTER COLUMN "url" TYPE jsonb USING ("url"::jsonb);

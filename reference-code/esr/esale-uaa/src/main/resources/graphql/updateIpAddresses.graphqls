@@ -1,0 +1,15 @@
+input UpdatedIpAddressesSubType1{
+    ipAddressId   : Long
+    ipAddress     : String
+    updatedDate   : DateTime
+}
+
+type UpdatedIpAddressesOut{
+    deletedIpAddresses  : [Long]
+    insertedIpAddresses : [Long]
+    updatedIpAddresses  : [Long]
+}
+
+extend type Mutation {
+    updateIpAddresses(ipAddresses :[UpdatedIpAddressesSubType1], deletedIPAddresses : [Long]) : UpdatedIpAddressesOut
+}

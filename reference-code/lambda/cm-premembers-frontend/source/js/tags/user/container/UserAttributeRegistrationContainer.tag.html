@@ -1,0 +1,215 @@
+<user-attribute-registration-container>
+    <site-navbar />
+    <div class="wrapper">
+        <div class="page">
+            <div class="page-content container-fluid col-lg-8 pb-10">
+                <h1 class="page-title mt-2 pb-10">{_t('UserAttributeRegistration.regist_info_attr')}</h1>
+                <div class="text-center">
+                    <h5>{_t('UserAttributeRegistration.regist_info_attr_warning')}</h5>
+                </div>
+            </div>
+            <div class="page-content container-fluid col-lg-8">
+                <form autocomplete="off" onsubmit={userAttributeRegistration} ref=form>
+                    <div class="row">
+                        <div class="form-group floating col-lg-2">
+                            <label class="floating-label">{_t('mail_address')}</label>
+                        </div>
+                        <div class="form-group floating col-lg-10">{mailAddress}</div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group floating col-lg-2">
+                            <label class="floating-label">{_t('name')}<span class="ml-2 px-2 py-0 label-require">{_t('UserAttributeRegistration.label_require')}</span></label>
+                        </div>
+                        <div class="form-group floating col-lg-10">
+                            <input type="text" ref="userName" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group floating col-lg-2">
+                            <label class="floating-label">{_t('name_company')}<span class="ml-2 px-2 py-0 label-require">{_t('UserAttributeRegistration.label_require')}</span></label>
+                        </div>
+                        <div class="form-group floating col-lg-10">
+                            <input type="text" ref="companyName" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group floating col-lg-2">
+                            <label class="floating-label">{_t('name_department')}</label>
+                        </div>
+                        <div class="form-group floating col-lg-10">
+                            <input type="text" ref="departmentName" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group floating col-lg-2">
+                            <label class="floating-label">{_t('UserAttributeRegistration.region')}<span class="ml-2 px-2 py-0 label-require">{_t('UserAttributeRegistration.label_require')}</span></label>
+                        </div>
+                        <div class="form-group floating col-lg-10">
+                            <select ref="country" class="form-control" size="1" required>
+                                <option each="{country in countries}" selected="{country.Code == countryCodeDefault}" value="{country.Code}">{_t(country.CountryName)}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group floating col-lg-2">
+                            <label class="floating-label">{_t('UserAttributeRegistration.purpose')}<span class="ml-2 px-2 py-0 label-require">{_t('UserAttributeRegistration.label_require')}</span></label>
+                        </div>
+                        <div class="form-group floating col-lg-2 mb-15">
+                            <input type="radio" id="corporate" ref="companyFlg" name="companyFlg" checked/>
+                            <label for="corporate">{_t('UserAttributeRegistration.corporate')}</label>
+                        </div>
+                        <div class="form-group floating col-lg-2 mb-15">
+                            <input type="radio" id="personal" name="companyFlg"/>
+                            <label for="personal">{_t('UserAttributeRegistration.personal')}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group floating col-lg-2">
+                            <label class="floating-label">{_t('mail_recept_setting')}</label>
+                        </div>
+                        <div class="form-group floating col-lg-10">
+                            <div class="checkbox-custom checkbox-inline checkbox-primary float-left">
+                                <input ref="settingAcceptedMaintEmail" type="checkbox" checked={checkedAcceptedMaintEmail} id="checkBoxSettingAcceptedMaintEmail">
+                                <label for="checkBoxSettingAcceptedMaintEmail"></label>
+                            </div>
+                            <p class="ml-10">{_t('description_recept_setting_mail')}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group floating col-lg-12 text-center">
+                            <button type="submit" class="btn btn-success waves-effect waves-classic col-lg-6">{_t('regist')}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        import {
+            CognitoUserAttribute
+        } from 'amazon-cognito-identity-js';
+        require('../../common/component/SiteNavbar.tag.html');
+        const tag = this
+        tag.cognitoUser = riot.mixin('cognitoUser');
+        tag.userAttributeRegistration = userAttributeRegistration;
+        const obs = riot.observable()
+        tag.obs = obs
+        const dictionary = tag.commonUtils.getMyDictionary()
+        tag.checkedAcceptedMaintEmail = "checked"
+        tag.countries = dictionary.Countries
+        tag.purpose = dictionary.Purpose
+        tag.countryCodeDefault = "JP"
+        function back(event) {
+            window.location.href = '#/home/';
+        }
+        tag.on('mount', function() {
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    tag.cognitoUser.getUserAttributes(function(err, userAttributes) {
+                        if (err) {
+                            tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                            return;
+                        }
+                        userAttributes.forEach(function(userAttribute) {
+                            if (userAttribute['Name'] == "email") {
+                                tag.mailAddress = userAttribute['Value'];
+                            }
+                            if (userAttribute['Name'] == dictionary.cognitoUserKeyAttributes.CustomAcceptedMaintEmail) {
+                                if (userAttribute['Value'] == dictionary.CustomAcceptedMaintEmail.Disable) {
+                                    tag.checkedAcceptedMaintEmail = "";
+                                }
+                            }
+                        })
+                        tag.update();
+                    });
+                }
+            })
+        });
+
+        function settingReceiveMaintenanceMail() {
+            let attributeList = [];
+            let isAcceptedMaintEmail = dictionary.CustomAcceptedMaintEmail.Enable
+            if (!tag.refs.settingAcceptedMaintEmail.checked) {
+                isAcceptedMaintEmail = dictionary.CustomAcceptedMaintEmail.Disable
+            }
+            const acceptedMaintEmail = {
+                Name: dictionary.cognitoUserKeyAttributes.CustomAcceptedMaintEmail,
+                Value: isAcceptedMaintEmail
+            };
+            attributeList.push(new CognitoUserAttribute(acceptedMaintEmail));
+            tag.cognitoUser.updateAttributes(attributeList, function(err, result) {
+                if (err) {
+                    const errorObj = {
+                        "message": tag._t('Error_message.error_registration_recept_setting_email')
+                    }
+                    tag.obs.trigger('error-modal-open', Promise.resolve(errorObj));
+                    tag.obs.one('error-modal-close', function(value) {
+                        back()
+                    })
+                } else {
+                    tag.obs.trigger("pm-loader-hide");
+                    back()
+                }
+            });
+        }
+
+        function userAttributeRegistration(event) {
+            event.preventDefault();
+            tag.obs.trigger("pm-loader-show");
+            const form = tag.refs.form
+            tag.commonUtils.submitDisable(form);
+            const requestUserAttrUrl = tag.config.APIGATEWAY_ADDRESS + '/myself/attribute';
+            const userName = tag.refs.userName.value
+            const companyName = tag.refs.companyName.value
+            const departmentName = tag.refs.departmentName.value
+            const country = tag.refs.country.value
+            const companyFlg = tag.refs.companyFlg.checked ? tag.purpose.corporate : tag.purpose.personal
+            const serviceName = dictionary.ServiceName
+            const userInformation = {
+                "userName": userName,
+                "companyName": companyName,
+                "departmentName": departmentName,
+                "countryCode": country,
+                "companyFlg": companyFlg,
+                "callerServiceName": serviceName
+            }
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    var fetchResponse = null
+                    fetch(requestUserAttrUrl, {
+                        method: "PUT",
+                        headers: {
+                            'Authorization': idToken
+                        },
+                        body: JSON.stringify(userInformation)
+                    }).then(function(response) {
+                        fetchResponse = response
+                        return response
+                    }).then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            tag.obs.trigger("pm-loader-hide");
+                            return response.json();
+                        }).then(function(json) {
+                            settingReceiveMaintenanceMail();
+                        }).catch(function(error) {
+                            tag.obs.trigger("pm-loader-hide");
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                            })
+                            tag.obs.trigger("error-modal-open", error);
+                            tag.obs.one("error-modal-close", function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        });
+                }
+            });
+        }
+    </script>
+</user-attribute-registration-container>

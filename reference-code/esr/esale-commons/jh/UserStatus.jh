@@ -1,0 +1,7 @@
+@dto(mapstruct)
+@service(serviceImpl)
+entity UserStatus {
+	userId Long
+    status Integer
+    lastActivityTime Instant
+}

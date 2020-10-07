@@ -1,0 +1,8 @@
+{
+    "Invitations": {
+        "title": "Invitation list",
+        "info": "The invited organization will be displayed. By approving, you can join the organization.",
+        "committed": "Accept",
+        "rejection": "Rejection"
+    }
+}

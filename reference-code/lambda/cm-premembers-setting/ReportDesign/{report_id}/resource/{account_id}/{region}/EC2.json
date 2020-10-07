@@ -1,0 +1,23 @@
+
+{   
+    "EC2": {
+        "Running": [
+            // c2_client.instances.filter(Filters=filter) filterを用いて稼動中のEC2の情報を収集
+        ],
+        "Stop":[
+            // c2_client.instances.filter(Filters=filter) filterを用いて稼動中以外のEC2の情報を収集
+        ],
+        "AMI":[
+            // ec2_client.images.all().filter() filterを用いて自分のアカウントのAMIの情報を収集
+        ],
+        "EBS":[
+            // ec2_client.volumes.all()を用いてEBS情報を収集
+        ],
+        "Snapshot":[
+            // ec2_client.snapshots.all().filter() を用いて自分のアカウントのSnapshotの情報を収集
+        ],
+        "RI":[
+            // // ec2_client.describe_reserved_instances() を用いてRIの情報を収集
+        ]
+    }
+}

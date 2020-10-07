@@ -1,0 +1,59 @@
+{
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "CheckResultID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "CheckHistoryID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "SortCode",
+            "AttributeType": "S"
+        }
+    ],
+    "TableName": "PM_CheckResults",
+    "KeySchema": [
+        {
+            "AttributeName": "CheckResultID",
+            "KeyType": "HASH"
+        }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+        {
+            "IndexName": "CheckHistoryIndex",
+            "KeySchema": [
+                {
+                    "AttributeName": "CheckHistoryID",
+                    "KeyType": "HASH"
+                },
+                {
+                    "AttributeName": "SortCode",
+                    "KeyType": "RANGE"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "INCLUDE",
+                "NonKeyAttributes": [
+                    "OrganizationID",
+                    "OrganizationName",
+                    "ProjectID",
+                    "ProjectName",
+                    "AWSAccountCoopID",
+                    "AWSAccount",
+                    "AWSAccountName",
+                    "OKCount",
+                    "NGCount",
+                    "CriticalCount",
+                    "ManagedCount",
+                    "ErrorCount",
+                    "ExecutedDateTime",
+                    "CreatedAt",
+                    "UpdatedAt"
+                ]
+            }
+        }
+    ]
+}

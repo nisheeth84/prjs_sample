@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Front_Page" pageWidth="595" pageHeight="842" columnWidth="475" leftMargin="60" rightMargin="60" topMargin="40" bottomMargin="40" uuid="072c9a1d-cb98-4614-be55-45c3b4e22e1e">
+	<property name="ireport.zoom" value="1.0000000000000009"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="net.sf.jasperreports.awt.ignore.missing.font" value="true"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\Projects\\prjo_AWSAccount\\30_implementation\\31_requirement\\VN\\Latest\\Luvina Design Require\\templatePdf\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="executedDateTime" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="722" splitType="Stretch">
+			<image>
+				<reportElement x="15" y="389" width="160" height="31" uuid="a42b3930-82bf-442b-925e-f54df98c3b7d"/>
+				<imageExpression><![CDATA["/img/CIS_Certified.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="267" y="659" width="189" height="25" isPrintWhenDetailOverflows="true" uuid="210ffd66-d20b-43a5-aa89-9f03d1cc7e14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="IPAexGothic" size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{front.copyright}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="268" y="601" width="189" height="25" uuid="5e4f8691-a1e7-47e7-9a94-4233ca2b1c7c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="IPAexGothic" size="11" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{executedDateTime}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="272" width="220" height="78" uuid="ead2ca64-5641-4cdb-9bdb-40e793b95d98"/>
+				<imageExpression><![CDATA["/img/iw_yoko.gif"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="11" y="344" width="439" height="32" uuid="86b99ab1-fd06-49ce-bcbe-9d52766f4c05"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="IPAexGothic" size="24" isBold="true" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{front.title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="435" height="20" isPrintWhenDetailOverflows="true" forecolor="#DB0700" uuid="d3a210a2-9f78-44d9-8620-5351ff99c9e3"/>
+				<textElement textAlignment="Right">
+					<font fontName="IPAexGothic" size="14" isBold="true" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{front.confidential}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="286" y="625" width="189" height="34" uuid="0f36219e-c348-4147-b60c-7d5034aed68d"/>
+				<imageExpression><![CDATA["/img/yoko_color_black.gif"]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

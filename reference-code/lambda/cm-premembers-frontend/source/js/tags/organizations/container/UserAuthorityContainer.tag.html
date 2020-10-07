@@ -1,0 +1,115 @@
+<user-authority-container>
+    <div class="page">
+        <div class="page-header pb-0">
+            <div class="page-titl">
+                <h1 class="mt-2">{_t('UserAuthority.title')}</h1>
+            </div>
+        </div>
+        <form ref="form" autocomplete="off" submit="{confirmUpdateAuthorityHandler}" action="#" method="POST">
+            <div class="page-content container-fluid">
+                <div class="row">
+                    <div class="form-group floating col-lg-9">
+                        <label class="floating-label" for="inviteUserEmail">{_t('mail_address')}</label>
+                        <input ref="email" type="email" class="form-control" disabled value="{user.mailAddress}" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group floating col-lg-9">
+                        <label class="floating-label">{_t('authority')}</label>
+                        <select ref="authority" class="form-control" value="{user.authority}">
+                            <option value="3" selected="{3 === user.authority}">{_t('auth_owner')}</option>
+                            <option value="2" selected="{2 === user.authority}">{_t('auth_edit')}</option>
+                            <option value="1" selected="{1 === user.authority}">{_t('auth_view')}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <button type="button" onclick={back} class="btn btn-block btn-default">{_t('back')}</button>
+                    </div>
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-4">
+                        <button type="submit" class="btn btn-block btn-info">{_t('change')}</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <change-confirm-modal-container></change-confirm-modal-container>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        require('../../common/component/ChangeConfirmModal.tag.html')
+        const tag = this
+        tag.cognitoUser = riot.mixin('cognitoUser')
+        const obs = riot.observable()
+        tag.obs = obs
+        tag.organization_id = opts.organization_id
+        tag.back = back
+        const authorityChangeUser = tag.commonUtils.paramReceiver('authorityChangeUser')
+        tag.user = authorityChangeUser
+        tag.confirmUpdateAuthorityHandler = confirmUpdateAuthorityHandler
+        if (tag.commonUtils.isEmpty(authorityChangeUser)) {
+            back()
+        }
+        function back() {
+            window.location.href = '#/organizations/' + tag.organization_id + '/users/'
+        }
+        function confirmUpdateAuthorityHandler(event) {
+            event.preventDefault()
+            const dictionary = tag.commonUtils.getMyDictionary()
+            const beforeAuthority = tag.user.authority
+            const authority = tag.refs.authority.value
+            const target = tag._t(dictionary.Authority[beforeAuthority]) + " → " + tag._t(dictionary.Authority[authority])
+            tag.obs.trigger('change-confirm-modal-open', authority, target)
+            tag.obs.one('change-confirm-modal-close', function(authority) {
+                updateAuthorityExecute(authority)
+            })
+        }
+        function updateAuthorityExecute(authority) {
+            tag.obs.trigger('pm-loader-show');
+            const form = tag.refs.form
+            tag.commonUtils.submitDisable(form);
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    let fetchResponse = null
+                    updateAuthority(idToken, authority)
+                        .then(function(response) {
+                            fetchResponse = response
+                            return response
+                        })
+                        .then(tag.commonUtils.checkStatus)
+                        .then(function() {
+                            back()
+                        }).catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                            })
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            })
+        }
+        function updateAuthority(idToken, authority) {
+            const requestUpdateUserAuthorityUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + tag.organization_id + '/users/' + tag.user.id + '/authority'
+            const requestParam = {
+                "authority": parseInt(authority)
+            }
+            return fetch(requestUpdateUserAuthorityUrl, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': idToken
+                },
+                body: JSON.stringify(requestParam)
+            })
+        }
+
+    </script>
+</user-authority-container>

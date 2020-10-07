@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="365.478" height="61" viewBox="0 0 365.478 61">
+  <g id="Group_25983" data-name="Group 25983" transform="translate(-402 -2152)">
+    <circle id="Ellipse_266" data-name="Ellipse 266" cx="4" cy="4" r="4" transform="translate(573 2180)" fill="#f92525"/>
+    <circle id="Ellipse_267" data-name="Ellipse 267" cx="4" cy="4" r="4" transform="translate(434 2180)" fill="#f92525"/>
+    <circle id="Ellipse_268" data-name="Ellipse 268" cx="4" cy="4" r="4" transform="translate(472 2180)" fill="#f92525"/>
+    <circle id="Ellipse_269" data-name="Ellipse 269" cx="4" cy="4" r="4" transform="translate(535 2180)" fill="#f92525"/>
+    <circle id="Ellipse_270" data-name="Ellipse 270" cx="4" cy="4" r="4" transform="translate(675 2180)" fill="#f92525"/>
+    <circle id="Ellipse_271" data-name="Ellipse 271" cx="4" cy="4" r="4" transform="translate(637 2180)" fill="#f92525"/>
+    <g id="Group_25982" data-name="Group 25982">
+      <rect id="Rectangle_11308" data-name="Rectangle 11308" width="37" height="2" rx="1" transform="translate(402 2183)" fill="#999"/>
+      <g id="Group_25693" data-name="Group 25693" transform="translate(84.791 1009)">
+        <rect id="Rectangle_10586" data-name="Rectangle 10586" width="71" height="2" rx="1" transform="translate(595.209 1174)" fill="#999"/>
+        <g id="Group_1144" data-name="Group 1144" transform="translate(682.687 1186.944) rotate(180)">
+          <rect id="Rectangle_986" data-name="Rectangle 986" width="24" height="24" rx="8" transform="translate(0)" fill="none"/>
+          <path id="Path_14127" data-name="Path 14127" d="M15.5,5H7.061c.01-.312.042-2.687,0-4.147L6.354.146a.5.5,0,0,0-.708,0L1.207,4.586.146,5.646a.5.5,0,0,0,0,.707L1.207,7.414l4.439,4.439a.5.5,0,0,0,.708,0l.707-.706c.01-3.115-.005-3.49,0-4.147H15.5a.5.5,0,0,0,.5-.5v-1A.5.5,0,0,0,15.5,5Z" transform="translate(3 5.943)" fill="#999"/>
+        </g>
+      </g>
+      <path id="Path_14133" data-name="Path 14133" d="M1,0H58a1,1,0,0,1,1,1h0a1,1,0,0,1-1,1H1A1,1,0,0,1,0,1H0A1,1,0,0,1,1,0Z" transform="translate(579 2183)" fill="#999"/>
+      <rect id="Rectangle_11311" data-name="Rectangle 11311" width="59" height="2" rx="1" transform="translate(477 2183)" fill="#999"/>
+      <rect id="Rectangle_10584" data-name="Rectangle 10584" width="35" height="2" rx="1" transform="translate(440 2183)" fill="#f92525"/>
+      <rect id="Rectangle_11312" data-name="Rectangle 11312" width="41" height="2" rx="1" transform="translate(539 2183)" fill="#f92525"/>
+      <text id="_2008_01_01" data-name="2008/01/01" transform="translate(404 2152)" fill="#171615" font-size="14" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="16">2008/01/01</tspan></text>
+      <text id="_2009_01_01" data-name="2009/01/01" transform="translate(506 2152)" fill="#171615" font-size="14" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="16">2009/01/01</tspan></text>
+      <text id="_2008_03_31" data-name="2008/03/31" transform="translate(442 2193)" fill="#171615" font-size="14" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="16">2008/03/31</tspan></text>
+      <rect id="Rectangle_11314" data-name="Rectangle 11314" width="41" height="2" rx="1" transform="translate(641 2183)" fill="#f92525"/>
+      <text id="_2009_03_31" data-name="2009/03/31" transform="translate(546 2193)" fill="#171615" font-size="14" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="16">2009/03/31</tspan></text>
+      <text id="_2010_03_31" data-name="2010/03/31" transform="translate(646 2193)" fill="#171615" font-size="14" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="16">2010/03/31</tspan></text>
+      <text id="_2010_01_01" data-name="2010/01/01" transform="translate(608 2152)" fill="#171615" font-size="14" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="16">2010/01/01</tspan></text>
+    </g>
+  </g>
+</svg>

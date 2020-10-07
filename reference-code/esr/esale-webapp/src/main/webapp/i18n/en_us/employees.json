@@ -1,0 +1,403 @@
+{
+  "employees": {
+    "common": {
+      "lable-require": "※"
+    },
+    "isAdmin": ["Not having administrator privileges", "Having administrator privileges"],
+    "list": {
+      "dialog": {
+        "title-move-to-department": "Transfer department",
+        "message-move-to-department": "Do you want to transfer to another department or hold multiple concurrent roles?",
+        "confirm-transfer-department": "Transfer",
+        "confirm-concurrent-department": "Hold concurrent roles",
+        "cancel-text": "Cancel"
+      },
+      "title": {
+        "manager-name": "Manager: "
+      },
+      "special": {
+        "position-label": "Select position"
+      }
+    },
+    "sidebar": {
+      "title": {
+        "all-user": "All employees",
+        "department": "Department",
+        "quit-job": "Resigned employees",
+        "my-group": "My group",
+        "shared-group": "Shared group"
+      },
+      "search": {
+        "placeholder": "Search department/group"
+      }
+    },
+    "top": {
+      "title": {
+        "btn-registration": "Register employee",
+        "btn-group-operation": "Control group",
+        "btn-edit": "Simple edit",
+        "btn-cancel": "Cancel",
+        "btn-save": "Save changes",
+        "add-to-group": "Add to group",
+        "create-my-group": "Create my group",
+        "create-shared-group": "Create shared group",
+        "move-group": "Move to another group",
+        "leave-group": "Remove from group",
+        "register-employee": "Register employee",
+        "invite-employee": "Invite employee",
+        "register-department": "Register department",
+        "import-employee": "Import employee",
+        "import-department": "Import department"
+      },
+      "place-holder": {
+        "search": "Search employee",
+        "searching": "Edit advanced search"
+      },
+      "dialog": {
+        "title-delete-group": "Delete",
+        "message-delete-group": "Are you sure you want to delete {{itemName}}?",
+        "confirm-delete-group": "Delete",
+        "title-auto-group": "Confirm",
+        "confirm-auto-group": "Change",
+        "title-leave-group": "Delete",
+        "message-leave-group": "Are you sure you want to delete?",
+        "confirm-leave-group": "Leave",
+        "title-remove-manager": "Confirm",
+        "message-remove-manager": "Are you sure you want to remove the manager set for the selected employee?",
+        "confirm-remove-manager": "Remove",
+        "cancel-text": "Cancel"
+      },
+      "label-tooltip": {
+        "button-edit": "Edit",
+        "button-erase": "Delete",
+        "button-switch-display": "Switch display",
+        "button-update": "Update",
+        "button-set-manager": "Set manager",
+        "button-remove-manager": "Remove manager",
+        "button-download": "Download",
+        "button-copy-group": "Copy group",
+        "button-send-email": "Send",
+        "button-top-convert-sharelist": "Convert to shared list"
+      }
+    },
+    "detail": {
+      "label": {
+        "department.name": "'s manager has been appointed.",
+        "button.edit": "Edit screen",
+        "button.cancel": "Cancel",
+        "button.save": "Save",
+        "button.confirm": "OK",
+        "button.follow": "Follow",
+        "button.unfollow": "Unfollow",
+        "button.delete": "DELETE",
+        "button.participate": "Join",
+        "manager": "Manager",
+        "subordinate": "Staff",
+        "remain": "{{count}} others",
+        "amountTotal": "Subtotal",
+        "moneyType": "Yen",
+        "tab.customer": "Customer",
+        "tab.businessCard": "Business card",
+        "tab.calendar": "Calendar",
+        "tab.task": "Task",
+        "tab.group": "Joined group",
+        "tab.tradingProduct": "Trading product",
+        "customerName": "Customer name",
+        "createdDate": "Registration date",
+        "industry": "Industry",
+        "address": "Address",
+        "phoneNumber": "Phone number",
+        "faxNumber": "FAX",
+        "businessCardImage": "Business card image",
+        "customerNameBusinessCardName": "Customer name/Business card name",
+        "departmentTitle": "Department/Position",
+        "contactInformation": "Contact",
+        "deadline": "Due date",
+        "taskName": "Task name",
+        "productName": "Product name",
+        "status": "Status",
+        "personInCharge": "Person in charge",
+        "postedDate": "Posted date",
+        "product": "Product",
+        "customerContactPerson": "Customer's contact person",
+        "progress": "Progress",
+        "completionDate": "Completion date (Estimated)",
+        "amountOfMoney": "Subtotal",
+        "total": "Total",
+        "createDateGroup": "Posted date",
+        "history.day": "",
+        "history.month": "/",
+        "history.year": "/",
+        "history.labelChangeUpdate": "{{employeeName}} has been updated.",
+        "history.labelChangeCreate": "{{employeeName}} has been registered.",
+        "iconSubordinateInformation": "※",
+        "button.preview": "Preview registration",
+        "history.employeeStatus": "Employee status",
+        "history.working": "Normal",
+        "history.retired": "Resigned",
+        "history.deleted": "Deleted",
+        "badges.empty": "No plan"
+      },
+      "title": {
+        "popupErrorMessage.delete": "Delete",
+        "popupChangeStatus": "OK"
+      },
+      "warning": {
+        "popupErrorMessage.delete": "This can not be deleted because there is data related with it."
+      },
+      "suggest": {
+        "popupErrorMessage.delete": "Please try again after deleting such data."
+      },
+      "error": {
+        "delete": {
+          "countCustomers": "Customers for which {{employeeName}} has been set as person in charge: {{count}} items",
+          "countSchedules": "Schedules in which {{employeeName}} has been set as participants: {{count}} items",
+          "countSaleProducts": "Products traded by {{employeeName}}: {{count}} items",
+          "countNameCards": "Business cards received by {{employeeName}}: {{count}} items",
+          "countTimeLines": "Number of comments/posts on timeline of {{employeeName}}: {{count}} items",
+          "countTimeLineGroups": "Number of timeline groups {{employeeName}} has joined: {{count}} items",
+          "countTimeLineGroupsFavorites": "Number of timeline groups {{employeeName}} added to favorite: {{count}} items",
+          "countTimeLineWatchs": "Number of timelines {{employeeName}}’s following: {{count}} items",
+          "countTimeLineNotices": "Number of notifications sent to {{employeeName}}'s timeline : {{count}} items",
+          "countTimeLineStars": "Number of timeline posts {{employeeName}} liked: {{count}} items",
+          "countTimeLineReactions": "Number of reactions on {{employeeName}}'s timeline: {{count}} items",
+          "countTimeLineFilters": "Number of filtered information on {{employeeName}}'s timeline : {{count}} items",
+          "countActivities": "Activites reported by {{employeeName}}: {{count}} items",
+          "countAnalysisReports": "Reports {{employeeName}} has done as participants: {{count}} items",
+          "countTodos": "Tasks in which {{employeeName}} has been set as person in charge: {{count}} items",
+          "countOcrNameCards": "Business cards {{employeeName}} received from mobile app: {{count}} items"
+        }
+      },
+      "info": {
+        "infoScroll": "Scroll up to view more"
+      },
+      "calendar": {
+        "today": " 今日"
+      }
+    },
+    "group-card": {
+      "submenu": {
+        "edit-group": "Edit group",
+        "delete-group": "Delete group",
+        "duplicate-group": "Copy group",
+        "change-my-list-to-share-group": "Convert to shared list"
+      }
+    },
+    "department-card": {
+      "submenu": {
+        "edit-department": "Edit department",
+        "delete-department": "Delete department"
+      }
+    },
+    "popup": {
+      "move-to-department": {
+        "title": "Transfer department",
+        "transfer-option": "Transfer",
+        "concurrent-option": "Hold concurrent roles",
+        "cancel-text": "Cancel"
+      },
+      "delete-employee-popup": {
+        "title": "Delete",
+        "confirm-text": "OK"
+      }
+    },
+    "group": {
+      "group-modal-move-to-group": {
+        "title": "Move to another group",
+        "employee-checklist-length": "{{empCheckListLength}} item(s) will be moved to another group.",
+        "group-title": "Group to move",
+        "group-default-option": "Select a target group",
+        "button-move": "Move",
+        "button-close": "×",
+        "button-cancel": "Cancel",
+        "button-confirm": "OK",
+        "required": "※"
+      },
+      "group-modal-add-to-group": {
+        "title": "Add to group",
+        "employee-checklist-length": "{{empCheckListLength}} item(s) will be added to another group.",
+        "group-title": "Group to add",
+        "group-default-option": "Select a target group",
+        "button-add": "Add",
+        "button-cancel": "×",
+        "my-group": "My group",
+        "share-group": "Shared group",
+        "required": "※"
+      },
+      "group-modal-create-my-group": {
+        "title": "Create my group",
+        "employee-checklist-length": "{{empCheckListLength}} item(s) will be added to a new group.",
+        "group-title": "Group name",
+        "group-name-placeholder": "Enter group name",
+        "button-create": "Create",
+        "button-cancel": "×",
+        "required": "※"
+      },
+      "group-modal-add-edit-my-group": {
+        "title": "Create my group",
+        "edit_title": "Edit my group",
+        "group-title": "Group name",
+        "required": "※",
+        "group-name-placeholder": "Enter group name",
+        "display-other-language": "Show other languages",
+        "group_type": "Type of group",
+        "radio-manual": "Manual",
+        "radio-auto": "Auto-added",
+        "button-create": "Create",
+        "button-edit": "Update",
+        "button-cancel": "×",
+        "auto-group-condition-search-title": "Search conditions for auto-added group",
+        "setting-search-condition": "Set search condition",
+        "is-overwrite": "Delete updated items that do not match with these conditions from the group.",
+        "list-update-time": "Update group automatically at {{0}} o’clock everyday"
+      },
+      "setting-search-condition": {
+        "cancel": "Cancel",
+        "save-search-condition": "Save",
+        "checkbox-select-all": "Select all",
+        "checkbox-deselect": "Deselect all",
+        "checkbox-select-inversion": "Reverse selection",
+        "textbox-search-placeholder": "Search employee"
+      }
+    },
+    "department": {
+      "department-regist-edit": {
+        "form": {
+          "title.regist": "Register department",
+          "title.edit": "Edit department",
+          "departmentName": "Department name",
+          "departmentName.placeholder": "Enter department name",
+          "managerId": "Manager",
+          "managerId.default": "Select manager",
+          "parentId": "Assigned department",
+          "parentId.default": "Select assigned department",
+          "button.regist": "Register",
+          "button.edit": "Save",
+          "button.cancel": "Cancel",
+          "button.confirm": "OK",
+          "button.close": "×",
+          "required": "※"
+        }
+      }
+    },
+    "displayCondition": {
+      "buttonShowCondition": "Advanced",
+      "form": {
+        "conditionSearch": "Advanced search conditions",
+        "filter": "Filtering criteria",
+        "conditionSave": "Conditions to save auto-added list"
+      },
+      "buttonShowScroll": "Show all"
+    },
+    "manager": {
+      "manager-setting": {
+        "form": {
+          "title": "Set manager",
+          "managerName": "Manager of organization: ",
+          "employeeName": "Target employee: ",
+          "organizationNanager": "Set organization manager",
+          "individualManager": "Set manager individually",
+          "manager": "Manager",
+          "manager.default": "Select manager",
+          "button.edit": "Save",
+          "button.cancel": "Cancel",
+          "button.confirm": "OK"
+        }
+      }
+    },
+    "inviteEmployees": {
+      "form": {
+        "title.inviteEmployees": "Invitation list",
+        "title.informationLine1": "Enter name, email address, department, license of the employees you want to invite, then send invitation email.",
+        "title.informationLine2": "Package {{packageName}}: {{remainPackages}} packages left",
+        "title.informationLine3": "Package limit exceeded.",
+        "title.tooltip": "Add new row based on the previous department, license, option.",
+        "title.invitedMember": "Invited members",
+        "modal.name": "Invite employees",
+        "header.memberName": "Invited member's name",
+        "header.memberEmail": "Email address",
+        "header.memberDepartment": "Department",
+        "header.memberPackage": "Package",
+        "header.memberLogin": "Contractor site",
+        "header.memberAdmin": "Admin",
+        "label.surname": "Last name",
+        "label.name": "First name",
+        "placeholder.surname": "Enter last name",
+        "placeholder.name": "Enter first name",
+        "placeholder.email": "Enter email address",
+        "placeholder.department": "Select department",
+        "placeholder.package": "Select package",
+        "label.red": "※",
+        "button.addRow": "Add row",
+        "button.cancel": "Cancel",
+        "button.ok": "Send invitation",
+        "button.notify": "Click here if you received an error message",
+        "notify.sendedMail": "Invitation emails have been sent to the members. If sending fails, you may receive an error message.",
+        "button.addNew": "Add",
+        "button.finish": "Complete"
+      },
+      "error": {
+        "emailFormat": "Email address"
+      }
+    },
+    "create-edit": {
+      "button-add-department": "Add department/position",
+      "position-placehoder": "Select position",
+      "department-placehoder": "Select department",
+      "modal-title-create": "Register employee",
+      "modal-title-edit": "Edit employee",
+      "button-cancel": "Cancel",
+      "button-create": "Register",
+      "button-edit": "Save",
+      "label-employee-surname": "Account name",
+      "label-employee-surname-kana": "Account name (Kana)",
+      "label-departmanet": "Department/Position",
+      "label-admin": "Having administrator privilege",
+      "label-login": "Set login permission for contractor site",
+      "label-received-mail": "Send account notification email",
+      "send-email.title-modal": "Notification",
+      "send-email.button-cancel": "Cancel",
+      "send-email.button-send": "Send",
+      "send-email.placeholder": "Enter notification content",
+      "send-email.label": " Are you sure you want to send this invitation email?",
+      "placeholder.department": "Select department"
+    },
+    "settings": {
+      "icon-change-password": "Password settings",
+      "icon-language-timezone": "Language and time settings",
+      "icon-notify": "Notification settings",
+      "icon-gear": "Personal settings",
+      "notify": {
+        "receive-settings": "Notification Settings",
+        "destination-posts-comments": "When you are specified as a receiver for posts/comments",
+        "posts-article": "When there are new reactions to your posts.",
+        "posts-comments": "When there are new comments on your post.",
+        "posts-comments-of-comments": "When there are comments added to a post that you had commented on",
+        "schedule-register-update": "When any schedules in which you were set as a participant are registered or updated.",
+        "task-register-update": "When there are posts registered or updated in the task in which you were set as a person in charge.",
+        "completed-article": "When there are posts regarding the completion of simulation/import",
+        "schedule": "Schedule",
+        "milestone": "Milestones",
+        "task": "Task",
+        "notify-daily-task": "Notify daily tasks",
+        "prefix-send-to": "will be notified at ",
+        "send-to": " everyday.",
+        "send-placeholder": "Select time",
+        "destination-email": "Receiver",
+        "add-email": "Add email address",
+        "button-save": "Save"
+      },
+      "language-time-zone-settings": {
+        "language": "Language",
+        "timezone": "Timezone",
+        "date-format": "Date format",
+        "submit": "Save"
+      }
+    },
+    "popup-warning": {
+      "title": "License is insufficent.",
+      "warning-1": "Some available features might be restricted as you have exceeded the number of licenses which you have purchased. Please remove the licenses in excess from Employee and set the number of using licenses below the number of license purchased.",
+      "warning-2": "In case you would like to update the number of licenses, please make additional purchase from the contractor's site."
+    }
+  }
+}

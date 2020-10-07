@@ -1,0 +1,99 @@
+<aws-coop-modal>
+    <div class="modal fade" id="aws-coop-modal" aria-hidden="false" aria-labelledby="exampleFormModalLabel" role="dialog" tabindex="-1"
+        style="display: none;">
+        <div class="modal-dialog">
+            <form class="modal-content" ref=form submit={registerClick}>
+                <div class="modal-header pb-5">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">{_t('AwsCoopModal.title')}</h4>
+                </div>
+                <div class="modal-body pt-5">
+                    <p>{_t('AwsCoopModal.info')}</p>
+                    <div class="row">
+                        <div class="form-group floating col-5">
+                            <label class="floating-label">{_t('account_id')}</label>
+                            <input type="text" class="form-control" ref="accountID" name="AccountID" value={awsCoop.awsAccount} required readonly="{awsCoop.effective == 1}"
+                                placeholder="{_t('account_id_example')}">
+                        </div>
+                        <div class="form-group floating col-7">
+                            <label class="floating-label">{_t('external_id')}</label>
+                            <input type="text" class="form-control" readonly ref="externalID" name="ExternalID" value="{awsCoop.externalId}">
+                        </div>
+                        <div class="form-group floating col-12">
+                            <label class="floating-label">{_t('iam_role_name')}</label>
+                            <input type="text" class="form-control" ref="roleName" name="RoleName" value="{awsCoop.roleName}" readonly="{!awsCoop.isOwner}"
+                                required placeholder="{_t('iam_role_name_example')}">
+                        </div>
+                        <div class="form-group floating col-12">
+                            <label class="floating-label">{_t('insightwatch_account_id')}</label>
+                            <input type="text" class="form-control" ref="insightwatchAccountId" value="{awsCoop.insightwatchAccountId}" readonly required
+                                placeholder="{_t('insightwatch_account_id_example')}">
+                        </div>
+                        <div class="form-group floating col-12">
+                            <label class="floating-label">{_t('account_name')}</label>
+                            <input type="text" class="form-control" ref="accountName" name="AccountName" value={awsCoop.awsAccountName} readonly="{!awsCoop.isOwner}"
+                                placeholder="{_t('account_name_example')}">
+                        </div>
+                        <div class="form-group floating col-12 mb-10">
+                            <label class="floating-label">{_t('description')}</label>
+                            <textarea class="form-control" rows="3" ref="description" name="textareaFloating" value={awsCoop.description} readonly="{!awsCoop.isOwner}"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-12 pull-right">
+                        <button class="btn btn-default waves-effect waves-light" data-dismiss="modal" type="button">{_t('back')}</button>
+                        <button if="{awsCoop.isOwner }" class="btn btn-primary waves-effect waves-light" type="submit">{_t('regist')}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        const tag = this;
+        const obs = tag.parent.obs
+        tag.observer = obs;
+        tag.awsCoop = {}
+        tag.registerClick = registerClick
+        tag.awsAccountId = tag.config.AWS_ACCOUNT_ID
+        tag.on('mount', function() {
+            tag.modal = $('#aws-coop-modal');
+            tag.observer.on("aws-coop-modal-open", function(awsCoop) {
+                tag.awsCoop = {}
+                tag.update()
+                tag.awsCoop = awsCoop
+                const form = tag.refs.form
+                tag.commonUtils.submitEnable(form)
+                tag.modal.modal()
+                tag.update();
+            });
+            tag.modal.on('hidden.bs.modal', function(e) {
+                const returnAwsCoop = tag.awsCoop
+                returnAwsCoop['isEdit'] = false
+                tag.observer.trigger("aws-coop-modal-close", returnAwsCoop);
+            });
+        })
+        tag.on('unmount', function() {
+            tag.modal.off('hidden.bs.modal');
+        })
+        function registerClick(event) {
+            event.preventDefault()
+            const form = tag.refs.form
+            tag.commonUtils.submitDisable(form)
+            const editAwsCoop = tag.awsCoop
+            const awsAccount = tag.refs.accountID.value.trim()
+            const accountName = tag.refs.accountName.value
+            const roleName = tag.refs.roleName.value.trim()
+            const description = tag.refs.description.value
+            editAwsCoop['awsAccount'] = awsAccount
+            editAwsCoop['awsAccountName'] = accountName
+            editAwsCoop['roleName'] = roleName
+            editAwsCoop['description'] = description
+            editAwsCoop['isEdit'] = true
+            tag.observer.trigger("aws-coop-modal-close", editAwsCoop)
+            tag.modal.modal('hide')
+        }
+    </script>
+</aws-coop-modal>

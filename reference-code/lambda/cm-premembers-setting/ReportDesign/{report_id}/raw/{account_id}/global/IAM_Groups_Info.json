@@ -1,0 +1,300 @@
+[
+    {
+        "Group": {
+            "Arn": "arn:aws:iam::109054975408:group/cm-di",
+            "CreateDate": {
+                "$date": 1470728537000
+            },
+            "GroupId": "AGPAJLYVUUW5A6ILGUO6A",
+            "GroupName": "cm-di",
+            "Path": "/"
+        },
+        "IsTruncated": false,
+        "ResponseMetadata": {
+            "HTTPHeaders": {
+                "content-length": "5722",
+                "content-type": "text/xml",
+                "date": "Thu, 21 Sep 2017 07:53:11 GMT",
+                "vary": "Accept-Encoding",
+                "x-amzn-requestid": "eaa0cfb5-9ea1-11e7-a63c-eb1998e8a01c"
+            },
+            "HTTPStatusCode": 200,
+            "RequestId": "eaa0cfb5-9ea1-11e7-a63c-eb1998e8a01c",
+            "RetryAttempts": 0
+        },
+        "Users": [
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cm-tsukuma.hirokazu",
+                "CreateDate": {
+                    "$date": 1470728411000
+                },
+                "PasswordLastUsed": {
+                    "$date": 1504574054000
+                },
+                "Path": "/",
+                "UserId": "AIDAI36NTSXK5OGWMBGXY",
+                "UserName": "cm-tsukuma.hirokazu"
+            },
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cm-hakamata-s3-test",
+                "CreateDate": {
+                    "$date": 1504851953000
+                },
+                "Path": "/",
+                "UserId": "AIDAI635E4BEX2N3NRO6M",
+                "UserName": "cm-hakamata-s3-test"
+            },
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cm-kawasaki.teruo",
+                "CreateDate": {
+                    "$date": 1471959710000
+                },
+                "PasswordLastUsed": {
+                    "$date": 1505197389000
+                },
+                "Path": "/",
+                "UserId": "AIDAIADS2U24BV3CK54VE",
+                "UserName": "cm-kawasaki.teruo"
+            },
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cm-katsuki",
+                "CreateDate": {
+                    "$date": 1495421985000
+                },
+                "PasswordLastUsed": {
+                    "$date": 1504766856000
+                },
+                "Path": "/",
+                "UserId": "AIDAIBFVWM42VHURECVVM",
+                "UserName": "cm-katsuki"
+            },
+            {
+                "Arn": "arn:aws:iam::109054975408:user/sushiro-alexa-user",
+                "CreateDate": {
+                    "$date": 1501551794000
+                },
+                "Path": "/",
+                "UserId": "AIDAIEC3VT7FZWFRLTQEG",
+                "UserName": "sushiro-alexa-user"
+            },
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cm-abe.shinya",
+                "CreateDate": {
+                    "$date": 1480930470000
+                },
+                "PasswordLastUsed": {
+                    "$date": 1503497707000
+                },
+                "Path": "/",
+                "UserId": "AIDAIGR7HTVZJVMJBUHZW",
+                "UserName": "cm-abe.shinya"
+            },
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cm-ishikawa.satoru",
+                "CreateDate": {
+                    "$date": 1495422277000
+                },
+                "PasswordLastUsed": {
+                    "$date": 1495423364000
+                },
+                "Path": "/",
+                "UserId": "AIDAIJXN5Y57DY2TZMVWM",
+                "UserName": "cm-ishikawa.satoru"
+            },
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cm-honda_tetsuyuki",
+                "CreateDate": {
+                    "$date": 1470807904000
+                },
+                "PasswordLastUsed": {
+                    "$date": 1505954832000
+                },
+                "Path": "/",
+                "UserId": "AIDAIL24DGKNRFFT6ZIKU",
+                "UserName": "cm-honda_tetsuyuki"
+            },
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cm-kondo.shigenori",
+                "CreateDate": {
+                    "$date": 1504574115000
+                },
+                "PasswordLastUsed": {
+                    "$date": 1505696461000
+                },
+                "Path": "/",
+                "UserId": "AIDAIO3QU3NLZISUMBVLI",
+                "UserName": "cm-kondo.shigenori"
+            },
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cm-honda_shuntaro",
+                "CreateDate": {
+                    "$date": 1470807789000
+                },
+                "PasswordLastUsed": {
+                    "$date": 1505810497000
+                },
+                "Path": "/",
+                "UserId": "AIDAIR45KEKUO6TWTAXVK",
+                "UserName": "cm-honda_shuntaro"
+            },
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cm-mikami.yuki",
+                "CreateDate": {
+                    "$date": 1480639558000
+                },
+                "PasswordLastUsed": {
+                    "$date": 1505746507000
+                },
+                "Path": "/",
+                "UserId": "AIDAJ6REH7Q7KYQZ4HMXK",
+                "UserName": "cm-mikami.yuki"
+            },
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cm-tago.masayuki",
+                "CreateDate": {
+                    "$date": 1484198274000
+                },
+                "PasswordLastUsed": {
+                    "$date": 1505454368000
+                },
+                "Path": "/",
+                "UserId": "AIDAJB5BTKTWHFNBIE4YS",
+                "UserName": "cm-tago.masayuki"
+            },
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cmp-moriwaki",
+                "CreateDate": {
+                    "$date": 1478488279000
+                },
+                "PasswordLastUsed": {
+                    "$date": 1505805203000
+                },
+                "Path": "/",
+                "UserId": "AIDAJBPPSGC7JCXF26EVU",
+                "UserName": "cmp-moriwaki"
+            },
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cm-kajiwara",
+                "CreateDate": {
+                    "$date": 1470791196000
+                },
+                "PasswordLastUsed": {
+                    "$date": 1505472484000
+                },
+                "Path": "/",
+                "UserId": "AIDAJFEVB2XXC3RPGQDDW",
+                "UserName": "cm-kajiwara"
+            },
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cm-ootaki.kentaro",
+                "CreateDate": {
+                    "$date": 1471339714000
+                },
+                "PasswordLastUsed": {
+                    "$date": 1502877140000
+                },
+                "Path": "/",
+                "UserId": "AIDAJLUSK4EO72YCK2LHI",
+                "UserName": "cm-ootaki.kentaro"
+            },
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cm-ozawa",
+                "CreateDate": {
+                    "$date": 1478051280000
+                },
+                "PasswordLastUsed": {
+                    "$date": 1505967846000
+                },
+                "Path": "/",
+                "UserId": "AIDAJWCW3ANJAVAB5KGYS",
+                "UserName": "cm-ozawa"
+            }
+        ]
+    },
+    {
+        "Group": {
+            "Arn": "arn:aws:iam::109054975408:group/di_app_manage",
+            "CreateDate": {
+                "$date": 1470730185000
+            },
+            "GroupId": "AGPAI76IZOY76HN2CYPHC",
+            "GroupName": "di_app_manage",
+            "Path": "/"
+        },
+        "IsTruncated": false,
+        "ResponseMetadata": {
+            "HTTPHeaders": {
+                "content-length": "2176",
+                "content-type": "text/xml",
+                "date": "Thu, 21 Sep 2017 07:53:11 GMT",
+                "vary": "Accept-Encoding",
+                "x-amzn-requestid": "eac212e6-9ea1-11e7-a63c-eb1998e8a01c"
+            },
+            "HTTPStatusCode": 200,
+            "RequestId": "eac212e6-9ea1-11e7-a63c-eb1998e8a01c",
+            "RetryAttempts": 0
+        },
+        "Users": [
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cmp-shono",
+                "CreateDate": {
+                    "$date": 1503371685000
+                },
+                "PasswordLastUsed": {
+                    "$date": 1503622191000
+                },
+                "Path": "/",
+                "UserId": "AIDAI4QETNW5ADFIHBTK2",
+                "UserName": "cmp-shono"
+            },
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cmp-ohama",
+                "CreateDate": {
+                    "$date": 1470736896000
+                },
+                "PasswordLastUsed": {
+                    "$date": 1505444744000
+                },
+                "Path": "/",
+                "UserId": "AIDAI6WTIOLKBO4H2OBGU",
+                "UserName": "cmp-ohama"
+            },
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cmp-honjo",
+                "CreateDate": {
+                    "$date": 1470729836000
+                },
+                "PasswordLastUsed": {
+                    "$date": 1505965998000
+                },
+                "Path": "/",
+                "UserId": "AIDAIVHJBDFBAZSZI4HUC",
+                "UserName": "cmp-honjo"
+            },
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cm-inage.toru",
+                "CreateDate": {
+                    "$date": 1475144027000
+                },
+                "PasswordLastUsed": {
+                    "$date": 1503981404000
+                },
+                "Path": "/",
+                "UserId": "AIDAJ3H2FPS5OVSG77ZWQ",
+                "UserName": "cm-inage.toru"
+            },
+            {
+                "Arn": "arn:aws:iam::109054975408:user/cmp-fukuhara.tomoki",
+                "CreateDate": {
+                    "$date": 1502097423000
+                },
+                "PasswordLastUsed": {
+                    "$date": 1505279444000
+                },
+                "Path": "/",
+                "UserId": "AIDAJXZWTEC4PRT7KVUYU",
+                "UserName": "cmp-fukuhara.tomoki"
+            }
+        ]
+    }
+]

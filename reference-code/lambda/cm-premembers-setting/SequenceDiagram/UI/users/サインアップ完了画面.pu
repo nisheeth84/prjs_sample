@@ -1,0 +1,22 @@
+@startuml{サインアップ完了画面.png}
+title [サインアップ完了画面]
+hide footbox
+
+actor ユーザー as user
+boundary サインアップ完了画面 as view_1
+boundary 初回組織登録画面 as view_2
+
+== 表示 ==
+user -> view_1 :画面表示
+activate view_1
+    view_1 -> view_1 :画面描画
+    view_1 --> user
+deactivate view_1
+
+== 利用開始 ==
+user -> view_1 :利用開始
+activate view_1
+    view_1 -> view_2 :表示
+deactivate view_1
+
+@enduml

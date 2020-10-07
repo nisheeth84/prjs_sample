@@ -1,0 +1,60 @@
+<site-footer>
+  <footer class="{createFooterClass()}">
+    <div class="row">
+      <div class="col-5">
+        <a href="{_t('SiteFooter.inquiry_url')}" target="_blank">
+          <i class="icon fa-comment" aria-hidden="true"></i>
+          {_t('SiteFooter.inquiry')}
+        </a>
+        <span class="mx-5">|</span>
+        <a href="{_t('SiteFooter.user_guide_url')}" target="_blank">
+          <i class="icon fa-book" aria-hidden="true"></i>
+          {_t('SiteFooter.user_guide')}
+        </a>
+        <span class="mx-5">|</span>
+        <a href="{_t('SiteFooter.faq_url')}" target="_blank">
+          <i class="icon fa-book" aria-hidden="true"></i>
+          {_t('SiteFooter.faq')}
+        </a>
+      </div>
+      <div class="col-3">
+        <p class="text-left">
+          {_t('copyright')}
+        </p>
+      </div>
+      <div class="col-4 inline ">
+        <div class="float-right">
+          <a href="{_t('terms_of_service_url')}" target="_blank">
+            <i class="icon fa-book" aria-hidden="true"></i>
+            {_t('terms_of_service')}
+          </a>
+          <span class="mx-5">|</span>
+          <a href="{_t('SiteFooter.privacy_policy_url')}" target="_blank">
+            <i class="icon fa-book" aria-hidden="true"></i>
+            {_t('SiteFooter.privacy_policy')}
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="page-copyright">
+    </div>
+  </footer>
+  <error-common-modal></error-common-modal>
+  <pm-common-loading></pm-common-loading>
+  <script>
+    const tag = this
+    const obs = riot.observable()
+    tag.obs = obs
+    riot.obs_footer = obs
+    tag.createFooterClass = createFooterClass
+    function createFooterClass() {
+      const footerClass = {
+        'site-footer': true,
+        'fixed-bottom': true,
+        'bg-white': true,
+        'margin-left_0': tag.opts.is_doc
+      }
+      return footerClass
+    }
+  </script>
+</site-footer>

@@ -1,0 +1,67 @@
+{
+  "data": {
+    "employeesSuggestion": {
+      "departments": [],
+      "employees": [],
+      "groups": [
+        {
+          "groupId": 86,
+          "groupName": "sdf asdf asdf asdf safd sa fdsdf asdf asdf asdf ád"
+        },
+        {
+          "groupId": 90,
+          "groupName": "Test date 1"
+        },
+        {
+          "groupId": 91,
+          "groupName": "test date display"
+        },
+        {
+          "groupId": 101,
+          "groupName": "L_Share_Test"
+        },
+        {
+          "groupId": 135,
+          "groupName": "Test date 6/4"
+        },
+        {
+          "groupId": 136,
+          "groupName": "Test date 2"
+        },
+        {
+          "groupId": 177,
+          "groupName": "共有グループnameA"
+        },
+        {
+          "groupId": 282,
+          "groupName": "共有グループ Hang"
+        },
+        {
+          "groupId": 285,
+          "groupName": "TestMail"
+        },
+        {
+          "groupId": 357,
+          "groupName": "aaaa"
+        },
+        {
+          "groupId": 365,
+          "groupName": "nam-test-nho3"
+        },
+        {
+          "groupId": 367,
+          "groupName": "123coynghia"
+        },
+        {
+          "groupId": 399,
+          "groupName": "dsada"
+        },
+        {
+          "groupId": 493,
+          "groupName": "666metal"
+        }
+      ],
+      "total": 0
+    }
+  }
+}

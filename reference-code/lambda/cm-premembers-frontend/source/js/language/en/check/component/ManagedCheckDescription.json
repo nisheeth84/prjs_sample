@@ -1,0 +1,20 @@
+{
+    "ManagedCheckDescription": {
+        "title_managed": "Management items in Classmethod members (managed)",
+        "description_managed_1": "Thank you for using Classmethod members.",
+        "description_managed_2": "With regard to this item, since it becomes an item managed by the Classmethod, customer correspondence is unnecessary.",
+        "description_managed_3": "\"Managed\" is displayed in the report result.",
+        "list_account_members": "Classmethod Members account list",
+        "managed_checkitem_description": {
+            "root_account": "The root account gets third party authentication (MSP, PCIDSS, ISMS) and strictly manages it with Classmethod.",
+            "classmethod_managed": "Customer response is unnecessary because it is managed by Classmethod.",
+            "security_questions": "Used for identity authentication with AWS customer service.",
+            "detailed_billing_1": "You can check fees by activating billing report.",
+            "detailed_billing_2": "For customers of Classmethod members, please confirm the fee from CMP (Classmethod Members Portal)",
+            "current_contact": "AWS will contact this address.",
+            "security_contact": "AWS will contact this address. We will contact you via our support",
+            "aws_support_1": "Customers of Classmethod members provide support in Classmethod.",
+            "aws_support_2": "Please contact CMP (Classmethod Members Portal) for inquiries."
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "Error_message": {
+        "auth_error_message": "Authentication error",
+        "auth_error_description": "An error occurred during authentication associated with API execution",
+        "client_error_message": "Client error",
+        "client_error_description": "An exception occurred during communication with the API.",
+        "signOut_error_title": "Sign out failed.",
+        "signOut_error_message": "I'm sorry. Please contact support.",
+        "regist_language_error": "Failed to register display language setting.",
+        "set_mfa_failed": "Failed to set MFA. Please try setup again.",
+        "check_error_message_1": "Execution of security checkup failed.",
+        "check_error_message_2": "If failure occurs repeatedly, please contact support.",
+        "error_registration_recept_setting_email": "Failed to register user attributions. Redirecting to the home page. Please register attributions again in the user information page.",
+        "error_update_recept_setting_email": "Failed to change email preferences. Please click the change button again. If failure occurs repeatedly, please contact support.",
+        "aws_account_not_selected": "AWS account is not selected",
+        "test_slack_error_message": "Failed to connect to Slack.",
+        "apply_change_email_error_title": "This email address is already  in use",
+        "apply_change_email_error_body": "This email address is already in use by another account. Please use another email address and try again or if you've already submitted a change please wait as it may take a few minutes to apply.",
+        "session_expired_error_message": "一定時間操作されなかったため、セッションタイムアウトになりました。<br>再度、<a class=\"margin-left_0\" href=\"/app/\">ログイン画面</a> を表示し、ログインしなおしてください。<br>また、自動的にinsightwatchのログイン画面へ遷移します。",
+        "password_expired_error_message_1": "招待された際に発行された初期パスワードの有効期限が切れています。",
+        "password_expired_error_message_2": "再度、組織のオーナーに招待を依頼してください。"
+    }
+}

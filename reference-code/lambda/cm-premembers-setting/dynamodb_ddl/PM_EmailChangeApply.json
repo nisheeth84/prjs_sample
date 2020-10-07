@@ -1,0 +1,44 @@
+{
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "ApplyID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "UserID",
+            "AttributeType": "S"
+        }
+    ],
+    "TableName": "PM_EmailChangeApply",
+    "KeySchema": [
+        {
+            "AttributeName": "ApplyID",
+            "KeyType": "HASH"
+        }
+    ],
+    "ProvisionedThroughput": {
+        "ReadCapacityUnits": 5,
+        "WriteCapacityUnits": 5
+    },
+    "GlobalSecondaryIndexes": [
+        {
+            "IndexName": "UserIndex",
+            "KeySchema": [
+                {
+                    "AttributeName": "UserID",
+                    "KeyType": "HASH"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "INCLUDE",
+                "NonKeyAttributes": [
+                    "AfterMailAddress"
+                ]
+            },
+            "ProvisionedThroughput": {
+                "ReadCapacityUnits": 5,
+                "WriteCapacityUnits": 5
+            }
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+@startuml{API_チェック_セキュリティチェック結果サマリー取得.png}
+title [チェックAPI_セキュリティチェック結果サマリー取得]
+hide footbox
+
+boundary 画面 as view
+participant チェックAPI as api_check #cyan
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database 最新チェック結果 as table_latest_check <<dynamodb>> #royalblue
+database チェック結果 as table_check_result <<dynamodb>> #royalblue
+
+view -> api_check :GET /check/securitycheck/results/summary
+activate api_check
+    api_check -> api_check :メールアドレス取得
+    api_check -> table_affiliation :所属組織取得
+    table_affiliation --> api_check
+    |||
+    loop 1, 所属組織数
+        note over api_check, table_latest_check :所属組織ごとに、最新チェック結果のチェック履歴IDを取得する
+        api_check -> table_latest_check :query（組織IDをキーとする）
+        table_latest_check --> api_check
+        |||
+    end
+    loop 1, チェック履歴ID数（=プロジェクト数）
+        note over api_check, table_check_result :取得した全てのチェック履歴IDごとにチェック結果を取得する
+        api_check -> table_check_result :query（CheckHistoryIndex: チェック履歴IDをキーとする）
+        table_check_result --> api_check
+        |||
+    end
+    |||
+    api_check -> api_check :チェック結果合計 
+    note right :取得した全てのチェック結果の「OK数」「NG数」「CRITICAL数」\n「メンバーズ管理数」「エラー数」をそれぞれ合計する
+    api_check -> api_check :レスポンス作成
+    api_check --> view :200:チェック結果サマリー
+deactivate api_check
+
+@enduml

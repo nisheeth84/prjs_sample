@@ -1,0 +1,16 @@
+{
+    "CheckHistory": {
+        "description_check_history": "You can download a report of past security checkup results.",
+        "execution_date_and_time": "Report date and time",
+        "status": "Status",
+        "pdf": "PDF",
+        "no_output": "No output",
+        "waiting": "Waiting",
+        "checking_in_progress": "security checkup in progress",
+        "check_execution_completed": "security checkup report completed",
+        "aggregating": "Aggregating",
+        "aggregation_complete": "Aggregation complete",
+        "report_outputting": "Report outputting",
+        "report_output_complete": "Report output complete"
+    }
+}

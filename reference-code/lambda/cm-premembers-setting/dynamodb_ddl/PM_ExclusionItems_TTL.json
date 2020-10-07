@@ -1,0 +1,7 @@
+{
+    "TableName": "PM_ExclusionItems",
+    "TimeToLiveSpecification": {
+        "Enabled": true,
+        "AttributeName": "TimeToLive"
+    }
+}

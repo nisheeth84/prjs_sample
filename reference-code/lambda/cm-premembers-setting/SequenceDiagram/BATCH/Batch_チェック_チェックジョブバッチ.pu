@@ -1,0 +1,133 @@
+@startuml{Batch_チェック_チェックジョブバッチ.png}
+title [チェックバッチ_チェックジョブバッチ]
+hide footbox
+
+participant チェックジョブバッチ as batch_check_job <<batch>> #darkorange
+'database プロジェクト as table_projects <<dynamodb>> #royalblue
+database AWSアカウント連携 as table_awsac_coops <<dynamodb>> #royalblue
+database チェック履歴 as table_check_history <<dynamodb>> #royalblue
+database チェック結果 as table_check_results <<dynamodb>> #royalblue
+database 個別チェック結果 as table_check_resultitems <<dynamodb>> #royalblue
+database チェックストレージ as storage <<s3>> #crimson
+database チェックジョブ履歴 as storage_check_joblog <<s3>> #crimson
+database 組織タスク as table_org_task <<dynamodb>> #royalblue
+database 組織タスクトピック as topic_org_task <<sns>> #gold
+database 組織タスクキュー as queue_org_task <<sqs>> #gold
+box "ユーザーのAWS" #floralwhite
+participant AWS as users_aws #efaf27
+end box
+
+->> batch_check_job
+note right :実行時引数としてチェック履歴ID（必須）、ログID（オプション）を受け取る
+activate batch_check_job
+    batch_check_job -> batch_check_job :引数のバリデーションチェック
+    |||
+    opt 引数でログIDが渡された場合
+    |||
+    batch_check_job -> batch_check_job :ログストリーム名記録
+    activate batch_check_job
+        batch_check_job -> storage_check_joblog :ファイル取得 {bucket}/check_batch/{CheckHistoryID}/{LogID}.json
+        storage_check_joblog --> batch_check_job
+        batch_check_job -> batch_check_job :自分のジョブ情報を取得する（describe_jobs）
+        note right :ログストリーム名を取得する
+        batch_check_job -> storage_check_joblog :ファイル更新
+        note right :ログストリーム名を記録する
+        storage_check_joblog --> batch_check_job
+        batch_check_job --> batch_check_job
+    deactivate batch_check_job
+    |||
+    end
+    |||
+    batch_check_job -> table_check_history :レコード取得
+    table_check_history --> batch_check_job
+    batch_check_job -> batch_check_job :ステータスチェック
+    batch_check_job -> table_check_history :レコード更新
+    note right :チェック実行ステータス=チェック実行中(1)
+    table_check_history --> batch_check_job
+    batch_check_job -> table_awsac_coops :query
+    note right :プロジェクト配下のAWSアカウント連携情報を取得する
+    table_awsac_coops --> batch_check_job
+    |||
+    loop 1, AWSアカウント連携の件数
+        |||
+        batch_check_job -> users_aws :クレデンシャル取得
+        users_aws --> batch_check_job
+        |||
+        alt クレデンシャル取得に成功
+        |||
+        batch_check_job -> batch_check_job :メンバーズアカウント判定
+        activate batch_check_job
+            batch_check_job -> users_aws :IAMロール「cm-membersportal」の有無を確認
+            users_aws --> batch_check_job
+            |||
+            alt AWSアカウント連携.メンバーズアカウント = 0 & IAMロール「cm-membersportal」あり
+                batch_check_job -> batch_check_job :AWSアカウント連携.メンバーズアカウントを1にする
+                batch_check_job -> table_awsac_coops :レコード更新
+                note right :メンバーズアカウント = 1
+                table_awsac_coops --> batch_check_job
+                |||
+            else AWSアカウント連携.メンバーズアカウント = 1 & IAMロール「cm-membersportal」なし
+                batch_check_job -> batch_check_job :AWSアカウント連携.メンバーズアカウントを0にする
+                batch_check_job -> table_awsac_coops :レコード更新
+                note right :メンバーズアカウント = 0
+                table_awsac_coops --> batch_check_job
+                |||
+            end
+            batch_check_job --> batch_check_job
+        deactivate batch_check_job
+        |||
+        batch_check_job -> table_check_results :レコード作成
+        table_check_results --> batch_check_job
+        |||
+        group チェック処理
+            |||
+                note over batch_check_job, users_aws :具体的には個々のチェック処理仕様を参照
+                batch_check_job -> batch_check_job :チェック処理実行
+                activate batch_check_job
+                    batch_check_job -> users_aws :チェック対象のリソース情報を取得
+                    users_aws --> batch_check_job
+                    batch_check_job -> storage :取得結果を保存
+                    storage --> batch_check_job
+                    |||
+                    batch_check_job -> batch_check_job :判定処理
+                    batch_check_job -> storage :判定結果を保存
+                    storage --> batch_check_job
+                    |||
+                    batch_check_job -> table_check_resultitems :レコード作成
+                    table_check_resultitems --> batch_check_job
+                    |||
+                    batch_check_job -> batch_check_job :後始末
+                    note right :実行環境中のテンポラリ領域クリーンアップなど
+                    batch_check_job --> batch_check_job
+                |||
+            deactivate batch_check_job
+        end
+        group 次のチェック処理
+            |||
+            batch_check_job -> batch_check_job
+            |||
+        end
+        |||
+        else クレデンシャル取得失敗
+            batch_check_job -> table_org_task :レコード作成
+            table_org_task --> batch_check_job
+            |||
+            batch_check_job -> topic_org_task :無効AWSアカウント連携確認メッセージ送信
+            topic_org_task --> batch_check_job
+            |||
+            group 実装対象外
+                topic_org_task -> queue_org_task :メッセージ送信
+                |||
+            end
+            |||
+        end
+        |||
+    end
+    |||
+    batch_check_job -> table_check_history :レコード更新
+    note right :チェック実行ステータス=チェック実行完了(2)
+    table_check_history --> batch_check_job
+    batch_check_job --> batch_check_job
+deactivate batch_check_job
+
+@enduml

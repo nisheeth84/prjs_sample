@@ -1,0 +1,161 @@
+<invitations-container>
+    <div class="page">
+        <div class="page-header">
+            <h1 class="page-title mt-2">{_t('Invitations.title')}</h1>
+            <p>{_t('Invitations.info')}</p>
+        </div>
+        <div class="page-content container-fluid">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>{_t('organization_name')}</th>
+                        <th>{_t('authority')}</th>
+                        <th>{_t('operating')}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr each="{organization in organizations}">
+                        <td>{organization.organization.name}</td>
+                        <td>{commonUtils.convertShowAuthority(organization.authority)}</td>
+                        <td>
+                            <button type="button" class="btn btn-success btn-sm btn-icon btn-flat btn-link p-0" onclick="{acceptClickHandler.bind(this,organization)}">
+                                <i class="icon wb-check" aria-hidden="true"></i>
+                                {_t('Invitations.committed')}
+                            </button>
+                            <button type="button" class="ml-15 btn btn-danger btn-sm btn-icon btn-flat btn-link p-0" onclick="{denyClickHandler.bind(this,organization)}">
+                                <i class="icon wb-close" aria-hidden="true"></i>
+                                {_t('Invitations.rejection')}
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        const tag = this
+        tag.cognitoUser = riot.mixin('cognitoUser');
+        const obs = riot.observable()
+        tag.obs = obs
+        tag.obs.on('invite-accept-organization', acceptToInviteRequestHandler)
+        tag.obs.on('invite-deny-organization', denyToInviteRequestHandler)
+        tag.acceptClickHandler = acceptClickHandler
+        tag.denyClickHandler = denyClickHandler
+        tag.on('mount', function() {
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    getInformationPage(idToken)
+                }
+            });
+        })
+
+        function getInformationPage(idToken) {
+            tag.obs.trigger('pm-loader-show');
+            getInvitingInformationPromise(idToken).then(function(response) {
+                return response
+            })
+                .then(function(result) {
+                    tag.organizations = result[0]
+                    tag.update()
+                    tag.obs.trigger('pm-loader-hide');
+                }).catch(function(error) {
+                    tag.obs.trigger('pm-loader-hide');
+                    tag.obs.trigger('error-modal-open', error);
+                    tag.obs.one('error-modal-close', function(value) {
+                        tag.commonUtils.signOut()
+                    })
+                })
+        }
+
+        function getInvitingInformationPromise(idToken) {
+            const listRequest = [
+                getToInvitingOrganizationsPromise(idToken).then(tag.commonUtils.checkStatus).then(function(response) { return response.json() })
+            ]
+            return Promise.all(listRequest)
+        }
+
+        function getToInvitingOrganizationsPromise(idToken) {
+            let fetchResponse = null
+            const requestOrganizationUrl = tag.config.APIGATEWAY_ADDRESS + '/myorganizations';
+            const inviteParam = "?inviteStatus=0"
+            return fetch(requestOrganizationUrl + inviteParam, {
+                method: "GET",
+                headers: {
+                    'Authorization': idToken
+                }
+            }).then(function(response) {
+                fetchResponse = response
+                return response
+            }).catch(function(error) {
+                error.then(function(value) {
+                    value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                })
+            })
+        }
+
+        function acceptToInviteRequestHandler(organization) {
+            changeToInviteRequestHandler(organization, true)
+        }
+
+        function denyToInviteRequestHandler(organization) {
+            changeToInviteRequestHandler(organization, false)
+        }
+
+        function changeToInviteRequestHandler(organization, isAccept) {
+            tag.obs.trigger('pm-loader-show');
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    const organizationId = organization.organization.id
+                    const ownId = organization.id
+                    const requestToInviteRequestUrl = isAccept ? getAcceptToInviteRequestUrl(organizationId, ownId) : getDenyToInviteRequestUrl(organizationId, ownId)
+                    let fetchResponse = null
+                    fetch(requestToInviteRequestUrl, {
+                        method: "POST",
+                        headers: {
+                            'Authorization': idToken
+                        }
+                    }).then(function(response) {
+                        fetchResponse = response
+                        return response
+                    }).then(tag.commonUtils.checkStatus)
+                        .then(function() {
+                            getInformationPage(idToken)
+                        }).catch(function(error) {
+                            tag.obs.trigger("pm-loader-hide")
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                            })
+                            tag.obs.trigger("error-modal-open", error);
+                            tag.obs.one("error-modal-close", function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        });
+                }
+            })
+        }
+
+        function acceptClickHandler(organization, event) {
+            tag.obs.trigger('invite-accept-organization', organization)
+        }
+
+        function denyClickHandler(organization, event) {
+            tag.obs.trigger('invite-deny-organization', organization)
+        }
+
+        function getAcceptToInviteRequestUrl(organizationId, userId) {
+            return tag.config.APIGATEWAY_ADDRESS + '/organizations/' + organizationId + '/invites/' + userId + '/accept'
+        }
+
+        function getDenyToInviteRequestUrl(organizationId, userId) {
+            return tag.config.APIGATEWAY_ADDRESS + '/organizations/' + organizationId + '/invites/' + userId + '/reject'
+        }
+    </script>
+</invitations-container>

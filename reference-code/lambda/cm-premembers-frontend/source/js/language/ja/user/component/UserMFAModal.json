@@ -1,0 +1,13 @@
+{
+    "UserMFAModal": {
+        "manager_device_mfa": "MFA デバイスの管理",
+        "guideline_setting_mfa": "仮想 MFA アプリケーションが QR コードのスキャンをサポートしている場合は、スマートフォンのカメラで次の画像をスキャンします。",
+        "qr_code": "QRコード",
+        "display_secret_key": "手動設定のシークレットキーを表示",
+        "hide_secret_key": "シークレット設定キーを非表示",
+        "guideline_use_secret_key": "仮想 MFA アプリケーションによって求められたら、以下のシークレット設定キーを入力します。",
+        "auth_code": "認証コード",
+        "re_enter_auth_code": "もう一度認証アプリケーション画面に表示されたコードを入力してください。",
+        "enable_mfa": "MFAの有効化"
+    }
+}

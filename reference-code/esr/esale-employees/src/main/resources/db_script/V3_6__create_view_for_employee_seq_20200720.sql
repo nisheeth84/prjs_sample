@@ -1,0 +1,10 @@
+CREATE VIEW "departments_sequence_view" AS SELECT nextval('departments_sequence_generator') as ID;
+CREATE VIEW "employees_sequence_view" AS SELECT nextval('employees_sequence_generator') as ID;
+CREATE VIEW "employees_departments_sequence_view" AS SELECT nextval('employees_departments_sequence_generator') as ID;
+CREATE VIEW "employees_group_members_sequence_view" AS SELECT nextval('employees_group_members_sequence_generator') as ID;
+CREATE VIEW "employees_group_participants_sequence_view" AS SELECT nextval('employees_group_participants_sequence_generator') as ID;
+CREATE VIEW "employees_group_search_conditions_sequence_view" AS SELECT nextval('employees_group_search_conditions_sequence_generator') as ID;
+CREATE VIEW "employees_groups_sequence_view" AS SELECT nextval('employees_groups_sequence_generator') as ID;
+CREATE VIEW "employees_histories_sequence_view" AS SELECT nextval('employees_histories_sequence_generator') as ID;
+CREATE VIEW "employees_packages_sequence_view" AS SELECT nextval('employees_packages_sequence_generator') as ID;
+CREATE VIEW "positions_sequence_view" AS SELECT nextval('positions_sequence_generator') as ID;

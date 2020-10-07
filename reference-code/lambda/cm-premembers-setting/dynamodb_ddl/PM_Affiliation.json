@@ -1,0 +1,62 @@
+{
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "UserID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "MailAddress",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "OrganizationID",
+            "AttributeType": "S"
+        }
+    ],
+    "TableName": "PM_Affiliation",
+    "KeySchema": [
+        {
+            "AttributeName": "UserID",
+            "KeyType": "HASH"
+        },
+        {
+            "AttributeName": "OrganizationID",
+            "KeyType": "RANGE"
+        }
+    ],
+    "GlobalSecondaryIndexes": [
+        {
+            "IndexName": "OrganizationIndex",
+            "KeySchema": [
+                {
+                    "AttributeName": "OrganizationID",
+                    "KeyType": "HASH"
+                },
+                {
+                    "AttributeName": "MailAddress",
+                    "KeyType": "RANGE"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "ALL"
+            }
+        },
+            {
+                "IndexName": "MailAddressIndex",
+                "KeySchema": [
+                    {
+                        "AttributeName": "MailAddress",
+                        "KeyType": "HASH"
+                    },
+                    {
+                        "AttributeName": "OrganizationID",
+                        "KeyType": "RANGE"
+                    }
+                ],
+                "Projection": {
+                    "ProjectionType": "ALL"
+                }
+            }
+    ],
+    "BillingMode": "PAY_PER_REQUEST"
+}

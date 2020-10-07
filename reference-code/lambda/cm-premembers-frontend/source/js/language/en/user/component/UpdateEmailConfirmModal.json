@@ -1,0 +1,12 @@
+{
+    "UpdateEmailConfirmModal": {
+        "title": "Confirmation",
+        "body": "Please confirm the email addresses.",
+        "email_address_before_change": "Current email address",
+        "email_address_after_change": "New email address",
+        "information_complete": {
+            "title": "Change request accepted",
+            "body": "A confirmation email has been sent to the new email address.<br>Please click the URL in the email."
+        }
+    }
+}

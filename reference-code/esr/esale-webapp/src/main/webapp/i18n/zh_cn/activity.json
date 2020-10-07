@@ -1,0 +1,148 @@
+{
+  "activity": {
+    "title": "活动",
+    "title-2": "这项活动",
+    "control": {
+      "sidebar": {
+        "all-activity": "全部活动",
+        "my-activity": "我的活动",
+        "draft-activity": "草稿",
+        "customer-activity": "客户列表的活动",
+        "list-card": "名片列表的活动",
+        "customer-activity-search": "搜索列表",
+        "list-product": "交易产品列表的活动"
+      },
+      "top": {
+        "create-activity": "注册活动",
+        "import-activity": "导入活动",
+        "filter-condition": "搜索活动",
+        "searching": "编辑详细的搜索条件",
+        "filter": "过滤掉已活动的产品",
+        "filter-placeholder": "产品名称",
+        "clear": "删除",
+        "config": "设置",
+        "sort": "排序",
+        "asc": "升序",
+        "desc": "降序",
+        "report-date-time": "报告日期和时间"
+      }
+    },
+    "message": {
+      "404": "活动不存在。",
+      "confirm": {
+        "confirmreateactivity1": "您要取消注册内容并结束注册吗？",
+        "confirmreateactivity2": "如果是临时保存，请选择另存为草稿。",
+        "discard1": "您要取消注册内容并结束注册吗？",
+        "discard2": "如果是临时保存，请选择另存为草稿。"
+      }
+    },
+    "list": {
+      "body": {
+        "contact-date": "接触日",
+        "isDraft": "草稿",
+        "activity-time": "活动时间",
+        "discussion-person": "当日面谈者",
+        "customerName-productName": "客户名称/交易产品",
+        "quality": "数量",
+        "price": "单价",
+        "amount": "金额",
+        "employee-name": "负责人",
+        "product-trading-progress-name": "进度状态",
+        "end-plan-date": "预计完成日期",
+        "memo-name": "备忘录",
+        "memo-active": "备忘录",
+        "create-date": "注册日期",
+        "create-user-name": "注册者",
+        "updated-date": "最后更新日期",
+        "updated-user-name": "最后更新者",
+        "san": " ",
+        "to": "和",
+        "business-card-amount": "其他{{amount}}个人",
+        "about": ":",
+        "product-amount": "其他{{amount}}个产品",
+        "product-trading": "交易产品",
+        "order-plan-date": "预定的订单日期",
+        "quantity": "数量",
+        "next-schedule": "下一个时间表",
+        "related_activities": "的有关活动",
+        "uptime": "活动时间",
+        "interviewer": "当日面谈者",
+        "customer-transactionalProduct": "客户名称/交易产品",
+        "develop": "进度状态",
+        "dateRes": "注册日期",
+        "peopelSigned": "注册者",
+        "latest-updates": "最后更新日期",
+        "last-updated-by": "最后更新者",
+        "finish-day": "预计完成日期",
+        "memoJ": "备忘录",
+        "yen": "日元"
+      }
+    },
+    "modal": {
+      "button-edit": "保存更改",
+      "data-draft": "从草稿数据已反映。",
+      "delete-draft": "废弃草稿",
+      "button.preview": "预览注册画面",
+      "title-detail": "活动详细信息",
+      "title-add": "活动注册",
+      "title-edit": "活动编辑",
+      "minute": "分",
+      "checkbox-duration": "根据开始时间更改结束时间",
+      "report-person-default": "注册者A",
+      "activity-format": "活动格式",
+      "customer": "客户名称",
+      "customer-placeholder": "添加客户名称",
+      "button-cancel": "取消",
+      "button-close": "废弃",
+      "business-card": "当日面谈者",
+      "business-card-placeholder": "添加当日面谈者",
+      "customer-relation-placeholder": "添加相关客户",
+      "product-placeholder": "添加交易产品",
+      "memo-placeholder": "输入备忘录",
+      "created-date-default": "自动注册",
+      "created-by-default": "自动注册",
+      "updated-date-default": "自动注册",
+      "updated-by-default": "自动注册",
+      "button-save-draft": "保存为草稿",
+      "button-save": "注册",
+      "button-discard": "废弃",
+      "button-scenario": "编辑场景",
+      "scenario": "场景",
+      "report-target-placeholder": "添加报告对象",
+      "show-edit-customer": "客户编辑",
+      "calendar": "日历",
+      "task": "任务",
+      "milestone": "里程碑",
+      "product-trading": "交易产品名",
+      "product-suggest": "产品",
+      "add-business-card": "{{0}}（注册为文本信息）",
+      "text-activity-id" : "自动编号"
+    },
+    "common": {
+      "required": "必须",
+      "button-cancel": "取消"
+    },
+    "popup-delete": {
+      "title": "删除",
+      "detail": "您确定要删除活动吗？",
+      "button-delete": "删除",
+      "button-cancel": "取消"
+    },
+    "modal-confirm": {
+      "title": "废弃",
+      "content-1": "您要取消注册内容并结束注册吗？",
+      "content-2": "如果是临时保存，请选择另存为草稿。",
+      "button-cancel": "取消",
+      "button-save-draft": "保存为草稿",
+      "button-discard": "废弃",
+      "button-confirm": "确认",
+      "confirm-customer": "您选择了一位与“报告对象”中所选择的不同的客户。如果您仍然选择它，则“报告对象”中的数据将被清除。您确定要选择吗？"
+    },
+    "activityDetail": {
+      "button.edit": "编辑画面",
+
+      "blank": "(空白)",
+      "tab-history": "修订记录"
+    }
+  }
+}

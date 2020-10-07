@@ -1,0 +1,368 @@
+<check-integrations-container>
+    <div class="page">
+        <div class="page-header">
+            <h1 class="page-title mt-2">{_t('integrations')}</h1>
+            <p>{_t('CheckIntegrations.description')}</p>
+        </div>
+        <div class="page-content container-fluid">
+            <form autocomplete="off" ref=form>
+                <div class="row mb-30">
+                    <div class="col-5">
+                        <h4>{_t('organization')}</h4>
+                        <select ref="organization" class="form-control check-background-none h-150" onchange={changeOrganizationHandler} size="6">
+                            <option each="{organization in organizations}" value="{organization.organization.id}" selected="{organizationId == organization.organization.id}">{ organization.organization.name }</option>
+                        </select>
+                    </div>
+                    <div class="col-5">
+                        <h4>{_t('project')}</h4>
+                        <select ref="project" disabled="{!projectEnable}" class="form-control check-background-none h-150" onchange={changeProjectHandler} size="6">
+                            <option each="{project in projects}" value="{project.id}" selected="{projectId == project.id}">{ project.name }</option>
+                        </select>
+                    </div>
+                </div>
+                <div if={!webhookUrl} class="row mb-30">
+                    <div class="col-4 offset-3">
+                        <button type="submit" disabled="{!submitEnable}" class="btn btn-primary btn-block" onclick={generateUrl}>{_t('CheckIntegrations.generate_url')}</button>
+                    </div>
+                </div>
+                <div if={webhookUrl} class="row mb-30">
+                    <div class="col-4 offset-3">
+                        <button type="submit" disabled="{!submitEnable}" class="btn btn-primary btn-block" onclick={regenerateUrl}>{_t('CheckIntegrations.regenerate_url')}</button>
+                    </div>
+                </div>
+            </form>
+            <div if={webhookUrl}>
+                <div class="form-group">
+                    <label>{_t('CheckIntegrations.url_label')}</label>
+                    <div if={webhookEnabled} class="badge badge-success">{_t('CheckIntegrations.enabled')}</div>
+                    <div if={!webhookEnabled} class="badge badge-dark">{_t('CheckIntegrations.disabled')}</div>
+                    <div class="form-inline">
+                        <input type="text" class="form-control col-10" value="{webhookUrl}" readonly/>
+                        <button if={!webhookEnabled} type="submit" disabled="{!submitEnable}" class="btn btn-success" onclick={changeToEnable}>{_t('CheckIntegrations.enable')}</button>
+                        <button if={webhookEnabled} type="submit" disabled="{!submitEnable}" class="btn btn-dark" onclick={changeToDisable}>{_t('CheckIntegrations.disable')}</button>
+                    </div>
+                </div>
+                <p>{_t('CheckIntegrations.url_guide')}</p>
+                <pre class="text-break">curl -XPOST {webhookUrl}</pre>
+            </div>
+        </div>
+    </div>
+    </div>
+    <information-modal></information-modal>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        require('../../common/component/InformationModal.tag.html')
+        const tag = this
+        const obs = riot.observable()
+        tag.cognitoUser = riot.mixin('cognitoUser')
+        tag.obs = obs
+        tag.changeOrganizationHandler = changeOrganizationHandler
+        tag.changeProjectHandler = changeProjectHandler
+        tag.organizations = []
+        tag.projects = []
+        tag.projectEnable = false
+        tag.submitEnable = false
+        tag.webhookPath = null
+        tag.webhookUrl = null
+        tag.webhookEnabled = false
+        tag.generateUrl = generateUrl
+        tag.regenerateUrl = regenerateUrl
+        tag.changeToEnable = changeToEnable
+        tag.changeToDisable = changeToDisable
+        tag.organizationId = tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkOrganization')) ? tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkOrganization')) : null
+        tag.projectId = tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkProject')) ? tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkProject')) : null
+
+        tag.on('mount', function() {
+            tag.obs.trigger('pm-loader-show')
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    return
+                }
+
+                let fetchResponse = null
+                fetch(tag.config.APIGATEWAY_ADDRESS + '/myorganizations?inviteStatus=1', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': session.getIdToken().getJwtToken()
+                    }
+                }).then(function(response) {
+                    fetchResponse = response
+                    return response
+                }).then(tag.commonUtils.checkStatus)
+                .then(function(response) {
+                    return response.json()
+                }).then(function(organizations) {
+                    tag.organizations = organizations.filter(tag.commonUtils.isEditor)
+                    let isExistsOrganizaion = tag.organizations.find(function(organization) {
+                        return organization.organization.id === tag.organizationId
+                    })
+
+                    if(tag.organizationId && isExistsOrganizaion){
+                        changeOrganization(tag.organizationId)
+                    }
+                }).catch(function(error) {
+                    handleError(error, fetchResponse)
+                }).finally(function() {
+                    tag.update()
+                    tag.obs.trigger('pm-loader-hide')
+                })
+            })
+        })
+
+        function changeOrganizationHandler(event) {
+            changeOrganization(event.target.value)
+        }
+
+        function changeOrganization(organizationId) {
+            tag.submitEnable = false
+            tag.organizationId = organizationId
+            tag.projectId = null
+            clearWebhook()
+
+            if (!organizationId) {
+                tag.projects = []
+                tag.projectEnable = !!tag.projects.length
+                tag.update()
+                return
+            }
+
+            tag.obs.trigger('pm-loader-show')
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    return
+                }
+
+                let fetchResponse = null
+                fetch(tag.config.APIGATEWAY_ADDRESS + '/organizations/' + organizationId + '/projects', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': session.getIdToken().getJwtToken()
+                    }
+                }).then(function(response) {
+                    fetchResponse = response
+                    return response
+                })
+                .then(tag.commonUtils.checkStatus)
+                .then(function(response) {
+                    return response.json()
+                }).then(function(projects) {
+                    tag.projects = projects
+                    let isExistsProject = tag.projects.find(function(project) {
+                        return tag.projectId === project.id
+                    })
+                    tag.projectEnable = !!tag.projects.length
+                    if(tag.projectId && isExistsProject){
+                        changeProject(tag.projectId)
+                    }
+                }).catch(function(error) {
+                    handleError(error, fetchResponse)
+                }).finally(function() {
+                    tag.update()
+                    tag.obs.trigger('pm-loader-hide')
+                })
+            })
+        }
+
+        function changeProjectHandler(event){
+            changeProject(event.target.value)
+        }
+
+        function changeProject(projectId) {
+            tag.submitEnable = false
+            tag.projectId = projectId
+            clearWebhook()
+
+            if (!projectId) {
+                tag.update()
+                return
+            }
+
+            tag.obs.trigger('pm-loader-show')
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    return
+                }
+
+                let fetchResponse = null
+                fetch(tag.config.APIGATEWAY_ADDRESS + '/organizations/' + tag.organizationId + '/projects/' + projectId + '/awscoops', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': session.getIdToken().getJwtToken()
+                    }
+                })
+                .then(function(response) {
+                    fetchResponse = response
+                    return response
+                })
+                .then(tag.commonUtils.checkStatus)
+                .then(function(response) {
+                    return response.json()
+                }).then(function(awscoops) {
+                    awscoops.forEach(function(awsCoop) {
+                        if (awsCoop.effective === 1 && !tag.submitEnable) {
+                            tag.submitEnable = true
+                        }
+                    })
+                    tag.commonUtils.setItemToLocalStorage(tag.commonUtils.getLocalStorageKey('checkOrganization'), tag.organizationId)
+                    tag.commonUtils.setItemToLocalStorage(tag.commonUtils.getLocalStorageKey('checkProject'), tag.projectId)
+
+                    if (!tag.submitEnable) {
+                        tag.obs.trigger('pm-loader-hide')
+                    }
+                    loadWebhook(tag.organizationId, tag.projectId)
+                }).catch(function(error) {
+                    handleError(error, fetchResponse)
+                    tag.obs.trigger('pm-loader-hide')
+                }).finally(function() {
+                    tag.update()
+                })
+            })
+        }
+
+        function loadWebhook(organizationId, projectId) {
+            tag.obs.trigger('pm-loader-show')
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    return
+                }
+
+                const t = new Date().getTime()
+                let fetchResponse = null
+                fetch(tag.config.APIGATEWAY_ADDRESS + '/check/securitycheck/webhooks?organizationId=' + organizationId + '&projectId=' + projectId + '&t=' + t, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': session.getIdToken().getJwtToken()
+                    }
+                }).then(function(response) {
+                    fetchResponse = response
+                    return response
+                })
+                .then(tag.commonUtils.checkStatus)
+                .then(function(response) {
+                    return response.json()
+                }).then(function(webhook) {
+                    tag.webhookPath = webhook.webhookPath
+                    tag.webhookUrl = tag.config.APIGATEWAY_ADDRESS + '/check/securitycheck/webhooks/' + webhook.webhookPath,
+                    tag.webhookEnabled = webhook.enabled
+                }).catch(function(error) {
+                    if (fetchResponse.status !== 404) {
+                        handleError(error, fetchResponse)
+                    }
+                }).finally(function() {
+                    tag.update()
+                    tag.obs.trigger('pm-loader-hide')
+                })
+            })
+        }
+
+        function generateUrl() {
+            event.preventDefault()
+            tag.commonUtils.submitDisable(tag.refs.form)
+
+            tag.obs.trigger("pm-loader-show")
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    return
+                }
+
+                let fetchResponse = null
+                fetch(tag.config.APIGATEWAY_ADDRESS + '/check/securitycheck/webhooks', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': session.getIdToken().getJwtToken(),
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        'organizationId': tag.organizationId,
+                        'projectId': tag.projectId
+                    })
+                })
+                .then(function(response) {
+                    fetchResponse = response
+                    return response
+                }).then(tag.commonUtils.checkStatus)
+                .then(function(response) {
+                    return response.json()
+                }).then(function(webhook) {
+                    tag.webhookPath = webhook.webhookPath
+                    tag.webhookUrl = tag.config.APIGATEWAY_ADDRESS + '/check/securitycheck/webhooks/' + webhook.webhookPath,
+                    tag.webhookEnabled = true
+                }).catch(function(error) {
+                    handleError(error, fetchResponse)
+                }).finally(function() {
+                    tag.update()
+                    tag.obs.trigger('pm-loader-hide')
+                })
+            })
+        }
+
+        function regenerateUrl() {
+            updateWebhook(tag.webhookPath, {　webhookPath: null　})
+        }
+
+        function changeToEnable() {
+            updateWebhook(tag.webhookPath, {　enabled: true　})
+        }
+
+        function changeToDisable() {
+            updateWebhook(tag.webhookPath, {　enabled: false　})
+        }
+
+        function updateWebhook(webhookPath, bodyData) {
+            event.preventDefault()
+            tag.commonUtils.submitDisable(tag.refs.form)
+
+            tag.obs.trigger("pm-loader-show")
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    return
+                }
+
+                let fetchResponse = null
+                fetch(tag.config.APIGATEWAY_ADDRESS + '/check/securitycheck/webhooks/' + webhookPath, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': session.getIdToken().getJwtToken(),
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(bodyData)
+                })
+                .then(function(response) {
+                    fetchResponse = response
+                    return response
+                }).then(tag.commonUtils.checkStatus)
+                .then(function(response) {
+                    return response.json()
+                }).then(function(webhook) {
+                    loadWebhook(tag.organizationId, tag.projectId)
+                }).catch(function(error) {
+                    handleError(error, fetchResponse)
+                }).finally(function() {
+                    tag.update()
+                    tag.obs.trigger('pm-loader-hide')
+                })
+            })
+        }
+
+        function clearWebhook() {
+            tag.webhookPath = null
+            tag.webhookUrl = null
+            tag.webhookEnabled = false
+        }
+
+        function handleError(error, fetchResponse) {
+            error.then(function(value) {
+                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+            })
+            tag.obs.trigger('error-modal-open', error)
+            tag.obs.one('error-modal-close', tag.commonUtils.backHome)
+        }
+    </script>
+</check-integrations-container>

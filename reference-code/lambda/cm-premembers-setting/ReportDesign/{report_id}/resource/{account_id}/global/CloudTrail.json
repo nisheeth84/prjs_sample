@@ -1,0 +1,32 @@
+{
+    "schema_version": "1.0",
+    "CloudTrail": { // 	{report_id}/raw/{account_id}/{region}/CloudTrail_Trails.json から全リージョン分取得
+        "trail": [
+            {
+                "HasCustomEventSelectors": false,
+                "HomeRegion": "ap-northeast-1",
+                "IncludeGlobalServiceEvents": true,
+                "IsMultiRegionTrail": false,
+                "LogFileValidationEnabled": false,
+                "Name": "Default",
+                "S3BucketName": "cloudtrail-ap-northeast-1-109054975408",
+                "TrailARN": "arn:aws:cloudtrail:ap-northeast-1:109054975408:trail/Default",
+                "trail_status": { // {report_id}/raw/{account_id}/{region}/CloudTrail_Status_{trailname}.jsonから取得
+                    "IsLogging": true,
+                    "LatestDeliveryAttemptSucceeded": "2017-09-15T11:54:33Z",
+                    "LatestDeliveryAttemptTime": "2017-09-15T11:54:33Z",
+                    "LatestDeliveryTime": {
+                        "$date": 1505476473286
+                    },
+                    "LatestNotificationAttemptSucceeded": "",
+                    "LatestNotificationAttemptTime": "",
+                    "StartLoggingTime": {
+                        "$date": 1468932315702
+                    },
+                    "TimeLoggingStarted": "2016-07-19T12:45:15Z",
+                    "TimeLoggingStopped": ""
+                }
+            }
+        ]
+    }
+}

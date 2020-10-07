@@ -1,0 +1,1 @@
+INSERT INTO "employees"("employee_id", "created_date", "created_user", "updated_date", "updated_user", "email", "employee_name", "employee_name_kana", "employee_status", "employee_surname", "language_id", "timezone_id", "user_id", "is_admin") VALUES (1, 'now()', 1, 'now', 1, 'admin@luvina.net', 'Admin', NULL, 0, 'Admin', 1, 1, 'admin@luvina.net', 't')

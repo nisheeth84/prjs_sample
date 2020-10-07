@@ -1,0 +1,91 @@
+<project-create-container>
+    <div class="page">
+        <div class="page-header">
+            <h1 class="page-title mt-2 ">{_t('ProjectCreate.title')}</h1>
+        </div>
+        <div class="page-content container-fluid">
+            <form ref="form" autocomplete="off" onsubmit={createProject}>
+                <div class="row">
+                    <div class="form-group floating col-lg-12">
+                        <label class="floating-label" for="project_name">{_t('project_name')}</label>
+                        <input type="text" class="form-control" id="project_name" ref="ProjectName" name="AccountID" required
+                        placeholder="{_t('project_name_example')}">
+                    </div>
+                    <div class="form-group floating col-lg-12">
+                        <label class="floating-label">{_t('description')}</label>
+                        <textarea class="form-control" rows="3" ref="description" name="textareaFloating"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <button type="button" onclick={back} class="btn btn-block btn-default">{_t('back')}</button>
+                    </div>
+                    <div class="col-lg-6">
+                        <button type="submit" class="btn btn-block btn-success">{_t('create')}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        const tag = this
+        const obs = riot.observable()
+        tag.obs = obs
+        tag.organization_id = opts.organization_id
+        tag.back = back
+        tag.createProject = createProject
+        tag.cognitoUser = riot.mixin('cognitoUser')
+        function back() {
+            window.location.href = "#/organizations/" + tag.organization_id + "/projects/"
+        }
+        function createProject(event) {
+            event.preventDefault()
+            const requestProjectUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + tag.organization_id + '/projects';
+            const form = tag.refs.form
+            if (!tag.refs.ProjectName.value) {
+                return
+            }
+            const projectName = tag.refs.ProjectName.value
+            const description = tag.refs.description.value
+            tag.obs.trigger("pm-loader-show")
+            tag.commonUtils.submitDisable(form)
+            const project = {
+                'name': projectName,
+                'description': description
+            }
+
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    let fetchResponse = null
+                    fetch(requestProjectUrl, {
+                        method: "POST",
+                        headers: {
+                            'Authorization': idToken
+                        },
+                        body: JSON.stringify(project)
+                    }).then(function(response) {
+                        fetchResponse = response
+                        return response
+                    }).then(tag.commonUtils.checkStatus)
+                        .then(function() {
+                            tag.back()
+                        }).catch(function(error) {
+                            tag.obs.trigger("pm-loader-hide")
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                            })
+                            tag.obs.trigger("error-modal-open", error);
+                            tag.obs.one("error-modal-close", function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        });
+                }
+            });
+        }
+    </script>
+</project-create-container>

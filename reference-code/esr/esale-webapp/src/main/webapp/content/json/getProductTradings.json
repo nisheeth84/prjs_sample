@@ -1,0 +1,131 @@
+{
+  "productTradings": [
+    {
+      "productTradingId": 50,
+      "customerName": "Luu Quang Vu",
+      "customerId": 40,
+      "productId": 52,
+      "productName": "Name Product",
+      "quantity": 2100,
+      "price": 3000,
+      "amount": 6300000,
+      "productTradingProgressId": 2,
+      "progressName": "{\"en_us\": \"\", \"ja_jp\": \"Progress1\", \"zh_cn\": \"\"}",
+      "progressOrder": 2,
+      "isAvailable": true,
+      "endPlanDate": null,
+      "orderPlanDate": "2020-08-20T00:00:00Z",
+      "memo": null,
+      "productTradingData": [
+        {
+          "key": "memo",
+          "value": "add new product trading 1001",
+          "fieldType": "10"
+        },
+        {
+          "key": "price",
+          "value": "3000",
+          "fieldType": "5"
+        },
+        {
+          "key": "amount",
+          "value": "6300000",
+          "fieldType": "5"
+        },
+        {
+          "key": "quantity",
+          "value": "2100",
+          "fieldType": "5"
+        }
+      ],
+      "productTradingHistories": [
+        {
+          "productTradingHistoryId": 528,
+          "amount": 6300000,
+          "contentChange": "{}",
+          "endPlanDate": null,
+          "memo": null,
+          "orderPlanDate": "2020-08-20T00:00:00Z",
+          "productTradingId": 50,
+          "productId": 52,
+          "price": 3000,
+          "productTradingProgressId": 2,
+          "productTradingData": "{\"memo\": \"add new product trading 1001\", \"price\": 3000, \"amount\": 6300000, \"quantity\": 2100}",
+          "quantity": 2100,
+          "contactDate": "2020-10-08T00:00:00Z",
+          "activityId": 316,
+          "createdDate": "2020-08-11T08:13:14.156616Z",
+          "createdUser": 1,
+          "updatedDate": "2020-08-11T08:13:14.156616Z",
+          "updatedUser": 1
+        }
+      ],
+      "productTradingHistory": null,
+      "employee": null,
+      "createdUser": {
+        "employeeId": 1,
+        "employeeName": "確保する",
+        "employeeSurname": "確保",
+        "photoFilePath": null,
+        "departmentName": null,
+        "positionName": null,
+        "employeeSurnameKana": null,
+        "employeeNameKana": null,
+        "cellphoneNumber": "",
+        "telephoneNumber": "",
+        "email": "admin@luvina.net"
+      },
+      "updatedUser": {
+        "employeeId": 1,
+        "employeeName": "確保する",
+        "employeeSurname": "確保",
+        "photoFilePath": null,
+        "departmentName": null,
+        "positionName": null,
+        "employeeSurnameKana": null,
+        "employeeNameKana": null,
+        "cellphoneNumber": "",
+        "telephoneNumber": "",
+        "email": "admin@luvina.net"
+      },
+      "createdDate": "2020-08-10T03:01:35.925237Z",
+      "updatedDate": "2020-08-11T08:24:36.913063Z"
+    }
+  ],
+  "progresses": [
+    {
+      "productTradingProgressId": 1,
+      "progressName": "{\"en_us\": \"\", \"ja_jp\": \"j\", \"zh_cn\": \"\"}",
+      "isAvailable": true,
+      "progressOrder": 1
+    },
+    {
+      "productTradingProgressId": 2,
+      "progressName": "{\"en_us\": \"\", \"ja_jp\": \"Progress1\", \"zh_cn\": \"\"}",
+      "isAvailable": true,
+      "progressOrder": 2
+    },
+    {
+      "productTradingProgressId": 3,
+      "progressName": "{\"en_us\": \"\", \"ja_jp\": \"progress2\", \"zh_cn\": \"\"}",
+      "isAvailable": true,
+      "progressOrder": 3
+    },
+    {
+      "productTradingProgressId": 4,
+      "progressName": "{\"en_us\": \"\", \"ja_jp\": \"Progress_4\", \"zh_cn\": \"\"}",
+      "isAvailable": true,
+      "progressOrder": 4
+    },
+    {
+      "productTradingProgressId": 5,
+      "progressName": "{\"en_us\": \"\", \"ja_jp\": \"Progress_5\", \"zh_cn\": \"\"}",
+      "isAvailable": true,
+      "progressOrder": 5
+    }
+  ],
+  "initializeInfo": null,
+  "fieldInfo": [],
+  "total": 1,
+  "lastUpdateDate": null
+}

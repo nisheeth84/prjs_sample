@@ -1,0 +1,14 @@
+.table-striped {
+    tbody tr.gray_tr {
+        background-color: $table-bg-accent !important;
+    }
+  
+    tbody tr.white_tr {
+        background-color: transparent !important;
+    }
+  
+    tbody tr.white_tr:hover, 
+    tbody tr.gray_tr:hover {
+        background-color: $table-bg-hover !important;
+    }
+}

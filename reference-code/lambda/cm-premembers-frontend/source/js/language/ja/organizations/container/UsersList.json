@@ -1,0 +1,11 @@
+{
+    "UsersList": {
+        "title": "所属ユーザー一覧",
+        "info": "複数のユーザーを組織に所属させることができます。",
+        "invitation_status": "招待ステータス",
+        "myself": "(自分)",
+        "rejection": "拒否",
+        "inviting": "招待中",
+        "belongs": "所属"
+    }
+}

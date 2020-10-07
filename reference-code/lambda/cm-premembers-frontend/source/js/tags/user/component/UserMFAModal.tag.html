@@ -1,0 +1,157 @@
+<user-mfa-modal>
+    <div class="modal fade modal-info" id="user-mfa-modal" aria-hidden="true" aria-labelledby="exampleModalSuccess" role="dialog"
+        tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">{_t('UserMFAModal.manager_device_mfa')}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{_t('UserMFAModal.guideline_setting_mfa')}</p>
+                    <div class="form-group floating col-12">
+                        <label class="floating-label">{_t('UserMFAModal.qr_code')}</label>
+                        <canvas class="m-auto block w-100 h-100" id="qr"></canvas>
+                    </div>
+                    <div hide="{isShowSecretCode}" class="form-group floating col-12">
+                        <a href="javascript:void(0)" onclick="{doShowSecretCode}">
+                            <i class="icon wb-chevron-right-mini" aria-hidden="true"></i>{_t('UserMFAModal.display_secret_key')}</a>
+                    </div>
+                    <div show="{isShowSecretCode}">
+                        <a href="javascript:void(0)" onclick="{doHideSecretCode}">
+                            <i class="icon wb-chevron-down-mini" aria-hidden="true"></i>{_t('UserMFAModal.hide_secret_key')}</a>
+                        <p>{_t('UserMFAModal.guideline_use_secret_key')}</p>
+                        <div class="form-group floating col-12">
+                            <input type="text" class="form-control" readonly value="{secretCode}">
+                        </div>
+                    </div>
+                    <div class="form-group floating col-12">
+                        <label class="floating-label">{_t('UserMFAModal.auth_code')}</label>
+                        <input type="text" class="form-control" ref="qr_code" value="{qrCode}" name="qr_code" onkeyup="{onKeyupQRCode}" maxlength="6">
+                    </div>
+                    <div show="{isErrorVerify}" class="alert alert-danger" role="alert">
+                        <p>{_t('Validation_message.incorrect_auth_code')}</p>
+                        <p>{_t('UserMFAModal.re_enter_auth_code')}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnCloseModalCheck" type="button" class="btn btn-default" data-dismiss="modal">{_t('cancel')}</button>
+                        <button disabled="{isDisableButtonMFA}" type="button" class="btn bg-info" onclick="{doEnableMFA}">{_t('UserMFAModal.enable_mfa')}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const QRCode = require('qrcode')
+        const tag = this;
+        const obs = tag.parent.obs
+        tag.cognitoUser = riot.mixin('cognitoUser');
+        tag.observer = obs;
+
+        tag.isShowSecretCode = false
+        tag.isErrorVerify = false
+        tag.isDisableButtonMFA = true
+
+        tag.doEnableMFA = doEnableMFA
+        tag.doShowSecretCode = doShowSecretCode
+        tag.doHideSecretCode = doHideSecretCode
+        tag.onKeyupQRCode = onKeyupQRCode
+
+        tag.on('mount', function() {
+            tag.modal = $('#user-mfa-modal')
+            tag.observer.on("user-mfa-modal-open", function() {
+                tag.cognitoUser.getUserAttributes(function(err, result) {
+                    if (err) {
+                        tag.observer.trigger("pm-loader-hide");
+                        tag.observer.trigger('open-modal-error', err.code, err.message)
+                        return;
+                    }
+                    for (i = 0; i < result.length; i++) {
+                        if (result[i].getName() == "email") {
+                            mailAddress = result[i].getValue();
+                            tag.cognitoUser.associateSoftwareToken({
+                                associateSecretCode: (secretCode) => {
+                                    tag.secretCode = secretCode
+                                    // otpauth://totp/insightwatch:`mailAddress`?secret=JBSWY3DPEHPK3PXP&issuer=insightwatch
+                                    let qrValue = 'otpauth://totp/insightwatch:' + mailAddress + '?secret=' + secretCode + '&issuer=insightwatch'
+                                    QRCode.toCanvas(document.getElementById('qr'), qrValue, function(err) {
+                                        if (err) {
+                                            tag.observer.trigger('open-modal-error', err.code, err.message)
+                                            return;
+                                        }
+                                        tag.qrCode = ''
+                                        tag.modal.modal()
+                                        tag.observer.trigger("pm-loader-hide");
+                                        tag.update();
+                                    })
+                                },
+                                onFailure: (err) => {
+                                    tag.observer.trigger("pm-loader-hide");
+                                    tag.observer.trigger('open-modal-error', err.code, err.message)
+                                }
+                            })
+                        }
+                    }
+                });
+            });
+            tag.modal.on('hidden.bs.modal', function(e) {
+                resetDefaultData()
+                tag.observer.trigger("user-mfa-modal-close");
+            });
+        })
+
+        tag.on('unmount', function() {
+            tag.modal.off('hidden.bs.modal');
+        })
+
+        function doEnableMFA(event) {
+            const qr_code = tag.refs.qr_code.value
+            tag.cognitoUser.verifySoftwareToken(qr_code, 'My TOTP device', {
+                onSuccess: (result) => {
+                    const totpMfaSettings = {
+                        PreferredMfa: true,
+                        Enabled: true
+                    };
+                    tag.cognitoUser.setUserMfaPreference(null, totpMfaSettings, function(err, result) {
+                        if (err) {
+                            tag.modal.modal('hide')
+                            tag.observer.trigger('open-modal-error', err.code, err.message)
+                        }
+                        tag.modal.modal('hide')
+                        tag.observer.trigger('get-information-page')
+                    });
+                },
+                onFailure: (err) => {
+                    tag.isErrorVerify = true
+                    tag.update()
+                }
+            });
+        }
+
+        function doShowSecretCode(event) {
+            tag.isShowSecretCode = true
+            tag.update()
+        }
+
+        function doHideSecretCode(event) {
+            tag.isShowSecretCode = false
+            tag.update()
+        }
+
+        function onKeyupQRCode(e) {
+            e.target.value = e.target.value.replace(/[^0-9]/g, '')
+            tag.isDisableButtonMFA = e.target.value.length < 6
+            tag.update()
+        }
+
+        function resetDefaultData() {
+            tag.isShowSecretCode = false
+            tag.isErrorVerify = false
+            tag.isDisableButtonMFA = true
+            tag.qrCode = 'default'
+            tag.update()
+        }
+    </script>
+</user-mfa-modal>

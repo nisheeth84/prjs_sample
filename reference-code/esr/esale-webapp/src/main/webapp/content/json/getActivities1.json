@@ -1,0 +1,160 @@
+{
+  "dataInfo": [
+    {
+      "activities": {
+        "activityId": 23,
+        "isDraft": "false",
+        "contactDate": "2019/07/05",
+        "activityStartTime": "2019/07/05 10:00",
+        "activityEndTime": "2019/07/05 10:30",
+        "activityDuration": "60",
+        "employee": {
+          "employeeName": "春山 my_activity",
+          "employeeId": 1,
+          "employeePhoto": {
+            "photoFileName": "PHP tutorial.xlsx",
+            "photoFilePath": "../../../content/images/ic-user1.svg"
+          }
+        },
+        "businessCards": [
+          {
+            "businessCardId": 1,
+            "firstName": "直樹",
+            "lastName": "直樹",
+            "firstNameKana": "直樹",
+            "lastNameKana": "直樹",
+            "titleName": "直樹",
+            "departmentName": "直樹"
+          }
+        ],
+        "interviewer": ["直樹タナカ", "直樹タ"],
+        "customer": {
+          "customerId": 1,
+          "customerName": "直樹タナカ"
+        },
+        "productTradings": [
+          {
+            "productTradingId": 1,
+            "productId": 1,
+            "productName": "直樹タナカ",
+            "employeeId": 1,
+            "employeeName": "顧客",
+            "quantity": "20000",
+            "price": "20000",
+            "amount": 2,
+            "endPlanDate": "2019/07/05",
+            "orderPlanDate": "2019/07/05",
+            "productTradingProgressId": 1,
+            "productTradingProgressName": "finish",
+            "memo": "abcdadadad",
+            "productsTradingsDetailsData": {}
+          }
+        ],
+        "customers": [
+          {
+            "customerId": 1,
+            "customerName": "直樹タナカ"
+          },
+          {
+            "customerId": 1,
+            "customerName": "直樹タナカ"
+          }
+        ],
+        "memo": "直樹タナカ",
+        "createdUser": {
+          "createdDate": "2019/04/01",
+          "createdUserName": "中村",
+          "createdUserId": 1
+        },
+        "updatedUser": {
+          "updatedDate": "2019/04/12",
+          "updatedUserName": "中村中村",
+          "updatedUserId": 1
+        },
+        "extTimeline": {},
+        "initializeInfo": {
+          "selectedListType": 1,
+          "selectedListId": 50
+        }
+      }
+    },
+    {
+      "activities": {
+        "activityId": 1,
+        "isDraft": "false",
+        "contactDate": "2019/07/05",
+        "activityStartTime": "2019/07/05 10:00",
+        "activityEndTime": "2019/07/05 10:30",
+        "activityDuration": "60",
+        "employee": {
+          "employeeName": "直樹タナカ",
+          "employeeId": 1,
+          "employeePhoto": {
+            "photoFileName": "PHP tutorial.xlsx",
+            "photoFilePath": "../../../content/images/ic-user1.svg"
+          }
+        },
+        "businessCards": [
+          {
+            "businessCardId": 1,
+            "firstName": "直樹",
+            "lastName": "直樹",
+            "firstNameKana": "直樹",
+            "lastNameKana": "直樹",
+            "titleName": "直樹",
+            "departmentName": "直樹"
+          }
+        ],
+        "interviewer": ["直樹タナカ", "直樹タ"],
+        "customer": {
+          "customerId": 1,
+          "customerName": "直樹タナカ"
+        },
+        "productTradings": [
+          {
+            "productTradingId": 1,
+            "productId": 1,
+            "productName": "直樹タナカ",
+            "employeeId": 1,
+            "employeeName": "顧客",
+            "quantity": "20000",
+            "price": "20000",
+            "amount": 2,
+            "endPlanDate": "2019/07/05",
+            "orderPlanDate": "2019/07/05",
+            "productTradingProgressId": 1,
+            "productTradingProgressName": "finish",
+            "memo": "abcdadadad",
+            "productsTradingsDetailsData": {}
+          }
+        ],
+        "customers": [
+          {
+            "customerId": 1,
+            "customerName": "直樹タナカ"
+          },
+          {
+            "customerId": 1,
+            "customerName": "直樹タナカ"
+          }
+        ],
+        "memo": "直樹タナカ",
+        "createdUser": {
+          "createdDate": "2019/04/01",
+          "createdUserName": "中村",
+          "createdUserId": 1
+        },
+        "updatedUser": {
+          "updatedDate": "2019/04/12",
+          "updatedUserName": "中村中村",
+          "updatedUserId": 1
+        },
+        "extTimeline": {},
+        "initializeInfo": {
+          "selectedListType": 1,
+          "selectedListId": 50
+        }
+      }
+    }
+  ]
+}

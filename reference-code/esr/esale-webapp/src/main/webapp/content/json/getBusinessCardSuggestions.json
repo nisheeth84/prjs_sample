@@ -1,0 +1,25 @@
+{
+  "businessCards": [
+    {
+      "businessCardId": 1,
+      "departmentName": "Team Design 1",
+      "businessCardName": "David A",
+      "position": "Leader",
+      "customerName": "顧客"
+    },
+    {
+      "businessCardId": 2,
+      "departmentName": "Team Design 2",
+      "businessCardName": "David A",
+      "position": "Leader",
+      "customerName": "顧客"
+    },
+    {
+      "businessCardId": 3,
+      "departmentName": "Team Design 3",
+      "businessCardName": "David A",
+      "position": "Leader",
+      "customerName": "顧客"
+    }
+  ]
+}

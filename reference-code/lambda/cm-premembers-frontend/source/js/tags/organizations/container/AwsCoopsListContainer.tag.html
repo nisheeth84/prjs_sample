@@ -1,0 +1,296 @@
+<awscoops-list-container>
+    <div class="page">
+        <div class="page-header">
+            <a href="#/organizations/{organization_id}/projects/">&lt; {_t('AwsCoopsList.back_project')}</a>
+            <h1 class="page-title mt-2">{_t('AwsCoopsList.title')}</h1>
+            <div class="page-header-actions">
+                <button show="{isOwner}" class="btn btn-floating btn-sm btn-primary" onclick="{createAwsCoop}">+</button>
+            </div>
+        </div>
+        <div class="page-content container-fluid">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="row">
+                        <th class="col-2">
+                            <a href="https://classmethod.jp/services/members/" target="_blank">
+                                {_t('class_method_members')}
+                            </a>
+                        </th>
+                        <th class="col-2">{_t('AwsCoopsList.account_id')}</th>
+                        <th class="col-6">{_t('account_name')}</th>
+                        <th class="col-1">{_t('state')}</th>
+                        <th class="col-1">{_t('delete')}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="row" each="{awsCoop in awsCoops}">
+                        <td class="col-2 text-center">
+                            <img src="./assets/images/m_gold.png" alt="" show="{awsCoop.members == '1'}">
+                        </td>
+                        <td class="col-2">
+                            <a onclick={editAwsCoopShowModal.bind(this,awsCoop.id)} href="#">{awsCoop.awsAccount}</a>
+                        </td>
+                        <td class="col-6">
+                            {awsCoop.awsAccountName}
+                        </td>
+                        <td class="col-1">
+                            <span class={awsCoop.effectiveClass}>{commonUtils.convertEffectiveText(awsCoop.effective)}</span>
+                        </td>
+                        <td class="col-1">
+                            <button show="{isOwner}" type="button" class="btn btn-sm btn-icon btn-flat btn-danger" data-toggle="tooltip" data-original-title="Delete"
+                                onclick={deleteAwsCoopModal.bind(this,awsCoop.id)}>
+                                <i class="icon wb-close" aria-hidden="true"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <aws-coop-modal></aws-coop-modal>
+    <delete-confirm-modal-container></delete-confirm-modal-container>
+    <script>
+        require('../component/AwsCoopModal.tag.html');
+        const tag = this;
+        tag.cognitoUser = riot.mixin('cognitoUser')
+        const obs = riot.observable()
+        tag.obs = obs
+        tag.organization_id = opts.organization_id
+        tag.project_id = opts.project_id
+        tag.createAwsCoop = createAwsCoop
+        tag.editAwsCoopShowModal = editAwsCoopShowModal
+        tag.deleteAwsCoopModal = deleteAwsCoopModal
+        tag.awsCoops = {}
+        const requestAwsCoopsUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + tag.organization_id + '/projects/' + tag.project_id + '/awscoops';
+        tag.on('mount', function() {
+            listAwsCoop();
+        })
+        tag.obs.on('delete-confirm-modal-close', function(awsCoopId) {
+            deleteAwsCoop(awsCoopId)
+        })
+
+        function back() {
+            window.location.href = "#/organizations/" + tag.organization_id + "/projects/" + tag.project_id + "/"
+        }
+
+        function createAwsCoop() {
+            window.location.href = "#/organizations/" + tag.organization_id + "/projects/" + tag.project_id + "/awsaccounts/create/"
+        }
+
+        function awsCoopModalCloseHandler(awsCoop) {
+            if (awsCoop.isEdit) {
+                editAwsCoop(awsCoop)
+            }
+        }
+        function listAwsCoop() {
+            tag.obs.trigger('pm-loader-show')
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    // alert('getSession()でエラー\n' + err);
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    requestInformation(idToken).then(function(response) {
+                        return response
+                    }).then(function(result) {
+                        const awsCoops = result[0]
+                        const organization = result[1]
+                        tag.obs.trigger('pm-loader-hide');
+                        awsCoops.forEach(function(awsCoop) {
+                            // 'effectiveText': tag.dictionary['Effective'][awsCoop['effective']],
+                            awsCoop['effectiveClass'] = createEffectiveClassObj(awsCoop['effective'])
+                        })
+                        tag.awsCoops = awsCoops
+                        tag.isOwner = tag.commonUtils.isOwner(organization)
+                        tag.update();
+                    }).catch(function(error) {
+                        tag.obs.trigger('pm-loader-hide');
+                        tag.obs.trigger('error-modal-open', error);
+                        tag.obs.one('error-modal-close', function(value) {
+                            tag.commonUtils.backHome(value)
+                        })
+                    })
+                }
+            })
+        }
+        function requestInformation(idToken) {
+            let fetchResponse = null
+            const listRequest = [
+                awsRequestAwsCoopPromise(idToken).then(function(response) {
+                    fetchResponse = response
+                    return response
+                }).then(tag.commonUtils.checkStatus).then(function(response) { return response.json() }).catch(function(error) {
+                    error.then(function(value) {
+                        value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                    })
+                    throw error
+                }),
+                tag.commonUtils.getMyOrganization(idToken, tag.organization_id).then(function(response) { return response })
+            ]
+            return Promise.all(listRequest)
+        }
+        function awsRequestAwsCoopPromise(idToken) {
+            return fetch(requestAwsCoopsUrl, {
+                method: "GET",
+                headers: {
+                    'Authorization': idToken
+                },
+            })
+        }
+        function createEffectiveClassObj(effective) {
+            const effectiveClass = {
+                'badge': true
+            }
+            switch (effective) {
+                case -1:
+                    effectiveClass['badge-danger'] = true
+                    break
+                case 0:
+                    effectiveClass['badge-default'] = true
+                    break
+                case 1:
+                    effectiveClass['badge-success'] = true
+                    break
+            }
+            return effectiveClass
+        }
+        function editAwsCoop(awsCoop) {
+            tag.obs.trigger('pm-loader-show')
+            const requestAwsCoopsEditUrl = requestAwsCoopsUrl + '/' + awsCoop.id
+            const requestAWSCoopEdit = {
+                "awsAccount": awsCoop.awsAccount,
+                "awsAccountName": awsCoop.awsAccountName,
+                "roleName": awsCoop.roleName,
+                "description": awsCoop.description
+            }
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    let fetchResponse = null
+                    fetch(requestAwsCoopsEditUrl, {
+                        method: 'PATCH',
+                        headers: {
+                            'Authorization': idToken
+                        },
+                        body: JSON.stringify(requestAWSCoopEdit)
+                    }).then(function(response) {
+                        tag.obs.trigger('pm-loader-hide');
+                        fetchResponse = response
+                        return response
+                    }).then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            return response.json();
+                        }).then(function(response) {
+                            if (response.effective === 1) {
+                                listAwsCoop()
+                            } else {
+                                const errorObj = {
+                                    "clientWarning": tag._t('client_warning'),
+                                    "clientWarningDetails": tag._t('client_warning_details', { returnObjects: true })
+                                }
+                                const promiseErrorObj = Promise.resolve(errorObj);
+                                tag.obs.trigger('error-modal-open', promiseErrorObj);
+                                tag.obs.one('error-modal-close', function(value) {
+                                    tag.obs.trigger('aws-coop-modal-open', awsCoop)
+                                    tag.obs.one('aws-coop-modal-close', awsCoopModalCloseHandler)
+                                    // listAwsCoop()
+                                })
+                            }
+                        }).catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                            })
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            })
+        }
+        function deleteAwsCoopModal(awsCoopId) {
+            tag.obs.trigger('delete-confirm-modal-open', awsCoopId)
+        }
+        function deleteAwsCoop(awsCoopId) {
+            tag.obs.trigger('pm-loader-show')
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    // alert('getSession()でエラー\n' + err);
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+
+                    const requestAwsCoopInformationUrl = requestAwsCoopsUrl + "/" + awsCoopId
+                    let fetchResponse = null
+                    fetch(requestAwsCoopInformationUrl, {
+                        method: 'DELETE',
+                        headers: {
+                            'Authorization': idToken
+                        }
+                    }).then(function(response) {
+                        fetchResponse = response
+                        return response
+                    }).then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            tag.obs.trigger('pm-loader-hide');
+                            listAwsCoop()
+                        }).catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                            })
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            })
+        }
+        function editAwsCoopShowModal(awsCoopId, event) {
+            event.preventDefault()
+            tag.obs.trigger('pm-loader-show');
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    const requestAwsCoopInformationUrl = requestAwsCoopsUrl + "/" + awsCoopId
+                    let fetchResponse = null
+                    fetch(requestAwsCoopInformationUrl, {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': idToken
+                        }
+                    }).then(function(response) {
+                        fetchResponse = response
+                        return response
+                    }).then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            tag.obs.trigger('pm-loader-hide');
+                            return response.json();
+                        }).then(function(awsCoop) {
+                            awsCoop.isOwner = tag.isOwner
+                            awsCoop.insightwatchAccountId = tag.config.AWS_ACCOUNT_ID
+                            tag.obs.trigger('aws-coop-modal-open', awsCoop)
+                            tag.obs.one('aws-coop-modal-close', awsCoopModalCloseHandler)
+                        }).catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                            })
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            })
+        }
+    </script>
+</awscoops-list-container>

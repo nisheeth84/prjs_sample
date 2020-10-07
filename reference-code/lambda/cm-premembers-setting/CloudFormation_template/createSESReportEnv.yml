@@ -1,0 +1,235 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Create the SES Report Environment in Oregon.
+
+Resources:
+  BounceQueue:
+    Type: AWS::SQS::Queue
+    DependsOn: BounceTopic
+    Properties:
+      MessageRetentionPeriod: 1209600
+      QueueName: BounceQueue
+      VisibilityTimeout: 300
+
+  BounceQueuePolicy:
+    DependsOn: BounceQueue
+    Type: AWS::SQS::QueuePolicy
+    Properties:
+      Queues:
+        - !Ref BounceQueue
+      PolicyDocument:
+        Id: BounceQueuePolicy
+        Statement:
+          - Resource:
+              !GetAtt BounceQueue.Arn
+            Effect: Allow
+            Principal: '*'
+            Action:
+              - sqs:SendMessage
+            Condition:
+              ArnEquals:
+                aws:SourceArn: !Ref BounceTopic
+
+  BounceTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: bounce-topic
+
+  BounceSubscription:
+    Type: AWS::SNS::Subscription
+    Properties:
+      Endpoint:
+        Fn::GetAtt:
+          - BounceQueue
+          - Arn
+      Protocol: sqs
+      TopicArn: !Ref BounceTopic
+
+
+  ComplaintQueue:
+    Type: AWS::SQS::Queue
+    DependsOn: ComplaintTopic
+    Properties:
+      MessageRetentionPeriod: 1209600
+      QueueName: ComplaintQueue
+      VisibilityTimeout: 300
+
+  ComplaintQueuePolicy:
+    DependsOn: ComplaintQueue
+    Type: AWS::SQS::QueuePolicy
+    Properties:
+      Queues:
+        - !Ref ComplaintQueue
+      PolicyDocument:
+        Id: ComplaintQueuePolicy
+        Statement:
+          - Resource:
+              !GetAtt ComplaintQueue.Arn
+            Effect: Allow
+            Principal: '*'
+            Action:
+              - sqs:SendMessage
+            Condition:
+              ArnEquals:
+                aws:SourceArn: !Ref ComplaintTopic
+
+  ComplaintTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: complaint-topic
+
+  ComplaintSubscription:
+    Type: AWS::SNS::Subscription
+    Properties:
+      Endpoint:
+        Fn::GetAtt:
+          - ComplaintQueue
+          - Arn
+      Protocol: sqs
+      TopicArn: !Ref ComplaintTopic
+
+  Lambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      Code:
+        ZipFile: |
+          import json
+          import logging
+
+          import boto3
+
+          logger = logging.getLogger()
+          logger.setLevel(logging.INFO)
+
+          table = boto3.resource('dynamodb', region_name = 'ap-northeast-1').Table('PM_SESNotifications')
+
+          def lambda_handler(event, context):
+              for record in event['Records']:
+                  body = json.loads(record['body'])
+                  message = json.loads(body['Message'])
+                  notification_type = message['notificationType']
+                  { "Bounce": handle_bounce, "Complaint": handle_complaint}.get(notification_type, handle_unknown_type)(message)
+
+
+          def handle_bounce(message):
+              mail = message['mail']
+              message_id = mail['messageId']
+              source = mail['source']
+              timestamp = mail['timestamp']
+
+              bounce = message['bounce']
+              bounced_recipients = bounce['bouncedRecipients']
+              addresses = list(recipient['emailAddress'] for recipient in bounced_recipients)
+              bounce_type = bounce['bounceType']
+
+              logger.info("Message %s bounced when sending to %s from %s. Bounce type: %s" %
+                    (message_id, ", ".join(addresses), source, bounce_type))
+
+              for address in addresses:
+                  try:
+                      table.put_item(
+                          Item = {
+                              'Destination': address,
+                              'Timestamp': timestamp,
+                              'NotificationType': 'Bounce',
+                              'Source': source,
+                              'MessageID': message_id,
+                              'NotificationJson': json.dumps(message, indent=2)
+                          }
+                      )
+                  except Exception as e:
+                      logger.exception('An exception occurred while writing bounce message into DynamoDB.')
+
+          def handle_complaint(message):
+              mail = message['mail']
+              message_id = mail['messageId']
+              source = mail['source']
+              timestamp = mail['timestamp']
+
+              complaint = message['complaint']
+              complained_recipients = complaint['complainedRecipients']
+              addresses = list(recipient['emailAddress'] for recipient in complained_recipients)
+
+              logger.info("A complaint was reported by %s for message %s." %
+                    (", ".join(addresses), message_id))
+
+              for address in addresses:
+                  try:
+                      table.put_item(
+                          Item = {
+                              'Destination': address,
+                              'Timestamp': timestamp,
+                              'NotificationType': 'Complaint',
+                              'Source': source,
+                              'MessageID': message_id,
+                              'NotificationJson': json.dumps(message, indent=2)
+                          }
+                      )
+                  except Exception as e:
+                      logger.exception('An exception occurred while writing complaint message into DynamoDB.')
+
+
+          def handle_unknown_type(message):
+              logger.error("Unknown message type:\n%s" % json.dumps(message))
+              raise Exception("Invalid message type received: %s" %
+                              message['notificationType'])
+      FunctionName: !Sub ${AWS::StackName}-lambda
+      Handler: index.lambda_handler
+      Role: !GetAtt LambdaRole.Arn
+      Runtime: python3.7
+      Timeout: 10
+
+  LambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub ${AWS::StackName}-lambda-role
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Path: "/"
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        -
+          PolicyName: !Sub ${AWS::StackName}-lambda-policy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              -
+                Action:
+                  - sqs:ChangeMessageVisibility
+                  - sqs:ChangeMessageVisibilityBatch
+                  - sqs:DeleteMessage
+                  - sqs:DeleteMessageBatch
+                  - sqs:GetQueueAttributes
+                  - sqs:GetQueueUrl
+                  - sqs:ReceiveMessage
+                Resource:
+                  - !GetAtt BounceQueue.Arn
+                  - !GetAtt ComplaintQueue.Arn
+                Effect: Allow
+              -
+                Action:
+                  - dynamodb:PutItem
+                Resource: 'arn:aws:dynamodb:*:*:table/PM_SESNotifications'
+                Effect: Allow
+
+  BounceEventSourceMapping:
+    Type: AWS::Lambda::EventSourceMapping
+    Properties:
+      BatchSize: 10
+      Enabled: true
+      EventSourceArn: !GetAtt BounceQueue.Arn
+      FunctionName: !GetAtt Lambda.Arn
+
+  ComplaintEventSourceMapping:
+    Type: AWS::Lambda::EventSourceMapping
+    Properties:
+      BatchSize: 10
+      Enabled: true
+      EventSourceArn: !GetAtt ComplaintQueue.Arn
+      FunctionName: !GetAtt Lambda.Arn

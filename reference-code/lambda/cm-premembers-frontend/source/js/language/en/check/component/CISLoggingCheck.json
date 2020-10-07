@@ -1,0 +1,6 @@
+{
+    "CISLoggingCheck": {
+        "key_id": "Key ID",
+        "cloudtrail": "CloudTrail"
+    }
+}

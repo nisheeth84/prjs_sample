@@ -1,0 +1,97 @@
+<update-email-confirm-modal>
+  <div class="modal fade modal-warning" id="update-email-confirm-modal" aria-hidden="true" aria-labelledby="exampleModalInfo"
+    role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title">{_t('UpdateEmailConfirmModal.title')}
+          </h4>
+        </div>
+        <div class="modal-body">
+          <p>{_t('UpdateEmailConfirmModal.body')}</p>
+          <p class="mb-0">{_t('UpdateEmailConfirmModal.email_address_before_change')}</p>
+          <div class="margin-left_20">
+            <p>{infoUpdateEmail.emailAddressBeforeUpdate}</p>
+          </div>
+          <p class="mb-0">{_t('UpdateEmailConfirmModal.email_address_after_change')}</p>
+          <div class="margin-left_20">
+            <p>{infoUpdateEmail.emailAddressAfterUpdate}</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">{_t('cancel')}</button>
+          <button type="button" class="btn btn-warning" onclick={doUpdate}>{_t('change')}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tag = this
+    const obs = tag.parent.obs
+    tag.observer = obs
+    tag.doUpdate = doUpdate
+    const dictionary = tag.commonUtils.getMyDictionary()
+    let language = tag.commonUtils.getItemFromLocalStorage('language')
+    if (language == null) {
+        language = tag.commonUtils.getLanguageFromBrowser();
+    }
+    tag.infoUpdateEmail = {
+      'emailAddressBeforeUpdate': '',
+      'emailAddressAfterUpdate': ''
+    }
+
+    tag.on('mount', function() {
+      tag.modal = $('#update-email-confirm-modal')
+      tag.observer.on('update-email-confirm-modal-open', function(infoUpdateEmail) {
+        tag.infoUpdateEmail['emailAddressBeforeUpdate'] = infoUpdateEmail['emailAddressBeforeUpdate']
+        tag.infoUpdateEmail['emailAddressAfterUpdate'] = infoUpdateEmail['emailAddressAfterUpdate']
+        tag.modal.modal()
+        tag.update()
+      })
+      tag.modal.on('hidden.bs.modal', function() {
+        tag.observer.trigger("update-email-confirm-modal-close")
+      })
+    })
+
+    function doUpdate() {
+      tag.modal.modal('hide')
+      const bodyApplyChangeEmai = {
+        'mailAddress': tag.infoUpdateEmail['emailAddressAfterUpdate'],
+        'callerServiceName': dictionary.ServiceName,
+        'mailLang': language
+      }
+      const requestApplyChangeEmailUrl = tag.config.APIGATEWAY_ADDRESS + "/myself/applychangeemail"
+      tag.commonUtils.callApiWithLoader(tag.parent, requestApplyChangeEmailUrl, "POST", bodyApplyChangeEmai, false).then(function(response) {
+        if (response) {
+          const information = {
+            'title': tag._t('UpdateEmailConfirmModal.information_complete.title'),
+            'body': tag._t('UpdateEmailConfirmModal.information_complete.body')
+          }
+          tag.parent.obs.trigger('information-modal-open', information)
+          tag.parent.obs.one('information-modal-close', function() {
+            window.location.href = "#/home/"
+          })
+        }
+      }).catch(function(error) {
+        error.then(function(value) {
+          if (value.responseStatus == 409 && value.code == 302) {
+            const infoError = {
+              'title': tag._t('Error_message.apply_change_email_error_title'),
+              'body': tag._t('Error_message.apply_change_email_error_body')
+            }
+            tag.observer.trigger('error-modal-customize-open', infoError)
+          } else {
+            tag.observer.trigger('error-modal-open', error)
+          }
+        })
+      })
+    }
+
+    tag.on('unmount', function() {
+      tag.modal.off('hidden.bs.modal')
+    })
+  </script>
+</update-email-confirm-modal>

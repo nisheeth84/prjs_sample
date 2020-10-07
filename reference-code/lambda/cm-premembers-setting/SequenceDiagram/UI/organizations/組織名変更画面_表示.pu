@@ -1,0 +1,29 @@
+@startuml{組織名変更画面.png}
+title [組織名変更画面]
+hide footbox
+
+actor ユーザー as user
+boundary 組織名変更画面 as view_1
+boundary 組織情報画面 as view_2
+participant 組織API as api_organizations #cyan
+
+== 表示 ==
+user -> view_1 :表示
+activate view_1
+    view_1 -> view_1 :画面描画
+    note right :組織情報画面で取得した組織情報を元に画面描画を行う
+    view_1 --> user
+deactivate view_1
+
+== 組織名変更 ==
+user -> view_1 :組織名変更
+activate view_1
+    view_1 -> view_1 :バリデーションチェック
+    view_1 -> api_organizations : PUT /organizations/{id}
+    activate api_organizations
+        api_organizations --> view_1 :200:変更後の組織情報
+    deactivate api_organizations
+    view_1 -> view_2 :表示
+deactivate view_1
+
+@enduml

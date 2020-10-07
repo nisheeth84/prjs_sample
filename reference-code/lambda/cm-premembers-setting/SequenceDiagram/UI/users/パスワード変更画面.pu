@@ -1,0 +1,26 @@
+@startuml{パスワード変更画面.png}
+title [パスワード変更画面]
+hide footbox
+
+actor ユーザー as user
+boundary パスワード変更画面 as view_1
+boundary ユーザー情報画面 as view_2
+database ユーザープール as user_pools <<cognito>> #purple
+
+== 表示 ==
+user -> view_1 :画面表示
+activate view_1
+    view_1 -> view_1 :画面描画
+    view_1 --> user
+deactivate view_1
+
+== パスワード変更 ==
+user -> view_1 :パスワード変更
+activate view_1
+    view_1 -> view_1 :バリデーションチェック
+    view_1 -> user_pools :パスワード変更
+    user_pools --> view_1
+    view_1 -> view_2 :表示
+deactivate view_1
+
+@enduml

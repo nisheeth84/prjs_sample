@@ -1,0 +1,193 @@
+{
+  "tasks": {
+    "required": "※",
+    "common": {},
+    "list": {
+      "isPublic": {
+        "public": "Public",
+        "notPublic": "Private"
+      },
+      "status-task": {
+        "no-start": "Not Started",
+        "start": "Doing",
+        "complete": "Completed"
+      },
+      "createtaskbutton": "Register task",
+      "createtask": "Register task",
+      "registermilestone": "Register milestone",
+      "popup": {
+        "verification": "Confirm",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "youcantsubtasktoincomplete": "Completed task contains unfinished subtask. Please select an action.",
+        "movetoincompleteforeachtask": "Complete subtask also",
+        "subtaskalsocomplete": "Complete subtask",
+        "convertsubtasktotask": "Convert subtask to task",
+        "deletesubtask": "Delete subtask",
+        "pleaseselectanoption": "The task you want to delete contains subtask. Please select an action.",
+        "tasktodeletecontainsubtask": "The task you want to delete contains subtask.",
+        "areyousuretodeletetask": "Are you sure you want to delete?"
+      },
+      "statustask": ["Not started", "Doing", "Completed"],
+      "card": {
+        "customer": "Customer",
+        "product": "Product",
+        "task": "Task",
+        "term": "Due date: ",
+        "milestone": "Milestone",
+        "subtask": "Subtask",
+        "plan": "Plan",
+        "currentschedule": "Current schedule",
+        "consultation": "Discuss",
+        "eigorou": "Eigyo Taro",
+        "employeetaro": "Employee Taro"
+      },
+      "top": {
+        "searchplaceholder": "Search task",
+        "updatetonotstart": "Not Started",
+        "updatetoworking": "Doing",
+        "updatetofinish": "Complete",
+        "title": {
+          "btn-edit": "Simple edit",
+          "btn-cancel": "Cancel",
+          "btn-save": "Save changes"
+        }
+      },
+      "left": {
+        "customertasklist": "Customers - Tasks",
+        "favoritelist": "Favorite list",
+        "personincharge": "Person in charge",
+        "searchpersontodisplay": "Search person in charge to display",
+        "department": "Department",
+        "employee": "Employee",
+        "group": "Group",
+        "period": "Period",
+        "alltime": "All time",
+        "periodspecification": "Specify period",
+        "choose_employee": "Show this employee only",
+        "remove_employee": "Remove this employee",
+        "choose_departerment": "Remove this department",
+        "remove_departerment": "Remove this group"
+      },
+      "importtask": "Import task"
+    },
+    "create-edit": {
+      "button": {
+        "cancel": "Cancel",
+        "create": "Register",
+        "edit": "Save",
+        "confirm_sub_done": "Complete subtask also",
+        "confirm_sub_to_primary": "Convert subtask to task"
+      },
+      "title": {
+        "confirm-subtask": "Completed task contains unfinished subtask. Please select an action."
+      },
+      "label": {
+        "require": "※",
+        "register": "Register task",
+        "task-edit": "Edit task",
+        "subtask-register": "Register subtask",
+        "subtask-edit": "Edit subtask",
+        "file": "Attach file",
+        "subtask": "Subtask name",
+        "taskname": "Task name",
+        "status": "Status",
+        "customer": "Customer name",
+        "product": "Trading product",
+        "operators": "Person in charge",
+        "startDate": "Start date",
+        "finishDate": "Completion date (estimated)",
+        "public": "Privacy Setting",
+        "memo": "Memo",
+        "subtaskName": "Subtask name",
+        "registerSubtask": "Register subtask",
+        "milestone": "Milestone",
+        "confirm-subtask": "Confirm",
+        "cancel-popup": "Cancel",
+        "status-task": {
+          "no-start": "Not Started",
+          "start": "Doing",
+          "complete": "Completed"
+        },
+        "createdDate": "Created date",
+        "createdUser": "Created user",
+        "updatedDate": "Last updated date",
+        "updatedUser": "Last updated person",
+        "registeredAuto": "Automatically registered."
+      },
+      "placeholder": {
+        "file": "Please click or drop file",
+        "subtask": "Add subtask",
+        "taskname": "Enter task name",
+        "status": "Select status",
+        "customer": "Add customer name",
+        "product": "Add trading product",
+        "operators": "Add person in charge",
+        "startDate": "Add start date",
+        "finishDate": "Add completion date (estimated)",
+        "public": "Public",
+        "memo": "Memo",
+        "subtaskName": "Enter subtask name",
+        "milestone": "Select milestone",
+        "taskId": "Automatically numbered",
+        "suggest-single": "Select {{placeholder}}",
+        "suggest-multi": "Add {{placeholder}}"
+      },
+      "confirm-delete-subtask": {
+        "title": "Confirm",
+        "message": "The task you want to delete contains subtask. Please select an action.",
+        "delete-subtask": "Delete subtask",
+        "delete-subtask-relation": "Unlink task and subtask ",
+        "cancel": "Cancel"
+      }
+    },
+    "detail": {
+      "form": {
+        "product": {
+          "tradingProduct": "Trading product",
+          "product": "Product",
+          "customerName": "Customer name",
+          "customerContactPerson": "Customer representative",
+          "personInCharge": "Person in charge",
+          "progress": "Progress",
+          "completionDate": "Estimated completion date",
+          "amountOfMoney": "Amount",
+          "total": "Total",
+          "moneyType": "Yen"
+        },
+        "button-setting": "Edit screen",
+        "task-name": "Task name",
+        "memo": "Memo",
+        "employee": "Person in charge",
+        "firt-n": " ",
+        "last-n": " others",
+        "start-date": "Start date",
+        "end-date": "Completion date (estimated)",
+        "customer-name": "Customer name",
+        "milestone-name": "Milestone",
+        "files": "Attach file",
+        "status": "Status",
+        "isdone": "Privacy Setting",
+        "is-public-true": "Public",
+        "is-public-false": "Private",
+        "isdone-0": "Private",
+        "subtask": "Subtask",
+        "year": "/",
+        "month": "/",
+        "date": " ",
+        "time": "Tue",
+        "text": "The task you want to delete contains subtask. Please select an action.",
+        "text-delete-3": "Convert subtask to task",
+        "button-update": "Complete",
+        "not-start": "Not started",
+        "started": "Doing",
+        "finished": "Completed",
+        "button-preview": "Preview registration",
+        "label-infor": "Sample data for task"
+      },
+      "info": {
+        "infoScroll": "Scroll up to view more"
+      }
+    }
+  }
+}

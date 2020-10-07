@@ -1,0 +1,289 @@
+<awscoops-create-container>
+    <div class="page">
+        <div class="page-header">
+            <h1 class="page-title mt-2">
+                <b>{_t('AwsCoopsCreate.title')}</b>
+            </h1>
+        </div>
+        <div class="page-content container-fluid">
+            <div class="row">
+                <div class="col-5"></div>
+                <div class="col-5 row ml-40">
+                    <span class="pl-20">
+                        <img class="pb-5" src="./assets/images/AWSLogo.png" />
+                    </span>
+                    <span class="page-title pl-10 font-size-20">
+                        <b>{_t('AwsCoopsCreate.info')}</b>
+                    </span>
+                </div>
+            </div>
+            <form ref="form" onsubmit={clickCreateAwsCoop}>
+                <div class="row mb-20 pt-20 pb-20 step-border-top">
+                    <div class="col-5">
+                        <div class="row">
+                            <span class="step-number-awscoops">１</span>
+                            <h5 class="pl-15">{_t('AwsCoopsCreate.guideline_awscoops_create_step1')}</h5>
+                        </div>
+                        <div class="row  pt-20 pl-50 pr-50">
+                            <a href="https://ap-northeast-1.console.aws.amazon.com/cloudformation/home?region=ap-northeast-1#/stacks/create/review?templateURL={config.S3_CFNTEMPLATE_BUCKET_URL}/insightwatch_access_role.yml&stackName=insightwatch&param_ExternalId={awsCoop.externalId}&param_insightwatchAccountId={config.AWS_ACCOUNT_ID}"
+                                target="_blank" class="btn-block btn btn-primary">
+                                <i class="icon fa-external-link" aria-hidden="true"></i>
+                                {_t('AwsCoopsCreate.create_iam_role')}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-5 mt-20 ml-40">
+                        <img src="{_t('AwsCoopsCreate.iw_awscoops_create_step1')}" alt="">
+                    </div>
+                </div>
+                <div class="row mb-20 pt-20 pb-20 step-border-top">
+                    <div class="col-5">
+                        <div class="row">
+                            <span class="step-number-awscoops">２</span>
+                            <h5 class="pl-15">{_t('AwsCoopsCreate.guideline_awscoops_create_step2')}</h5>
+                        </div>
+                        <div class="pb-25">
+                            <h5 class="pl-5">{_t('external_id')}</h5>
+                            <input type="text" class="form-control" readonly ref="externalID" name="ExternalID" value="{awsCoop.externalId}">
+                        </div>
+                        <div class="pb-25">
+                            <h5 class="pl-5">{_t('insightwatch_account_id')}</h5>
+                            <input type="text" ref="insightwatchAccountId" readonly value="{awsCoop.insightwatchAccountId}" required class="form-control"
+                                id="inputFocus" placeholder="{_t('insightwatch_account_id_example')}">
+                        </div>
+                    </div>
+                    <div class="col-5 mt-50  ml-40">
+                        <img src="{_t('AwsCoopsCreate.iw_awscoops_create_step2')}" alt="">
+                    </div>
+                </div>
+                <div class="row mb-20 pt-20 pb-20 step-border-top">
+                    <div class="col-5">
+                        <div class="row">
+                            <span class="step-number-awscoops">３</span>
+                            <h5 class="pl-15">{_t('AwsCoopsCreate.guideline_awscoops_create_step3')}</h5>
+                        </div>
+                    </div>
+                    <div class="col-5 mt-10  ml-40">
+                        <img src="{_t('AwsCoopsCreate.iw_awscoops_create_step3')}" alt="">
+                    </div>
+                </div>
+                <div class="row mb-20 pt-20 pb-20 step-border-top">
+                    <div class="col-5">
+                        <div class="row">
+                            <span class="step-number-awscoops">４</span>
+                            <h5 class="pl-15">{_t('AwsCoopsCreate.guideline_awscoops_create_step4')}</h5>
+                        </div>
+                        <div class="pb-25">
+                            <h5 class="pl-5">{_t('account_id')}</h5>
+                            <input type="text" class="form-control" ref="accountID" name="AccountID" value={awsCoop.awsAccount} required readonly="{awsCoop.effective == 1}"
+                                placeholder="{_t('account_id_example')}">
+                        </div>
+                        <div class="pb-25">
+                            <h5 class="pl-5">{_t('iam_role_name')}</h5>
+                            <input type="text" class="form-control" ref="roleName" name="RoleName" value="{awsCoop.roleName}" required placeholder="{_t('iam_role_name_example')}">
+                        </div>
+                    </div>
+                    <div class="col-5 mt-20  ml-40">
+                        <img src="{_t('AwsCoopsCreate.iw_awscoops_create_step4')}" alt="">
+                    </div>
+                </div>
+                <div class="row mb-20 pt-20 pb-20 step-border-top">
+                    <div class="col-5">
+                        <div class="row">
+                            <span class="step-number-awscoops">５</span>
+                            <h5 class="pl-15">{_t('AwsCoopsCreate.guideline_awscoops_create_step5')}</h5>
+                        </div>
+                        <div class="pb-25">
+                            <h5 class="pl-5">{_t('account_name')}</h5>
+                            <input type="text" class="form-control" ref="accountName" name="AccountName" value={awsCoop.awsAccountName} placeholder="{_t('account_name_example')}">
+                        </div>
+                        <div class="pb-25">
+                            <h5 class="example-title">{_t('description')}</h5>
+                            <textarea class="form-control" rows="3" ref="description" name="textareaFloating" value={awsCoop.description}></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-20 pt-20 pb-20 step-border-top">
+                    <div class="col-4">
+                        <div>
+                            <button class="btn btn-default waves-effect waves-light btn-block" onclick={deleteAwsCoop.bind(this,awsCoop.id)}
+                                type="button">{_t('cancel')}</button>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div>
+                            <button class="btn btn-primary waves-effect waves-light btn-block" type="submit">{_t('create')}</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        const tag = this;
+        tag.cognitoUser = riot.mixin('cognitoUser')
+        const obs = riot.observable()
+        tag.obs = obs
+        tag.awsCoop = {}
+        tag.clickCreateAwsCoop = clickCreateAwsCoop
+        tag.deleteAwsCoop = deleteAwsCoop
+        tag.organization_id = opts.organization_id
+        tag.project_id = opts.project_id
+        const requestAwsCoopsUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + tag.organization_id + '/projects/' + tag.project_id + '/awscoops';
+
+        tag.on('mount', function() {
+            loadInfoCreateAwsCoop()
+        })
+
+        function loadInfoCreateAwsCoop() {
+            tag.obs.trigger('pm-loader-show');
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    // alert('getSession()でエラー\n' + err);
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    let fetchResponse = null
+                    fetch(requestAwsCoopsUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': idToken
+                        }
+                    }).then(function(response) {
+                        fetchResponse = response
+                        return response
+                    }).then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            tag.obs.trigger('pm-loader-hide');
+                            return response.json();
+                        }).then(function(awsTempCoop) {
+                            awsTempCoop.awsAccount = ''
+                            awsTempCoop.insightwatchAccountId = tag.config.AWS_ACCOUNT_ID
+                            tag.awsCoop = awsTempCoop
+                            const form = tag.refs.form
+                            tag.commonUtils.submitEnable(form)
+                            tag.update()
+                        }).catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                            })
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            })
+        }
+
+        function clickCreateAwsCoop(event) {
+            event.preventDefault()
+            const form = tag.refs.form
+            tag.commonUtils.submitDisable(form)
+            const awsCoop = tag.awsCoop
+            const awsAccount = tag.refs.accountID.value.trim()
+            const accountName = tag.refs.accountName.value
+            const roleName = tag.refs.roleName.value.trim()
+            const description = tag.refs.description.value
+            awsCoop['awsAccount'] = awsAccount
+            awsCoop['awsAccountName'] = accountName
+            awsCoop['roleName'] = roleName
+            awsCoop['description'] = description
+            editAwsCoop(awsCoop)
+        }
+
+        function editAwsCoop(awsCoop) {
+            tag.obs.trigger('pm-loader-show')
+            const form = tag.refs.form
+            const requestAwsCoopsCreateUrl = requestAwsCoopsUrl + '/' + awsCoop.id
+            const requestAWSCoopCreate = {
+                "awsAccount": awsCoop.awsAccount,
+                "awsAccountName": awsCoop.awsAccountName,
+                "roleName": awsCoop.roleName,
+                "description": awsCoop.description
+            }
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    let fetchResponse = null
+                    fetch(requestAwsCoopsCreateUrl, {
+                        method: 'PATCH',
+                        headers: {
+                            'Authorization': idToken
+                        },
+                        body: JSON.stringify(requestAWSCoopCreate)
+                    }).then(function(response) {
+                        tag.obs.trigger('pm-loader-hide');
+                        fetchResponse = response
+                        return response
+                    }).then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            return response.json();
+                        }).then(function(response) {
+                            if (response.effective === 1) {
+                                window.location.href = "#/organizations/" + tag.organization_id + "/projects/" + tag.project_id + "/awsaccounts/"
+                            } else {
+                                const errorObj = {
+                                    "clientWarning": tag._t('client_warning'),
+                                    "clientWarningDetails": tag._t('client_warning_details', { returnObjects: true })
+                                }
+                                const promiseErrorObj = Promise.resolve(errorObj);
+                                tag.obs.trigger('error-modal-open', promiseErrorObj);
+                                tag.commonUtils.submitEnable(form);
+                            }
+                        }).catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                            })
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            })
+        }
+
+        function deleteAwsCoop(awsCoopId) {
+            tag.obs.trigger('pm-loader-show')
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    // alert('getSession()でエラー\n' + err);
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    const requestAwsCoopInformationUrl = requestAwsCoopsUrl + "/" + awsCoopId
+                    let fetchResponse = null
+                    fetch(requestAwsCoopInformationUrl, {
+                        method: 'DELETE',
+                        headers: {
+                            'Authorization': idToken
+                        }
+                    }).then(function(response) {
+                        fetchResponse = response
+                        return response
+                    }).then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            tag.obs.trigger('pm-loader-hide');
+                            window.location.href = "#/organizations/" + tag.organization_id + "/projects/" + tag.project_id + "/awsaccounts/"
+                        }).catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                            })
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            })
+        }
+    </script>
+</awscoops-create-container>

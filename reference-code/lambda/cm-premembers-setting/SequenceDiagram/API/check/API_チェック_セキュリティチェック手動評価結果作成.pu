@@ -1,0 +1,30 @@
+@startuml{API_チェック_セキュリティチェック手動評価結果作成.png}
+title [チェックAPI_セキュリティチェック手動評価結果作成]
+hide footbox
+
+boundary 画面 as view
+participant チェックAPI as api_check #cyan
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database 評価結果 as table_assessmentitems <<dynamodb>> #royalblue
+
+view -> api_check :POST /check/securitycheck/{organization_id}/{project_id}/assessment
+note right :bodyに作成する手動評価情報(AWSアカウントID、チェック項目コード)
+activate api_check
+    api_check -> api_check :メールアドレス取得
+    |||
+    ref over api_check, table_affiliation :アクセス権限チェック
+    |||
+    api_check -> api_check :バリデーションチェック
+    |||
+    api_check -> api_check :手動評価結果登録
+    activate api_check
+        api_check -> table_assessmentitems: レコード作成
+        table_assessmentitems --> api_check
+        api_check --> api_check
+    deactivate api_check
+    |||
+    api_check -> api_check :レスポンス作成
+    api_check --> view :201:作成した評価情報
+deactivate api_check
+
+@enduml

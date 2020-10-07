@@ -1,0 +1,11 @@
+{
+    "UserAttributeRegistration": {
+        "regist_info_attr": "ユーザー属性情報登録",
+        "regist_info_attr_warning": "ユーザー属性情報を登録してください。",
+        "region": "国 / 地域",
+        "label_require": "必須",
+        "purpose": "利用目的",
+        "corporate": "企業利用",
+        "personal": "個人利用"
+    }
+}

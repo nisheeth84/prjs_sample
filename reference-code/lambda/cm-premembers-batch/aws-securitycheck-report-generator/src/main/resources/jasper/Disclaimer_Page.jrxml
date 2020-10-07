@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Disclaimer_Page" pageWidth="475" pageHeight="720" columnWidth="475" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="072c9a1d-cb98-4614-be55-45c3b4e22e1e">
+	<property name="ireport.zoom" value="1.4641000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="net.sf.jasperreports.awt.ignore.missing.font" value="true"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\Projects\\prjo_AWSAccount\\30_implementation\\31_requirement\\VN\\Latest\\Luvina Design Require\\templatePdf\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="lsAwsAccountsDto" class="java.util.List"/>
+	<field name="executeDateTime" class="java.lang.String"/>
+	<field name="organizationName" class="java.lang.String"/>
+	<field name="projectName" class="java.lang.String"/>
+	<detail>
+		<band height="720" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="475" height="30" uuid="4fe39f5e-ada0-42fa-84cc-e0022a5900f0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAexGothic" size="14" isBold="true" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{disclaimer.title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="29" width="475" height="30" uuid="9212feef-de18-429c-9809-e07a9ed42310"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font fontName="IPAexGothic" size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{disclaimer.descript}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

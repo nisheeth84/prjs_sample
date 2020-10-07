@@ -1,0 +1,79 @@
+@startuml{チェック結果画面.png}
+title [チェック結果画面]
+hide footbox
+
+actor ユーザー as user
+boundary チェック結果画面 as view
+participant 組織API as api_organizations #cyan
+participant プロジェクトAPI as api_projects #cyan
+participant AWSアカウント連携API as api_awsac_coops #cyan
+participant チェックAPI as api_check #cyan
+
+
+user -> view :画面表示
+activate view
+    view -> api_organizations :GET /myorganizations
+    api_organizations --> view
+    |||
+    view -> view :組織リストを更新
+    |||
+    view --> user
+deactivate view
+user -> view :組織選択
+activate view
+    view -> api_projects :GET /organizations/{organization_id}/projects
+    api_projects --> view
+    |||
+    view -> view :プロジェクトリストを更新
+    |||
+    view --> user
+deactivate view
+user -> view :プロジェクト選択
+activate view
+    view -> api_awsac_coops :GET /organizations/{organization_id}/projects/{project_id}/awscoops
+    api_awsac_coops --> view
+    |||
+    opt 取得したAWSアカウント連携にメンバーズ加入アカウントが含まれていた場合
+        view -> view :メンバーズ説明を表示
+        |||
+    end
+    |||
+    view -> view :チェックグループのタイトルを表示
+    |||
+par
+    view -> api_check :GET /check/securitycheck/{organization_id}/{project_id}/results?groupFilter='CIS'
+    api_check --> view
+    |||
+    view -> view :CISチェックのチェック結果の表示
+    |||
+    view --> user
+deactivate view
+|||
+else
+user -> view: AWSセキュリティチェックリストを開く
+activate view
+    opt AWSセキュリティチェックリストのチェック結果を取得していない
+        view -> api_check :GET /check/securitycheck/{organization_id}/{project_id}/results?groupFilter='ASC'
+        api_check --> view
+        |||
+    end
+    view -> view :AWSセキュリティチェックリストのチェック結果の表示
+    |||
+    view --> user
+deactivate view
+|||
+else
+user -> view: xxxを開く
+activate view
+    opt xxxのチェック結果を取得していない
+        view -> api_check :GET /check/securitycheck/{organization_id}/{project_id}/results?groupFilter='xxx'
+        api_check --> view
+        |||
+    end
+    view -> view :xxxのチェック結果の表示
+    |||
+    view --> user
+deactivate view
+|||
+end
+@enduml

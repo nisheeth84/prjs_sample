@@ -1,0 +1,48 @@
+version: 0.2
+run-as: root
+phases:
+  install:
+    runtime-versions:
+     java: openjdk11
+     docker: 18
+    commands:
+      - nohup /usr/bin/dockerd &
+  pre_build:
+    commands:
+      - MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
+      - aws s3 sync $MAVEN_ROOT/m2 /root/.m2/
+      - aws ecr get-login-password | docker login --username AWS --password-stdin $ECR 
+      - REPOSITORY_URI=$ECR/$NAMESPACE-$SERVICE_NAME
+      - IMAGE_URI=$REPOSITORY_URI:$IMAGE_TAG
+      - NODE_OPTIONS="--max-old-space-size=2048"
+      - export PATH=$PATH:/sonar-scanner-$SONARSCANVER-linux/bin/
+      #- IPSONAR=$(aws servicediscovery discover-instances --namespace-name esale --service-name sonarqube | grep IPV4 | sed -e 's/"/ /g' | awk '{print $3}')
+      #- HOST=http://$IPSONAR:9000
+      - HOST=$(cat sonar-project.properties | grep "sonar.host.url" | sed 's/\=/ /g' | awk '{print $2}')
+      - Project=$(cat sonar-project.properties | grep "sonar.projectName" | sed 's/\=/ /g' | awk '{print $2}')
+  build:
+    commands:
+      - mvn test
+      - echo $LOGIN
+      - mvn sonar:sonar -Dsonar.login=$LOGIN -Dsonar.host.url=$HOST -Dsonar.projectKey=$Project
+      - curl $HOST/api/qualitygates/project_status?projectKey=$Project >result.json
+      #- if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then aws codebuild stop-build --id $CODEBUILD_BUILD_ID ;fi
+      - mvn package -Ddev -DskipTests
+      - docker build -t $IMAGE_URI .
+  post_build:
+    commands:
+      - echo Push to ECR
+      - docker push $IMAGE_URI
+      - printf '[{"name":"%s","imageUri":"%s"}]' $SERVICE_NAME $IMAGE_URI > imagedefinitions.json
+      - printf '{"ImageURI":"%s"}' $IMAGE_URI > imageDetail.json
+      - printf '{"imageURI":"%s"}' $IMAGE_URI > imageUris.json
+      - aws s3 sync /root/.m2/repository $MAVEN_ROOT/m2/repository
+cache:
+  paths:
+    - '/root/.m2/**/*'
+artifacts:
+  files:
+    - imagedefinitions.json
+    - imageUris.json
+    - imageDetail.json
+  discard-paths: yes

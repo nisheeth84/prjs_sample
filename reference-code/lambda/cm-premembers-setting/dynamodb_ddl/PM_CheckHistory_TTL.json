@@ -1,0 +1,7 @@
+{
+    "TableName": "PM_CheckHistory",
+    "TimeToLiveSpecification": {
+        "Enabled": true,
+        "AttributeName": "TimeToLive"
+    }
+}

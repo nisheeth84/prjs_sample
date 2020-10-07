@@ -1,0 +1,30 @@
+@startuml{API_プロジェクト_プロジェクト情報変更.png}
+title [プロジェクトAPI_プロジェクト情報変更]
+hide footbox
+
+boundary 画面 as view
+participant プロジェクトAPI as api_projects #cyan
+'database ユーザープール as user_pools <<cognito>> #purple
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database プロジェクト as table_projects <<dynamodb>> #royalblue
+
+view -> api_projects :PATCH /organizations/{organization_id}/projects/{project_id}
+note right :bodyに更新するプロジェクト情報
+activate api_projects
+    api_projects -> api_projects :メールアドレス取得
+    |||
+    ref over api_projects, table_affiliation :アクセス権限チェック
+    |||
+    api_projects -> api_projects :バリデーションチェック
+    api_projects -> api_projects :プロジェクト情報更新
+    activate api_projects
+        api_projects -> table_projects :レコード更新
+        table_projects --> api_projects
+        api_projects --> api_projects
+    deactivate api_projects
+    |||
+    api_projects -> api_projects :レスポンス作成
+    api_projects --> view : 200:更新したプロジェクト情報
+deactivate api_projects
+
+@enduml

@@ -1,0 +1,11 @@
+{
+    "Signin": {
+        "forgot_password_1": "パスワードをお忘れのかたは",
+        "forgot_password_2": "こちら",
+        "first_visit": "insightwatchのご利用は初めてですか?",
+        "regist_user": "ユーザー登録",
+        "auth_incorrect": "認証情報が正しくありません。",
+        "mfa_code": "MFA Code",
+        "send": "送信する"
+    }
+}

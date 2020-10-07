@@ -1,0 +1,7 @@
+{
+    "CheckWholeSummary": {
+        "notify_managed": "You don't need to care about them if you have the AWS accounts managed by Classmethod.",
+        "notify_warning": "We recommend that you investigate them to make the AWS accounts more secure",
+        "notify_critical": "We strongly recommend that you take immediate action to fix them."
+    }
+}

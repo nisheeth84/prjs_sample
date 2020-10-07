@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="17.357" viewBox="0 0 15 17.357">
+  <g id="Group_28309" data-name="Group 28309" transform="translate(-917 -966)">
+    <g id="Path_31021" data-name="Path 31021" transform="translate(923 972)" fill="#fff">
+      <path d="M 8 10.5 L 1 10.5 C 0.7243000268936157 10.5 0.5 10.27569961547852 0.5 10 L 0.5 1 C 0.5 0.7243000268936157 0.7243000268936157 0.5 1 0.5 L 4.874268054962158 0.5 L 8.5 4.051925659179688 L 8.5 10 C 8.5 10.27569961547852 8.275699615478516 10.5 8 10.5 Z" stroke="none"/>
+      <path d="M 1 1 L 1 10 L 8 10 L 8 4.262051105499268 L 4.670166015625 1 L 1 1 M 1 0 L 5.078370094299316 0 L 9 3.841800212860107 L 9 10 C 9 10.55228996276855 8.552289962768555 11 8 11 L 1 11 C 0.4477100372314453 11 0 10.55228996276855 0 10 L 0 1 C 0 0.4477100372314453 0.4477100372314453 0 1 0 Z" stroke="none" fill="#999"/>
+    </g>
+    <g id="Path_31022" data-name="Path 31022" transform="translate(928 973)" fill="#fff">
+      <path d="M 1.799324154853821 2.734377384185791 L 0.2031275033950806 2.734377384185791 L 0.2031275033950806 1.183139443397522 L 1.799324154853821 2.734377384185791 Z" stroke="none"/>
+      <path d="M -0.296872615814209 -2.384185791015625e-06 L 3.031247615814209 3.234377384185791 L -0.296872615814209 3.234377384185791 L -0.296872615814209 -2.384185791015625e-06 Z" stroke="none" fill="#999"/>
+    </g>
+    <g id="Path_31021-2" data-name="Path 31021" transform="translate(917 966)" fill="#fff">
+      <path d="M 8 10.5 L 1 10.5 C 0.7243000268936157 10.5 0.5 10.27569961547852 0.5 10 L 0.5 1 C 0.5 0.7243000268936157 0.7243000268936157 0.5 1 0.5 L 4.874268054962158 0.5 L 8.5 4.051925659179688 L 8.5 10 C 8.5 10.27569961547852 8.275699615478516 10.5 8 10.5 Z" stroke="none"/>
+      <path d="M 1 1 L 1 10 L 8 10 L 8 4.262051105499268 L 4.670166015625 1 L 1 1 M 1 0 L 5.078370094299316 0 L 9 3.841800212860107 L 9 10 C 9 10.55228996276855 8.552289962768555 11 8 11 L 1 11 C 0.4477100372314453 11 0 10.55228996276855 0 10 L 0 1 C 0 0.4477100372314453 0.4477100372314453 0 1 0 Z" stroke="none" fill="#999"/>
+    </g>
+    <g id="Path_31022-2" data-name="Path 31022" transform="translate(922 967)" fill="#fff">
+      <path d="M 1.799324154853821 2.734377384185791 L 0.2031275033950806 2.734377384185791 L 0.2031275033950806 1.183139443397522 L 1.799324154853821 2.734377384185791 Z" stroke="none"/>
+      <path d="M -0.296872615814209 -2.384185791015625e-06 L 3.031247615814209 3.234377384185791 L -0.296872615814209 3.234377384185791 L -0.296872615814209 -2.384185791015625e-06 Z" stroke="none" fill="#999"/>
+    </g>
+    <line id="Line_2193" data-name="Line 2193" x2="6" transform="translate(918.5 972.5)" fill="none" stroke="#999" stroke-width="1"/>
+    <line id="Line_2194" data-name="Line 2194" x2="6" transform="translate(918.5 974.5)" fill="none" stroke="#999" stroke-width="1"/>
+    <path id="Path_31025" data-name="Path 31025" d="M0,0H4.5" transform="translate(927.5 968.5)" fill="none" stroke="#999" stroke-width="1"/>
+    <path id="Path_31024" data-name="Path 31024" d="M-.25,2.2,2,0" transform="translate(927.5 966.5)" fill="none" stroke="#999" stroke-width="1"/>
+    <path id="Path_31023" data-name="Path 31023" d="M-.187-.437,2,2" transform="translate(927.5 968.5)" fill="none" stroke="#999" stroke-width="1"/>
+    <g id="Rectangle_18249" data-name="Rectangle 18249" transform="translate(931 968)" fill="#fff" stroke="#999" stroke-width="1">
+      <rect width="1" height="4" stroke="none"/>
+      <rect x="0.5" y="0.5" height="3" fill="none"/>
+    </g>
+    <path id="Path_31025-2" data-name="Path 31025" d="M0,0H4.5" transform="translate(921.75 981) rotate(180)" fill="none" stroke="#999" stroke-width="1"/>
+    <path id="Path_31024-2" data-name="Path 31024" d="M-.25,2.2,2,0" transform="translate(921.75 983) rotate(180)" fill="none" stroke="#999" stroke-width="1"/>
+    <path id="Path_31023-2" data-name="Path 31023" d="M-.187-.437,2,2" transform="translate(921.75 981) rotate(180)" fill="none" stroke="#999" stroke-width="1"/>
+    <g id="Rectangle_18249-2" data-name="Rectangle 18249" transform="translate(918.25 981.5) rotate(180)" fill="#fff" stroke="#999" stroke-width="1">
+      <rect width="1" height="4" stroke="none"/>
+      <rect x="0.5" y="0.5" height="3" fill="none"/>
+    </g>
+  </g>
+</svg>

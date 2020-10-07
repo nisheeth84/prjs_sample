@@ -1,0 +1,56 @@
+@startuml{API_AWSアカウント連携_AWSアカウント連携情報更新.png}
+title [AWSアカウント連携API_AWSアカウント連携情報更新]
+hide footbox
+
+boundary 画面 as view
+participant AWSアカウント連携API as api_awsac_coops #cyan
+'database ユーザープール as user_pools <<cognito>> #purple
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database AWSアカウント連携 as table_awsac_coops <<dynamodb>> #royalblue
+box "ユーザーのAWS" #floralwhite
+participant AWS as users_aws #efaf27
+end box
+
+view -> api_awsac_coops :PATCH /organizations/{organization_id}/projects/{project_id}/awscoops/{coop_id}
+note right :bodyに更新するAWSアカウント情報（変更可能な項目は、AWSアカウントID、ロール名、説明）
+activate api_awsac_coops
+    api_awsac_coops -> api_awsac_coops :メールアドレス取得
+    |||
+    ref over api_awsac_coops, table_affiliation :アクセス権限チェック
+    |||
+    api_awsac_coops -> api_awsac_coops :バリデーションチェック
+    |||
+    ref over api_awsac_coops, users_aws :ロールのアクセス確認
+    |||
+    api_awsac_coops -> api_awsac_coops :AWSアカウント情報更新
+    activate api_awsac_coops
+        alt ロールのアクセス確認に成功した場合
+            api_awsac_coops -> users_aws :IAMロール「cm-membersportal」の有無を確認
+            users_aws --> api_awsac_coops
+            |||
+            alt IAMロール「cm-membersportal」あり
+                api_awsac_coops -> table_awsac_coops :レコード更新
+                note right :有効フラグ「有効」/メンバーズアカウントである
+                table_awsac_coops --> api_awsac_coops
+                |||
+            else IAMロール「cm-membersportal」なし
+                api_awsac_coops -> table_awsac_coops :レコード更新
+                note right :有効フラグ「有効」/メンバーズアカウントではない
+                table_awsac_coops --> api_awsac_coops
+                |||
+            end
+            |||
+        else ロールのアクセス確認に失敗した場合
+            api_awsac_coops -> table_awsac_coops :レコード更新
+            note right :有効フラグ「無効」
+            table_awsac_coops --> api_awsac_coops
+            |||
+        end 
+        api_awsac_coops --> api_awsac_coops
+    deactivate api_awsac_coops
+    |||
+    api_awsac_coops -> api_awsac_coops :レスポンス作成
+    api_awsac_coops --> view : 200:更新したAWSアカウント連携情報
+deactivate api_awsac_coops
+
+@enduml

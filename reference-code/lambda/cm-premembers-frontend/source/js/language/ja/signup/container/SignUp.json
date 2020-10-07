@@ -1,0 +1,10 @@
+{
+    "SignUp": {
+        "re_password": "Re-enter Password",
+        "terms_service_1": "",
+        "terms_service_2": " 利用規約",
+        "terms_service_3": "に同意する.",
+        "you_have_account": "アカウントはお持ちですか?",
+        "regist_user": "ユーザー登録"
+    }
+}

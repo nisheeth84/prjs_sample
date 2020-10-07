@@ -1,0 +1,33 @@
+@startuml{API_AWSアカウント連携_AWSアカウント連携情報作成.png}
+title [AWSアカウント連携API_AWSアカウント連携情報作成]
+hide footbox
+
+boundary 画面 as view
+participant AWSアカウント連携API as api_awsac_coops #cyan
+'database ユーザープール as user_pools <<cognito>> #purple
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database AWSアカウント連携 as table_awsac_coops <<dynamodb>> #royalblue
+
+view -> api_awsac_coops :POST /organizations/{organization_id}/projects/{project_id}/awscoops
+note right :bodyなし
+activate api_awsac_coops
+    api_awsac_coops -> api_awsac_coops :メールアドレス取得
+    |||
+    ref over api_awsac_coops, table_affiliation :アクセス権限チェック
+    |||
+    api_awsac_coops -> api_awsac_coops :バリデーションチェック
+    |||
+    api_awsac_coops -> api_awsac_coops :AWSアカウント情報登録
+    activate api_awsac_coops
+        api_awsac_coops -> api_awsac_coops :外部IDを作成
+        api_awsac_coops -> table_awsac_coops :レコード作成
+        note right :有効フラグ「未確認」
+        table_awsac_coops --> api_awsac_coops
+        api_awsac_coops --> api_awsac_coops
+    deactivate api_awsac_coops
+    |||
+    api_awsac_coops -> api_awsac_coops :レスポンス作成
+    api_awsac_coops --> view : 201:作成したAWSアカウント連携情報
+deactivate api_awsac_coops
+
+@enduml

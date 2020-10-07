@@ -1,0 +1,35 @@
+@startuml{API_セキュリティチェック項目設定_マニュアル評価結果削除.png}
+title [セキュリティチェック項目設定API_マニュアル評価結果削除]
+hide footbox
+
+boundary 画面 as view
+participant セキュリティチェック項目設定API as api_url #cyan
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database 評価結果 as table_assessments <<dynamodb>> #royalblue
+
+view -> api_url :DELETE /check/securitycheck/{organization_id}/{project_id}/{coop_id}/assessments/{check_item_code}
+activate api_url
+    api_url -> api_url :メールアドレス取得
+    |||
+    ref over api_url, table_affiliation :アクセス権限チェック
+    |||
+    api_url -> api_url :マニュアル評価情報取得
+    activate api_url
+        api_url -> table_assessments :マニュアル評価情報取得
+        table_assessments --> api_url
+        note left
+            レコードの存在確認として、レコードを取得する
+        end note
+        |||
+        api_url -> api_url :削除条件チェック
+        |||
+        api_url -> table_assessments :レコード削除
+        table_assessments --> api_url
+        |||
+        api_url --> api_url
+    deactivate api_url
+    |||
+    api_url -> api_url :レスポンス作成
+    api_url --> view :204:BODY無し
+deactivate api_url
+@enduml

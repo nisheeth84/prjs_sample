@@ -1,0 +1,1 @@
+ALTER TABLE notification_information RENAME COLUMN custumer_id TO customer_id;

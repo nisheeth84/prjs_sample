@@ -1,0 +1,69 @@
+Description: insightwatch Cfn template bucket for IAM Role create
+Parameters:
+  Env:
+    Description: 'Choose the environment to create: ''Dev'' or ''Stg'' or''Prd'''
+    Type: String
+    Default: prd
+    AllowedValues:
+    - prd
+    - dev 
+  ServiceName:
+    Description: Name for the service
+    Type: String
+    Default: insightwatch 
+    AllowedPattern: "[-_ a-z0-9]*"
+    ConstraintDescription: can contain only alphanumeric characters, spaces, dashes
+      and underscores.
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: 
+        Fn::Join:
+          - "-"
+          - - Ref: ServiceName 
+            - Ref: Env
+            - 'iamrole'
+            - 'cfn-template'
+            - 'bucket'
+      VersioningConfiguration:
+        Status: Enabled
+      Tags:
+      - Key: Service
+        Value:
+          Ref: ServiceName
+      - Key: Env
+        Value:
+          Ref: Env
+    DeletionPolicy: Retain
+  S3BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket:
+        Ref: S3Bucket
+      PolicyDocument:
+        Statement:
+        - Effect: Allow
+          Principal:
+            AWS: "*"
+          Action:
+          - s3:GetObject
+          Resource:
+            - Fn::Join:
+              - ''
+              - - 'arn:aws:s3:::'
+                - Ref: S3Bucket
+                - "/*.yaml"
+            - Fn::Join:
+              - ''
+              - - 'arn:aws:s3:::'
+                - Ref: S3Bucket
+                - "/*.yml"
+Outputs:
+  S3CfnBucket:
+    Value:
+      Ref: S3Bucket
+  S3CfnBucketURL:
+    Value: !Join ['', ['https://', !GetAtt [S3Bucket, DomainName]]]
+    Description: Name of S3 bucket to hold website content

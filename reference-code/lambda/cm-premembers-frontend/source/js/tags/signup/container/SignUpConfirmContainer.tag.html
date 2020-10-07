@@ -1,0 +1,154 @@
+<signup-confirm-container>
+  <link rel="stylesheet" href="./assets/stylesheets/register.css">
+  <div class="animsition page-register-v3 layout-full" style="animation-duration: 800ms; opacity: 1;">
+    <div class="page vertical-align text-center">
+      <div class="page-content vertical-align-middle">
+        <div class="panel">
+          <div class="panel-body">
+            <div class="brand">
+              <div class="beta">
+                <img class="brand-img" src="./assets/images/iw_tate.svg" alt="..."></img>
+              </div>
+            </div>
+            <form method="post" ref="form" action="#" submit="{submit}">
+              <p class="text-danger" show="{isExceptionError}">{_t('Validation_message.send_code_confirm_error')}
+                <br>{_t('retry')}</p>
+              <p class="text-danger" show="{isConfirmError}">{_t('Validation_message.incorrect_verification_code')}
+                <br>{_t('retry')}</p>
+              <p class="text-danger" show="{isAlreadyUserError}">{_t('Validation_message.email_already_regist')}</p>
+              <p hide="{isAlreadyUserError}">{_t('send_code_confirm_notify')}
+                <br> {_t('SignUpConfirm.enter_received_confirm_code')}</p>
+              <p hide="{isAlreadyUserError}">{_t('SignUpConfirm.code_validity_period_notify')}</p>
+              <p show="{isAlreadyUserError}">{_t('Validation_message.invalid_email')}</p>
+              <div class="form-group form-material floating">
+                <input ref="email" type="email" class="form-control" value="{signupMail}" name="email" disabled/>
+                <label class="floating-label">{_t('email')}</label>
+              </div>
+              <div class="form-group form-material floating">
+                <input ref="confirmationCode" type="text" class="form-control" onfocus="{trimEmpty}" onBlur="{addEmpty}" name="confirmationCode "
+                  oninput="{commonUtils.checkConfirmationCode}" required="{submitted}" />
+                <label class="floating-label">{_t('SignUpConfirm.code_confirm')}</label>
+              </div>
+              <button type="submit" onclick="{confirmClick}" hide="{isAlreadyUserError}" class="btn btn-primary btn-block btn-lg mt-40">{_t('send_verify_code')}</button>
+              <button type="button" onclick="{back}" show="{isAlreadyUserError}" class="btn btn-primary btn-block btn-lg mt-40">{_t('back')}</button>
+            </form>
+          </div>
+        </div>
+        <footer class="page-copyright page-copyright-inverse">
+          <p>{_t('copyright')}</p>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <pm-loading></pm-loading>
+  <script>
+    import {
+      CognitoUserPool,
+      CognitoUser
+    } from 'amazon-cognito-identity-js';
+    const tag = this;
+    const obs = riot.observable()
+    tag.obs = obs
+    tag.submit = submit;
+    tag.trimEmpty = trimEmpty
+    tag.addEmpty = addEmpty
+    tag.confirmClick = confirmClick
+    tag.submitted = false
+    tag.isConfirmError = false
+    tag.isAlreadyUserError = false
+    tag.isExceptionError = false
+    tag.back = back
+
+    const poolData = {
+      UserPoolId: tag.config.COGNITO_USER_POOL_ID,
+      ClientId: tag.config.COGNITO_CLIENT_ID
+    };
+    const userPool = new CognitoUserPool(poolData);
+    const signupMail = tag.commonUtils.paramReceiver('signupMail')
+    if (!signupMail) {
+      window.location.href = '#/sign_up/'
+    }
+    tag.signupMail = signupMail
+
+    tag.on('mount', function() {
+      tag.submitted = false
+      tag.isConfirmError = false
+      initForm()
+    })
+
+    function initForm() {
+      initElem(tag.refs.confirmationCode)
+    }
+
+    function initElem(elem) {
+      elem.classList.add('empty');
+      const validationMessage = tag._t('Validation_message.invalid_require')
+      elem.setCustomValidity(validationMessage);
+    }
+
+    function trimEmpty(event) {
+      const elem = event.srcElement
+      elem.classList.remove('empty');
+      if (!elem.value && !tag.submitted) {
+        elem.setCustomValidity('');
+      }
+    }
+
+    function addEmpty(event) {
+      const elem = event.srcElement
+      if (!elem.value && !tag.submitted) {
+        elem.classList.add('empty');
+      }
+    }
+
+    function confirmClick() {
+      tag.submitted = true
+      // console.info("Click")
+    }
+
+    function submit(event) {
+      event.preventDefault()
+      const form = tag.refs.form
+      tag.commonUtils.submitDisable(form)
+      tag.obs.trigger("pm-loader-show");
+      const poolData = {
+        UserPoolId: tag.config.COGNITO_USER_POOL_ID,
+        ClientId: tag.config.COGNITO_CLIENT_ID
+      };
+      const signupUser = tag.commonUtils.paramReceiver('signupUser')
+      const userPool = new CognitoUserPool(poolData);
+      const code = tag.refs.confirmationCode.value
+      var userData = {
+        Username: signupUser,
+        Pool: userPool
+      };
+      var cognitoUser = new CognitoUser(userData);
+      cognitoUser.confirmRegistration(code, false, function(err, result) {
+        if (err) {
+          if (err.code === 'AliasExistsException') {
+            tag.isAlreadyUserError = true
+            tag.isConfirmError = false
+            tag.isExceptionError = false
+          } else if (err.code === 'CodeMismatchException') {
+            tag.isConfirmError = true
+            tag.isExceptionError = false
+          } else {
+            tag.isConfirmError = false
+            tag.isExceptionError = true
+          }
+          // alert(err);
+          tag.commonUtils.submitEnable(form)
+          console.error(err)
+          tag.obs.trigger("pm-loader-hide");
+          tag.update()
+          return
+        }
+        window.location.href = "#/sign_up/complete/"
+      });
+
+    }
+    function back() {
+      window.location.href = "#/sign_up/"
+    }
+  </script>
+</signup-confirm-container>

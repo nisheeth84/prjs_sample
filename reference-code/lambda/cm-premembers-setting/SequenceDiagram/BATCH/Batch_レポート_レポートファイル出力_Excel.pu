@@ -1,0 +1,47 @@
+@startuml{Batch_レポート_レポートファイル出力_Excel.png}
+title [レポートバッチ_レポートファイル出力_Excel]
+hide footbox
+
+participant Excelレポートファイル出力ジョブ as batch_report_job <<batch>> #darkorange
+database レポート as table_reports <<dynamodb>> #royalblue
+database レポートジョブ履歴 as table_report_joblog <<dynamodb>> #royalblue
+database レポートストレージ as storage <<s3>> #crimson
+
+->> batch_report_job
+note right :実行時引数としてレポートID、ログIDを受け取る
+|||
+activate batch_report_job
+    batch_report_job -> batch_report_job :引数のバリデーションチェック
+    |||
+    ref over batch_report_job, table_report_joblog :ログストリーム名取得
+    |||
+    batch_report_job -> batch_report_job :Excelレポートファイル作成処理
+    activate batch_report_job
+        batch_report_job -> table_reports :レコード取得
+        table_reports --> batch_report_job
+        batch_report_job -> batch_report_job :ステータスチェック
+        note right :ステータスが変換完了(4)、かつExcelレポート出力ステータスが未出力(0)かエラー(-1)であることを確認する。
+        batch_report_job -> table_reports :レコード更新（Excelレポート出力ステータス＝出力処理中(1)）
+        table_reports --> batch_report_job
+        |||
+        group 生成順序 5
+        batch_report_job -> storage :ソース情報（JSON）取得
+        storage --> batch_report_job
+        batch_report_job -> batch_report_job :Excelレポートファイル作成処理
+        batch_report_job -> storage :Excelレポートファイル保存
+        storage --> batch_report_job
+        batch_report_job -> batch_report_job :後始末
+        note right :実行環境上のテンポラリ領域のクリーンアップなど
+        |||
+        end
+        |||
+        batch_report_job -> table_reports :レコード更新（Excelレポート出力ステータス＝出力済み(2)）
+        note right :ExcelレポートS3パス、Excelレポート出力日時も設定する
+        table_reports --> batch_report_job
+        |||
+        batch_report_job --> batch_report_job
+    deactivate batch_report_job
+    |||
+deactivate batch_report_job
+
+@enduml

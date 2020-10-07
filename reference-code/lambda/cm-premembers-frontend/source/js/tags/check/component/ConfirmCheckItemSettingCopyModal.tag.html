@@ -1,0 +1,108 @@
+<confirm-check-setting-copy-modal>
+    <div class="modal fade modal-primary" id="confirm-check-setting-copy-modal" aria-hidden="true" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-orange-400">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">{_t('ConfirmCheckItemSettingCopyModal.title')}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{_t('ConfirmCheckItemSettingCopyModal.body')}</p>
+                    <p>{_t('ConfirmCheckItemSettingCopyModal.copy_source')}</p>
+                    <div class="ml-20">
+                        <p>{_t('organization')}：{information.organization.source.name}</p>
+                        <p>{_t('project')}：{information.project.source.name}</p>
+                        <p>{_t('aws_account')}：{information.awsCoop.source.name}</p>
+                    </div>
+                    <p>{_t('ConfirmCheckItemSettingCopyModal.copy_destination')}</p>
+                    <div class="ml-20">
+                        <p>{_t('organization')}：{information.organization.destination.name}</p>
+                        <p>{_t('project')}：{information.project.destination.name}</p>
+                        <p>{_t('aws_account')}：{information.awsCoop.destination.name}</p>
+                    </div>
+                    <p>{_t('ConfirmCheckItemSettingCopyModal.confirm_question')}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{_t('cancel')}</button>
+                    <button type="button" class="btn bg-orange-400 grey-100" onclick={doClickConfirm}>{_t('ConfirmCheckItemSettingCopyModal.copy')}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const tag = this
+        const obs = tag.parent.obs
+        tag.doClickConfirm = doClickConfirm
+        tag.observer = obs
+        tag.information = {
+            'organization': {
+                "source": {
+                    "id": '',
+                    "name": ''
+                },
+                "destination": {
+                    "id": '',
+                    "name": ''
+                }
+            },
+            'project': {
+                "source": {
+                    "id": '',
+                    "name": ''
+                },
+                "destination": {
+                    "id": '',
+                    "name": ''
+                }
+            },
+            'awsCoop': {
+                "source": {
+                    "id": '',
+                    "name": ''
+                },
+                "destination": {
+                    "id": '',
+                    "name": ''
+                }
+            }
+        }
+        tag.on('mount', function() {
+            tag.modal = $('#confirm-check-setting-copy-modal')
+            tag.observer.on("confirm-check-setting-copy-modal-open", function(information) {
+                tag.information = information
+                tag.modal.modal()
+                tag.update()
+            })
+            tag.modal.on('hidden.bs.modal', function(e) {
+                tag.observer.trigger("confirm-check-setting-copy-modal-close")
+            })
+        })
+        tag.on('unmount', function() {
+            tag.modal.off('hidden.bs.modal')
+        })
+
+        function doClickConfirm(event) {
+            tag.modal.modal('hide')
+            const body = {
+                'copy_source': {
+                    'organization_id': tag.information.organization.source.id,
+                    'project_id': tag.information.project.source.id,
+                    'coop_id': tag.information.awsCoop.source.id
+                }
+            }
+            const requestCopyItemSettingUrl = tag.config.APIGATEWAY_ADDRESS + '/check/securitycheck/' + tag.information.organization.destination.id + '/' + tag.information.project.destination.id + '/' + tag.information.awsCoop.destination.id + '/itemsettings/_copy'
+            tag.commonUtils.callApiWithLoader(tag.parent, requestCopyItemSettingUrl, "POST", body).then(function() {
+                const information = {
+                    'title': tag._t('ConfirmCheckItemSettingCopyModal.information_complete.title'),
+                    'body': tag._t('ConfirmCheckItemSettingCopyModal.information_complete.body')
+                }
+                tag.parent.obs.trigger('information-modal-open', information)
+                tag.parent.obs.one('information-modal-close', function() {
+                    window.location.href = "#/check/settings/"
+                })
+            })
+        }
+    </script>
+</confirm-check-setting-copy-modal>

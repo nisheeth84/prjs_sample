@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="22" viewBox="0 0 16 22">
+  <g id="Group_26103" data-name="Group 26103" transform="translate(-230 -1997.823)">
+    <text id="Z" transform="translate(230 2005.823)" fill="#999" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="0" y="11">Z</tspan></text>
+    <text id="A" transform="translate(230 1997.823)" fill="#999" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="0" y="11">A</tspan></text>
+    <path id="Path_31059" data-name="Path 31059" d="M7817.9,886.623l-.471.57a.294.294,0,0,1-.472,0l-2.293-2.772V896.1a.373.373,0,0,1-.334.4h-.666a.373.373,0,0,1-.334-.4V884.421l-2.293,2.772a.294.294,0,0,1-.472,0l-.471-.57a.465.465,0,0,1,0-.57l3.666-4.433a.3.3,0,0,1,.473,0l.706.855,2.96,3.578A.465.465,0,0,1,7817.9,886.623Z" transform="translate(-7572 1118.88)" fill="#999"/>
+  </g>
+</svg>

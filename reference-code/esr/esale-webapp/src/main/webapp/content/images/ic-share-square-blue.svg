@@ -1,0 +1,9 @@
+<svg id="Component_111_6" data-name="Component 111 – 6" xmlns="http://www.w3.org/2000/svg" width="19" height="17" viewBox="0 0 19 17">
+  <g id="Group_1149" data-name="Group 1149">
+    <g id="ボタン_別窓">
+      <path id="Path_270" data-name="Path 270" d="M2.318,9a8.785,8.785,0,0,1,.52-3.7C3.515,4.053,4.354,4,4.354,4L5.611,5.24S5.992,4.555,6,0L.144.054,1.578,1.465C.975,2.13-.252,3.391.046,5.095A8.613,8.613,0,0,0,2.318,9Z" transform="translate(11.98 1.985) rotate(43)" fill="#0f6db4"/>
+      <path id="Path_271" data-name="Path 271" d="M1781.563,4939.838v1.981h-8.25v-6.75h2.406a.317.317,0,0,0,.344-.281v-.562a.317.317,0,0,0-.344-.281h-3.094a.635.635,0,0,0-.687.563v7.875a.635.635,0,0,0,.688.563h9.625a.635.635,0,0,0,.688-.562v-2.543a.318.318,0,0,0-.344-.281h-.687A.318.318,0,0,0,1781.563,4939.838Z" transform="translate(-1767.938 -4929.944)" fill="#0f6db4"/>
+      <rect id="Rectangle_786" data-name="Rectangle 786" width="19" height="17" rx="8" fill="none"/>
+    </g>
+  </g>
+</svg>

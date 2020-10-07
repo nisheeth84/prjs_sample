@@ -1,0 +1,8 @@
+@import "scss/bootstrap";
+@import "scss/bootstrap-extend";
+
+// Setting components
+$use-loader : true;
+$use-animation : true;
+
+@import "scss/site";

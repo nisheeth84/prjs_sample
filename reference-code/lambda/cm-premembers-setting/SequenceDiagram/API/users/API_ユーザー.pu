@@ -1,0 +1,24 @@
+@startuml{API_ユーザー.png}
+title [ユーザーAPI]
+hide footbox
+
+boundary 画面 as view
+participant ユーザーAPI as api_users #cyan
+database ユーザープール as user_pools <<cognito>> #purple
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+
+
+== ユーザー情報（メールアドレス）取得 ==
+view -> api_users
+
+api_users -> user_pools
+user_pools --> api_users
+
+== メールアドレス変更 ==
+
+== パスワード変更 ==
+
+== 退会 ==
+
+
+@enduml

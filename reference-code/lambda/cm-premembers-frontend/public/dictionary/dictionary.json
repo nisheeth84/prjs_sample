@@ -1,0 +1,1051 @@
+{
+    "AuthorityOwner" : 3,
+    "AuthorityEditor" : 2,
+    "BelongOrganization" : 1,
+    "APIErrorCode":{
+        "AuthorizationError" : 101
+    },
+    "SettingCurrent": {
+        "Assessment": "evaluated",
+        "NotAssessment": "unrated"
+    },
+    "SettingCurrentExcept": {
+        "Except": "excluded",
+        "NotExcept": "included"
+    },
+    "Authority": {
+        "3": "auth_owner",
+        "2": "auth_edit",
+        "1": "auth_view"
+    },
+    "Effective":{
+        "-1" : "AwsCoopsList.failure",
+        "0" : "AwsCoopsList.unconfirmed",
+        "1" : "AwsCoopsList.effectiveness"
+    },
+    "InvitationStatus":{
+        "-1" : "UsersList.rejection",
+        "0" : "UsersList.inviting",
+        "1" : "UsersList.belongs"
+    },
+    "ReportStatus":{
+        "-1": "エラー",
+        "0": "待機中",
+        "1": "情報収集中",
+        "2": "情報収集完了",
+        "3": "変換中",
+        "4": "変換完了"
+    },
+    "OutputReportStatus": {
+        "-1": "前回処理が失敗",
+        "0": "未出力",
+        "1": "出力処理中",
+        "2": "出力済み"
+    },
+    "LocalStorageKey":{
+        "checkOrganization": "checkOrganizationId",
+        "checkProject": "checkProjectId",
+        "closeCreateAWSAccountGuideAtHome": "closeCreateAWSAccountGuideAtHome",
+        "closedDateTimeOfNotifications": "closedDateTimeOfNotifications"
+    },
+    "ListLanguage": [
+        {
+            "locale": "ja",
+            "language": "UserAttributeInfo.japanese"
+        },
+        {
+            "locale": "en",
+            "language": "UserAttributeInfo.english"
+        }
+    ],
+    "CustomAcceptedMaintEmail": {
+        "Enable" : "1",
+        "Disable" : "0"
+    },
+    "cognitoUserKeyAttributes": {
+        "CustomAcceptedMaintEmail" : "custom:accepted_maint_email"
+    },
+    "infoTestNotifySlack": {
+        "userName": "insightwatch",
+        "iconUrl": "https://insightwatch.io/assets/images/iw_em_color_slack_file.png"
+    },
+    "ServiceName": "insightwatch",
+    "Countries": [
+        {
+            "Code": "AF",
+            "CountryName": "CountryCode.af"
+        },
+        {
+            "Code": "AX",
+            "CountryName": "CountryCode.ax"
+        },
+        {
+            "Code": "AL",
+            "CountryName": "CountryCode.al"
+        },
+        {
+            "Code": "DZ",
+            "CountryName": "CountryCode.dz"
+        },
+        {
+            "Code": "AS",
+            "CountryName": "CountryCode.as"
+        },
+        {
+            "Code": "AD",
+            "CountryName": "CountryCode.ad"
+        },
+        {
+            "Code": "AO",
+            "CountryName": "CountryCode.ao"
+        },
+        {
+            "Code": "AI",
+            "CountryName": "CountryCode.ai"
+        },
+        {
+            "Code": "AQ",
+            "CountryName": "CountryCode.aq"
+        },
+        {
+            "Code": "AG",
+            "CountryName": "CountryCode.ag"
+        },
+        {
+            "Code": "AR",
+            "CountryName": "CountryCode.ar"
+        },
+        {
+            "Code": "AM",
+            "CountryName": "CountryCode.am"
+        },
+        {
+            "Code": "AW",
+            "CountryName": "CountryCode.aw"
+        },
+        {
+            "Code": "AU",
+            "CountryName": "CountryCode.au"
+        },
+        {
+            "Code": "AT",
+            "CountryName": "CountryCode.at"
+        },
+        {
+            "Code": "AZ",
+            "CountryName": "CountryCode.az"
+        },
+        {
+            "Code": "BS",
+            "CountryName": "CountryCode.bs"
+        },
+        {
+            "Code": "BH",
+            "CountryName": "CountryCode.bh"
+        },
+        {
+            "Code": "BD",
+            "CountryName": "CountryCode.bd"
+        },
+        {
+            "Code": "BB",
+            "CountryName": "CountryCode.bb"
+        },
+        {
+            "Code": "BY",
+            "CountryName": "CountryCode.by"
+        },
+        {
+            "Code": "BE",
+            "CountryName": "CountryCode.be"
+        },
+        {
+            "Code": "BZ",
+            "CountryName": "CountryCode.bz"
+        },
+        {
+            "Code": "BJ",
+            "CountryName": "CountryCode.bj"
+        },
+        {
+            "Code": "BM",
+            "CountryName": "CountryCode.bm"
+        },
+        {
+            "Code": "BT",
+            "CountryName": "CountryCode.bt"
+        },
+        {
+            "Code": "BO",
+            "CountryName": "CountryCode.bo"
+        },
+        {
+            "Code": "BQ",
+            "CountryName": "CountryCode.bq"
+        },
+        {
+            "Code": "BA",
+            "CountryName": "CountryCode.ba"
+        },
+        {
+            "Code": "BW",
+            "CountryName": "CountryCode.bw"
+        },
+        {
+            "Code": "BV",
+            "CountryName": "CountryCode.bv"
+        },
+        {
+            "Code": "BR",
+            "CountryName": "CountryCode.br"
+        },
+        {
+            "Code": "IO",
+            "CountryName": "CountryCode.io"
+        },
+        {
+            "Code": "BN",
+            "CountryName": "CountryCode.bn"
+        },
+        {
+            "Code": "BG",
+            "CountryName": "CountryCode.bg"
+        },
+        {
+            "Code": "BF",
+            "CountryName": "CountryCode.bf"
+        },
+        {
+            "Code": "BI",
+            "CountryName": "CountryCode.bi"
+        },
+        {
+            "Code": "KH",
+            "CountryName": "CountryCode.kh"
+        },
+        {
+            "Code": "CM",
+            "CountryName": "CountryCode.cm"
+        },
+        {
+            "Code": "CA",
+            "CountryName": "CountryCode.ca"
+        },
+        {
+            "Code": "CV",
+            "CountryName": "CountryCode.cv"
+        },
+        {
+            "Code": "KY",
+            "CountryName": "CountryCode.ky"
+        },
+        {
+            "Code": "CF",
+            "CountryName": "CountryCode.cf"
+        },
+        {
+            "Code": "TD",
+            "CountryName": "CountryCode.td"
+        },
+        {
+            "Code": "CL",
+            "CountryName": "CountryCode.cl"
+        },
+        {
+            "Code": "CN",
+            "CountryName": "CountryCode.cn"
+        },
+        {
+            "Code": "CX",
+            "CountryName": "CountryCode.cx"
+        },
+        {
+            "Code": "CC",
+            "CountryName": "CountryCode.cc"
+        },
+        {
+            "Code": "CO",
+            "CountryName": "CountryCode.co"
+        },
+        {
+            "Code": "KM",
+            "CountryName": "CountryCode.km"
+        },
+        {
+            "Code": "CG",
+            "CountryName": "CountryCode.cg"
+        },
+        {
+            "Code": "CK",
+            "CountryName": "CountryCode.ck"
+        },
+        {
+            "Code": "CR",
+            "CountryName": "CountryCode.cr"
+        },
+        {
+            "Code": "CI",
+            "CountryName": "CountryCode.ci"
+        },
+        {
+            "Code": "HR",
+            "CountryName": "CountryCode.hr"
+        },
+        {
+            "Code": "CU",
+            "CountryName": "CountryCode.cu"
+        },
+        {
+            "Code": "CW",
+            "CountryName": "CountryCode.cw"
+        },
+        {
+            "Code": "CY",
+            "CountryName": "CountryCode.cy"
+        },
+        {
+            "Code": "CZ",
+            "CountryName": "CountryCode.cz"
+        },
+        {
+            "Code": "DK",
+            "CountryName": "CountryCode.dk"
+        },
+        {
+            "Code": "DJ",
+            "CountryName": "CountryCode.dj"
+        },
+        {
+            "Code": "DM",
+            "CountryName": "CountryCode.dm"
+        },
+        {
+            "Code": "DO",
+            "CountryName": "CountryCode.do"
+        },
+        {
+            "Code": "EC",
+            "CountryName": "CountryCode.ec"
+        },
+        {
+            "Code": "EG",
+            "CountryName": "CountryCode.eg"
+        },
+        {
+            "Code": "SV",
+            "CountryName": "CountryCode.sv"
+        },
+        {
+            "Code": "GQ",
+            "CountryName": "CountryCode.gq"
+        },
+        {
+            "Code": "ER",
+            "CountryName": "CountryCode.er"
+        },
+        {
+            "Code": "EE",
+            "CountryName": "CountryCode.ee"
+        },
+        {
+            "Code": "ET",
+            "CountryName": "CountryCode.et"
+        },
+        {
+            "Code": "FK",
+            "CountryName": "CountryCode.fk"
+        },
+        {
+            "Code": "FO",
+            "CountryName": "CountryCode.fo"
+        },
+        {
+            "Code": "FJ",
+            "CountryName": "CountryCode.fj"
+        },
+        {
+            "Code": "FI",
+            "CountryName": "CountryCode.fi"
+        },
+        {
+            "Code": "FR",
+            "CountryName": "CountryCode.fr"
+        },
+        {
+            "Code": "GF",
+            "CountryName": "CountryCode.gf"
+        },
+        {
+            "Code": "PF",
+            "CountryName": "CountryCode.pf"
+        },
+        {
+            "Code": "TF",
+            "CountryName": "CountryCode.tf"
+        },
+        {
+            "Code": "GA",
+            "CountryName": "CountryCode.ga"
+        },
+        {
+            "Code": "GM",
+            "CountryName": "CountryCode.gm"
+        },
+        {
+            "Code": "GE",
+            "CountryName": "CountryCode.ge"
+        },
+        {
+            "Code": "DE",
+            "CountryName": "CountryCode.de"
+        },
+        {
+            "Code": "GI",
+            "CountryName": "CountryCode.gi"
+        },
+        {
+            "Code": "GR",
+            "CountryName": "CountryCode.gr"
+        },
+        {
+            "Code": "GL",
+            "CountryName": "CountryCode.gl"
+        },
+        {
+            "Code": "GD",
+            "CountryName": "CountryCode.gd"
+        },
+        {
+            "Code": "GP",
+            "CountryName": "CountryCode.gp"
+        },
+        {
+            "Code": "GU",
+            "CountryName": "CountryCode.gu"
+        },
+        {
+            "Code": "GT",
+            "CountryName": "CountryCode.gt"
+        },
+        {
+            "Code": "GG",
+            "CountryName": "CountryCode.gg"
+        },
+        {
+            "Code": "GN",
+            "CountryName": "CountryCode.gn"
+        },
+        {
+            "Code": "GW",
+            "CountryName": "CountryCode.gw"
+        },
+        {
+            "Code": "GY",
+            "CountryName": "CountryCode.gy"
+        },
+        {
+            "Code": "HT",
+            "CountryName": "CountryCode.ht"
+        },
+        {
+            "Code": "HM",
+            "CountryName": "CountryCode.hm"
+        },
+        {
+            "Code": "VA",
+            "CountryName": "CountryCode.va"
+        },
+        {
+            "Code": "HN",
+            "CountryName": "CountryCode.hn"
+        },
+        {
+            "Code": "HK",
+            "CountryName": "CountryCode.hk"
+        },
+        {
+            "Code": "HU",
+            "CountryName": "CountryCode.hu"
+        },
+        {
+            "Code": "IS",
+            "CountryName": "CountryCode.is"
+        },
+        {
+            "Code": "IN",
+            "CountryName": "CountryCode.in"
+        },
+        {
+            "Code": "ID",
+            "CountryName": "CountryCode.id"
+        },
+        {
+            "Code": "IQ",
+            "CountryName": "CountryCode.iq"
+        },
+        {
+            "Code": "IE",
+            "CountryName": "CountryCode.ie"
+        },
+        {
+            "Code": "IM",
+            "CountryName": "CountryCode.im"
+        },
+        {
+            "Code": "IL",
+            "CountryName": "CountryCode.il"
+        },
+        {
+            "Code": "IT",
+            "CountryName": "CountryCode.it"
+        },
+        {
+            "Code": "JM",
+            "CountryName": "CountryCode.jm"
+        },
+        {
+            "Code": "JP",
+            "CountryName": "CountryCode.jp"
+        },
+        {
+            "Code": "JE",
+            "CountryName": "CountryCode.je"
+        },
+        {
+            "Code": "JO",
+            "CountryName": "CountryCode.jo"
+        },
+        {
+            "Code": "KZ",
+            "CountryName": "CountryCode.kz"
+        },
+        {
+            "Code": "KE",
+            "CountryName": "CountryCode.ke"
+        },
+        {
+            "Code": "KI",
+            "CountryName": "CountryCode.ki"
+        },
+        {
+            "Code": "KR",
+            "CountryName": "CountryCode.kr"
+        },
+        {
+            "Code": "KW",
+            "CountryName": "CountryCode.kw"
+        },
+        {
+            "Code": "KG",
+            "CountryName": "CountryCode.kg"
+        },
+        {
+            "Code": "LA",
+            "CountryName": "CountryCode.la"
+        },
+        {
+            "Code": "LV",
+            "CountryName": "CountryCode.lv"
+        },
+        {
+            "Code": "LB",
+            "CountryName": "CountryCode.lb"
+        },
+        {
+            "Code": "LS",
+            "CountryName": "CountryCode.ls"
+        },
+        {
+            "Code": "LR",
+            "CountryName": "CountryCode.lr"
+        },
+        {
+            "Code": "LY",
+            "CountryName": "CountryCode.ly"
+        },
+        {
+            "Code": "LI",
+            "CountryName": "CountryCode.li"
+        },
+        {
+            "Code": "LT",
+            "CountryName": "CountryCode.lt"
+        },
+        {
+            "Code": "LU",
+            "CountryName": "CountryCode.lu"
+        },
+        {
+            "Code": "MO",
+            "CountryName": "CountryCode.mo"
+        },
+        {
+            "Code": "MK",
+            "CountryName": "CountryCode.mk"
+        },
+        {
+            "Code": "MG",
+            "CountryName": "CountryCode.mg"
+        },
+        {
+            "Code": "MW",
+            "CountryName": "CountryCode.mw"
+        },
+        {
+            "Code": "MY",
+            "CountryName": "CountryCode.my"
+        },
+        {
+            "Code": "MV",
+            "CountryName": "CountryCode.mv"
+        },
+        {
+            "Code": "ML",
+            "CountryName": "CountryCode.ml"
+        },
+        {
+            "Code": "MT",
+            "CountryName": "CountryCode.mt"
+        },
+        {
+            "Code": "MH",
+            "CountryName": "CountryCode.mh"
+        },
+        {
+            "Code": "MQ",
+            "CountryName": "CountryCode.mq"
+        },
+        {
+            "Code": "MR",
+            "CountryName": "CountryCode.mr"
+        },
+        {
+            "Code": "MU",
+            "CountryName": "CountryCode.mu"
+        },
+        {
+            "Code": "YT",
+            "CountryName": "CountryCode.yt"
+        },
+        {
+            "Code": "MX",
+            "CountryName": "CountryCode.mx"
+        },
+        {
+            "Code": "FM",
+            "CountryName": "CountryCode.fm"
+        },
+        {
+            "Code": "MD",
+            "CountryName": "CountryCode.md"
+        },
+        {
+            "Code": "MC",
+            "CountryName": "CountryCode.mc"
+        },
+        {
+            "Code": "MN",
+            "CountryName": "CountryCode.mn"
+        },
+        {
+            "Code": "ME",
+            "CountryName": "CountryCode.me"
+        },
+        {
+            "Code": "MS",
+            "CountryName": "CountryCode.ms"
+        },
+        {
+            "Code": "MA",
+            "CountryName": "CountryCode.ma"
+        },
+        {
+            "Code": "MZ",
+            "CountryName": "CountryCode.mz"
+        },
+        {
+            "Code": "MM",
+            "CountryName": "CountryCode.mm"
+        },
+        {
+            "Code": "NA",
+            "CountryName": "CountryCode.na"
+        },
+        {
+            "Code": "NR",
+            "CountryName": "CountryCode.nr"
+        },
+        {
+            "Code": "NP",
+            "CountryName": "CountryCode.np"
+        },
+        {
+            "Code": "NL",
+            "CountryName": "CountryCode.nl"
+        },
+        {
+            "Code": "NC",
+            "CountryName": "CountryCode.nc"
+        },
+        {
+            "Code": "NZ",
+            "CountryName": "CountryCode.nz"
+        },
+        {
+            "Code": "NI",
+            "CountryName": "CountryCode.ni"
+        },
+        {
+            "Code": "NE",
+            "CountryName": "CountryCode.ne"
+        },
+        {
+            "Code": "NG",
+            "CountryName": "CountryCode.ng"
+        },
+        {
+            "Code": "NU",
+            "CountryName": "CountryCode.nu"
+        },
+        {
+            "Code": "NF",
+            "CountryName": "CountryCode.nf"
+        },
+        {
+            "Code": "MP",
+            "CountryName": "CountryCode.mp"
+        },
+        {
+            "Code": "NO",
+            "CountryName": "CountryCode.no"
+        },
+        {
+            "Code": "OM",
+            "CountryName": "CountryCode.om"
+        },
+        {
+            "Code": "PK",
+            "CountryName": "CountryCode.pk"
+        },
+        {
+            "Code": "PW",
+            "CountryName": "CountryCode.pw"
+        },
+        {
+            "Code": "PA",
+            "CountryName": "CountryCode.pa"
+        },
+        {
+            "Code": "PG",
+            "CountryName": "CountryCode.pg"
+        },
+        {
+            "Code": "PY",
+            "CountryName": "CountryCode.py"
+        },
+        {
+            "Code": "PE",
+            "CountryName": "CountryCode.pe"
+        },
+        {
+            "Code": "PH",
+            "CountryName": "CountryCode.ph"
+        },
+        {
+            "Code": "PN",
+            "CountryName": "CountryCode.pn"
+        },
+        {
+            "Code": "PL",
+            "CountryName": "CountryCode.pl"
+        },
+        {
+            "Code": "PT",
+            "CountryName": "CountryCode.pt"
+        },
+        {
+            "Code": "PR",
+            "CountryName": "CountryCode.pr"
+        },
+        {
+            "Code": "QA",
+            "CountryName": "CountryCode.qa"
+        },
+        {
+            "Code": "RE",
+            "CountryName": "CountryCode.re"
+        },
+        {
+            "Code": "RO",
+            "CountryName": "CountryCode.ro"
+        },
+        {
+            "Code": "RU",
+            "CountryName": "CountryCode.ru"
+        },
+        {
+            "Code": "RW",
+            "CountryName": "CountryCode.rw"
+        },
+        {
+            "Code": "BL",
+            "CountryName": "CountryCode.bl"
+        },
+        {
+            "Code": "SH",
+            "CountryName": "CountryCode.sh"
+        },
+        {
+            "Code": "KN",
+            "CountryName": "CountryCode.kn"
+        },
+        {
+            "Code": "LC",
+            "CountryName": "CountryCode.lc"
+        },
+        {
+            "Code": "MF",
+            "CountryName": "CountryCode.mf"
+        },
+        {
+            "Code": "PM",
+            "CountryName": "CountryCode.pm"
+        },
+        {
+            "Code": "VC",
+            "CountryName": "CountryCode.vc"
+        },
+        {
+            "Code": "WS",
+            "CountryName": "CountryCode.ws"
+        },
+        {
+            "Code": "SM",
+            "CountryName": "CountryCode.sm"
+        },
+        {
+            "Code": "ST",
+            "CountryName": "CountryCode.st"
+        },
+        {
+            "Code": "SA",
+            "CountryName": "CountryCode.sa"
+        },
+        {
+            "Code": "SN",
+            "CountryName": "CountryCode.sn"
+        },
+        {
+            "Code": "RS",
+            "CountryName": "CountryCode.rs"
+        },
+        {
+            "Code": "SC",
+            "CountryName": "CountryCode.sc"
+        },
+        {
+            "Code": "SL",
+            "CountryName": "CountryCode.sl"
+        },
+        {
+            "Code": "SG",
+            "CountryName": "CountryCode.sg"
+        },
+        {
+            "Code": "SX",
+            "CountryName": "CountryCode.sx"
+        },
+        {
+            "Code": "SK",
+            "CountryName": "CountryCode.sk"
+        },
+        {
+            "Code": "SI",
+            "CountryName": "CountryCode.si"
+        },
+        {
+            "Code": "SB",
+            "CountryName": "CountryCode.sb"
+        },
+        {
+            "Code": "SO",
+            "CountryName": "CountryCode.so"
+        },
+        {
+            "Code": "ZA",
+            "CountryName": "CountryCode.za"
+        },
+        {
+            "Code": "GS",
+            "CountryName": "CountryCode.gs"
+        },
+        {
+            "Code": "SS",
+            "CountryName": "CountryCode.ss"
+        },
+        {
+            "Code": "ES",
+            "CountryName": "CountryCode.es"
+        },
+        {
+            "Code": "LK",
+            "CountryName": "CountryCode.lk"
+        },
+        {
+            "Code": "SD",
+            "CountryName": "CountryCode.sd"
+        },
+        {
+            "Code": "SR",
+            "CountryName": "CountryCode.sr"
+        },
+        {
+            "Code": "SJ",
+            "CountryName": "CountryCode.sj"
+        },
+        {
+            "Code": "SZ",
+            "CountryName": "CountryCode.sz"
+        },
+        {
+            "Code": "SE",
+            "CountryName": "CountryCode.se"
+        },
+        {
+            "Code": "CH",
+            "CountryName": "CountryCode.ch"
+        },
+        {
+            "Code": "SY",
+            "CountryName": "CountryCode.sy"
+        },
+        {
+            "Code": "TW",
+            "CountryName": "CountryCode.tw"
+        },
+        {
+            "Code": "TJ",
+            "CountryName": "CountryCode.tj"
+        },
+        {
+            "Code": "TZ",
+            "CountryName": "CountryCode.tz"
+        },
+        {
+            "Code": "TH",
+            "CountryName": "CountryCode.th"
+        },
+        {
+            "Code": "TL",
+            "CountryName": "CountryCode.tl"
+        },
+        {
+            "Code": "TG",
+            "CountryName": "CountryCode.tg"
+        },
+        {
+            "Code": "TK",
+            "CountryName": "CountryCode.tk"
+        },
+        {
+            "Code": "TO",
+            "CountryName": "CountryCode.to"
+        },
+        {
+            "Code": "TT",
+            "CountryName": "CountryCode.tt"
+        },
+        {
+            "Code": "TN",
+            "CountryName": "CountryCode.tn"
+        },
+        {
+            "Code": "TR",
+            "CountryName": "CountryCode.tr"
+        },
+        {
+            "Code": "TM",
+            "CountryName": "CountryCode.tm"
+        },
+        {
+            "Code": "TC",
+            "CountryName": "CountryCode.tc"
+        },
+        {
+            "Code": "TV",
+            "CountryName": "CountryCode.tv"
+        },
+        {
+            "Code": "UG",
+            "CountryName": "CountryCode.ug"
+        },
+        {
+            "Code": "UA",
+            "CountryName": "CountryCode.ua"
+        },
+        {
+            "Code": "AE",
+            "CountryName": "CountryCode.ae"
+        },
+        {
+            "Code": "GB",
+            "CountryName": "CountryCode.gb"
+        },
+        {
+            "Code": "US",
+            "CountryName": "CountryCode.us"
+        },
+        {
+            "Code": "UY",
+            "CountryName": "CountryCode.uy"
+        },
+        {
+            "Code": "UZ",
+            "CountryName": "CountryCode.uz"
+        },
+        {
+            "Code": "VG",
+            "CountryName": "CountryCode.vg"
+        },
+        {
+            "Code": "VI",
+            "CountryName": "CountryCode.vi"
+        },
+        {
+            "Code": "VU",
+            "CountryName": "CountryCode.vu"
+        },
+        {
+            "Code": "VE",
+            "CountryName": "CountryCode.ve"
+        },
+        {
+            "Code": "VN",
+            "CountryName": "CountryCode.vn"
+        },
+        {
+            "Code": "WF",
+            "CountryName": "CountryCode.wf"
+        },
+        {
+            "Code": "EH",
+            "CountryName": "CountryCode.eh"
+        },
+        {
+            "Code": "YE",
+            "CountryName": "CountryCode.ye"
+        },
+        {
+            "Code": "ZM",
+            "CountryName": "CountryCode.zm"
+        },
+        {
+            "Code": "ZW",
+            "CountryName": "CountryCode.zw"
+        }
+    ],
+    "Purpose": {
+        "corporate": 1,
+        "personal": 2
+    }
+}

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="33.039" height="28.324" viewBox="0 0 33.039 28.324">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.648" y1="1" x2="0.648" gradientUnits="objectBoundingBox">
+      <stop offset="0.01" stop-color="#03bf00"/>
+      <stop offset="0.314" stop-color="#26cc00"/>
+      <stop offset="1" stop-color="#73e900"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0.531" stop-color="#fefefe"/>
+      <stop offset="0.655" stop-color="#f0f0f0"/>
+      <stop offset="0.746" stop-color="#e4e4e4"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff156a"/>
+      <stop offset="0.998" stop-color="#c43462"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_8" data-name="Group 8" transform="translate(0)">
+    <g id="Group_2" data-name="Group 2" transform="translate(12.481 4)">
+      <rect id="Rectangle_2" data-name="Rectangle 2" width="7" height="1" rx="0.5" transform="translate(-0.481 2)" fill="#e5f2eb"/>
+      <rect id="Rectangle_3" data-name="Rectangle 3" width="7" height="1" rx="0.5" transform="translate(-0.481 0)" fill="#e5f2eb"/>
+      <rect id="Rectangle_4" data-name="Rectangle 4" width="7" height="1" rx="0.5" transform="translate(-0.481 4)" fill="#e5f2eb"/>
+    </g>
+    <g id="Group_3" data-name="Group 3" transform="translate(12.481 4)">
+      <rect id="Rectangle_5" data-name="Rectangle 5" width="7" height="1" rx="0.5" transform="translate(-0.481 2)" fill="#e5f2eb"/>
+      <rect id="Rectangle_6" data-name="Rectangle 6" width="7" height="1" rx="0.5" transform="translate(-0.481 0)" fill="#e5f2eb"/>
+      <rect id="Rectangle_7" data-name="Rectangle 7" width="7" height="1" rx="0.5" transform="translate(-0.481 4)" fill="#e5f2eb"/>
+    </g>
+    <g id="Group_4" data-name="Group 4">
+      <path id="Path_1" data-name="Path 1" d="M12.439,3.01H26.6c5.193,0,9.441,3.931,9.441,8.734v2.183c0,4.806-4.248,8.736-9.441,8.736h-7.08l-7.08,6.551V22.663h0C7.248,22.663,3,18.732,3,13.927V11.744C3,6.941,7.248,3.01,12.439,3.01Z" transform="translate(-3 -3.01)" fill="url(#linear-gradient)"/>
+    </g>
+    <g id="Group_5" data-name="Group 5" transform="translate(7.561 3.965)">
+      <rect id="Rectangle_8" data-name="Rectangle 8" width="16.25" height="1.933" rx="0.467" transform="translate(0 4.606)" fill="#fff"/>
+      <rect id="Rectangle_6277" data-name="Rectangle 6277" width="16.25" height="1.933" rx="0.467" transform="translate(0 9.213)" fill="#fff"/>
+      <rect id="Rectangle_6278" data-name="Rectangle 6278" width="16.25" height="1.933" rx="0.467" fill="#fff"/>
+    </g>
+    <g id="Group_7" data-name="Group 7" transform="translate(16.914 15.305)">
+      <circle id="Ellipse_1" data-name="Ellipse 1" cx="6" cy="6" r="6" transform="translate(0.086 -0.305)" fill="url(#linear-gradient-2)"/>
+      <path id="Path_2" data-name="Path 2" d="M16.684,10A6.5,6.5,0,0,0,10,16.29a6.5,6.5,0,0,0,6.684,6.29,6.5,6.5,0,0,0,6.684-6.29A6.5,6.5,0,0,0,16.684,10Zm0,11.436a5.315,5.315,0,0,1-5.469-5.146,5.315,5.315,0,0,1,5.469-5.146,5.315,5.315,0,0,1,5.469,5.146A5.315,5.315,0,0,1,16.684,21.436Z" transform="translate(-10 -9.56)" fill="url(#linear-gradient-3)"/>
+      <g id="Group_6" data-name="Group 6" transform="translate(5.086 2.294)">
+        <circle id="Ellipse_2" data-name="Ellipse 2" cx="0.846" cy="0.846" r="0.846" transform="translate(0 4.861)" fill="#444"/>
+        <rect id="Rectangle_11" data-name="Rectangle 11" width="0.846" height="5.708" transform="translate(0.423)" fill="#444"/>
+        <rect id="Rectangle_12" data-name="Rectangle 12" width="2.876" height="0.846" transform="translate(0.816 5.361)" fill="#444"/>
+      </g>
+    </g>
+  </g>
+</svg>

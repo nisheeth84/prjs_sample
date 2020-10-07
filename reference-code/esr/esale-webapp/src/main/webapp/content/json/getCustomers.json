@@ -1,0 +1,13 @@
+{
+  "totalRecords": 123,
+  "customers": [
+    {
+      "customerId": 1,
+      "customerName": "customerName"
+    },
+    {
+      "customerId": 2,
+      "customerName": "customerName"
+    }
+  ]
+}

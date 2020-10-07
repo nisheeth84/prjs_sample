@@ -1,0 +1,10 @@
+{
+    "RIPeriod":{
+        "EC2": [ // ec2のdescribe_reserved_instancesの結果
+        ],
+        "RDS": [ // RDSのdescribe_reserved_db_instances結果を格納
+        ],
+        "Redshift": [ // Redshiftのdescribe_reserved_nodesを格納
+        ]
+    }
+}

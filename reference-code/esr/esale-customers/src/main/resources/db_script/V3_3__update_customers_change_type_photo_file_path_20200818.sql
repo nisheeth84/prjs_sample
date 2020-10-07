@@ -1,0 +1,1 @@
+ALTER TABLE "customers" ALTER COLUMN "photo_file_path" TYPE text;

@@ -1,0 +1,28 @@
+@startuml{退会確認画面.png}
+title [退会確認画面]
+hide footbox
+
+actor ユーザー as user
+boundary 退会確認画面 as view_1
+boundary 退会完了画面 as view_2
+database ユーザープール as user_pools <<cognito>> #purple
+
+== 表示 ==
+user -> view_1 :画面表示
+activate view_1
+    view_1 -> view_1 :画面描画
+    view_1 --> user
+deactivate view_1
+
+== 退会 ==
+user -> view_1 :退会
+activate view_1
+    view_1 -> user_pools :ユーザー削除
+    user_pools --> view_1
+    note over view_1, view_2 #pink
+        退会処理を具体的にどうするかは要検討
+    end note
+    view_1 -> view_2 :表示
+deactivate view_1
+
+@enduml

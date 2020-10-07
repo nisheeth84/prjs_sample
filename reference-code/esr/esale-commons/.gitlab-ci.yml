@@ -1,0 +1,3 @@
+include:   
+ - project: 'esr/support/gitlab-ci-conf'
+   file: 'esale-commons.yml'

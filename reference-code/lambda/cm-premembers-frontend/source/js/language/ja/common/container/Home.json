@@ -1,0 +1,11 @@
+{
+    "Home": {
+        "close_notice":"お知らせを閉じる",
+        "close_guide": "このガイドを閉じる",
+        "category": "[注意]",
+        "message_error_send_mail": "現在のメールアドレスへのメール送信に失敗しています。メールアドレスが有効であることの確認をお願いいたします。<a href=\"/app/#/user/update_email/\">こちら</a>からメールアドレスを変更できます。",
+        "message_error_linked_aws_account": "AWSアカウント[{{awsAccount}}]が連携に失敗しています。<a href=\"{{url}}\">こちら</a>から確認してください。",
+        "message_notice_organization_invited": "組織[{{organizationName}}]へ招待されています。<a href=\"/app/#/invitations/\">こちら</a>から確認してください。",
+        "category_notice": "[お知らせ]"
+    }
+}

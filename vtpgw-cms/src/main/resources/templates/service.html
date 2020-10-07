@@ -1,0 +1,186 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Service</title>
+    <th:block th:insert="~{fragments/my-template :: link}"/>
+</head>
+
+<body>
+
+<div class="d-flex" id="wrapper">
+
+    <div th:insert="~{fragments/my-template :: side-bar}"></div>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div th:insert="~{fragments/my-template :: header}"></div>
+        <div class="container-fluid">
+            <div class="head-table">
+                <div class="col-lg-6 col-xl-6 pl-0 ml-0 float-left">
+                    <input id="search" type="text" onchange="search()" class="form-control input-search"
+                           placeholder="Search">
+                </div>
+                <div class="col-lg-6 col-xl-6 pl-0 ml-0 float-left page-control-wrapper">
+                    <button onclick="search()" class="btn vertical-center"
+                            style="background-color: #00918C; color: white">Search
+                    </button>
+                    <input type="file" id="real-file" accept="json" class="vertical-center" hidden="hidden"/>
+                    <div class="vertical-center " style="right: 0;">
+                        <span>Total records: </span>
+                        <span id="totalRecord"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="seperate"></div>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" th:checked="false" th:id="select-all">
+                            <label style="font-weight: normal" class="custom-control-label"
+                                   th:for="select-all"></label>
+                        </div>
+                    </th>
+                    <th class="th-table" style="width: 23%;">Name</th>
+                    <th class="th-table" style="width: 15%;">Module</th>
+                    <th class="th-table" style="width: 40%;">Contact</th>
+                    <th class="th-table" style="width: 15%;">Status</th>
+                    <th style="width: 17%;"></th>
+                </tr>
+                </thead>
+                <tbody id="listServices">
+                </tbody>
+            </table>
+            <nav aria-label="Page" class="float-right">
+                <ul class="pagination" id="pagination"></ul>
+            </nav>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+    <div class="modal fade" id="modalService" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold" id="modalTitle">Create new service</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span onclick="resetModal()" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <form id="formService" action="#" novalidate="">
+                        <input type="hidden" id="f-id">
+                        <input type="hidden" id="f-serviceId">
+                        <div class="form-group" id="nameModalSpace">
+                            <label for="name" class="required">Name: </label>
+                            <input type="text" class="form-control" id="name" name="name"
+                                   placeholder="Name" pattern="^\S+$" required>
+                            <div class="invalid-feedback">No, you missed this one.</div>
+                            <div id="messRes"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="description" >Description: </label>
+                            <input type="text" class="form-control" id="description" name="description"
+                                   placeholder="description">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact" >Contact: </label>
+                            <input type="text" class="form-control" id="contact" name="contact"
+                                   placeholder="contact" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-sm-12 pr-0">
+                                <div class="form-group">
+                                    <label for="module">Module:</label>
+                                    <select id="module" name="module" class="form-control">
+                                        <option value="SOAP" selected >SOAP</option>
+                                        <option value="REST">REST</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-3 pr-0">
+                                <div class="form-group">
+                                    <label for="capacity">Capacity: </label>
+                                    <input class="form-control" id="capacity" pattern="^[0-9]*$" name="capacity"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-3 pr-0">
+                                <div class="form-group">
+                                    <label for="period" >Period: </label>
+                                    <input class="form-control" id="period" pattern="^[0-9]*$" name="period" />
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-3 pr-0">
+                                <div class="form-group">
+                                    <label for="timeout">Timeout: </label>
+                                    <input class="form-control" id="timeout" pattern="^[0-9]*$" name="timeout"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-3">
+                                <div class="form-group">
+                                    <label for="standardDuration" >StandardDuration: </label>
+                                    <input class="form-control" id="standardDuration" pattern="^[0-9]*$" name="standardDuration"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="reportInterval" class="required">Report Interval:</label>
+                            <select id="reportInterval" name="reportInterval" class="form-control" required>
+                                <option value="5">5 Minute</option>
+                                <option value="10" selected>10 Minute</option>
+                                <option value="60">1 Hour</option>
+                                <option value="1440">24 Hour</option>
+                            </select>
+                        </div>
+                        <label class="required">API Endpoints </label>
+                        <div style="border: solid 1px #3991ff; width: 100%; padding: 5px; display: table"
+                             id="endPoints">
+                            <div class="seperate pt-2"></div>
+                            <button onclick="addTableRow('endPoints')" class="border-0 float-right"
+                                    style="background-color: white">
+                                <img width="30" height="30" src="../img/icon_add.png"/>
+                            </button>
+                        </div>
+                        <div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="status">Status:</label>
+                            <select id="status" class="form-control" name="status">
+                                <option value="1">Activate</option>
+                                <option value="0">Disable</option>
+                            </select>
+                        </div>
+
+                        <div class="modal-footer row" style="clear: both">
+                            <button onclick="resetModal()" class="btn btn-danger float-right mr-3" data-dismiss="modal"
+                                    aria-label="Close">
+                                Cancel
+                            </button>
+                            <button id="btnSubmitForm" class="btn btn-primary float-right" type="button">
+                                Save
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /#wrapper -->
+
+<th:block th:insert="~{fragments/my-template :: body/script}"/>
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/twbsPagination.js}"></script>
+<script th:src="@{/js/service.js}"></script>
+
+</body>
+</html>

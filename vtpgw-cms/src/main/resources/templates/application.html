@@ -1,0 +1,151 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Application</title>
+    <th:block th:insert="~{fragments/my-template :: link}"/>
+</head>
+<body>
+
+<div class="d-flex" id="wrapper">
+    <div th:insert="~{fragments/my-template :: side-bar}"></div>
+
+    <div id="page-content-wrapper">
+        <div th:insert="~{fragments/my-template :: header}"></div>
+        <div class="container-fluid">
+            <div class="head-table">
+                <div class="col-lg-6 col-xl-6 pl-0 ml-0 float-left">
+                    <input id="search" type="text" onchange="search()" class="form-control input-search"
+                           placeholder="Search">
+                </div>
+                <div class="col-lg-6 col-xl-6 pl-0 ml-0 float-left page-control-wrapper" id="parent-real-file">
+                    <button onclick="search()" class="btn vertical-center"
+                            style="background-color: #00918C; color: white">Search
+                    </button>
+                    <input type="file" id="real-file" accept="json" class="vertical-center" hidden="hidden"/>
+                    <div class="vertical-center " style="right: 0;">
+                        <span>Total records: </span>
+                        <span id="totalApplication"></span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="seperate"></div>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        <div style="width: 35%;" class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" th:checked="false" th:id="select-all">
+                            <label class="custom-control-label th-table" th:for="select-all">Application</label>
+                        </div>
+                    </th>
+                    <th class="th-table" style="width: 35% ">Contact</th>
+                    <th class="th-table" style="width: 20% ">Status</th>
+                    <th style="width: 10%; font-weight: normal"></th>
+                </tr>
+                </thead>
+                <tbody id="listApplication">
+                </tbody>
+            </table>
+            <div>
+                <nav aria-label="Page" class="float-right">
+                    <ul class="pagination" id="pagination"></ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalApplication" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold" id="modalTitle">Create new application</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span onclick="resetApplicationModal()" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <form id="formApplication" action="#">
+                        <div class="col-lg-6 float-left">
+                            <input type="hidden" id="f-id">
+                            <input type="hidden" id="f-applicationId">
+                            <div class="form-group">
+                                <label for="contact" class="required">Contact:</label>
+                                <input type="email" class="form-control" id="contact" name="contact"
+                                       placeholder="Email" required>
+                                <div class="invalid-feedback">No, you missed this one.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="appId" class="required">App:</label>
+                                <input type="text" class="form-control" id="appId" name="appId"
+                                       placeholder="App" pattern="^\S+$" required>
+                                <div class="invalid-feedback">No, you missed this one.</div>
+                            </div>
+                            <div class="form-group" style="display: none" id="createdStatus">
+                                <label for="createdBy">Created by</label>
+                                <input type="text" class="form-control" id="createdBy" disabled>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 float-left">
+                            <div class="form-group">
+                                <label for="status">Status:</label>
+                                <select id="status" class="form-control" name="status">
+                                    <option value="0">Disable</option>
+                                    <option value="1" selected>Activate</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="token" class="required">Token:</label>
+                                <input type="text" class="form-control" id="token" name="token"
+                                       placeholder="Token" pattern="^\S+$" required>
+                                <div class="invalid-feedback">No, you missed this one.</div>
+                            </div>
+                                <div class="form-group" style="display: none" id="updateStatus">
+                                <label for="f-updatedBy">Updated </label>
+                                <label class="ml-3" id="timeUpdated"></label>
+                                <input type="text" class="form-control" id="f-updatedBy" disabled>
+                            </div>
+                        </div>
+                        <div class="modal-footer row" style="clear: both">
+                            <button onclick="resetApplicationModal()" class="btn btn-danger float-right mr-3" data-dismiss="modal"
+                                    aria-label="Close">
+                                Cancel
+                            </button>
+                            <button id="btnSubmitForm" class="btn btn-primary float-right" type="button">Save</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<th:block th:insert="~{fragments/my-template :: body/script}"/>
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/twbsPagination.js}"></script>
+<script th:src="@{/js/bootstrapValidator.min.js}"></script>
+<script th:src="@{/js/application.js}"></script>
+
+<script>
+    $("#btnSubmitForm").click(function(event) {
+        // Fetch form to apply custom Bootstrap validation
+        var form = $("#formApplication")
+        if (form[0].checkValidity() === false) {
+            event.preventDefault()
+            event.stopPropagation()
+        }
+        form.addClass('was-validated');
+        if (form[0].checkValidity() === true) {
+            submitForm();
+        }
+    });
+</script>
+
+</body>
+</html>

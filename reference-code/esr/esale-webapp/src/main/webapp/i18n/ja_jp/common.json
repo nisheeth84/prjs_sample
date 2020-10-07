@@ -1,0 +1,39 @@
+{
+  "common": {
+    "calendar": "カレンダー",
+    "employees": "社員",
+    "products": "商品",
+    "tasks": "タスク",
+    "sales": "商談",
+    "milestone": "マイルストーン",
+    "customer": "顧客",
+    "product-trading": "取引商品",
+    "business-card": "名刺"
+  },
+  "status": {
+    "online": "オンライン",
+    "offline": "オフライン",
+    "away": "離席"
+  },
+  "commonCharacter": {
+    "comma": "、",
+    "left-parenthesis": "（",
+    "right-parenthesis": "）",
+    "minus": "－",
+    "splash": "／"
+  },
+  "business-card-details": {
+    "last-contact-date": "最終接触日",
+    "acquainted": "面識あり",
+    "acquainted-disable": "面議なし"
+  },
+  "dynamic-select-field-tab": {
+    "find-an-item": "項目を検索",
+    "switch-display": "表示切替"
+  },
+  "exception": {
+    "404": "ページが見つかりません。",
+    "403": "アクセスが禁止されています。お管理者に問い合わせください",
+    "back": "戻る"
+  }
+}

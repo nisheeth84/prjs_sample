@@ -1,0 +1,68 @@
+@startuml{API_所属ユーザー.png}
+title [所属ユーザーAPI]
+hide footbox
+
+boundary 画面 as view
+participant 所属ユーザーAPI as api_affiliations #cyan
+'database ユーザープール as user_pools <<cognito>> #purple
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+
+== 所属ユーザー一覧取得 ==
+view -> api_affiliations :GET /organizations/{organization_id}/users
+note right #pink :TODO クエリパラメータで招待ステータスのフィルタをつけるか検討
+activate api_affiliations
+    api_affiliations -> api_affiliations :メールアドレス取得
+    |||
+    ref over api_affiliations, table_affiliation :アクセス権限チェック
+    |||
+    api_affiliations -> api_affiliations :所属ユーザー一覧取得
+    activate api_affiliations
+        api_affiliations -> table_affiliation :query
+        table_affiliation --> api_affiliations
+        api_affiliations --> api_affiliations
+    deactivate api_affiliations
+    |||
+    api_affiliations -> api_affiliations :レスポンス作成
+    api_affiliations --> view : 200:所属ユーザーリスト
+deactivate api_affiliations
+
+== 所属ユーザー情報更新 ==
+view -> api_affiliations :PUT /organizations/{organization_id}/users/{user_id}
+note right : bodyに変更する項目の情報
+activate api_affiliations
+    api_affiliations -> api_affiliations :メールアドレス取得
+    |||
+    ref over api_affiliations, table_affiliation :アクセス権限チェック
+    |||
+    api_affiliations -> api_affiliations :所属ユーザー情報更新
+    activate api_affiliations
+        api_affiliations -> table_affiliation :所属ユーザーレコード更新
+        table_affiliation --> api_affiliations
+        api_affiliations --> api_affiliations
+    deactivate api_affiliations
+    |||
+    api_affiliations -> api_affiliations :レスポンス作成
+    api_affiliations --> view : 200:変更したユーザー
+deactivate api_affiliations
+
+== ユーザー除外 ==
+view -> api_affiliations :DELETE /organizations/{organization_id}/users/{user_id}
+activate api_affiliations
+    api_affiliations -> api_affiliations :メールアドレス取得
+    |||
+    ref over api_affiliations, table_affiliation :アクセス権限チェック
+    |||
+    api_affiliations -> api_affiliations :所属ユーザー除外
+    activate api_affiliations
+        api_affiliations -> table_affiliation :ユーザー所属レコード削除
+        table_affiliation --> api_affiliations
+        api_affiliations --> api_affiliations
+    deactivate api_affiliations
+    |||
+    api_affiliations -> api_affiliations :レスポンス作成
+    api_affiliations --> view : 204
+deactivate api_affiliations
+
+
+
+@enduml

@@ -1,0 +1,13 @@
+<svg id="Component_5_3" data-name="Component 5 – 3" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19">
+  <path id="Path_3628" data-name="Path 3628" d="M49,289H31V275.778c0-2.086,2.687-3.778,6-3.778h6c3.313,0,6,1.691,6,3.778Z" transform="translate(-30 -270)" fill="#0b537f"/>
+  <path id="Path_3629" data-name="Path 3629" d="M48,287H30V271.889c0-1.043,1.344-1.889,3-1.889H45c1.656,0,3,.846,3,1.889Z" transform="translate(-30 -270)" fill="#ccc"/>
+  <path id="Path_3630" data-name="Path 3630" d="M37.9,282H34.1a.1.1,0,0,0-.1.1V288h4v-5.9a.1.1,0,0,0-.1-.1" transform="translate(-27.333 -271)" fill="#8c8b8b"/>
+  <rect id="Rectangle_2809" data-name="Rectangle 2809" width="3" height="5" transform="translate(7.2 11.5)" fill="#666"/>
+  <path id="Path_3631" data-name="Path 3631" d="M37,287H35v-4h2Zm1-5H34v6h4Z" transform="translate(-27.333 -271)" fill="#999"/>
+  <rect id="Rectangle_2810" data-name="Rectangle 2810" width="2" height="2" transform="translate(10.818 7.556)" fill="#fff"/>
+  <rect id="Rectangle_2811" data-name="Rectangle 2811" width="2" height="2" transform="translate(10.818 4.722)" fill="#fff"/>
+  <rect id="Rectangle_2812" data-name="Rectangle 2812" width="2" height="2" transform="translate(10.818 2)" fill="#fff"/>
+  <rect id="Rectangle_2813" data-name="Rectangle 2813" width="2" height="2" transform="translate(4.636 7.556)" fill="#fff"/>
+  <rect id="Rectangle_2814" data-name="Rectangle 2814" width="2" height="2" transform="translate(4.636 4.722)" fill="#fff"/>
+  <rect id="Rectangle_2815" data-name="Rectangle 2815" width="2" height="2" transform="translate(4.636 2)" fill="#fff"/>
+</svg>

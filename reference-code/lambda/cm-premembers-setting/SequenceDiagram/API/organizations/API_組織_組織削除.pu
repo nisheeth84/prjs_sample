@@ -1,0 +1,48 @@
+@startuml{API_組織_組織削除.png}
+title [組織_組織削除]
+hide footbox
+
+boundary 画面 as view
+participant 組織API as api_organizations #cyan
+'database ユーザープール as user_pools <<cognito>> #purple
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database 組織 as table_organizations <<dynamodb>> #royalblue
+database 組織タスク as table_org_task <<dynamodb>> #royalblue
+database 組織タスクトピック as topic_org_task <<sns>> #gold
+database 組織タスクキュー as queue_org_task <<sqs>> #gold
+
+view -> api_organizations : DELETE /organizations/{organization_id}
+activate api_organizations
+    api_organizations -> api_organizations :メールアドレス取得
+    |||
+    ref over api_organizations, table_affiliation :アクセス権限チェック
+    |||
+    api_organizations -> api_organizations : 組織削除
+    activate api_organizations
+        api_organizations -> api_organizations : 条件チェック
+        note right 
+            組織削除を行う条件を満たしているかチェックする
+        end note
+        api_organizations -> table_affiliation :レコード削除
+        table_affiliation --> api_organizations
+        api_organizations -> table_organizations :レコード削除
+        table_organizations --> api_organizations
+        group 削除した組織配下のリソース遅延削除準備
+            api_organizations -> table_org_task :レコード作成
+            table_org_task --> api_organizations
+            api_organizations -> topic_org_task :組織削除メッセージ追加
+            topic_org_task --> api_organizations
+            |||
+        end
+        group 実装対象外
+            topic_org_task -> queue_org_task :メッセージ送信
+            |||
+        end
+        api_organizations --> api_organizations
+    deactivate api_organizations
+    |||
+    api_organizations -> api_organizations :レスポンス作成
+    api_organizations --> view :204
+deactivate api_organizations
+
+@enduml

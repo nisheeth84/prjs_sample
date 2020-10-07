@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="24" viewBox="0 0 22 24">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1.003" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f9f9fa"/>
+      <stop offset="1" stop-color="#ececeb"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#00cdff"/>
+      <stop offset="1" stop-color="#009ed4"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" x1="0" y1="0.5" x2="1" y2="0.5" xlink:href="#linear-gradient"/>
+  </defs>
+  <g id="Group_4642" data-name="Group 4642" transform="translate(-2 -1)">
+    <image id="Rectangle_1" data-name="Rectangle 1" width="22" height="24" transform="translate(2 1)" opacity="0.35" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAYCAYAAAD+vg1LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADtSURBVEhL7ZUxCsJAEEU3omKhIIqijY02egJbT+EZPYWtJ9DGykYQlEAsxEjif0s2WGbFWGXgMbsJ85jdYjZI09QQs/EwsAtjXPYNKzqeLzZbsaQ1reuilWX2PpGIl3iQJU+C6WhAhw3RFxPRE01RtHM6fIqbOImriJ24I+ZiJRaiLXzEd7EXW3EQEWKO3RVLsc4y+6LXwTWEYic2WQ5dMZnroHOkXIcP1FCLwzo/u+LowLdvcPU2+FBKVOI8KnEelTiPv4gZf8C0+gZXb8OJ+RGLSDACGdo+UEMtDlym1EGP4PdPU2mPaTnPvzFvhExrsrNjDTMAAAAASUVORK5CYII=" style="mix-blend-mode: multiply;isolation: isolate"/>
+    <g id="Group_13" data-name="Group 13">
+      <g id="Group_12" data-name="Group 12">
+        <g id="Group_1" data-name="Group 1">
+          <path id="Path_1" data-name="Path 1" d="M18.988,21H5.012A1.012,1.012,0,0,1,4,19.988V19a1,1,0,0,1,1-1H19a1,1,0,0,1,1,1v.984A1.012,1.012,0,0,1,18.988,21Z" fill="#0073c9"/>
+        </g>
+        <path id="Path_2" data-name="Path 2" d="M18.988,19.8H5.012A1.012,1.012,0,0,1,4,18.788V4A1,1,0,0,1,5,3H19a1,1,0,0,1,1,1V18.788A1.012,1.012,0,0,1,18.988,19.8Z" fill="url(#linear-gradient)"/>
+        <g id="Group_2" data-name="Group 2">
+          <rect id="Rectangle_2" data-name="Rectangle 2" width="16" height="2.4" transform="translate(4 3)" fill="url(#linear-gradient-2)"/>
+        </g>
+        <g id="Group_4" data-name="Group 4">
+          <g id="Group_3" data-name="Group 3">
+            <rect id="Rectangle_3" data-name="Rectangle 3" width="4.625" height="4.625" transform="translate(6 7.5)" fill="url(#linear-gradient-2)"/>
+          </g>
+          <path id="Path_3" data-name="Path 3" d="M9.468,9.523H8.6V8.656H8.023v.867H7.156V10.1h.867v.867H8.6V10.1h.867Z" fill="url(#linear-gradient-4)"/>
+        </g>
+        <g id="Group_7" data-name="Group 7">
+          <g id="Group_5" data-name="Group 5">
+            <path id="Path_4" data-name="Path 4" d="M12.5,9h5a.5.5,0,0,0,0-1h-5a.5.5,0,0,0,0,1Z" fill="#3173b9"/>
+            <path id="Path_5" data-name="Path 5" d="M17.5,8h-5a.5.5,0,0,0,0,1h5a.5.5,0,0,0,0-1Z" fill="#1267a8"/>
+          </g>
+          <g id="Group_6" data-name="Group 6">
+            <path id="Path_6" data-name="Path 6" d="M17.5,10.5h-5a.5.5,0,0,0,0,1h5a.5.5,0,0,0,0-1Z" fill="#3173b9"/>
+            <path id="Path_7" data-name="Path 7" d="M17.5,10.5h-5a.5.5,0,0,0,0,1h5a.5.5,0,0,0,0-1Z" fill="#1267a8"/>
+          </g>
+        </g>
+        <g id="Group_9" data-name="Group 9">
+          <g id="Group_8" data-name="Group 8">
+            <rect id="Rectangle_4" data-name="Rectangle 4" width="4.712" height="4.712" transform="translate(6 13.288)" fill="url(#linear-gradient-2)"/>
+          </g>
+          <path id="Path_8" data-name="Path 8" d="M9.556,15.317H8.689V14.45H8.111v.867H7.244V15.9h.867v.867h.578V15.9h.867Z" fill="url(#linear-gradient-4)"/>
+        </g>
+        <g id="Group_10" data-name="Group 10">
+          <path id="Path_9" data-name="Path 9" d="M17.5,14H12.559a.5.5,0,0,0,0,1H17.5a.5.5,0,0,0,0-1Z" fill="#3173b9"/>
+          <path id="Path_10" data-name="Path 10" d="M17.5,14H12.559a.5.5,0,0,0,0,1H17.5a.5.5,0,0,0,0-1Z" fill="#1267a8"/>
+        </g>
+        <g id="Group_11" data-name="Group 11">
+          <path id="Path_11" data-name="Path 11" d="M17.5,16.231H12.559a.5.5,0,0,0,0,1H17.5a.5.5,0,0,0,0-1Z" fill="#3173b9"/>
+          <path id="Path_12" data-name="Path 12" d="M17.5,16.231H12.559a.5.5,0,0,0,0,1H17.5a.5.5,0,0,0,0-1Z" fill="#1267a8"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

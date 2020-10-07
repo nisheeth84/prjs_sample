@@ -1,0 +1,87 @@
+/**
+ * The EmployeesHistories entity.
+ */
+@dto(mapstruct)
+@service(serviceImpl)
+entity EmployeesHistories {
+    /** 
+     * The EmployeesHistories employeeHistoryId
+     */
+    employeeHistoryId Long required
+    /** 
+     * The EmployeesHistories employeeId
+     */
+    employeeId Long required
+    /** 
+     * The EmployeesHistories photoFileName
+     */
+    photoFileName String maxlength(255)
+    /** 
+     * The EmployeesHistories photoFilePath
+     */
+    photoFilePath String maxlength(255)
+    /** 
+   	 * The EmployeesHistories employeeSurname
+   	 */
+    employeeSurname String maxlength(100)
+    /** 
+   	 * The EmployeesHistories employeeName
+   	 */
+    employeeName String maxlength(100)
+    /** 
+   	 * The EmployeesHistories employeeSurnameKana
+   	 */
+    employeeSurnameKana String maxlength(100)
+    /** 
+   	 * The EmployeesHistories employeeNameKana
+   	 */
+    employeeNameKana String maxlength(100)
+    /** 
+   	 * The EmployeesHistories email
+   	 */
+    email String maxlength(50)
+    /** 
+   	 * The EmployeesHistories telephoneNumber
+   	 */
+    telephoneNumber String maxlength(20)
+    /** 
+   	 * The EmployeesHistories cellphoneNumber
+   	 */
+    cellphoneNumber String maxlength(20)
+    /** 
+   	 * The EmployeesHistories managerId
+   	 */
+    managerId Long
+    /** 
+   	 * The EmployeesHistories userId
+   	 */
+    userId String maxlength(50)
+    /** 
+   	 * The EmployeesHistories isAdmin
+   	 */
+    isAdmin Boolean
+    /** 
+   	 * The EmployeesHistories languageId
+   	 */
+    languageId Integer
+    /** 
+   	 * The EmployeesHistories timezoneId
+   	 */
+    timezoneId Integer
+    /** 
+   	 * The EmployeesHistories employeeStatus
+   	 */
+    employeeStatus Integer
+    /** 
+   	 * The EmployeesHistories employeeData
+   	 */
+    employeeData TextBlob
+    /** 
+   	 * The EmployeesHistories contentChange
+   	 */
+    contentChange TextBlob
+    /** 
+   	 * The EmployeesHistories reasonEdit
+   	 */
+    reasonEdit String maxlength(500)
+}

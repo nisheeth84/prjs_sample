@@ -1,0 +1,82 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+	<import resource="classpath:jasypt_encoding.xml" />
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="oracle.jdbc.OracleDriver" />
+
+		<!--  <property name="jdbcUrl" value="${db_url}" /> 
+		 <property name="user" value="${db_username}" /> 
+		<property name="password" value="${db_password}" 	/>  -->
+		
+		<!-- DB TEST OLD -->
+	    <!--<property name="jdbcUrl" value="jdbc:oracle:thin:@10.60.157.131:1521:dbpt" />-->
+		<!--<property name="user" value="CTCT_COMS_OWNER" />-->
+		<!--<property name="password" value="CTCT_COMS_OWNER#123" /> -->
+		
+		<!-- DB TEST NEW -->
+		<!-- <property name="jdbcUrl" value="jdbc:oracle:thin:@10.61.19.226:1521:orcl" />
+		<property name="user" value="CTCT_COMS_OWNER" />
+		<property name="password" value="CTCT_COMS_OWNER#123" /> -->
+
+		<!--DB KCS TEST-->
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@//10.61.19.226:1521/orcl" />
+		<property name="user" value="CTCT_KCS_OWNER" />
+		<property name="password" value="CTCT_KCS_OWNER#1234" />
+		
+		<!-- <property name="jdbcUrl" value="jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=YES) (ADDRESS= (PROTOCOL=TCP) (HOST= 10.30.145.55) (PORT= 1521)) (ADDRESS= (PROTOCOL=TCP) (HOST= 10.30.145.56) (PORT= 1521)) (CONNECT_DATA= (SERVER=DEDICATED) (SERVICE_NAME= qlct)))" />
+		<property name="user" value="CTCT_KCS_OWNER" />
+		<property name="password" value="Viettel#1235" /> -->
+	 	
+		<property name="acquireIncrement" value="2" />
+		<property name="minPoolSize" value="1" />
+		<property name="maxPoolSize" value="5" />
+		<property name="maxIdleTime" value="600" />
+		<property name="maxStatementsPerConnection" value="3000" />
+	</bean>
+
+	<!-- Hibernate session factory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="packagesToScan">
+			<array>
+				<!-- <value>com.viettel.asset.bo</value>
+				<value>com.viettel.erp.bo</value>
+				<value>com.viettel.ims.bo</value>
+				<value>com.viettel.wms.bo</value>
+				<value>com.viettel.cat.bo</value> -->
+				<value>com.viettel.coms.bo</value>
+				<value>com.viettel.aio.bo</value>
+			</array>
+		</property>
+		<property name="configLocation">
+			<value>classpath:hibernate.cfg.xml</value>
+		</property>
+	</bean>
+
+	<bean id="hibernateSessionFactory"
+		class="com.viettel.service.base.dao.HibernateSessionFactoryImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<context:component-scan base-package="com.viettel.erp.business" />
+	<context:component-scan base-package="com.viettel.erp.dao" />
+	<context:component-scan base-package="com.viettel.asset.business" />
+	<context:component-scan base-package="com.viettel.asset.dao" />
+	<context:component-scan base-package="com.viettel.asset.exception" />
+	<context:component-scan base-package="com.viettel.coms.business" />
+	<context:component-scan base-package="com.viettel.coms.dao" />
+</beans>

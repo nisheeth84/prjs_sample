@@ -1,0 +1,13 @@
+{
+    "UserMFAModal": {
+        "manager_device_mfa": "Manage MFA devices",
+        "guideline_setting_mfa": "If the virtual MFA application supports scanning QR codes, scan the image below with your smartphone's camera.",
+        "qr_code": "QR code",
+        "display_secret_key": " Show secret key for manual setting",
+        "hide_secret_key": " Hide secret key",
+        "guideline_use_secret_key": "When prompted by the virtual MFA application, enter the following secret configuration key.",
+        "auth_code": "Authentication code",
+        "re_enter_auth_code": "Please enter another code from the authentication application.",
+        "enable_mfa": "Enable MFA"
+    }
+}

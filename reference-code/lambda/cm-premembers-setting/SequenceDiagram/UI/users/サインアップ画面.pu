@@ -1,0 +1,27 @@
+@startuml{サインアップ画面.png}
+title [サインアップ画面]
+hide footbox
+
+actor ユーザー as user
+boundary サインアップ画面 as view_1
+boundary 確認コード登録画面 as view_2
+database ユーザープール as user_pools <<cognito>> #purple
+
+== 表示 ==
+user -> view_1 :画面表示
+activate view_1
+    view_1 -> view_1 :画面描画
+    view_1 --> user
+deactivate view_1
+
+== サインアップ ==
+user -> view_1 :サインアップ
+activate view_1
+    view_1 -> view_1 :バリデーションチェック
+    view_1 -> user_pools :サインアップ
+    note right :ユーザーを登録し、確認コードを載せたメールを送信する
+    user_pools --> view_1
+    view_1 -> view_2 :表示
+deactivate view_1
+
+@enduml

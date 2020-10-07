@@ -1,0 +1,104 @@
+$site-menubar-fold-width-custom: 50px;
+
+.toggle-menu-bar {
+  background: #ccc !important;
+  color: #fff !important;
+  width: 20px !important;
+  border-radius: 5px;
+  margin-left: 30px;
+}
+
+.site-menubar-fold-alt {
+  .site-menu {
+    > .site-menu-item {
+      &.active {
+        background: none !important;
+        border: none !important;
+
+        &.hover {
+          background: $site-menu-top-hover-bg !important;
+          > a {
+            color: $color-grey-800;
+          }
+        }
+
+        > a {
+          color: $site-menubar-color;
+        }
+      }
+    }
+  }
+}
+
+.site-menubar-fold {
+  &.site-menubar-fold-alt {
+    .site-menu {
+      > .site-menu-category {
+        display: none;
+      }
+
+      > .site-menu-item {
+        &.open, &.hover {
+          background: $site-menu-top-hover-bg !important;
+        }
+
+        > a {
+          .site-menu-title {
+            transition: visibility 0s, opacity 0s;
+            left: ($site-menubar-fold-width-custom + 10px);
+            width: auto;
+            padding: 4px 7px;
+            background: $gray-darkest !important;
+            color: $color-white;
+            border-radius: 6px;
+            line-height: initial;
+            top: 25%;
+            overflow: unset;
+
+            &:after {
+              content: "";
+              position: absolute;
+              top: 50%;
+              right: 100%;
+              margin-top: -5px;
+              border-width: 5px;
+              border-style: solid;
+              border-color: transparent $gray-darkest transparent transparent;
+            }
+          }
+
+          .site-menu-icon {
+            width: $site-menubar-fold-width-custom;
+            font-size: 14px;
+          }
+        }
+      }
+
+      a {
+        .toggle-menu-bar {
+          margin-left: 15px;
+        }
+      }
+    }
+
+    .scrollable-content {
+      width:50px;
+
+      >.banner-left {
+        display: none !important;
+      }
+    }
+
+    .scrollable.is-enabled {
+      overflow: visible !important;
+    }
+  }
+
+  .site-menubar {
+    width: $site-menubar-fold-width-custom !important;
+  }
+
+  .page, .site-footer {
+    margin-left: $site-menubar-fold-width-custom;
+  }
+}

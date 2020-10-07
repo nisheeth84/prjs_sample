@@ -1,0 +1,53 @@
+ Volume in drive E has no label.
+ Volume Serial Number is E5AC-A800
+
+ Directory of E:\Projects\LUV\esale-webapp-code\src\main\webapp\content\images\timeline\reaction\other
+
+07/27/2020  03:26 PM    <DIR>          .
+07/27/2020  03:26 PM    <DIR>          ..
+07/27/2020  03:26 PM                72 dir.txt
+10/22/2019  02:53 AM             3,334 emoji_u1f374.png
+10/22/2019  02:53 AM             6,698 emoji_u1f375.png
+10/22/2019  02:53 AM             5,508 emoji_u1f37a.png
+10/22/2019  02:53 AM             8,795 emoji_u1f37b.png
+10/22/2019  02:53 AM             4,778 emoji_u1f37d.png
+10/22/2019  02:53 AM             9,268 emoji_u1f37e.png
+10/22/2019  02:53 AM            10,667 emoji_u1f382.png
+10/22/2019  02:53 AM             6,434 emoji_u1f389.png
+10/22/2019  02:53 AM             7,870 emoji_u1f38a.png
+10/22/2019  02:53 AM             4,398 emoji_u1f3b5.png
+10/22/2019  02:53 AM             4,873 emoji_u1f3b6.png
+10/22/2019  02:53 AM             9,118 emoji_u1f3c5.png
+10/22/2019  02:53 AM             8,474 emoji_u1f3c6.png
+10/22/2019  02:53 AM             3,025 emoji_u1f3f3.png
+10/22/2019  02:53 AM             3,265 emoji_u1f3f4.png
+10/22/2019  02:53 AM             6,808 emoji_u1f4a1.png
+10/22/2019  02:53 AM             4,712 emoji_u1f4a2.png
+10/22/2019  02:53 AM             5,988 emoji_u1f4a3.png
+10/22/2019  02:53 AM             4,810 emoji_u1f4a4.png
+10/22/2019  02:53 AM             7,346 emoji_u1f4a5.png
+10/22/2019  02:53 AM             7,411 emoji_u1f4a6.png
+10/22/2019  02:53 AM             5,173 emoji_u1f4a7.png
+10/22/2019  02:53 AM             6,303 emoji_u1f4a8.png
+10/22/2019  02:53 AM             6,861 emoji_u1f4ab.png
+10/22/2019  02:53 AM             2,276 emoji_u1f4ac.png
+10/22/2019  02:53 AM             4,725 emoji_u1f4ad.png
+10/22/2019  02:53 AM             6,489 emoji_u1f4ae.png
+10/22/2019  02:53 AM             6,099 emoji_u1f4af.png
+10/22/2019  02:53 AM             5,447 emoji_u1f514.png
+10/22/2019  02:53 AM             5,125 emoji_u1f525.png
+10/22/2019  02:53 AM             2,938 emoji_u1f530.png
+10/22/2019  02:53 AM             3,363 emoji_u1f573.png
+10/22/2019  02:53 AM            10,754 emoji_u1f5d1.png
+10/22/2019  02:53 AM             2,325 emoji_u1f6a9.png
+10/22/2019  02:53 AM             6,541 emoji_u1f6ab.png
+10/22/2019  02:53 AM             5,201 emoji_u23f3.png
+10/22/2019  02:53 AM             3,240 emoji_u26a0.png
+10/22/2019  02:53 AM             3,648 emoji_u26d4.png
+10/22/2019  02:53 AM             3,461 emoji_u2709.png
+10/22/2019  02:53 AM             3,206 emoji_u2716.png
+10/22/2019  02:53 AM             3,323 emoji_u2728.png
+10/22/2019  02:53 AM             4,945 emoji_u2b50.png
+10/22/2019  02:53 AM             4,872 emoji_u2b55.png
+              44 File(s)        239,967 bytes
+               2 Dir(s)  219,904,110,592 bytes free

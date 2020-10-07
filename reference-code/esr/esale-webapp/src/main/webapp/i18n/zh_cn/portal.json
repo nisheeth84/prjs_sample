@@ -1,0 +1,43 @@
+{
+  "portal": {
+    "popupLogin": {
+      "hello": "欢迎您",
+      "content": "除业务管理和客户管理外，电子销售经理还具有许多用于集中管理公司范围内信息的其他功能，例如名片管理，时间表，时间线（公司内部SNS）等。",
+      "footer": "您可以免费试用30天，即使您以前从未使用过CRM / SFA，也可以随时尝试。",
+      "next": "下一步"
+    },
+    "popupExperiment": {
+      "title": "试用方法",
+      "content": "在试用期内，请按照以下步骤体验CRM / SFA的效果。",
+      "boxOneTitle": "客户数据注册",
+      "boxOneContent": "注册真实的的客户信息以体验使用效果。",
+      "boxTwoTitle": "五次“过度”的体验",
+      "boxTwoContent": "通过“过渡”五个业务活动来体验效率。",
+      "button": "在此处查看有关五种摆脱的详细信息",
+      "boxThree": "提高生产力！",
+      "back": "返回"
+    },
+    "popupStart": {
+      "title": "让我们开始！",
+      "contentOne": "电子销售经理Remix",
+      "contentTwo": "MS帮助您的企业提高营销生产力。",
+      "button": "开始",
+      "footer": "下次登录时不再显示"
+    },
+    "modalPortal": {
+      "title": "esm’s的新手门户",
+      "boxOneTitle": "请注册您现有的客户分类帐！",
+      "boxOneContent": "通过将客户数据放入系统中并使用实际数据进行试用，您可以体验到便利。",
+      "boxOneButton": "批量注册客户数据",
+      "boxTwoTitle": "邀请团队成员！",
+      "boxTwoContent": "您可以通过电子邮件邀请团队成员来体验eSM'S。",
+      "boxTwoButton": "邀请员工",
+      "boxThreeTitle": "共同解决您的后顾之忧！",
+      "boxThreeContent": "每个用户使用场景的实际示例已注册，可以解决您的后顾之忧。",
+      "boxThreeButton": "查看使用支持网站"
+    },
+    "importPortal": {
+      "apologize": "此部分在客户导入屏幕完成后将被更新。"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@startuml{パスワード設定画面.png}
+title [パスワード設定画面]
+hide footbox
+
+actor ユーザー as user
+boundary パスワード設定画面 as view_1
+database ユーザープール as user_pools <<cognito>> #purple
+
+== 表示 ==
+user -> view_1 :画面表示
+activate view_1
+    view_1 -> view_1 :画面描画
+    view_1 --> user
+deactivate view_1
+
+== パスワード設定 ==
+
+
+@enduml

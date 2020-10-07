@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="281.048" height="102" viewBox="0 0 281.048 102">
+  <g id="Group_25993" data-name="Group 25993" transform="translate(-384.222 -5546)">
+    <path id="Path_14150" data-name="Path 14150" d="M1.222,0H180a1,1,0,0,1,0,2L1.222,1.991V0Z" transform="translate(383 5596.9)" fill="#f92525"/>
+    <g id="Group_25714" data-name="Group 25714" transform="translate(-61 4422.9)">
+      <rect id="Rectangle_10586" data-name="Rectangle 10586" width="83.792" height="2" rx="1" transform="translate(626 1174)" fill="#999"/>
+      <g id="Group_1144" data-name="Group 1144" transform="translate(726.27 1186.944) rotate(180)">
+        <rect id="Rectangle_986" data-name="Rectangle 986" width="24" height="24" rx="8" transform="translate(0)" fill="none"/>
+        <path id="Path_14127" data-name="Path 14127" d="M15.5,5H7.061c.01-.312.042-2.687,0-4.147L6.354.146a.5.5,0,0,0-.708,0L1.207,4.586.146,5.646a.5.5,0,0,0,0,.707L1.207,7.414l4.439,4.439a.5.5,0,0,0,.708,0l.707-.706c.01-3.115-.005-3.49,0-4.147H15.5a.5.5,0,0,0,.5-.5v-1A.5.5,0,0,0,15.5,5Z" transform="translate(3 5.943)" fill="#999"/>
+      </g>
+    </g>
+    <circle id="Ellipse_280" data-name="Ellipse 280" cx="4" cy="4" r="4" transform="translate(561 5593.9)" fill="#f92525"/>
+    <g id="Group_25715" data-name="Group 25715" transform="translate(-19 2778)">
+      <path id="Path_14138" data-name="Path 14138" d="M7185.7,2353.335s4.024-6.994,10.859-6.961,49.495,0,53.273,0,4.8-2.339,5.137-3.824a26.554,26.554,0,0,0,.235-4.7" transform="translate(-6743 452)" fill="none" stroke="#707070" stroke-width="1"/>
+      <path id="Path_14139" data-name="Path 14139" d="M7255.482,2353.335s-4.04-6.994-10.9-6.961-49.682,0-53.475,0-4.817-2.339-5.156-3.824a26.471,26.471,0,0,1-.235-4.7" transform="translate(-6673.482 452)" fill="none" stroke="#707070" stroke-width="1"/>
+    </g>
+    <text id="_5日" data-name="5日" transform="translate(481 5546)" fill="#171615" font-size="14" font-family="NotoSansCJKjp-Medium, Noto Sans CJK JP" font-weight="500"><tspan x="0" y="16">5日</tspan></text>
+    <text id="今日" transform="translate(408 5628)" fill="#171615" font-size="14" font-family="NotoSansCJKjp-Medium, Noto Sans CJK JP" font-weight="500"><tspan x="0" y="16">今日</tspan></text>
+    <path id="Path_14170" data-name="Path 14170" d="M1,0H16.312c0,1.859,0,.063,0,2H1Z" transform="translate(423.5 5589.532) rotate(90)" fill="#171615"/>
+  </g>
+</svg>

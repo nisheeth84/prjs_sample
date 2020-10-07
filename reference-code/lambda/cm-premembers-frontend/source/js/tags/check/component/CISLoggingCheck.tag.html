@@ -1,0 +1,131 @@
+<cis-logging-check>
+    <div class="card card-bordered card-outline-danger" if="{opts.list_logging.length > 0}">
+        <div class="card-block">
+            <div class="card-title">
+                <h3 class="text-left inline">{_t('cis_2_logging')}</h3>
+                <p class="text-right inline float-right">
+                    {_t('check_date_time')}: {commonUtils.displayDate(opts.list_logging[0][0].executedDateTime)}
+                </p>
+            </div>
+        </div>
+        <virtual each="{results in opts.list_logging}">
+            <div class="card-block ">
+                <div class="card-title">
+                    <div class="vertical-align-middle">
+                        <h4>
+                            <i class="{commonUtils.getClassIconCheckCIS(results[0].checkItemCode)}"></i>
+                            {commonUtils.getItemCodeCheckItem(results[0].checkItemCode)}
+                            <span class="px-2 py-1 badge-setting badge-danger align-middle" if="{opts.list_manual.includes(results[0].checkItemCode)}">{_t('CheckResult.manual')}</span>
+                        </h4>
+                    </div>
+                </div>
+                <ul>
+                    <li each="{description in commonUtils.getDescriptionCheckItem(results[0].checkItemCode)}">{commonUtils.parseHtml(this, description)}</li>
+                </ul>
+                <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_CIS_ITEM_2_01' || results[0].checkItemCode == 'CHECK_CIS_ITEM_2_05'}">
+                    <thead>
+                        <tr>
+                            <th class="font-weight-900 check-header">{_t('organization')}</th>
+                            <th class="font-weight-900 check-header">{_t('project')}</th>
+                            <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                            <th class="font-weight-900 check-header">{_t('region')}</th>
+                        </tr>
+                    </thead>
+                    <tbody each="{result in results}">
+                        <tr class="child" each="{resource in result.resources}">
+                            <td class="word-break-all">{result.organizationName}</td>
+                            <td class="word-break-all">{result.projectName}</td>
+                            <td class="table-account-column">
+                                <p>{result.awsAccount}
+                                    <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                </p>
+                            </td>
+                            <td class="word-break-all">{resource.Region}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_CIS_ITEM_2_03' || results[0].checkItemCode == 'CHECK_CIS_ITEM_2_06'}">
+                    <thead>
+                        <tr>
+                            <th class="font-weight-900 check-header">{_t('organization')}</th>
+                            <th class="font-weight-900 check-header">{_t('project')}</th>
+                            <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                            <th class="font-weight-900 check-header">{_t('region')}</th>
+                            <th class="font-weight-900 check-header">{_t('s3_bucket')}</th>
+                        </tr>
+                    </thead>
+                    <tbody each="{result in results}">
+                        <tr class="child" each="{resource in result.resources}">
+                            <td class="word-break-all">{result.organizationName}</td>
+                            <td class="word-break-all">{result.projectName}</td>
+                            <td class="table-account-column">
+                                <p>{result.awsAccount}
+                                    <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                </p>
+                            </td>
+                            <td class="word-break-all">{resource.Region}</td>
+                            <td class="word-break-all">
+                                {resource.DetectionItem.BucketName}
+                                <i class="icon fa-exclamation-circle text-danger" aria-hidden="true" if="{resource.DetectionItem.ErrorOperation}" onclick="{showCheckError.bind(this, results[0].checkItemCode, result.awsAccountName, result.awsAccount, resource.DetectionItem.BucketName)}">
+                                </i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_CIS_ITEM_2_02' || results[0].checkItemCode == 'CHECK_CIS_ITEM_2_04'
+                    || results[0].checkItemCode == 'CHECK_CIS_ITEM_2_07'}">
+                    <thead>
+                        <tr>
+                            <th class="font-weight-900 check-header">{_t('organization')}</th>
+                            <th class="font-weight-900 check-header">{_t('project')}</th>
+                            <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                            <th class="font-weight-900 check-header">{_t('region')}</th>
+                            <th class="font-weight-900 check-header">{_t('CISLoggingCheck.cloudtrail')}</th>
+                        </tr>
+                    </thead>
+                    <tbody each="{result in results}">
+                        <tr class="child" each="{resource in result.resources}">
+                            <td class="word-break-all">{result.organizationName}</td>
+                            <td class="word-break-all">{result.projectName}</td>
+                            <td class="table-account-column">
+                                <p>{result.awsAccount}
+                                    <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                </p>
+                            </td>
+                            <td class="word-break-all">{resource.Region}</td>
+                            <td class="word-break-all">{resource.DetectionItem.CloudTrailName}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_CIS_ITEM_2_08'}">
+                    <thead>
+                        <tr>
+                            <th class="font-weight-900 check-header">{_t('organization')}</th>
+                            <th class="font-weight-900 check-header">{_t('project')}</th>
+                            <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                            <th class="font-weight-900 check-header">{_t('region')}</th>
+                            <th class="font-weight-900 check-header">{_t('CISLoggingCheck.key_id')}</th>
+                        </tr>
+                    </thead>
+                    <tbody each="{result in results}">
+                        <tr class="child" each="{resource in result.resources}">
+                            <td class="word-break-all">{result.organizationName}</td>
+                            <td class="word-break-all">{result.projectName}</td>
+                            <td class="table-account-column">
+                                <p>{result.awsAccount}
+                                    <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                </p>
+                            </td>
+                            <td class="word-break-all">{resource.Region}</td>
+                            <td class="word-break-all">{resource.DetectionItem.AbnormalityKeys.KeyId}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </virtual>
+    </div>
+    <script>
+        const tag = this
+        tag.showCheckError = tag.parent.showCheckError
+    </script>
+</cis-logging-check>

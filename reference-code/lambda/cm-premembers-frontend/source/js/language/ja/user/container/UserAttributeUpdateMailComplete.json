@@ -1,0 +1,7 @@
+{
+    "UserAttributeUpdateMailComplete": {
+        "change_email_complete": "メールアドレスが変更されました。",
+        "start_insightwatch": "insightwatchを開始する",
+        "warning_login": "insightwatchを開いているブラウザがあればログアウトし、再度ログインし直してください"
+    }
+}

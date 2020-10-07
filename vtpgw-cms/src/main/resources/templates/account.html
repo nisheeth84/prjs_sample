@@ -1,0 +1,138 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>VTPGW</title>
+    <th:block th:insert="~{fragments/my-template :: link}"/>
+</head>
+<body>
+
+<div class="d-flex" id="wrapper">
+    <div th:insert="~{fragments/my-template :: side-bar}"></div>
+
+    <div id="page-content-wrapper">
+        <div th:insert="~{fragments/my-template :: header}"></div>
+        <div class="container-fluid">
+            <div class="head-table">
+                <div class="col-lg-6 col-xl-6 pl-0 ml-0 float-left">
+                    <input onchange="search()" id="search" type="text" class="form-control input-search"
+                           placeholder="Search">
+                </div>
+                <input type="file" id="real-file" accept="json" class="vertical-center" hidden="hidden"/>
+                <div class="col-lg-6 col-xl-6 pl-0 ml-0 float-left page-control-wrapper">
+                    <button class="btn vertical-center" style="background-color: #00918C; color: white" onclick="search()">Search</button>
+                    <div class="vertical-center " style="right: 0;">
+                        <span>Total records: </span>
+                        <span id="totalRecord"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="seperate"></div>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th style="width: 25%">
+                        <div style="width: 40%;" class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" th:checked="false" th:id="select-all">
+                            <label class="custom-control-label th-table" th:for="select-all">Email</label>
+                        </div>
+                    </th>
+                    <th class="th-table" style="width: 25% ">Full Name</th>
+                    <th class="th-table" style="width: 20% ">Phone</th>
+                    <th class="th-table" style="width: 20% ">Status</th>
+                    <th class="th-table" style="width: 10% "></th>
+                </tr>
+                </thead>
+                <tbody id="listAccounts">
+                </tbody>
+            </table>
+            <div>
+                <nav aria-label="Page" class="float-right">
+                    <ul class="pagination" id="pagination"></ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalAccount" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true"  data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold" id="modalTitle">Create new account</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span onclick="resetAccountModal()" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <form  id="formAccount" action="#" novalidate="">
+                        <input type="hidden" id="f-id">
+                        <input type="hidden" id="f-accountId">
+                        <div class="col-lg-6 float-left">
+                            <div class="form-group" id="emailModalSpace">
+                                <label for="email" class="required">Email:</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                       placeholder="Enter email" required>
+                                <div class="invalid-feedback">Please enter valid email address.</div>
+                                <div id="messRes"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="fullname" class="required">Fullname:</label>
+                                <input type="text" class="form-control" id="fullname"  name="fullname"
+                                       pattern="^\S+$"
+                                       placeholder="Fullname" required>
+                                <div class="invalid-feedback">No, you missed this one (Not allow space only).</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="required">Phone:</label>
+                                <input type="text" class="form-control" id="phone" name="phone"
+                                       placeholder="Phone number" required
+                                       pattern="^(?:0|\(?\d{2}\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$">
+                                <div class="invalid-feedback">No, you missed this one.</div>
+                            </div>
+                            <div class="form-group" style="display: none" id="updateStatus">
+                                <label for="timeUpdated">Updated: </label>
+                                <input type="text" class="form-control" id="timeUpdated" disabled>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 float-left">
+                            <div class="form-group" id="passwordContainer">
+                            <label for="password" class="required">Password:</label>
+                            <input type="password" pattern="^\S+$" class="form-control" id="password" name="password"
+                                   placeholder="Password" required>
+                            <div class="invalid-feedback">No, you missed this one.</div>
+                        </div>
+                            <div class="form-group">
+                                <label for="status" >Status:</label>
+                                <select id="status" class="form-control" name="status">
+                                    <option value="0">Disable</option>
+                                    <option value="1" selected>Activate</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="display: none" id="createdStatus">
+                                <label for="createdBy">Created by:</label>
+                                <input type="text" class="form-control" id="createdBy" disabled>
+                            </div>
+                        </div>
+                        <div class="modal-footer" style="clear: both">
+                            <button onclick="resetAccountModal()" class="btn btn-danger float-right mr-3" data-dismiss="modal" aria-label="Close">
+                                Cancel
+                            </button>
+                            <button id="btnSubmitForm" type="button" class="btn btn-primary float-right">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block th:insert="~{fragments/my-template :: body/script}"/>
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/twbsPagination.js}"></script>
+<script th:src="@{/js/account.js}"></script>
+
+</body>
+</html>

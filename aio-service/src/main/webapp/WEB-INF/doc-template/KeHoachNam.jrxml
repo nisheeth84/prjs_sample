@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="KeHoachNam" pageWidth="595" pageHeight="842" columnWidth="511" leftMargin="42" rightMargin="42" topMargin="56" bottomMargin="42" uuid="781849af-f1be-4fcb-bd92-7ca31dfc4f0c">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="ireport.callouts" value="callouts.5.bg=255,255,0\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n callouts.3.fg=0,0,0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n callouts.6.bg=255,255,0\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n callouts.4.fg=0,0,0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n callouts.7.bg=255,255,0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n callouts.6.text=pm1_os42 3/22/18 4\:50 PM\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n callouts.5.fg=0,0,0\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n callouts.1.bg=255,255,0\n\n\n\n\n\n\n\n\n callouts.8.bg=255,255,0\n callouts.6.fg=0,0,0\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n callouts.6.bounds=913,686,200,200\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n callouts.2.bg=255,255,0\n\n\n\n\n callouts.7.fg=0,0,0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n callouts.3.bg=255,255,0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n callouts.1.fg=0,0,0\n\n\n\n\n\n\n\n\n callouts.8.fg=0,0,0\n callouts.4.bg=255,255,0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n callouts.2.fg=0,0,0\n\n\n\n\n "/>
+	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="TblDataset2" uuid="5a173e08-db00-41aa-bdd3-38314a07ff91">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="column1Name" class="java.lang.String"/>
+		<field name="source" class="java.lang.Double"/>
+		<field name="quantity" class="java.lang.Double"/>
+		<field name="complete" class="java.lang.Double"/>
+		<field name="revenue" class="java.lang.Double"/>
+	</subDataset>
+	<parameter name="tbl2" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="dd" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="mm" class="java.lang.String"/>
+	<parameter name="year" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="yyyy" class="java.lang.String"/>
+	<parameter name="signLabel1" class="java.lang.String"/>
+	<parameter name="signLabel2" class="java.lang.String"/>
+	<parameter name="signLabel3" class="java.lang.String"/>
+	<parameter name="signLabel4" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="196" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="219" height="30" isPrintWhenDetailOverflows="true" uuid="016f3fd4-cddf-4292-965c-96240b9ba16d">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" markup="html">
+					<font fontName="Times New Roman" size="13"/>
+				</textElement>
+				<text><![CDATA[TẬP ĐOÀN VIỄN THÔNG QUÂN ĐỘI <br> CÔNG TY CP CÔNG TRÌNH VIETTEL]]></text>
+			</staticText>
+			<line>
+				<reportElement x="52" y="34" width="130" height="1" uuid="8da5b14a-9b40-47b2-a8e4-c281d38fdc72">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="300" y="34" width="140" height="1" uuid="211d4fc4-95e4-4c80-88dd-9c0ede8f5579">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="30" y="40" width="159" height="18" isPrintWhenDetailOverflows="true" uuid="32c08dca-2222-47fe-b779-3c19d59202f6"/>
+				<textElement textAlignment="Center" markup="html">
+					<font fontName="Times New Roman" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Số: "
++"&#9;&#9;"
++"/CT - KH"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="260" y="40" width="248" height="18" isPrintWhenDetailOverflows="true" uuid="8ceb383c-4443-4c2f-95c9-261021ef95b3"/>
+				<textElement markup="html">
+					<font fontName="Times New Roman" size="13" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Hà Nội, ngày "
++($P{dd}==null?".......":$P{dd})
++" tháng "
++($P{mm}==null?".......":$P{mm})
++" năm "
++($P{yyyy}==null?".......":$P{yyyy})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="70" width="219" height="50" isPrintWhenDetailOverflows="true" uuid="586c7e16-c95d-4ee7-90e2-ad88aec8b769"/>
+				<textElement textAlignment="Center" markup="html">
+					<font fontName="Times New Roman" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>PHÊ DUYỆT</b>"+"<br>"
++"<b>"+($P{signLabel1}==null?"":$P{signLabel1})+"</b>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="230" y="0" width="281" height="30" isPrintWhenDetailOverflows="true" uuid="6c880f44-ccfa-48a3-8448-b0b6880077c7">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" markup="html">
+					<font fontName="Times New Roman" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM<br> Độc lập - Tự do - Hạnh phúc]]></text>
+			</staticText>
+		</band>
+		<band height="55">
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="27" width="511" height="19" isPrintWhenDetailOverflows="true" uuid="65206138-eac4-4eb4-a355-a47e5a84993a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["KẾ HOẠCH TRIỂN KHAI NĂM  "+($P{year}==null?".......":$P{year})]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="Float" x="190" y="47" width="140" height="1" uuid="cd6a35b8-0e08-4882-a5ed-2ca2d5c1ab51"/>
+			</line>
+		</band>
+		<band height="129" splitType="Immediate">
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="10" width="511" height="119" isPrintWhenDetailOverflows="true" uuid="96ea63c3-ae2c-4f75-93e2-60f8eb13bcd4">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement markup="html">
+					<font fontName="Times New Roman" size="13"/>
+					<paragraph lineSpacingSize="1.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA["&#09;	Căn cứ vào quyền hạn và trách nhiệm của Giám đốc Công ty.<br>"
++"&#09;		Căn cứ vào kế hoạch sản xuất kinh doanh, mục tiêu năm "
++($P{year}==null?".......":$P{year})
++" của Công ty CP Công trình Viettel.<br>"
++"	&#09;	Căn cứ vào tình hình triển khai thực tế,<br>"
++"	&#09;	Phòng Kế hoạch kính trình Giám đốc Công ty kế hoạch triển khai hạ tầng năm "
++($P{year}==null?".......":$P{year})
++" như sau:<br>"
++"<b>I. MỤC ĐÍCH, YÊU CẦU:</b><br>"
++"<b>1. Mục đích:</b><br>"
++"&#09;- Tường minh khối lượng công việc, nhiệm vụ cụ thể và thời gian thực hiện của từng cơ quan, đơn vị.<br>"
++"&#09;- Tập trung điều hành các điều kiện đảm bảo, tăng đội và tổ chức nghiệm thu, hoàn công, đối soát vật tư (ĐSVT) theo đúng deadline để hoàn thành kế hoạch sản xuất kinh doanh.<br>"
++"<b>2. Yêu cầu:</b><br>"
++"&#09;- Đảm bảo an toàn về mọi mặt bao gồm: Con người, tài sản, thiết bị, phương tiện, công/dụng cụ.<br>"
++"&#09;- Các cơ quan, đơn vị nắm được nhiệm vụ, hoàn thành khối lượng công việc đúng thời gian theo kế hoạch. Điều hành và giải quyết các khó khăn vướng mắc theo ngày để kịp thời tháo gỡ giải quyết.<br>"
++"<b>II. NỘI DUNG THỰC HIỆN:</b><br>"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="39" splitType="Stretch">
+			<componentElement>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="4" width="511" height="35" isPrintWhenDetailOverflows="true" uuid="c00aa03b-3efa-4337-9739-db4f2aa85131">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="TblDataset2" uuid="3c4aee8c-41f7-47b4-a883-6702a3d4f849">
+						<dataSourceExpression><![CDATA[$P{tbl2}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="130" uuid="ee4e5898-84aa-44eb-978d-975bed093556">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="130" height="30" uuid="8b05b538-d864-4ed2-ade2-d0218f30cdd6"/>
+								<box>
+									<pen lineWidth="0.0"/>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="14" pdfFontName="Times-Roman" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<text><![CDATA[Đơn vị]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="130" height="30" isPrintWhenDetailOverflows="true" uuid="6c05a7e6-46dd-4a98-b27b-1956fed70881"/>
+								<box>
+									<topPen lineStyle="Solid"/>
+									<leftPen lineStyle="Solid"/>
+									<bottomPen lineStyle="Solid"/>
+									<rightPen lineStyle="Solid"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+									<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{column1Name}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="95" uuid="ad3f7910-40b7-4679-be46-44c2db1a63c0">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="95" height="30" uuid="ec826890-dc03-4dd4-b1a1-d66c1e73f9c5"/>
+								<box>
+									<pen lineWidth="0.0"/>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="14" pdfEncoding="Identity-H"/>
+								</textElement>
+								<text><![CDATA[Nguồn việc]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="95" height="30" isPrintWhenDetailOverflows="true" uuid="5601321f-70af-4bf7-8f32-75412837387d"/>
+								<box>
+									<topPen lineStyle="Solid"/>
+									<leftPen lineStyle="Solid"/>
+									<bottomPen lineStyle="Solid"/>
+									<rightPen lineStyle="Solid"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+									<font fontName="Times New Roman" size="12" pdfEncoding="Identity-H"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{source}!=null?new java.text.DecimalFormat("#,###.000").format($F{source}):""]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="95" uuid="7ca341e9-0dfa-48aa-a4b2-9858f700db42">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="95" height="30" uuid="15c4c95a-4bb4-4a19-ace3-43515363b492"/>
+								<box>
+									<pen lineWidth="0.0"/>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="14" pdfEncoding="Identity-H"/>
+								</textElement>
+								<text><![CDATA[Sản lượng]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="95" height="30" isPrintWhenDetailOverflows="true" uuid="1f46a0a2-beeb-4a9a-9888-76cd18445cfc"/>
+								<box>
+									<topPen lineStyle="Solid"/>
+									<leftPen lineStyle="Solid"/>
+									<bottomPen lineStyle="Solid"/>
+									<rightPen lineStyle="Solid"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+									<font fontName="Times New Roman" size="12" pdfEncoding="Identity-H"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{quantity}!=null?new java.text.DecimalFormat("#,###.000").format($F{quantity}):""]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="95" uuid="7a422a76-82a5-4a3b-abca-3460cdafdd5b">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="95" height="30" uuid="e69b02db-9a93-40d5-a73a-18a98f9785e0"/>
+								<box>
+									<pen lineWidth="0.0"/>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="14" pdfEncoding="Identity-H"/>
+								</textElement>
+								<text><![CDATA[HSHC]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="95" height="30" isPrintWhenDetailOverflows="true" uuid="d11b55b1-4dab-477b-82fe-9d03c1e6dd21"/>
+								<box>
+									<topPen lineStyle="Solid"/>
+									<leftPen lineStyle="Solid"/>
+									<bottomPen lineStyle="Solid"/>
+									<rightPen lineStyle="Solid"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+									<font fontName="Times New Roman" size="12" pdfEncoding="Identity-H"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{complete}!=null?new java.text.DecimalFormat("#,###.000").format($F{complete}):""]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="95" uuid="30cc2a2d-8559-488f-95c3-e572e4dffec6">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="95" height="30" uuid="7e2ce67a-78ad-4955-9ef0-bdaabf08722c"/>
+								<box>
+									<pen lineWidth="0.0"/>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Times New Roman" size="14" pdfEncoding="Identity-H"/>
+								</textElement>
+								<text><![CDATA[Doanh thu]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="95" height="30" isPrintWhenDetailOverflows="true" uuid="d2ffc4b0-4fb9-4579-ae80-d1587f334389"/>
+								<box>
+									<topPen lineStyle="Solid"/>
+									<leftPen lineStyle="Solid"/>
+									<bottomPen lineStyle="Solid"/>
+									<rightPen lineStyle="Solid"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+									<font fontName="Times New Roman" size="12" pdfEncoding="Identity-H"/>
+									<paragraph rightIndent="2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{revenue}!=null?new java.text.DecimalFormat("#,###.000").format($F{revenue}):""]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="190" splitType="Immediate">
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="10" width="511" height="180" isPrintWhenDetailOverflows="true" uuid="42b1db51-b966-4243-bafd-1e411bf43818">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement markup="html">
+					<font fontName="Times New Roman" size="13" pdfEncoding="Identity-H"/>
+					<paragraph lineSpacingSize="0.0"/>
+				</textElement>
+				<textFieldExpression><![CDATA["&#09;<br>"
++"<b>III. NHIỆM VỤ CỦA CÁC CƠ QUAN, ĐƠN VỊ:</b><br>"
++"<b>1.	Phòng Hạ Tầng: </b><br>"
++"&#09;-  Chịu trách nhiệm xây dựng kế hoạch tổng thể, giao nhiệm vụ chi tiết cho các cơ quan, đơn vị.<br>"
++"&#09;-  Chịu trách nhiệm đôn đốc, hướng dẫn các đơn vị xây dựng kế hoạch chi tiết.<br>"
++"&#09;-  Chịu trách nhiệm theo dõi, đánh giá đưa ra cảnh báo tiến độ thực hiện công việc của các phòng ban liên quan và các chi nhánh , đề xuất giải pháp. Trực tiếp điều hành đôn đốc tiến độ thực hiện nghiệm thu công trình.<br>"
++"<b>2.	Phòng Thanh Khoản:</b><br> "
++"&#09;- Chủ trì tiếp nhận HSHC quyết toán, thanh toán với chủ đầu tư.<br>"
++"<b>3.	Phòng đầu tư:</b><br>"
++"&#09;- Chủ trì đảm bảo vật tư thi công, có kế hoạch cung cấp vật tư đến chân công trình <b>theo thời gian tiến độ cụ thể của PHT.</b><br>"
++"<b>4.	Phòng Tài chính :</b><br>"
++"&#09;- Chủ trì đảm bảo điều kiện thanh toán quyết toán về luồng tài chính theo KH dòng tiền và KH thanh toán của CN.<br>"
++"<b>5.	Phòng Quản lý tài sản:</b><br>"
++"&#09;- Chịu trách nhiệm cấp ứng vật tư từ kho theo yêu cầu, chịu trách nhiệm công tác đối soát vật tư, hỗ trợ chi nhánh hoàn thành kế hoạch tháng.<br>"
++"<b>6.	Phòng kế hoạch:</b><br>"
++"&#09;- Chủ trì tổng hợp báo cáo, tiến độ thực hiện công việc.<br>"
++"&#09;- Đưa ra cảnh báo cho Phòng Hạ tầng và các Chi nhánh để đảm bảo tiến độ.<br>"
++"<b>7.	Các Chi Nhánh khu vực</b><br>"
++"&#09;- Xây dựng kế hoạch chi tiết đến từng hạng mục/mã trạm và cá nhân thực hiện về sản lượng, hồ sơ hoàn công, thanh quyết toán các HĐ.<br>"
++"&#09;- Tổ chức, điều hành triển khai và chịu trách nhiệm về tiến độ, chất lượng công trình. Nghiệm thu, hoàn công và ĐSVT theo đúng quy trình triển khai hạ tầng và nghiệm thu hoàn công.<br>"
++"&#09;Trên đây là kế hoạch triển khai năm "
++($P{year}==null?".......":$P{year})
++", Phòng Kế hoạch kính trình Giám đốc Công ty xem xét, phê duyệt./."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="249">
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="21" width="508" height="99" uuid="94be81e7-f056-4a9a-bd66-34c5cfbc4559"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{signLabel2}==null?"":$P{signLabel2})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-1" y="130" width="260" height="119" uuid="3be375c2-6113-4c24-96d6-bf76e73e7887"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{signLabel3}==null?"":$P{signLabel3})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="259" y="130" width="250" height="119" uuid="2756f322-8f53-459b-bc36-581ecd05c568"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{signLabel4}==null?"":$P{signLabel4})]]></textFieldExpression>
+			</textField>
+			<break>
+				<reportElement x="0" y="7" width="510" height="1" uuid="b20a5489-235b-44dc-a0fd-d90279730f15"/>
+			</break>
+		</band>
+		<band height="121" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="260" height="110" isPrintWhenDetailOverflows="true" uuid="b77408f0-194f-4ec5-ad71-b76de6ccdfc4">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement markup="html">
+					<font fontName="Times New Roman" size="11" isItalic="false"/>
+					<paragraph lineSpacingSize="1.5"/>
+				</textElement>
+				<text><![CDATA[<b><i>Nơi nhận:</i></b><br>CT (để b/c);<br>, P.ĐT, P.KD, P.TK, P.QLTS (để t/h);<br>- P.KH (để p/h);<br>CNKV 1,2,3,4,5 (để t/h);<br>HT; 03.]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

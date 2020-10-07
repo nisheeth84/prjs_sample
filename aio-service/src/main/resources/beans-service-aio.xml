@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd 
+http://cxf.apache.org/jaxrs
+http://cxf.apache.org/schemas/jaxrs.xsd
+http://cxf.apache.org/jaxws 
+http://cxf.apache.org/schemas/jaxws.xsd">
+	<!-- Beans definition for module EST -->
+	<jaxrs:server id="aioPackageService" address="/aioPackageService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="aioPackageService" class="com.viettel.aio.rest.AIOPackageRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<jaxrs:server id="goodPriceService" address="/goodPriceService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="goodPriceService" class="com.viettel.aio.rest.GoodPriceRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<jaxrs:server id="contractManagerService" address="/contractManagerService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="contractManagerService" class="com.viettel.aio.rest.AIOContractManagerRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<jaxrs:server id="rpPersonalInventoryService" address="/rpPersonalInventoryService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="rpPersonalInventoryService" class="com.viettel.aio.rest.AIORpPersonalInventoryRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<jaxrs:server id="aioRpSurveyService" address="/aioRpSurveyService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="aioRpSurveyService" class="com.viettel.aio.rest.AIORpSurveyRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<jaxrs:server id="aioRpIncidentService" address="/aioRpIncidentService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="aioRpIncidentService" class="com.viettel.aio.rest.AIORpIncidentRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="aioRpHrNotSalesService" address="/aioRpHrNotSalesService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="aioRpHrNotSalesService" class="com.viettel.aio.rest.AIORpHrNotSalesRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<!-- Hoangnh start 11042019 -->
+	<jaxrs:server id="aioOrdersRsService" address="/aioOrdersRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="aioOrdersRsService" class="com.viettel.aio.rest.AIOOrdersRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<!-- Hoangnh end 11042019 -->
+	<!-- Anhnd start 18092019 -->
+	<jaxrs:server id="aioSurveyRsService" address="/aioSurveyRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="aioSurveyRsService" class="com.viettel.aio.rest.AIOSurveyRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<!-- Anhnd end 18092019  -->
+	<!-- Huypq-20190418-start -->
+<jaxrs:server id="aioMonthPlanService" address="/aioMonthPlanService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="aioMonthPlanService" class="com.viettel.aio.rest.AIOMonthPlanRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+<!-- Huypq-end -->
+
+	<!--VietNT_20190506_start-->
+	<jaxrs:server id="areaTreeRsService" address="/areaTreeRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="areaTreeRsService" class="com.viettel.aio.rest.AIOAreaRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<!--VietNT_end-->
+	<!-- anhnd SysUserRs Service-->
+	<jaxrs:server id="sysUserRsService" address="/sysUserRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="sysUserRsService" class="com.viettel.aio.rest.AIOSysUserRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<!-- anhnd end -->
+
+<!--	VietNT_20190524_start-->
+	<jaxrs:server id="rpGoodsTransferringRsService" address="/rpGoodsTransferringRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="rpGoodsTransferringRsService" class="com.viettel.aio.rest.AIORpGoodsTransferringRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+<!--	VietNT_end-->
+
+	<!--	VietNT_20190524_start-->
+	<jaxrs:server id="rpGoodsTransferringRsService" address="/rpGoodsTransferringRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="rpGoodsTransferringRsService" class="com.viettel.aio.rest.AIORpGoodsTransferringRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<!--	VietNT_end-->
+
+	<!--	VietNT_20190530_start-->
+	<jaxrs:server id="configStockedGoodsRsService" address="/configStockedGoodsRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="configStockedGoodsRsService" class="com.viettel.aio.rest.AIOConfigStockedGoodsRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<!--	VietNT_end-->
+
+<!--	//VietNT_04/06/2019_start-->
+	<jaxrs:server id="configTimeGoodsOrderRsService" address="/configTimeGoodsOrderRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="configTimeGoodsOrderRsService" class="com.viettel.aio.rest.AIOConfigTimeGoodsOrderRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+<!--	//VietNT_end-->
+<!--	//VietNT_19/06/2019_start-->
+	<jaxrs:server id="reportAioService" address="/reportAioService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="reportAioService" class="com.viettel.aio.rest.AIOReportRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+<!--	//VietNT_end-->
+<!--	//VietNT_01/07/2019_start-->
+	<jaxrs:server id="productInfoService" address="/productInfoService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="productInfoService" class="com.viettel.aio.rest.AIOProductInfoRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+<!--	//VietNT_end-->
+<!--	//VietNT_20/08/2019_start-->
+	<jaxrs:server id="orderRequestService" address="/orderRequestService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="orderRequestService" class="com.viettel.aio.rest.AIOOrderRequestManagerRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+<!--	//VietNT_end-->
+
+    <!--HIENVD: start 12/8/2019-->
+    <jaxrs:server id="aioLookupCustomerRsService" address="/aioLookupCustomerRsService">
+        <jaxrs:providers>
+            <ref bean="jsonProvider" />
+        </jaxrs:providers>
+        <jaxrs:serviceBeans>
+            <bean id="aioLookupCustomerRsService" class="com.viettel.aio.rest.AIOLookupCustomerRsServiceImpl" />
+        </jaxrs:serviceBeans>
+    </jaxrs:server>
+    <!--	HIENVD: end 12/8/2019-->
+
+
+    <!--HIENVD: start 21/8/2019-->
+    <jaxrs:server id="aioEmployeeIndicatorsService" address="/aioEmployeeIndicatorsService">
+        <jaxrs:providers>
+            <ref bean="jsonProvider" />
+        </jaxrs:providers>
+        <jaxrs:serviceBeans>
+            <bean id="aioEmployeeIndicatorsService" class="com.viettel.aio.rest.AIOEmployeeManagerRsServiceImpl" />
+        </jaxrs:serviceBeans>
+    </jaxrs:server>
+    <!--	HIENVD: end 21/8/2019-->
+
+    <!--	&lt;!&ndash;HIENVD: start 12/8/2019&ndash;&gt;-->
+    <!--	<jaxrs:server id="aioLookupCustomerRsService" address="/aioLookupCustomerRsService">-->
+    <!--		<jaxrs:providers>-->
+    <!--			<ref bean="jsonProvider" />-->
+    <!--		</jaxrs:providers>-->
+    <!--		<jaxrs:serviceBeans>-->
+    <!--			<bean id="aioLookupCustomerRsService" class="com.viettel.aio.rest.AIOLookupCustomerRsServiceImpl" />-->
+    <!--		</jaxrs:serviceBeans>-->
+    <!--	</jaxrs:server>-->
+    <!--	&lt;!&ndash;	HIENVD: end 12/8/2019&ndash;&gt;-->
+	<jaxrs:server id="aioJudgmentCustomerRsService" address="/aioJudgmentCustomerRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="aioJudgmentCustomerRsService" class="com.viettel.aio.rest.AIOReglectRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<!--	//HoangNH_11/09/2019_start-->
+	<jaxrs:server id="requestWarrantyService" address="/requestWarrantyService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="requestWarrantyService" class="com.viettel.aio.rest.AIORequestWarrantyServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<jaxrs:server id="aioQuestionRsService" address="/aioQuestionRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="aioQuestionRsService" class="com.viettel.aio.rest.AIOQuestionRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<!--	//HoangNH_end-->
+	<jaxrs:server id="aioRevenueReportRsService" address="/aioRevenueReportRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="aioRevenueReportRsService" class="com.viettel.aio.rest.AIORevenueReportRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+    <jaxrs:server id="aioRpImplementRsService" address="/aioRpImplementRsService">
+        <jaxrs:providers>
+            <ref bean="jsonProvider" />
+        </jaxrs:providers>
+        <jaxrs:serviceBeans>
+            <bean id="aioRpImplementRsService" class="com.viettel.aio.rest.AIORpImplementRsServiceImpl" />
+        </jaxrs:serviceBeans>
+    </jaxrs:server>
+	<jaxrs:server id="rpBackLogContractRsService" address="/rpBackLogContractRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="rpBackLogContractRsService" class="com.viettel.aio.rest.AIORpBacklogContractRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<!--Stephen Trung start 4/11/2019-->
+	<jaxrs:server id="aioCategoryProductRsService" address="/aioCategoryProductRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="aioCategoryProductRsService" class="com.viettel.aio.rest.AIOCategoryProductRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<!--Stephen Trung end 4/11/2019-->
+
+	<jaxrs:server id="aioConfigSalaryRsService" address="/aioConfigSalaryRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="aioConfigSalaryRsService" class="com.viettel.aio.rest.AIOConfigSalaryRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="rpSynthesisGenCodeForChannelService" address="/rpSynthesisGenCodeForChannelService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="rpSynthesisGenCodeForChannelService" class="com.viettel.aio.rest.AIORpSynthesisGenCodeForChannelServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="rpSynthesisPaySaleFeeService" address="/rpSynthesisPaySaleFeeService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="rpSynthesisPaySaleFeeService" class="com.viettel.aio.rest.AIORpSynthesisPaySaleFeeServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="rpContractPayrollService" address="/rpContractPayrollService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="rpContractPayrollService" class="com.viettel.aio.rest.AIORpContractPayrollServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<!--TrungPT 19/11/2019 Hợp đồng xây lắp đầu ra ngoài OS-->
+	<jaxrs:server id="CntContractRsService" address="/CntContractRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="CntContractRsServiceClass" class="com.viettel.aio.rest.CntContractRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="reasonRsServiceRest" address="/reasonRsServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="reasonRsServiceClass" class="com.viettel.wms.rest.ReasonRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<jaxrs:server id="cntConstrWorkItemTaskServiceRest" address="/cntConstrWorkItemTaskServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="cntConstrWorkItemTaskServiceClass" class="com.viettel.aio.rest.CntConstrWorkItemTaskRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<jaxrs:server id="workItemQuotaServiceRest" address="/workItemQuotaServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="workItemQuotaServiceClass" class="com.viettel.aio.rest.WorkItemQuotaRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="cntContractAcceptanceServiceRest" address="/cntContractAcceptanceServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="cntContractAcceptanceServiceClass" class="com.viettel.aio.rest.CntContractAcceptanceRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="cntContractLiquidateServiceRest" address="/cntContractLiquidateServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="cntContractLiquidateServiceClass" class="com.viettel.aio.rest.CntContractLiquidateRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="cntContractBreachServiceRest" address="/cntContractBreachServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="cntContractBreachServiceClass" class="com.viettel.aio.rest.CntContractBreachRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="cntContractAppendixServiceRest" address="/cntContractAppendixServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="cntContractAppendixServiceClass" class="com.viettel.aio.rest.CntContractAppendixRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="cntConstrWorkItemHCQTTaskServiceRest" address="/cntConstrWorkItemHCQTTaskServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+			<ref bean="exceptionMapper" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="catTaskHCQTServiceClass" class="com.viettel.aio.rest.CntConstrWorkItemHCQTTaskRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="cntContractPaymentServiceRest" address="/cntContractPaymentServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="cntContractPaymentServiceClass" class="com.viettel.aio.rest.CntContractPaymentRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="cntContractWarrantyServiceRest" address="/cntContractWarrantyServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="cntContractWarrantyServiceClass" class="com.viettel.aio.rest.CntContractWarrantyRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="appParamServiceRest" address="/appParamServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="appParamRsServiceClass" class="com.viettel.aio.rest.AppParamRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="biddingPackageServiceRest" address="/biddingPackageServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+			<ref bean="exceptionMapper" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="biddingPackageServiceRest" class="com.viettel.aio.rest.BiddingPackageRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="sysGroupServiceRest" address="/sysGroupServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="sysGroupServiceClass" class="com.viettel.aio.rest.SysGroupRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="AIOsysUserRSService" address="/AIOsysUserRSService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="AIOsysUserRSServiceClass" class="com.viettel.aio.rest.SysUserRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="catPartnerRsService" address="/catPartnerRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="catPartnerRsServiceClass" class="com.viettel.aio.rest.CatPartnerRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="InCntContractServiceRest" address="/InCntContractServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="InCntContractServiceClass" class="com.viettel.aio.rest.InCntContractRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="purchaseOrderServiceRest" address="/purchaseOrderServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="purchaseOrderServiceClass" class="com.viettel.aio.rest.PurchaseOrderRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="cntContractFrameServiceRest" address="/cntContractFrameServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="cntContractFrameServiceClass" class="com.viettel.aio.rest.CntContractFrameRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="projectContractServiceRest" address="/projectContractServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="projectContractServiceClass" class="com.viettel.aio.rest.ProjectContractRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="cntContractTaskXNXDServiceRest" address="/cntContractTaskXNXDServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+			<ref bean="exceptionMapper" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="cntContractTaskXNXDServiceClass" class="com.viettel.aio.rest.CntContractTaskXNXDRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="constructionServiceRest" address="/constructionServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="constructionServiceClass" class="com.viettel.aio.rest.ConstructionRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="workItemServiceRest" address="/workItemServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="workItemServiceClass" class="com.viettel.aio.rest.WorkItemRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="catTaskServiceRest" address="/catTaskServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="catTaskServiceClass" class="com.viettel.aio.rest.CatTaskRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="workItemTypeHcqtRsService" address="/workItemTypeHcqtRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+			<ref bean="exceptionMapper" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="workItemTypeHcqtRsServiceClass" class="com.viettel.aio.rest.WorkItemTypeHCQTRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="workItemHcqtRsService" address="/workItemHcqtRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+			<ref bean="exceptionMapper" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="workItemHcqtRsServiceClass" class="com.viettel.aio.rest.WorkItemHCQTRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="catTaskHcqtRsService" address="/catTaskHcqtRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+			<ref bean="exceptionMapper" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="catTaskHcqtRsServiceClass" class="com.viettel.aio.rest.CatTaskHCQTRsServiceImpl"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="catUnitServiceRest" address="/catUnitServiceRest">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="catUnitServiceClass" class="com.viettel.aio.rest.CatUnitRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<jaxrs:server id="rpRequestNOKRsService" address="/rpRequestNOKRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="rpRequestNOKRsServiceClass" class="com.viettel.aio.rest.AIORpRequestNOKRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<jaxrs:server id="rpExpiredJobRsService" address="/rpExpiredJobRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="rpExpiredJobRsServiceClass" class="com.viettel.aio.rest.AIORpExpiredJobRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<!--Stephen Trung start 6/11/2019-->
+	<jaxrs:server id="aioErrorCommonRsService" address="/aioErrorCommonRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="aioErrorCommonRsServiceClass" class="com.viettel.aio.rest.AIOErrorCommonRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	<!--Stephen Trung end 6/11/2019-->
+
+	<!-- tatph -start 10/12/2019 -->
+ <jaxrs:server id="tvbhService" address="/tvbhService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="tvbhService" class="com.viettel.aio.rest.AIOTvbhRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+	
+	<jaxrs:server id="goodsGuaranteeRsService" address="/goodsGuaranteeRsService">
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+		<jaxrs:serviceBeans>
+			<bean id="goodsGuaranteeRsServiceClass" class="com.viettel.aio.rest.AIOWoGoodsRsServiceImpl" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+ <!-- tatph -end 10/12/2019 -->
+
+</beans>

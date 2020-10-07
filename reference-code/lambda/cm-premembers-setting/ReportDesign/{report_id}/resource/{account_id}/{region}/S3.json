@@ -1,0 +1,31 @@
+{
+    "schema_version": "1.0",
+    "S3": {
+        "bucket": [ //{report_id}/raw/{account_id}/global/S3_Buckets.jsonから取得
+            {
+                "CreationDate": {
+                    "$date": 1471394773000
+                },
+                "Name": "dev-cm-template",
+                "bucket_acl": { // 	{report_id}/raw/{account_id}/global/S3_BucketAcl_{BucketName}.json
+                    "Grants": [
+                        {
+                            "Grantee": {
+                                "DisplayName": "spare-0340",
+                                "ID": "768f6050502b8ce1417048ad447ef58a7357f088ff070255f1041259028d393d",
+                                "Type": "CanonicalUser"
+                            },
+                            "Permission": "FULL_CONTROL"
+                        }
+                    ],
+                    "Owner": {
+                        "DisplayName": "spare-0340",
+                        "ID": "768f6050502b8ce1417048ad447ef58a7357f088ff070255f1041259028d393d"
+                    }
+                },
+                "bucket_policy":"{\"Version\":\"2008-10-17\",\"Id\":\"PolicyDevCmTemplate\",\"Statement\":[{\"Sid\":\"StmtDevCmTemplate\",\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Action\":\"s3:*\",\"Resource\":\"arn:aws:s3:::dev-cm-template/*\",\"Condition\":{\"NotIpAddress\":{\"aws:SourceIp\":[\"39.110.201.10/32\",\"218.221.104.186/32\"]}}},{\"Sid\":\"StmtDevCmTemplate\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::dev-cm-template/*\",\"Condition\":{\"IpAddress\":{\"aws:SourceIp\":[\"39.110.201.10/32\",\"218.221.104.186/32\"]}}}]}",// {report_id}/raw/{account_id}/global/S3_BucketPolicy_{BucketName}.jsonから取得
+                "bucket_location": "ap-northeast-1" // 	{report_id}/raw/{account_id}/global/S3_BucketLocation_{BucketName}.jsonから取得、作成するregionのbucket情報を記載対象とする
+            }
+        ]
+    }
+}

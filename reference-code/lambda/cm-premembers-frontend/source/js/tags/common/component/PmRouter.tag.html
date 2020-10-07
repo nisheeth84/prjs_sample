@@ -1,0 +1,302 @@
+<pm-router>
+    <div class="alert alter-icon alert-warning font-size-16 text-center text-dark" if="{showOtherBrowerAccessWarning && !isAppPage}" role="alert">
+        {_t('guaranteed_environment_1')}<a href='https://www.google.co.jp/chrome/index.html' target='_blank'>{_t('guaranteed_environment_2')}</a>{_t('guaranteed_environment_3')}
+    </div>
+    <div id="noAuthArea" class="layout-full" if="{!isAppPage}"></div>
+    <div class="wrapper {classMarginTopContent}" if="{isAppPage}">
+        <site-navbar></site-navbar>
+        <site-menubar if="{!isDoc}"></site-menubar>
+        <div id="authArea"></div>
+        <site-footer is_doc="{isDoc}"></site-footer>
+    </div>
+    <script>
+        require('../component/SiteNavbar.tag.html');
+        require('../component/SiteMenubar.tag.html');
+        require('../component/SiteFooter.tag.html');
+        import route from 'riot-route'
+        import pm_mixin from '../../../pm_mixin.js'
+        import {
+            CognitoUserPool
+        } from 'amazon-cognito-identity-js';
+        const tag = this
+        tag.isAppPage = true
+        tag.isDoc = false
+        tag.showOtherBrowerAccessWarning = false 
+        tag.classMarginTopContent = ""
+        tag.on('before-mount', function() {
+            tag.isAppPage = tag.commonUtils.isNeedLoginPage()
+            tag.showOtherBrowerAccessWarning = tag.commonUtils.showOtherBrowerAccessWarning()
+            if(tag.showOtherBrowerAccessWarning) {
+                tag.classMarginTopContent = "mt-content"
+                tag.update(tag.classMarginTopContent)
+            }
+            tag.update(tag.isAppPage)
+            tag.update(tag.showOtherBrowerAccessWarning)
+        })
+        tag.on('mount', function() {
+            const pmSubRoute = route.create();
+            pmSubRoute('/invitations/', function(...args) {
+                riot.mount('div#authArea', 'invitations-container', args);
+            });
+            pmSubRoute('/organizations/', function(...args) {
+                riot.mount('div#authArea', 'organizations-list-container', args);
+            });
+            pmSubRoute('/organizations/create/', function(...args) {
+                riot.mount('div#authArea', 'organization-create-container', args);
+            });
+            pmSubRoute('/organizations/*/edit/', function(...args) {
+                const param = {
+                    'organization_id': args[0]
+                }
+                riot.mount('div#authArea', 'organization-edit-container', param);
+            });
+            pmSubRoute('/organizations/*/projects/create/', function(...args) {
+                const param = {
+                    'organization_id': args[0],
+                }
+                riot.mount('div#authArea', 'project-create-container', param);
+            });
+            pmSubRoute('/organizations/*/projects/*/edit/', function(...args) {
+                const param = {
+                    'organization_id': args[0],
+                    'project_id': args[1]
+                }
+                riot.mount('div#authArea', 'project-edit-container', param);
+            });
+            pmSubRoute('/organizations/*/projects/*/awsaccounts/', function(...args) {
+                const param = {
+                    'organization_id': args[0],
+                    'project_id': args[1]
+                }
+                riot.mount('div#authArea', 'awscoops-list-container', param);
+            });
+            pmSubRoute('/organizations/*/projects/*/awsaccounts/create/', function(...args) {
+                const param = {
+                    'organization_id': args[0],
+                    'project_id': args[1]
+                }
+                riot.mount('div#authArea', 'awscoops-create-container', param);
+            });
+            pmSubRoute('/organizations/*/projects/*/', function(...args) {
+                const param = {
+                    'organization_id': args[0],
+                    'project_id': args[1]
+                }
+                riot.mount('div#authArea', 'project-information-container', param);
+            });
+            pmSubRoute('/organizations/*/projects/', function(...args) {
+                const param = {
+                    'organization_id': args[0]
+                }
+                riot.mount('div#authArea', 'projects-list-container', param);
+            });
+            pmSubRoute('/organizations/*/users/invite/', function(...args) {
+                const param = {
+                    'organization_id': args[0]
+                }
+                riot.mount('div#authArea', 'user-invite-container', param);
+            });
+            pmSubRoute('/organizations/*/users/*/', function(...args) {
+                const param = {
+                    'organization_id': args[0]
+                }
+                riot.mount('div#authArea', 'user-authority-container', param);
+            });
+            pmSubRoute('/organizations/*/users/', function(...args) {
+                const param = {
+                    'organization_id': args[0]
+                }
+                riot.mount('div#authArea', 'users-list-container', param);
+            });
+            pmSubRoute('/organizations/notify/', function(...args) {
+                const param = {
+                    'organization_id': args[0]
+                }
+                riot.mount('div#authArea', 'organization-notify-container', param);
+            });
+            pmSubRoute('/organizations/*/', function(...args) {
+                const param = {
+                    'organization_id': args[0]
+                }
+                riot.mount('div#authArea', 'organization-information-container', param);
+            });
+
+
+            // pmSubRoute('/reports/', function(...args) {
+            //     riot.mount('div#authArea', 'report-list-container', args);
+            // });
+            // pmSubRoute('/reports/create/', function(...args) {
+            //     riot.mount('div#authArea', 'report-create-container', args);
+            // });
+            pmSubRoute('/check/history/..', function(...args) {
+                riot.mount('div#authArea', 'check-history-container', args);
+            });
+            pmSubRoute('/check/execute/..', function(...args) {
+                riot.mount('div#authArea', 'check-execute-container', args);
+            });
+            pmSubRoute('/check/integrations/', function(...args) {
+                riot.mount('div#authArea', 'check-integrations-container', args);
+            });
+            pmSubRoute('/check/settings/copy/', function(...args) {
+                riot.mount('div#authArea', 'check-item-settings-copy-container', args);
+            });
+            pmSubRoute('/check/settings/..', function(...args) {
+                riot.mount('div#authArea', 'check-item-settings-container', args);
+            });
+            pmSubRoute('/check/..', function(...args) {
+                const param = route.query()
+                riot.mount('div#authArea', 'check-result-container', param);
+            });
+            // pmSubRoute('/reports/*/*/*/', function(...args) {
+            //     const param = {
+            //         'organization_id': args[0],
+            //         'project_id': args[1],
+            //         'report_id': args[2]
+            //     }
+            //     riot.mount('div#authArea', 'report-information-container', param);
+            // });
+            pmSubRoute('/user/update/', function(...args) {
+                riot.mount('div#authArea', 'user-attribute-update-container', args);
+            });
+            pmSubRoute('/user/update_email/', function(...args) {
+                riot.mount('div#authArea', 'user-attribute-update-mail-container', args);
+            });
+            pmSubRoute('/emailchangecomplete.html', function(...args) {
+                riot.mount('div#noAuthArea', 'user-attribute-update-mail-complete-container', args);
+            });
+            pmSubRoute('/user/info/', function(...args) {
+                riot.mount('div#authArea', 'user-attribute-info-container', args);
+            });
+            pmSubRoute('/home/', function(...args) {
+                riot.mount('div#authArea', 'home-container', args);
+            });
+            pmSubRoute('/', function(...args) {
+                riot.mount('div#noAuthArea', 'sign_in-container', args);
+            });
+            pmSubRoute('/sign_in/', function(...args) {
+                riot.mount('div#noAuthArea', 'sign_in-container', args);
+            });
+            pmSubRoute('/signout/', function(...args) {
+                riot.mount('div#authArea', 'sign-out-container', args);
+            });
+            pmSubRoute('/sign_up/confirm/', function(...args) {
+                riot.mount('div#noAuthArea', 'signup-confirm-container', args);
+            });
+            pmSubRoute('/sign_up/complete/', function(...args) {
+                riot.mount('div#noAuthArea', 'signup-complete-container', args);
+            });
+            pmSubRoute('/sign_up/', function(...args) {
+                riot.mount('div#noAuthArea', 'signup-container', args);
+            });
+            pmSubRoute('/force_change_password/', function(...args) {
+                riot.mount('div#noAuthArea', 'force-change-password-container', args);
+            });
+            pmSubRoute('/reset_password/', function(...args) {
+                riot.mount('div#noAuthArea', 'reset-password-container', args);
+            });
+            pmSubRoute('/reset_password_complete/', function(...args) {
+                riot.mount('div#noAuthArea', 'reset-password-complete-container', args);
+            });
+            pmSubRoute('/doc/awscoops/', function(...args) {
+                riot.mount('div#authArea', 'aws-coop-description-container', args);
+            });
+            pmSubRoute('/doc/check/', function(...args) {
+                riot.mount('div#authArea', 'check-description-container', args);
+            });
+            pmSubRoute('/doc/stepsummary/', function(...args) {
+                riot.mount('div#authArea', 'step-summary-container', args);
+            });
+            pmSubRoute('/user/registration/', function(...args) {
+                riot.mount('div#noAuthArea', 'user-attribute-registration-container', args);
+            });
+            pmSubRoute(function(...args) {
+                tag.isAppPage = false
+                tag.update(tag.isAppPage)
+                riot.mount('div#noAuthArea', 'client-error-container', args);
+            });
+            route.start(true)
+        })
+        route(function(path) {
+            if (!tag['piTracker']) {
+                loadPiTracker()
+            }
+            if (tag['piTracker']) {
+                tag.piTracker(location.href.replace('index.html', '').replace('#/', ''))
+            }
+            if (!tag['gtag']) {
+                loadGtag()
+            }
+            if (tag['gtag']) {
+                let gtagObject = {}
+                gtagObject['page_path'] = location.hash.replace("#","")
+                try {
+                    let cognitoUser = riot.mixin('cognitoUser');
+                    let userName = cognitoUser['username']
+                    gtagObject['user_id'] = userName
+                }
+                catch (e) {
+                    console.warn('cognitoUser is not mixin.')
+                }
+                tag.gtag('js', new Date());
+                tag.gtag('config', 'UA-50113-21', gtagObject);
+                tag.gtag('config', 'UA-50113-1', gtagObject);
+            }
+            securityFilter()
+            tag.isAppPage = tag.commonUtils.isNeedLoginPage()
+            tag.update(tag.isAppPage)
+            tag.isDoc = isDoc()
+            tag.update(tag.isDoc)
+        })
+        $(function() {
+            loadPiTracker()
+            loadGtag()
+        })
+
+        function loadPiTracker() {
+            if (window['piTracker']) {
+                tag.piTracker = piTracker
+            } else {
+                console.warn('piTracker is not defined.')
+            }
+        }
+        function loadGtag(){
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            tag.gtag = gtag
+        }
+
+        function isDoc() {
+            let hash = location.hash
+            const docPageLst = [
+                '#/doc/.*',
+            ]
+            let returnFlag = false
+            docPageLst.forEach(function(docPageUrlPattern) {
+                let re = new RegExp('^' + docPageUrlPattern + '$')
+                if (re.test(hash)) {
+                    returnFlag = true
+                    return false
+                }
+            })
+            return returnFlag
+        }
+
+
+        function securityFilter() {
+            const poolData = {
+                UserPoolId: pm_mixin.config.COGNITO_USER_POOL_ID,
+                ClientId: pm_mixin.config.COGNITO_CLIENT_ID
+            };
+            const userPool = new CognitoUserPool(poolData);
+            let cognitoUser = userPool.getCurrentUser()
+            if (!cognitoUser && tag.commonUtils.isNeedLoginPage()) {
+                tag.commonUtils.handleEntryUrl(window.location)
+            } else {
+                if (cognitoUser) {
+                    riot.mixin('cognitoUser', cognitoUser);
+                }
+            }
+        }
+
+    </script>
+</pm-router>

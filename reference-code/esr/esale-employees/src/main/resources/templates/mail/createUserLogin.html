@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}">
+    <head>
+        <title th:text="#{email.create.user.title}">eSale confirm new password</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <br/>
+        <p th:text="#{email.create.user.body.line1(${dto.employeeName})}"></p>
+        <br/>
+        <p th:text="#{email.create.user.body.line2(${dto.userNameImplement} , ${dto.companyName})}"></p>
+        <br/>
+        <p th:if="${dto.comment}">
+            <span th:text="#{email.create.user.body.line3(${dto.userNameImplement})}"></span><br/>
+            <span th:text="#{email.create.user.body.line4(${dto.comment})}"></span>
+        </p><br/>
+        <p>
+            <span th:text="#{email.create.user.body.line5}"></span><br/>
+        </p><br/>
+        <p>
+            <span th:text="#{email.create.user.body.line6}"></span><br/>
+            <span th:text="#{email.create.user.body.line7}"></span><br/>
+            <span th:text="#{email.create.user.body.line8}"></span><br/>
+            <span th:text="#{email.create.user.body.line9(${dto.tenantName})}"></span>
+        </p><br/>
+        <p>
+            <span th:text="#{email.create.user.body.line10}"></span><br/>
+            <span th:text="#{email.create.user.body.line11(${dto.email})}"></span><br/>
+            <span th:text="#{email.create.user.body.line12(${dto.password})}"></span>
+        </p><br/>
+        <p>
+            <span th:text="#{email.create.user.body.line13}"></span><br/>
+            <span th:text="#{email.create.user.body.line14}"></span><br/>
+            <span th:text="#{email.create.user.body.line15}"></span><br/>
+            <span th:text="#{email.create.user.body.line16}"></span>
+        </p><br/>
+        <p>
+            <span th:text="#{email.create.user.body.line17}"></span><br/>
+            <span th:text="#{url.app.ios}"></span>
+        </p><br/>
+        <p>
+            <span th:text="#{email.create.user.body.line19}"></span><br/>
+            <span th:text="#{url.app.android}"></span>
+        </p><br/>
+        <p>
+            <span th:text="#{email.create.user.body.line21}"></span>
+        </p><br/>
+        <p>
+            <span th:text="#{email.create.user.body.line22}"></span>
+        </p><br/>
+        <p>
+            <span th:text="#{email.create.user.body.line23}"></span><br/>
+            <span th:text="#{email.create.user.body.line24(${dto.tenantName} ,${dto.email})}"></span>
+        </p><br/>
+        <p>
+            <span th:text="#{email.create.user.body.line25}"></span>
+        </p><br/><br/>
+        <p>
+            <span th:text="#{email.create.user.body.line26}"></span><br/>
+            <span th:text="#{email.create.user.body.line27}"></span><br/>
+            <span th:text="#{email.create.user.body.line28}"></span><br/>
+            <span th:text="#{email.create.user.body.line29}"></span><br/>
+            <span th:text="#{url.page.support}"></span>
+        </p><br/>
+        <p>
+            <span th:text="#{email.create.user.body.line31}"></span><br/>
+            <span th:text="#{url.page.user.manual}"></span>
+        </p><br/>
+        <p>
+            <span th:text="#{email.create.user.body.line33}"></span>
+        </p><br/>
+        <p>
+            <span th:text="#{email.create.user.body.line34}"></span><br/>
+            <span th:text="#{email.create.user.body.line35}"></span><br/>
+        </p>
+    </body>
+</html>

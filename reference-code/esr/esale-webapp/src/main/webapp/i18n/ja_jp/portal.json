@@ -1,0 +1,43 @@
+{
+  "portal": {
+    "popupLogin": {
+      "hello": "ようこそ",
+      "content": "eセールスマネージャーは顧客管理や営業管理に加え、スケジューラーや名刺管理、タイムライン（社内SNS）など、会社全体で使える機能によって、全社の情報を一元管理できるシステムです。",
+      "footer": "無料で30日間お試し可能ですので、これまでCRM/SFAを使ったことがなくてもご気軽にお試しいただけます。",
+      "next": "次へ"
+    },
+    "popupExperiment": {
+      "title": "トライアルの進め方",
+      "content": "トライアル期間中は下記の手順に従って、CRM/SFAの効果を体感してください。",
+      "boxOneTitle": "顧客データ登録",
+      "boxOneContent": "導入効果を実感いただくため、実際の顧客情報を登録します。",
+      "boxTwoTitle": "5つの「脱」の体感",
+      "boxTwoContent": "営業における5つの行為からの「脱」を通じて、効率化の体感します。",
+      "button": "５つの脱について詳細はこちら",
+      "boxThree": "生産性UP！",
+      "back": "戻る"
+    },
+    "popupStart": {
+      "title": "さあ、始めましょう！",
+      "contentOne": "eセールスマネージャーRemix",
+      "contentTwo": "MSが貴社の営業生産性の向上をサポートします。",
+      "button": "スタート",
+      "footer": "次回口グイン時に再表示しない"
+    },
+    "modalPortal": {
+      "title": "esm’s初心者ポータル",
+      "boxOneTitle": "お手持ちの顧客台帳を登録しよう！",
+      "boxOneContent": "お手持ちの顧客データをシステムに投入して、リアルなデータでトライアルを実施し、利便性を体感できます。",
+      "boxOneButton": "顧客データを一括登録する",
+      "boxTwoTitle": "チームメンバーを招待しよう！",
+      "boxTwoContent": "チームメンバーをメールで招待してeSM’Sを体験できます。",
+      "boxTwoButton": "社員を招待する",
+      "boxThreeTitle": "お悩みを解決しよう！",
+      "boxThreeContent": "ユーザーの利用シーン別の活用ケースが登録されており、お悩みを解決できます。",
+      "boxThreeButton": "活用支援サイトを見る"
+    },
+    "importPortal": {
+      "apologize": "この部分は顧客インポート画面が完了してから更新される。"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "tasks": [
+    {
+      "taskId": 101,
+      "taskName": "契約書に署名する",
+      "milestone": {
+        "milestoneId": 2221,
+        "milestoneName": "契約契約契約契約"
+      },
+      "customer": {
+        "customerId": 2001,
+        "customerName": "未来会社未来会社"
+      },
+      "productTradings": [
+        {
+          "productTradingId": 7771,
+          "productTradingName": "カテゴカテゴ"
+        }
+      ],
+      "status": 1,
+      "finishDate": "2019/02/01"
+    },
+    {
+      "taskId": 101001,
+      "taskName": "契約書に署名する",
+      "milestone": {
+        "milestoneId": 2221,
+        "milestoneName": "契約契約契約契約"
+      },
+      "customer": {
+        "customerId": 2001,
+        "customerName": "未来会社未来会社"
+      },
+      "productTradings": [
+        {
+          "productTradingId": 7771,
+          "productTradingName": "カテゴカテゴ"
+        }
+      ],
+      "status": 2,
+      "finishDate": "2020/04/17"
+    }
+  ],
+  "total": 2
+}

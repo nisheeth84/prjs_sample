@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <clipPath id="clip-ic-heder-popup-calendar">
+      <rect width="20" height="20"/>
+    </clipPath>
+  </defs>
+  <g id="ic-heder-popup-calendar" clip-path="url(#clip-ic-heder-popup-calendar)">
+    <rect width="20" height="20" fill="#fff"/>
+    <g id="Group_13281" data-name="Group 13281" transform="translate(-4782 -7762)">
+      <rect id="Rectangle_9020" data-name="Rectangle 9020" width="18" height="18" rx="4" transform="translate(4783.5 7764)" fill="#666" opacity="0.5"/>
+      <rect id="Rectangle_9021" data-name="Rectangle 9021" width="18" height="18" rx="4" transform="translate(4782.5 7762)" fill="#fff"/>
+      <path id="Rectangle_9022" data-name="Rectangle 9022" d="M4,0H14a4,4,0,0,1,4,4V4a0,0,0,0,1,0,0H0A0,0,0,0,1,0,4V4A4,4,0,0,1,4,0Z" transform="translate(4782.5 7762)" fill="#d1d1d2"/>
+      <g id="Group_13278" data-name="Group 13278">
+        <path id="Rectangle_9023" data-name="Rectangle 9023" d="M4,0H14a4,4,0,0,1,4,4V5a0,0,0,0,1,0,0H0A0,0,0,0,1,0,5V4A4,4,0,0,1,4,0Z" transform="translate(4782.5 7762)" fill="#f66"/>
+      </g>
+      <g id="Group_13280" data-name="Group 13280">
+        <g id="Group_13279" data-name="Group 13279">
+          <path id="Path_15139" data-name="Path 15139" d="M4788.631,7774.8l.784-.15a.073.073,0,0,1,.085.058.634.634,0,0,0,.634.455.579.579,0,0,0,.6-.626.626.626,0,0,0-.676-.684h-.207a.068.068,0,0,1-.071-.071v-.691a.067.067,0,0,1,.071-.071h.193a.563.563,0,0,0,.6-.6.523.523,0,0,0-.549-.57.534.534,0,0,0-.548.448.067.067,0,0,1-.085.05l-.777-.149a.062.062,0,0,1-.056-.079,1.405,1.405,0,0,1,1.516-1.111,1.334,1.334,0,0,1,1.5,1.339,1.161,1.161,0,0,1-.541,1v.015a1.266,1.266,0,0,1,.634,1.175,1.623,1.623,0,0,1-3.156.363A.08.08,0,0,1,4788.631,7774.8Z" fill="#666"/>
+          <path id="Path_15140" data-name="Path 15140" d="M4793.43,7772.2h-.015l-.769.527c-.042.028-.078.014-.078-.043v-.883a.115.115,0,0,1,.05-.1l.812-.584a.2.2,0,0,1,.128-.043h.8a.067.067,0,0,1,.071.072v4.7a.067.067,0,0,1-.071.071h-.855a.067.067,0,0,1-.071-.071Z" fill="#666"/>
+        </g>
+      </g>
+      <circle id="Ellipse_99" data-name="Ellipse 99" cx="1" cy="1" r="1" transform="translate(4786.5 7764)" fill="#fff"/>
+      <circle id="Ellipse_100" data-name="Ellipse 100" cx="1" cy="1" r="1" transform="translate(4794.5 7764)" fill="#fff"/>
+      <rect id="Rectangle_9024" data-name="Rectangle 9024" width="18" height="1" transform="translate(4782.5 7767)" fill="#f99"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+<svg id="ic-sidebar-activity" xmlns="http://www.w3.org/2000/svg" width="19" height="16.4" viewBox="0 0 19 16.4">
+  <path id="_7" data-name="7" d="M17,16.4H3a2,2,0,0,1-2-2v-9H19v9a2,2,0,0,1-2,2" fill="#0b537f"/>
+  <path id="_6" data-name="6" d="M16,14.4H2a2,2,0,0,1-2-2v-9H18v9a2,2,0,0,1-2,2" fill="#fff"/>
+  <rect id="_5" data-name="5" width="4" height="2" transform="translate(7 2)" fill="#0f6eb5"/>
+  <path id="_4" data-name="4" d="M16,10.4H2a2,2,0,0,1-2-2v-5H18v5a2,2,0,0,1-2,2" fill="#ccc"/>
+  <path id="_3" data-name="3" d="M11,0H7A2,2,0,0,0,5,2V5A.9.9,0,0,0,6,6,.9.9,0,0,0,7,5V2h4V5a1,1,0,0,0,2,0V2a2,2,0,0,0-2-2" fill="#666"/>
+  <rect id="_2" data-name="2" width="2.5" height="4.5" transform="translate(7.8 8.8)" fill="#09f"/>
+  <path id="_1" data-name="1" d="M10,13H8V9h2Zm.5-4.5h-3v5h3Z" fill="#fff"/>
+</svg>

@@ -1,0 +1,152 @@
+{
+    "ASC": {
+        "check_group_name": "ASC",
+        "CHECK_ASC_ITEM_01_01": {
+            "title": "rootアカウントのアクセスキーが設定されていないこと",
+            "number": "01",
+            "alert_criteria": "アラート基準：rootアカウントにアクセスキーが設定されている場合",
+            "description_1": "rootアカウントは強力な権限を持ちます。rootアカウントは利用せずIAMユーザーを利用します",
+            "description_2": "rootアカウントのアクセスキーを削除し、IAMユーザーを利用してください",
+            "description_3": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_delete-key\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_ASC_ITEM_02_01": {
+            "title": "CloudTrailログのS3バケットが公開設定となっていないこと",
+            "number": "02-01",
+            "alert_criteria": "アラート基準：CloudTrailログを保管しているS3バケットがパブリック公開されている場合",
+            "description_1": "不特定多数が読み取れる状態になっている為、今すぐパブリック公開設定を削除してください",
+            "description_2": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/user-guide/bucket-permissions-check.html\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_ASC_ITEM_02_02": {
+            "title": "請求レポートのS3バケットが公開設定となっていないこと",
+            "number": "02-02",
+            "alert_criteria_1": "アラート基準：ユーザーによる評価が実施されていないか、前回の評価から180日経過している場合",
+            "alert_criteria_2": "ユーザー自身での確認が必要な <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360021813891\" target=\"_blank\">マニュアル評価項目</a>です",
+            "description_1": "不特定多数が読み取れる状態になっている為、今すぐパブリック公開設定を削除してください",
+            "description_2": "対応手順は<a href=\"http://docs.aws.amazon.com/ja_jp/AmazonS3/latest/user-guide/bucket-permissions-check.html\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_ASC_ITEM_03_01": {
+            "title": "全リージョンでCloudTrailが有効であること",
+            "number": "03",
+            "alert_criteria": "アラート基準：CloudTrailが有効になっていないリージョンが存在する場合",
+            "description_1": "CloudTrailはAWSのAPI呼び出しを記録します(IP、時刻、パラメータ)",
+            "description_2": "セキュリティ分析、リソース変更追跡、コンプライアンス監査に必要です",
+            "description_3": "CloudTrailを有効化してください",
+            "description_4": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.html#creating-a-trail-in-the-console\" target=\"_blank\">こちら</a>",
+            "description_5": "参考：AWS CloudTrailに関する<a href=\"https://aws.amazon.com/jp/cloudtrail/pricing/\" target=\"_blank\">料金</a>"
+        },
+        "CHECK_ASC_ITEM_04_01": {
+            "title": "管理者ロールも限定的な権限であること",
+            "number": "04",
+            "alert_criteria": "アラート基準：Admin権限 ( \"Effect\": \"Allow\", \"Action\": \"*\", \"Resource\": \"*\" ) ポリシーが付与されている場合",
+            "description_1": "IAMには最小権限を付与することで、必要なタスクのみ実行できるようになります",
+            "description_2": "ユーザーが利用するサービスを確認し、必要な権限のみを付与してください",
+            "description_3": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/best-practices.html#grant-least-privilege\" target=\"_blank\">こちら</a>",
+            "description_4": "補足情報<ul><li><a href=\"https://dev.classmethod.jp/cloud/aws/iam-pass-role/\" target=\"_blank\">【Tips】Admin権限を持っていないIAMユーザーでIAM Roleを設定するためのポリシー設定</a></li><li><a href=\"https://dev.classmethod.jp/cloud/aws/cis-manager-master-role/\" target=\"_blank\">[AWS]CISで語られているIAMマスターロールとIAMマネージャーロールについて整理</a></li></ul>"
+        },
+        "CHECK_ASC_ITEM_05_01": {
+            "title": "AWS Security Token Service（STS）とロールを利用すること",
+            "number": "05",
+            "alert_criteria_1": "アラート基準：ユーザーによる評価が実施されていないか、前回の評価から180日経過している場合",
+            "alert_criteria_2": "ユーザー自身での確認が必要な <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360021813891\" target=\"_blank\">マニュアル評価項目</a>です",
+            "description_1": "EC2からAWSリソースへのアクセスは、アクセスキーではなくIAMロールを利用することでキー漏洩時のリスクを低減できます",
+            "description_2": "適切な権限を付与したIAMロールを作成し、EC2にアタッチしてください",
+            "description_3": "AWS STSを使用すると、アプリケーションへ長期の認証情報を保存する必要がなく、ユーザーのリクエストに応じて、一時的に有効な認証情報が動的に生成されます",
+            "description_4": "アプリケーションにセキュリティ認証情報を保存せず、AWS STSを利用してください",
+            "description_5": "対応手順<ul><li>IAMロールは<a href=\"https://dev.classmethod.jp/cloud/aws/replace-attach-iamrole-ec2console/\" target=\"_blank\">こちら</a></li><li>AWS STSは<a href=\"https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_temp.html\" target=\"_blank\">こちら</a></li></ul>"
+        },
+        "CHECK_ASC_ITEM_06_01": {
+            "title": "毎月の請求レポートで使用状況を確認すること",
+            "number": "06",
+            "alert_criteria_1": "アラート基準：ユーザーによる評価が実施されていないか、前回の評価から180日経過している場合",
+            "alert_criteria_2": "ユーザー自身での確認が必要な <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360021813891\" target=\"_blank\">マニュアル評価項目</a>です",
+            "description_1": "請求レポートは、AWSの使用状況を追跡し、AWSリソース、使用タイプ、オペレーションの固有の組み合わせごとに明細項目が表示されます",
+            "description_2": "請求レポートを確認しておくことで、想定外の課金を回避するために役立ちます",
+            "description_3": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/awsaccountbilling/latest/aboutv2/download-billing-data-report.html\" target=\"_blank\">こちら</a>",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、メンバーズポータルのAWSアカウントメニューを開くと請求レポートが表示されます"
+        },
+        "CHECK_ASC_ITEM_07_01": {
+            "title": "暗号化されたEBSボリュームを使用すること",
+            "number": "07",
+            "alert_criteria": "アラート基準：Amazon EBS 暗号化機能を使用してEBS暗号化が有効化されていない場合",
+            "description_1": "インスタンスとそれに接続されたEBSストレージ間でのデータの保存と転送中のデータの両方のセキュリティが保証されます",
+            "description_2": "Amazon EBS 暗号化機能を使用してEBSを暗号化をしてください",
+            "description_3": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/encryption-ebs-for-running-ec2-instance/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_ASC_ITEM_08_01": {
+            "title": "利用可能な全てのリージョンにおいて、VPC Flow Logsが有効化されていること",
+            "number": "08",
+            "alert_criteria": "アラート基準：VPC Flow Logsが有効化されていない場合",
+            "description_1": "VPC Flow Logsは、VPC内のネットワーク通信のログを保存します",
+            "description_2": "セキュリティ分析や異常な通信を調査するのに役立ちます",
+            "description_3": "VPC Flow Logを有効化してください",
+            "description_4": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/introduce-to-vpc-flow-log/\" target=\"_blank\">こちら</a>",
+            "description_5": "CloudWatch Logsは保持期間を設定しない限り、ログが無期限に保存されるため、<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html\" target=\"_blank\">こちら</a>を参照し、ログの保持期間を最短365日に設定します",
+            "description_6": "<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">VPC Flow Logs</a>(Amazon CloudWatch 供給ログ)に関する料金"
+        },
+        "CHECK_ASC_ITEM_09_01": {
+            "title": "EC2キーペアを保護すること",
+            "number": "09",
+            "alert_criteria_1": "アラート基準：ユーザーによる評価が実施されていないか、前回の評価から180日経過している場合",
+            "alert_criteria_2": "ユーザー自身での確認が必要な <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360021813891\" target=\"_blank\">マニュアル評価項目</a>です",
+            "description_1": "EC2キーペアを持っていればEC2インスタンスへアクセス可能な場合があります",
+            "description_2": "EC2インスタンスにログインするキーペアを定期的にローテーション（削除／作成）してください",
+            "description_3": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/ec2-key-pairs.html#replacing-key-pair\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_ASC_ITEM_10_01": {
+            "title": "EC2でのAWSリソースへのAPIアクセスはIAMインスタンスロールを利用していること",
+            "number": "10",
+            "alert_criteria": "アラート基準：EC2にIAMロールがアタッチされていない場合",
+            "description_1": "IAMロールでは期限付きの一時的なキーを利用します",
+            "description_2": "EC2からAWSリソースへのアクセスは、アクセスキーではなくIAMロールを利用することでキー漏洩時のリスクを低減できます",
+            "description_3": "適切な権限を付与したIAMロールを作成し、EC2にアタッチしてください",
+            "description_4": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/replace-attach-iamrole-ec2console/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_ASC_ITEM_11_01": {
+            "title": "セキュリティグループを使用してEC2の通信を制御すること",
+            "number": "11",
+            "alert_criteria_1": "アラート基準：ユーザーによる評価が実施されていないか、前回の評価から180日経過している場合",
+            "alert_criteria_2": "ユーザー自身での確認が必要な <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360021813891\" target=\"_blank\">マニュアル評価項目</a>です",
+            "description_1": "EC2インスタンスに対するインバウンドおよびアウトバウンドトラフィックの制御にセキュリティグループを利用してください",
+            "description_2": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_ASC_ITEM_12_01": {
+            "title": "パブリックアクセス可能なS3バケットを作成しないこと",
+            "number": "12",
+            "alert_criteria": "アラート基準：S3バケットがパブリック公開されている場合",
+            "description_1": "不特定多数が読み取れる状態になっています。意図しない場合、すぐにパブリック公開設定を削除してください",
+            "description_2": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/user-guide/bucket-permissions-check.html\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_ASC_ITEM_13_01": {
+            "title": "サーバ側の暗号化(SSE-S3)を利用してバケットを保護すること",
+            "number": "13",
+            "alert_criteria": "アラート基準：サーバ側の暗号化が有効でないバケットが存在する場合",
+            "description_1": "サーバー側の暗号化(SSE-S3)では、256ビットの高度暗号化規格(AES-256)を使用してデータを暗号化します",
+            "description_2": "サーバー側の暗号化(SSE-S3)を使用して、保管中のデータを保護してください",
+            "description_3": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/dev/UsingServerSideEncryption.html\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_ASC_ITEM_14_01": {
+            "title": "S3バケットへのインバウンドおよびアウトバウンドのトラフィックを暗号化すること",
+            "number": "14",
+            "alert_criteria_1": "アラート基準：ユーザーによる評価が実施されていないか、前回の評価から180日経過している場合",
+            "alert_criteria_2": "ユーザー自身での確認が必要な <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360021813891\" target=\"_blank\">マニュアル評価項目</a>です",
+            "description_1": "S3バケットへのアクセスはHTTPSプロトコルを使用してアクセスしてください"
+        },
+        "CHECK_ASC_ITEM_15_01": {
+            "title": "S3のバージョン管理、S3のライフサイクルポリシーを理解すること",
+            "number": "15",
+            "alert_criteria_1": "アラート基準：ユーザーによる評価が実施されていないか、前回の評価から180日経過している場合",
+            "alert_criteria_2": "ユーザー自身での確認が必要な <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360021813891\" target=\"_blank\">マニュアル評価項目</a>です",
+            "description_1": "S3バージョニングを使用するとS3バケットに格納されたあらゆるオブジェクトのバージョンを、格納、取得、復元することができます",
+            "description_2": "ライフサイクル設定を使用すると、別のストレージクラスにオブジェクトを移行することや、オブジェクトの有効期限を定義することができます",
+            "description_3": "対応手順<ul><li>S3バージョニングは<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/dev/Versioning.html\" target=\"_blank\">こちら</a></li><li>AWS STSは<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/dev/object-lifecycle-mgmt.html\" target=\"_blank\">こちら</a></li></ul>"
+        },
+        "CHECK_ASC_ITEM_16_01": {
+            "title": "S3のアクセスログを有効化すること",
+            "number": "16",
+            "alert_criteria": "アラート基準：アクセスのログ記録が有効でないバケットが存在する場合",
+            "description_1": "バケットへのアクセスを求めるリクエストを追跡するため、アクセスのログ記録を有効にすることができます",
+            "description_2": "アクセスのログ記録を有効化してください",
+            "description_3": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/dev/enable-logging-console.html\" target=\"_blank\">こちら</a>"
+        }
+    }
+}

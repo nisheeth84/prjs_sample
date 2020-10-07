@@ -1,0 +1,19 @@
+{
+    "Validation_message": {
+        "invalid_require": "Please fill out this field",
+        "invalid_password": "Password must be at least 8 characters including lowercase uppercase digits",
+        "incorrect_password": "Password incorrect",
+        "send_code_confirm_error": "An error occurred while sending the confirmation code.",
+        "incorrect_verification_code": "The confirmation code is incorrect.",
+        "email_already_regist": "This email address has already been registered.",
+        "invalid_email": "Invalid email, please register with another email address.",
+        "incorrect_code_confirm": "The confirmation code is a 6-digit number.",
+        "password_reset_failed": "Password reset failed. Please check that the confirmation code is correctly entered and try again.",
+        "email_not_regist": "This email address is not registered.",
+        "incorrect_auth_code": "The authentication code is incorrect.",
+        "incorrect_email": "Email address incorrect",
+        "invalid_require_resource_regist": "除外リソースを選択してください。",
+        "invalid_require_resource_delete": "除外解除するリソースを選択してください。",
+        "invalid_choose_resource_not_excluded": "除外設定されているリソースを選択してください。"
+    }
+}

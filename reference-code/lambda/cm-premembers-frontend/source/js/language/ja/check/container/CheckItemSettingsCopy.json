@@ -1,0 +1,8 @@
+{
+    "CheckItemSettingsCopy": {
+        "item_setting_copy": "項目設定コピー",
+        "description_item_setting_copy": "チェック項目除外設定やマニュアル評価の設定情報を別なAWSアカウントへコピーします。<br>リソース除外の設定情報は、コピーされません。",
+        "copy_item_setting": "項目設定をコピーする",
+        "back_item_setting": "項目設定へ戻る"
+    }
+}

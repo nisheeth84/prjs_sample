@@ -1,0 +1,21 @@
+version: 0.1
+ 
+phases:
+  install:
+    commands:
+      - bash ./shell/delete_yarn_lock.sh
+      - yarn install
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
+  build:
+    commands:
+      - bash ./shell/build.sh
+      - bash ./shell/deploy.sh
+  post_build:
+    commands:
+      - bash ./shell/output_result.sh
+artifacts:
+  files:
+    - ./shell/result.txt
+    - ./yarn.lock

@@ -1,0 +1,25 @@
+{
+  "listInfo": [
+    {
+      "listName": " BusinessCard 1",
+      "listId": 3001,
+      "displayOrder": 2,
+      "listType": 2,
+      "displayOrderOfFavoriteList": 1
+    },
+    {
+      "listName": "BusinessCard 2",
+      "listId": 3002,
+      "displayOrder": 3,
+      "listType": 1,
+      "displayOrderOfFavoriteList": 2
+    },
+    {
+      "listName": "BusinessCard 3 BusinessCard 3 BusinessCard 3 BusinessCard 3 BusinessCard 3",
+      "listId": 3003,
+      "displayOrder": 3,
+      "listType": 1,
+      "displayOrderOfFavoriteList": 2
+    }
+  ]
+}

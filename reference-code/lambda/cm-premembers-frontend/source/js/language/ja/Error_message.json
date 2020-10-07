@@ -1,0 +1,23 @@
+{
+    "Error_message": {
+        "auth_error_message": "認証エラー",
+        "auth_error_description": "API実行に伴う認証時にエラーが発生しました",
+        "client_error_message": "クライアントエラー",
+        "client_error_description": "APIとの通信の際に例外が発生しました。",
+        "signOut_error_title": "ログアウトに失敗しました。",
+        "signOut_error_message": "申し訳ございません。サポートにお問い合わせください。",
+        "regist_language_error": "表示言語設定の登録に失敗しました。",
+        "set_mfa_failed": "MFAの設定に失敗しました。再度設定をお試しください。",
+        "check_error_message_1": "チェックの実行に失敗しました。",
+        "check_error_message_2": "失敗が繰り返し発生する場合は、サポートまでお問い合わせください。",
+        "error_registration_recept_setting_email": "ユーザー属性情報登録に失敗しました。ホーム画面へ遷移します。本情報はユーザー情報画面から再設定してください。",
+        "error_update_recept_setting_email": "メール受信設定変更に失敗しました。再度、変更ボタンをクリックしてください。もし、再発する場合にはサポートへお問い合わせをお願いいたします。",
+        "aws_account_not_selected": "AWSアカウントが選択されていません",
+        "test_slack_error_message": "Slackのテスト通知送信に失敗しました。",
+        "apply_change_email_error_title": "登録した情報が重複しています",
+        "apply_change_email_error_body": "すでにメールアドレスの変更申請されているか、同じメールアドレスがすでに登録されています",
+        "session_expired_error_message": "一定時間操作されなかったため、セッションタイムアウトになりました。<br>再度、<a class=\"margin-left_0\" href=\"/app/\">ログイン画面</a> を表示し、ログインしなおしてください。<br>また、自動的にinsightwatchのログイン画面へ遷移します。",
+        "password_expired_error_message_1": "招待された際に発行された初期パスワードの有効期限が切れています。",
+        "password_expired_error_message_2": "再度、組織のオーナーに招待を依頼してください。"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "Code",
+            "AttributeType": "S"
+        }
+    ],
+    "TableName": "PM_BatchJobDefs",
+    "KeySchema": [
+        {
+            "AttributeName": "Code",
+            "KeyType": "HASH"
+        }
+    ],
+    "BillingMode": "PAY_PER_REQUEST"
+}

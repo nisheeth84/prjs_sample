@@ -1,0 +1,44 @@
+@startuml{API_プロジェクト_プロジェクト削除.png}
+title [プロジェクトAPI_プロジェクト削除]
+hide footbox
+
+boundary 画面 as view
+participant プロジェクトAPI as api_projects #cyan
+'database ユーザープール as user_pools <<cognito>> #purple
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database プロジェクト as table_projects <<dynamodb>> #royalblue
+database 組織タスク as table_org_task <<dynamodb>> #royalblue
+database 組織タスクトピック as topic_org_task <<sns>> #gold
+database 組織タスクキュー as queue_org_task <<sqs>> #gold
+
+view -> api_projects : DELETE /organizations/{organization_id}/projects/{project_id}
+activate api_projects
+    api_projects -> api_projects :メールアドレス取得
+    |||
+    ref over api_projects, table_affiliation :アクセス権限チェック
+    |||
+    api_projects -> api_projects : プロジェクト削除
+    activate api_projects
+        api_projects -> api_projects : 条件チェック
+        note right :プロジェクト削除を行う条件を満たしているかチェックする
+        api_projects -> table_projects :レコード削除
+        table_projects --> api_projects
+        group 削除したプロジェクト配下のリソース遅延削除準備
+            api_projects -> table_org_task :レコード作成
+            table_org_task --> api_projects
+            api_projects -> topic_org_task :組織削除メッセージ追加
+            topic_org_task --> api_projects
+            |||
+        end
+        group 実装対象外
+            topic_org_task -> queue_org_task :メッセージ送信
+            |||
+        end
+        api_projects --> api_projects
+    deactivate api_projects
+    |||
+    api_projects -> api_projects :レスポンス作成
+    api_projects --> view :204
+deactivate api_projects
+
+@enduml

@@ -1,0 +1,325 @@
+<user-attribute-info-container>
+    <div class="page">
+        <div class="page-header">
+            <h1 class="page-title mt-2">{_t('user_information')}</h1>
+            <p>{_t('UserAttributeInfo.configure_info_user')}</p>
+        </div>
+        <div class="page-header container-fluid col-11 pt-0">
+            <h1 class="page-title mt-2 ">{_t('UserAttributeInfo.info_attr')}</h1>
+        </div>
+        <div class="page-content container-fluid col-11">
+            <div class="panel panel-bordered">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group floating col-lg-3">
+                            <label class="floating-label">{_t('name')}</label>
+                        </div>
+                        <div class="form-group floating col-lg-9">{userName}</div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group floating col-lg-3">
+                            <label class="floating-label">{_t('name_company')}</label>
+                        </div>
+                        <div class="form-group floating col-lg-9">{companyName}</div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group floating col-lg-3">
+                            <label class="floating-label">{_t('name_department')}</label>
+                        </div>
+                        <div class="form-group floating col-lg-9">{departmentName}</div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group floating col-lg-3">
+                            <label class="floating-label">{_t('UserAttributeInfo.region')}</label>
+                        </div>
+                        <div class="form-group floating col-lg-9">{countryName}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group floating col-lg-12 text-center">
+                    <button type="button" onclick="{edit}" class="btn btn-success waves-effect waves-classic col-lg-6">{_t('UserAttributeInfo.edit_info_attr')}</button>
+                </div>
+            </div>
+        </div>
+        <div class="page-header container-fluid col-11 pt-0">
+            <h1 class="page-title mt-2 ">{_t('UserAttributeInfo.language_setting')}</h1>
+        </div>
+        <div class="page-content container-fluid col-11">
+            <div class="panel panel-bordered">
+                <div class="panel-body">
+                    <div class="row mt-30">
+                        <div class="form-group floating col-lg-3">
+                            <label class="floating-label">
+                                {_t('UserAttributeInfo.language')}
+                            </label>
+                        </div>
+                        <div class="form-group floating col-lg-3">
+                            <select ref="language" class="form-control" size="1">
+                                <option each="{languageSupport in listLanguage}" value="{languageSupport.locale}"
+                                    selected="{language == languageSupport.locale}">{_t(languageSupport.language)}</option>
+                            </select>
+                        </div>
+                        <div class="form-group floating col-lg-3">
+                            <button type="button" onclick="{changeLanguage}" class="btn btn-success col-lg-12">
+                                {_t('UserAttributeInfo.regist_language_setting')}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-header container-fluid col-11 pt-0">
+            <h1 class="page-title mt-2 ">{_t('UserAttributeInfo.auth_setting')}</h1>
+        </div>
+        <div class="page-content container-fluid col-11">
+            <div class="panel panel-bordered">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group floating col-lg-3">
+                            <label class="floating-label">{_t('UserAttributeInfo.mfa')}</label>
+                        </div>
+                        <div class="form-group floating col-lg-7">{MFA_DIVISION[mfa_enable]}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group floating col-lg-12 text-center">
+                    <button type="button" hide="{mfa_enable}" onclick="{openUserMFAModal}" class="btn btn-success waves-effect waves-classic col-lg-6">{_t('UserAttributeInfo.enable_mfa')}</button>
+                    <button type="button" show="{mfa_enable}" onclick="{openUserMFADisableModal}" class="btn btn-danger waves-effect waves-classic col-lg-6 mt-10">{_t('UserAttributeInfo.disable_mfa')}</button>
+                </div>
+            </div>
+        </div>
+        <div class="page-header container-fluid col-11 pt-0">
+            <h1 class="page-title mt-2 ">{_t('mail_recept_setting')}</h1>
+        </div>
+        <div class="page-content container-fluid col-11">
+            <div class="panel panel-bordered">
+                <div class="panel-body">
+                    <div class="row mt-30">
+                        <div class="form-group floating col-lg-6">
+                            <div class="checkbox-custom checkbox-inline checkbox-primary float-left">
+                                <input ref="updateSettingAcceptedMaintEmail" type="checkbox" checked={checkedAcceptedMaintEmail} id="checkBoxUpdateSettingAcceptedMaintEmail">
+                                <label for="checkBoxUpdateSettingAcceptedMaintEmail"></label>
+                            </div>
+                            <p class="ml-10">{_t('description_recept_setting_mail')}</p>
+                        </div>
+                        <div class="form-group floating col-lg-6">
+                            <button type="button" disabled="{disabled}" onclick="{settingReceiveMaintenanceMail}" class="btn btn-success waves-effect waves-classic col-lg-6">{_t('UserAttributeInfo.Change_mail_receive_setting')}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <user-mfa-modal></user-mfa-modal>
+    <user-mfa-disable-modal></user-mfa-disable-modal>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        import {
+            CognitoUserAttribute
+        } from 'amazon-cognito-identity-js';
+        require('../component/UserMFAModal.tag.html')
+        require('../component/UserMFADisableConfirmModal.tag.html')
+        const tag = this
+        tag.cognitoUser = riot.mixin('cognitoUser');
+        const obs = riot.observable()
+        tag.obs = obs
+        const dictionary = tag.commonUtils.getMyDictionary()
+
+        tag.mfa_enable = false
+        tag.MFA_DIVISION = {
+            "true": tag._t('enable'),
+            "false": tag._t('disable')
+        }
+        const language = window.navigator.language.substr(0, 2)
+        tag.language = language == "ja" ? language : "en"
+        tag.listLanguage = dictionary.ListLanguage
+
+        tag.edit = edit;
+        tag.openUserMFAModal = openUserMFAModal
+        tag.openUserMFADisableModal = openUserMFADisableModal
+        tag.changeLanguage = changeLanguage
+        tag.settingReceiveMaintenanceMail = settingReceiveMaintenanceMail
+        tag.checkedAcceptedMaintEmail = "checked"
+        tag.disabled = false
+
+        tag.obs.on('open-modal-error', openModalError)
+        tag.obs.on('get-information-page', getInformationPage)
+
+        tag.one('mount', function() {
+            getInformationPage()
+        })
+
+        function edit(event) {
+            window.location.href = '#/user/update/';
+        }
+
+        function openUserMFAModal() {
+            tag.obs.trigger("pm-loader-show");
+            tag.cognitoUser.getUserData(function(err, userData) {
+                if (err) {
+                    openModalError(err.code, err.message)
+                    return;
+                }
+                if (userData.hasOwnProperty('UserMFASettingList') && userData['UserMFASettingList'].length > 0) {
+                    tag.obs.trigger("pm-loader-hide");
+                    const errorObj = {
+                        "message": tag._t('UserAttributeInfo.notice_mfa_valid')
+                    }
+                    const promiseErrorObj = Promise.resolve(errorObj);
+                    tag.obs.trigger('error-modal-open', promiseErrorObj);
+                    tag.obs.one('error-modal-close', function(value) {
+                        tag.commonUtils.backHome(value)
+                    })
+                } else {
+                    tag.obs.trigger('user-mfa-modal-open')
+                    tag.obs.one('user-mfa-modal-close', function(value) {
+                    })
+                }
+            });
+        }
+
+        function openUserMFADisableModal() {
+            tag.obs.trigger('user-mfa-disable-modal-open')
+            tag.obs.one('user-mfa-disable-modal-open-close', function(value) {
+            })
+        }
+
+        function getInformationPage() {
+            tag.obs.trigger("pm-loader-show");
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    getInfoUser(session);
+                    tag.cognitoUser.getUserData(function(err, userData) {
+                        if (err) {
+                            openModalError(err.code, err.message)
+                            return;
+                        }
+                        userData['UserAttributes'].forEach(function(userAttribute) {
+                            if (userAttribute['Name'] == "locale") {
+                                tag.language = userAttribute['Value'];
+                            }
+
+                            if (userAttribute['Name'] == dictionary.cognitoUserKeyAttributes.CustomAcceptedMaintEmail) {
+                                if (userAttribute['Value'] == dictionary.CustomAcceptedMaintEmail.Disable) {
+                                    tag.checkedAcceptedMaintEmail = "";
+                                }
+                            }
+                        })
+                        tag.mfa_enable = false
+                        if (userData.hasOwnProperty('UserMFASettingList') && userData['UserMFASettingList'].length > 0) {
+                            tag.mfa_enable = true
+                        }
+                        tag.update();
+                    });
+                }
+            })
+        }
+
+        function getInfoUser(session) {
+            const requestUserAttrUrl = tag.config.APIGATEWAY_ADDRESS + '/myself/attribute';
+            var idToken = session.getIdToken().getJwtToken();
+            let fetchResponse = null
+            fetch(requestUserAttrUrl, {
+                method: "GET",
+                headers: {
+                    'Authorization': idToken
+                },
+            }).then(function(response) {
+                fetchResponse = response
+                return response
+            }).then(tag.commonUtils.checkStatus)
+                .then(function(response) {
+                    tag.obs.trigger("pm-loader-hide");
+                    return response.json();
+                }).then(function(json) {
+                    tag.userName = json['userName']
+                    tag.companyName = json['companyName']
+                    tag.departmentName = json['depertmentName']
+                    let countryCode = json['countryCode'] ? json['countryCode'] : 'JP'
+                    tag.countryName = tag._t('CountryCode.' + countryCode.toLowerCase())
+                    tag.update();
+                }).catch(function(error) {
+                    tag.obs.trigger("pm-loader-hide");
+                    error.then(function(value) {
+                        value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                    })
+                    tag.obs.trigger("error-modal-open", error);
+                    tag.obs.one("error-modal-close", function(value) {
+                        tag.commonUtils.backHome(value)
+                    })
+                });
+        }
+
+        function openModalError(code, message) {
+            const errorObj = {
+                "clientWarning": tag._t('Error_message.set_mfa_failed'),
+                "errors": [
+                    {
+                        "code": code,
+                        "message": message
+                    }
+                ]
+            }
+            const promiseErrorObj = Promise.resolve(errorObj);
+            tag.obs.trigger('error-modal-open', promiseErrorObj);
+            tag.obs.one('error-modal-close', function(value) {
+                tag.commonUtils.backHome(value)
+            })
+        }
+
+        function changeLanguage() {
+            let attributeList = [];
+
+            tag.language = tag.refs.language.value
+            const locale = {
+                Name: 'locale',
+                Value: tag.language
+            };
+            attributeList.push(new CognitoUserAttribute(locale));
+
+            tag.cognitoUser.updateAttributes(attributeList, function(err, result) {
+                if (err) {
+                    const errorObj = {
+                        "message": tag._t('Error_message.regist_language_error')
+                    }
+                    tag.obs.trigger('error-modal-open', Promise.resolve(errorObj));
+                } else {
+                    tag.commonUtils.setItemToLocalStorage("language", tag.language)
+                    i18next.changeLanguage(tag.language)
+                    riot.update()
+                }
+            });
+        }
+
+        function settingReceiveMaintenanceMail() {
+            tag.disabled = true
+            tag.update()
+            let attributeList = [];
+            let isAcceptedMaintEmail = dictionary.CustomAcceptedMaintEmail.Enable
+
+            if (!tag.refs.updateSettingAcceptedMaintEmail.checked) {
+                isAcceptedMaintEmail = dictionary.CustomAcceptedMaintEmail.Disable
+            }
+            const cognitoUserAttributeAcceptedMaintEmail = {
+                Name: dictionary.cognitoUserKeyAttributes.CustomAcceptedMaintEmail,
+                Value: isAcceptedMaintEmail
+            };
+            attributeList.push(new CognitoUserAttribute(cognitoUserAttributeAcceptedMaintEmail));
+            tag.cognitoUser.updateAttributes(attributeList, function(err, result) {
+                if (err) {
+                    const errorObj = {
+                        "message": tag._t('Error_message.error_update_recept_setting_email')
+                    }
+                    tag.obs.trigger('error-modal-open', Promise.resolve(errorObj));
+                }
+                tag.disabled = false
+                tag.update()
+            });
+        }
+    </script>
+</user-attribute-info-container>

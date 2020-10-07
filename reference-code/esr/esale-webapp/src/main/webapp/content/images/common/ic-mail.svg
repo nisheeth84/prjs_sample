@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="9" viewBox="0 0 10 9">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_2788" data-name="Rectangle 2788" width="9" height="8" rx="2" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Group_28151" data-name="Group 28151" transform="translate(0.5 0.5)">
+    <path id="Path_3602" data-name="Path 3602" d="M35,601H28c-.552,0-1-.6-1-1.333v-5.333c0-.736.448-1.333,1-1.333h7c.552,0,1,.6,1,1.333v5.333c0,.736-.448,1.333-1,1.333" transform="translate(-27 -593)" fill="#707070" stroke="rgba(0,0,0,0)" stroke-width="1"/>
+    <g id="Mask_Group_2363" data-name="Mask Group 2363" clip-path="url(#clip-path)">
+      <path id="Path_3603" data-name="Path 3603" d="M36,602.333l-1.875-2.222L31.5,597,27,602.333" transform="translate(-27 -594.333)" fill="rgba(0,0,0,0)" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <path id="Path_3604" data-name="Path 3604" d="M27,593l4.5,5.333L36,593Z" transform="translate(-27 -593)" fill="#707070"/>
+      <path id="Path_3605" data-name="Path 3605" d="M27,593l4.5,5.333L36,593" transform="translate(-27 -593)" fill="rgba(0,0,0,0)" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

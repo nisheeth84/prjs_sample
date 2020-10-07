@@ -1,0 +1,66 @@
+@startuml{Batch_組織_ユーザー組織遅延削除.png}
+title [組織_ユーザー組織遅延削除]
+hide footbox
+
+participant タスクコントローラ as controller <<lambda>> #violet
+participant ユーザー組織削除バッチ as batch_org_delete <<lambda>> #violet
+database 組織タスクキュー as queue_org_task <<sqs>> #gold
+database 組織タスク as table_org_task <<dynamodb>> #royalblue
+database 組織別通知メール宛先 as table_org_notice <<dynamodb>> #royalblue
+database ユーザープール as cognito_user_pool <<cognito>> #green
+
+
+controller ->> batch_org_delete :invoke (InvocationType='Event')
+note right :タスクID、メッセージのメッセージIDと受信ハンドルを渡す
+activate batch_org_delete
+    batch_org_delete -> table_org_task :query
+    note right :タスクIDをキーとしてタスク情報を取得
+    table_org_task --> batch_org_delete
+    alt ステータス=0（待機中）
+        batch_org_delete -> table_org_task :更新
+        note right :タスクのステータスを1（実行中）に更新（更新条件：ステータスが0）
+        table_org_task --> batch_org_delete
+        |||
+    else ステータス=1（実行中）
+        note over batch_org_delete: 処理終了
+    else ステータス=2（完了）
+        note over batch_org_delete: 処理終了
+    else ステータス=-1（エラー）、かつリトライ回数=最大リトライ回数
+        note over batch_org_delete: 処理終了
+    else ステータス=-1（エラー）、かつリトライ回数<最大リトライ回数
+        batch_org_delete -> table_org_task :更新
+        note right :タスクのステータスを1（実行中）、リトライ回数+1に更新（更新条件：ステータスが-1）
+        table_org_task --> batch_org_delete
+        |||
+    end
+    |||
+    group 組織別通知メール宛先テーブルの削除処理
+        batch_org_delete -> batch_org_delete :タスク情報から処理対象（ユーザーID, 組織ID）を取得
+        batch_org_delete -> cognito_user_pool :admin_get_user
+        note right :ユーザーIDに該当するユーザー情報を取得
+        cognito_user_pool --> batch_org_delete
+        batch_org_delete -> table_org_notice :query
+        note right :組織IDに該当する宛先情報を取得
+        table_org_notice --> batch_org_delete
+        |||
+        batch_org_delete -> batch_org_delete: 取得したレコードのDestinationsのListデータを編集
+        |||
+        alt Listデータが1件以上
+            batch_org_delete -> table_org_notice :更新
+            note right :DestinationsのListデータを編集した内容で更新
+            table_org_notice --> batch_org_delete
+            |||
+        else Listデータが0件以上
+            batch_org_delete -> table_org_notice :削除
+            note right :組織IDをキーとして対象レコードを削除
+            table_org_notice --> batch_org_delete
+            |||
+        end
+    end
+    |||
+deactivate batch_org_delete
+|||
+
+
+
+@enduml

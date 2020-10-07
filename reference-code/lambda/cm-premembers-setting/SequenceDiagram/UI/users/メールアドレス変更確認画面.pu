@@ -1,0 +1,37 @@
+@startuml{メールアドレス変更確認画面.png}
+title [メールアドレス変更確認画面]
+hide footbox
+
+actor ユーザー as user
+boundary メールアドレス変更確認画面 as view_1
+boundary ユーザー情報画面 as view_2
+database ユーザープール as user_pools <<cognito>> #purple
+participant 組織API as api_organizations #cyan
+participant 所属ユーザーAPI as api_affiliatedusers #cyan
+
+== 表示 ==
+user -> view_1 :画面表示
+activate view_1
+    view_1 -> view_1 :画面描画
+    view_1 --> user
+deactivate view_1
+
+== メールアドレス変更 ==
+note over user, user_pools #pink :メールアドレス変更可否、手順は要確認
+user -> view_1 :メールアドレス変更
+activate view_1
+    view_1 -> view_1 :バリデーションチェック
+    view_1 -> user_pools :メールアドレス変更
+    note right :確認コードを送信する
+    user_pools --> view_1
+    view_1 -> api_organizations :GET /myorganizations
+    api_organizations --> view_1 :200
+    loop 1, 所属組織数
+        view_1 -> api_affiliatedusers :PUT //organizations/{organization_id}/users/{user_id}
+        note right :メールアドレスを更新
+        api_affiliatedusers --> view_1 :200
+    end
+    view_1 -> view_2 :表示
+deactivate view_1
+
+@enduml

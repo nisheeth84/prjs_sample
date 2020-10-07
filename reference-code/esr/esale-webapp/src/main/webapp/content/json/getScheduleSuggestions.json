@@ -1,0 +1,53 @@
+{
+  "schedules": [
+    {
+      "scheduleId": 10,
+      "scheduleName": "カレンダー 1",
+      "scheduleTypeId": 1,
+      "startDate": "10/05/2020 10:00",
+      "endDate": "10/05/2020 11:30",
+      "productTradingId": 9,
+      "productTradingName": "productTradingName",
+      "customerId": 2221,
+      "customerName": "customerAAAAb",
+      "parentCustomerName": "customerAAAAb"
+    },
+    {
+      "scheduleId": 11,
+      "scheduleName": "カレンダー 2",
+      "scheduleTypeId": 1,
+      "startDate": "10/05/2020 10:00",
+      "endDate": "10/05/2020 11:30",
+      "productTradingId": 9,
+      "productTradingName": "productTradingName",
+      "customerId": 2221,
+      "customerName": "customerAAAAb",
+      "parentCustomerName": "customerAAAAb"
+    },
+    {
+      "scheduleId": 12,
+      "scheduleName": "カレンダー 3",
+      "scheduleTypeId": 1,
+      "startDate": "10/05/2020 10:00",
+      "endDate": "10/05/2020 11:30",
+      "productTradingId": 9,
+      "productTradingName": "productTradingName",
+      "customerId": 2221,
+      "customerName": "customerAAAAb",
+      "parentCustomerName": "customerAAAAb"
+    },
+    {
+      "scheduleId": 15,
+      "scheduleName": "カレンダー 4",
+      "scheduleTypeId": 1,
+      "startDate": "10/05/2020 10:00",
+      "endDate": "10/05/2020 11:30",
+      "productTradingId": 9,
+      "productTradingName": "productTradingName",
+      "customerId": 2221,
+      "customerName": "customerAAAAb",
+      "parentCustomerName": "customerAAAAb"
+    }
+  ],
+  "total": 4
+}

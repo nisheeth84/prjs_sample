@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g id="Group_28304" data-name="Group 28304" transform="translate(-918 -922)">
+    <path id="Path_31002" data-name="Path 31002" d="M2,0H6A2,2,0,0,1,8,2V8c-1.943.018-.9,0-2,0H2A2,2,0,0,1,0,6V2A2,2,0,0,1,2,0Z" transform="translate(918 922)" fill="#999"/>
+    <path id="Path_31003" data-name="Path 31003" d="M0,0H6A2,2,0,0,1,8,2V6A2,2,0,0,1,6,8H2A2,2,0,0,1,0,6V0Z" transform="translate(926 930)" fill="#999"/>
+    <line id="Line_2183" data-name="Line 2183" x2="5" transform="translate(919.5 926)" fill="none" stroke="#fff" stroke-width="1"/>
+    <line id="Line_2184" data-name="Line 2184" x2="5" transform="translate(922 923.5) rotate(90)" fill="none" stroke="#fff" stroke-width="1"/>
+    <line id="Line_2185" data-name="Line 2185" x2="5" transform="translate(927.5 926)" fill="none" stroke="#999" stroke-width="1"/>
+    <line id="Line_2186" data-name="Line 2186" x2="5" transform="translate(920.232 932.232) rotate(45)" fill="none" stroke="#999" stroke-width="1"/>
+    <line id="Line_2187" data-name="Line 2187" x2="5" transform="translate(923.768 932.232) rotate(135)" fill="none" stroke="#999" stroke-width="1"/>
+    <line id="Line_2188" data-name="Line 2188" x2="5" transform="translate(927.5 933)" fill="none" stroke="#fff" stroke-width="1"/>
+    <line id="Line_2189" data-name="Line 2189" x2="5" transform="translate(927.5 935)" fill="none" stroke="#fff" stroke-width="1"/>
+  </g>
+</svg>

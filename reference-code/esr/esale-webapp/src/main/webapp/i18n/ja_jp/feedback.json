@@ -1,0 +1,33 @@
+{
+  "feedbacks": {
+    "popup": {
+      "text-title": "フィードバック ",
+      "comfortable": {
+        "text-title": "使い心地はいかがですか？",
+        "text-feedback": "お客様のフィードバックは、ソフトブレーン株式会社のesm’s開発チームが受け取り、esm’sの改善を目的として利用します。",
+        "text-contact1": "なお機能の操作方法・不具合に関するお問い合わせは",
+        "text-contact-link": "こちら",
+        "text-contact2": "へお願いします。",
+        "btn-favorite": "気に入った",
+        "btn-distlike": "気に入らない"
+      },
+      "Additional-feedback": {
+        "text-title": "追加のフィードバック",
+        "text-title-red": "必須",
+        "placehoder": "入力例 \n •  カレンダーが使いやすい \n •  何をすれば良いかわからない \n •  タイムラインの表示が遅い \n •  活動登録画面の入力項目が多すぎる \n •  社内アンケート機能が欲しい"
+      },
+      "btn-send": "送信"
+    }
+  },
+  "feedbacksuccess": {
+    "popup": {
+      "text-title": "フィードバック ",
+      "content": {
+        "content1": "送信が完了しました。",
+        "content2": "ご意見いただき、誠にありがとうございます。",
+        "content3": "※この画面は3秒後に自動的に閉じます。"
+      },
+      "btn-close": "閉じる"
+    }
+  }
+}

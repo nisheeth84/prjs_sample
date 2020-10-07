@@ -1,0 +1,50 @@
+<check-account-summary>
+    <div class="px-30">
+        <div class="panel-heading">
+            <h3 class="panel-title pb-10 px-0">{organization_summary[0][0].organizationName}</h3>
+        </div>
+        <div class="mt--10" each="{project_summary in organization_summary}">
+            <span class="panel-desc pb-10">{project_summary[0].projectName}</span>
+            <table class="table table-bordered bg-white table-striped table-layout-fixed">
+                <thead>
+                    <tr>
+                        <th class="font-weight-900 check-header w-44p">{_t('CheckAccountSummary.account')}</th>
+                        <th class="font-weight-900 check-header w-12p">
+                            <i class="icon fa-check-square icon-primary text-primary" aria-hidden="true"></i>
+                            {_t('managed')}
+                        </th>
+                        <th class="font-weight-900 check-header w-12p">
+                            <i class="icon fa-check-square icon-success text-success" aria-hidden="true"></i>
+                            {_t('normal')}
+                        </th>
+                        <th class="font-weight-900 check-header w-12p">
+                            <i class="icon fa-warning text-warning" aria-hidden="true"></i>
+                            {_t('warning')}
+                        </th>
+                        <th class="font-weight-900 check-header w-12p">
+                            <i class="icon fa-exclamation-circle text-danger" aria-hidden="true"></i>
+                            {_t('critical')}
+                        </th>
+                        <th class="font-weight-900 check-header w-20p">
+                            {_t('CheckAccountSummary.execution_time')}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr each="{summary in project_summary}">
+                        <td class="table-account-column">
+                            <a href="#/check/?organization_id={summary.organizationId}&project_id={summary.projectId}">
+                                <p>{summary.awsAccount} <span if="{summary.awsAccountName}">| {summary.awsAccountName}</span></p>
+                            </a>
+                        </td>
+                        <td>{summary.managedCount}</td>
+                        <td>{summary.okCount}</td>
+                        <td>{summary.ngCount}</td>
+                        <td>{summary.criticalCount}</td>
+                        <td>{commonUtils.displayDate(summary.executedDateTime)}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</check-account-summary>

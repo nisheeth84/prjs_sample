@@ -1,0 +1,29 @@
+{
+    "extends": "eslint:recommended",
+    "plugins": ["riot","html"],
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "globals": {
+        "opts": true,
+        "riot": true,
+        "router": true,
+        "process": true,
+        "piTracker": true,
+        "i18next": true,
+        "Site": true,
+        "SiteCustomize": true,
+        "Breakpoints": true
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true
+        },
+        "sourceType": "module"
+    },
+    "rules": {
+        "eol-last": 2,
+        "no-console": ["error", { "allow": ["warn", "error"] }]
+      }
+}

@@ -1,0 +1,42 @@
+@startuml{サインイン画面.png}
+title [サインイン画面]
+hide footbox
+
+actor ユーザー as user
+boundary サインイン画面 as view_1
+boundary ホーム画面 as view_2
+boundary 初回組織登録画面 as view_3
+boundary パスワード設定画面 as view_4
+database ユーザープール as user_pools <<cognito>> #purple
+participant 組織API as api_organizations #cyan
+
+== 表示 ==
+user -> view_1 :画面表示
+activate view_1
+    view_1 -> view_1 :画面描画
+    view_1 --> user
+deactivate view_1
+
+== サインイン ==
+user -> view_1 :サインイン
+activate view_1
+    view_1 -> view_1 :バリデーションチェック
+    view_1 -> user_pools :サインイン
+    user_pools --> view_1 :認証トークン
+    alt 本パスワードでサインインした場合
+        view_1 -> api_organizations :組織数確認 GET /myorganizations/count
+        api_organizations --> view_1
+        alt 組織登録済みの場合
+            view_1 -> view_2 :表示
+            |||
+        else 組織未登録の場合
+            view_1 -> view_3 :表示
+            |||
+        end
+    else 仮パスワードでサインインした場合
+        view_1 -> view_4 :表示
+        |||
+    end
+deactivate view_1
+
+@enduml

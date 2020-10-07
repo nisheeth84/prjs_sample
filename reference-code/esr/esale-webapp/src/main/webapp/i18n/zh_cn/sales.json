@@ -1,0 +1,257 @@
+﻿{
+  "sales": {
+    "sidebar": {
+      "title": {
+        "myProductTrading": "我的交易产品",
+        "allProductTrading": "所有交易产品",
+        "listProductTrading": "客户列表的交易产品",
+        "list-favorite": "喜爱的列表",
+        "my-group": "我的列表",
+        "shared-group": "共享列表"
+      },
+      "place-holder": {
+        "searchCustomer": "搜索客户",
+        "searchBusinessCard": "搜索名片"
+      },
+      "search": {
+        "placeholder": "所有交易产品"
+      },
+      "duplicate": "的副本（{{n}}）"
+    },
+    "component": {
+      "change-display": {
+        "search-placeholder": "搜索进度状态",
+        "lead-in": "Lead-in",
+        "edit-item": "编辑项目"
+      },
+      "list-detail-product-trading": {
+        "analysis": "交易产品细目"
+      }
+    },
+    "top": {
+      "title": {
+        "change-progress-title": "更改进度状态",
+        "change-progress-button": "选择进度状态",
+        "popupChangeStatus": "确认",
+        "btn-edit": "简单编辑",
+        "btn-cancel": "取消",
+        "btn-save": "保存更改",
+        "btn-move-list": "移动到列表",
+        "add-to-group": "添加到列表",
+        "create-my-list": "创建我的列表",
+        "create-share-list": "创建共享列表",
+        "leave-group": "从列表中删除",
+        "fieldLabel": "与这天的差异",
+        "buttonText": "导入交易"
+      },
+      "place-holder": {
+        "search": "搜索交易产品",
+        "searching": "编辑详细的搜索条件"
+      },
+      "list-operation": "列表操作",
+      "dialog": {
+        "title-delete-group": "删除",
+        "message-delete-group": "您确定要删除{{itemName}}吗？",
+        "confirm-delete-group": "删除",
+        "title-auto-group": "确认",
+        "confirm-auto-group": "更改",
+        "title-leave-group": "删除",
+        "message-leave-group": "您确定要删除吗？",
+        "confirm-leave-group": "删除",
+        "title-remove-manager": "确认",
+        "message-remove-manager": "将移除所选员工的上级设置。您确定吗？",
+        "message-remove-manager-move": "如果离开此页面，则正在输入的数据将被删除。您确定要切换页面吗？",
+        "confirm-remove-manager": "移除",
+        "cancel-text": "取消",
+        "change-my-list-to-share-list": "您确定要将我的列表更改为共享列表吗？",
+        "confirm-change": "确认",
+        "message-leave-list": "从交易产品列表中删除{{0}}件交易产品。您确定吗？"
+      },
+      "label-tooltip": {
+        "button-edit": "编辑",
+        "button-erase": "删除",
+        "button-switch-display": "切换显示",
+        "button-update": "更新",
+        "button-set-manager": "上级设置",
+        "button-remove-manager": "取消上級设置",
+        "button-download": "下载",
+        "button-copy-group": "复制群组",
+        "button-send-email": "发送电子邮件",
+        "switch-view": "卡片视图",
+        "add-to-favourite": "注册到喜爱的列表",
+        "remove-from-favourite": "从喜爱的列表删除",
+        "button-top-edit": "编辑列表",
+        "button-top-delete": "删除列表",
+        "button-top-dupplicate": "复制列表",
+        "button-top-convert-sharelist": "更改为共享列表",
+        "list-view": "列表视图",
+        "board-view": "板块视图"
+      }
+    },
+    "card-view": {
+      "total-quantity": "件交易产品",
+      "end-plan-date": "预计完成日期",
+      "total-amount": "总金额",
+      "employees": "负责",
+      "collapse-expand": "交易产品细目"
+    },
+    "modal": {
+      "header": {
+        "create-my-list": "创建我的列表"
+      },
+      "body": {
+        "create-a-list-with-n-items": "件将被创建成列表。",
+        "list-name": "列表名称",
+        "require": "必须",
+        "enter-list": "输入列表",
+        "show-other-language": "显示其他语言",
+        "list-participants": "列表中的参与者",
+        "company": "公司",
+        "sales-department": "销售部",
+        "sales-taro-manager": "销售处长太郎",
+        "owner": "所有者",
+        "add-list-participants": "添加列表中的参与者"
+      },
+      "footer": {
+        "create": "创建"
+      }
+    },
+    "group-card": {
+      "submenu": {
+        "edit-group": "编辑列表",
+        "delete-group": "删除列表",
+        "duplicate-group": "复制列表",
+        "update-list": "更新列表",
+        "remove-from-favorite": "从喜爱的列表中移除",
+        "add-to-favorite": "注册到喜爱的列表",
+        "remove-to-favorite": "从喜爱的列表中移除",
+        "change-my-list-to-share-list": "更改为共享列表"
+      }
+    },
+    "group": {
+      "group-modal-move-to-group": {
+        "title": "移动列表",
+        "sale-checklist-length": "{{saleCheckListLength}} 件将添加到列表。",
+        "group-title": "移动的列表",
+        "group-default-option": "选择移动的列表 ",
+        "button-move": "移动",
+        "button-cancel": "×",
+        "list-group": "喜爱的列表 ",
+        "my-group": "我的列表",
+        "share-group": "共享列表",
+        "required": "必须"
+      },
+      "group-modal-add-to-group": {
+        "title": "添加到列表",
+        "sale-checklist-length": "{{saleCheckListLength}}件将移到另一个列表。",
+        "group-title": "添加的列表 ",
+        "group-default-option": "选择添加的列表",
+        "button-add": "添加",
+        "button-cancel": "×",
+        "list-group": "喜爱的列表 ",
+        "my-group": "我的列表",
+        "share-group": "共享列表",
+        "required": "必须"
+      },
+      "group-modal-create-my-group": {
+        "title": " 创建我的列表",
+        "sale-checklist-length": "{{empCheckListLength}} 件将被创建成列表。",
+        "group-title": "群组名称",
+        "group-name-placeholder": "输入列表名称",
+        "button-create": "创建",
+        "button-cancel": "×",
+        "required": "必须"
+      },
+      "group-modal-create-shared-group": {
+        "title": " 创建共享列表",
+        "sale-checklist-length": "{{empCheckListLength}} 件将被创建成列表。",
+        "group-title": "群组名称",
+        "group-name-placeholder": "输入列表名称",
+        "button-create": "创建",
+        "button-cancel": "×",
+        "required": "必须"
+      },
+      "group-modal-add-edit-my-group": {
+        "title": "创建我的列表",
+        "edit_title": "编辑我的列表",
+        "group-title": "列表名称 ",
+        "required": "必须",
+        "group-name-placeholder": "输入列表名称",
+        "display-other-language": "显示其他语言",
+        "group_type": "列表类型",
+        "radio-manual": "手动",
+        "radio-auto": "自动添加",
+        "button-create": "创建",
+        "button-edit": "更新",
+        "button-cancel": "x",
+        "auto-group-condition-search-title": "自动添加组的搜索条件",
+        "btn-setting-search-condition": "编辑搜索条件",
+        "is-overwrite": "如果与更新时的条件不匹配，将从群组中进行删除",
+        "list-update-time": "每天 {{0}} 点时自动进行列表更新"
+      },
+      "setting-search-condition": {
+        "cancel": "取消",
+        "save-search-condition": "保存搜索条件",
+        "checkbox-select-all": "全选",
+        "checkbox-deselect": "取消选择",
+        "checkbox-select-inversion": "反向选择",
+        "textbox-search-placeholder": "搜索员工"
+      },
+      "department-card": {
+        "submenu": {
+          "edit-department": "编辑部门",
+          "delete-department": "删除部门"
+        }
+      }
+    },
+    "sharegroup": {
+      "lbCreateGroup": "创建共享列表",
+      "lbEditGroup": "编辑共享列表",
+      "lbSwitchGroupType": "更改为共享列表",
+      "lbCreateGroupWith": "件将被创建成群组",
+      "btnUpdate": "更新",
+      "btnChange": "更改",
+      "btnCreate": "创建",
+      "radHideOtherLanguage": "隐藏其他语言",
+      "radShowOtherLanguage": "显示其他语言",
+      "lbRequire": "必须",
+      "lbGroupName": "列表名称",
+      "hintGroupName": "输入列表名称",
+      "lbListParticipants": "列表中的参与者",
+      "hintListParticipants": "列表中的参与者",
+      "placeholderShareListTool": "输入列表",
+      "placeholderParticipants": "添加列表中的参与者",
+      "icCompany": "公司",
+      "lbSearchCondition": "自动添加组的搜索条件",
+      "lbSettingSearch": "编辑搜索条件",
+      "lbNoteForCheckBox": "如果与更新时的条件不匹配，将从列表中进行删除",
+      "hintJapanese": "(日本語)",
+      "hintChinese": "(中文（简体）)",
+      "hintEnglish": "(English （US）)",
+      "hintKorean": "(한국어)",
+      "lbGroupType": "列表类型",
+      "radManual": "手动",
+      "radAuto": "自动添加",
+      "permision.viewer": "阅览者",
+      "permision.owner": "所有者"
+    },
+    "add-to-favorite": "您想添加{{groupName}}到喜爱的列表中吗?",
+    "remove-to-favorite": "您确定要从喜爱的列表中移除{{groupName}}吗?",
+    "INF_COM_0015": "{{0}}件将添加到列表中。",
+    "INF_COM_0016": "{{0}}件将移到另一个列表。",
+    "all-status": "所有",
+    "complete-status": "结束",
+    "not-complete-status": "进行中",
+    "contact-date1": "距最终接触日",
+    "contact-date2": "天已经过去了",
+    "item-drag": {
+      "list": " 产品被调动"
+    },
+    "placeholder": {
+      "find-an-item": "搜索进度"
+    },
+    "button":{
+      "edit-search-condition":"编辑高级搜索条件"
+    }
+  }
+}

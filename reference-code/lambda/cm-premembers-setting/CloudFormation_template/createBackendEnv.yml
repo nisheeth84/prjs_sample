@@ -1,0 +1,307 @@
+Description: Premembers Backend Environment
+Parameters:
+  Env:
+    Description: 'Choose the environment to create: ''dev'' or ''stg'' or''prd'''
+    Type: String
+    Default: dev
+    AllowedValues:
+    - dev
+    - stg
+    - prd
+  ServiceName:
+    Description: Name for the service
+    Type: String
+    Default: premembers
+    AllowedPattern: "[-_ a-zA-Z0-9]*"
+    ConstraintDescription: can contain only alphanumeric characters, spaces, dashes
+      and underscores.
+Resources:
+  ReportS3:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: 
+        Fn::Join:
+          - "-"
+          - - Ref: ServiceName 
+            - Ref: Env
+            - 'report'
+            - 'bucket'
+      Tags:
+      - Key: Service
+        Value:
+          Ref: ServiceName
+      - Key: Env
+        Value:
+          Ref: Env
+      LoggingConfiguration:
+            DestinationBucketName:
+              Fn::Join:
+                - "-"
+                - - Ref: ServiceName 
+                  - Ref: Env
+                  - 's3'
+                  - 'access'
+                  - 'log'
+            LogFilePrefix: "report-bucket/" 
+  CheckS3:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: 
+        Fn::Join:
+          - "-"
+          - - Ref: ServiceName 
+            - Ref: Env
+            - 'check'
+            - 'bucket'
+      Tags:
+      - Key: Service
+        Value:
+          Ref: ServiceName
+      - Key: Env
+        Value:
+          Ref: Env
+      LifecycleConfiguration:
+        Rules:
+          - Id: CheckResultJsonDeleteRule
+            Status: Enabled
+            ExpirationInDays: '40'
+
+      LoggingConfiguration:
+        DestinationBucketName:
+          Fn::Join:
+            - "-"
+            - - Ref: ServiceName 
+              - Ref: Env
+              - 's3'
+              - 'access'
+              - 'log'
+        LogFilePrefix: "check-bucket/" 
+  BatchLogS3:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: 
+        Fn::Join:
+          - "-"
+          - - Ref: ServiceName 
+            - Ref: Env
+            - 'batch'
+            - 'log'
+            - 'bucket'
+      Tags:
+      - Key: Service
+        Value:
+          Ref: ServiceName
+      - Key: Env
+        Value:
+          Ref: Env
+  UserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UserPoolName: 
+        Fn::Join:
+          - "-"
+          - - Ref: ServiceName 
+            - Ref: Env
+            - 'UserPool'
+      AdminCreateUserConfig:
+        AllowAdminCreateUserOnly: false
+      AliasAttributes:
+      - email
+      AutoVerifiedAttributes:
+      - email
+      MfaConfiguration: 'OPTIONAL'
+      LambdaConfig:
+        CustomMessage: !GetAtt CreateCustomeMessageCreateLambdaFunction.Arn
+      Policies:
+        PasswordPolicy:
+          MinimumLength: 8
+          RequireLowercase: true
+          RequireNumbers: true
+          RequireSymbols: false
+          RequireUppercase: true
+      Schema:
+      - Name: email
+        AttributeDataType: String
+        DeveloperOnlyAttribute: false
+        Mutable: true
+        Required: true
+      - Name: accepted_maint_email
+        AttributeDataType: Number
+        DeveloperOnlyAttribute: false
+        Mutable: true
+        Required: false
+        NumberAttributeConstraints:
+          MaxValue: 1
+          MinValue: 0
+      UserPoolTags:
+        Service :
+          Ref: ServiceName
+        Env :
+          Ref: Env
+  UserPoolClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      ClientName: 
+        Fn::Join:
+          - "-"
+          - - Ref: ServiceName 
+            - Ref: Env
+            - 'UserPool'
+            - 'client'
+      GenerateSecret: false
+      RefreshTokenValidity: 7
+      UserPoolId:
+        Ref: UserPool
+  OrganizationTaskTopic:
+    Type: "AWS::SNS::Topic"
+    Properties: 
+      DisplayName: OrgTask
+      Subscription:
+        - Protocol: sqs
+          Endpoint: !GetAtt OrganizationTaskQueue.Arn
+      TopicName:  
+        Fn::Join:
+          - "-"
+          - - 'Premembers' 
+            - 'OrganizationTask'
+            - 'Topic'
+  OrganizationTaskQueue:
+    Type: "AWS::SQS::Queue"
+    Properties:
+      QueueName:
+        Fn::Join:
+          - "-"
+          - - 'Premembers' 
+            - 'OrganizationTask'
+            - 'Queue'
+      VisibilityTimeout: 30
+      MessageRetentionPeriod: 345600
+      MaximumMessageSize: 262144
+      DelaySeconds: 0
+      ReceiveMessageWaitTimeSeconds: 0
+      RedrivePolicy:
+        deadLetterTargetArn: !GetAtt DeadLetterQueue.Arn
+        maxReceiveCount: '5'
+  OrganizationTaskQueuePolicy:
+    Type: "AWS::SQS::QueuePolicy"
+    Properties: 
+      PolicyDocument:
+        Version: '2012-10-17'
+        Id: OrganizationTaskQueuePolicy
+        Statement:
+        - Sid: 1
+          Effect: Allow
+          Principal: '*'
+          Action:
+          - SQS:SendMessage
+          Resource: !GetAtt OrganizationTaskQueue.Arn
+          Condition:
+            ArnEquals:
+              aws:SourceArn: !Ref 'OrganizationTaskTopic'
+      Queues:
+        - !Ref 'OrganizationTaskQueue'
+  DeadLetterQueue: 
+    Type: "AWS::SQS::Queue"
+    Properties:
+      QueueName:
+        Fn::Join:
+          - "-"
+          - - 'Premembers' 
+            - 'DeadLetter'
+            - 'Queue'
+      VisibilityTimeout: 30
+      MessageRetentionPeriod: 345600 
+      MaximumMessageSize: 262144
+      DelaySeconds: 0
+      ReceiveMessageWaitTimeSeconds: 0
+
+  LambdaFunctionRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: [lambda.amazonaws.com]
+            Action:
+              - sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+  CreateCustomeMessageCreateLambdaFunction:
+    Type: 'AWS::Lambda::Function'
+    DependsOn:
+      - LambdaFunctionRole
+    Properties:
+      FunctionName:
+        Fn::Join:
+          - "-"
+          - - Ref: ServiceName 
+            - Ref: Env
+            - 'cognito'
+            - 'custom_message'
+      Description: Create Cognito Custome Message
+      Handler: index.custom_message_create_handler
+      MemorySize: 128
+      Role: !GetAtt LambdaFunctionRole.Arn
+      Runtime: python3.6
+      Timeout: 10
+      Code:
+        ZipFile: |
+          sign_up_title = '[insightwatch]新規アカウント作成 / Registration Confirmation'
+          reset_title = '[insightwatch]パスワードリセット / Reset password'
+          
+          message_template = '<html> <head> </head> <body> <p>*** There is an English sentence in the second half of the e-mail. ***</p> <p>※このメールはクラスメソッドから自動で送信しております。</p> <hr/> <p>{title_ja}</p> <br/> <p>確認コード：{{####}} </p> <br/> <p>※確認コードの有効期限は{limit}{limit_unit_ja}となります。ご注意ください。</p> <p>※このメールにお心当たりがない方は、恐れ入りますが、このメールを削除してください。</p> <hr/> <p>送信専用アドレスよりお送りしています。このメールアドレスには返信できません。</p> <p>お問い合わせにつきましては下記URLからお願いいたします。</p> <a href=https://insightwatch.zendesk.com/hc/ja/requests/new>https://insightwatch.zendesk.com/hc/ja/requests/new</a> <hr/><hr/> <p>* This e-mail is automatically sent from Classmethod, Inc.</p> <hr/> <p>{title_en}</p> <br/> <p>Your confirmation code is {{####}} </p> <br/> <p>* The confirmation code expires after {limit} {limit_unit_en}.</p> <p>* If you have not registered for insightwatch, please delete this email.</p> <hr/> <p>Please do not reply to this email. We are unable to respond to inquiries sent to this address.</p> </body> </html>'
+          sign_up_message_title_ja = 'insightwatch へようこそ。'
+          sign_up_message_title_en = 'Thank you for registering for insightwatch.'
+          reset_message_title_ja = 'insightwatch パスワードリセット'
+          reset_message_title_en = 'insightwatch Reset password'
+          
+          def custom_message_create_handler(event, context):
+              title = None
+              message = None
+              if event['triggerSource'] == 'CustomMessage_SignUp':
+                  title = sign_up_title
+                  message = message_template.format(title_ja=sign_up_message_title_ja,title_en=sign_up_message_title_en,limit=24,limit_unit_ja='時間',limit_unit_en='hours')
+              if event['triggerSource'] == 'CustomMessage_ForgotPassword':
+                  title = reset_title
+                  message = message_template.format(title_ja=reset_message_title_ja,title_en=reset_message_title_en,limit=1,limit_unit_ja='時間',limit_unit_en='hour')
+              event['response']['emailSubject'] = title
+              event['response']['emailMessage'] = message
+              event['response']['smsMessage'] = message
+              print(event)
+          
+              return event          
+
+  CreateCustomeMessagePermission:
+    Type: AWS::Lambda::Permission
+    DependsOn: [CreateCustomeMessageCreateLambdaFunction, UserPool]
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !GetAtt CreateCustomeMessageCreateLambdaFunction.Arn
+      Principal: cognito-idp.amazonaws.com
+      SourceArn: !GetAtt UserPool.Arn
+
+Outputs:
+  S3ReportBucket:
+    Value:
+      Ref: ReportS3
+  S3CheckBucket:
+    Value:
+      Ref: CheckS3
+  S3BatchLogBucket:
+    Value: 
+      Ref: BatchLogS3
+  CognitoUserPoolID:
+    Value:
+      Ref: UserPool
+  CognitoClientID:
+    Value:
+      Ref: UserPoolClient
+  SNSOrganizationTopic:
+    Value:
+      Ref: OrganizationTaskTopic
+  SQSOrganizationQueue:
+    Value:
+      Ref: OrganizationTaskQueue

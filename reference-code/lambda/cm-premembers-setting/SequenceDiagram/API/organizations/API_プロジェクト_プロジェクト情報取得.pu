@@ -1,0 +1,28 @@
+@startuml{API_プロジェクト_プロジェクト情報取得.png}
+title [プロジェクトAPI_プロジェクト情報取得]
+hide footbox
+
+boundary 画面 as view
+participant プロジェクトAPI as api_projects #cyan
+'database ユーザープール as user_pools <<cognito>> #purple
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database プロジェクト as table_projects <<dynamodb>> #royalblue
+
+view -> api_projects : GET /organizations/{organization_id}/projects/{project_id}
+activate api_projects
+    api_projects -> api_projects :メールアドレス取得
+    |||
+    ref over api_projects, table_affiliation :アクセス権限チェック
+    |||
+    api_projects -> api_projects :プロジェクト情報取得
+    activate api_projects
+        api_projects -> table_projects :query
+        table_projects --> api_projects
+        api_projects --> api_projects
+    deactivate api_projects
+    |||
+    api_projects -> api_projects :レスポンス作成
+    api_projects --> view : 200:プロジェクト情報
+deactivate api_projects
+
+@enduml

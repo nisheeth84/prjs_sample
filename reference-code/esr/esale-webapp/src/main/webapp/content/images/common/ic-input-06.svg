@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17.872" height="18" viewBox="0 0 17.872 18">
+  <g id="Group_28307" data-name="Group 28307" transform="translate(-915 -471)">
+    <g id="Path_30995" data-name="Path 30995" transform="translate(915 473)" fill="#fff">
+      <path d="M 14.52066135406494 15.5 L 3.350920915603638 15.5 C 1.778921008110046 15.5 0.5000010132789612 14.37849998474121 0.5000010132789612 13 L 0.5000010132789612 3 C 0.5000010132789612 1.621500015258789 1.778921008110046 0.5 3.350920915603638 0.5 L 14.52066135406494 0.5 C 16.09266090393066 0.5 17.37158012390137 1.621500015258789 17.37158012390137 3 L 17.37158012390137 13 C 17.37158012390137 14.37849998474121 16.09266090393066 15.5 14.52066135406494 15.5 Z" stroke="none"/>
+      <path d="M 3.350920677185059 1 C 2.054620742797852 1 1.000001907348633 1.897199630737305 1.000001907348633 3 L 1.000001907348633 13 C 1.000001907348633 14.1028003692627 2.054620742797852 15 3.350920677185059 15 L 14.52066135406494 15 C 15.81696128845215 15 16.87158012390137 14.1028003692627 16.87158012390137 13 L 16.87158012390137 3 C 16.87158012390137 1.897199630737305 15.81696128845215 1 14.52066135406494 1 L 3.350920677185059 1 M 3.350920677185059 0 L 14.52066135406494 0 C 16.3713207244873 0 17.87158012390137 1.34315013885498 17.87158012390137 3 L 17.87158012390137 13 C 17.87158012390137 14.65684986114502 16.3713207244873 16 14.52066135406494 16 L 3.350920677185059 16 C 1.500261306762695 16 1.9073486328125e-06 14.65684986114502 1.9073486328125e-06 13 L 1.9073486328125e-06 3 C 1.9073486328125e-06 1.34315013885498 1.500261306762695 0 3.350920677185059 0 Z" stroke="none" fill="#999"/>
+    </g>
+    <g id="Path_30994" data-name="Path 30994" transform="translate(915 473)" fill="#999">
+      <path d="M 17.36306190490723 3.764376878738403 L 0.5187686085700989 3.764376878738403 C 0.5250826478004456 3.468305110931396 0.5197353363037109 3.260976791381836 0.5131710171699524 3.006476879119873 C 0.5070010423660278 2.76699686050415 0.5000010132789612 2.495556831359863 0.5000010132789612 2.061986923217773 C 0.5000010132789612 1.200706839561462 1.277850985527039 0.4999969005584717 2.233951091766357 0.4999969005584717 L 15.6376314163208 0.4999969005584717 C 16.59373092651367 0.4999969005584717 17.37158012390137 1.200706839561462 17.37158012390137 2.061986923217773 C 17.37158012390137 2.494006872177124 17.36686134338379 2.641526937484741 17.36269187927246 2.771676778793335 C 17.35688400268555 2.953072309494019 17.35270881652832 3.083644151687622 17.36306190490723 3.764376878738403 Z" stroke="none"/>
+      <path d="M 2.233950614929199 0.9999969005584717 C 1.553550720214844 0.9999969005584717 1.000001907348633 1.476406812667847 1.000001907348633 2.061986923217773 C 1.000001907348633 2.489116907119751 1.00691032409668 2.757126808166504 1.013011932373047 2.993587017059326 C 1.015443801879883 3.087966918945313 1.01771354675293 3.176045417785645 1.019317626953125 3.264376878738403 L 16.85719299316406 3.264376878738403 C 16.85549545288086 2.988606452941895 16.85882759094238 2.88454008102417 16.86295127868652 2.75568675994873 C 16.86699104309082 2.629276752471924 16.87158012390137 2.486006736755371 16.87158012390137 2.061986923217773 C 16.87158012390137 1.476406812667847 16.31803131103516 0.9999969005584717 15.63763046264648 0.9999969005584717 L 2.233950614929199 0.9999969005584717 M 2.233950614929199 -3.337860107421875e-06 L 15.63763046264648 -3.337860107421875e-06 C 16.87141036987305 -3.337860107421875e-06 17.87158012390137 0.9231867790222168 17.87158012390137 2.061986923217773 C 17.87158012390137 3.200796842575073 17.83831024169922 2.431716918945313 17.87158012390137 4.264377117156982 L 1.9073486328125e-06 4.264377117156982 C 0.04854011535644531 3.274756908416748 1.9073486328125e-06 3.200796842575073 1.9073486328125e-06 2.061986923217773 C 1.9073486328125e-06 0.9231867790222168 1.000171661376953 -3.337860107421875e-06 2.233950614929199 -3.337860107421875e-06 Z" stroke="none" fill="#999"/>
+    </g>
+    <g id="Rectangle_18202" data-name="Rectangle 18202" transform="translate(928 471)" fill="#fff" stroke="#999" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="Rectangle_18203" data-name="Rectangle 18203" transform="translate(928 474)" fill="#fff" stroke="#fff" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="Rectangle_18205" data-name="Rectangle 18205" transform="translate(918 471)" fill="#fff" stroke="#999" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="Rectangle_18206" data-name="Rectangle 18206" transform="translate(918 474)" fill="#fff" stroke="#fff" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="Rectangle_18209" data-name="Rectangle 18209" transform="translate(926 479)" fill="#fff" stroke="#999" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="Rectangle_18210" data-name="Rectangle 18210" transform="translate(923 479)" fill="#fff" stroke="#999" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="Rectangle_18211" data-name="Rectangle 18211" transform="translate(929 479)" fill="#fff" stroke="#999" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="Rectangle_18212" data-name="Rectangle 18212" transform="translate(917 482)" fill="#fff" stroke="#999" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="Rectangle_18213" data-name="Rectangle 18213" transform="translate(920 482)" fill="#fff" stroke="#999" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="Rectangle_18214" data-name="Rectangle 18214" transform="translate(926 482)" fill="#fff" stroke="#999" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="Rectangle_18215" data-name="Rectangle 18215" transform="translate(923 482)" fill="#fff" stroke="#999" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="Rectangle_18216" data-name="Rectangle 18216" transform="translate(929 482)" fill="#fff" stroke="#999" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="Rectangle_18217" data-name="Rectangle 18217" transform="translate(917 485)" fill="#fff" stroke="#999" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="Rectangle_18218" data-name="Rectangle 18218" transform="translate(920 485)" fill="#fff" stroke="#999" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="Rectangle_18219" data-name="Rectangle 18219" transform="translate(926 485)" fill="#fff" stroke="#999" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="Rectangle_18220" data-name="Rectangle 18220" transform="translate(923 485)" fill="#fff" stroke="#999" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="Rectangle_18221" data-name="Rectangle 18221" transform="translate(929 485)" fill="#fff" stroke="#999" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+  </g>
+</svg>

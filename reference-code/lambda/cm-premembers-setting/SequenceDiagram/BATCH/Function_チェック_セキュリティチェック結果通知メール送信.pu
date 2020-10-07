@@ -1,0 +1,66 @@
+@startuml{Function_チェック_セキュリティチェック結果通知メール送信.png}
+title [チェック_セキュリティチェック結果通知メール送信]
+hide footbox
+
+participant 呼び出し元 as invoker
+participant 通知メール送信 as func_mail_sending <<lambda>> #violet
+
+database チェック結果 as table_check_results <<dynamodb>> #royalblue
+database 宛先 as table_destinations <<dynamodb>> #royalblue
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database 設定ストレージ as storage <<s3>> #crimson
+participant メール送信サービス as ses <<ses>> #gold
+database バッチエラートピック as topic_batch_error <<sns>> #gold
+
+invoker ->> func_mail_sending :invoke (InvocationType='Event')
+note right :チェック履歴IDを渡す
+activate func_mail_sending
+    group チェック結果通知メール送信
+    |||
+    func_mail_sending -> func_mail_sending :チェック結果通知メール送信
+    activate func_mail_sending
+        func_mail_sending -> table_check_results :query（CheckHistoryIndex）
+        note right :チェック履歴IDをキーとしてチェック結果情報を取得
+        table_check_results --> func_mail_sending
+        |||
+        func_mail_sending -> table_destinations :query
+        note right :組織ID、通知コード（'CHECK_CIS'）をキーとして宛先情報を取得
+        table_destinations --> func_mail_sending
+        |||
+        func_mail_sending -> table_affiliation :query（OrganizationIndex）
+        note right :組織IDをキーとして宛先情報を取得
+        table_affiliation --> func_mail_sending
+        |||
+        func_mail_sending -> func_mail_sending :宛先情報をユーザー所属情報とつき合わせ
+        note right :所属情報に含まれない宛先情報を見つける
+        |||
+        opt ユーザー所属情報に存在しないユーザー（メールアドレス）が宛先に含まれていた場合
+            func_mail_sending -> func_mail_sending :該当メールアドレスをメールの宛先から除外
+            |||
+        end
+        |||
+        func_mail_sending -> storage :メール本文テンプレート取得
+        storage --> func_mail_sending
+        |||
+        func_mail_sending -> func_mail_sending :メール本文作成
+        |||
+        func_mail_sending -> ses :通知メール送信
+        ses --> func_mail_sending
+        |||
+        opt 通知メール送信失敗
+            func_mail_sending -> topic_batch_error :通知メール送信失敗メッセージをpublish
+            topic_batch_error --> func_mail_sending
+            |||
+        end
+        |||
+        opt ユーザー所属情報に存在しないユーザー（メールアドレス）が宛先に含まれていた場合
+            func_mail_sending -> table_destinations :更新
+            note right :所属情報に含まれなかった宛先を除外して、宛先情報を更新する
+            table_destinations --> func_mail_sending
+            |||
+        end
+    deactivate func_mail_sending
+    end
+deactivate func_mail_sending
+|||
+@enduml

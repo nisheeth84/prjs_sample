@@ -1,0 +1,15 @@
+scalar Upload
+scalar DateTime
+type Query {
+}
+
+type Mutation {
+}
+
+extend type Query {
+    dumy: Long
+}
+
+extend type Mutation {
+    dumy: String
+}

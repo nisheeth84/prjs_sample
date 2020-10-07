@@ -1,0 +1,56 @@
+###############################################################################
+# Region SES
+ses.region: "us-west-2"
+
+# Mail
+ja.mail.subject: "[insightwatch(DEV)]セキュリティチェック結果通知（{{project_name}}）"
+en.mail.subject: "[insightwatch(DEV)]Security check result notification （{{project_name}}）"
+en.mail.body.text.filepath: "check/notify/mail/cis_checkresult_template_en.tpl"
+ja.mail.body.text.filepath: "check/notify/mail/cis_checkresult_template_ja.tpl"
+mail.from: "sys@dev.insightwatch.io"
+
+# Slack
+ja.slack.username: "insightwatch(DEV)"
+en.slack.username: "insightwatch(DEV)"
+slack.iconurl: "https://insightwatch.io/app/assets/images/iw_em_color_slack_file.png"
+ja.slack.message.filepath: "check/notify/mail/checkresult_slack_template_ja.tpl"
+en.slack.message.filepath: "check/notify/mail/checkresult_slack_template_en.tpl"
+
+# Unregistered User invite Mail
+ja.invite_mail.insightwatch.subject: "[insightwatch(DEV)]へ招待されました"
+ja.invite_mail.insightwatch.body.text.filepath: "check/notify/mail/insightwatch_user_invite_template_ja.tpl"
+en.invite_mail.insightwatch.subject: "You're Invited: insightwatch(DEV)"
+en.invite_mail.insightwatch.body.text.filepath: "check/notify/mail/insightwatch_user_invite_template_en.tpl"
+invite_mail.insightwatch.from: "sys@dev.insightwatch.io"
+
+ja.invite_mail.opswitch.subject: "[opswitch(DEV)]へ招待されました"
+ja.invite_mail.opswitch.body.text.filepath: "check/notify/mail/opswitch_user_invite_template_ja.tpl"
+en.invite_mail.opswitch.subject: "You're Invited: opswitch(DEV)"
+en.invite_mail.opswitch.body.text.filepath: "check/notify/mail/opswitch_user_invite_template_en.tpl"
+invite_mail.opswitch.from: "sys@dev.opswitch.io"
+
+# Mail error execute check
+ja.checkerror_notice_mail.subject: "[insightwatch(DEV)]セキュリティチェック処理でエラーが発生しました。（{{project_name}}）"
+en.checkerror_notice_mail.subject: "[insightwatch(DEV)]Security check error alert（{{project_name}}）"
+en.checkerror_notice_mail.body.text.filepath: "check/notify/mail/notice_error_execute_check_en.tpl"
+ja.checkerror_notice_mail.body.text.filepath: "check/notify/mail/notice_error_execute_check_ja.tpl"
+en.message_notice_error_execute_check_security.filepath: "check/notify/mail/message_notice_error_execute_check_security_en.yaml"
+ja.message_notice_error_execute_check_security.filepath: "check/notify/mail/message_notice_error_execute_check_security_ja.yaml"
+
+# Config apply change mail
+en.mail.insightwatch.subject: "insightwatch(DEV) Confirm your change e-mail address"
+en.mail.insightwatch.body.text.filepath: "check/notify/mail/insightwatch_apply_change_mail_template_en.tpl"
+ja.mail.insightwatch.subject: "insightwatch(DEV) メールアドレス変更確認"
+ja.mail.insightwatch.body.text.filepath: "check/notify/mail/insightwatch_apply_change_mail_template_ja.tpl"
+mail.insightwatch.from: "sys@dev.insightwatch.io"
+en.mail.opswitch.subject: "opswitch(DEV) Confirm your change e-mail address"
+en.mail.opswitch.body.text.filepath: "check/notify/mail/opswitch_apply_change_mail_template_en.tpl"
+ja.mail.opswitch.subject: "opswitch(DEV) メールアドレス変更確認"
+ja.mail.opswitch.body.text.filepath: "check/notify/mail/opswitch_apply_change_mail_template_ja.tpl"
+mail.opswitch.from: "sys@dev.opswitch.io"
+
+# Config response execute change mail
+mail.insightwatch.response.complete: '<html><head><meta http-equiv="refresh" content="0; URL=/app/#/emailchangecomplete.html" /></head></html>'
+mail.insightwatch.response.error: '<html><head><meta http-equiv="refresh" content="0; URL=/app/error.html" /></head></html>'
+mail.opswitch.response.complete: '<html><head><meta http-equiv="refresh" content="0; URL=https://app.dev.opswitch.io/emailchangecomplete" /></head></html>'
+mail.opswitch.response.error: '<html><head><meta http-equiv="refresh" content="0; URL=https://app.dev.opswitch.io/emailchangeerror" /></head></html>'

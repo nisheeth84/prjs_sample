@@ -1,0 +1,7 @@
+{
+    "CISIamCheck": {
+        "password_last_used_date": "パスワード最終利用日",
+        "access_key_1_last_use_date": "アクセスキー1最終利用日",
+        "access_key_2_last_use_date": "アクセスキー2最終利用日"
+    }
+}

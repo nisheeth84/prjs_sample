@@ -1,0 +1,6 @@
+{
+    "SecurityChecklistEC2VPCEBS": {
+        "ebs_volume_id": "EBSボリュームID",
+        "title_ec2_vpc_ebs": "Security Checklist - EC2/VPC/EBS"
+    }
+}

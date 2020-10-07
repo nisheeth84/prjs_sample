@@ -1,0 +1,283 @@
+<check-execute-container>
+    <div class="page">
+        <div class="page-header">
+            <h1 class="page-title mt-2">{_t('check_execution')}</h1>
+            <p>{_t('CheckExecute.description_check_execution')}</p>
+        </div>
+        <div class="page-content container-fluid">
+            <form autocomplete="off" onsubmit={executeSecurityCheck} ref=form>
+                <div class="row mb-30">
+                    <div class="col-5">
+                        <h4>{_t('organization')}</h4>
+                        <select ref="organization" class="form-control check-background-none h-150" onchange={changeOrganizationHandler} size="6">
+                            <option each="{organization in organizations}" value="{organization.organization.id}" selected="{organizationId == organization.organization.id}">{ organization.organization.name }</option>
+                        </select>
+                    </div>
+                    <div class="col-5">
+                        <h4>{_t('project')}</h4>
+                        <select ref="project" disabled="{!projectEnable}" class="form-control check-background-none h-150" onchange={changeProjectHandler} size="6">
+                            <option each="{project in projects}" value="{project.id}" selected="{projectId == project.id}">{ project.name }</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-30">
+                    <div class="col-4 offset-3">
+                        <button type="submit" disabled="{!submitEnable}" class="btn btn-primary btn-block">{_t('check_execution')}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    <information-modal></information-modal>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        require('../../common/component/InformationModal.tag.html')
+        const tag = this;
+        const obs = riot.observable()
+        const requestOrganizationUrl = tag.config.APIGATEWAY_ADDRESS + '/myorganizations?inviteStatus=1';
+        tag.cognitoUser = riot.mixin('cognitoUser');
+        tag.obs = obs
+        tag.changeOrganizationHandler = changeOrganizationHandler
+        tag.changeProjectHandler = changeProjectHandler
+        tag.organizations = []
+        tag.projects = []
+        tag.projectEnable = false
+        tag.submitEnable = false
+        tag.executeSecurityCheck = executeSecurityCheck
+        tag.back = back
+        tag.organizationId = tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkOrganization')) ? tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkOrganization')) : null
+        tag.projectId = tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkProject')) ? tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkProject')) : null
+        let language = tag.commonUtils.getItemFromLocalStorage('language')
+        tag.on('mount', function() {
+            tag.obs.trigger('pm-loader-show');
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    let fetchResponse = null
+                    fetch(requestOrganizationUrl, {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': idToken
+                        }
+                    }).then(function(response) {
+                        fetchResponse = response
+                        return response
+                    }).then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            tag.obs.trigger('pm-loader-hide');
+                            return response.json();
+                        }).then(function(organizations) {
+                            tag.organizations = organizations.filter(trimViewerOrganization)
+                            tag.update();
+                            let isExistsOrganizaion = tag.organizations.find(function(organization) {
+                                return organization.organization.id === tag.organizationId
+                            })
+                            if(tag.organizationId && isExistsOrganizaion){
+                                changeOrganization(tag.organizationId)
+                            }
+                        }).catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                            })
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            });
+        })
+
+        function changeOrganizationHandler(event){
+            const organizationId = event.target.value
+            tag.projectId = null
+            changeOrganization(organizationId)
+        }
+
+        function changeOrganization(organizationId) {
+            tag.submitEnable = false
+            tag.organizationId = organizationId
+            if (organizationId) {
+                tag.obs.trigger('pm-loader-show');
+                tag.cognitoUser.getSession(function(err, session) {
+                    if (err) {
+                        tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    } else {
+                        var idToken = session.getIdToken().getJwtToken();
+                        const requestProjectUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + organizationId + '/projects';
+                        let fetchResponse = null
+                        fetch(requestProjectUrl, {
+                            method: 'GET',
+                            headers: {
+                                'Authorization': idToken
+                            }
+                        }).then(function(response) {
+                            fetchResponse = response
+                            return response
+                        })
+                            .then(tag.commonUtils.checkStatus)
+                            .then(function(response) {
+                                tag.obs.trigger('pm-loader-hide');
+                                return response.json();
+                            }).then(function(projects) {
+                                tag.projects = projects;
+                                let isExistsProject = tag.projects.find(function(project) {
+                                    return tag.projectId === project.id
+                                })
+                                tag.projectEnable = !!tag.projects.length
+                                tag.update();
+                                if(tag.projectId && isExistsProject){
+                                    changeProject(tag.projectId)
+                                }
+                            }).catch(function(error) {
+                                tag.obs.trigger('pm-loader-hide');
+                                error.then(function(value) {
+                                    value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                                })
+                                tag.obs.trigger('error-modal-open', error);
+                                tag.obs.one('error-modal-close', function(value) {
+                                    tag.commonUtils.backHome(value)
+                                })
+                            })
+                    }
+                });
+            } else {
+                tag.projects = []
+                tag.projectEnable = !!tag.projects.length
+                tag.update();
+            }
+        }
+
+        function changeProjectHandler(event){
+            const projectId = event.target.value
+            tag.projectId = projectId
+            changeProject(projectId)
+        }
+
+        function changeProject(projectId) {
+            tag.submitEnable = false
+
+            if (projectId) {
+                const requestAwsCoopsUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + tag.organizationId + '/projects/' + projectId + '/awscoops'
+                tag.obs.trigger('pm-loader-show');
+                tag.cognitoUser.getSession(function(err, session) {
+                    if (err) {
+                        tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    } else {
+                        var idToken = session.getIdToken().getJwtToken();
+                        fetch(requestAwsCoopsUrl, {
+                            method: 'GET',
+                            headers: {
+                                'Authorization': idToken
+                            }
+                        })
+                            .then(function(response) {
+                                fetchResponse = response
+                                return response
+                            })
+                            .then(tag.commonUtils.checkStatus)
+                            .then(function(response) {
+                                tag.obs.trigger('pm-loader-hide');
+                                return response.json();
+                            }).then(function(json) {
+                                json.forEach(function(awsCoop) {
+                                    if (awsCoop.effective === 1 && !tag.submitEnable) {
+                                        tag.submitEnable = true
+                                    }
+                                })
+                                tag.update()
+                                tag.commonUtils.setItemToLocalStorage(tag.commonUtils.getLocalStorageKey('checkOrganization'), tag.organizationId)
+                                tag.commonUtils.setItemToLocalStorage(tag.commonUtils.getLocalStorageKey('checkProject'), tag.projectId)
+                            }).catch(function(error) {
+                                tag.obs.trigger('pm-loader-hide');
+                                error.then(function(value) {
+                                    value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                                })
+                                tag.obs.trigger('error-modal-open', error);
+                                tag.obs.one('error-modal-close', function(value) {
+                                    tag.commonUtils.backHome(value)
+                                })
+                            })
+                    }
+                });
+            }
+            tag.update();
+        }
+
+        function trimViewerOrganization(organization) {
+            if (tag.commonUtils.isEditor(organization)) {
+                return organization
+            }
+        }
+
+        function executeSecurityCheck(event) {
+            event.preventDefault();
+            if (!tag['gtag']) {
+                loadGtag()
+            }
+            if (tag['gtag']) {
+                tag.gtag({event: 'event', eventCategory: 'check', eventAction: 'push execute'});
+            }
+            const form = tag.refs.form
+            tag.commonUtils.submitDisable(form);
+            tag.obs.trigger("pm-loader-show");
+            if (language == null) {
+                language = tag.commonUtils.getLanguageFromBrowser();
+            }
+            const requestOrganizationUrl = tag.config.APIGATEWAY_ADDRESS + '/check/securitycheck/' + tag.organizationId + '/' + tag.projectId + '/results?reportLang=' + language
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    let fetchResponse = null
+                    fetch(requestOrganizationUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': idToken
+                        }
+                    }).then(function(response) {
+                        fetchResponse = response
+                        return response
+                    })
+                        .then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            tag.obs.trigger('pm-loader-hide');
+                            const information = {
+                                'title': tag._t('CheckExecute.title_info_execute_check'),
+                                'body': tag._t('CheckExecute.body_info_execute_check')
+                            }
+                            tag.obs.trigger('information-modal-open', information)
+                            tag.obs.one('information-modal-close', function(value) {
+                                back()
+                            })
+                        }).catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                            })
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            });
+        }
+
+        function back() {
+            window.location.href = "#/check/history/";
+        }
+
+        function loadGtag(){
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            tag.gtag = gtag
+        }
+    </script>
+</check-execute-container>

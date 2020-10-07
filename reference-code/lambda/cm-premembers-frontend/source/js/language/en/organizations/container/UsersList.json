@@ -1,0 +1,11 @@
+{
+    "UsersList": {
+        "title": "Users List",
+        "info": "Multiple users can belong to the organization.",
+        "invitation_status": "Invitation status",
+        "myself": "(myself)",
+        "rejection": "Rejection",
+        "inviting": "Inviting",
+        "belongs": "Belongs"
+    }
+}

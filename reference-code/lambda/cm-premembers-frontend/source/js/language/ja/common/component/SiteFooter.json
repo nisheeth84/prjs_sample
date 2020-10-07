@@ -1,0 +1,12 @@
+{
+    "SiteFooter": {
+        "inquiry": "問い合わせ",
+        "inquiry_url": "https://insightwatch.zendesk.com/hc/ja/requests/new",
+        "user_guide": "ユーザーガイド",
+        "user_guide_url": "https://insightwatch.zendesk.com/hc/ja/categories/360000203191",
+        "privacy_policy": "プライバシーポリシー",
+        "privacy_policy_url": "https://classmethod.jp/privacy/",
+        "faq": "FAQ",
+        "faq_url": "https://insightwatch.zendesk.com/hc/ja/categories/360000203211"
+    }
+}

@@ -1,0 +1,49 @@
+<resource-user-iam>
+    <div class="example bootstrap-table">
+        <div class="fixed-table-container">
+            <div class="fixed-table-header">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="w-50 th-inner text-center check-header">{_t('ModalExclusionResource.choice')}</th>
+                            <th class="w-150 th-inner check-header">{_t('iam_user')}</th>
+                            <th class="w-50 th-inner text-center check-header">{_t('ModalExclusionResource.setting_status')}</th>
+                            <th class="td-200 th-inner check-header">{_t('ModalExclusionResource.exclusion_comment')}</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="fixed-table-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="w-50 th-inner text-center check-header">{_t('ModalExclusionResource.choice')}</th>
+                            <th class="w-150 th-inner check-header">{_t('iam_user')}</th>
+                            <th class="w-50 th-inner text-center check-header">{_t('ModalExclusionResource.setting_status')}</th>
+                            <th class="td-200 th-inner check-header">{_t('ModalExclusionResource.exclusion_comment')}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr each="{resource in opts.list_resources}">
+                            <td class="w-50">
+                                <div class="checkbox-custom checkbox-primary">
+                                    <input type="checkbox" ref="inputCheckBox" id="inputCheckBoxExclusion" name="isExclusion" autocomplete="off" />
+                                    <label for="inputCheckBoxExclusion"></label>
+                                </div>
+                            </td>
+                            <td class="w-150 break-word">
+                                {resource.resourceName}
+                            </td>
+                            <td class="w-50 text-center">
+                                <span if="{resource.isExclusion}" class="col-8 badge-setting badge-warning">{_t('ModalExclusionResource.excluded')}</span>
+                            </td>
+                            <td class="td-200">
+                                <p if="{resource.exclusionComment}" class="break-word margin-bottom-0">{resource.exclusionComment}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</resource-user-iam>

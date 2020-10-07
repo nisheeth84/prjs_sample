@@ -1,0 +1,32 @@
+@startuml{Batch_組織_タスクコントローラ.png}
+title [組織_タスクコントローラ]
+hide footbox
+
+participant CloudWatch as cloudwatch <<cloudwatch>> #yellowgreen
+participant タスクコントローラ as controller <<lambda>> #violet
+database 組織タスクキュー as queue_org_task <<sqs>> #gold
+participant タスク実行バッチ as batch_task_worker <<lambda>> #violet
+
+|||
+cloudwatch ->> controller :スケジュール実行
+activate controller
+    controller -> queue_org_task :タスクメッセージ取得
+    note right :メッセージ最大取得数を10にする
+    queue_org_task --> controller :メッセージ
+    |||
+    loop , メッセージ取得数
+        controller -> controller :メッセージボディ読み込み
+        note right :メッセージから、タスクIDとタスク種別コードを取り出す
+        |||
+        opt タスク種別コードに応じたバッチ処理（Lambda）を非同期呼び出し
+            controller ->> batch_task_worker :invoke (InvocationType='Event')
+            note right :タスクID、メッセージのメッセージIDと受信ハンドルを渡す
+            activate batch_task_worker
+            |||
+            deactivate batch_task_worker
+        end
+        |||
+    end
+deactivate controller
+
+@enduml

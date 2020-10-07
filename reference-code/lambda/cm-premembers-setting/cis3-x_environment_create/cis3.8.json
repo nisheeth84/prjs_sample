@@ -1,0 +1,12 @@
+{
+    "logGroupName": "CloudTrail/CIS3",
+    "filterName": "CIS-3-8",
+    "filterPattern": "{ ($.eventSource = s3.amazonaws.com) && (($.eventName =PutBucketAcl) || ($.eventName = PutBucketPolicy) || ($.eventName = PutBucketCors) ||($.eventName = PutBucketLifecycle) || ($.eventName = PutBucketReplication) ||($.eventName = DeleteBucketPolicy) || ($.eventName = DeleteBucketCors) || ($.eventName= DeleteBucketLifecycle) || ($.eventName = DeleteBucketReplication)) }",
+    "metricTransformations": [
+        {
+            "metricName": "CIS-3-8",
+            "metricNamespace": "CISBenchmark",
+            "metricValue": "1"
+        }
+    ]
+}

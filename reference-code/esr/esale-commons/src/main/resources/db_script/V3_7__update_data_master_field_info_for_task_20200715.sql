@@ -1,0 +1,5 @@
+UPDATE field_info SET field_type = 99 WHERE field_id IN ( 141, 189 );
+INSERT INTO "field_info_item"("item_id", "created_date", "created_user", "updated_date", "updated_user", "field_id", "is_available", "is_default", "item_order", "item_label") VALUES (4, '2020-05-20 07:23:26.15782', 1, '2020-05-20 07:23:26.15782', 1, 144, 't', 't', 1, '{"en_us": "", "ja_jp": "公開設定", "zh_cn": ""}');
+
+UPDATE "field_info" SET "relation_data" = '{"format": 2, "field_id": "170", "display_tab": 2, "field_belong": 16, "display_fields": [{"field_id": 170, "field_name": "product_trading_id"}], "display_field_id": "170"}' WHERE "field_id" = 186;
+UPDATE "field_info" SET "relation_data" = '{"format": 2, "field_id": "119", "display_tab": 2, "field_belong": 14, "display_fields": [{"field_id": 119, "field_name": "product_name"}], "display_field_id": "119"}' WHERE "field_id" = 140;

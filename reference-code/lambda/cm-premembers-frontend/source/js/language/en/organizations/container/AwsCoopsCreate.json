@@ -1,0 +1,16 @@
+{
+    "AwsCoopsCreate": {
+        "title": "Create AWS account linkage",
+        "info": "AWS Management Console screen",
+        "guideline_awscoops_create_step1": "Click \"Create IAM Role\" and log in to your AWS account. The CloudFormation screen appears.",
+        "create_iam_role": "Create IAM Role",
+        "guideline_awscoops_create_step2": "Automatically entered in CloudFormation \"ExternalId\" When \"insightwatchAccountId\" Are in agreement. Please confirm that.",
+        "guideline_awscoops_create_step3": "Check CloudFormation with IAM Resource Creation Approval checked. It takes about several minutes.",
+        "guideline_awscoops_create_step4": "Make sure the status of CloudFormation is \"CREATE_COMPLETE\" . (If it is not CREATE_COMPLETE, it will be reloaded.) Please check and input AccountID, IAMRoleName from output.",
+        "guideline_awscoops_create_step5": "Enter account name and description.",
+        "iw_awscoops_create_step1": "./assets/images/CFn_en_1.png",
+        "iw_awscoops_create_step2": "./assets/images/CFn_en_2.png",
+        "iw_awscoops_create_step3": "./assets/images/CFn_en_3.png",
+        "iw_awscoops_create_step4": "./assets/images/CFn_en_4.png"
+    }
+}

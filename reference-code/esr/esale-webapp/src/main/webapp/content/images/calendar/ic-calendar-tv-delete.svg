@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14.002" height="13.1" viewBox="0 0 14.002 13.1">
+  <g id="アイコン_種別_タスク_期限切れ" transform="translate(7.001 6.55)">
+    <g id="Group_28018" data-name="Group 28018" transform="translate(-7.001 -6.55)">
+      <g id="Group_28015" data-name="Group 28015" transform="translate(0 -0.9)">
+        <g id="Group_28007" data-name="Group 28007">
+          <path id="Path_31181" data-name="Path 31181" d="M2.2,12.6A1.7,1.7,0,0,1,.5,10.9V3.1A1.7,1.7,0,0,1,2.2,1.4h9.4a1.9,1.9,0,0,1,1.9,1.9v7.5a1.9,1.9,0,0,1-1.9,1.9Z" fill="#fff"/>
+          <path id="Path_31182" data-name="Path 31182" d="M11.6,1.9A1.4,1.4,0,0,1,13,3.3v7.5a1.4,1.4,0,0,1-1.4,1.4H2.2A1.2,1.2,0,0,1,1,10.9V3.1A1.2,1.2,0,0,1,2.2,1.9h9.4m0-1H2.2A2.2,2.2,0,0,0,0,3.1V11a2.2,2.2,0,0,0,2.2,2.2h9.4A2.4,2.4,0,0,0,14,10.7V3.3A2.4,2.4,0,0,0,11.6.9Z" fill="#fff"/>
+        </g>
+        <g id="Group_28014" data-name="Group 28014">
+          <path id="Path_31183" data-name="Path 31183" d="M13,8.9l-.9,1.8H1.8v1.5h9.8A1.4,1.4,0,0,0,13,10.8h0Z" fill="#adc7e7"/>
+          <path id="Path_31184" data-name="Path 31184" d="M11,11.4H2V1.9h9a2,2,0,0,1,2,2V9.3a2,2,0,0,1-2,2.1Z" fill="#ededed"/>
+          <g id="Group_28013" data-name="Group 28013">
+            <g id="Group_28012" data-name="Group 28012">
+              <g id="Group_28008" data-name="Group 28008">
+                <path id="Path_31185" data-name="Path 31185" d="M8.2,4.7h3a.35.35,0,1,0,0-.7h-3a.35.35,0,0,0,0,.7Z" fill="#326dab"/>
+                <path id="Path_31186" data-name="Path 31186" d="M11.2,4h-3a.35.35,0,0,0,0,.7h3a.35.35,0,1,0,0-.7Z" fill="#255b9d"/>
+              </g>
+              <g id="Group_28009" data-name="Group 28009">
+                <path id="Path_31187" data-name="Path 31187" d="M11.2,7.4h-3a.35.35,0,1,0,0,.7h3a.35.35,0,0,0,0-.7Z" fill="#326dab"/>
+                <path id="Path_31188" data-name="Path 31188" d="M11.2,7.4h-3a.35.35,0,1,0,0,.7h3a.35.35,0,0,0,0-.7Z" fill="#255b9d"/>
+              </g>
+              <g id="Group_28010" data-name="Group 28010">
+                <path id="Path_31189" data-name="Path 31189" d="M11.2,5.7h-3a.35.35,0,0,0,0,.7h3a.35.35,0,0,0,0-.7Z" fill="#326dab"/>
+                <path id="Path_31190" data-name="Path 31190" d="M11.2,5.7h-3a.35.35,0,0,0,0,.7h3a.35.35,0,0,0,0-.7Z" fill="#255b9d"/>
+              </g>
+              <g id="Group_28011" data-name="Group 28011">
+                <path id="Path_31191" data-name="Path 31191" d="M11.2,9.1h-3a.35.35,0,1,0,0,.7h3a.35.35,0,0,0,0-.7Z" fill="#326dab"/>
+                <path id="Path_31192" data-name="Path 31192" d="M11.2,9.1h-3a.35.35,0,1,0,0,.7h3a.35.35,0,0,0,0-.7Z" fill="#255b9d"/>
+              </g>
+            </g>
+            <path id="Path_31193" data-name="Path 31193" d="M5,4.6l.6.6L6.8,4" fill="none" stroke="#cc4186" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.75"/>
+            <path id="Path_31194" data-name="Path 31194" d="M5,6.7l.6.6L6.8,6.1" fill="none" stroke="#cc4186" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.75"/>
+            <path id="Path_31195" data-name="Path 31195" d="M5,8.7l.6.6L6.8,8.1" fill="none" stroke="#cc4186" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.75"/>
+          </g>
+          <path id="Path_31196" data-name="Path 31196" d="M2.4,12.1H2a1,1,0,0,1-1-1V2.9a1,1,0,0,1,1-1h.4Z" fill="#47a0b2"/>
+          <path id="Path_31197" data-name="Path 31197" d="M2.7,9.4H1V4.7H2.7a1,1,0,0,1,1,1V8.4A1,1,0,0,1,2.7,9.4Z" fill="#47a0b2"/>
+        </g>
+      </g>
+      <g id="Group_28017" data-name="Group 28017" transform="translate(0 -0.9)">
+        <g id="Group_28016" data-name="Group 28016">
+          <circle id="Ellipse_108" data-name="Ellipse 108" cx="4.5" cy="4.5" r="4.5" transform="translate(4.5 4.5)" fill="#f92525"/>
+          <path id="Path_31198" data-name="Path 31198" d="M9,5A4,4,0,1,1,5,9,4,4,0,0,1,9,5M9,4a5,5,0,1,0,5,5A5,5,0,0,0,9,4Z" fill="#fff"/>
+        </g>
+        <line id="Line_930" data-name="Line 930" x2="4" y2="4" transform="translate(7 7)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        <line id="Line_931" data-name="Line 931" y1="4" x2="4" transform="translate(7 7)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      </g>
+    </g>
+  </g>
+</svg>

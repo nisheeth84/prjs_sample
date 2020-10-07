@@ -1,0 +1,30 @@
+@startuml{API_セキュリティチェック項目設定_セキュリティチェック項目除外情報登録.png}
+title [セキュリティチェック項目設定API_セキュリティチェック項目除外情報登録]
+hide footbox
+
+boundary 画面 as view
+participant セキュリティチェック項目設定API as api_exclusion #cyan
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database チェック項目除外設定 as table_exclusion_items <<dynamodb>> #royalblue
+
+view -> api_exclusion :POST /check/securitycheck/{organization_id}/{project_id}/{coop_id}/exclusionitems/{check_item_code}
+activate api_exclusion
+    note right
+        bodyにチェック項目除外コメント
+    end note
+    api_exclusion -> api_exclusion :メールアドレス取得
+    |||
+    ref over api_exclusion, table_affiliation :アクセス権限チェック
+    |||
+    api_exclusion -> api_exclusion :バリデーションチェック
+    api_exclusion -> api_exclusion :新規チェック項目除外設定作成
+    activate api_exclusion
+        api_exclusion -> table_exclusion_items :チェック項目除外設定レコード作成
+        table_exclusion_items --> api_exclusion
+        api_exclusion --> api_exclusion
+    deactivate api_exclusion
+    |||
+    api_exclusion -> api_exclusion :レスポンス作成
+    api_exclusion --> view :201:作成したチェック項目除外情報
+deactivate api_exclusion
+@enduml

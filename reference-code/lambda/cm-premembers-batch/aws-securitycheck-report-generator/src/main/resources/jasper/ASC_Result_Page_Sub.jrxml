@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ASC_Result_Page_Sub" pageWidth="475" pageHeight="720" columnWidth="475" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="87b268fb-6a4b-466a-bfd5-65961e60f535">
+	<property name="ireport.zoom" value="1.6105100000000014"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="net.sf.jasperreports.awt.ignore.missing.font" value="true"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\Projects\\prjo_AWSAccount\\30_implementation\\31_requirement\\VN\\Latest\\Luvina Design Require\\templatePdf\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="awsAccount" class="java.lang.String"/>
+	<field name="executeDateTime" class="java.lang.String"/>
+	<field name="organizationName" class="java.lang.String"/>
+	<field name="projectName" class="java.lang.String"/>
+	<field name="lsSecurityCheckItemDetailsDto" class="java.util.List"/>
+	<field name="sectionTitle" class="java.lang.String"/>
+	<field name="isAssessment" class="java.lang.Boolean"/>
+	<field name="isExclusion" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="27">
+			<textField>
+				<reportElement x="0" y="0" width="475" height="27" uuid="678cef9f-7c1d-4c2f-8819-abecfbbd5b0d"/>
+				<textElement>
+					<font fontName="IPAexGothic" size="16" isBold="true" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{overview.asc.title}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="693" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="5" y="144" width="465" height="50" backcolor="#FFCCCC" uuid="ce074e13-f83c-4fa5-bf7a-d22142a15be1"/>
+				<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+			</frame>
+			<textField>
+				<reportElement mode="Transparent" x="5" y="147" width="465" height="47" forecolor="#000000" backcolor="#FFCCCC" uuid="0d5b1da4-a9de-4e86-83d1-6173d2663f1e"/>
+				<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font fontName="IPAexGothic" size="10" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{common.members}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="55" width="217" height="20" uuid="b24b5c51-a2ca-4cf0-b817-50c920ef6f49"/>
+				<textElement>
+					<font fontName="IPAexGothic" size="11" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{projectName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="74" width="88" height="20" uuid="52a17147-913a-4537-aed3-dcaf03cfc3d7"/>
+				<textElement>
+					<font fontName="IPAexGothic" size="11" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{result.aws_account_id}]]></textFieldExpression>
+			</textField>
+			<break>
+				<reportElement x="0" y="692" width="100" height="1" uuid="427f05fc-096d-4d68-9e20-a6d403d0f90c"/>
+			</break>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="36" width="217" height="20" uuid="6e2f3de6-2719-42eb-8589-e39c929c90d5"/>
+				<textElement>
+					<font fontName="IPAexGothic" size="11" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{organizationName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="116" width="475" height="25" uuid="8d1ba109-31e8-4791-8b7e-4438b704b9c3"/>
+				<textElement>
+					<font fontName="IPAexGothic" size="14" isBold="true" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[str($F{sectionTitle})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="17" width="217" height="20" uuid="0b9f131a-e462-412d-a2b0-2b1564c80ebc"/>
+				<textElement>
+					<font fontName="IPAexGothic" size="11" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{executeDateTime}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="88" y="74" width="387" height="20" uuid="790c13bb-39da-4c3f-862c-6a4fab38077f"/>
+				<textElement>
+					<font fontName="IPAexGothic" size="11" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{awsAccount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true" hyperlinkType="Reference">
+				<reportElement x="10" y="178" width="244" height="12" uuid="cd9add78-e490-4ec6-92dc-553ded4c0d43"/>
+				<textElement>
+					<font fontName="IPAexGothic" size="9" isUnderline="false" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{common.members.link}]]></textFieldExpression>
+				<hyperlinkReferenceExpression><![CDATA["https://classmethod.jp/services/members/"]]></hyperlinkReferenceExpression>
+			</textField>
+			<subreport>
+				<reportElement x="5" y="205" width="465" height="487" uuid="88bdbb23-cd02-4ce4-9be3-76c4b5e79650">
+					<printWhenExpression><![CDATA[!$F{isAssessment} && !$F{isExclusion}]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="REPORT_RESOURCE_BUNDLE">
+					<subreportParameterExpression><![CDATA[$P{REPORT_RESOURCE_BUNDLE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{lsSecurityCheckItemDetailsDto})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["ASC_Result_Page_Details.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="5" y="205" width="465" height="487" uuid="57d0a984-2311-4b88-9d91-b6ceea1e4cbf">
+					<printWhenExpression><![CDATA[$F{isAssessment}]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="REPORT_RESOURCE_BUNDLE">
+					<subreportParameterExpression><![CDATA[$P{REPORT_RESOURCE_BUNDLE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{lsSecurityCheckItemDetailsDto})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["Assessment_Page_Details.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="5" y="205" width="465" height="487" uuid="8c22d568-07a9-4963-8dc8-1077210ea120">
+					<printWhenExpression><![CDATA[$F{isExclusion}]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="REPORT_RESOURCE_BUNDLE">
+					<subreportParameterExpression><![CDATA[$P{REPORT_RESOURCE_BUNDLE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{lsSecurityCheckItemDetailsDto})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["Exclusion_Page_Details.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

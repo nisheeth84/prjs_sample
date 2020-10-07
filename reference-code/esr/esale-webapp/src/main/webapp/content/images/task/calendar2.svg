@@ -1,0 +1,915 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="912" height="752" viewBox="0 0 912 752">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4901" data-name="Rectangle 4901" width="912" height="752" transform="translate(445 112)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-7">
+      <rect id="Rectangle_4791" data-name="Rectangle 4791" width="14" height="14" transform="translate(493 189)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-10">
+      <rect id="Rectangle_4794" data-name="Rectangle 4794" width="14" height="14" transform="translate(493 371)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-13">
+      <rect id="Rectangle_4797" data-name="Rectangle 4797" width="14" height="14" transform="translate(753 335)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-16">
+      <rect id="Rectangle_4800" data-name="Rectangle 4800" width="14" height="14" transform="translate(753 481)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-19">
+      <rect id="Rectangle_4803" data-name="Rectangle 4803" width="14" height="14" transform="translate(753 591)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-22">
+      <rect id="Rectangle_4806" data-name="Rectangle 4806" width="13.999" height="14" transform="translate(883 335)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-25">
+      <rect id="Rectangle_4809" data-name="Rectangle 4809" width="13.999" height="14" transform="translate(883 463)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-28">
+      <rect id="Rectangle_4812" data-name="Rectangle 4812" width="13.999" height="14" transform="translate(883 573)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-31">
+      <rect id="Rectangle_4815" data-name="Rectangle 4815" width="13.999" height="13.999" transform="translate(883 701.001)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-34">
+      <rect id="Rectangle_4818" data-name="Rectangle 4818" width="13.999" height="14" transform="translate(883 207)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-37">
+      <rect id="Rectangle_4821" data-name="Rectangle 4821" width="14" height="14" transform="translate(493 207)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-40">
+      <rect id="Rectangle_4824" data-name="Rectangle 4824" width="13.999" height="14" transform="translate(623 207)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-43">
+      <rect id="Rectangle_4827" data-name="Rectangle 4827" width="14" height="14" transform="translate(493 225)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-46">
+      <rect id="Rectangle_4830" data-name="Rectangle 4830" width="14" height="14" transform="translate(493 243)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-49">
+      <rect id="Rectangle_4833" data-name="Rectangle 4833" width="14" height="14" transform="translate(753 206.78)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-52">
+      <rect id="Rectangle_4836" data-name="Rectangle 4836" width="14" height="14" transform="translate(753 188.78)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-55">
+      <rect id="Rectangle_4842" data-name="Rectangle 4842" width="13.999" height="14" transform="translate(623 188.78)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-57">
+      <rect id="Rectangle_4844" data-name="Rectangle 4844" width="14" height="14" transform="translate(842 189)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-59">
+      <rect id="Rectangle_4849" data-name="Rectangle 4849" width="13.999" height="14" transform="translate(451 317)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-61">
+      <rect id="Rectangle_4852" data-name="Rectangle 4852" width="13.999" height="14" transform="translate(451 335)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-64">
+      <rect id="Rectangle_4856" data-name="Rectangle 4856" width="13.999" height="14" transform="translate(451 353)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-66">
+      <rect id="Rectangle_4858" data-name="Rectangle 4858" width="13.999" height="14" transform="translate(711 317)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-68">
+      <rect id="Rectangle_4864" data-name="Rectangle 4864" width="14" height="14" transform="translate(581 445)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-70">
+      <rect id="Rectangle_4867" data-name="Rectangle 4867" width="14" height="14" transform="translate(581 463)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-72">
+      <rect id="Rectangle_4869" data-name="Rectangle 4869" width="13.999" height="14" transform="translate(451 573)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-74">
+      <rect id="Rectangle_4871" data-name="Rectangle 4871" width="14" height="14" transform="translate(581 573)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-76">
+      <rect id="Rectangle_4873" data-name="Rectangle 4873" width="13.999" height="14" transform="translate(711 573)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-78">
+      <rect id="Rectangle_4878" data-name="Rectangle 4878" width="14" height="14" transform="translate(972 573)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-80">
+      <rect id="Rectangle_4882" data-name="Rectangle 4882" width="14" height="13.999" transform="translate(581 701.001)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-81">
+      <rect id="Rectangle_4881" data-name="Rectangle 4881" width="11.521" height="3" transform="translate(582 709.986)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-85">
+      <rect id="Rectangle_4888" data-name="Rectangle 4888" width="14" height="14" transform="translate(1014 206.78)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-88">
+      <rect id="Rectangle_4891" data-name="Rectangle 4891" width="14" height="14" transform="translate(493 463)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-90">
+      <rect id="Rectangle_4896" data-name="Rectangle 4896" width="14" height="14" transform="translate(492 445)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-92">
+      <rect id="Rectangle_4898" data-name="Rectangle 4898" width="14" height="14" transform="translate(1013 445)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="コンテンツ_カレンダー" data-name="コンテンツ・カレンダー" transform="translate(-445 -112)">
+    <g id="Group_6760" data-name="Group 6760">
+      <g id="Group_6759" data-name="Group 6759">
+        <g id="Group_6758" data-name="Group 6758" clip-path="url(#clip-path)">
+          <g id="Group_6757" data-name="Group 6757">
+            <g id="Group_6756" data-name="Group 6756" clip-path="url(#clip-path)">
+              <g id="Group_6574" data-name="Group 6574">
+                <g id="Group_6573" data-name="Group 6573" clip-path="url(#clip-path)">
+                  <path id="Path_6928" data-name="Path 6928" d="M770.726,312h0a12,12,0,1,1,12-12,12,12,0,0,1-12,12" fill="#0f6eb5"/>
+                </g>
+              </g>
+              <text id="月" transform="translate(504.143 136.561)" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">月</tspan></text>
+              <text id="火" transform="translate(634.427 136.561)" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">火</tspan></text>
+              <text id="水" transform="translate(764.723 136.561)" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">水</tspan></text>
+              <text id="木" transform="translate(894.994 136.561)" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">木</tspan></text>
+              <text id="金" transform="translate(1025.207 136.561)" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">金</tspan></text>
+              <text id="土" transform="translate(1155.563 136.561)" fill="#c1272d" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">土</tspan></text>
+              <text id="日" transform="translate(1285.847 136.561)" fill="#c1272d" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">日</tspan></text>
+              <g id="Group_6576" data-name="Group 6576">
+                <g id="Group_6575" data-name="Group 6575" clip-path="url(#clip-path)">
+                  <line id="Line_425" data-name="Line 425" y2="680" transform="translate(1226.714 112)" fill="none" stroke="#e5e5e5" stroke-miterlimit="10" stroke-width="1"/>
+                  <line id="Line_426" data-name="Line 426" y2="680" transform="translate(1096.429 112)" fill="none" stroke="#e5e5e5" stroke-miterlimit="10" stroke-width="1"/>
+                  <line id="Line_427" data-name="Line 427" x1="910" transform="translate(445 152)" fill="none" stroke="#e5e5e5" stroke-miterlimit="10" stroke-width="0.861"/>
+                  <line id="Line_428" data-name="Line 428" x1="910" transform="translate(445 280)" fill="none" stroke="#e5e5e5" stroke-miterlimit="10" stroke-width="0.863"/>
+                  <line id="Line_429" data-name="Line 429" x1="910" transform="translate(445 408)" fill="none" stroke="#e5e5e5" stroke-miterlimit="10" stroke-width="0.863"/>
+                  <line id="Line_430" data-name="Line 430" x1="910" transform="translate(445 536)" fill="none" stroke="#e5e5e5" stroke-miterlimit="10" stroke-width="0.863"/>
+                  <line id="Line_431" data-name="Line 431" x1="910" transform="translate(445 664)" fill="none" stroke="#e5e5e5" stroke-miterlimit="10" stroke-width="0.863"/>
+                  <line id="Line_432" data-name="Line 432" y2="680" transform="translate(966.143 112)" fill="none" stroke="#e5e5e5" stroke-miterlimit="10" stroke-width="1"/>
+                  <line id="Line_433" data-name="Line 433" y2="680" transform="translate(835.857 112)" fill="none" stroke="#e5e5e5" stroke-miterlimit="10" stroke-width="1"/>
+                  <line id="Line_434" data-name="Line 434" y2="680" transform="translate(705.571 112)" fill="none" stroke="#e5e5e5" stroke-miterlimit="10" stroke-width="1"/>
+                  <line id="Line_435" data-name="Line 435" y2="680" transform="translate(575.286 112)" fill="none" stroke="#e5e5e5" stroke-miterlimit="10" stroke-width="1"/>
+                </g>
+              </g>
+              <text id="_27" data-name="27" transform="translate(503.074 176.56)" fill="#999" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">27</tspan></text>
+              <text id="友引" transform="translate(547.285 175.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">友引</tspan></text>
+              <text id="_28" data-name="28" transform="translate(633.36 176.56)" fill="#999" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">28</tspan></text>
+              <text id="先負" transform="translate(677.571 175.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">先負</tspan></text>
+              <text id="_29" data-name="29" transform="translate(763.646 176.56)" fill="#999" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">29</tspan></text>
+              <text id="仏滅" transform="translate(807.856 175.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">仏滅</tspan></text>
+              <text id="_30" data-name="30" transform="translate(893.932 176.56)" fill="#999" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">30</tspan></text>
+              <text id="大安" transform="translate(938.143 175.04)" fill="#c1272d" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">大安</tspan></text>
+              <text id="_31" data-name="31" transform="translate(1024.218 176.56)" fill="#999" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">31</tspan></text>
+              <text id="赤口" transform="translate(1068.429 175.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">赤口</tspan></text>
+              <text id="_1" data-name="1" transform="translate(1158.037 176.56)" fill="#c1272d" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">1</tspan></text>
+              <text id="先勝" transform="translate(1198.715 175.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">先勝</tspan></text>
+              <text id="_2" data-name="2" transform="translate(1288.323 176.56)" fill="#c1272d" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">2</tspan></text>
+              <text id="友引-2" data-name="友引" transform="translate(1329 175.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">友引</tspan></text>
+              <text id="_3" data-name="3" transform="translate(506.609 304.56)" fill="#c1272d" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">3</tspan></text>
+              <text id="大安-2" data-name="大安" transform="translate(547.285 303.04)" fill="#c1272d" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">大安</tspan></text>
+              <text id="祝日" transform="translate(456.998 303.04)" fill="#c1272d" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">祝日</tspan></text>
+              <text id="_4" data-name="4" transform="translate(636.895 304.56)" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">4</tspan></text>
+              <text id="赤口-2" data-name="赤口" transform="translate(677.571 303.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">赤口</tspan></text>
+              <text id="_5" data-name="5" transform="translate(767.181 304.56)" fill="#fff" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">5</tspan></text>
+              <text id="先勝-2" data-name="先勝" transform="translate(807.856 303.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">先勝</tspan></text>
+              <text id="_6" data-name="6" transform="translate(897.466 304.56)" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">6</tspan></text>
+              <text id="友引-3" data-name="友引" transform="translate(938.143 303.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">友引</tspan></text>
+              <text id="_7" data-name="7" transform="translate(1027.752 304.56)" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">7</tspan></text>
+              <text id="先負-2" data-name="先負" transform="translate(1068.429 303.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">先負</tspan></text>
+              <text id="_8" data-name="8" transform="translate(1158.037 304.56)" fill="#c1272d" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">8</tspan></text>
+              <text id="仏滅-2" data-name="仏滅" transform="translate(1198.715 303.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">仏滅</tspan></text>
+              <text id="_9" data-name="9" transform="translate(1288.323 304.56)" fill="#c1272d" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">9</tspan></text>
+              <text id="大安-3" data-name="大安" transform="translate(1329 303.04)" fill="#c1272d" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">大安</tspan></text>
+              <text id="_10" data-name="10" transform="translate(503.075 432.56)" fill="#c1272d" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">10</tspan></text>
+              <text id="赤口-3" data-name="赤口" transform="translate(547.285 431.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">赤口</tspan></text>
+              <text id="祝日-2" data-name="祝日" transform="translate(456.998 431.04)" fill="#c1272d" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">祝日</tspan></text>
+              <text id="_11" data-name="11" transform="translate(633.36 432.56)" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">11</tspan></text>
+              <text id="先勝-3" data-name="先勝" transform="translate(677.571 431.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">先勝</tspan></text>
+              <text id="_12" data-name="12" transform="translate(763.646 432.56)" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">12</tspan></text>
+              <text id="友引-4" data-name="友引" transform="translate(807.856 431.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">友引</tspan></text>
+              <text id="_13" data-name="13" transform="translate(893.932 432.56)" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">13</tspan></text>
+              <text id="先負-3" data-name="先負" transform="translate(938.143 431.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">先負</tspan></text>
+              <text id="_14" data-name="14" transform="translate(1024.218 432.56)" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">14</tspan></text>
+              <text id="仏滅-3" data-name="仏滅" transform="translate(1068.429 431.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">仏滅</tspan></text>
+              <text id="_15" data-name="15" transform="translate(1154.504 432.56)" fill="#c1272d" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">15</tspan></text>
+              <text id="大安-4" data-name="大安" transform="translate(1198.715 431.04)" fill="#c1272d" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">大安</tspan></text>
+              <text id="_16" data-name="16" transform="translate(1284.789 432.56)" fill="#c1272d" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">16</tspan></text>
+              <text id="赤口-4" data-name="赤口" transform="translate(1329 431.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">赤口</tspan></text>
+              <text id="_17" data-name="17" transform="translate(503.075 560.56)" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">17</tspan></text>
+              <text id="先勝-4" data-name="先勝" transform="translate(547.285 559.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">先勝</tspan></text>
+              <text id="_18" data-name="18" transform="translate(633.36 560.56)" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">18</tspan></text>
+              <text id="友引-5" data-name="友引" transform="translate(677.571 559.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">友引</tspan></text>
+              <text id="_19" data-name="19" transform="translate(763.646 560.56)" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">19</tspan></text>
+              <text id="先負-4" data-name="先負" transform="translate(807.856 559.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">先負</tspan></text>
+              <text id="_20" data-name="20" transform="translate(893.932 560.56)" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">20</tspan></text>
+              <text id="仏滅-4" data-name="仏滅" transform="translate(938.143 559.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">仏滅</tspan></text>
+              <text id="_21" data-name="21" transform="translate(1024.218 560.56)" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">21</tspan></text>
+              <text id="大安-5" data-name="大安" transform="translate(1068.429 559.04)" fill="#c1272d" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">大安</tspan></text>
+              <text id="_22" data-name="22" transform="translate(1154.504 560.56)" fill="#c1272d" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">22</tspan></text>
+              <text id="赤口-5" data-name="赤口" transform="translate(1198.715 559.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">赤口</tspan></text>
+              <text id="_23" data-name="23" transform="translate(1284.789 560.56)" fill="#c1272d" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">23</tspan></text>
+              <text id="先勝-5" data-name="先勝" transform="translate(1329 559.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">先勝</tspan></text>
+              <text id="_24" data-name="24" transform="translate(503.075 688.56)" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">24</tspan></text>
+              <text id="友引-6" data-name="友引" transform="translate(547.285 687.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">友引</tspan></text>
+              <text id="_25" data-name="25" transform="translate(633.36 688.56)" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">25</tspan></text>
+              <text id="先負-5" data-name="先負" transform="translate(677.571 687.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">先負</tspan></text>
+              <text id="_26" data-name="26" transform="translate(763.646 688.56)" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">26</tspan></text>
+              <text id="仏滅-5" data-name="仏滅" transform="translate(807.856 687.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">仏滅</tspan></text>
+              <text id="_27-2" data-name="27" transform="translate(893.932 688.56)" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">27</tspan></text>
+              <text id="大安-6" data-name="大安" transform="translate(938.143 687.04)" fill="#c1272d" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">大安</tspan></text>
+              <text id="_28-2" data-name="28" transform="translate(1024.218 688.56)" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">28</tspan></text>
+              <text id="赤口-6" data-name="赤口" transform="translate(1068.429 687.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">赤口</tspan></text>
+              <text id="_29-2" data-name="29" transform="translate(1154.504 688.56)" fill="#c1272d" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">29</tspan></text>
+              <text id="先勝-6" data-name="先勝" transform="translate(1198.715 687.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">先勝</tspan></text>
+              <text id="_30-2" data-name="30" transform="translate(1284.789 688.56)" fill="#c1272d" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">30</tspan></text>
+              <text id="友引-7" data-name="友引" transform="translate(1329 687.04)" fill="#999" font-size="8" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">友引</tspan></text>
+              <text id="他2件" transform="translate(453 272.56)" fill="#333" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0" letter-spacing="0.25em">他2</tspan><tspan y="0">件</tspan></text>
+              <g id="Group_6578" data-name="Group 6578">
+                <g id="Group_6577" data-name="Group 6577" clip-path="url(#clip-path)">
+                  <path id="Path_6929" data-name="Path 6929" d="M1356,791H446V113h910Zm1-679H445V792h912Z" fill="#e5e5e5"/>
+                  <path id="Path_6930" data-name="Path 6930" d="M570,204H451a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H570a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#fff"/>
+                </g>
+              </g>
+              <text id="MS相談会" transform="translate(511 200.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">M</tspan><tspan y="0" letter-spacing="0.25em">S</tspan><tspan y="0">相談会</tspan></text>
+              <text id="_12:00" data-name="12:00" transform="translate(460 200.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">12:00</tspan></text>
+              <g id="Group_6580" data-name="Group 6580">
+                <g id="Group_6579" data-name="Group 6579" clip-path="url(#clip-path)">
+                  <path id="Path_6931" data-name="Path 6931" d="M459,196a4,4,0,1,1-4-4,4,4,0,0,1,4,4" fill="#afe6cb"/>
+                </g>
+              </g>
+              <g id="Group_6582" data-name="Group 6582">
+                <g id="Group_6581" data-name="Group 6581" clip-path="url(#clip-path-7)">
+                  <path id="Path_6932" data-name="Path 6932" d="M499.248,192.475a1.363,1.363,0,1,1,1.362-1.363,1.364,1.364,0,0,1-1.362,1.363" fill="#f92525"/>
+                  <path id="Path_6933" data-name="Path 6933" d="M499.248,190a1.113,1.113,0,1,1-1.113,1.112A1.112,1.112,0,0,1,499.248,190m0-.5a1.613,1.613,0,1,0,1.612,1.612,1.614,1.614,0,0,0-1.612-1.612" fill="#fff"/>
+                  <path id="Path_6934" data-name="Path 6934" d="M502.726,195.914a.452.452,0,1,0,.833-.349,15.752,15.752,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.67,2.67,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.524.524,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.6.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                  <path id="Path_6935" data-name="Path 6935" d="M502.726,195.914a.452.452,0,1,0,.833-.349,15.752,15.752,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.67,2.67,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.524.524,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.6.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                  <path id="Path_6936" data-name="Path 6936" d="M502.726,195.914a.452.452,0,1,0,.833-.349,15.752,15.752,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.67,2.67,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.524.524,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.6.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                </g>
+              </g>
+              <g id="Group_6584" data-name="Group 6584">
+                <g id="Group_6583" data-name="Group 6583" clip-path="url(#clip-path)">
+                  <path id="Path_6937" data-name="Path 6937" d="M570,386H451a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H570a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#fff"/>
+                </g>
+              </g>
+              <text id="MS相談会-2" data-name="MS相談会" transform="translate(511 382.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">M</tspan><tspan y="0" letter-spacing="0.25em">S</tspan><tspan y="0">相談会</tspan></text>
+              <text id="_12:00-2" data-name="12:00" transform="translate(460 382.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">12:00</tspan></text>
+              <g id="Group_6586" data-name="Group 6586">
+                <g id="Group_6585" data-name="Group 6585" clip-path="url(#clip-path)">
+                  <path id="Path_6938" data-name="Path 6938" d="M459,378a4,4,0,1,1-4-4,4,4,0,0,1,4,4" fill="#d6e3f3"/>
+                </g>
+              </g>
+              <g id="Group_6588" data-name="Group 6588">
+                <g id="Group_6587" data-name="Group 6587" clip-path="url(#clip-path-10)">
+                  <path id="Path_6939" data-name="Path 6939" d="M499.248,374.475a1.363,1.363,0,1,1,1.362-1.363,1.364,1.364,0,0,1-1.362,1.363" fill="#f92525"/>
+                  <path id="Path_6940" data-name="Path 6940" d="M499.248,372a1.113,1.113,0,1,1-1.113,1.112A1.112,1.112,0,0,1,499.248,372m0-.5a1.613,1.613,0,1,0,1.612,1.612,1.614,1.614,0,0,0-1.612-1.612" fill="#fff"/>
+                  <path id="Path_6941" data-name="Path 6941" d="M502.726,377.914a.452.452,0,1,0,.833-.349,15.755,15.755,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.67,2.67,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.524.524,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.6.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                  <path id="Path_6942" data-name="Path 6942" d="M502.726,377.914a.452.452,0,1,0,.833-.349,15.755,15.755,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.67,2.67,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.524.524,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.6.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                  <path id="Path_6943" data-name="Path 6943" d="M502.726,377.914a.452.452,0,1,0,.833-.349,15.755,15.755,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.67,2.67,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.524.524,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.6.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                </g>
+              </g>
+              <g id="Group_6590" data-name="Group 6590">
+                <g id="Group_6589" data-name="Group 6589" clip-path="url(#clip-path)">
+                  <path id="Path_6944" data-name="Path 6944" d="M830,350H711a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H830a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#fff"/>
+                </g>
+              </g>
+              <text id="MS相談会-3" data-name="MS相談会" transform="translate(771 346.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">M</tspan><tspan y="0" letter-spacing="0.25em">S</tspan><tspan y="0">相談会</tspan></text>
+              <text id="_12:00-3" data-name="12:00" transform="translate(720 346.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">12:00</tspan></text>
+              <g id="Group_6592" data-name="Group 6592">
+                <g id="Group_6591" data-name="Group 6591" clip-path="url(#clip-path)">
+                  <path id="Path_6945" data-name="Path 6945" d="M719,342a4,4,0,1,1-4-4,4,4,0,0,1,4,4" fill="#fed5fe"/>
+                </g>
+              </g>
+              <g id="Group_6594" data-name="Group 6594">
+                <g id="Group_6593" data-name="Group 6593" clip-path="url(#clip-path-13)">
+                  <path id="Path_6946" data-name="Path 6946" d="M759.248,338.475a1.363,1.363,0,1,1,1.362-1.363,1.364,1.364,0,0,1-1.362,1.363" fill="#f92525"/>
+                  <path id="Path_6947" data-name="Path 6947" d="M759.248,336a1.113,1.113,0,1,1-1.113,1.112A1.112,1.112,0,0,1,759.248,336m0-.5a1.613,1.613,0,1,0,1.612,1.612,1.614,1.614,0,0,0-1.612-1.612" fill="#fff"/>
+                  <path id="Path_6948" data-name="Path 6948" d="M762.726,341.914a.452.452,0,1,0,.833-.349,15.761,15.761,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                  <path id="Path_6949" data-name="Path 6949" d="M762.726,341.914a.452.452,0,1,0,.833-.349,15.761,15.761,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                  <path id="Path_6950" data-name="Path 6950" d="M762.726,341.914a.452.452,0,1,0,.833-.349,15.761,15.761,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                </g>
+              </g>
+              <g id="Group_6596" data-name="Group 6596">
+                <g id="Group_6595" data-name="Group 6595" clip-path="url(#clip-path)">
+                  <path id="Path_6951" data-name="Path 6951" d="M830,496H711a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H830a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#fff"/>
+                </g>
+              </g>
+              <text id="MS相談会-4" data-name="MS相談会" transform="translate(771 492.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">M</tspan><tspan y="0" letter-spacing="0.25em">S</tspan><tspan y="0">相談会</tspan></text>
+              <text id="_12:00-4" data-name="12:00" transform="translate(720 492.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">12:00</tspan></text>
+              <g id="Group_6598" data-name="Group 6598">
+                <g id="Group_6597" data-name="Group 6597" clip-path="url(#clip-path)">
+                  <path id="Path_6952" data-name="Path 6952" d="M719,488a4,4,0,1,1-4-4,4,4,0,0,1,4,4" fill="#fed5fe"/>
+                </g>
+              </g>
+              <g id="Group_6600" data-name="Group 6600">
+                <g id="Group_6599" data-name="Group 6599" clip-path="url(#clip-path-16)">
+                  <path id="Path_6953" data-name="Path 6953" d="M759.248,484.475a1.363,1.363,0,1,1,1.362-1.363,1.364,1.364,0,0,1-1.362,1.363" fill="#f92525"/>
+                  <path id="Path_6954" data-name="Path 6954" d="M759.248,482a1.113,1.113,0,1,1-1.113,1.112A1.112,1.112,0,0,1,759.248,482m0-.5a1.613,1.613,0,1,0,1.612,1.612,1.614,1.614,0,0,0-1.612-1.612" fill="#fff"/>
+                  <path id="Path_6955" data-name="Path 6955" d="M762.726,487.914a.452.452,0,1,0,.833-.349,15.761,15.761,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                  <path id="Path_6956" data-name="Path 6956" d="M762.726,487.914a.452.452,0,1,0,.833-.349,15.761,15.761,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                  <path id="Path_6957" data-name="Path 6957" d="M762.726,487.914a.452.452,0,1,0,.833-.349,15.761,15.761,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                </g>
+              </g>
+              <g id="Group_6602" data-name="Group 6602">
+                <g id="Group_6601" data-name="Group 6601" clip-path="url(#clip-path)">
+                  <path id="Path_6958" data-name="Path 6958" d="M830,606H711a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H830a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#fff"/>
+                </g>
+              </g>
+              <text id="MS相談会-5" data-name="MS相談会" transform="translate(771 602.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">M</tspan><tspan y="0" letter-spacing="0.25em">S</tspan><tspan y="0">相談会</tspan></text>
+              <text id="_12:00-5" data-name="12:00" transform="translate(720 602.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">12:00</tspan></text>
+              <g id="Group_6604" data-name="Group 6604">
+                <g id="Group_6603" data-name="Group 6603" clip-path="url(#clip-path)">
+                  <path id="Path_6959" data-name="Path 6959" d="M719,598a4,4,0,1,1-4-4,4,4,0,0,1,4,4" fill="#fed5fe"/>
+                </g>
+              </g>
+              <g id="Group_6606" data-name="Group 6606">
+                <g id="Group_6605" data-name="Group 6605" clip-path="url(#clip-path-19)">
+                  <path id="Path_6960" data-name="Path 6960" d="M759.248,594.475a1.362,1.362,0,1,1,1.362-1.363,1.364,1.364,0,0,1-1.362,1.363" fill="#f92525"/>
+                  <path id="Path_6961" data-name="Path 6961" d="M759.248,592a1.112,1.112,0,1,1-1.113,1.112A1.112,1.112,0,0,1,759.248,592m0-.5a1.612,1.612,0,1,0,1.612,1.612,1.614,1.614,0,0,0-1.612-1.612" fill="#fff"/>
+                  <path id="Path_6962" data-name="Path 6962" d="M762.726,597.914a.452.452,0,1,0,.833-.349,15.758,15.758,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                  <path id="Path_6963" data-name="Path 6963" d="M762.726,597.914a.452.452,0,1,0,.833-.349,15.758,15.758,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                  <path id="Path_6964" data-name="Path 6964" d="M762.726,597.914a.452.452,0,1,0,.833-.349,15.758,15.758,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                </g>
+              </g>
+              <g id="Group_6608" data-name="Group 6608">
+                <g id="Group_6607" data-name="Group 6607" clip-path="url(#clip-path)">
+                  <path id="Path_6965" data-name="Path 6965" d="M960,350H841a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H960a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#fff"/>
+                </g>
+              </g>
+              <text id="MS相談会-6" data-name="MS相談会" transform="translate(901 346.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">M</tspan><tspan y="0" letter-spacing="0.25em">S</tspan><tspan y="0">相談会</tspan></text>
+              <text id="_12:00-6" data-name="12:00" transform="translate(850 346.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">12:00</tspan></text>
+              <g id="Group_6610" data-name="Group 6610">
+                <g id="Group_6609" data-name="Group 6609" clip-path="url(#clip-path)">
+                  <path id="Path_6966" data-name="Path 6966" d="M849,342a4,4,0,1,1-4-4,4,4,0,0,1,4,4" fill="#ffe4b5"/>
+                </g>
+              </g>
+              <g id="Group_6612" data-name="Group 6612">
+                <g id="Group_6611" data-name="Group 6611" clip-path="url(#clip-path-22)">
+                  <path id="Path_6967" data-name="Path 6967" d="M889.248,338.475a1.363,1.363,0,1,1,1.362-1.363,1.364,1.364,0,0,1-1.362,1.363" fill="#f92525"/>
+                  <path id="Path_6968" data-name="Path 6968" d="M889.248,336a1.113,1.113,0,1,1-1.113,1.112A1.112,1.112,0,0,1,889.248,336m0-.5a1.613,1.613,0,1,0,1.612,1.612,1.614,1.614,0,0,0-1.612-1.612" fill="#fff"/>
+                  <path id="Path_6969" data-name="Path 6969" d="M892.726,341.914a.452.452,0,1,0,.833-.349,15.761,15.761,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                  <path id="Path_6970" data-name="Path 6970" d="M892.726,341.914a.452.452,0,1,0,.833-.349,15.761,15.761,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                  <path id="Path_6971" data-name="Path 6971" d="M892.726,341.914a.452.452,0,1,0,.833-.349,15.761,15.761,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                </g>
+              </g>
+              <g id="Group_6614" data-name="Group 6614">
+                <g id="Group_6613" data-name="Group 6613" clip-path="url(#clip-path)">
+                  <path id="Path_6972" data-name="Path 6972" d="M960,478H841a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H960a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#fff"/>
+                </g>
+              </g>
+              <text id="MS相談会-7" data-name="MS相談会" transform="translate(901 474.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">M</tspan><tspan y="0" letter-spacing="0.25em">S</tspan><tspan y="0">相談会</tspan></text>
+              <text id="_12:00-7" data-name="12:00" transform="translate(850 474.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">12:00</tspan></text>
+              <g id="Group_6616" data-name="Group 6616">
+                <g id="Group_6615" data-name="Group 6615" clip-path="url(#clip-path)">
+                  <path id="Path_6973" data-name="Path 6973" d="M849,470a4,4,0,1,1-4-4,4,4,0,0,1,4,4" fill="#ffe4b5"/>
+                </g>
+              </g>
+              <g id="Group_6618" data-name="Group 6618">
+                <g id="Group_6617" data-name="Group 6617" clip-path="url(#clip-path-25)">
+                  <path id="Path_6974" data-name="Path 6974" d="M889.248,466.475a1.363,1.363,0,1,1,1.362-1.363,1.364,1.364,0,0,1-1.362,1.363" fill="#f92525"/>
+                  <path id="Path_6975" data-name="Path 6975" d="M889.248,464a1.113,1.113,0,1,1-1.113,1.112A1.112,1.112,0,0,1,889.248,464m0-.5a1.613,1.613,0,1,0,1.612,1.612,1.614,1.614,0,0,0-1.612-1.612" fill="#fff"/>
+                  <path id="Path_6976" data-name="Path 6976" d="M892.726,469.914a.452.452,0,1,0,.833-.349,15.761,15.761,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                  <path id="Path_6977" data-name="Path 6977" d="M892.726,469.914a.452.452,0,1,0,.833-.349,15.761,15.761,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                  <path id="Path_6978" data-name="Path 6978" d="M892.726,469.914a.452.452,0,1,0,.833-.349,15.761,15.761,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                </g>
+              </g>
+              <g id="Group_6620" data-name="Group 6620">
+                <g id="Group_6619" data-name="Group 6619" clip-path="url(#clip-path)">
+                  <path id="Path_6979" data-name="Path 6979" d="M960,588H841a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H960a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#fff"/>
+                </g>
+              </g>
+              <text id="MS相談会-8" data-name="MS相談会" transform="translate(901 584.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">M</tspan><tspan y="0" letter-spacing="0.25em">S</tspan><tspan y="0">相談会</tspan></text>
+              <text id="_12:00-8" data-name="12:00" transform="translate(850 584.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">12:00</tspan></text>
+              <g id="Group_6622" data-name="Group 6622">
+                <g id="Group_6621" data-name="Group 6621" clip-path="url(#clip-path)">
+                  <path id="Path_6980" data-name="Path 6980" d="M849,580a4,4,0,1,1-4-4,4,4,0,0,1,4,4" fill="#ffbebe"/>
+                </g>
+              </g>
+              <g id="Group_6624" data-name="Group 6624">
+                <g id="Group_6623" data-name="Group 6623" clip-path="url(#clip-path-28)">
+                  <path id="Path_6981" data-name="Path 6981" d="M889.248,576.475a1.362,1.362,0,1,1,1.362-1.363,1.364,1.364,0,0,1-1.362,1.363" fill="#f92525"/>
+                  <path id="Path_6982" data-name="Path 6982" d="M889.248,574a1.112,1.112,0,1,1-1.113,1.112A1.112,1.112,0,0,1,889.248,574m0-.5a1.612,1.612,0,1,0,1.612,1.612,1.614,1.614,0,0,0-1.612-1.612" fill="#fff"/>
+                  <path id="Path_6983" data-name="Path 6983" d="M892.726,579.914a.452.452,0,1,0,.833-.349,15.758,15.758,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                  <path id="Path_6984" data-name="Path 6984" d="M892.726,579.914a.452.452,0,1,0,.833-.349,15.758,15.758,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                  <path id="Path_6985" data-name="Path 6985" d="M892.726,579.914a.452.452,0,1,0,.833-.349,15.758,15.758,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                </g>
+              </g>
+              <g id="Group_6626" data-name="Group 6626">
+                <g id="Group_6625" data-name="Group 6625" clip-path="url(#clip-path)">
+                  <path id="Path_6986" data-name="Path 6986" d="M960,716H841a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H960a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#fff"/>
+                </g>
+              </g>
+              <text id="MS相談会-9" data-name="MS相談会" transform="translate(901 712.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">M</tspan><tspan y="0" letter-spacing="0.25em">S</tspan><tspan y="0">相談会</tspan></text>
+              <text id="_12:00-9" data-name="12:00" transform="translate(850 712.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">12:00</tspan></text>
+              <g id="Group_6628" data-name="Group 6628">
+                <g id="Group_6627" data-name="Group 6627" clip-path="url(#clip-path)">
+                  <path id="Path_6987" data-name="Path 6987" d="M849,708a4,4,0,1,1-4-4,4,4,0,0,1,4,4" fill="#ffbebe"/>
+                </g>
+              </g>
+              <g id="Group_6630" data-name="Group 6630">
+                <g id="Group_6629" data-name="Group 6629" clip-path="url(#clip-path-31)">
+                  <path id="Path_6988" data-name="Path 6988" d="M889.248,704.475a1.362,1.362,0,1,1,1.362-1.363,1.364,1.364,0,0,1-1.362,1.363" fill="#f92525"/>
+                  <path id="Path_6989" data-name="Path 6989" d="M889.248,702a1.112,1.112,0,1,1-1.113,1.112A1.112,1.112,0,0,1,889.248,702m0-.5a1.612,1.612,0,1,0,1.612,1.612,1.614,1.614,0,0,0-1.612-1.612" fill="#fff"/>
+                  <path id="Path_6990" data-name="Path 6990" d="M892.726,707.914a.452.452,0,1,0,.833-.349,15.758,15.758,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                  <path id="Path_6991" data-name="Path 6991" d="M892.726,707.914a.452.452,0,1,0,.833-.349,15.758,15.758,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                  <path id="Path_6992" data-name="Path 6992" d="M892.726,707.914a.452.452,0,1,0,.833-.349,15.758,15.758,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                </g>
+              </g>
+              <g id="Group_6632" data-name="Group 6632">
+                <g id="Group_6631" data-name="Group 6631" clip-path="url(#clip-path)">
+                  <path id="Path_6993" data-name="Path 6993" d="M960,222H841a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H960a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#fff"/>
+                </g>
+              </g>
+              <text id="MS相談会-10" data-name="MS相談会" transform="translate(901 218.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">M</tspan><tspan y="0" letter-spacing="0.25em">S</tspan><tspan y="0">相談会</tspan></text>
+              <text id="_12:00-10" data-name="12:00" transform="translate(850 218.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">12:00</tspan></text>
+              <g id="Group_6634" data-name="Group 6634">
+                <g id="Group_6633" data-name="Group 6633" clip-path="url(#clip-path)">
+                  <path id="Path_6994" data-name="Path 6994" d="M849,214a4,4,0,1,1-4-4,4,4,0,0,1,4,4" fill="#ffe4b5"/>
+                </g>
+              </g>
+              <g id="Group_6636" data-name="Group 6636">
+                <g id="Group_6635" data-name="Group 6635" clip-path="url(#clip-path-34)">
+                  <path id="Path_6995" data-name="Path 6995" d="M889.248,210.475a1.363,1.363,0,1,1,1.362-1.363,1.364,1.364,0,0,1-1.362,1.363" fill="#f92525"/>
+                  <path id="Path_6996" data-name="Path 6996" d="M889.248,208a1.113,1.113,0,1,1-1.113,1.112A1.112,1.112,0,0,1,889.248,208m0-.5a1.613,1.613,0,1,0,1.612,1.612,1.614,1.614,0,0,0-1.612-1.612" fill="#fff"/>
+                  <path id="Path_6997" data-name="Path 6997" d="M892.726,213.914a.452.452,0,1,0,.833-.349,15.759,15.759,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                  <path id="Path_6998" data-name="Path 6998" d="M892.726,213.914a.452.452,0,1,0,.833-.349,15.759,15.759,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                  <path id="Path_6999" data-name="Path 6999" d="M892.726,213.914a.452.452,0,1,0,.833-.349,15.759,15.759,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                </g>
+              </g>
+              <g id="Group_6638" data-name="Group 6638">
+                <g id="Group_6637" data-name="Group 6637" clip-path="url(#clip-path)">
+                  <path id="Path_7000" data-name="Path 7000" d="M570,222H451a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H570a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#fff"/>
+                </g>
+              </g>
+              <text id="MS相談会-11" data-name="MS相談会" transform="translate(511 218.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">M</tspan><tspan y="0" letter-spacing="0.25em">S</tspan><tspan y="0">相談会</tspan></text>
+              <text id="_14:00" data-name="14:00" transform="translate(460 218.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">14:00</tspan></text>
+              <g id="Group_6640" data-name="Group 6640">
+                <g id="Group_6639" data-name="Group 6639" clip-path="url(#clip-path)">
+                  <path id="Path_7001" data-name="Path 7001" d="M459,214a4,4,0,1,1-4-4,4,4,0,0,1,4,4" fill="#afe6cb"/>
+                </g>
+              </g>
+              <g id="Group_6642" data-name="Group 6642">
+                <g id="Group_6641" data-name="Group 6641" clip-path="url(#clip-path-37)">
+                  <path id="Path_7002" data-name="Path 7002" d="M499.248,210.475a1.363,1.363,0,1,1,1.362-1.363,1.364,1.364,0,0,1-1.362,1.363" fill="#f92525"/>
+                  <path id="Path_7003" data-name="Path 7003" d="M499.248,208a1.113,1.113,0,1,1-1.113,1.112A1.112,1.112,0,0,1,499.248,208m0-.5a1.613,1.613,0,1,0,1.612,1.612,1.614,1.614,0,0,0-1.612-1.612" fill="#fff"/>
+                  <path id="Path_7004" data-name="Path 7004" d="M502.726,213.914a.452.452,0,1,0,.833-.349,15.752,15.752,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.67,2.67,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.524.524,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.6.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                  <path id="Path_7005" data-name="Path 7005" d="M502.726,213.914a.452.452,0,1,0,.833-.349,15.752,15.752,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.67,2.67,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.524.524,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.6.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                  <path id="Path_7006" data-name="Path 7006" d="M502.726,213.914a.452.452,0,1,0,.833-.349,15.752,15.752,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.67,2.67,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.524.524,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.6.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                </g>
+              </g>
+              <g id="Group_6644" data-name="Group 6644">
+                <g id="Group_6643" data-name="Group 6643" clip-path="url(#clip-path)">
+                  <path id="Path_7007" data-name="Path 7007" d="M700,222H581a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H700a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#fff"/>
+                </g>
+              </g>
+              <text id="外出" transform="translate(641 218.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">外出</tspan></text>
+              <text id="_14:00-2" data-name="14:00" transform="translate(590 218.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">14:00</tspan></text>
+              <g id="Group_6646" data-name="Group 6646">
+                <g id="Group_6645" data-name="Group 6645" clip-path="url(#clip-path)">
+                  <path id="Path_7008" data-name="Path 7008" d="M589,214a4,4,0,1,1-4-4,4,4,0,0,1,4,4" fill="#afe6cb"/>
+                </g>
+              </g>
+              <g id="Group_6648" data-name="Group 6648">
+                <g id="Group_6647" data-name="Group 6647" clip-path="url(#clip-path-40)">
+                  <path id="Path_7009" data-name="Path 7009" d="M629.248,210.475a1.363,1.363,0,1,1,1.362-1.363,1.364,1.364,0,0,1-1.362,1.363" fill="#f92525"/>
+                  <path id="Path_7010" data-name="Path 7010" d="M629.248,208a1.113,1.113,0,1,1-1.113,1.112A1.112,1.112,0,0,1,629.248,208m0-.5a1.613,1.613,0,1,0,1.612,1.612,1.614,1.614,0,0,0-1.612-1.612" fill="#fff"/>
+                  <path id="Path_7011" data-name="Path 7011" d="M632.726,213.914a.452.452,0,1,0,.833-.349,15.759,15.759,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                  <path id="Path_7012" data-name="Path 7012" d="M632.726,213.914a.452.452,0,1,0,.833-.349,15.759,15.759,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                  <path id="Path_7013" data-name="Path 7013" d="M632.726,213.914a.452.452,0,1,0,.833-.349,15.759,15.759,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                </g>
+              </g>
+              <g id="Group_6650" data-name="Group 6650">
+                <g id="Group_6649" data-name="Group 6649" clip-path="url(#clip-path)">
+                  <path id="Path_7014" data-name="Path 7014" d="M570,240H451a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H570a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#fff"/>
+                </g>
+              </g>
+              <text id="MS相談会-12" data-name="MS相談会" transform="translate(511 236.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">M</tspan><tspan y="0" letter-spacing="0.25em">S</tspan><tspan y="0">相談会</tspan></text>
+              <text id="_16:00" data-name="16:00" transform="translate(460 236.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">16:00</tspan></text>
+              <g id="Group_6652" data-name="Group 6652">
+                <g id="Group_6651" data-name="Group 6651" clip-path="url(#clip-path)">
+                  <path id="Path_7015" data-name="Path 7015" d="M459,232a4,4,0,1,1-4-4,4,4,0,0,1,4,4" fill="#afe6cb"/>
+                </g>
+              </g>
+              <g id="Group_6654" data-name="Group 6654">
+                <g id="Group_6653" data-name="Group 6653" clip-path="url(#clip-path-43)">
+                  <path id="Path_7016" data-name="Path 7016" d="M499.248,228.475a1.363,1.363,0,1,1,1.362-1.363,1.364,1.364,0,0,1-1.362,1.363" fill="#f92525"/>
+                  <path id="Path_7017" data-name="Path 7017" d="M499.248,226a1.113,1.113,0,1,1-1.113,1.112A1.112,1.112,0,0,1,499.248,226m0-.5a1.613,1.613,0,1,0,1.612,1.612,1.614,1.614,0,0,0-1.612-1.612" fill="#fff"/>
+                  <path id="Path_7018" data-name="Path 7018" d="M502.726,231.914a.452.452,0,1,0,.833-.349,15.752,15.752,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.67,2.67,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.524.524,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.6.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                  <path id="Path_7019" data-name="Path 7019" d="M502.726,231.914a.452.452,0,1,0,.833-.349,15.752,15.752,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.67,2.67,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.524.524,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.6.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                  <path id="Path_7020" data-name="Path 7020" d="M502.726,231.914a.452.452,0,1,0,.833-.349,15.752,15.752,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.67,2.67,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.524.524,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.6.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                </g>
+              </g>
+              <g id="Group_6656" data-name="Group 6656">
+                <g id="Group_6655" data-name="Group 6655" clip-path="url(#clip-path)">
+                  <path id="Path_7021" data-name="Path 7021" d="M570,258H451a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H570a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#fff"/>
+                </g>
+              </g>
+              <text id="MS相談会-13" data-name="MS相談会" transform="translate(511 254.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">M</tspan><tspan y="0" letter-spacing="0.25em">S</tspan><tspan y="0">相談会</tspan></text>
+              <text id="_18:00" data-name="18:00" transform="translate(460 254.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">18:00</tspan></text>
+              <g id="Group_6658" data-name="Group 6658">
+                <g id="Group_6657" data-name="Group 6657" clip-path="url(#clip-path)">
+                  <path id="Path_7022" data-name="Path 7022" d="M459,250a4,4,0,1,1-4-4,4,4,0,0,1,4,4" fill="#afe6cb"/>
+                </g>
+              </g>
+              <g id="Group_6660" data-name="Group 6660">
+                <g id="Group_6659" data-name="Group 6659" clip-path="url(#clip-path-46)">
+                  <path id="Path_7023" data-name="Path 7023" d="M499.248,246.475a1.363,1.363,0,1,1,1.362-1.363,1.364,1.364,0,0,1-1.362,1.363" fill="#f92525"/>
+                  <path id="Path_7024" data-name="Path 7024" d="M499.248,244a1.113,1.113,0,1,1-1.113,1.112A1.112,1.112,0,0,1,499.248,244m0-.5a1.613,1.613,0,1,0,1.612,1.612,1.614,1.614,0,0,0-1.612-1.612" fill="#fff"/>
+                  <path id="Path_7025" data-name="Path 7025" d="M502.726,249.914a.452.452,0,1,0,.833-.349,15.752,15.752,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.67,2.67,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.524.524,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.6.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                  <path id="Path_7026" data-name="Path 7026" d="M502.726,249.914a.452.452,0,1,0,.833-.349,15.752,15.752,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.67,2.67,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.524.524,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.6.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                  <path id="Path_7027" data-name="Path 7027" d="M502.726,249.914a.452.452,0,1,0,.833-.349,15.752,15.752,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.67,2.67,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.524.524,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.6.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                </g>
+              </g>
+              <g id="Group_6662" data-name="Group 6662">
+                <g id="Group_6661" data-name="Group 6661" clip-path="url(#clip-path)">
+                  <path id="Path_7028" data-name="Path 7028" d="M830,222H711a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H830a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#ffe7d2"/>
+                </g>
+              </g>
+              <text id="_12:00-11" data-name="12:00" transform="translate(722 218.56)" fill="#ff811f" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">12:00</tspan></text>
+              <text id="重複予定" transform="translate(770.996 218.56)" fill="#ff811f" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">重複予定</tspan></text>
+              <g id="Group_6664" data-name="Group 6664">
+                <g id="Group_6663" data-name="Group 6663" clip-path="url(#clip-path)">
+                  <path id="Path_7029" data-name="Path 7029" d="M715,217.5a3.5,3.5,0,1,1,3.5-3.5,3.5,3.5,0,0,1-3.5,3.5" fill="#fff"/>
+                  <path id="Path_7030" data-name="Path 7030" d="M715,211a3,3,0,1,1-3,3,3,3,0,0,1,3-3m0-1a4,4,0,1,0,4,4,4,4,0,0,0-4-4" fill="#afe6cb"/>
+                </g>
+              </g>
+              <g id="Group_6666" data-name="Group 6666">
+                <g id="Group_6665" data-name="Group 6665" clip-path="url(#clip-path-49)">
+                  <path id="Path_7031" data-name="Path 7031" d="M759.248,210.255a1.363,1.363,0,1,1,1.362-1.363,1.364,1.364,0,0,1-1.362,1.363" fill="#f92525"/>
+                  <path id="Path_7032" data-name="Path 7032" d="M759.248,207.781a1.112,1.112,0,1,1-1.113,1.112,1.112,1.112,0,0,1,1.113-1.112m0-.5a1.612,1.612,0,1,0,1.612,1.612,1.614,1.614,0,0,0-1.612-1.612" fill="#fff"/>
+                  <path id="Path_7033" data-name="Path 7033" d="M762.726,213.694a.452.452,0,1,0,.833-.349,15.759,15.759,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                  <path id="Path_7034" data-name="Path 7034" d="M762.726,213.694a.452.452,0,1,0,.833-.349,15.759,15.759,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                  <path id="Path_7035" data-name="Path 7035" d="M762.726,213.694a.452.452,0,1,0,.833-.349,15.759,15.759,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                </g>
+              </g>
+              <g id="Group_6668" data-name="Group 6668">
+                <g id="Group_6667" data-name="Group 6667" clip-path="url(#clip-path)">
+                  <path id="Path_7036" data-name="Path 7036" d="M830,204H711a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H830a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#ffe7d2"/>
+                </g>
+              </g>
+              <text id="_12:00-12" data-name="12:00" transform="translate(722 200.56)" fill="#ff811f" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">12:00</tspan></text>
+              <text id="MS相談会-14" data-name="MS相談会" transform="translate(770.996 200.56)" fill="#ff811f" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">M</tspan><tspan y="0" letter-spacing="0.25em">S</tspan><tspan y="0">相談会</tspan></text>
+              <g id="Group_6670" data-name="Group 6670">
+                <g id="Group_6669" data-name="Group 6669" clip-path="url(#clip-path)">
+                  <path id="Path_7037" data-name="Path 7037" d="M715,199.5a3.5,3.5,0,1,1,3.5-3.5,3.5,3.5,0,0,1-3.5,3.5" fill="#fff"/>
+                  <path id="Path_7038" data-name="Path 7038" d="M715,193a3,3,0,1,1-3,3,3,3,0,0,1,3-3m0-1a4,4,0,1,0,4,4,4,4,0,0,0-4-4" fill="#afe6cb"/>
+                </g>
+              </g>
+              <g id="Group_6672" data-name="Group 6672">
+                <g id="Group_6671" data-name="Group 6671" clip-path="url(#clip-path-52)">
+                  <path id="Path_7039" data-name="Path 7039" d="M759.248,192.255a1.363,1.363,0,1,1,1.362-1.363,1.364,1.364,0,0,1-1.362,1.363" fill="#f92525"/>
+                  <path id="Path_7040" data-name="Path 7040" d="M759.248,189.781a1.112,1.112,0,1,1-1.113,1.112,1.112,1.112,0,0,1,1.113-1.112m0-.5a1.612,1.612,0,1,0,1.612,1.612,1.614,1.614,0,0,0-1.612-1.612" fill="#fff"/>
+                  <path id="Path_7041" data-name="Path 7041" d="M762.726,195.694a.452.452,0,1,0,.833-.349,15.759,15.759,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                  <path id="Path_7042" data-name="Path 7042" d="M762.726,195.694a.452.452,0,1,0,.833-.349,15.759,15.759,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                  <path id="Path_7043" data-name="Path 7043" d="M762.726,195.694a.452.452,0,1,0,.833-.349,15.759,15.759,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                </g>
+              </g>
+              <g id="Group_6674" data-name="Group 6674">
+                <g id="Group_6673" data-name="Group 6673" clip-path="url(#clip-path)">
+                  <path id="Path_7044" data-name="Path 7044" d="M700,204H581a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H700a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#fff"/>
+                </g>
+              </g>
+              <text id="_12:00-13" data-name="12:00" transform="translate(590 200.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">12:00</tspan></text>
+              <text id="招待参加" transform="translate(641 200.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">招待参加</tspan></text>
+              <g id="Group_6676" data-name="Group 6676">
+                <g id="Group_6675" data-name="Group 6675" clip-path="url(#clip-path)">
+                  <path id="Path_7045" data-name="Path 7045" d="M589,196a4,4,0,1,1-4-4,4,4,0,0,1,4,4" fill="#afe6cb"/>
+                </g>
+              </g>
+              <g id="Group_6678" data-name="Group 6678">
+                <g id="Group_6677" data-name="Group 6677" clip-path="url(#clip-path-55)">
+                  <path id="Path_7046" data-name="Path 7046" d="M625.5,201.8a1,1,0,0,1-1-1v-8a1,1,0,0,1-1-1v-1a1,1,0,0,1,1-1h11a1,1,0,0,1,1,1v1a1,1,0,0,1-1,1v8a1,1,0,0,1-1,1Z" fill="#0f6db5"/>
+                  <path id="Path_7047" data-name="Path 7047" d="M635.5,190.3a.5.5,0,0,1,.5.5v1a.5.5,0,0,1-.5.5H635v8.5a.5.5,0,0,1-.5.5h-9a.5.5,0,0,1-.5-.5v-8.5h-.5a.5.5,0,0,1-.5-.5v-1a.5.5,0,0,1,.5-.5h11m0-1h-11a1.5,1.5,0,0,0-1.5,1.5v1a1.505,1.505,0,0,0,1,1.416V200.8a1.5,1.5,0,0,0,1.5,1.5h9a1.5,1.5,0,0,0,1.5-1.5v-7.584a1.505,1.505,0,0,0,1-1.416v-1a1.5,1.5,0,0,0-1.5-1.5" fill="#fff"/>
+                  <rect id="Rectangle_4839" data-name="Rectangle 4839" width="8" height="8" transform="translate(626 192.297)" fill="#fff"/>
+                  <rect id="Rectangle_4840" data-name="Rectangle 4840" width="8" height="8" transform="translate(626 192.297)" fill="#fff"/>
+                  <rect id="Rectangle_4841" data-name="Rectangle 4841" width="8" height="8" transform="translate(626 192.297)" fill="#fff"/>
+                  <path id="Path_7048" data-name="Path 7048" d="M632.823,194.883l-.707-.707L630,196.293l-.7-.7-2.121,2.121.707.707L629.3,197l.708.707Z" fill="#3698d5"/>
+                </g>
+              </g>
+              <g id="Group_6680" data-name="Group 6680">
+                <g id="Group_6679" data-name="Group 6679" clip-path="url(#clip-path)">
+                  <path id="Path_7049" data-name="Path 7049" d="M1091,204H842a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4h249a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#afe6cb"/>
+                </g>
+              </g>
+              <text id="タスク未完" transform="translate(858 200.56)" fill="#f92525" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">タスク未完</tspan></text>
+              <g id="Group_6682" data-name="Group 6682">
+                <g id="Group_6681" data-name="Group 6681" clip-path="url(#clip-path-57)">
+                  <path id="Path_7050" data-name="Path 7050" d="M844.2,201.642a1.7,1.7,0,0,1-1.7-1.695v-7.894a1.7,1.7,0,0,1,1.7-1.694h9.4a1.9,1.9,0,0,1,1.9,1.9v7.486a1.9,1.9,0,0,1-1.9,1.9Z" fill="#fff"/>
+                  <path id="Path_7051" data-name="Path 7051" d="M853.6,190.859a1.4,1.4,0,0,1,1.4,1.4v7.486a1.4,1.4,0,0,1-1.4,1.4h-9.4a1.2,1.2,0,0,1-1.2-1.195v-7.893a1.2,1.2,0,0,1,1.2-1.2h9.4m0-1h-9.4a2.2,2.2,0,0,0-2.2,2.2v7.893a2.2,2.2,0,0,0,2.2,2.195h9.4a2.4,2.4,0,0,0,2.4-2.4v-7.486a2.4,2.4,0,0,0-2.4-2.4" fill="#fff"/>
+                  <path id="Path_7052" data-name="Path 7052" d="M855,197.874l-.855,1.763H843.812v1.5h9.823A1.364,1.364,0,0,0,855,199.773v-1.9Z" fill="#adc7e7"/>
+                  <path id="Path_7053" data-name="Path 7053" d="M852.958,200.392h-9.026v-9.46h9.034A2.031,2.031,0,0,1,855,192.963v5.389a2.039,2.039,0,0,1-2.039,2.04" fill="#ededed"/>
+                  <path id="Path_7054" data-name="Path 7054" d="M850.184,193.658H853.2a.343.343,0,0,0,0-.68h-3.013a.342.342,0,0,0,0,.68" fill="#326dab"/>
+                  <path id="Path_7055" data-name="Path 7055" d="M853.2,192.978h-3.013a.343.343,0,0,0,0,.68H853.2a.342.342,0,0,0,0-.68" fill="#255b9d"/>
+                  <path id="Path_7056" data-name="Path 7056" d="M853.2,196.379h-3.013a.343.343,0,0,0,0,.68H853.2a.342.342,0,0,0,0-.68" fill="#326dab"/>
+                  <path id="Path_7057" data-name="Path 7057" d="M853.2,196.379h-3.013a.343.343,0,0,0,0,.681H853.2a.343.343,0,0,0,0-.681" fill="#255b9d"/>
+                  <path id="Path_7058" data-name="Path 7058" d="M853.2,194.678h-3.013a.343.343,0,0,0,0,.68H853.2a.342.342,0,0,0,0-.68" fill="#326dab"/>
+                  <path id="Path_7059" data-name="Path 7059" d="M853.2,194.678h-3.013a.343.343,0,0,0,0,.68H853.2a.342.342,0,0,0,0-.68" fill="#255b9d"/>
+                  <path id="Path_7060" data-name="Path 7060" d="M853.2,198.08h-3.013a.343.343,0,0,0,0,.68H853.2a.342.342,0,0,0,0-.68" fill="#326dab"/>
+                  <path id="Path_7061" data-name="Path 7061" d="M853.2,198.08h-3.013a.343.343,0,0,0,0,.68H853.2a.342.342,0,0,0,0-.68" fill="#255b9d"/>
+                  <path id="Path_7062" data-name="Path 7062" d="M847,193.62l.608.6,1.216-1.2" fill="none" stroke="#cc4186" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.75"/>
+                  <path id="Path_7063" data-name="Path 7063" d="M847,195.661l.608.6,1.216-1.2" fill="none" stroke="#cc4186" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.75"/>
+                  <path id="Path_7064" data-name="Path 7064" d="M847,197.7l.608.6,1.216-1.2" fill="none" stroke="#cc4186" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.75"/>
+                  <path id="Path_7065" data-name="Path 7065" d="M844.359,201.141H844a1,1,0,0,1-1-1V191.94a1,1,0,0,1,1-1h.357Z" fill="#47a0b2"/>
+                  <path id="Path_7066" data-name="Path 7066" d="M844.718,198.42H843v-4.762h1.72a1,1,0,0,1,1,1v2.758a1,1,0,0,1-1,1" fill="#47a0b2"/>
+                </g>
+              </g>
+              <g id="Group_6684" data-name="Group 6684">
+                <g id="Group_6683" data-name="Group 6683" clip-path="url(#clip-path)">
+                  <path id="Path_7067" data-name="Path 7067" d="M700,317a3,3,0,0,1,3,3v8a3,3,0,0,1-3,3H451a3,3,0,0,1-3-3v-8a3,3,0,0,1,3-3H700m0-1H451a4,4,0,0,0-4,4v8a4,4,0,0,0,4,4H700a4,4,0,0,0,4-4v-8a4,4,0,0,0-4-4" fill="#afe6cb"/>
+                </g>
+              </g>
+              <text id="招待予定未参加" transform="translate(467 328.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">招待予定未参加</tspan></text>
+              <g id="Group_6686" data-name="Group 6686">
+                <g id="Group_6685" data-name="Group 6685" clip-path="url(#clip-path-59)">
+                  <path id="Path_7068" data-name="Path 7068" d="M453.5,330.017a1,1,0,0,1-1-1v-8a1,1,0,0,1-1-1v-1a1,1,0,0,1,1-1h11a1,1,0,0,1,1,1v1a1,1,0,0,1-1,1v8a1,1,0,0,1-1,1Z" fill="#0f6db5"/>
+                  <path id="Path_7069" data-name="Path 7069" d="M463.5,318.517a.5.5,0,0,1,.5.5v1a.5.5,0,0,1-.5.5H463v8.5a.5.5,0,0,1-.5.5h-9a.5.5,0,0,1-.5-.5v-8.5h-.5a.5.5,0,0,1-.5-.5v-1a.5.5,0,0,1,.5-.5h11m0-1h-11a1.5,1.5,0,0,0-1.5,1.5v1a1.5,1.5,0,0,0,1,1.415v7.585a1.5,1.5,0,0,0,1.5,1.5h9a1.5,1.5,0,0,0,1.5-1.5v-7.585a1.5,1.5,0,0,0,1-1.415v-1a1.5,1.5,0,0,0-1.5-1.5" fill="#fff"/>
+                  <rect id="Rectangle_4846" data-name="Rectangle 4846" width="8" height="8" transform="translate(454 320.517)" fill="#fff"/>
+                  <rect id="Rectangle_4847" data-name="Rectangle 4847" width="8" height="8" transform="translate(454 320.517)" fill="#fff"/>
+                  <rect id="Rectangle_4848" data-name="Rectangle 4848" width="8" height="8" transform="translate(454 320.517)" fill="#fff"/>
+                  <path id="Path_7070" data-name="Path 7070" d="M460.823,323.1l-.707-.707L458,324.512l-.7-.7-2.121,2.121.707.707,1.414-1.414.708.707Z" fill="#3698d5"/>
+                </g>
+              </g>
+              <g id="Group_6688" data-name="Group 6688">
+                <g id="Group_6687" data-name="Group 6687" clip-path="url(#clip-path)">
+                  <path id="Path_7071" data-name="Path 7071" d="M700,350H451a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H700a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#afe6cb"/>
+                </g>
+              </g>
+              <text id="招待予定参加" transform="translate(467 346.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">招待予定参加</tspan></text>
+              <g id="Group_6690" data-name="Group 6690">
+                <g id="Group_6689" data-name="Group 6689" clip-path="url(#clip-path-61)">
+                  <path id="Path_7072" data-name="Path 7072" d="M453,347.46a1.6,1.6,0,0,1-1.5-1.491l-.006-6.376a1.511,1.511,0,0,1,1.49-1.492h2.235v-.179a1.455,1.455,0,0,1,.433-1.036,1.477,1.477,0,0,1,1.036-.426h2.636a1.48,1.48,0,0,1,1.04.428,1.455,1.455,0,0,1,.431,1.036v.177h2.234a1.468,1.468,0,0,1,1.471,1.462v6.406a1.6,1.6,0,0,1-1.5,1.491Z" fill="#e61f1e"/>
+                  <path id="Path_7073" data-name="Path 7073" d="M459.328,336.96a.972.972,0,0,1,.686.282.957.957,0,0,1,.285.68v.679h2.734a.968.968,0,0,1,.971.962v6.406a1.1,1.1,0,0,1-1,.991H453a1.094,1.094,0,0,1-1-.991L452,339.592a1.009,1.009,0,0,1,.991-.991h2.735v-.679a.948.948,0,0,1,.284-.68.972.972,0,0,1,.685-.282h2.637m-2.775,1.641h2.914v-.679a.139.139,0,0,0-.041-.1.145.145,0,0,0-.1-.04h-2.637a.142.142,0,0,0-.1.04.139.139,0,0,0-.041.1v.679m2.775-2.641h-2.637a1.969,1.969,0,0,0-1.943,1.641h-1.761A2.018,2.018,0,0,0,451,339.592L451,345.97a2.074,2.074,0,0,0,2,1.99h10a2.1,2.1,0,0,0,2-1.991v-6.406a1.969,1.969,0,0,0-1.971-1.962h-1.762a1.962,1.962,0,0,0-.554-1.071,1.984,1.984,0,0,0-1.389-.57" fill="#fff"/>
+                  <rect id="Rectangle_4851" data-name="Rectangle 4851" width="12" height="1" transform="translate(452 342.5)" fill="#fa5151"/>
+                  <path id="Path_7074" data-name="Path 7074" d="M458,344h0a1,1,0,1,1,1-1,1,1,0,0,1-1,1" fill="#fb7d7d"/>
+                  <path id="Path_7075" data-name="Path 7075" d="M458,343.75h0a.5.5,0,0,1-.5-.5v-.5a.5.5,0,0,1,1,0v.5a.5.5,0,0,1-.5.5" fill="#fa5151"/>
+                </g>
+              </g>
+              <g id="Group_6692" data-name="Group 6692">
+                <g id="Group_6691" data-name="Group 6691" clip-path="url(#clip-path)">
+                  <rect id="Rectangle_4853" data-name="Rectangle 4853" width="126" height="15" rx="3.5" transform="translate(447.5 352.5)" fill="#e5e5e5"/>
+                  <path id="Path_7076" data-name="Path 7076" d="M570,353a3,3,0,0,1,3,3v8a3,3,0,0,1-3,3H451a3,3,0,0,1-3-3v-8a3,3,0,0,1,3-3H570m0-1H451a4,4,0,0,0-4,4v8a4,4,0,0,0,4,4H570a4,4,0,0,0,4-4v-8a4,4,0,0,0-4-4" fill="#afe6cb"/>
+                </g>
+              </g>
+              <text id="タスク" transform="translate(467 364.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="0">タスク</tspan></text>
+              <g id="Group_6694" data-name="Group 6694">
+                <g id="Group_6693" data-name="Group 6693" clip-path="url(#clip-path)">
+                  <path id="Path_7077" data-name="Path 7077" d="M467,361.2Z" fill="none" stroke="#666" stroke-miterlimit="10" stroke-width="0.6"/>
+                </g>
+              </g>
+              <g id="Group_6696" data-name="Group 6696">
+                <g id="Group_6695" data-name="Group 6695" clip-path="url(#clip-path-64)">
+                  <path id="Path_7078" data-name="Path 7078" d="M453.2,365.642a1.7,1.7,0,0,1-1.7-1.7v-7.894a1.7,1.7,0,0,1,1.7-1.694h9.4a1.9,1.9,0,0,1,1.9,1.9v7.486a1.9,1.9,0,0,1-1.9,1.9Z" fill="#fff"/>
+                  <path id="Path_7079" data-name="Path 7079" d="M462.6,354.859a1.4,1.4,0,0,1,1.4,1.4v7.486a1.4,1.4,0,0,1-1.4,1.4h-9.4a1.2,1.2,0,0,1-1.195-1.2v-7.893a1.2,1.2,0,0,1,1.195-1.195h9.4m0-1h-9.4A2.2,2.2,0,0,0,451,356.054v7.893a2.2,2.2,0,0,0,2.195,2.2h9.4a2.4,2.4,0,0,0,2.4-2.4v-7.486a2.4,2.4,0,0,0-2.4-2.4" fill="#fff"/>
+                  <path id="Path_7080" data-name="Path 7080" d="M464,361.874l-.855,1.763H452.812v1.5h9.823A1.364,1.364,0,0,0,464,363.773v-1.9Z" fill="#adc7e7"/>
+                  <path id="Path_7081" data-name="Path 7081" d="M461.958,364.392h-9.026v-9.46h9.034A2.031,2.031,0,0,1,464,356.963v5.389a2.039,2.039,0,0,1-2.039,2.04" fill="#ededed"/>
+                  <path id="Path_7082" data-name="Path 7082" d="M459.184,357.658H462.2a.343.343,0,0,0,0-.68h-3.013a.342.342,0,0,0,0,.68" fill="#326dab"/>
+                  <path id="Path_7083" data-name="Path 7083" d="M462.2,356.978h-3.013a.343.343,0,0,0,0,.68H462.2a.342.342,0,0,0,0-.68" fill="#255b9d"/>
+                  <path id="Path_7084" data-name="Path 7084" d="M462.2,360.379h-3.013a.343.343,0,0,0,0,.68H462.2a.342.342,0,0,0,0-.68" fill="#326dab"/>
+                  <path id="Path_7085" data-name="Path 7085" d="M462.2,360.379h-3.013a.343.343,0,0,0,0,.681H462.2a.343.343,0,0,0,0-.681" fill="#255b9d"/>
+                  <path id="Path_7086" data-name="Path 7086" d="M462.2,358.678h-3.013a.343.343,0,0,0,0,.68H462.2a.342.342,0,0,0,0-.68" fill="#326dab"/>
+                  <path id="Path_7087" data-name="Path 7087" d="M462.2,358.678h-3.013a.343.343,0,0,0,0,.68H462.2a.342.342,0,0,0,0-.68" fill="#255b9d"/>
+                  <path id="Path_7088" data-name="Path 7088" d="M462.2,362.08h-3.013a.343.343,0,0,0,0,.68H462.2a.342.342,0,0,0,0-.68" fill="#326dab"/>
+                  <path id="Path_7089" data-name="Path 7089" d="M462.2,362.08h-3.013a.343.343,0,0,0,0,.68H462.2a.342.342,0,0,0,0-.68" fill="#255b9d"/>
+                  <path id="Path_7090" data-name="Path 7090" d="M456,357.62l.608.6,1.216-1.2" fill="none" stroke="#cc4186" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.75"/>
+                  <path id="Path_7091" data-name="Path 7091" d="M456,359.661l.608.6,1.216-1.2" fill="none" stroke="#cc4186" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.75"/>
+                  <path id="Path_7092" data-name="Path 7092" d="M456,361.7l.608.6,1.216-1.2" fill="none" stroke="#cc4186" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.75"/>
+                  <path id="Path_7093" data-name="Path 7093" d="M453.359,365.142H453a1,1,0,0,1-1-1v-8.2a1,1,0,0,1,1-1h.357Z" fill="#47a0b2"/>
+                  <path id="Path_7094" data-name="Path 7094" d="M453.718,362.42H452v-4.762h1.72a1,1,0,0,1,1,1v2.758a1,1,0,0,1-1,1" fill="#47a0b2"/>
+                </g>
+              </g>
+              <g id="Group_6698" data-name="Group 6698">
+                <g id="Group_6697" data-name="Group 6697" clip-path="url(#clip-path)">
+                  <path id="Path_7095" data-name="Path 7095" d="M1091,332H711a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4h380a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#afe6cb"/>
+                </g>
+              </g>
+              <text id="終日予定" transform="translate(727 328.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">終日予定</tspan></text>
+              <g id="Group_6700" data-name="Group 6700">
+                <g id="Group_6699" data-name="Group 6699" clip-path="url(#clip-path-66)">
+                  <path id="Path_7096" data-name="Path 7096" d="M717.248,320.475a1.363,1.363,0,1,1,1.362-1.363,1.364,1.364,0,0,1-1.362,1.363" fill="#f92525"/>
+                  <path id="Path_7097" data-name="Path 7097" d="M717.248,318a1.113,1.113,0,1,1-1.113,1.112A1.112,1.112,0,0,1,717.248,318m0-.5a1.613,1.613,0,1,0,1.612,1.612,1.614,1.614,0,0,0-1.612-1.612" fill="#fff"/>
+                  <path id="Path_7098" data-name="Path 7098" d="M720.726,323.914a.452.452,0,1,0,.833-.349,15.761,15.761,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                  <path id="Path_7099" data-name="Path 7099" d="M720.726,323.914a.452.452,0,1,0,.833-.349,15.761,15.761,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                  <path id="Path_7100" data-name="Path 7100" d="M720.726,323.914a.452.452,0,1,0,.833-.349,15.761,15.761,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.342,1.342,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.669,2.669,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.525.525,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.595.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                </g>
+              </g>
+              <g id="Group_6702" data-name="Group 6702">
+                <g id="Group_6701" data-name="Group 6701" clip-path="url(#clip-path)">
+                  <rect id="Rectangle_4859" data-name="Rectangle 4859" width="256" height="15" rx="3.5" transform="translate(577.5 444.5)" fill="#fff"/>
+                  <path id="Path_7101" data-name="Path 7101" d="M830,445a3,3,0,0,1,3,3v8a3,3,0,0,1-3,3H581a3,3,0,0,1-3-3v-8a3,3,0,0,1,3-3H830m0-1H581a4,4,0,0,0-4,4v8a4,4,0,0,0,4,4H830a4,4,0,0,0,4-4v-8a4,4,0,0,0-4-4" fill="#e5e5e5"/>
+                </g>
+              </g>
+              <text id="招待予定欠席" transform="translate(597 456.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">招待予定欠席</tspan></text>
+              <g id="Group_6704" data-name="Group 6704">
+                <g id="Group_6703" data-name="Group 6703" clip-path="url(#clip-path-68)">
+                  <path id="Path_7102" data-name="Path 7102" d="M583.5,458.017a1,1,0,0,1-1-1v-8a1,1,0,0,1-1-1v-1a1,1,0,0,1,1-1h11a1,1,0,0,1,1,1v1a1,1,0,0,1-1,1v8a1,1,0,0,1-1,1Z" fill="#0f6db5"/>
+                  <path id="Path_7103" data-name="Path 7103" d="M593.5,446.517a.5.5,0,0,1,.5.5v1a.5.5,0,0,1-.5.5H593v8.5a.5.5,0,0,1-.5.5h-9a.5.5,0,0,1-.5-.5v-8.5h-.5a.5.5,0,0,1-.5-.5v-1a.5.5,0,0,1,.5-.5h11m0-1h-11a1.5,1.5,0,0,0-1.5,1.5v1a1.5,1.5,0,0,0,1,1.415v7.585a1.5,1.5,0,0,0,1.5,1.5h9a1.5,1.5,0,0,0,1.5-1.5v-7.585a1.5,1.5,0,0,0,1-1.415v-1a1.5,1.5,0,0,0-1.5-1.5" fill="#fff"/>
+                  <rect id="Rectangle_4861" data-name="Rectangle 4861" width="8" height="8" transform="translate(584 448.517)" fill="#fff"/>
+                  <rect id="Rectangle_4862" data-name="Rectangle 4862" width="8" height="8" transform="translate(584 448.517)" fill="#fff"/>
+                  <rect id="Rectangle_4863" data-name="Rectangle 4863" width="8" height="8" transform="translate(584 448.517)" fill="#fff"/>
+                  <path id="Path_7104" data-name="Path 7104" d="M590.823,451.1l-.707-.707L588,452.512l-.7-.7-2.121,2.121.707.707,1.414-1.414.708.707Z" fill="#3698d5"/>
+                </g>
+              </g>
+              <g id="Group_6706" data-name="Group 6706">
+                <g id="Group_6705" data-name="Group 6705" clip-path="url(#clip-path)">
+                  <line id="Line_436" data-name="Line 436" x2="88" transform="translate(581 452)" fill="none" stroke="#666" stroke-miterlimit="10" stroke-width="1"/>
+                  <path id="Path_7105" data-name="Path 7105" d="M830,478H581a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H830a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#ffe4b5"/>
+                </g>
+              </g>
+              <text id="終日予定-2" data-name="終日予定" transform="translate(597 474.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">終日予定</tspan></text>
+              <g id="Group_6708" data-name="Group 6708">
+                <g id="Group_6707" data-name="Group 6707" clip-path="url(#clip-path-70)">
+                  <path id="Rectangle_4866" data-name="Rectangle 4866" d="M3.653,0H9.346A3.654,3.654,0,0,1,13,3.654V9.346A3.654,3.654,0,0,1,9.346,13H3.654A3.654,3.654,0,0,1,0,9.346V3.653A3.653,3.653,0,0,1,3.653,0Z" transform="translate(581.5 463.498)" fill="#ff5c5c"/>
+                  <path id="Path_7106" data-name="Path 7106" d="M590.846,464A3.154,3.154,0,0,1,594,467.152v5.692A3.154,3.154,0,0,1,590.846,476h-5.691A3.154,3.154,0,0,1,582,472.844v-5.692A3.154,3.154,0,0,1,585.155,464h5.691m0-1h-5.691A4.159,4.159,0,0,0,581,467.152v5.692A4.159,4.159,0,0,0,585.155,477h5.691A4.158,4.158,0,0,0,595,472.844v-5.692A4.158,4.158,0,0,0,590.846,463" fill="#fff"/>
+                  <path id="Path_7107" data-name="Path 7107" d="M590.031,469.079A8.052,8.052,0,0,0,592,472.061a3.508,3.508,0,0,0-.734.783,8.432,8.432,0,0,1-1.664-2.62v3.6h-.972v-3.436a8.361,8.361,0,0,1-1.755,2.5,5.454,5.454,0,0,0-.667-.725v1.648h-.964v-4.185a7.341,7.341,0,0,1-.676.741,7.126,7.126,0,0,0-.568-1.03,8.46,8.46,0,0,0,2.085-3.163l.971.313a12.952,12.952,0,0,1-.848,1.738v3.839a7.832,7.832,0,0,0,2.035-2.982h-1.706v-.956h2.093v-1.862h.972v1.862h2.151v.956Z" fill="#fff"/>
+                </g>
+              </g>
+              <g id="Group_6710" data-name="Group 6710">
+                <g id="Group_6709" data-name="Group 6709" clip-path="url(#clip-path)">
+                  <path id="Path_7108" data-name="Path 7108" d="M570,588H451a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H570a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#afe6cb"/>
+                </g>
+              </g>
+              <text id="タスク-2" data-name="タスク" transform="translate(467 584.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">タスク</tspan></text>
+              <g id="Group_6712" data-name="Group 6712">
+                <g id="Group_6711" data-name="Group 6711" clip-path="url(#clip-path-72)">
+                  <path id="Path_7109" data-name="Path 7109" d="M453.2,585.642a1.7,1.7,0,0,1-1.7-1.7v-7.894a1.7,1.7,0,0,1,1.7-1.694h9.4a1.9,1.9,0,0,1,1.9,1.9v7.486a1.9,1.9,0,0,1-1.9,1.9Z" fill="#fff"/>
+                  <path id="Path_7110" data-name="Path 7110" d="M462.6,574.859a1.4,1.4,0,0,1,1.4,1.4v7.486a1.4,1.4,0,0,1-1.4,1.4h-9.4a1.2,1.2,0,0,1-1.195-1.2v-7.893a1.2,1.2,0,0,1,1.195-1.2h9.4m0-1h-9.4a2.2,2.2,0,0,0-2.195,2.2v7.893a2.2,2.2,0,0,0,2.195,2.2h9.4a2.4,2.4,0,0,0,2.4-2.4v-7.486a2.4,2.4,0,0,0-2.4-2.4" fill="#fff"/>
+                  <path id="Path_7111" data-name="Path 7111" d="M464,581.874l-.855,1.763H452.812v1.5h9.823A1.364,1.364,0,0,0,464,583.773v-1.9Z" fill="#adc7e7"/>
+                  <path id="Path_7112" data-name="Path 7112" d="M461.958,584.392h-9.026v-9.46h9.034A2.031,2.031,0,0,1,464,576.963v5.389a2.039,2.039,0,0,1-2.039,2.04" fill="#ededed"/>
+                  <path id="Path_7113" data-name="Path 7113" d="M459.184,577.658H462.2a.343.343,0,0,0,0-.68h-3.013a.342.342,0,0,0,0,.68" fill="#326dab"/>
+                  <path id="Path_7114" data-name="Path 7114" d="M462.2,576.978h-3.013a.343.343,0,0,0,0,.68H462.2a.342.342,0,0,0,0-.68" fill="#255b9d"/>
+                  <path id="Path_7115" data-name="Path 7115" d="M462.2,580.379h-3.013a.343.343,0,0,0,0,.68H462.2a.342.342,0,0,0,0-.68" fill="#326dab"/>
+                  <path id="Path_7116" data-name="Path 7116" d="M462.2,580.379h-3.013a.343.343,0,0,0,0,.681H462.2a.343.343,0,0,0,0-.681" fill="#255b9d"/>
+                  <path id="Path_7117" data-name="Path 7117" d="M462.2,578.678h-3.013a.343.343,0,0,0,0,.68H462.2a.342.342,0,0,0,0-.68" fill="#326dab"/>
+                  <path id="Path_7118" data-name="Path 7118" d="M462.2,578.678h-3.013a.343.343,0,0,0,0,.68H462.2a.342.342,0,0,0,0-.68" fill="#255b9d"/>
+                  <path id="Path_7119" data-name="Path 7119" d="M462.2,582.08h-3.013a.343.343,0,0,0,0,.68H462.2a.342.342,0,0,0,0-.68" fill="#326dab"/>
+                  <path id="Path_7120" data-name="Path 7120" d="M462.2,582.08h-3.013a.343.343,0,0,0,0,.68H462.2a.342.342,0,0,0,0-.68" fill="#255b9d"/>
+                  <path id="Path_7121" data-name="Path 7121" d="M456,577.62l.608.6,1.216-1.2" fill="none" stroke="#cc4186" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.75"/>
+                  <path id="Path_7122" data-name="Path 7122" d="M456,579.661l.608.6,1.216-1.2" fill="none" stroke="#cc4186" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.75"/>
+                  <path id="Path_7123" data-name="Path 7123" d="M456,581.7l.608.6,1.216-1.2" fill="none" stroke="#cc4186" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.75"/>
+                  <path id="Path_7124" data-name="Path 7124" d="M453.359,585.142H453a1,1,0,0,1-1-1v-8.2a1,1,0,0,1,1-1h.357Z" fill="#47a0b2"/>
+                  <path id="Path_7125" data-name="Path 7125" d="M453.718,582.42H452v-4.762h1.72a1,1,0,0,1,1,1v2.758a1,1,0,0,1-1,1" fill="#47a0b2"/>
+                </g>
+              </g>
+              <g id="Group_6714" data-name="Group 6714">
+                <g id="Group_6713" data-name="Group 6713" clip-path="url(#clip-path)">
+                  <path id="Path_7126" data-name="Path 7126" d="M699,588H581a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H699a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#ffbebe"/>
+                </g>
+              </g>
+              <text id="終日予定-3" data-name="終日予定" transform="translate(597 584.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">終日予定</tspan></text>
+              <g id="Group_6716" data-name="Group 6716">
+                <g id="Group_6715" data-name="Group 6715" clip-path="url(#clip-path-74)">
+                  <path id="Path_7127" data-name="Path 7127" d="M590.843,585.661a3.434,3.434,0,0,1-2.3-.88l-5.4-4.844a3.446,3.446,0,0,1-.264-4.86l.192-.214a1.573,1.573,0,0,1,2.225-.12l1.066.955a1.576,1.576,0,0,1,.12,2.226l-.384.428,3.7,3.32.385-.429a1.576,1.576,0,0,1,2.225-.12l1.066.955a1.576,1.576,0,0,1,.12,2.226l-.19.212a3.448,3.448,0,0,1-2.564,1.145" fill="#38c07c"/>
+                  <path id="Path_7128" data-name="Path 7128" d="M584.244,574.84a1.071,1.071,0,0,1,.719.275l1.065.955a1.076,1.076,0,0,1,.083,1.52l-.719.8,4.447,3.988.717-.8a1.076,1.076,0,0,1,1.52-.083l1.066.955a1.076,1.076,0,0,1,.082,1.52l-.191.213a2.941,2.941,0,0,1-4.154.226l-5.4-4.843a2.942,2.942,0,0,1-.226-4.156l.191-.213a1.075,1.075,0,0,1,.8-.357m0-1h0a2.078,2.078,0,0,0-1.545.689l-.191.214a3.942,3.942,0,0,0,.3,5.567l5.4,4.844a3.943,3.943,0,0,0,5.567-.3l.191-.212a2.08,2.08,0,0,0-.159-2.933l-1.066-.956a2.077,2.077,0,0,0-2.932.16l-.05.056-2.957-2.651.05-.057a2.075,2.075,0,0,0-.16-2.932l-1.065-.956a2.071,2.071,0,0,0-1.386-.53" fill="#fff"/>
+                </g>
+              </g>
+              <g id="Group_6718" data-name="Group 6718">
+                <g id="Group_6717" data-name="Group 6717" clip-path="url(#clip-path)">
+                  <path id="Path_7129" data-name="Path 7129" d="M830,588H711a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H830a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#afe6cb"/>
+                </g>
+              </g>
+              <text id="マイルストーン" transform="translate(727 584.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">マイルストーン</tspan></text>
+              <g id="Group_6720" data-name="Group 6720">
+                <g id="Group_6719" data-name="Group 6719" clip-path="url(#clip-path-76)">
+                  <path id="Path_7130" data-name="Path 7130" d="M713.83,585.5a.94.94,0,0,1-.939-.939v-9.122a.94.94,0,0,1,.939-.939.967.967,0,0,1,1.024.879h3.177a1.133,1.133,0,0,1,1.073.769h2.727a.85.85,0,0,1,.756.449.809.809,0,0,1-.05.837l-1.332,1.955,1.31,1.844a.809.809,0,0,1,.06.843.847.847,0,0,1-.759.456h-3.151a1.409,1.409,0,0,1-.512-.081.994.994,0,0,1-.223-.109,1.249,1.249,0,0,1-.552-.58h-2.522v2.8a.94.94,0,0,1-.939.939Z" fill="#fff"/>
+                  <path id="Path_7131" data-name="Path 7131" d="M713.916,575a.439.439,0,0,1,.439.439v.439h3.676a.634.634,0,0,1,.634.635v.135h3.167a.327.327,0,0,1,.293.5l-1.529,2.244,1.511,2.127a.328.328,0,0,1-.291.51h-3.238a.766.766,0,0,1-.258-.053l-.017,0a.9.9,0,0,1-.129-.071.67.67,0,0,1-.389-.571v-.071h-3.43v3.3a.439.439,0,0,1-.439.439h-.086a.44.44,0,0,1-.439-.439v-9.122a.44.44,0,0,1,.439-.439h.086m0-1h-.086a1.44,1.44,0,0,0-1.439,1.439v9.122A1.44,1.44,0,0,0,713.83,586h.086a1.44,1.44,0,0,0,1.439-1.439v-2.3h1.738a1.82,1.82,0,0,0,.6.519,1.581,1.581,0,0,0,.254.129l.11.042.037.005a1.675,1.675,0,0,0,.484.074h3.238a1.348,1.348,0,0,0,1.2-.726,1.31,1.31,0,0,0-.1-1.362l-1.11-1.561,1.137-1.668a1.306,1.306,0,0,0,.078-1.351,1.347,1.347,0,0,0-1.2-.716h-2.415a1.634,1.634,0,0,0-1.386-.77h-2.789a1.442,1.442,0,0,0-1.326-.878" fill="#fff"/>
+                  <path id="Path_7132" data-name="Path 7132" d="M713.873,585h0a.481.481,0,0,1-.482-.482V575.48a.482.482,0,1,1,.964,0v9.035a.481.481,0,0,1-.482.482" fill="#1c4476"/>
+                  <path id="Path_7133" data-name="Path 7133" d="M722.107,581.52a.327.327,0,0,1-.29.509h-3.183a.784.784,0,0,1-.848-.7v-4.687h4.045a.328.328,0,0,1,.294.5l-1.53,2.243Z" fill="#2a905c"/>
+                  <path id="Path_7134" data-name="Path 7134" d="M718.665,576.645h-.879v4.505a.88.88,0,0,0,.879.879Z" fill="#206c45"/>
+                  <path id="Path_7135" data-name="Path 7135" d="M717.943,581.26h-3.674v-5.384h3.674a.722.722,0,0,1,.722.721v3.942a.722.722,0,0,1-.722.721" fill="#38c07c"/>
+                </g>
+              </g>
+              <g id="Group_6722" data-name="Group 6722">
+                <g id="Group_6721" data-name="Group 6721" clip-path="url(#clip-path)">
+                  <path id="Path_7136" data-name="Path 7136" d="M1221,588H972a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4h249a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#d6e3f3"/>
+                </g>
+              </g>
+              <text id="終日予定-4" data-name="終日予定" transform="translate(988 584.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">終日予定</tspan></text>
+              <g id="Group_6724" data-name="Group 6724">
+                <g id="Group_6723" data-name="Group 6723" clip-path="url(#clip-path-78)">
+                  <path id="Path_7137" data-name="Path 7137" d="M974.5,586.017a1,1,0,0,1-1-1v-8a1,1,0,0,1-1-1v-1a1,1,0,0,1,1-1h11a1,1,0,0,1,1,1v1a1,1,0,0,1-1,1v8a1,1,0,0,1-1,1Z" fill="#0f6db5"/>
+                  <path id="Path_7138" data-name="Path 7138" d="M984.5,574.517a.5.5,0,0,1,.5.5v1a.5.5,0,0,1-.5.5H984v8.5a.5.5,0,0,1-.5.5h-9a.5.5,0,0,1-.5-.5v-8.5h-.5a.5.5,0,0,1-.5-.5v-1a.5.5,0,0,1,.5-.5h11m0-1h-11a1.5,1.5,0,0,0-1.5,1.5v1a1.5,1.5,0,0,0,1,1.415v7.585a1.5,1.5,0,0,0,1.5,1.5h9a1.5,1.5,0,0,0,1.5-1.5v-7.585a1.5,1.5,0,0,0,1-1.415v-1a1.5,1.5,0,0,0-1.5-1.5" fill="#fff"/>
+                  <rect id="Rectangle_4875" data-name="Rectangle 4875" width="8" height="8" transform="translate(975 576.517)" fill="#fff"/>
+                  <rect id="Rectangle_4876" data-name="Rectangle 4876" width="8" height="8" transform="translate(975 576.517)" fill="#fff"/>
+                  <rect id="Rectangle_4877" data-name="Rectangle 4877" width="8" height="8" transform="translate(975 576.517)" fill="#fff"/>
+                  <path id="Path_7139" data-name="Path 7139" d="M981.823,579.1l-.707-.707L979,580.512l-.7-.7-2.121,2.121.707.707,1.414-1.414.708.707Z" fill="#3698d5"/>
+                </g>
+              </g>
+              <g id="Group_6726" data-name="Group 6726">
+                <g id="Group_6725" data-name="Group 6725" clip-path="url(#clip-path)">
+                  <path id="Path_7140" data-name="Path 7140" d="M830,716H581a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H830a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#fed5fe"/>
+                </g>
+              </g>
+              <text id="終日予定-5" data-name="終日予定" transform="translate(597 712.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">終日予定</tspan></text>
+              <g id="Group_6733" data-name="Group 6733">
+                <g id="Group_6732" data-name="Group 6732" clip-path="url(#clip-path-80)">
+                  <path id="Path_7141" data-name="Path 7141" d="M584.95,703.014a1.778,1.778,0,1,1-1.778,1.778,1.779,1.779,0,0,1,1.778-1.778m0-1a2.778,2.778,0,1,0,2.778,2.778,2.781,2.781,0,0,0-2.778-2.778" fill="#fff"/>
+                  <path id="Path_7142" data-name="Path 7142" d="M591.939,707.459a1.762,1.762,0,0,1,1.187.464l0,0c.05.046.095.094.14.144.023.026.044.052.066.079.034.045.07.089.1.137a1.812,1.812,0,0,1,.127.233c.014.031.023.064.036.1a1.67,1.67,0,0,1,.066.211c.006.031.014.062.02.094s0,.045.007.067H594v4H582v-4h.308c0-.022,0-.045.007-.067s.014-.063.02-.094a1.83,1.83,0,0,1,.066-.21c.013-.032.022-.066.036-.1a1.8,1.8,0,0,1,.127-.233,1.663,1.663,0,0,1,.1-.137c.021-.027.042-.053.064-.079a1.785,1.785,0,0,1,1.331-.61h1.777a1.769,1.769,0,0,1,1.189.464l0,0a1.726,1.726,0,0,1,.14.144c.023.026.044.052.065.079.035.045.07.089.1.137a1.811,1.811,0,0,1,.127.233c.014.031.024.064.036.1a1.846,1.846,0,0,1,.066.211c.007.031.015.062.021.094s0,.045.006.067h.817c0-.022,0-.045.007-.067s.013-.063.02-.094a1.656,1.656,0,0,1,.066-.21c.012-.032.022-.066.036-.1a1.812,1.812,0,0,1,.127-.233c.031-.048.066-.092.1-.137.022-.027.042-.053.065-.079a1.729,1.729,0,0,1,.14-.144,1.767,1.767,0,0,1,1.191-.466h1.778m0-1h-1.778a2.769,2.769,0,0,0-1.863.725,2.7,2.7,0,0,0-.217.223c-.029.031-.055.064-.081.1-.026-.032-.053-.066-.082-.1a2.942,2.942,0,0,0-.215-.218l-.1-.094-.016-.008a2.761,2.761,0,0,0-1.747-.626h-1.777a2.762,2.762,0,0,0-1.862.726,2.48,2.48,0,0,0-.221.226c-.029.032-.06.07-.092.109a2.646,2.646,0,0,0-.166.229,2.33,2.33,0,0,0-.136.237H581v6h14v-6h-.584c-.045-.087-.092-.168-.142-.245a2.107,2.107,0,0,0-.139-.192c-.048-.061-.083-.1-.118-.144-.063-.071-.135-.145-.211-.216l-.1-.094-.032-.015a2.758,2.758,0,0,0-1.734-.621" fill="#fff"/>
+                  <path id="Path_7143" data-name="Path 7143" d="M591.05,703.014a1.778,1.778,0,1,1-1.778,1.778,1.779,1.779,0,0,1,1.778-1.778m0-1a2.778,2.778,0,1,0,2.778,2.778,2.781,2.781,0,0,0-2.778-2.778" fill="#fff"/>
+                  <path id="Path_7144" data-name="Path 7144" d="M584.95,706.57a1.778,1.778,0,1,0-1.778-1.778,1.779,1.779,0,0,0,1.778,1.778" fill="#1ea1da"/>
+                  <path id="Path_7145" data-name="Path 7145" d="M587.585,708.919c-.006-.032-.014-.063-.021-.1a1.658,1.658,0,0,0-.066-.21c-.012-.032-.021-.065-.035-.1a1.745,1.745,0,0,0-.127-.233,1.4,1.4,0,0,0-.1-.137c-.02-.027-.042-.054-.064-.08a1.721,1.721,0,0,0-.141-.143l0,0a1.76,1.76,0,0,0-1.188-.464h-1.777a1.769,1.769,0,0,0-1.191.465,1.6,1.6,0,0,0-.14.145c-.023.025-.043.052-.065.079-.035.044-.07.088-.1.137a1.858,1.858,0,0,0-.126.233c-.014.031-.024.064-.037.1a1.891,1.891,0,0,0-.065.21c-.007.032-.015.063-.021.1s0,.044-.006.066h5.283c0-.022,0-.044-.007-.066" fill="#1ea1da"/>
+                  <path id="Path_7146" data-name="Path 7146" d="M593.691,708.986a1.6,1.6,0,0,1,.025.251v2.852a.866.866,0,0,1-.2.531v.366H594v-4Z" fill="#999"/>
+                  <path id="Path_7147" data-name="Path 7147" d="M587.592,708.986H582v1h6.383v-.749a1.731,1.731,0,0,1,.025-.251Z" fill="#999"/>
+                  <g id="Group_6731" data-name="Group 6731" opacity="0.1">
+                    <g id="Group_6730" data-name="Group 6730">
+                      <g id="Group_6729" data-name="Group 6729" clip-path="url(#clip-path-81)">
+                        <g id="Group_6728" data-name="Group 6728">
+                          <g id="Group_6727" data-name="Group 6727" clip-path="url(#clip-path-81)">
+                            <path id="Path_7148" data-name="Path 7148" d="M592.828,712.978h-3.557a.889.889,0,0,1-.888-.889v-2.1H582v3h11.521v-.366a.871.871,0,0,1-.693.358" fill="#333"/>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                  <path id="Path_7149" data-name="Path 7149" d="M591.05,706.57a1.778,1.778,0,1,0-1.778-1.778,1.779,1.779,0,0,0,1.778,1.778" fill="#1ea1da"/>
+                  <path id="Path_7150" data-name="Path 7150" d="M593.685,708.919c-.006-.032-.014-.063-.021-.1a1.654,1.654,0,0,0-.065-.21c-.013-.032-.022-.065-.036-.1a1.738,1.738,0,0,0-.127-.233,1.387,1.387,0,0,0-.1-.137c-.021-.027-.043-.054-.065-.08a1.9,1.9,0,0,0-.14-.143l0,0a1.758,1.758,0,0,0-1.187-.464h-1.778a1.771,1.771,0,0,0-1.191.465,1.59,1.59,0,0,0-.14.145c-.023.025-.043.052-.065.079-.035.044-.07.088-.1.137a1.858,1.858,0,0,0-.126.233c-.014.031-.024.064-.037.1a1.891,1.891,0,0,0-.065.21c-.007.032-.015.063-.021.1s0,.044-.006.066h5.283c0-.022,0-.044-.007-.066" fill="#1ea1da"/>
+                  <path id="Path_7151" data-name="Path 7151" d="M588.383,709.986h5.139v2.634a.866.866,0,0,0,.2-.531v-2.852a1.739,1.739,0,0,0-.025-.251h-5.284a1.731,1.731,0,0,0-.025.251Z" fill="#1ea1da"/>
+                  <path id="Path_7152" data-name="Path 7152" d="M588.383,709.986v2.1a.889.889,0,0,0,.889.889h3.556a.873.873,0,0,0,.694-.358v-2.634Z" fill="#1ea1da"/>
+                </g>
+              </g>
+              <g id="Group_6735" data-name="Group 6735">
+                <g id="Group_6734" data-name="Group 6734" clip-path="url(#clip-path)">
+                  <path id="Path_7153" data-name="Path 7153" d="M1091,222H972a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4h119a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#fff"/>
+                </g>
+              </g>
+              <text id="_14:00-3" data-name="14:00" transform="translate(981 218.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">14:00</tspan></text>
+              <text id="招待未参加" transform="translate(1032 218.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">招待未参加</tspan></text>
+              <g id="Group_6737" data-name="Group 6737">
+                <g id="Group_6736" data-name="Group 6736" clip-path="url(#clip-path)">
+                  <path id="Path_7154" data-name="Path 7154" d="M976,211a3,3,0,1,1-3,3,3,3,0,0,1,3-3m0-1a4,4,0,1,0,4,4,4,4,0,0,0-4-4" fill="#afe6cb"/>
+                </g>
+              </g>
+              <g id="Group_6739" data-name="Group 6739">
+                <g id="Group_6738" data-name="Group 6738" clip-path="url(#clip-path-85)">
+                  <path id="Path_7155" data-name="Path 7155" d="M1016.5,219.8a1,1,0,0,1-1-1v-8a1,1,0,0,1-1-1v-1a1,1,0,0,1,1-1h11a1,1,0,0,1,1,1v1a1,1,0,0,1-1,1v8a1,1,0,0,1-1,1Z" fill="#0f6db5"/>
+                  <path id="Path_7156" data-name="Path 7156" d="M1026.5,208.3a.5.5,0,0,1,.5.5v1a.5.5,0,0,1-.5.5h-.5v8.5a.5.5,0,0,1-.5.5h-9a.5.5,0,0,1-.5-.5v-8.5h-.5a.5.5,0,0,1-.5-.5v-1a.5.5,0,0,1,.5-.5h11m0-1h-11a1.5,1.5,0,0,0-1.5,1.5v1a1.505,1.505,0,0,0,1,1.416V218.8a1.5,1.5,0,0,0,1.5,1.5h9a1.5,1.5,0,0,0,1.5-1.5v-7.584a1.505,1.505,0,0,0,1-1.416v-1a1.5,1.5,0,0,0-1.5-1.5" fill="#fff"/>
+                  <rect id="Rectangle_4885" data-name="Rectangle 4885" width="8" height="8" transform="translate(1017 210.297)" fill="#fff"/>
+                  <rect id="Rectangle_4886" data-name="Rectangle 4886" width="8" height="8" transform="translate(1017 210.297)" fill="#fff"/>
+                  <rect id="Rectangle_4887" data-name="Rectangle 4887" width="8" height="8" transform="translate(1017 210.297)" fill="#fff"/>
+                  <path id="Path_7157" data-name="Path 7157" d="M1023.823,212.883l-.707-.707L1021,214.293l-.7-.7-2.121,2.121.707.707L1020.3,215l.708.707Z" fill="#3698d5"/>
+                </g>
+              </g>
+              <g id="Group_6741" data-name="Group 6741">
+                <g id="Group_6740" data-name="Group 6740" clip-path="url(#clip-path)">
+                  <path id="Path_7158" data-name="Path 7158" d="M570,478H451a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H570a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#fff"/>
+                </g>
+              </g>
+              <text id="MS相談会-15" data-name="MS相談会" transform="translate(511 474.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">M</tspan><tspan y="0" letter-spacing="0.25em">S</tspan><tspan y="0">相談会</tspan></text>
+              <text id="_14:00-4" data-name="14:00" transform="translate(460 474.561)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">14:00</tspan></text>
+              <g id="Group_6743" data-name="Group 6743">
+                <g id="Group_6742" data-name="Group 6742" clip-path="url(#clip-path)">
+                  <path id="Path_7159" data-name="Path 7159" d="M459,470a4,4,0,1,1-4-4,4,4,0,0,1,4,4" fill="#d6e3f3"/>
+                </g>
+              </g>
+              <g id="Group_6745" data-name="Group 6745">
+                <g id="Group_6744" data-name="Group 6744" clip-path="url(#clip-path-88)">
+                  <path id="Path_7160" data-name="Path 7160" d="M499.248,466.475a1.363,1.363,0,1,1,1.362-1.363,1.364,1.364,0,0,1-1.362,1.363" fill="#f92525"/>
+                  <path id="Path_7161" data-name="Path 7161" d="M499.248,464a1.113,1.113,0,1,1-1.113,1.112A1.112,1.112,0,0,1,499.248,464m0-.5a1.613,1.613,0,1,0,1.612,1.612,1.614,1.614,0,0,0-1.612-1.612" fill="#fff"/>
+                  <path id="Path_7162" data-name="Path 7162" d="M502.726,469.914a.452.452,0,1,0,.833-.349,15.755,15.755,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.67,2.67,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.524.524,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.6.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                  <path id="Path_7163" data-name="Path 7163" d="M502.726,469.914a.452.452,0,1,0,.833-.349,15.755,15.755,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.67,2.67,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.524.524,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.6.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                  <path id="Path_7164" data-name="Path 7164" d="M502.726,469.914a.452.452,0,1,0,.833-.349,15.755,15.755,0,0,0-.745-1.679.809.809,0,0,0-.4-.412l-1.608-.76a1.343,1.343,0,0,0-.821-.106l-.553.1a1.957,1.957,0,0,0-1.4,1.065l-.538,1.1-1.273.67a.417.417,0,0,0-.191.529l.005.011a.411.411,0,0,0,.231.228.417.417,0,0,0,.325-.008l1.421-.642a.658.658,0,0,0,.252-.2l.54-.686.525,1.988-1.247,1.7a2.67,2.67,0,0,0-.433.792l-.7,2.037a.524.524,0,0,0,.364.679l.011,0a.524.524,0,0,0,.606-.284l.955-2.024,1.458-1.69.544,1.669,1.19,2.054a.523.523,0,0,0,.6.243l.043-.012a.525.525,0,0,0,.347-.7l-1.138-2.57-.911-4.643,1.055.468.657,1.423" fill="#f92525"/>
+                </g>
+              </g>
+              <g id="Group_6747" data-name="Group 6747">
+                <g id="Group_6746" data-name="Group 6746" clip-path="url(#clip-path)">
+                  <path id="Path_7165" data-name="Path 7165" d="M569,460H451a4,4,0,0,1-4-4v-8a4,4,0,0,1,4-4H569a4,4,0,0,1,4,4v8a4,4,0,0,1-4,4" fill="#fff"/>
+                </g>
+              </g>
+              <text id="_12:55" data-name="12:55" transform="translate(460.012 456.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">12:55</tspan></text>
+              <text id="招待欠席" transform="translate(507.004 456.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">招待欠席</tspan></text>
+              <g id="Group_6749" data-name="Group 6749">
+                <g id="Group_6748" data-name="Group 6748" clip-path="url(#clip-path-90)">
+                  <path id="Path_7166" data-name="Path 7166" d="M494.5,458.017a1,1,0,0,1-1-1v-8a1,1,0,0,1-1-1v-1a1,1,0,0,1,1-1h11a1,1,0,0,1,1,1v1a1,1,0,0,1-1,1v8a1,1,0,0,1-1,1Z" fill="#0f6db5"/>
+                  <path id="Path_7167" data-name="Path 7167" d="M504.5,446.517a.5.5,0,0,1,.5.5v1a.5.5,0,0,1-.5.5H504v8.5a.5.5,0,0,1-.5.5h-9a.5.5,0,0,1-.5-.5v-8.5h-.5a.5.5,0,0,1-.5-.5v-1a.5.5,0,0,1,.5-.5h11m0-1h-11a1.5,1.5,0,0,0-1.5,1.5v1a1.5,1.5,0,0,0,1,1.415v7.585a1.5,1.5,0,0,0,1.5,1.5h9a1.5,1.5,0,0,0,1.5-1.5v-7.585a1.5,1.5,0,0,0,1-1.415v-1a1.5,1.5,0,0,0-1.5-1.5" fill="#fff"/>
+                  <rect id="Rectangle_4893" data-name="Rectangle 4893" width="8" height="8" transform="translate(495 448.517)" fill="#fff"/>
+                  <rect id="Rectangle_4894" data-name="Rectangle 4894" width="8" height="8" transform="translate(495 448.517)" fill="#fff"/>
+                  <rect id="Rectangle_4895" data-name="Rectangle 4895" width="8" height="8" transform="translate(495 448.517)" fill="#fff"/>
+                  <path id="Path_7168" data-name="Path 7168" d="M501.823,451.1l-.707-.707L499,452.512l-.7-.7-2.121,2.121.707.707,1.414-1.414.708.707Z" fill="#3698d5"/>
+                </g>
+              </g>
+              <g id="Group_6751" data-name="Group 6751">
+                <g id="Group_6750" data-name="Group 6750" clip-path="url(#clip-path)">
+                  <line id="Line_437" data-name="Line 437" x2="102" transform="translate(461 452)" fill="none" stroke="#666" stroke-miterlimit="10" stroke-width="1"/>
+                  <line id="Line_438" data-name="Line 438" x1="5.657" y2="5.657" transform="translate(452.172 449.171)" fill="none" stroke="#e5e5e5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.155"/>
+                  <line id="Line_439" data-name="Line 439" x1="5.657" y1="5.657" transform="translate(452.172 449.172)" fill="none" stroke="#e5e5e5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.155"/>
+                  <path id="Path_7169" data-name="Path 7169" d="M1090.968,460H972.031A4.016,4.016,0,0,1,968,456v-8a4.016,4.016,0,0,1,4.031-4h118.937a4.016,4.016,0,0,1,4.032,4v8a4.016,4.016,0,0,1-4.032,4" fill="#fff"/>
+                </g>
+              </g>
+              <text id="_12:55-2" data-name="12:55" transform="translate(981.012 456.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">12:55</tspan></text>
+              <text id="活動完了" transform="translate(1028.004 456.56)" fill="#666" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">活動完了</tspan></text>
+              <g id="Group_6753" data-name="Group 6753">
+                <g id="Group_6752" data-name="Group 6752" clip-path="url(#clip-path-92)">
+                  <circle id="Ellipse_302" data-name="Ellipse 302" cx="0.5" cy="0.5" r="0.5" transform="translate(1019.5 457)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+                  <circle id="Ellipse_303" data-name="Ellipse 303" cx="0.5" cy="0.5" r="0.5" transform="translate(1022 457)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+                  <circle id="Ellipse_304" data-name="Ellipse 304" cx="0.5" cy="0.5" r="0.5" transform="translate(1017 457)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+                  <path id="Path_7170" data-name="Path 7170" d="M1023.382,452H1023l-.839-5.2a1,1,0,0,0-.981-.8h-2.36a1,1,0,0,0-.98.8L1017,452h-.382a1,1,0,0,0,0,2h2.882v1H1018a1,1,0,0,0-1,1v.5h1V456h1.5v.5h1V456h1.5v.5h1V456a1,1,0,0,0-1-1h-1.5v-1h2.882a1,1,0,1,0,0-2Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+                  <path id="Path_7171" data-name="Path 7171" d="M1017,450.5a.5.5,0,0,0-.5-.5h-1a.5.5,0,0,0,0,1h1A.5.5,0,0,0,1017,450.5Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+                  <path id="Path_7172" data-name="Path 7172" d="M1024.5,450h-1a.5.5,0,0,0,0,1h1a.5.5,0,0,0,0-1Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+                  <path id="Path_7173" data-name="Path 7173" d="M1020,457a.5.5,0,1,0,.5.5.5.5,0,0,0-.5-.5" fill="#0f6db5"/>
+                  <path id="Path_7174" data-name="Path 7174" d="M1022.5,457a.5.5,0,1,0,.5.5.5.5,0,0,0-.5-.5" fill="#0f6db5"/>
+                  <path id="Path_7175" data-name="Path 7175" d="M1017.5,457a.5.5,0,1,0,.5.5.5.5,0,0,0-.5-.5" fill="#0f6db5"/>
+                  <path id="Path_7176" data-name="Path 7176" d="M1023.382,452H1023l-.839-5.2a1,1,0,0,0-.981-.8h-2.36a1,1,0,0,0-.98.8L1017,452h-.382a1,1,0,0,0,0,2h2.882v1H1018a1,1,0,0,0-1,1v.5h1V456h1.5v.5h1V456h1.5v.5h1V456a1,1,0,0,0-1-1h-1.5v-1h2.882a1,1,0,1,0,0-2" fill="#0f6db5"/>
+                  <path id="Path_7177" data-name="Path 7177" d="M1017,450.5a.5.5,0,0,0-.5-.5h-1a.5.5,0,0,0,0,1h1a.5.5,0,0,0,.5-.5" fill="#0f6db5"/>
+                  <path id="Path_7178" data-name="Path 7178" d="M1024.5,450h-1a.5.5,0,0,0,0,1h1a.5.5,0,0,0,0-1" fill="#0f6db5"/>
+                </g>
+              </g>
+              <g id="Group_6755" data-name="Group 6755">
+                <g id="Group_6754" data-name="Group 6754" clip-path="url(#clip-path)">
+                  <line id="Line_440" data-name="Line 440" x2="95" transform="translate(982 452)" fill="none" stroke="#666" stroke-miterlimit="10" stroke-width="1"/>
+                  <line id="Line_441" data-name="Line 441" x1="5.657" y2="5.657" transform="translate(973.172 449.171)" fill="none" stroke="#afe6cb" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.155"/>
+                  <line id="Line_442" data-name="Line 442" x1="5.657" y1="5.657" transform="translate(973.172 449.172)" fill="none" stroke="#afe6cb" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.155"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

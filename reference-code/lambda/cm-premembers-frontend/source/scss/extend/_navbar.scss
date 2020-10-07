@@ -1,0 +1,21 @@
+.position_yoko{
+  top: -2px !important;
+}
+
+.fontsize_h1_important{
+  font-size: $font-size-h1 !important
+}
+
+.mt-content{
+  margin-top: 65px;
+}
+
+.br-rounded-0{
+  border-radius: 0 !important;
+}
+
+@media only screen and (max-width: 1024px) {
+  .mt-content{
+    margin-top: 85px;
+  }
+}

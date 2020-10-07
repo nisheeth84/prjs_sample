@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "searchGlobal": "全体検索",
+    "userNew": "初心者の方",
+    "feedback": "フィードバック",
+    "setting": "設定"
+  },
+  "notification": {
+    "title": "通知",
+    "modelNoti": "すべて見る",
+    "detail": {
+      "placehoder": "通知を検索"
+    }
+  },
+  "more": {
+    "employeeDetails": "社員詳細",
+    "setting": "設定",
+    "logout": "ログアウト"
+  },
+  "searchGlobal": {
+    "tittle": "全体検索",
+    "tittle-snd": "検索対象はプルダウンで設定",
+    "search-all": "すべて",
+    "placehoder": "全体を検索",
+    "more": "さらに表示"
+  }
+}

@@ -1,0 +1,44 @@
+<success-modal>
+    <div class="modal fade modal-success" id="success-modal" aria-hidden="true" aria-labelledby="exampleModalSuccess" role="dialog"
+        tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">{successInformation.title}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{successInformation.body}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{_t('close')}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const tag = this;
+        const obs = tag.parent.obs
+        tag.observer = obs;
+        tag.successInformation = {
+            'title': '',
+            'body': ''
+        }
+        tag.on('mount', function() {
+            tag.modal = $('#success-modal')
+            tag.observer.on("success-modal-open", function(successInformation) {
+                tag.successInformation = successInformation
+                tag.modal.modal()
+                tag.update();
+            });
+            tag.modal.on('hidden.bs.modal', function(e) {
+                tag.observer.trigger("success-modal-close");
+            });
+        })
+        tag.on('unmount', function() {
+            tag.modal.off('hidden.bs.modal');
+        })
+    </script>
+</success-modal>

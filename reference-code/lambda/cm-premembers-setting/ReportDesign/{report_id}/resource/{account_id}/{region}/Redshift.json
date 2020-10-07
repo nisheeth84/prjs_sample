@@ -1,0 +1,11 @@
+{
+    "Redshift":{
+        "Cluster":[
+            // describe_clustersを用いて情報を収集
+            // 監査ログ情報については、クラスター毎のdescribe_logging_statusの結果をaudit_loggingのキーに格納しておく
+        ],
+        "Snapshots":[
+            // describe_cluster_snapshotsを用いて情報を収集
+        ]
+    }
+}

@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "jp.co.softbrain.esales.uaa",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.4.1",
+    "applicationType": "uaa",
+    "baseName": "uaa",
+    "packageName": "jp.co.softbrain.esales.uaa",
+    "packageFolder": "jp/co/softbrain/esales/uaa",
+    "serverPort": "9999",
+    "authenticationType": "uaa",
+    "cacheProvider": "redis",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MzEwNWUwN2NmMjY3NGIzYzEyN2Y5MzRlNmNmNjJjMDNkYTFlMjRjMjNhMzMzYTY2ZTAyYjNhNjgxNmI4OWIzYWViMDQ3NjE2NzQ1YjlkMDQ1MWFjMWU4MDMxNjVlNGRmNzZkZTI4NDEyNmMzN2RkODRiZjdmMjg1ZmU0YjZmNTY=",
+    "embeddableLaunchScript": false,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "ja"
+    ],
+    "blueprints": [],
+    "skipClient": true
+  }
+}

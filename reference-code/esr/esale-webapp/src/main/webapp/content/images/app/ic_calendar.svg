@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g id="Group_808" data-name="Group 808" transform="translate(-4404 -656)">
+    <rect id="Rectangle_545" data-name="Rectangle 545" width="1.75" height="1.75" rx="0.25" transform="translate(4407 661.75)" fill="#999"/>
+    <rect id="Rectangle_546" data-name="Rectangle 546" width="1.75" height="1.75" rx="0.25" transform="translate(4409.75 661.75)" fill="#999"/>
+    <rect id="Rectangle_547" data-name="Rectangle 547" width="1.75" height="1.75" rx="0.25" transform="translate(4412.5 661.75)" fill="#999"/>
+    <rect id="Rectangle_548" data-name="Rectangle 548" width="1.75" height="1.75" rx="0.25" transform="translate(4415.25 661.75)" fill="#999"/>
+    <rect id="Rectangle_549" data-name="Rectangle 549" width="1.75" height="1.75" rx="0.25" transform="translate(4407 664.5)" fill="#999"/>
+    <rect id="Rectangle_550" data-name="Rectangle 550" width="1.75" height="1.75" rx="0.25" transform="translate(4409.75 664.5)" fill="#999"/>
+    <rect id="Rectangle_551" data-name="Rectangle 551" width="1.75" height="1.75" rx="0.25" transform="translate(4412.5 664.5)" fill="#999"/>
+    <rect id="Rectangle_552" data-name="Rectangle 552" width="1.75" height="1.75" rx="0.25" transform="translate(4415.25 664.5)" fill="#999"/>
+    <rect id="Rectangle_553" data-name="Rectangle 553" width="1.75" height="1.75" rx="0.25" transform="translate(4407 667.25)" fill="#999"/>
+    <rect id="Rectangle_554" data-name="Rectangle 554" width="1.75" height="1.75" rx="0.25" transform="translate(4409.75 667.25)" fill="#999"/>
+    <rect id="Rectangle_555" data-name="Rectangle 555" width="1.75" height="1.75" rx="0.25" transform="translate(4412.5 667.25)" fill="#999"/>
+    <rect id="Rectangle_556" data-name="Rectangle 556" width="1.75" height="1.75" rx="0.25" transform="translate(4415.25 667.25)" fill="#999"/>
+    <path id="Path_366" data-name="Path 366" d="M4418,657.5h-2v-1a.5.5,0,0,0-.5-.5h-1a.5.5,0,0,0-.5.5v1h-4v-1a.5.5,0,0,0-.5-.5h-1a.5.5,0,0,0-.5.5v1h-2a2,2,0,0,0-2,2V670a2,2,0,0,0,2,2h12a2,2,0,0,0,2-2V659.5A2,2,0,0,0,4418,657.5Zm.5,12a1,1,0,0,1-1,1h-11a1,1,0,0,1-1-1v-9.25h13Z" fill="#999"/>
+  </g>
+</svg>

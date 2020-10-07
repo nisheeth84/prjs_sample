@@ -1,0 +1,78 @@
+.DayPicker-Caption-custom {
+  display: table-caption !important;
+}
+.DayPicker-Month {
+  margin: 0 !important;
+}
+.DayPicker-font-custom {
+  font-size: 12px;
+  font-weight: bold;
+  font-family: 'Noto Sans CJK JP', 'Font Awesome 5 Pro, sans-serif';
+}
+.DayPicker-NavButton {
+  right: 0.5em !important;
+}
+.DayPicker-font-custom :focus {
+  border: none !important;
+}
+.DayPicker-WeekdaysRow div:nth-child(1) {
+  color: #333;
+}
+.DayPicker-Week div:nth-child(1) {
+  color: #333;
+}
+.DayPicker-Weekday {
+  color: #333;
+}
+.DayPicker-Day--outside {
+  color: #8b9898 !important;
+}
+.DayPicker-WeekdaysRow div:nth-child(6) {
+  color: #cd5860;
+}
+.DayPicker-Week div:nth-child(6) {
+  color: #cd5860;
+}
+.DayPicker :focus {
+  outline: none !important;
+}
+.DayPicker--interactionDisabled :focus {
+  outline: none !important;
+}
+.DayPicker--interactionDisabled .DayPicker-Day {
+  cursor: pointer !important;
+}
+.wrap-calendar
+  .esr-calendar-sidebar-content
+  .task-sidebar-calendar
+  .DayPicker-font-custom
+  .DayPicker-Day--today {
+  background-color: #0f6eb5 !important;
+  color: #fff !important;
+  border-radius: 50%;
+  display: table-cell;
+  width: 20px;
+  height: 20px;
+}
+.DayPicker--interactionDisabled .DayPicker-Day:hover {
+  background-color: #0f6eb5;
+}
+.DayPicker-Day--today:not(.DayPicker-Day--selected) {
+  color: #d0021b !important;
+  background-color: #0f6eb5;
+}
+
+.wrap-calendar
+  .esr-calendar-sidebar-content
+  .task-sidebar-calendar
+  .DayPicker-font-custom
+  .DayPicker-Day {
+  font-weight: bold;
+  padding: 5px 6px !important;
+}
+
+/* fix bug 24718 - calendar's color when selected*/
+.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+  background-color: #0f6db5;
+  color: #ecf4f9;
+}

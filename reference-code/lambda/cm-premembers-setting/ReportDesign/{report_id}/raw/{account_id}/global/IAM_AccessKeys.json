@@ -1,0 +1,178 @@
+[
+    {
+        "AccessKeyId": "AKIAJ****************",//(本来はフィルタリングしません。この例ではGithubに登録するためにフィルタリングしています。)
+        "CreateDate": {
+            "$date": 1490777995000
+        },
+        "Status": "Active",
+        "UserName": "cm-abe.shinya"
+    },
+    {
+        "AccessKeyId": "AKIAJ****************",
+        "CreateDate": {
+            "$date": 1480930472000
+        },
+        "Status": "Active",
+        "UserName": "cm-abe.shinya"
+    },
+    {
+        "AccessKeyId": "AKIAI****************",
+        "CreateDate": {
+            "$date": 1504851955000
+        },
+        "Status": "Active",
+        "UserName": "cm-hakamata-s3-test"
+    },
+    {
+        "AccessKeyId": "AKIAJ****************",
+        "CreateDate": {
+            "$date": 1470807904000
+        },
+        "Status": "Active",
+        "UserName": "cm-honda_tetsuyuki"
+    },
+    {
+        "AccessKeyId": "AKIAJ****************",
+        "CreateDate": {
+            "$date": 1475144027000
+        },
+        "Status": "Active",
+        "UserName": "cm-inage.toru"
+    },
+    {
+        "AccessKeyId": "AKIAI****************",
+        "CreateDate": {
+            "$date": 1495422279000
+        },
+        "Status": "Active",
+        "UserName": "cm-ishikawa.satoru"
+    },
+    {
+        "AccessKeyId": "AKIAI****************",
+        "CreateDate": {
+            "$date": 1470791197000
+        },
+        "Status": "Active",
+        "UserName": "cm-kajiwara"
+    },
+    {
+        "AccessKeyId": "AKIAI****************",
+        "CreateDate": {
+            "$date": 1504568029000
+        },
+        "Status": "Active",
+        "UserName": "cm-katsuki"
+    },
+    {
+        "AccessKeyId": "AKIAJ****************",
+        "CreateDate": {
+            "$date": 1471959710000
+        },
+        "Status": "Active",
+        "UserName": "cm-kawasaki.teruo"
+    },
+    {
+        "AccessKeyId": "AKIAI****************",
+        "CreateDate": {
+            "$date": 1504574116000
+        },
+        "Status": "Active",
+        "UserName": "cm-kondo.shigenori"
+    },
+    {
+        "AccessKeyId": "AKIAJ****************",
+        "CreateDate": {
+            "$date": 1482208337000
+        },
+        "Status": "Active",
+        "UserName": "cm-mikami.yuki"
+    },
+    {
+        "AccessKeyId": "AKIAI****************",
+        "CreateDate": {
+            "$date": 1471339715000
+        },
+        "Status": "Active",
+        "UserName": "cm-ootaki.kentaro"
+    },
+    {
+        "AccessKeyId": "AKIAI****************",
+        "CreateDate": {
+            "$date": 1478051280000
+        },
+        "Status": "Active",
+        "UserName": "cm-ozawa"
+    },
+    {
+        "AccessKeyId": "AKIAI****************",
+        "CreateDate": {
+            "$date": 1484198275000
+        },
+        "Status": "Active",
+        "UserName": "cm-tago.masayuki"
+    },
+    {
+        "AccessKeyId": "AKIAI****************",
+        "CreateDate": {
+            "$date": 1480387472000
+        },
+        "Status": "Inactive",
+        "UserName": "cm-tsukuma.hirokazu"
+    },
+    {
+        "AccessKeyId": "AKIAI****************",
+        "CreateDate": {
+            "$date": 1471583121000
+        },
+        "Status": "Active",
+        "UserName": "cmp-aizawa"
+    },
+    {
+        "AccessKeyId": "AKIAI****************",
+        "CreateDate": {
+            "$date": 1502097424000
+        },
+        "Status": "Active",
+        "UserName": "cmp-fukuhara.tomoki"
+    },
+    {
+        "AccessKeyId": "AKIAI****************",
+        "CreateDate": {
+            "$date": 1470729836000
+        },
+        "Status": "Active",
+        "UserName": "cmp-honjo"
+    },
+    {
+        "AccessKeyId": "AKIAI****************",
+        "CreateDate": {
+            "$date": 1478488279000
+        },
+        "Status": "Active",
+        "UserName": "cmp-moriwaki"
+    },
+    {
+        "AccessKeyId": "AKIAJ****************",
+        "CreateDate": {
+            "$date": 1470736896000
+        },
+        "Status": "Active",
+        "UserName": "cmp-ohama"
+    },
+    {
+        "AccessKeyId": "AKIAJ****************",
+        "CreateDate": {
+            "$date": 1503371686000
+        },
+        "Status": "Active",
+        "UserName": "cmp-shono"
+    },
+    {
+        "AccessKeyId": "AKIAJ****************",
+        "CreateDate": {
+            "$date": 1501551795000
+        },
+        "Status": "Active",
+        "UserName": "sushiro-alexa-user"
+    }
+]

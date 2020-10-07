@@ -1,0 +1,12 @@
+@dto(mapstruct)
+@service(serviceImpl)
+entity DateFormats {
+	dateFormatId Long
+    languageId Long
+    dateFormat String
+    displayOrder Integer
+    createdDate Instant
+    createdUser Long
+    updatedDate Instant
+    updatedUser Long
+}

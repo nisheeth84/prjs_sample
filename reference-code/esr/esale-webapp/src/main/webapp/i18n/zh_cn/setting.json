@@ -1,0 +1,534 @@
+{
+  "setting": {
+    "title": "设置",
+    "lang": {
+      "jaJp": "日本語",
+      "enUs": "English(US)",
+      "zhCn": "中文（简体）"
+    },
+    "button": {
+      "save": "保存",
+      "add": "注册",
+      "edit": "编辑",
+      "cancel": "返回到更改前",
+      "saveAPI": "设置完成"
+    },
+    "confirm": {
+      "yes": "是",
+      "no": "否"
+    },
+    "available": {
+      "yes": "可以使用",
+      "no": "无法使用"
+    },
+    "system": {
+      "title": "系统设置",
+      "nav": {
+        "ipAddress": "IP地址控制",
+        "saml": "SAML验证",
+        "period": "期初设置",
+        "history": "各种日志",
+        "general": "列表设置",
+        "publicAPI": "URLAPI设置"
+      },
+      "ipAddress": {
+        "title": "IP地址",
+        "notificaation": "如果您添加了某个IP地址，则只能通过所输入的IP地址进行连接。",
+        "placeholder": "输入IP地址",
+        "btnAdd": "添加IP地址"
+      },
+      "saml": {
+        "title": "激活",
+        "titleWarning": "设置使用了SAML验证的设备。 如果设置状态为已启用，应限制或注意以下内容。",
+        "titleWarning1": "1. 您将无法访问登录页面。",
+        "titleWarning2": "2.因为不能访问登录页面，所以要向员工授予管理员的登录权限，或者向ID提供商注册管理员的用户账户信息。",
+        "titleWarning3": "3.登录状态的保存设置为无效。（遵守ID提供商的技术规范）",
+        "isPc": "PC版",
+        "isApp": "应用",
+        "CooperationItem": "链接项目",
+        "UserID": "用户ID",
+        "referenceTypeSubject": "链接项目将在陈述Subject的NameIdentifier元素中",
+        "referenceTypeAttribute": "Attribute元素中包含了联动项目",
+        "placeholderpublisher": "输入发布地点",
+        "titleIssure": "联动项目",
+        "publisher": "发布地点",
+        "isRq": "必须",
+        "placeholderIssure": "输入联动项目的内容",
+        "Certificate": "元数据文档",
+        "btnUploadFile": "请点击或将文件放下",
+        "urlLogin": "ID提供商登录URL",
+        "urlLogOut": "ID提供者的登出URL",
+        "placeholderUrlLogin": "输入ID提供商登出URL",
+        "placeholderUrlLogout": "输入ID提供者的登出URL"
+      },
+      "period": {
+        "title": "期初月",
+        "titleWarning": "设置期初月，用于数据分析功能。",
+        "month": "月",
+        "startYear": "年度的开始",
+        "calendarYear": "与阳历年相同",
+        "LastYear": "阳历年的上一年",
+        "description": "例如： 财年{{0}} 年从{{1}}年{{2}}月开始",
+        "notification": "如果您选择“阳历年的上一年”，则此处将变为“示例：财年{{0}}年将从{{1}}年{{2}}月开始”"
+      },
+      "general": {
+        "title": "列表设置",
+        "action": "自动更新的起始时间",
+        "placeholder": "选择时间"
+      },
+      "accesslog": {
+        "title": "下载访问日志",
+        "dateTime": "日期时间",
+        "accountName": "账户名称",
+        "ipAddress": "IP地址",
+        "event": "事件",
+        "result": "结果",
+        "errorInfomation": "错误信息",
+        "entityId": "实体ID",
+        "additionalInformation": "附加信息",
+        "search": "显示",
+        "downloadLogAccess": "下载",
+        "diaryLog": "访问日志",
+        "selectLanguage": "请选择日志文件的编码",
+        "record": "件",
+        "to": "~",
+        "dateTo": "",
+        "placeholder": "搜索日志",
+        "item": "件显示"
+      },
+      "urlAPI": {
+        "notifi": "将执行URLAPI功能的设置，以直接显示所有类型的电子销售经理Remix MS屏幕，而无需通过登录屏幕。",
+        "isPublicUrlApi": "URL API验证的启用",
+        "apiRadio1": "启用",
+        "apiRadio2": "禁用",
+        "authenticationType": "URL的到期时间",
+        "expiredTime": "分钟",
+        "placeholder": "1440"
+      }
+    },
+    "calendar": {
+      "title": "日历",
+      "title-fix": "日历设置",
+      "nav": {
+        "google": "链接到谷歌日历",
+        "scheduleType": "时间表类型",
+        "equiqmentType": "设备/装置",
+        "holiday": "假日/周的开始"
+      },
+      "scheduleType": {
+        "messageFile": "必填项目。请输入值。",
+        "title": "时间表类型",
+        "notification": "设置日历时间表中所使用的类型。",
+        "add": "添加",
+        "icon": "图像",
+        "name": "类型名称",
+        "status": "注册",
+        "action": "操作",
+        "new": {
+          "title": "添加时间表类型",
+          "titleEdit": "更改时间表类型",
+          "lang": "类型名称",
+          "langActive": "必须",
+          "placeholder": "输入类型名称",
+          "langOther": "显示其他语言",
+          "icon": "图标",
+          "uploadFile": "上传图标",
+          "btnUploadFile": "请点击或将文件放下",
+          "active": "注册",
+          "noActive": "无法使用",
+          "isActive": "可以使用",
+          "save": "添加",
+          "edit": "更改",
+          "cancel": "取消",
+          "message-delete": "将被删除，您确定吗？",
+          "hideMore": "隐藏其他语言"
+        }
+      },
+      "equiqment": {
+        "title": "设备/装置",
+        "notification": "可以设置时间表中需要使用的设备和装置。",
+        "btnEquiqment": "添加设备/装置",
+        "titleBtnEquiqment": "设备/装置更改",
+        "titleEquiqment": "设备/装置名称",
+        "placeholderEquiqment": "输入设备/装置名称",
+        "placeholderType": "输入类型名称",
+        "btnType": "添加类型",
+        "titleEdit": "类型更改",
+        "tblEquiqment": "会议室A",
+        "tblType": "会议室",
+        "typeAdd": {
+          "title": ""
+        },
+        "equiqmentAdd": {
+          "titleCheck": "使用",
+          "isvailable": "可以使用",
+          "noIsvailable": "无法使用",
+          "Type": "类型"
+        },
+        "dialog": {
+          "message-delete-group": "将被删除，您确定吗？"
+        }
+      },
+      "google": {
+        "title": "验证设置",
+        "title-snd": "同步设置",
+        "text1": "谷歌帐户验证失败。",
+        "text2": "尚未获取认证信息。请输入客户ID和客户密码以获取认证信息。",
+        "text3": "的信息，请输入。获取验证信息时，系统将登录到谷歌。当时，请指定具有特权的管理员帐户。此外，如果您登录过谷歌，请先注销并重试。",
+        "text4": "设置的时间越长，同步处理可能需要的时间就越长。另外，这将影响谷歌日历的重复计划的最长期限。例如，如果您将时间设置为1年后和7天前，则在谷歌日历上注册的重复计划的3年中，只有1年后和7天前的时期才反映到电子销售经理 MS中。",
+        "text5": "如果在Google日历中未输入任何标题，则此处指定的标题将反映在电子销售经理 MS中。",
+        "text6": "用于将在Google日历中注册的时间表反映到电子销售经理MS。 ",
+        "text7": "它不会在电子销售经理MS上注册的时间表中或在已同步一次以上的时间表中使用。 ",
+        "autInfomation": "验证信息",
+        "btnAuthInfomation": "收到验证信息",
+        "googleAcc": "谷歌账户参考处",
+        "btnConnectionTest": "连接测试",
+        "radioSync": "同步间隔",
+        "time": "点",
+        "from": "到",
+        "forUpTo": "(",
+        "minute": "分",
+        "runEveryMinute": "分钟执行一次",
+        "runTo": "执行",
+        "sync": "同步对象期间",
+        "past": "",
+        "day": "天前",
+        "future": "未来",
+        "year": "年",
+        "scheduleTemplate": "时间表模板",
+        "defaultSubject": "默认主题",
+        "defaultScheduleType": "默认时间表类型"
+      },
+      "holiday": {
+        "label": "假日",
+        "title": "设置公司的假日。",
+        "month": "月",
+        "year": "年",
+        "notification": "设置公司的假日。",
+        "monday": "星期一",
+        "tuesday": "星期二",
+        "wednesday": "星期三",
+        "thursday": "星期四",
+        "friday": "星期五",
+        "saturday": "星期六",
+        "sunday": "星期日",
+        "dayName": "星期{{0}}",
+        "haveHoliday": {
+          "title": "节日",
+          "notification": "可以设置，以选择是否使用日本节日。",
+          "yes": "是",
+          "no": "否"
+        },
+        "company": {
+          "title": "公司的假日",
+          "notification": "可以添加公司现有的假日。",
+          "add": "添加",
+          "edit": "更改",
+          "buttonCancel": "取消",
+          "no": "No",
+          "name": "假日名称",
+          "date": "日期",
+          "action": "操作",
+          "formAdd": {
+            "title": "公司的假日添加",
+            "titleEdit": "公司的假日更改",
+            "labelNameHoliday": "假日名称",
+            "placeholderName": "输入假日名称",
+            "labelButtonAddLanguage": "显示其他语言",
+            "labelOptionLoop": "重复",
+            "labelIsRepeat": "是",
+            "labelNonRepeat": "否",
+            "labelChosenDate": "日期",
+            "placeholderInputDate": "选择日期"
+          },
+          "dialog": {
+            "title": "",
+            "lang": "",
+            "placeholder": ""
+          }
+        },
+        "start": {
+          "title": "一周的开始日期",
+          "notification": "可以在日历中设置一周的开始日期。"
+        }
+      }
+    },
+    "task": {
+      "title": "活动设置",
+      "format": "格式 ",
+      "titleInEmpty": "活动",
+      "activityFormat": {
+        "title": "报告格式",
+        "btnAdd": "添加",
+        "add": {
+          "title": "报告格式添加",
+          "titleEdit": "报告格式更改",
+          "lang": "名称",
+          "placeholder": "输入名称",
+          "langMore": "显示其他语言",
+          "hideMore": "隐藏其他语言",
+          "use": "注册",
+          "active": "可以使用",
+          "noActive": "无法使用",
+          "save": "添加",
+          "edit": "更改",
+          "cancel": "取消"
+        },
+        "toolTip": "您可以设置各项产品信息，使其按产品类别单位显示。\n对于显示设置为个别设置的产品类别，其名称旁边会显示[个别设置」。\n 对于未进行个别设置的产品类别，其设置将与已被个别设置的最近父类别的设置相同。\n 要想取消个别设置，请点击“移除1”。",
+        "tbl": {
+          "no": "No",
+          "field": "项目名称",
+          "menu": "项目",
+          "format": "报告格式"
+        }
+      }
+    },
+    "customer": {
+      "title": "客户",
+      "btnEdit": "更改",
+      "noMasterMotivations": "尚未注册愿望基础数据",
+      "noMasterStands": "尚未注册角色基础数据",
+      "nav": {
+        "masterPosition": "关系网络图",
+        "scenatios": "场景"
+      },
+      "masterPosition": {
+        "placeHolderMasterStands": "输入角色名称",
+        "title": "角色基础数据",
+        "titleTwo": "愿望基础数据",
+        "warning": "可以在关系网络图设置要使用的角色。",
+        "btn": "添加",
+        "tblStandCol2": "角色名称",
+        "tblStandCol3": "注册",
+        "tblStandCol4": "操作",
+        "upload": "上传图标",
+        "BackgroundColor": "背景颜色",
+        "no": "No",
+        "tblMotivationCol2": "显示"
+      },
+      "scenarios": {
+        "title": "场景设置",
+        "warning": "可以编写场景模板。",
+        "btn": "新注册",
+        "tblCol2": "模板名称",
+        "tblCol3": "里程碑名称",
+        "tblCol4": "操作",
+        "titleAdd": "场景设置",
+        "milestone": "场景",
+        "placeMilestoneName": "输入里程碑名称",
+        "btnAdd": "添加",
+        "iconType": "图标",
+        "required": "必须"
+      }
+    },
+    "card": {
+      "title": "名片"
+    },
+    "product": {
+      "title": "产品",
+      "titleModal": "产品设置",
+      "titleCreatr": "添加产品类型",
+      "projectSetting": "项目设置",
+      "productMaster": "产品类型基础数据",
+      "titleAdd": "更改产品类型",
+      "header": "产品类型",
+      "format": "报告格式",
+      "defaultMess": "可以对用于每个产品类型的项目进行设置。",
+      "defaultPlaceholder": "输入产品类型名称",
+      "defaultPlaceholderAdd": "输入产品类型名称",
+      "productTypeName": "产品类型名称",
+      "edit": {
+        "titleCreact": "进度状态添加",
+        "titleEdit": "进度状态更改",
+        "progressName": "进度状态名称",
+        "placeholder": "输入进度状态名称"
+      }
+    },
+    "sales": {
+      "title": "交易产品",
+      "title-fix": "交易管理设置",
+      "title-snd": "交易管理",
+      "nav": {
+        "productTrade": "进度状态基础数据"
+      },
+      "productTrade": {
+        "messageFile": "必填项目。请输入值。",
+        "title": "进度状态",
+        "titleWarning": "可以设置进度状态，以用于交易管理。",
+        "btnAdd": "添加",
+        "jobTitle": "职务名称",
+        "OrderEntry": "销售金额累计",
+        "lostNote": "丢单",
+        "interruption": "中断",
+        "end": "结束",
+        "operation": "操作",
+        "titleIssure": "颁发处（实体ID）",
+        "addStandard": {
+          "title": "角色基础数据添加",
+          "titleEdit": "角色基础数据更改",
+          "langs": "角色名称"
+        },
+        "add": {
+          "title": "愿望基准数据添加",
+          "titleEdit": "愿望基准数据更改",
+          "langs": "愿望名称",
+          "placeholder": "A进度状态",
+          "placeholderNew": "输入愿望名称",
+          "placeholderNewStandard": "输入模板名称",
+          "placeholderScenario": "A进度状态",
+          "langMore": "显示其他语言",
+          "langLess": "隐藏其他语言",
+          "bookedOrder": {
+            "title": "销售金额累计",
+            "no": "否",
+            "receive": "销售金额累计",
+            "lost": "丢单",
+            "pending": "中断"
+          },
+          "end": {
+            "title": "结束条件",
+            "value": "结束"
+          },
+          "available": {
+            "title": "注册",
+            "active": "可以使用",
+            "noActive": "无法使用"
+          }
+        }
+      }
+    },
+    "activity": {
+      "title": "活动",
+      "msg": "可以对用于每个报告格式的项目进行设置。"
+    },
+    "employee": {
+      "titlePopup": "员工设置",
+      "title": "员工",
+      "titleDetail": "客户设置",
+      "jobTitleMaster": "职称基础数据",
+      "employeePosition": {
+        "title": "职务",
+        "titleWarning": "显示循序中优先显示级别较高的职务，并且在选择员工时，级别较高的职务将显示在员工详细信息中和建议职务中。",
+        "btnAdd": "添加",
+        "btnEdit": "更改",
+        "titlePopup": "添加职务",
+        "titleEditPopup": "更改职务",
+        "titlePosition": "职务名称",
+        "Note": "必须",
+        "positionPlahorder": "输入职务名称",
+        "editPlahorder": "首席执行官",
+        "otherLanguageTitle": "显示其他语言",
+        "register": "注册",
+        "usable": "可以使用",
+        "unUsable": "无法使用",
+        "positionColum": "职务",
+        "operation": "操作",
+        "toggleOtherLanguages": "隐藏其他语言",
+        "toggleOtherLanguagesEdit": "显示其他语言",
+        "cancel": "取消"
+      }
+    },
+    "taskManagement": {
+      "title": "任务管理"
+    },
+    "importCSV": {
+      "title": "导入",
+      "followHeader": {
+        "stepUploadFile": "1.文件上传",
+        "stepMapping": "2.映射",
+        "stepAfterImport": "3.导入后的动作",
+        "stepSimulation": "4.模拟",
+        "stepExecution": "5.导入"
+      },
+      "botton": {
+        "next": "下一个",
+        "previous": "返回",
+        "executeImport": "将执行导入",
+        "runSimulation": "运行模拟",
+        "suspendSimulation": "暂停模拟"
+      },
+      "screenOne": {
+        "header": "请选择处理将导入的数据。",
+        "buttonImportCSV": "上传文件。",
+        "openFileMess": "请再次拖放。'",
+        "infoLineOne": "请再次拖放。",
+        "infoLineTwo": ".仅支持.csv文件类型。",
+        "infoLineThree": " ",
+        "infoDownloadTemplate": "创建数据导入时，请",
+        "btnDownloadTemplate": "下载",
+        "infoPlease": "csv模板。",
+        "infoUseSimulation": "如果要在编辑上次模拟结果后再次进行模拟，请单击",
+        "openHistories": "此处",
+        "infoPleaseClick": "。",
+        "btnNewOnly": "仅新注册",
+        "btnOverwriteOnly": "仅覆盖",
+        "btnNewAndOverwrite": "新注册并覆盖保存",
+        "infoChooseHandleDuplicate": "请选择处理重复数据。",
+        "btnAllowHandleDuplicates": "重复的数据也将被新注册",
+        "btnNotAllowHandleDuplicates": "不处理重复数据"
+      },
+      "screenTwo": {
+        "header": "执行与2个数据映射有关的设置",
+        "buttonSetMappingRelations": "设置在与现有数据进行映射时要使用的项目",
+        "mappingKeyRelation": "关键映射项目",
+        "mappingKeyRelationSame": "(相同)",
+        "targetRelation": "执行关联项目映射设置",
+        "matchingSettingLabel": "关联项目映射设置",
+        "red": "红色",
+        "itemDisplayLabel": "显示的项目是关键映射项目。",
+        "CSVHeader": "CSV文件项",
+        "dataHeader": "关键映射项目",
+        "numberHeader": "样本",
+        "placeHolderMatchingKey": "客户姓名"
+      },
+      "simulation": {
+        "infoSimulateCompleted": "导入模拟完成",
+        "infoProgressing": "正在模拟导入...",
+        "remainingProgressMinute": "剩余时间：{{0}}分钟",
+        "infoError": "确认错误数据",
+        "infoRecords": "{{0}} 件",
+        "infoCompletedRecords": "已完成检查的数据数",
+        "infoImportableRecords": "可插入的数据数",
+        "infoUnimportableRecords": "错误数据数"
+      },
+      "afterImport": {
+        "noticeLabel": "发送模拟/导入完成通知的地址",
+        "noticePlaceHoder": "添加员工/部门/群组",
+        "timelineLabel": "在时间线上通知注册数据",
+        "timelineInfo": "选择是否通知时间线已注册的数据内容。",
+        "notice": "通知",
+        "doNotNotice": "不通知",
+        "typeListLabel": "添加列表的处理",
+        "typeListInfo": "通过执行设置可以将已注册数据添加到列表中。",
+        "addToMyList": "添加到我的列表",
+        "addToShareList": "添加到共享列表",
+        "doNotAddToList": "不添加到列表",
+        "listName": "列表名称",
+        "listNamePlaceHolder": "输入列表名称 ",
+        "listParticipants": "添加参与者",
+        "listParticipantsHolder": "添加参与者",
+        "require": "必须"
+      },
+      "simulationImport": {
+        "numberOfProcessing": "处理件数：",
+        "rowOne": "件/",
+        "rowTwo": "件"
+      },
+      "historiesImport": {
+        "title": "导入历史",
+        "inforMess": "信息在导入后将保存90天。",
+        "headerTable": {
+          "createdDate": "日期和时间",
+          "importFileName": "文件名称",
+          "isImportSucceed": "状态",
+          "employeeName": "员工名称",
+          "insertedCount": "注册的数据",
+          "updatedCount": "更新的数据",
+          "errorCount": "错误数据"
+        },
+        "success": "成功",
+        "failure": "失败"
+      }
+    }
+  }
+}

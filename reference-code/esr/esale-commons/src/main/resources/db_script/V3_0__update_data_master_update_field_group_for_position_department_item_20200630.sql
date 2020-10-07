@@ -1,0 +1,1 @@
+UPDATE "field_info" SET "field_group" = null WHERE "field_id" = 106;

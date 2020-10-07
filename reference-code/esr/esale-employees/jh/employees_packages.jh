@@ -1,0 +1,20 @@
+/**
+ * The EmployeesPackages entity.
+ */
+@dto(mapstruct)
+@service(serviceImpl)
+@paginate(pager)
+entity EmployeesPackages {
+    /** 
+     * The EmployeesPackages employeePackageId
+     */
+    employeePackageId Long required
+    /** 
+     * The EmployeesPackages employeeId
+     */
+    employeeId Long required
+    /** 
+     * The EmployeesPackages packageId
+     */
+    packageId Long required
+}

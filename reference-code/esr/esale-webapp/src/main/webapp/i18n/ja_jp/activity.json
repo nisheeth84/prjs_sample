@@ -1,0 +1,148 @@
+{
+  "activity": {
+    "title": "活動",
+    "title-2": "この活動",
+    "control": {
+      "sidebar": {
+        "all-activity": "全ての活動",
+        "my-activity": "自分の活動",
+        "draft-activity": "下書き",
+        "customer-activity": "顧客リストの活動",
+        "list-card": "名刺リストの活動",
+        "customer-activity-search": "リストを検索",
+        "list-product": "取引商品リストの活動"
+      },
+      "top": {
+        "create-activity": "活動を登録",
+        "import-activity": "活動をインポート",
+        "filter-condition": "活動を検索",
+        "searching": "詳細検索条件を編集",
+        "filter": "活動した商品でしぼる",
+        "filter-placeholder": "商品名",
+        "clear": "解除",
+        "config": "設定",
+        "sort": "ソート",
+        "asc": "昇順",
+        "desc": "降順",
+        "report-date-time": "報告日時"
+      }
+    },
+    "message": {
+      "404": "活動は存在しないです。",
+      "confirm": {
+        "confirmreateactivity1": "登録内容を破棄して登録を終了しますか？",
+        "confirmreateactivity2": "一時保存する場合は下書きに保存を選択してください。",
+        "discard1": "登録内容を破棄して登録を終了しますか？",
+        "discard2": "一時保存する場合は下書きに保存を選択してください。"
+      }
+    },
+    "list": {
+      "body": {
+        "contact-date": "接触日",
+        "isDraft": "下書き",
+        "activity-time": "活動時間",
+        "discussion-person": "当日面談者",
+        "customerName-productName": "顧客名/ 取引商品",
+        "quality": "数量",
+        "price": "単価",
+        "amount": "金額",
+        "employee-name": "担当者",
+        "product-trading-progress-name": "進捗状況",
+        "end-plan-date": "完了予定日",
+        "memo-name": "メモ",
+        "memo-active": "メモ",
+        "create-date": "登録日",
+        "create-user-name": "登録者",
+        "updated-date": "最終更新日",
+        "updated-user-name": "最終更新者",
+        "san": "様",
+        "to": "と",
+        "business-card-amount": "他{{amount}}名",
+        "about": "にて、",
+        "product-amount": "他{{amount}}商品",
+        "product-trading": "取引商品",
+        "order-plan-date": "受注予定日",
+        "quantity": "数量",
+        "next-schedule": "次回スケジュール",
+        "related_activities": "に関して活動",
+        "uptime": "活動時間",
+        "interviewer": "当日面談者",
+        "customer-transactionalProduct": "顧客名/ 取引商品",
+        "develop": "進捗状況",
+        "dateRes": "登録日",
+        "peopelSigned": "登録者",
+        "latest-updates": "最終更新日",
+        "last-updated-by": "最終更新者",
+        "finish-day": "完了予定日",
+        "memoJ": "メモ",
+        "yen": "円"
+      }
+    },
+    "modal": {
+      "button-edit": "変更を保存",
+      "data-draft": "下書きからデータを反映しました。",
+      "delete-draft": "下書き破棄",
+      "button.preview": "登録画面プレビュー",
+      "title-detail": "活動詳細",
+      "title-add": "活動登録",
+      "title-edit": "活動編集",
+      "minute": "分",
+      "checkbox-duration": "開始時刻に合わせて終了時刻を変更する",
+      "report-person-default": "登録者A",
+      "activity-format": "活動フォーマット",
+      "customer": "顧客名",
+      "customer-placeholder": "顧客名を追加",
+      "button-cancel": "キャンセル",
+      "button-close": "破棄",
+      "business-card": "当日面談者",
+      "business-card-placeholder": "当日面談者を追加",
+      "customer-relation-placeholder": "関係顧客を追加",
+      "product-placeholder": "取引商品を追加",
+      "memo-placeholder": "メモを入力",
+      "created-date-default": "自動で登録されます",
+      "created-by-default": "自動で登録されます",
+      "updated-date-default": "自動で登録されます",
+      "updated-by-default": "自動で登録されます",
+      "button-save-draft": "下書きを保存",
+      "button-save": "登録",
+      "button-discard": "破棄",
+      "button-scenario": "シナリオを編集",
+      "scenario": "シナリオ",
+      "report-target-placeholder": "報告対象を追加",
+      "show-edit-customer": "顧客編集",
+      "calendar": "カレンダー",
+      "task": "タスク",
+      "milestone": "マイルストーン",
+      "product-trading": "取引商品名",
+      "product-suggest": "商品",
+      "add-business-card": "{{0}}（テキスト情報として登録）",
+      "text-activity-id" : "自動で採番されます"
+    },
+    "common": {
+      "required": "必須",
+      "button-cancel": "キャンセル"
+    },
+    "popup-delete": {
+      "title": "削除",
+      "detail": "活動を削除してよろしいですか？",
+      "button-delete": "削除",
+      "button-cancel": "キャンセル"
+    },
+    "modal-confirm": {
+      "title": "破棄",
+      "content-1": "登録内容を破棄して登録を終了しますか？",
+      "content-2": "一時保存する場合は下書きに保存を選択してください。",
+      "button-cancel": "キャンセル",
+      "button-save-draft": "下書きに保存",
+      "button-discard": "破棄",
+      "button-confirm": "確認",
+      "confirm-customer": "「報告対象」で選択されている顧客と異なる顧客が選択されています。選択する場合、「報告対象」のデータをクリアしますが、よろしいですか。"
+    },
+    "activityDetail": {
+      "button.edit": "画面編集",
+      "history": "履歴",
+      "blank": "(空欄)",
+      "tab-history": "変更履歴"
+    }
+  }
+}

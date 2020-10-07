@@ -1,0 +1,46 @@
+{
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "ProjectID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "ProjectName",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "OrganizationID",
+            "AttributeType": "S"
+        }
+    ],
+    "TableName": "PM_Projects",
+    "KeySchema": [
+        {
+            "AttributeName": "ProjectID",
+            "KeyType": "HASH"
+        }
+    ],
+    "GlobalSecondaryIndexes": [
+        {
+            "IndexName": "OrganizationIndex",
+            "KeySchema": [
+                {
+                    "AttributeName": "OrganizationID",
+                    "KeyType": "HASH"
+                },
+                {
+                    "AttributeName": "ProjectName",
+                    "KeyType": "RANGE"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "INCLUDE",
+                "NonKeyAttributes": [
+                    "CreatedAt",
+                    "UpdatedAt"
+                ]
+            }
+        }
+    ],
+    "BillingMode": "PAY_PER_REQUEST"
+}

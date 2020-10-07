@@ -1,0 +1,267 @@
+<home-container>
+    <div class="page">
+        <div class="row m-0 notification_area" hide="{closedDateTimeOfNotifications != null}">
+            <div show="{mailStatus != 0}" class="p-0 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="alert alert-danger font-size-16 text-gray-dark mb-0" role="alert">
+                    <div ref="messageErrorSendMail">{commonUtils.parseHtmlByRef(this.refs.messageErrorSendMail, messageErrorSendMailHtml)}</div>
+                </div>
+            </div>
+            <div show="{messageErrorLinkedAwsAccountHtmls.length > 0}" class="p-0 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div each="{messageErrorLinkedAwsAccountHtml in messageErrorLinkedAwsAccountHtmls}" class="alert alert-danger font-size-16 text-gray-dark mb-0" role="alert">
+                    <div >{commonUtils.parseHtml(this, messageErrorLinkedAwsAccountHtml)}</div>
+                </div>
+            </div>
+            <div show="{messageNofiticationOrganizationInvitedHtmls.length > 0}" class="p-0 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div each="{messageNofiticationOrganizationInvitedHtml in messageNofiticationOrganizationInvitedHtmls}" class="alert alert-warning font-size-16 text-gray-dark mb-0" role="alert">
+                    <div>{commonUtils.parseHtml(this, messageNofiticationOrganizationInvitedHtml)}</div>
+                </div>
+            </div>
+            <div hide="{notificationHtmls.length == 0}" class="p-0 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div each="{notificationHtml in notificationHtmls}" class="alert alert-warning font-size-16 text-gray-dark" role="alert">
+                    <div>{commonUtils.parseHtml(this, notificationHtml)}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right" hide="{closedDateTimeOfNotifications != null || (messageErrorLinkedAwsAccountHtmls.length == 0 && mailStatus == 0 && messageNofiticationOrganizationInvitedHtmls.length == 0 && notificationHtmls.length == 0)}">
+            <button class="btn btn-close-notifications" onclick={closeNotifications}>{_t('Home.close_notice')} <i class="fas fa-times-circle"></i></button>
+        </div>
+
+        <div id="webui_home_gtm_image"></div>
+        <div class="row m-0" if="{closeCreateAWSAccountGuideAtHome != 'true'}">
+            <div class="col-xl-8 offset-xl-2 col-lg-12">
+                <div class="text-center my-20 mx-30">
+                    <button type="button" class="btn float-right mb-10" aria-label="Close" onclick={hideGuide}>
+                        <p class="mb-0">{_t('Home.close_guide')} <i class="fas fa-times-circle"></i></p>
+                    </button>
+                    <a href="#/doc/stepsummary/" target="_blank">
+                        <img class="img-fluid" src="./assets/images/img_step.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="page-header">
+            <h1 class="page-title fontsize_h1_important mt-2">{_t('home')}</h1>
+        </div>
+        <div class="page-content container-fluid">
+            <check-result-summary></check-result-summary>
+        </div>
+    </div>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        require('../component/CheckResultSummary.tag.html');
+        const tag = this
+        tag.obs = riot.observable()
+        tag.cognitoUser = riot.mixin('cognitoUser');
+        tag.hideGuide = hideGuide
+        tag.notificationHtmls = []
+        tag.mailStatus = 0
+        tag.messageErrorLinkedAwsAccountHtmls = []
+        tag.messageNofiticationOrganizationInvitedHtmls = []
+        tag.messageErrorSendMailHtml = '<p><strong class="font-weight-800">' + tag._t('Home.category') + ' </strong>' + tag._t('Home.message_error_send_mail') + '</p>'
+        tag.closeCreateAWSAccountGuideAtHome = tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('closeCreateAWSAccountGuideAtHome')) ? tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('closeCreateAWSAccountGuideAtHome')) : null
+        const requestNotificationFileUrl = '/app-notifications/notification.json';
+        tag.closeNotifications = closeNotifications
+        tag.showNofitications = showNofitications
+        tag.notificationJsonTimestamp = 0
+        tag.closedDateTimeOfNotifications = tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('closedDateTimeOfNotifications')) ? tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('closedDateTimeOfNotifications')) : null
+        const ONE_DAY_SECOND = 86400;
+
+        tag.on('mount', function() {
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    let idToken = session.getIdToken().getJwtToken()
+                    checkErrorSendMail(idToken)
+                    checkErrorLinkedAwsAccount(idToken)
+                    checkOrganizationInvited(idToken)
+                }
+            })
+            fetch(requestNotificationFileUrl).then(function(response) {
+                const lastModified = response.headers.get("Last-Modified");
+                tag.notificationJsonTimestamp = Math.floor(new Date(lastModified).getTime() / 1000);
+                return response.json();
+            }).then(function(resourceNotifications) {
+                const unixTimestamp = getCurrentTimestamp();
+                let notifications = resourceNotifications[tag.commonUtils.getItemFromLocalStorage('language')];
+                if (!notifications) {
+                    return;
+                }
+                notifications.forEach(function(notification) {
+                    if (notification.TimeToLive >= unixTimestamp) {
+                        notificationHtml = '<p><strong class="font-weight-800">' + notification.category + ' </strong>' + notification.text + '</p>'
+                        tag.notificationHtmls.push(notificationHtml);
+                    }
+                })
+                tag.update();
+            }).catch(function(error) {
+                console.error(error);
+            });
+            if (typeof loadBanner === "function") {
+                loadBanner()
+            }
+        })
+        tag.on('update', function(){
+            if (needsShowNotifications()) {
+                showNofitications();
+            }
+        })
+
+        function checkErrorSendMail(idToken) {
+            getUserInfo(idToken).then(function(response) {
+                return response
+            }).then(tag.commonUtils.checkStatus).then(function(response) {
+                return response.json()
+            }).then(function(userInfo) {
+                tag.mailStatus = userInfo['mailStatus']
+                tag.update()
+            }).catch(function(error) {
+                tag.obs.trigger('error-modal-open', error)
+            })
+        }
+
+        function checkErrorLinkedAwsAccount(idToken) {
+            getListOrganization(idToken).then(function(response) {
+                return response
+            }).then(tag.commonUtils.checkStatus).then(function(response) {
+                return response.json()
+            }).then(async function(organizations) {
+                for (let indexOrganization = 0; indexOrganization < organizations.length; indexOrganization++) {
+                    if (organizations[indexOrganization].authority >= 2) {
+                        await getListProject(idToken, organizations[indexOrganization].organization.id).then(function(response) {
+                            return response
+                        }).then(tag.commonUtils.checkStatus).then(function(response) {
+                            return response.json()
+                        }).then(async function(projects) {
+                            for (let indexProject = 0; indexProject < projects.length; indexProject++) {
+                                await getListAwsCoop(idToken, projects[indexProject].organizationId, projects[indexProject].id).then(function(response) {
+                                    return response
+                                }).then(tag.commonUtils.checkStatus).then(function(response) {
+                                    return response.json()
+                                }).then(async function(awsCoops) {
+                                    for (let indexAwsCoop = 0; indexAwsCoop < awsCoops.length; indexAwsCoop++) {
+                                        if (awsCoops[indexAwsCoop].effective == -1) {
+                                            let awsAccountLinkedListUrl = `/app/#/organizations/${awsCoops[indexAwsCoop].organizationId}/projects/${awsCoops[indexAwsCoop].projectId}/awsaccounts/`
+                                            let messageErrorLinkedAwsAccountHtml = '<p><strong class="font-weight-800">' + tag._t('Home.category') + ' </strong>' + tag._t('Home.message_error_linked_aws_account', {awsAccount: awsCoops[indexAwsCoop].awsAccount, url: awsAccountLinkedListUrl }) + '</p>'
+                                            tag.messageErrorLinkedAwsAccountHtmls.push(messageErrorLinkedAwsAccountHtml)
+                                            tag.update()
+                                        }
+                                    }
+                                })
+                            }
+                        })
+                    }
+                }
+            }).catch(function(error) {
+                tag.obs.trigger('error-modal-open', error)
+            })
+        }
+
+        function getUserInfo(idToken) {
+            const requestUserAttrUrl = tag.config.APIGATEWAY_ADDRESS + '/myself/attribute'
+            return fetch(requestUserAttrUrl, {
+                method: 'GET',
+                headers: {
+                    'Authorization': idToken
+                }
+            })
+        }
+
+        function getListOrganization(idToken) {
+            const requestOrganizationUrl = tag.config.APIGATEWAY_ADDRESS + '/myorganizations?inviteStatus=1'
+            return fetch(requestOrganizationUrl, {
+                method: 'GET',
+                headers: {
+                    'Authorization': idToken
+                }
+            })
+        }
+
+        function checkOrganizationInvited(idToken) {
+            const requestOrganizationInvitedUrl = tag.config.APIGATEWAY_ADDRESS + '/myorganizations?inviteStatus=0'
+            return fetch(requestOrganizationInvitedUrl, {
+                method: 'GET',
+                headers: {
+                    'Authorization': idToken
+                }
+            }).then(function(response) {
+                return response
+            }).then(tag.commonUtils.checkStatus).then(function(response) {
+                return response.json()
+            }).then(function(listOrganizationInvited) {
+                let messageNofiticationOrganizationInvitedHtml = ''
+                listOrganizationInvited.forEach(function(organizationInvited) {
+                    messageNofiticationOrganizationInvitedHtml = '<p><strong class="font-weight-800">' + tag._t('Home.category_notice') + ' </strong>' + tag._t('Home.message_notice_organization_invited', { organizationName: organizationInvited.organization.name }) + '</p>'
+                    tag.messageNofiticationOrganizationInvitedHtmls.push(messageNofiticationOrganizationInvitedHtml)
+                    tag.update()
+                })
+            }).catch(function(error) {
+                tag.obs.trigger('error-modal-open', error)
+            })
+        }
+
+        function getListProject(idToken, organization_id) {
+            const requestProjectUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + organization_id + '/projects'
+            return fetch(requestProjectUrl, {
+                method: "GET",
+                headers: {
+                    'Authorization': idToken
+                }
+            })
+        }
+
+        function getListAwsCoop(idToken, organization_id, project_id) {
+            const requestAwsCoopsUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + organization_id + '/projects/' + project_id + '/awscoops'
+            return fetch(requestAwsCoopsUrl, {
+                method: "GET",
+                headers: {
+                    'Authorization': idToken
+                },
+            })
+        }
+
+        function hideGuide() {
+            tag.commonUtils.setItemToLocalStorage(tag.commonUtils.getLocalStorageKey('closeCreateAWSAccountGuideAtHome'), true)
+            tag.closeCreateAWSAccountGuideAtHome = tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('closeCreateAWSAccountGuideAtHome'))
+            tag.update()
+        }
+
+        function closeNotifications() {
+            tag.commonUtils.setItemToLocalStorage(tag.commonUtils.getLocalStorageKey('closedDateTimeOfNotifications'), getCurrentTimestamp())
+            tag.closedDateTimeOfNotifications = tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('closedDateTimeOfNotifications'))
+        }
+
+        function showNofitications() {
+            tag.commonUtils.removeItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('closedDateTimeOfNotifications'))
+            tag.closedDateTimeOfNotifications = tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('closedDateTimeOfNotifications'))
+        }
+
+        function getCurrentTimestamp() {
+            return Math.floor(new Date().getTime() / 1000);
+        }
+
+        function isAnnouncementExist() {
+            return tag.notificationHtmls.length != 0;
+        }
+
+        function isUpdatedAnnouncement() {
+            return (tag.closedDateTimeOfNotifications - tag.notificationJsonTimestamp) < 0;
+        }
+
+        function isAlertExist() {
+            return (tag.mailStatus != 0) || (tag.messageErrorLinkedAwsAccountHtmls.length > 0);
+        }
+
+        function isOneDayAgo(timestamp) {
+            const now = getCurrentTimestamp();
+            return (now - timestamp) > ONE_DAY_SECOND;
+        }
+
+        function needsShowNotifications() {
+            return (isAlertExist() && isOneDayAgo(tag.closedDateTimeOfNotifications))
+                || (isAnnouncementExist() && isUpdatedAnnouncement())
+        }
+        
+    </script>
+</home-container>

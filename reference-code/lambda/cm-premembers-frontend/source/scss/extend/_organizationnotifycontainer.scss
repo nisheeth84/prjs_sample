@@ -1,0 +1,21 @@
+.org_notif {
+    .ms-selectable, .ms-selection {
+        background: none;
+    }
+
+    ul {
+        &.ms-list {
+            background: #fff;
+        }
+    }
+}
+
+.tabs-line-top {
+    .nav-link.active {
+        border-bottom-color: #f1f4f5 !important;
+    }
+}
+
+.min-w-150 {
+    min-width: 150px;
+}

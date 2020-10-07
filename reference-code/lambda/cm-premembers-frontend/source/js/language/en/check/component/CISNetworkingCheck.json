@@ -1,0 +1,9 @@
+{
+    "CISNetworkingCheck": {
+        "group_id": "Group ID",
+        "protocol": "Protocol",
+        "port_range": "Port range",
+        "source": "Source",
+        "all": "All"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "TableName": "PM_EmailChangeApply",
+    "TimeToLiveSpecification": {
+        "Enabled": true,
+        "AttributeName": "TimeToLive"
+    }
+}

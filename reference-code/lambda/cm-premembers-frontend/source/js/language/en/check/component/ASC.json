@@ -1,0 +1,152 @@
+{
+    "ASC": {
+        "check_group_name": "ASC",
+        "CHECK_ASC_ITEM_01_01": {
+            "title": "Protect your root account. Protect your access keys the same way you'd protect your private banking access.",
+            "number": "01",
+            "alert_criteria": "Alert criteria: If access key is set for root account",
+            "description_1": "Please use IAM users as root account has too many privileges",
+            "description_2": "Please delete the access key of root account and use IAM user",
+            "description_3": "The correspondence procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_delete-key\" target=\"_blank\">here</a>"
+        },
+        "CHECK_ASC_ITEM_02_01": {
+            "title": "Protect your CloudTrail S3 Bucket. Limit access to users and roles on a “need-to-know” basis.",
+            "number": "02-01",
+            "alert_criteria":"Alert criteria: S3 bucket storing CloudTrail log is publicly released",
+            "description_1": "Change \"Public accesss settings\" because the S3 bucket is publicly readable",
+            "description_2": "The response procedure is <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/user-guide/bucket-permissions-check.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_ASC_ITEM_02_02": {
+            "title": "Protect your Billing S3 Bucket. Limit access to users and roles on a “need-to-know” basis.",
+            "number": "02-02",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "Change \"Public accesss settings\" because the S3 bucket is publicly readable",
+            "description_2": "The response procedure is <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/user-guide/bucket-permissions-check.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_ASC_ITEM_03_01": {
+            "title": "Activate region based CloudTrail. Ensure visibility and traceability of all your AWS account activities.",
+            "number": "03",
+            "alert_criteria": "Alert criteria: There are regions where CloudTrail is not enabled",
+            "description_1": "CloudTrail records AWS API call (IP, time, parameter)",
+            "description_2": "Required for security analysis, resource change tracking, and compliance audit",
+            "description_3": "Activate CloudTrail",
+            "description_4": "The response procedure is <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.html#creating-a-trail-in-the-console\" target=\"_blank\">here</a>",
+            "description_5": "Reference: <a href=\"https://aws.amazon.com/cloudtrail/pricing/\" target=\"_blank\">Charge</a> about CloudTrail"
+        },
+        "CHECK_ASC_ITEM_04_01": {
+            "title": "Create administration roles with limited privileges. Use IAM policies to limit access only to services needed.",
+            "number": "04",
+            "alert_criteria": "Alert criteria: Admin privilege if it is ( \"Effect\": \"Allow\", \"Action\": \"*\", \"Resource\": \"*\" )",
+            "description_1": "By giving minimum permissions to IAM, you will be able to perform only the tasks you need",
+            "description_2": "Please check the services used by the user and only grant necessary privileges",
+            "description_3": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege\" target=\"_blank\">here</a>",
+            "description_4": ""
+        },
+        "CHECK_ASC_ITEM_05_01": {
+            "title": "Familiarize yourself with AWS Security Token Service (STS) and roles. AWS STS is a service that enables you to request temporary, limited-privilege credentials.",
+            "number": "05",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "Access to AWS resources from EC2 can reduce the risk of key leakage by using IAM role rather than access key",
+            "description_2": "Please create an IAM role with appropriate privileges and attach it to EC2",
+            "description_3": "Using AWS STS does not require long-term authentication information to be stored in the application and temporarily generates valid authentication information dynamically according to user's request",
+            "description_4": "Do not save security credentials to application, please use AWS STS",
+            "description_5": "Response procedure <ul> <li> The IAM role is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html\" target=\" _blank\">here</a></li><li> AWS STS is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html\" target=\"_blank\">here</a></li></ul>"
+        },
+        "CHECK_ASC_ITEM_06_01": {
+            "title": "Familiarize yourself with AWS Detailed Billing and monitor your monthly usage regularly. AWS Detailed Billing provides you with a \"by-the-hour\" insight of resources used and costs incurred.",
+            "number": "06",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "The billing report keeps track of AWS usage and line items are displayed for each unique combination of AWS resources, usage types, and operations",
+            "description_2": "By checking the billing report, it helps to avoid unexpected billing",
+            "description_3": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/download-billing-data-report.html\" target=\"_blank\">here</a>",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> customers can use the membership portal's AWS When I open the account menu I see a billing report"
+        },
+        "CHECK_ASC_ITEM_07_01": {
+            "title": "Only use encrypted EBS volumes. Encrypt your data, snapshots, and disk I/O using the customary AES-256 algorithm.",
+            "number": "07",
+            "alert_criteria": "Alert criteria: Amazon EBS encryption function is not enabled",
+            "description_1": "Security of both data storage and transfer between the instance and its attached EBS storage is guaranteed",
+            "description_2": "Encrypt EBS using Amazon EBS encryption function",
+            "description_3": "The correspondence procedure is <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_ASC_ITEM_08_01": {
+            "title": "Activate your VPC Flow Logs. Collect IP traffic from and to the network interfaces in your VPCs for further analysis.",
+            "number": "08",
+            "alert_criteria": "Alert criteria: When VPC Flow Logs is not activated",
+            "description_1": "VPC Flow Logs saves the log of network communications in VPC",
+            "description_2": "Helps to investigate security analysis and abnormal communication",
+            "description_3": "Activate VPC Flow Log",
+            "description_4": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html\" target=\"_blank\">here</a>",
+            "description_5": "CloudWatch Logs saves the log indefinitely, unless you set a retention period, so <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html\" target=\"_blank\">See here</a> and set the log retention period to a minimum of 365 days",
+            "description_6": "Charge about <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">VPC Flow Logs</a> (Amazon CloudWatch Supply Log)"
+        },
+        "CHECK_ASC_ITEM_09_01": {
+            "title": "Protect your EC2 Key Pairs. Follow our best practices for managing your access keys.",
+            "number": "09",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "EC2 instance may be accessible if you have an EC2 key pair",
+            "description_2": "Periodically rotate (delete/create) key pair to log in to EC2 instance",
+            "description_3": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#replacing-key-pair\" target=\"_blank\">here</a>"
+        },
+        "CHECK_ASC_ITEM_10_01": {
+            "title": "Leverage IAM roles for EC2. Limit access only to required resources using IAM policies and roles.",
+            "number": "10",
+            "alert_criteria": "Alert criteria: When the IAM role is not attached to EC2",
+            "description_1": "Use a temporary key with a deadline in the IAM role",
+            "description_2": "Access to AWS resources from EC2 can reduce the risk of key leakage by using IAM role instead of access key",
+            "description_3": "Please create an IAM role with proper authority and attach it to EC2",
+            "description_4": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_ASC_ITEM_11_01": {
+            "title": "Control inbound and outbound traffic to your EC2 Instances with clearly structured Security Groups. A Security Group is a virtual, easy-to-use firewall for each EC2 instance controlling inbound and outbound traffic",
+            "number": "11",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "Please use security group to control inbound and outbound traffic for EC2 instance",
+            "description_2": "The response procedure is <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_ASC_ITEM_12_01": {
+            "title": "Don’t create any public access S3 buckets. Control access to your S3 buckets using IAM or S3 Bucket Policies.",
+            "number": "12",
+            "alert_criteria": "Alert Criteria: S3 Bucket Publicly Published",
+            "description_1": "Your S3 bucket is publicly readable. If you would like the bucket to not be accessed by anonymous users please change \"Public access settings\"",
+            "description_2": "The response procedure is <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/user-guide/bucket-permissions-check.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_ASC_ITEM_13_01": {
+            "title": "Encrypt sensitive data in S3 using Server Side Encryption (SSE). Enforce encryption using the appropriate bucket policy.",
+            "number": "13",
+            "alert_criteria": "Alert criteria: When there is a bucket whose server side encryption is not valid",
+            "description_1": "Server-side encryption (SSE-S3) encrypts data using the 256-bit Advanced Encryption Standard (AES-256)",
+            "description_2": "Protect stored data using server side encryption (SSE - S3)",
+            "description_3": "The correspondence procedure is <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_ASC_ITEM_14_01": {
+            "title": "Encrypt inbound and outbound S3 data traffic. Use S3 SSL endpoints to safely transfer data via HTTPS",
+            "number": "14",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "Access to S3 bucket using HTTPS protocol"
+        },
+        "CHECK_ASC_ITEM_15_01": {
+            "title": "Familiarize yourself with S3 Versioning and S3 Lifecycle Policies. Use versioning to preserve, retrieve, and restore every version of every object stored in your Amazon S3 bucket. Automate the lifecycle of your S3 objects with rule based actions.",
+            "number": "15",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "With S3 versioning you can store, retrieve, and restore the version of any object stored in the S3 bucket",
+            "description_2": "Lifecycle setting allows you to migrate objects to another storage class and define the expiration date of the object",
+            "description_3": "Corresponding procedure <ul> <li> S3 versioning is <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html\" target=\"_blank\">here</a></li><li> AWS STS is <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html\" target=\"_blank\">here</a></li></ul>"
+        },
+        "CHECK_ASC_ITEM_16_01": {
+            "title": "Activate S3 Access Logging and analyze logs regularly. The analysis of access logs will help you during security audits, provide detailed insight into user behavior, and help you better understand your S3 usage bills.",
+            "number": "16",
+            "alert_criteria": "Alert criteria: When there are buckets where access logging is not valid",
+            "description_1": "You can enable access logging to keep track of requests for access to the bucket",
+            "description_2": "Please enable access logging",
+            "description_3": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/enable-logging-console.html\" target=\"_blank\">here</a>"
+        }
+    }
+}

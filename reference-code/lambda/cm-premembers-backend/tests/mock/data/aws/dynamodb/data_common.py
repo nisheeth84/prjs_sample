@@ -1,0 +1,12 @@
+class DataCommon():
+    ERROR_RESPONSE = {'Error': {'Code': '500', 'Message': 'Error'}}
+    OPERATION_NAME = ''
+    USER_ID_TEST = "eb3b5f76-8945-11e7-b15a-8f7e5433dada-{}"
+    ORGANIZATION_ID_TEST = "0e6462f8-5e99-4243-9efa-89556574f9e4-{}"
+    PROJECT_ID = "fdc40fe8-240a-49c0-97da-0bc055e5ade0-{}"
+    CHECK_HISTORY_ID = "278826f1-5837-406c-b9a0-8d56d0746d00-{}"
+    AWS_ACCOUNT = "693642053048"
+    COOP_ID = "34d2adf6-fc4a-4fbd-a40e-eb2050768748{}"
+    CHECK_ITEM_CODE_TEST = "CHECK_CIS12_ITEM_1_21"
+    CHECK_RESULT_ID = "555e9b62-00d8-4aef-b19c-5147140-{}"
+    SECURITY_CHECK_WEBHOOK_ID = "13ae562c-da70-4203-b09c-2a8d3c7c388e-{}"

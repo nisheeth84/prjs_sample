@@ -1,0 +1,124 @@
+<check-result-summary>
+    <div class="card card-shadow">
+        <div class="card-block  px-30 pb-0">
+            <h3 class="card-title">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h2>{_t('check')}<a href="{_t('user_guide_check_item_url')}" target="_blank"> <i class="icon wb-help-circle margin-left_10 font-size-20" aria-hidden="true"></i> </a></h2>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-1">
+                        <button class="btn btn-floating btn-sm btn-primary float-right" onclick="{refreshPage}">
+                            <i class="icon fa-refresh mr-3" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </h3>
+        </div>
+        <check-whole-summary resultchecksummary="{resultchecksummary}"></check-whole-summary>
+        <check-account-summary each="{organization_summary in organization_summaries}" accountSummary="{organization_summary}"></check-account-summary>
+    </div>
+    <script>
+        require('./CheckWholeSummary.tag.html')
+        require('./CheckAccountSummary.tag.html')
+        const tag = this
+        tag.cognitoUser = riot.mixin('cognitoUser');
+        tag.listawsaccountsummary = []
+        const obs = tag.parent.obs
+        tag.obs = obs
+        tag.organization_summaries = []
+        tag.resultchecksummary = []
+        tag.refreshPage = refreshPage
+        tag.on('mount', function() {
+            getInformationPage();
+        })
+
+        function getInformationPage() {
+            tag.obs.trigger("pm-loader-show");
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    getDataPage(idToken)
+                        .then(function(response) {
+                            return response
+                        })
+                        .then(function(result) {
+                            summaries = result[0]
+                            var organization_summaries = tag.commonUtils.groupBy(summaries, function(item) {
+                                return [item.organizationId];
+                            });
+                            for (var i = 0; i < organization_summaries.length; i++) {
+                                organization_summaries[i] = tag.commonUtils.groupBy(organization_summaries[i], function(item) {
+                                    return [item.projectId];
+                                });
+                            }
+                            tag.organization_summaries = organization_summaries
+                            const resultchecksummary = result[1]
+                            tag.resultchecksummary = resultchecksummary
+                            tag.obs.trigger('pm-loader-hide');
+                            tag.update();
+                        }).catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            });
+        }
+
+        function getDataPage(idToken) {
+            let listResponse = {} // Responseを一時的に格納するオブジェクトを作成する
+            const listRequest = [
+                getAwsAccountSummary(idToken).then(function(response) {
+                    listResponse["listRequest"] = response
+                    return response
+                }).then(tag.commonUtils.checkStatus).then(function(response) { return response.json() }).catch(function(error) {
+                    error.then(function(value) {
+                        value.responseStatus = listResponse["listRequest"].status
+                    })
+                    throw error
+                }),
+                getCheckSummary(idToken).then(function(response) {
+                    listResponse["getCheckSummary"] = response
+                    return response
+                }).then(tag.commonUtils.checkStatus).then(function(response) {
+                    return response.json()
+                }).catch(function(error) {
+                    error.then(function(value) {
+                        value.responseStatus = listResponse["getCheckSummary"].status
+                    })
+                    throw error
+                })
+            ]
+            return Promise.all(listRequest);
+        }
+
+        function getCheckSummary(idToken) {
+            const requestCheckSummary = tag.config.APIGATEWAY_ADDRESS + '/check/securitycheck/results/summary';
+            return fetch(requestCheckSummary, {
+                method: 'GET',
+                headers: {
+                    'Authorization': idToken
+                }
+            })
+        }
+
+        function getAwsAccountSummary(idToken) {
+            const requestAwsAccountSummary = tag.config.APIGATEWAY_ADDRESS + '/check/securitycheck/results/awsaccountsummary';
+            return fetch(requestAwsAccountSummary, {
+                method: 'GET',
+                headers: {
+                    'Authorization': idToken
+                }
+            })
+        }
+
+        function refreshPage() {
+            getInformationPage();
+        }
+    </script>
+</check-result-summary>

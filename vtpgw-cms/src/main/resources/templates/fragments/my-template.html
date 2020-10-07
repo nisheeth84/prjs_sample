@@ -1,0 +1,80 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/simple-sidebar.css}" rel="stylesheet">
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+    <link th:href="@{/css/alertify.min.css}" rel="stylesheet">
+    <link th:href="@{/css/default.min.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body>
+
+<!-- Sidebar -->
+<div th:fragment="side-bar" class="bg-light border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading">
+        <a href="/service/" style="text-decoration: none; color: #00918C">
+            <img th:src="@{/img/logo_Viettel.png}" height="25px" style="margin-right: 20px;">
+            VTP-GW
+        </a>
+    </div>
+    <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action menu-item">DASHBOARD</a>
+<!--        <a href="#" class="list-group-item list-group-item-action menu-item">HISTORY</a>-->
+<!--        <a href="#" class="list-group-item list-group-item-action menu-item">ISSUE</a>-->
+<!--        <a href="#" class="list-group-item list-group-item-action menu-item">ALERT RILE</a>-->
+        <a th:href="@{/application/}" th:classappend="${#strings.contains(#httpServletRequest.getRequestURI(), '/application/') ? 'active':''}"
+           class="list-group-item list-group-item-action menu-item">APPLICATION</a>
+        <a th:href="@{/permission/}" th:classappend="${#strings.contains(#httpServletRequest.getRequestURI(), '/permission/' ) ? 'active':''}"
+           class="list-group-item list-group-item-action menu-item">PERMISSION</a>
+        <a th:href="@{/service/}" th:classappend="${#strings.contains(#httpServletRequest.getRequestURI(), '/service/' ) ? 'active':''}"
+           class="list-group-item list-group-item-action menu-item">SERVICE</a>
+<!--        <a href="#" class="list-group-item list-group-item-action menu-item">PLUGIN</a>-->
+        <a th:href="@{/report/}" th:classappend="${#strings.contains(#httpServletRequest.getRequestURI(), '/report/' ) ? 'active':''}"
+           class="list-group-item list-group-item-action menu-item">REPORT</a>
+        <a th:href="@{/account/}" th:classappend="${#strings.contains(#httpServletRequest.getRequestURI(), '/account/' ) ? 'active':''}"
+           class="list-group-item list-group-item-action menu-item">ACCOUNT</a>
+        <a th:href="@{/backup/}" th:classappend="${#strings.contains(#httpServletRequest.getRequestURI(), '/backup/' ) ? 'active':''}"
+           class="list-group-item list-group-item-action menu-item">BACKUP</a>
+<!--        <a href="/contact/" th:classappend="${#httpServletRequest.getRequestURI() == '/contact/' ? 'active':''}"-->
+<!--           class="list-group-item list-group-item-action menu-item">CONTACTS</a>-->
+    </div>
+</div>
+<!-- /#sidebar-wrapper -->
+
+<div th:fragment="header" class="navbar navbar-expand-lg navbar-light menu-item border-bottom" style="height: 60px;">
+    <span class="navbar-toggler-icon" id="menu-toggle"></span>
+    <button onclick="showModal()" class="btn-header" id="btnNew">New</button>
+    <button class="btn-header" id="btnExport">Export</button>
+    <button onclick="showImportDialog()" class="btn-header" id="btnImport">Import</button>
+    <button onclick="backupData()" class="btn-header" id="btnBackup">Backup & Apply</button>
+    <button class="btn-header" id="btnReload">Reload</button>
+    <img class="rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+         style="right: 20px; position: fixed" th:src="@{/img/user_login.png}" width="45" height="45">
+    <div class="dropdown-menu dropdown-menu-right">
+        <a href="#" class="dropdown-item">
+            <span sec:authentication="name"></span>
+        </a>
+        <div class="dropdown-divider"></div>
+        <form id="logout" action="#" th:action="@{/logout}" method="POST">
+            <a class="dropdown-item" href="#" onclick="$('#logout').submit()">Logout</a>
+        </form>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/alertify.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap-datepicker.min.js}"></script>
+<link th:href="@{/vendor/bootstrap/css/bootstrap-datepicker.min.css}" rel="stylesheet">
+<script th:src="@{/js/common.js}"></script>
+</body>
+</html>

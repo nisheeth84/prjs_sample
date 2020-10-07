@@ -1,0 +1,27 @@
+/* SonNV fix bug conflict css common
+.content-modal-calendar-detail {
+  overflow-y: scroll;
+  height: calc(100vh - 30vh);
+}
+.content-modal-calendar-detail::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px #fff;
+  box-shadow: inset 0 0 6px #fff;
+  background-color: #f0f0f0;
+}
+
+.content-modal-calendar-detail::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: #c1c1c1;
+}
+
+.content-modal-calendar-detail::-webkit-scrollbar-thumb {
+  background-color: #dee2e6;
+  border-radius: 10px;
+}
+*/
+
+.wrap-calendar .popup-esr2-footer .button-primary:hover,
+.wrap-calendar .popup-esr2-footer .button-primary.active span {
+  color: #0f6db5 !important;
+}

@@ -1,0 +1,11 @@
+{
+    "Signin": {
+        "forgot_password_1": "",
+        "forgot_password_2": "Forgot your password?",
+        "first_visit": "Don't have an account yet?",
+        "regist_user": "Sign up",
+        "auth_incorrect": "The authentication information is incorrect.",
+        "mfa_code": "MFA Code",
+        "send": "Send"
+    }
+}

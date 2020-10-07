@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="aio-service:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>aio-service</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ktts-service.war">
+      <element id="artifact" artifact-name="aio-service:war exploded" />
+    </root>
+  </artifact>
+</component>

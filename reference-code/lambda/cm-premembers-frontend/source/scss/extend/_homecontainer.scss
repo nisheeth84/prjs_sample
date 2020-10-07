@@ -1,0 +1,22 @@
+.notification_area p, 
+.notification_area .alert{
+    margin:0;
+    border:none;
+}
+.notification_area{
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.08);
+}
+.btn.btn-close-notifications{
+    margin-top: 0px !important;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.08);
+    margin-right: 1.5em;
+}
+
+#webui_home_gtm_image{
+    padding-top: 20px; 
+}
+
+#webui_home_gtm_image:empty{
+    padding-top: 0; 
+}

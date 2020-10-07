@@ -1,0 +1,58 @@
+{
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "Destination",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "Timestamp",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "NotificationType",
+            "AttributeType": "S"
+        }
+    ],
+    "ProvisionedThroughput": {
+        "WriteCapacityUnits": 5,
+        "ReadCapacityUnits": 5
+    },
+    "TableName": "PM_SESNotifications",
+    "KeySchema": [
+        {
+            "AttributeName": "Destination",
+            "KeyType": "HASH"
+        },
+        {
+            "AttributeName": "Timestamp",
+            "KeyType": "RANGE"
+        }
+    ],
+    "GlobalSecondaryIndexes": [
+        {
+            "IndexName": "NotificationTypeIndex",
+            "KeySchema": [
+                {
+                    "AttributeName": "NotificationType",
+                    "KeyType": "HASH"
+                },
+                {
+                    "AttributeName": "Timestamp",
+                    "KeyType": "RANGE"
+                }
+            ],
+            "ProvisionedThroughput": {
+                "WriteCapacityUnits": 5,
+                "ReadCapacityUnits": 5
+            },
+            "Projection": {
+                "ProjectionType": "INCLUDE",
+                "NonKeyAttributes": [
+                    "Source",
+                    "MessageId",
+                    "NotificationJson"
+                ]
+            }
+        }
+    ]
+}

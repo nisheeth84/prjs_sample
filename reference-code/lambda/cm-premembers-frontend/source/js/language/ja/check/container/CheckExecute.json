@@ -1,0 +1,7 @@
+{
+    "CheckExecute": {
+        "description_check_execution": "チェックを実行します。チェック完了まで数分かかります。",
+        "title_info_execute_check": "チェック処理を開始しました",
+        "body_info_execute_check": "チェック処理を開始しました。作成状況については、チェック履歴にて確認下さい。"
+    }
+}

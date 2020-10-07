@@ -1,0 +1,27 @@
+type GetAuthenticationSamlSupType1{
+    samlId          : Long
+    isPc            : Boolean
+    isApp           : Boolean
+    referenceFieldId: Long
+    referenceType   : Long
+    referenceValue  :String
+    issuer          : String
+    certificateData :String
+    certificateName : String
+    urlLogin        :String
+    urLogout        :String
+    updatedDate     :DateTime
+}
+
+type GetAuthenticationSamlSupType2 {
+    fieldId         :Long
+    fieldLabel      : String
+}
+ type getAuthenticationSamlOut{
+     saml           : GetAuthenticationSamlSupType1
+     referenceField : [GetAuthenticationSamlSupType2]
+ }
+
+extend type Query {
+    getAuthenticationSAML : getAuthenticationSamlOut
+}

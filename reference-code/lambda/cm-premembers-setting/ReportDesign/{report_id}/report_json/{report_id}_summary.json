@@ -1,0 +1,96 @@
+{
+    "resouce":{
+        "{account_id_1}" : {
+            "ap-northeast-1":{
+                "EC2": 1,
+                "ELB": 1,
+                "RDS": 2,
+                "S3": 3
+            },
+            "ap-northeast-2":{
+                "EC2": 1,
+                "ELB": 1,
+                "RDS": 2,
+                "S3": 15
+            }
+        },
+        "{account_id_2}" : {
+            "ap-northeast-1":{
+                "EC2": 1,
+                "ELB": 1,
+                "RDS": 2,
+                "S3": 12
+            },
+            "ap-northeast-2":{
+                "EC2": 1,
+                "ELB": 1,
+                "RDS": 2,
+                "S3": 11
+            }
+        }
+    },
+    "cost":{
+        "{account_id_1}" : [],
+        "{account_id_2}" : []
+    },
+    "security":{
+        "{account_id_1}" : [],
+        "{account_id_2}" : []
+    },
+    "RI":{
+        "{account_id_1}" : [ // RI.json 
+            { //EC2内の項目
+                "service": "EC2",
+                "ReservationID": "7be5a650-8183-11e7-a6c8-38c9864b96a5", // ReservedInstancesId
+                "ExpiryDate": "2017-08-15T16:04:57.873715" // End
+            },
+            { //RDS内の項目
+                "service": "RDS",
+                "ReservationID": "e4060acc-8188-11e7-a234-38c9864b96a5", // ReservedDBInstanceId
+                "ExpiryDate": "2017-08-15T16:10:26.060358" //StartTime + Duration(sec)
+            },
+            { // Redshift内の項目
+                "service": "Redshift",
+                "ReservationID": "f17f3e1c-8188-11e7-9273-38c9864b96a5",// ReservedNodeId
+                "ExpiryDate": "2017-08-15T16:11:32.884102" //StartTime + Duration(sec)
+            }
+        ],
+        "{account_id_2}" : [
+            {
+                "service": "EC2",
+                "ReservationID": "7be5a650-8183-11e7-a6c8-38c9864b96a5",
+                "ExpiryDate": "2017-08-15T16:04:57.873715"
+            },
+            {
+                "service": "RDS",
+                "ReservationID": "e4060acc-8188-11e7-a234-38c9864b96a5",
+                "ExpiryDate": "2017-08-15T16:10:26.060358"
+            },
+            {
+                "service": "Redshift",
+                "ReservationID": "f17f3e1c-8188-11e7-9273-38c9864b96a5",
+                "ExpiryDate": "2017-08-15T16:11:32.884102"
+            }
+        ]
+    },
+    "Domain":{
+        "{account_id_1}" : [ //Route53Domains.list_domains() > Domains 
+            {
+                "DomainName":"tableau.classmethod.jp", //DomainName
+                "ExpiryDate": "2017-08-15T16:27:02.127396" // Expiry
+            }
+        ],
+        "{account_id_2}" : []
+    },
+    "Certificate":{
+        "{account_id_1}" : [ // acm.list_certificates()['CertificateSummaryList'] > CertificateSummary
+            { //CertificateSummary 内のARNを用いて、acm.describe_certificate(CertificateArn=arn)を実施
+                "CertificateName":"Tableau Server CER", // list_tags_for_certificate(CertificateArn=arn)を実施し、Nameタグの値
+                "Region": "Tokyo", //取得を行なったRegion
+                "DomainName":"tableau.classmethod.jp", // DomainName
+                "ExpiryDate": "2017-08-15T16:29:26.187045"  // NotAfter
+            }
+        ],
+        "{account_id_2}" : []
+    }
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="281.036" height="103" viewBox="0 0 281.036 103">
+  <g id="Group_25990" data-name="Group 25990" transform="translate(-400.234 -4362)">
+    <g id="Group_25733" data-name="Group 25733" transform="translate(681.27 4425.844) rotate(180)">
+      <rect id="Rectangle_986" data-name="Rectangle 986" width="24" height="24" rx="8" transform="translate(0)" fill="none"/>
+      <path id="Path_14127" data-name="Path 14127" d="M15.5,5H7.061c.01-.312.042-2.687,0-4.147L6.354.146a.5.5,0,0,0-.708,0L1.207,4.586.146,5.646a.5.5,0,0,0,0,.707L1.207,7.414l4.439,4.439a.5.5,0,0,0,.708,0l.707-.706c.01-3.115-.005-3.49,0-4.147H15.5a.5.5,0,0,0,.5-.5v-1A.5.5,0,0,0,15.5,5Z" transform="translate(3 5.943)" fill="#999"/>
+    </g>
+    <path id="Path_14166" data-name="Path 14166" d="M3.306,0H94.565c.884,0,1.6.448,1.6,1h0c0,.552-.717,1-1.6,1H3.306C3.308.272,3.306,0,3.306,0Z" transform="translate(396.928 4412.9)" fill="#f92525"/>
+    <rect id="Rectangle_11341" data-name="Rectangle 11341" width="175" height="2" rx="1" transform="translate(496 4412.9)" fill="#999"/>
+    <circle id="Ellipse_288" data-name="Ellipse 288" cx="4" cy="4" r="4" transform="translate(491 4409.9)" fill="#f92525"/>
+    <path id="Path_14165" data-name="Path 14165" d="M1,0H16.312c0,1.859,0,.063,0,2H1Z" transform="translate(581.5 4405.532) rotate(90)" fill="#171615"/>
+    <text id="今日" transform="translate(566 4445)" fill="#171615" font-size="14" font-family="NotoSansCJKjp-Medium, Noto Sans CJK JP" font-weight="500"><tspan x="0" y="16">今日</tspan></text>
+    <g id="Group_25734" data-name="Group 25734" transform="translate(495.7 4383.854)">
+      <path id="Path_14138" data-name="Path 14138" d="M7185.7,2353.335s2.415-6.994,6.514-6.961,29.689,0,31.956,0,2.878-2.339,3.082-3.824a44.232,44.232,0,0,0,.141-4.7" transform="translate(-7185.7 -2337.853)" fill="none" stroke="#707070" stroke-width="1"/>
+      <path id="Path_14139" data-name="Path 14139" d="M7227.3,2353.335s-2.408-6.994-6.5-6.961-29.617,0-31.877,0-2.871-2.339-3.074-3.824a44.326,44.326,0,0,1-.14-4.7" transform="translate(-7143.999 -2337.853)" fill="none" stroke="#707070" stroke-width="1"/>
+    </g>
+    <text id="_3日" data-name="3日" transform="translate(524 4362)" fill="#171615" font-size="14" font-family="NotoSansCJKjp-Medium, Noto Sans CJK JP" font-weight="500"><tspan x="0" y="16">3日</tspan></text>
+  </g>
+</svg>

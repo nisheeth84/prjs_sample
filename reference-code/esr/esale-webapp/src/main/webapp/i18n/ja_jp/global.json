@@ -1,0 +1,345 @@
+{
+  "global": {
+    "footer": {
+      "private.policy": "プライバシーポリシー",
+      "term.service": "利用規約",
+      "copyright": "@SOFTBRAIN CO.,Ltd."
+    },
+    "messages": {
+      "validate": {
+        "newpassword": {
+          "required": "パスワードを入力してください。",
+          "minlength": "パスワードは8文字以上で入力してください。",
+          "maxlength": "パスワードは32文字以下で入力してください。"
+        },
+        "confirmpassword": {
+          "required": "パスワード(確認)を入力してください。",
+          "minlength": "パスワード(確認)は8文字以上で入力してください。",
+          "maxlength": "パスワード(確認)は32文字以下で入力してください。",
+          "dontmatch": "パスワードが一致しません!"
+        }
+      }
+    },
+    "layoutDateTime": {
+      "label.workDate": "（営業日数で算出）",
+      "label.oneDayBefore": "（日前）",
+      "label.oneDayAfter": "（日後）"
+    },
+    "title": {
+      "confirm": "確認",
+      "search-detail": "詳細検索"
+    },
+    "label": {
+      "local-filter": "検索",
+      "record-on-page": "件表示",
+      "record-currentpage": "{{offsetDown}}-{{offsetUp}} 件 / {{totalRecords}} 件"
+    },
+    "placeholder": {
+      "find-item": "項目を検索"
+    },
+    "menu-context": {
+      "select-all": "全選択",
+      "deselect-all": "選択解除",
+      "select-all-in-page": "ページ内全選択",
+      "deselect-all-in-page": "ページ内選択解除"
+    },
+    "button": {
+      "confirm": "確認",
+      "cancel": "キャンセル",
+      "select-all": "全選択",
+      "deselect-all": "選択解除",
+      "selection-inversion": "選択反転",
+      "save-search-criteria": "検索条件を保存",
+      "edit-search-condition": "検索条件編集",
+      "search-all": "項目編集",
+      "save-change": "変更を保存",
+      "switch-display": "表示切替",
+      "next-page": "次へ",
+      "prev-page": "前へ"
+    },
+    "item-drag": {
+      "list": " 件の社員を移動"
+    },
+    "over-flow-menu": {
+      "business-card": {
+        "history-activities": "活動履歴",
+        "regist-activities": "活動登録",
+        "regist-schedules": "スケジュール登録",
+        "regist-task": "タスク登録",
+        "post-data": "投稿する",
+        "create-mail": "メール作成"
+      },
+      "customer": {
+        "history-activities": "活動履歴",
+        "regist-activities": "活動登録",
+        "regist-schedules": "スケジュール登録",
+        "regist-task": "タスク登録",
+        "post-data": "投稿する",
+        "create-mail": "メール作成",
+        "regist-business-card": "名刺登録",
+        "regist-business-child": "子顧客の登録"
+      },
+      "employee": {
+        "history-activities": "活動履歴",
+        "regist-schedules": "スケジュール登録",
+        "regist-task": "タスク登録",
+        "post-data": "投稿する",
+        "create-mail": "メール作成"
+      },
+      "task": {
+        "regist-task": "サブタスク登録",
+        "regist-milestone": "マイルストーン登録",
+        "history-activities": "活動履歴",
+        "regist-activities": "活動登録",
+        "post-data": "投稿する"
+      },
+      "sub-task": {
+        "history-activities": "活動履歴",
+        "regist-activities": "活動登録",
+        "post-data": "投稿する"
+      },
+      "mile-stone": {
+        "regist-task": "タスク登録",
+        "history-activities": "活動履歴",
+        "regist-activities": "活動登録",
+        "post-data": "投稿する"
+      },
+      "product-trading": {
+        "regist-activities": "活動登録",
+        "active-history": "活動履歴",
+        "regist-task": "タスク登録",
+        "regist-schedules": "スケジュール登録"
+      }
+    },
+    "dialog-dirtycheck": {
+      "parttern1": {
+        "title": "このページを離れますか？",
+        "confirm": "このページから離れる",
+        "cancel": "このページにとどまる"
+      },
+      "parttern2": {
+        "title": "編集中のデータを破棄しますか？",
+        "confirm": "OK",
+        "cancel": "キャンセル"
+      }
+    },
+    "title-popup": {
+      "confirm": "このページを離れますか？",
+      "btn-cancel": "このページにとどまる",
+      "btn-confirm": "このページから離れる"
+    },
+    "title-restart": {
+      "confirm": "編集中のデータを破棄しますか？",
+      "btn-cancel": "キャンセル",
+      "btn-confirm": "OK"
+    },
+    "tab-display-setting": {
+      "display-basic-info": "基本情報に表示する",
+      "not-display-basic-info": "基本情報に表示しない",
+      "max-display-number": "最大表示件数",
+      "unit": "件"
+    },
+    "group": {
+      "business-card-shared-list-modal": {
+        "placeholderOfSearch": "項目を検索",
+        "title-add": "共有リストを作成",
+        "title-edit": "共有リストを編集",
+        "title-switch": "共有リストに変更",
+        "lb-create-list-with-records": "{{0}}件でリストを作成します。",
+        "list-name-label": "リスト名",
+        "required": "必須",
+        "radio-manual": "手動",
+        "radio-auto": "自動追加",
+        "list-name-placeholder": "リスト名を入力",
+        "list-search-placeholder": "リストの参加者を追加",
+        "list_type": "リストの種類",
+        "is-overwrite": "更新時に条件に合致しない場合、リストから削除する",
+        "lb-require": "必須",
+        "lb-list-participants": "リストの参加者",
+        "lb-list-participants-placeholder": "リストの参加者を追加",
+        "permision.viewer": "閲覧者",
+        "permision.owner": "オーナー",
+        "lb-search-condition": "自動追加リストの検索条件",
+        "lb-setting-search": "検索条件編集",
+        "lb-note-for-checkbox": "更新時に条件に合致しない場合、リストから削除する",
+        "list-update-time": "毎日「{{0}}」時にリストを自動に更新されます",
+        "button-create": "作成",
+        "button-edit": "更新"
+      },
+      "business-card-my-list-modal": {
+        "title-add": "マイリストを作成",
+        "title-edit": "マイリストを編集",
+        "title-switch": "",
+        "lb-create-list-with-records": "{{0}}件でリストを作成します。",
+        "list-name-label": "リスト名",
+        "required": "必須",
+        "radio-manual": "手動",
+        "radio-auto": "自動追加",
+        "list-name-placeholder": "リスト名を入力",
+        "list-search-placeholder": "",
+        "list_type": "リストの種類",
+        "is-overwrite": "更新時に条件に合致しない場合、リストから削除する",
+        "lb-list-participants": "",
+        "lb-list-participants-placeholder": "",
+        "permision.viewer": "",
+        "permision.owner": "",
+        "lb-search-condition": "自動追加リストの検索条件",
+        "lb-setting-search": "検索条件編集",
+        "lb-note-for-checkbox": "更新時に条件に合致しない場合、リストから削除する",
+        "list-update-time": "毎日「{{0}}」時にリストを自動に更新されます",
+        "button-create": "作成",
+        "button-edit": "更新"
+      },
+      "customer-shared-list-modal": {
+        "title-add": "共有リストを作成",
+        "title-edit": "共有リストを編集",
+        "title-switch": "共有リストに変更",
+        "lb-create-list-with-records": "{{0}}件でリストを作成します。",
+        "list-name-label": "リスト名",
+        "required": "必須",
+        "lb-require": "必須",
+        "radio-manual": "手動",
+        "radio-auto": "自動追加",
+        "list-name-placeholder": "リスト名を入力",
+        "list-search-placeholder": "リストの参加者を追加",
+        "list_type": "リストの種類",
+        "is-overwrite": "更新時に条件に合致しない場合、リストから削除する",
+        "lb-list-participants": "リストの参加者",
+        "lb-list-participants-placeholder": "リストの参加者を追加",
+        "permision.viewer": "閲覧者",
+        "permision.owner": "オーナー",
+        "lb-search-condition": "自動追加リストの検索条件",
+        "lb-setting-search": "検索条件の設定",
+        "lb-note-for-checkbox": "更新時に条件に合致しない場合、リストから削除する",
+        "list-update-time": "毎日「{{0}}」時にリストを自動に更新されます",
+        "button-create": "作成",
+        "button-edit": "更新"
+      },
+      "customer-my-list-modal": {
+        "title-add": "マイリストを作成",
+        "title-edit": "マイリストを編集",
+        "title-switch": "",
+        "lb-create-list-with-records": "{{0}}件でリストを作成します。",
+        "list-name-label": "リスト名",
+        "required": "必須",
+        "lb-require": "必須",
+        "radio-manual": "手動",
+        "radio-auto": "自動追加",
+        "list-name-placeholder": "リスト名を入力",
+        "list-search-placeholder": "",
+        "list_type": "リストの種類",
+        "is-overwrite": "更新時に条件に合致しない場合、リストから削除する",
+        "lb-list-participants": "",
+        "lb-list-participants-placeholder": "",
+        "permision.viewer": "",
+        "permision.owner": "",
+        "lb-search-condition": "自動追加リストの検索条件",
+        "lb-setting-search": "検索条件の設定",
+        "lb-note-for-checkbox": "更新時に条件に合致しない場合、リストから削除する",
+        "list-update-time": "毎日「{{0}}」時にリストを自動に更新されます",
+        "button-create": "作成",
+        "button-edit": "更新"
+      },
+      "employee-my-list-modal": {
+        "title-add": "マイグループを作成",
+        "title-edit": "マイグループを編集",
+        "title-switch": "",
+        "lb-create-list-with-records": "{{0}}件でグループを作成します。",
+        "list-name-label": "グループ名 ",
+        "required": "必須",
+        "lb-require": "必須",
+        "radio-manual": "手動",
+        "radio-auto": "自動追加",
+        "list-name-placeholder": "グループ名を入力",
+        "list-search-placeholder": "",
+        "list_type": "グループの種類",
+        "is-overwrite": "更新時に条件に合致しない場合、グループら削除する",
+        "lb-list-participants": "",
+        "lb-list-participants-placeholder": "",
+        "permision.viewer": "",
+        "permision.owner": "",
+        "lb-search-condition": "自動追加グループの検索条件",
+        "lb-setting-search": "検索条件の設定",
+        "lb-note-for-checkbox": "更新時に条件に合致しない場合、グループから削除する",
+        "list-update-time": "毎日 {{0}} 時にグループを自動に更新されます",
+        "button-create": "作成",
+        "button-edit": "更新"
+      },
+      "employee-shared-list-modal": {
+        "title-add": "共有グループを作成",
+        "title-edit": "共有グループを編集",
+        "title-switch": "共有グループに変更",
+        "lb-create-list-with-records": "{{0}}件でリストを作成します。",
+        "list-name-label": "グループ名",
+        "required": "必須",
+        "lb-require": "必須",
+        "radio-manual": "手動",
+        "radio-auto": "自動追加",
+        "list-name-placeholder": "グループ名を入力",
+        "list-search-placeholder": "リストの参加者を追加",
+        "list_type": "グループの種類",
+        "is-overwrite": "更新時に条件に合致しない場合、グループから削除する",
+        "lb-list-participants": "リストの参加者",
+        "lb-list-participants-placeholder": "リストの参加者を追加",
+        "permision.viewer": "閲覧者",
+        "permision.owner": "オーナー",
+        "lb-search-condition": "自動追加グループの検索条件",
+        "lb-setting-search": "検索条件の設定",
+        "lb-note-for-checkbox": "更新時に条件に合致しない場合、グループから削除する",
+        "list-update-time": "毎日 {{0}} 時にグループを自動に更新されます",
+        "button-create": "作成",
+        "button-edit": "変更"
+      },
+      "sales-shared-list-modal": {
+        "title-add": "共有リストを作成",
+        "title-edit": "共有リストを編集",
+        "title-switch": "共有リストへ変更",
+        "lb-create-list-with-records": "{{0}} 件でリストを作成します。",
+        "list-name-label": "リスト名",
+        "required": "必須",
+        "lb-require": "必須",
+        "radio-manual": "手動",
+        "radio-auto": "自動追加",
+        "list-name-placeholder": "リスト名を入力",
+        "list-search-placeholder": "リストの参加者を追加",
+        "list_type": "リストの種類",
+        "is-overwrite": "更新時に条件に合致しない場合、リストから削除する",
+        "lb-list-participants": "リストの参加者",
+        "lb-list-participants-placeholder": "リストの参加者を追加",
+        "permision.viewer": "閲覧者",
+        "permision.owner": "オーナー",
+        "lb-search-condition": "自動追加リストの検索条件",
+        "lb-setting-search": "詳細検索条件を編集",
+        "lb-note-for-checkbox": "更新時に条件に合致しない場合、リストから削除する",
+        "list-update-time": "毎日 {{0}} 時にリストが自動に更新されます",
+        "button-create": "作成",
+        "button-edit": "更新"
+      },
+      "sales-my-list-modal": {
+        "title-add": "マイリストを作成",
+        "title-edit": "マイリストを編集",
+        "title-switch": "共有リストへ変更",
+        "lb-create-list-with-records": "{{0}} 件でリストを作成します。",
+        "list-name-label": "リスト名",
+        "required": "必須",
+        "lb-require": "必須",
+        "radio-manual": "手動",
+        "radio-auto": "自動追加",
+        "list-name-placeholder": "リスト名を入力",
+        "list-search-placeholder": "",
+        "list_type": "リストの種類",
+        "is-overwrite": "更新時に条件に合致しない場合、グループから削除する",
+        "lb-list-participants": "リストの参加者",
+        "lb-list-participants-placeholder": "リストの参加者",
+        "permision.viewer": "閲覧者",
+        "permision.owner": "オーナー",
+        "lb-search-condition": "自動追加リストの検索条件",
+        "lb-setting-search": "詳細検索条件を編集",
+        "lb-note-for-checkbox": "更新時に条件に合致しない場合、リストから削除する",
+        "list-update-time": "毎日 {{0}} 時にリストが自動に更新されます",
+        "button-create": "作成",
+        "button-edit": "更新"
+      }
+    }
+  }
+}

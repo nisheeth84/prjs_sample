@@ -1,0 +1,16 @@
+{
+    "AwsCoopsCreate": {
+        "title": "AWSアカウント連携作成",
+        "info": "AWSマネージメントコンソール画面",
+        "guideline_awscoops_create_step1": "「IAM Roleを作成」をクリックし、AWSアカウントにログインします。CloudFormationの画面が表示されます。",
+        "create_iam_role": "IAM Roleを作成",
+        "guideline_awscoops_create_step2": "CloudFormationに自動で入力された「ExternalId」と「insightwatchAccountId」が一致していることを確認してください。",
+        "guideline_awscoops_create_step3": "IAMリソース作成承認のチェックを入れてCloudFormationを実行します。数分程度時間がかかります。",
+        "guideline_awscoops_create_step4": "CloudFormationの状況が「CREATE_COMPLETE」となっていることを確認します。(CREATE_COMPLETEとなっていない場合は再読み込みします。)出力より、AccountID、IAMRoleNameを確認し入力してください。",
+        "guideline_awscoops_create_step5": "アカウント名、説明を入力します。",
+        "iw_awscoops_create_step1": "./assets/images/CFn_ja_1.png",
+        "iw_awscoops_create_step2": "./assets/images/CFn_ja_2.png",
+        "iw_awscoops_create_step3": "./assets/images/CFn_ja_3.png",
+        "iw_awscoops_create_step4": "./assets/images/CFn_ja_4.png"
+    }
+}

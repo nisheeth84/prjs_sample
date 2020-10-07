@@ -1,0 +1,8 @@
+Jenkinsfile
+README.md
+.git
+.gitignore
+.dockerignore
+src/main/docker/Dockerfile
+src/main/docker/Dockerfile.build
+docker-compose.yml

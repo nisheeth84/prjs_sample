@@ -1,0 +1,534 @@
+{
+  "setting": {
+    "title": "設定",
+    "lang": {
+      "jaJp": "日本語",
+      "enUs": "English(US)",
+      "zhCn": "中文（简体）"
+    },
+    "button": {
+      "save": "保存",
+      "add": "登録",
+      "edit": "編集",
+      "cancel": "変更前に戻す",
+      "saveAPI": "設定完了"
+    },
+    "confirm": {
+      "yes": "する",
+      "no": "しない"
+    },
+    "available": {
+      "yes": "使用可",
+      "no": "使用不可"
+    },
+    "system": {
+      "title": "システム設定",
+      "nav": {
+        "ipAddress": "IPアドレス制御",
+        "saml": "SAML認証",
+        "period": "期首設定",
+        "history": "各種ログ",
+        "general": "リスト設定",
+        "publicAPI": "URLAPI設定"
+      },
+      "ipAddress": {
+        "title": "IPアドレス",
+        "notificaation": "IPアドレスを追加した場合、入力されたIPアドレスからのみ接続が可能となります。",
+        "placeholder": "IPアドレスを入力",
+        "btnAdd": "IPアドレスを追加"
+      },
+      "saml": {
+        "title": "有効化",
+        "titleWarning": "SAML認証の使用デバイスを設定します。 有効に設定した場合、以下の制限、または注意が必要です。",
+        "titleWarning1": "1. ログイン画面へのアクセスができなくなります。",
+        "titleWarning2": "2.ログイン画面にアクセスできないため、管理者ログイン権限を社員に付与するか、 IDプロバイダ側に管理者ユーザのアカウント情報を登録する必要があります。",
+        "titleWarning3": "3.ログイン状態の保存設定は無効になります。（IDプロバイダの仕様に準拠します）",
+        "isPc": "PC版",
+        "isApp": "アプリ",
+        "CooperationItem": "連携項目",
+        "UserID": "ユーザID",
+        "referenceTypeSubject": "連携項目は、SubjectステートメントのNameIdentifier要素にあります",
+        "referenceTypeAttribute": "連携項目は、Attribute要素にあります",
+        "placeholderpublisher": "発行元を入力",
+        "titleIssure": "連携項目",
+        "publisher": "発行元",
+        "isRq": "必須",
+        "placeholderIssure": "連携項目内容を入力",
+        "Certificate": "メタデータドキュメント",
+        "btnUploadFile": "クリックするか、ファイルをドロップしてください",
+        "urlLogin": "IDプロバイダログインURL",
+        "urlLogOut": "IDプロバイダログアウトURL",
+        "placeholderUrlLogin": "IDプロバイダログインURLを入力",
+        "placeholderUrlLogout": "IDプロバイダログアウトURLを入力"
+      },
+      "period": {
+        "title": "期首月",
+        "titleWarning": "データ分析機能で使用する期首月を設定します。",
+        "month": "月",
+        "startYear": "年度の開始",
+        "calendarYear": "暦年と同じ",
+        "LastYear": "暦年の前年",
+        "description": "例：{{0}}年度は{{1}}年{{2}}月に開始",
+        "notification": "「唐年の前年」を選択した場合「例：{{0}}年度は{{1}}年{{2}}月に聞始」に変わる"
+      },
+      "general": {
+        "title": "リスト設定",
+        "action": "自動更新開始時刻",
+        "placeholder": "時間を選択"
+      },
+      "accesslog": {
+        "title": "アクセスログのダウンロード",
+        "dateTime": "日時",
+        "accountName": "アカウント名",
+        "ipAddress": "IPアドレス",
+        "event": "イベント",
+        "result": "結果",
+        "errorInfomation": "エラー情報",
+        "entityId": "エンティティID",
+        "additionalInformation": "補足情報",
+        "search": "表示",
+        "downloadLogAccess": "ダウンロード",
+        "diaryLog": "アクセスログ",
+        "selectLanguage": "ログファイルの文字コードを選択してください",
+        "record": "件",
+        "to": "から",
+        "dateTo": "までのログを",
+        "placeholder": "ログを検索",
+        "item": "件表示"
+      },
+      "urlAPI": {
+        "notifi": "eセールスマネージャーRemixの各種画面をログイン画面不経由せずにダイレクトに表示する、URLAPI機能についての設定を行います。",
+        "isPublicUrlApi": "URLAPI認証の有効化",
+        "apiRadio1": "有効",
+        "apiRadio2": "無効",
+        "authenticationType": "URLの有効期限",
+        "expiredTime": "分",
+        "placeholder": "1440"
+      }
+    },
+    "calendar": {
+      "title": "カレンダー",
+      "title-fix": "カレンダー設定",
+      "nav": {
+        "google": "Googleカレンダー連携",
+        "scheduleType": "スケジュール種別",
+        "equiqmentType": "設備・備品",
+        "holiday": "休日・週の始まり"
+      },
+      "scheduleType": {
+        "messageFile": "入力必須項目です。値を入力してください。",
+        "title": "スケジュール種別",
+        "notification": "カレンダーのスケジュールで使用する種別を設定します。",
+        "add": "追加",
+        "icon": "イメージ",
+        "name": "種別名",
+        "status": "登録",
+        "action": "操作",
+        "new": {
+          "title": "スケジュール種別追加",
+          "titleEdit": "スケジュール種別変更",
+          "lang": "種別名",
+          "langActive": "必須",
+          "placeholder": "種別名を入力",
+          "langOther": "他言語を表示",
+          "icon": "アイコン",
+          "uploadFile": "イメージをアップロード",
+          "btnUploadFile": "クリックするか、ファイルをドロップしてください",
+          "active": "登録",
+          "noActive": "使用不可",
+          "isActive": "使用可",
+          "save": "追加",
+          "edit": "変更",
+          "cancel": "キャンセル",
+          "message-delete": "を削除してよろしいですか？",
+          "hideMore": "他言語を非表示"
+        }
+      },
+      "equiqment": {
+        "title": "設備・備品",
+        "notification": "スケジュールで使用する設備・備品を設定できます。",
+        "btnEquiqment": "設備・備品追加",
+        "titleBtnEquiqment": "設備・備品変更",
+        "titleEquiqment": "設備・備品名",
+        "placeholderEquiqment": "設備・備品名を入力",
+        "placeholderType": "種別名を入力",
+        "btnType": "種別追加",
+        "titleEdit": "種別変更",
+        "tblEquiqment": "会議室A",
+        "tblType": "会議室",
+        "typeAdd": {
+          "title": ""
+        },
+        "equiqmentAdd": {
+          "titleCheck": "利用",
+          "isvailable": "使用可",
+          "noIsvailable": "使用不可",
+          "Type": "種別"
+        },
+        "dialog": {
+          "message-delete-group": "を削除してよろしいですか？"
+        }
+      },
+      "google": {
+        "title": "認証設定",
+        "title-snd": "同期設定",
+        "text1": "Googleアカウントの認証が正しく行われていません。",
+        "text2": "認証情報が取得されていません。Client IDとClient secretを入力して認証情報の取得をしてください。",
+        "text3": " の情報を入力してください。認証情報の取得時にGoogleへのログインが行われます。この際に特権管理者のアカウントを指定するようにしてください。また、既にGoogleにログイン済みの場合はログアウトしてから認証情報の取得を行ってください。",
+        "text4": "この設定の期間を長くした場合、同期処理に時間が掛かることがあります。また、Googleカレンダーの繰り返しスケジュールの最大期間に影響します。例えば、未来1年、過去7日に設定した場合、Googleカレンダーで登録された3年分の繰り返しスケジュールは未来１年、過去7日の期間分のみeセールスマネージャーMSに反映されます。",
+        "text5": "Googleカレンダーで件名が入力されていない場合、ここで指定した件名がeセールスマネージャーMSに反映されます。",
+        "text6": "Googleカレンダーで登録されたスケジュールをeセールスマネージャーMSに反映させる際に使用されます。 ",
+        "text7": "１度でも同期したスケジュールやeセールスマネージャーMSで登録したスケジュールでは使用されません。 ",
+        "autInfomation": "認証情報",
+        "btnAuthInfomation": "認証情報を取得",
+        "googleAcc": "Googleアカウントの参照先",
+        "btnConnectionTest": "接続テスト",
+        "radioSync": "同期間隔",
+        "time": "時",
+        "from": "から",
+        "forUpTo": "までの",
+        "minute": "分",
+        "runEveryMinute": "分おきに実行する",
+        "runTo": "に実行する",
+        "sync": "同期対象期間",
+        "past": "過去",
+        "day": "日",
+        "future": "未来",
+        "year": "年",
+        "scheduleTemplate": "スケジュールテンプレート",
+        "defaultSubject": "デフォルトの件名",
+        "defaultScheduleType": "デフォルトのスケジュール種別"
+      },
+      "holiday": {
+        "label": "休日",
+        "title": "会社の休日を設定します。",
+        "month": "月",
+        "year": "年",
+        "notification": "会社の休日を設定します。",
+        "monday": "月",
+        "tuesday": "火",
+        "wednesday": "水",
+        "thursday": "木",
+        "friday": "金",
+        "saturday": "土",
+        "sunday": "日",
+        "dayName": "{{0}}曜日",
+        "haveHoliday": {
+          "title": "祝日",
+          "notification": "日本の祝日を使用するか設定できます。",
+          "yes": "あり",
+          "no": "なし"
+        },
+        "company": {
+          "title": "会社の休日",
+          "notification": "会社固有の休日を追加できます。",
+          "add": "追加",
+          "edit": "変更",
+          "buttonCancel": "キャンセル",
+          "no": "No",
+          "name": "休日名",
+          "date": "日付",
+          "action": "操作",
+          "formAdd": {
+            "title": "会社の休日追加",
+            "titleEdit": "会社の休日変更",
+            "labelNameHoliday": "休日名",
+            "placeholderName": "休日名を入力",
+            "labelButtonAddLanguage": "他言語を表示",
+            "labelOptionLoop": "繰り返し",
+            "labelIsRepeat": "する",
+            "labelNonRepeat": "しない",
+            "labelChosenDate": "日付",
+            "placeholderInputDate": "日付を選択"
+          },
+          "dialog": {
+            "title": "",
+            "lang": "",
+            "placeholder": ""
+          }
+        },
+        "start": {
+          "title": "週の開始日",
+          "notification": "カレンダーの週の開始日を設定できます。"
+        }
+      }
+    },
+    "task": {
+      "title": "活動設定",
+      "format": "フォーマット",
+      "titleInEmpty": "活動",
+      "activityFormat": {
+        "title": "報告フォーマット",
+        "btnAdd": "追加",
+        "add": {
+          "title": "報告フォーマット追加",
+          "titleEdit": "報告フォーマット変更",
+          "lang": "名前",
+          "placeholder": "名前を入力",
+          "langMore": "他言語を表示",
+          "hideMore": "他言語を非表示",
+          "use": "登録",
+          "active": "使用可",
+          "noActive": "使用不可",
+          "save": "追加",
+          "edit": "変更",
+          "cancel": "キャンセル"
+        },
+        "toolTip": "商品カテゴリ単位で表示する商品情報項目を設定できます。\n表示設定を個別に設定している商品カテゴリは商品カテゴリ名の横に [個別設定」が表示されます。\n個別設定をしていない商品カテゴリは個別設定された直近の親カテゴ リの設定と同じ設定になります。\n個別設定を解除したい場合は「解除」を押下してください。",
+        "tbl": {
+          "no": "No",
+          "field": "項目名",
+          "menu": "項目",
+          "format": "報告フォーマット"
+        }
+      }
+    },
+    "customer": {
+      "title": "顧客",
+      "btnEdit": "変更",
+      "noMasterMotivations": "意欲マスタ登録されていません",
+      "noMasterStands": "立場マスタ登録されていません",
+      "nav": {
+        "masterPosition": "人脈マップ",
+        "scenatios": "シナリオ"
+      },
+      "masterPosition": {
+        "placeHolderMasterStands": "立場名を入力",
+        "title": "立場マスタ",
+        "titleTwo": "意欲マスタ",
+        "warning": "人脈マップで使用する立場を設定できます。",
+        "btn": "追加",
+        "tblStandCol2": "立場名",
+        "tblStandCol3": "登録",
+        "tblStandCol4": "操作",
+        "upload": "アイコンをアップロード",
+        "BackgroundColor": "背景色",
+        "no": "No",
+        "tblMotivationCol2": "表示"
+      },
+      "scenarios": {
+        "title": "シナリオ設定",
+        "warning": "シナリオのテンプレートを作成できます。",
+        "btn": "新規登録",
+        "tblCol2": "テンプレート",
+        "tblCol3": "マイルストーン",
+        "tblCol4": "操作",
+        "titleAdd": "シナリオ設定",
+        "milestone": "シナリオ",
+        "placeMilestoneName": "マイルストーン名を入力",
+        "btnAdd": "追加",
+        "iconType": "アイコン",
+        "required": "必須"
+      }
+    },
+    "card": {
+      "title": "名刺"
+    },
+    "product": {
+      "title": "商品",
+      "titleModal": "商品設定",
+      "titleCreatr": "商品タイプ追加",
+      "projectSetting": "項目設定",
+      "productMaster": "商品タイプマスタ",
+      "titleAdd": "商品タイプ変更",
+      "header": "商品タイプ",
+      "format": "報告フォーマット",
+      "defaultMess": "商品タイプごとに使用する項目を設定できます。",
+      "defaultPlaceholder": "商品タイプ名を入力",
+      "defaultPlaceholderAdd": "商品タイプ名を入力",
+      "productTypeName": "商品タイプ名",
+      "edit": {
+        "titleCreact": "進捗状況追加",
+        "titleEdit": "進捗状況変更",
+        "progressName": "進捗状況名",
+        "placeholder": "進捗状況名を人カ"
+      }
+    },
+    "sales": {
+      "title": "取引商品",
+      "title-fix": "取引管理設定",
+      "title-snd": "取引管理",
+      "nav": {
+        "productTrade": "進捗状況マスタ"
+      },
+      "productTrade": {
+        "messageFile": "入力必須項目です。値を入力してください。",
+        "title": "進捗状況",
+        "titleWarning": "取引管理で使用する進捗状況を設定できます。",
+        "btnAdd": "追加",
+        "jobTitle": "役職名",
+        "OrderEntry": "受注計上",
+        "lostNote": "失注",
+        "interruption": "中断",
+        "end": "終了",
+        "operation": "操作",
+        "titleIssure": "発行元(エンティティID)",
+        "addStandard": {
+          "title": "立場マスタ追加",
+          "titleEdit": "立場マスタ変更",
+          "langs": "立場名"
+        },
+        "add": {
+          "title": "意欲マスタ追加",
+          "titleEdit": "意欲マスタ変更",
+          "langs": "意欲名",
+          "placeholder": "進捗状況A",
+          "placeholderNew": "意欲名を入力",
+          "placeholderNewStandard": "テンプレート名を入力",
+          "placeholderScenario": "進捗状況A",
+          "langMore": "他言語を表示",
+          "langLess": "他言語を非表示",
+          "bookedOrder": {
+            "title": "受注計上",
+            "no": "なし",
+            "receive": "受注計上",
+            "lost": "失注",
+            "pending": "中断"
+          },
+          "end": {
+            "title": "終了条件",
+            "value": "終了"
+          },
+          "available": {
+            "title": "登録",
+            "active": "使用可",
+            "noActive": "使用不可"
+          }
+        }
+      }
+    },
+    "activity": {
+      "title": "活動",
+      "msg": "報告フォーマットごとに使用する項目を設定できます。"
+    },
+    "employee": {
+      "titlePopup": "社員設定",
+      "title": "社員",
+      "titleDetail": "顧客設定",
+      "jobTitleMaster": "役職マスタ",
+      "employeePosition": {
+        "title": "役職",
+        "titleWarning": "表示順の上位にある役職が優先して社員詳細や社員選択時のサジェストの役職名に表示されます。",
+        "btnAdd": "追加",
+        "btnEdit": "変更 ",
+        "titlePopup": "役職追加",
+        "titleEditPopup": "役職変更",
+        "titlePosition": "役職名",
+        "Note": "必須",
+        "positionPlahorder": "役職名を入力",
+        "editPlahorder": "代表取締役",
+        "otherLanguageTitle": "他言語を表示",
+        "register": "登録",
+        "usable": "使用可",
+        "unUsable": "使用不可",
+        "positionColum": "役職",
+        "operation": "操作",
+        "toggleOtherLanguages": "他言語を非表示",
+        "toggleOtherLanguagesEdit": "他言語を表示",
+        "cancel": "キャンセル"
+      }
+    },
+    "taskManagement": {
+      "title": "タスク管理"
+    },
+    "importCSV": {
+      "title": "インポート",
+      "followHeader": {
+        "stepUploadFile": "1.ファイルのアップロード",
+        "stepMapping": "2.マッピング",
+        "stepAfterImport": "3.インポート後のアクション",
+        "stepSimulation": "4.シミュレーション",
+        "stepExecution": "5.インポート"
+      },
+      "botton": {
+        "next": "次へ",
+        "previous": "戻る",
+        "executeImport": "インポートを実行",
+        "runSimulation": "シミュレーションを実行",
+        "suspendSimulation": "シミュレーションを中断"
+      },
+      "screenOne": {
+        "header": "インポートするデータの処理を選択してください。",
+        "buttonImportCSV": "ファイルをアップロードする。",
+        "openFileMess": "また ドラッグ ＆ ドロップしてください。'",
+        "infoLineOne": "また ドラッグ ＆ ドロップしてください。",
+        "infoLineTwo": ".csvのファイルタイプのみをサポートしています。",
+        "infoLineThree": " ",
+        "infoDownloadTemplate": "インポートするデータを作成する喝合はcsvテンプレートを",
+        "btnDownloadTemplate": "ダウンロード",
+        "infoPlease": "してください．",
+        "infoUseSimulation": "用回のシミユレーション結果を修正して再度シミユレーションする場合は、",
+        "openHistories": "こちら",
+        "infoPleaseClick": "をクリックしてくださしも",
+        "btnNewOnly": "新規登録のみ",
+        "btnOverwriteOnly": "上書きのみ",
+        "btnNewAndOverwrite": "新規登録および上書き保存",
+        "infoChooseHandleDuplicate": "重複したデータの処理を選択してください。",
+        "btnAllowHandleDuplicates": "重複したデータも新規登録",
+        "btnNotAllowHandleDuplicates": "重複したデーは処理しない"
+      },
+      "screenTwo": {
+        "header": "２データのマッピングに開する設定を行ラ",
+        "buttonSetMappingRelations": "既存データとのマッピングに使用する項目を設定する",
+        "mappingKeyRelation": "マッピングキー項目",
+        "mappingKeyRelationSame": "(同ー)",
+        "targetRelation": "紐付型項目のマッチング設定を行う",
+        "matchingSettingLabel": "紐付型項目のマッチング設定をする",
+        "red": "赤色",
+        "itemDisplayLabel": "で表示されている項目はマッピングキー項目です。",
+        "CSVHeader": "CSVファイル項目",
+        "dataHeader": "マッピングキー項目",
+        "numberHeader": "サンプル",
+        "placeHolderMatchingKey": "顧客名"
+      },
+      "simulation": {
+        "infoSimulateCompleted": "インポートシミユレーション完了",
+        "infoProgressing": "インポートシミュレーション中...",
+        "remainingProgressMinute": "残り時間：{{0}}分",
+        "infoError": "エラーテータの窃認",
+        "infoRecords": "{{0}} 件",
+        "infoCompletedRecords": "チェック完了データ数",
+        "infoImportableRecords": "投入可能データ故",
+        "infoUnimportableRecords": "工ラーデータ数"
+      },
+      "afterImport": {
+        "noticeLabel": "シミュレーション/インポート完了の通知先",
+        "noticePlaceHoder": "社員・部署・グループを追加",
+        "timelineLabel": "登録したデータをタイムラインで通知",
+        "timelineInfo": "登録したデータの内容をタイムラインに通知するか選択してください。",
+        "notice": "通知する",
+        "doNotNotice": "通知しない",
+        "typeListLabel": "リストの追加処理",
+        "typeListInfo": "設定を行うことで、登録したデータをリストに追加することができます。",
+        "addToMyList": "マイリストに追加する",
+        "addToShareList": "共有リストに追加する",
+        "doNotAddToList": "リストに登録しない",
+        "listName": "リスト名",
+        "listNamePlaceHolder": "リスト名 を入力 ",
+        "listParticipants": "リストの参加者",
+        "listParticipantsHolder": "リストの追加者を",
+        "require": "必須"
+      },
+      "simulationImport": {
+        "numberOfProcessing": "処理件数：",
+        "rowOne": "件/",
+        "rowTwo": "件"
+      },
+      "historiesImport": {
+        "title": "インポート履歴",
+        "inforMess": "インポート実行後、90日間保存されます。",
+        "headerTable": {
+          "createdDate": "日時",
+          "importFileName": "万イル名",
+          "isImportSucceed": "ステータス",
+          "employeeName": "社員名",
+          "insertedCount": "登録データ",
+          "updatedCount": "重新データ",
+          "errorCount": "エラーデータ"
+        },
+        "success": "成功",
+        "failure": "失敗"
+      }
+    }
+  }
+}

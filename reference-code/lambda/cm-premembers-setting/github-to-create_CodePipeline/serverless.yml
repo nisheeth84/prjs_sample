@@ -1,0 +1,159 @@
+service: github-to-create-CodePipeline
+
+provider:
+  name: aws
+  runtime: python3.6
+  region: ap-northeast-1
+  profile: premembers
+  iamRoleStatements:
+    -  Effect: "Allow"
+       Action:
+         - "cloudformation:*"
+       Resource: "*"
+    -  Effect: "Allow"
+       Action:
+        - "s3:Get*"
+        - "s3:List*"
+        - "s3:Delete*"
+       Resource: "*"
+    -  Effect: "Allow"
+       Action:
+         - "codebuild:CreateProject"
+         - "codebuild:DeleteProject"
+         - "codebuild:StartBuild"
+         - "codebuild:UpdateProject"
+       Resource: "*"
+    -  Effect: "Allow"
+       Action:
+         - "codepipeline:GetPipeline"
+         - "codepipeline:GetPipelineState"
+         - "codepipeline:CreateCustomActionType"
+         - "codepipeline:CreatePipeline"
+         - "codepipeline:DeleteCustomActionType"
+         - "codepipeline:DeletePipeline"
+         - "codepipeline:UpdatePipeline"
+       Resource: "*"
+    -  Effect: "Allow"
+       Action:
+         - "codebuild:CreateProject"
+         - "codebuild:DeleteProject"
+         - "codebuild:StartBuild"
+         - "codebuild:UpdateProject"
+       Resource: "*"
+    -  Effect: "Allow"
+       Action:
+         - "dynamodb:ListTables"
+         - "dynamodb:DeleteTable"
+       Resource: "*"
+    -  Effect: "Allow"
+       Action:
+         - "logs:DescribeLogGroups"
+         - "logs:DeleteLogGroup"
+       Resource: "*"
+    -  Effect: "Allow"
+       Action:
+         - "iam:Get*"
+         - "iam:List*"
+         - "iam:PassRole"
+       Resource: "*"
+    -  Effect: "Allow"
+       Action:
+         - "lambda:InvokeFunction"
+       Resource: "*"
+  environment:
+    dry_run: ${env:DRY_RUN}
+    STAGE: ${env:STAGE}
+    SERVICE_NAME: ${self:service}
+
+resources:
+  Description: Premembers CodePipeline Creater
+
+plugins:
+  - serverless-python-requirements
+
+functions:
+  github_webhook:
+    handler: github_webhook.lambda_handler
+    memorySize: 128
+    timeout: 60
+    environment:
+      GITHUB_WEBHOOK_SECRET: ${env:GITHUB_WEBHOOK_SECRET}
+    events:
+      - http:
+          path: webhook
+          cors: true
+          method: post
+
+  pipeline_create:
+    handler: pipeline_create.lambda_handler
+    memorySize: 128
+    timeout: 60
+    environment:
+      GITHUB_TOKEN: ${env:GITHUB_TOKEN}
+      FRONTEND_ENV_STACK: ${env:FRONTEND_ENV_STACK}
+      BACKEND_ENV_STACK: ${env:BACKEND_ENV_STACK}
+      CODEPIPELINE_ROLE_ARN: ${env:CODEPIPELINE_ROLE_ARN}
+      CODEPIPELINE_S3: ${env:CODEPIPELINE_S3}
+      CODEBUILD_ROLE_ARN: ${env:CODEBUILD_ROLE_ARN}
+      CODEBUILD_BACKEND_BUILD_IMAGE: ${env:CODEBUILD_BACKEND_BUILD_IMAGE}
+
+  pipeline_delete:
+    handler: pipeline_delete.lambda_handler
+    memorySize: 128
+    timeout: 60
+    environment:
+      FRONTEND_BUCKET: ${env:FRONTEND_BUCKET}
+
+  push_slack:
+    handler: push_slack.lambda_handler
+    memorySize: 128
+    timeout: 60
+    environment:
+      SLACK_TOKEN: ${env:SLACK_TOKEN}
+      SLACK_CHANNEL: ${env:SLACK_CHANNEL}
+
+  action_notification:
+    handler: action_fail_notification.lambda_handler
+    memorySize: 128
+    timeout: 60
+    events:
+      - cloudwatchEvent:
+          event:
+            source:
+              - "aws.codepipeline"
+            detail-type:
+              - "CodePipeline Action Execution State Change"
+
+  pipeline_notification:
+    handler: pipeline_success_notification.lambda_handler
+    memorySize: 128
+    timeout: 60
+    events:
+      - cloudwatchEvent:
+          event:
+            source:
+              - "aws.codepipeline"
+            detail-type:
+              - "CodePipeline Pipeline Execution State Change"
+
+  codebuild_notification:
+    handler: codebuild_notification.lambda_handler
+    memorySize: 128
+    timeout: 60
+    events:
+      - cloudwatchEvent:
+          event:
+            source:
+              - "aws.codebuild"
+            detail-type:
+              - "CodeBuild Build State Change"
+
+package:
+  exclude:
+    - __pycache__
+    - .git/**
+    - .vscode/**
+    - tests/**
+    - node_modules
+    - node_modules/**
+    - README.md

@@ -1,0 +1,134 @@
+<user-attribute-update-mail-container>
+  <div class="page">
+    <div class="page-content container-fluid col-lg-8 pb-10">
+      <h1 class="page-title mt-2 pb-10">{_t('UserAttributeUpdateMail.email_address_change')}</h1>
+      <div class="text-center mb--10">
+        <h5>{_t('UserAttributeUpdateMail.guide_change_mail_1')}<br>
+          {_t('UserAttributeUpdateMail.guide_change_mail_2')}</h5>
+      </div>
+    </div>
+    <div class="page-content container-fluid col-lg-8">
+      <form ref="form" method="post" submit={openModalUpdateEmailConfirm}>
+        <div class="row">
+          <div class="form-group floating col-lg-4 mt-10 min-w-265">
+            <label class="floating-label">{_t('UserAttributeUpdateMail.current_email_address')}</label>
+          </div>
+          <div class="form-group floating col-lg-8 mt-10">
+            {info_update_email.emailAddressBeforeUpdate}
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group floating col-lg-4 mt-10 min-w-265">
+            <label class="floating-label">{_t('UserAttributeUpdateMail.email_address_to_change')}</label>
+          </div>
+          <div class="form-group floating col-lg-8">
+            <input type="email" ref="emailAddressAfterUpdate" class="form-control" oninput="{checkEmail}"
+              required="{submitted}" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group floating col-lg-4 mt-10 min-w-265">
+            <label class="floating-label">{_t('UserAttributeUpdateMail.email_address_to_change_confirm')}</label>
+          </div>
+          <div class="form-group floating col-lg-8">
+            <input type="email" ref="emailAddressAfterUpdateConfirm" class="form-control" oninput="{checkEmail}"
+              required="{submitted}" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <button type="submit" class="btn btn-success col-lg-6" onclick="{updateMailClick}">{_t('regist')}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <update-email-confirm-modal></update-email-confirm-modal>
+  <information-modal></information-modal>
+  <error-modal-customize></error-modal-customize>
+  <error-modal></error-modal>
+  <pm-loading></pm-loading>
+  <script>
+    const tag = this
+    const obs = riot.observable()
+    tag.cognitoUser = riot.mixin('cognitoUser');
+    tag.obs = obs
+    tag.checkEmail = checkEmail
+    tag.updateMailClick = updateMailClick
+    tag.openModalUpdateEmailConfirm = openModalUpdateEmailConfirm
+    tag.submitted = false
+
+    tag.info_update_email = {
+      "emailAddressBeforeUpdate": "",
+      "emailAddressAfterUpdate": ""
+    }
+
+    tag.on('mount', function() {
+      tag.submitted = false
+      tag.cognitoUser.getSession(function(err, session) {
+        if (err) {
+          tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+        } else {
+          tag.cognitoUser.getUserAttributes(function(err, userAttributes) {
+            if (err) {
+              tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+              return;
+            }
+            userAttributes.forEach(function(userAttribute) {
+              if (userAttribute['Name'] == "email") {
+                tag.info_update_email.emailAddressBeforeUpdate = userAttribute['Value'];
+              }
+            })
+
+            tag.update();
+          });
+        }
+      })
+
+      initForm()
+    })
+
+    function initForm() {
+      initElem(tag.refs.emailAddressAfterUpdate)
+      initElem(tag.refs.emailAddressAfterUpdateConfirm)
+    }
+
+    function initElem(elem) {
+      elem.classList.add('empty');
+      const validationMessage = tag._t('Validation_message.invalid_require')
+      elem.setCustomValidity(validationMessage);
+    }
+
+    function checkEmail(event) {
+      const elem = event.srcElement
+      let validationMessage = ''
+      const emailAddressAfterUpdate = tag.refs.emailAddressAfterUpdate
+      const emailAddressAfterUpdateConfirm = tag.refs.emailAddressAfterUpdateConfirm
+      if (emailAddressAfterUpdate.value && emailAddressAfterUpdateConfirm.value) {
+        if (emailAddressAfterUpdate.value != emailAddressAfterUpdateConfirm.value) {
+          validationMessage = tag._t('Validation_message.incorrect_email')
+        } else {
+          emailAddressAfterUpdate.setCustomValidity('')
+          emailAddressAfterUpdateConfirm.setCustomValidity('')
+        }
+      }
+
+      elem.setCustomValidity(validationMessage)
+    }
+
+    function updateMailClick() {
+      tag.submitted = true
+    }
+
+    function openModalUpdateEmailConfirm(event) {
+      event.preventDefault()
+      tag.info_update_email.emailAddressAfterUpdate = tag.refs.emailAddressAfterUpdate.value
+      tag.modal = $('#update-email-confirm-modal')
+      tag.obs.trigger('update-email-confirm-modal-open', tag.info_update_email)
+    }
+
+    require('../component/UpdateEmailConfirmModal.tag.html')
+    require('../../common/component/InformationModal.tag.html')
+    require('../../common/component/ErrorModalCustomize.tag.html')
+  </script>
+</user-attribute-update-mail-container>

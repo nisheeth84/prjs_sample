@@ -1,0 +1,7 @@
+type GetIpAddressesOut {
+    ipAddresses : [IpAddress]
+}
+
+extend type Query {
+    getIPAddresses : GetIpAddressesOut
+}

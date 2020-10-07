@@ -1,0 +1,14 @@
+{
+    "ConfirmCheckItemSettingCopyModal": {
+        "title": "Copy confirmation",
+        "body": "Copying the item exclusion settings and the manual evaluation results.",
+        "information_complete": {
+            "title": "Item settings copied",
+            "body": "The item settings has been copied to the target AWS account."
+        },
+        "copy_source": "Copy From",
+        "copy_destination": "Copy To",
+        "confirm_question": "Are you sure you would like to copy?",
+        "copy": "Copy"
+    }
+}

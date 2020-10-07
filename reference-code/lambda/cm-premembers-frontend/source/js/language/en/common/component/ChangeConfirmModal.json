@@ -1,0 +1,8 @@
+{
+    "ChangeConfirmModal": {
+        "confirm_change": "Confirm the changes",
+        "change_target": "Change target",
+        "change_question": "Are you sure you want to change this?",
+        "change": "Change"
+    }
+}

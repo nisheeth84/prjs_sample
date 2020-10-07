@@ -1,0 +1,633 @@
+<check-item-settings-container>
+    <div class="page">
+        <div class="page-header row">
+            <div class="col-8">
+                <h1 class="page-title mt-2">{_t('CheckItemSettings.item_setting')}
+                    <a href="{_t('CheckItemSettings.user_guide_url')}" target="_blank">
+                        <i class="icon wb-help-circle margin-left_10 font-size-20" aria-hidden="true"></i>
+                    </a>
+                </h1>
+                <p>{_t('CheckItemSettings.description_item_setting')}</p>
+            </div>
+            <div class="col-4 mt-20">
+                <a href="#/check/settings/copy/" class="btn btn-primary btn-outline float-right">{_t('CheckItemSettings.copy_item_setting')}</a>
+            </div>
+        </div>
+        <div class="page-content container-fluid">
+            <div class="row mb-30">
+                <div class="col-4">
+                    <h4>{_t('organization')}</h4>
+                    <select ref="organization" class="form-control check-background-none h-150" onchange={changeOrganizationHandler}
+                        size="6">
+                        <option each="{organization in organizations}" value="{organization.organization.id}" selected="{organizationId == organization.organization.id}">{
+                            organization.organization.name }</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <h4>{_t('project')}</h4>
+                    <select ref="project" disabled="{projects.length == 0}" class="form-control check-background-none h-150"
+                        onchange={changeProjectHandler} size="6">
+                        <option each="{project in projects}" value="{project.id}" selected="{projectId == project.id}">{
+                            project.name }</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <h4>{_t('aws_account')}</h4>
+                    <select ref="awsCoop" disabled="{awsCoops.length == 0}" class="form-control check-background-none h-150"
+                        onchange={changeAwsCoopHandler} size="6">
+                        <option each="{awsCoop in awsCoops}" value="{awsCoop.id}" selected="{coopId == awsCoop.id}">
+                            {getAwsAccount(awsCoop.awsAccount, awsCoop.awsAccountName)}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <!-- Check CIS -->
+            <div class="plus-icon" show="{showTitleCheck}">
+                <div class="card card-outline-danger" aria-multiselectable="true" role="tablist">
+                    <div class="check-title">
+                        <div class="card-title">
+                            <a ref="refCheckCis" class="managed-title" aria-expanded="true" data-toggle="collapse" href="#checkCis">
+                                <h2 class="text-left inline">{_t('cis_title')}</h2>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt--30 collapse show mb-20" id="checkCis" role="tabpanel">
+                    <div show="{showLoaderSettingCIS}" class="mt-80 pm-loading__loader vertical-align text-center">
+                        <div class="loader vertical-align-middle loader-round-circle"></div>
+                    </div>
+                    <div class="card card-bordered" if="{list_item_setting_cis.length > 0}">
+                        <div class="card-block ">
+                            <table class="table table-hover table-bordered table-striped table-layout-fixed">
+                                <thead>
+                                    <tr>
+                                        <th class="font-weight-900 check-header w-60">#</th>
+                                        <th class="font-weight-900 check-header">{_t('CheckItemSettings.check_item')}</th>
+                                        <th class="font-weight-900 check-header w-20p">{_t('manual_evaluation')}</th>
+                                        <th class="font-weight-900 check-header w-20p">{_t('CheckItemSettings.item_exclusion')}</th>
+                                        <th class="font-weight-900 check-header w-20p">{_t('CheckItemSettings.resources_exclusion')}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr each="{item_setting_cis in list_item_setting_cis}">
+                                        <td>{getNummberItemCode(item_setting_cis.checkItemCode)}</td>
+                                        <td>{commonUtils.getTitleCheckItem(item_setting_cis.checkItemCode)}</td>
+                                        <td>
+                                            <span class="{getClassObjSetting(item_setting_cis['managedFlag'], item_setting_cis['assessmentFlag'], 'assessment')}">{getLabelManual(item_setting_cis['managedFlag'],
+                                                item_setting_cis['assessmentFlag'])}</span>
+                                            <span if="{item_setting_cis.managedFlag != 1 && (item_setting_cis.assessmentFlag == 0 || item_setting_cis.assessmentFlag == 1)}">
+                                                <button type="button" class="btn btn-sm btn-icon btn-flat btn-link p-0 float-right"
+                                                    onclick="{openModalSettingManual.bind(this, item_setting_cis.checkItemCode)}">
+                                                    <i class="icon ti-pencil-alt" aria-hidden="true"></i>
+                                                </button>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="{getClassObjSetting(item_setting_cis['managedFlag'], item_setting_cis['exclusionFlag'], 'exclusion')}">{getLabelExclusion(item_setting_cis['managedFlag'],
+                                                    item_setting_cis['exclusionFlag'])}</span>
+                                            <span if="{item_setting_cis.managedFlag != 1}">
+                                                <button type="button" class="btn btn-sm btn-icon btn-flat btn-link p-0 float-right"
+                                                    onclick="{openModalSettingExcept.bind(this, item_setting_cis.checkItemCode)}">
+                                                    <i class="icon ti-pencil-alt" aria-hidden="true"></i>
+                                                </button>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span if="{item_setting_cis['excludedResourceFlag'] == 0 || item_setting_cis['excludedResourceFlag'] == 1}">
+                                                <span class="{getClassObjExcludedResource(item_setting_cis['excludedResourceFlag'], 'excludedResource')}">{getLabelExcludedResource(item_setting_cis['excludedResourceFlag'])}</span>
+                                                <button type="button" class="btn btn-sm btn-icon btn-flat btn-link p-0 float-right"
+                                                    onclick="{openModalExclusionResource.bind(this, item_setting_cis.checkItemCode)}">
+                                                    <i class="icon ti-pencil-alt" aria-hidden="true"></i>
+                                                </button>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Check ASC -->
+            <div class="plus-icon" show="{showTitleCheck}">
+                <div class="card card-outline-danger mt-60" aria-multiselectable="true" role="tablist">
+                    <div class="check-title">
+                        <div class="card-title">
+                            <a ref="refCheckAsc" class="managed-title" aria-expanded="false" data-toggle="collapse"
+                                onclick={loadItemSettingsASC} href="#checkAsc">
+                                <h2 class="text-left inline">{_t('asc_title')}</h2>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt--30 collapse mb-20" id="checkAsc" role="tabpanel">
+                    <div show="{showLoaderSettingASC}" class="mt-80 pm-loading__loader vertical-align text-center">
+                        <div class="loader vertical-align-middle loader-round-circle"></div>
+                    </div>
+                    <div class="card card-bordered" if="{list_item_setting_asc.length > 0}">
+                        <div class="card-block">
+                            <table class="table table-hover table-bordered table-striped table-layout-fixed">
+                                <thead>
+                                    <tr>
+                                        <th class="font-weight-900 check-header w-60">#</th>
+                                        <th class="font-weight-900 check-header">{_t('CheckItemSettings.check_item')}</th>
+                                        <th class="font-weight-900 check-header w-20p">{_t('manual_evaluation')}</th>
+                                        <th class="font-weight-900 check-header w-20p">{_t('CheckItemSettings.item_exclusion')}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr each="{item_setting_asc in list_item_setting_asc}">
+                                        <td>{getNummberItemCode(item_setting_asc.checkItemCode)}</td>
+                                        <td>{commonUtils.getTitleCheckItem(item_setting_asc.checkItemCode)}</td>
+                                        <td>
+                                            <span class="{getClassObjSetting(item_setting_asc['managedFlag'], item_setting_asc['assessmentFlag'], 'assessment')}">{getLabelManual(item_setting_asc['managedFlag'],
+                                                item_setting_asc['assessmentFlag'])}</span>
+                                            <span if="{item_setting_asc.managedFlag != 1 && (item_setting_asc.assessmentFlag == 0 || item_setting_asc.assessmentFlag == 1)}">
+                                                <button type="button" class="btn btn-sm btn-icon btn-flat btn-link p-0 float-right"
+                                                    onclick="{openModalSettingManual.bind(this, item_setting_asc.checkItemCode)}">
+                                                    <i class="icon ti-pencil-alt" aria-hidden="true"></i>
+                                                </button>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="{getClassObjSetting(item_setting_asc['managedFlag'], item_setting_asc['exclusionFlag'], 'exclusion')}">{getLabelExclusion(item_setting_asc['managedFlag'],
+                                                item_setting_asc['exclusionFlag'])}</span>
+                                            <span if="{item_setting_asc.managedFlag != 1}">
+                                                <button type="button" class="btn btn-sm btn-icon btn-flat btn-link p-0 float-right"
+                                                    onclick="{openModalSettingExcept.bind(this, item_setting_asc.checkItemCode)}">
+                                                    <i class="icon ti-pencil-alt" aria-hidden="true"></i>
+                                                </button>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Check IBP -->
+            <div class="plus-icon" show="{showTitleCheck}">
+                <div class="card card-outline-danger mt-60" aria-multiselectable="true" role="tablist">
+                    <div class="check-title">
+                        <div class="card-title">
+                            <a ref="refCheckIbp" class="managed-title" aria-expanded="false" data-toggle="collapse"
+                                onclick={loadItemSettingsIBP} href="#checkIbp">
+                                <h2 class="text-left inline">{_t('ibp_title')}</h2>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt--30 collapse mb-20" id="checkIbp" role="tabpanel">
+                    <div show="{showLoaderSettingIBP}" class="mt-80 pm-loading__loader vertical-align text-center">
+                        <div class="loader vertical-align-middle loader-round-circle"></div>
+                    </div>
+                    <div class="card card-bordered" if="{list_item_setting_ibp.length > 0}">
+                        <div class="card-block">
+                            <table class="table table-hover table-bordered table-striped table-layout-fixed">
+                                <thead>
+                                    <tr>
+                                        <th class="font-weight-900 check-header w-60">#</th>
+                                        <th class="font-weight-900 check-header">{_t('CheckItemSettings.check_item')}</th>
+                                        <th class="font-weight-900 check-header w-20p">{_t('manual_evaluation')}</th>
+                                        <th class="font-weight-900 check-header w-20p">{_t('CheckItemSettings.item_exclusion')}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr each="{item_setting_ibp in list_item_setting_ibp}">
+                                        <td>{getNummberItemCode(item_setting_ibp.checkItemCode)}</td>
+                                        <td>{commonUtils.getTitleCheckItem(item_setting_ibp.checkItemCode)}</td>
+                                        <td>
+                                            <span class="{getClassObjSetting(item_setting_ibp['managedFlag'], item_setting_ibp['assessmentFlag'], 'assessment')}">{getLabelManual(item_setting_ibp['managedFlag'],
+                                                item_setting_ibp['assessmentFlag'])}</span>
+                                            <span if="{item_setting_ibp.managedFlag != 1 && (item_setting_ibp.assessmentFlag == 0 || item_setting_ibp.assessmentFlag == 1)}">
+                                                <button type="button" class="btn btn-sm btn-icon btn-flat btn-link p-0 float-right"
+                                                    onclick="{openModalSettingManual.bind(this, item_setting_ibp.checkItemCode)}">
+                                                    <i class="icon ti-pencil-alt" aria-hidden="true"></i>
+                                                </button>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="{getClassObjSetting(item_setting_ibp['managedFlag'], item_setting_ibp['exclusionFlag'], 'exclusion')}">{getLabelExclusion(item_setting_ibp['managedFlag'],
+                                                item_setting_ibp['exclusionFlag'])}</span>
+                                            <span if="{item_setting_ibp.managedFlag != 1}">
+                                                <button type="button" class="btn btn-sm btn-icon btn-flat btn-link p-0 float-right"
+                                                    onclick="{openModalSettingExcept.bind(this, item_setting_ibp.checkItemCode)}">
+                                                    <i class="icon ti-pencil-alt" aria-hidden="true"></i>
+                                                </button>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <modal-setting-except></modal-setting-except>
+    <modal-setting-manual></modal-setting-manual>
+    <modal-exclusion-resource></modal-exclusion-resource>
+    <information-modal></information-modal>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        const tag = this
+        tag.obs = riot.observable()
+        tag.cognitoUser = riot.mixin('cognitoUser');
+
+        tag.organizations = []
+        tag.projects = []
+        tag.awsCoops = []
+        tag.list_item_setting_cis = []
+        tag.list_item_setting_asc = []
+        tag.list_item_setting_ibp = []
+
+        tag.changeOrganizationHandler = changeOrganizationHandler
+        tag.changeProjectHandler = changeProjectHandler
+        tag.changeAwsCoopHandler = changeAwsCoopHandler
+        tag.loadItemSettingsASC = loadItemSettingsASC
+        tag.loadItemSettingsIBP = loadItemSettingsIBP
+        tag.getLabelExclusion = getLabelExclusion
+        tag.getLabelExcludedResource = getLabelExcludedResource
+        tag.getLabelManual = getLabelManual
+        tag.getAwsAccount = getAwsAccount
+        tag.openModalSettingExcept = openModalSettingExcept
+        tag.openModalSettingManual = openModalSettingManual
+        tag.openModalExclusionResource = openModalExclusionResource
+        tag.getNummberItemCode = getNummberItemCode
+        tag.getClassObjSetting = getClassObjSetting
+        tag.getClassObjExcludedResource = getClassObjExcludedResource
+
+        tag.organizationId = tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkOrganization')) ? tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkOrganization')) : null
+        tag.projectId = tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkProject')) ? tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkProject')) : null
+
+        const classSetting = {
+            "assessment": {
+                0: "badge-danger",
+                1: "badge-success"
+            },
+            "exclusion": {
+                0: "badge-success",
+                1: "badge-warning"
+            },
+            "excludedResource": {
+                0: "badge-success",
+                1: "badge-warning"
+            }
+        }
+
+        tag.on('mount', function() {
+            if (!tag.organizations || !tag.organizations.length) {
+                const requestOrganizationUrl = tag.config.APIGATEWAY_ADDRESS + '/myorganizations?inviteStatus=1';
+                tag.commonUtils.callApiWithLoader(tag, requestOrganizationUrl, "GET").then(function(response) {
+                    tag.organizations = response.filter(trimViewerOrganization)
+                    tag.showTitleCheck = true
+                    tag.update()
+                    if (tag.organizationId) {
+                        let isExistsOrganization = tag.organizations.find(function(organization) {
+                            return organization.organization.id === tag.organizationId
+                        })
+                        if (isExistsOrganization) {
+                            changeOrganization(tag.organizationId)
+                        }
+                    }
+                })
+            }
+        })
+
+        function changeOrganizationHandler(event) {
+            setDefaultData()
+            tag.projects = []
+            tag.awsCoops = []
+            const organizationId = event.target.value
+            tag.projectId = null
+            if (organizationId) {
+                changeOrganization(organizationId)
+            }
+        }
+
+        function changeOrganization(organizationId) {
+            tag.organizationId = organizationId
+            if (organizationId) {
+                const requestProjectUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + organizationId + '/projects';
+                tag.commonUtils.callApiWithLoader(tag, requestProjectUrl, "GET").then(function(response) {
+                    tag.projects = response;
+                    let isExistsProject = tag.projects.find(function(project) {
+                        return tag.projectId === project.id
+                    })
+                    tag.update();
+                    if (tag.projectId && isExistsProject) {
+                        changeProject(tag.projectId)
+                    }
+                })
+            }
+        }
+
+        function changeProjectHandler(event) {
+            setDefaultData()
+            tag.awsCoops = []
+            const projectId = event.target.value
+            if (projectId) {
+                changeProject(projectId)
+            }
+        }
+
+        function changeProject(projectId) {
+            tag.projectId = projectId
+            if (projectId) {
+                const requestAwsCoopsUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + tag.organizationId + '/projects/' + tag.projectId + '/awscoops?effective=1'
+                tag.commonUtils.callApiWithLoader(tag, requestAwsCoopsUrl, "GET").then(function(response) {
+                    tag.awsCoops = response
+                    tag.awsEnable = !!tag.awsCoops.length
+                    tag.commonUtils.setItemToLocalStorage(tag.commonUtils.getLocalStorageKey('checkOrganization'), tag.organizationId)
+                    tag.commonUtils.setItemToLocalStorage(tag.commonUtils.getLocalStorageKey('checkProject'), tag.projectId)
+                    tag.update();
+                })
+            }
+        }
+
+        function trimViewerOrganization(organization) {
+            if (tag.commonUtils.isEditor(organization)) {
+                return organization
+            }
+        }
+
+        function changeAwsCoopHandler(event) {
+            setDefaultData()
+            tag.isLoadDataSettingASC = true
+            tag.isLoadDataSettingIBP = true
+            tag.coopId = event.target.value
+            getItemSettingsCIS();
+        }
+
+        function loadData(checkItemCode) {
+            const groupCheck = checkItemCode.match(/CIS|ASC|IBP/)[0]
+
+            const requestItemSettingsUrl = tag.config.APIGATEWAY_ADDRESS + '/check/securitycheck/' + tag.organizationId + '/' + tag.projectId + '/' + tag.coopId + '/itemsettings?groupFilter=' + groupCheck
+            tag.commonUtils.callApiWithLoader(tag, requestItemSettingsUrl, "GET").then(function(itemSettings) {
+                if (groupCheck == "CIS") {
+                    tag.list_item_setting_cis = itemSettings
+                } else if (groupCheck == "ASC") {
+                    tag.list_item_setting_asc = itemSettings
+                } else {
+                    tag.list_item_setting_ibp = itemSettings
+                }
+
+                tag.update();
+            })
+        }
+
+        function getItemSettingsCIS() {
+            tag.showLoaderSettingCIS = true
+            tag.update();
+
+            const requestItemSettingsUrl = tag.config.APIGATEWAY_ADDRESS + '/check/securitycheck/' + tag.organizationId + '/' + tag.projectId + '/' + tag.coopId + '/itemsettings?groupFilter=CIS'
+            tag.commonUtils.callApi(tag, requestItemSettingsUrl, "GET").then(function(itemSettings) {
+                tag.list_item_setting_cis = itemSettings
+                tag.showLoaderSettingCIS = false
+                tag.update();
+            })
+        }
+
+        function loadItemSettingsASC(event) {
+            if (tag.isLoadDataSettingASC && tag.coopId) {
+                getItemSettingsASC();
+            }
+        }
+
+        function getItemSettingsASC() {
+            tag.isLoadDataSettingASC = false
+            tag.showLoaderSettingASC = true
+            tag.update();
+
+            const requestItemSettingsUrl = tag.config.APIGATEWAY_ADDRESS + '/check/securitycheck/' + tag.organizationId + '/' + tag.projectId + '/' + tag.coopId + '/itemsettings?groupFilter=ASC'
+            tag.commonUtils.callApi(tag, requestItemSettingsUrl, "GET").then(function(itemSettings) {
+                tag.list_item_setting_asc = itemSettings
+                tag.showLoaderSettingASC = false
+                tag.update();
+            })
+        }
+
+        function loadItemSettingsIBP(event) {
+            if (tag.isLoadDataSettingIBP && tag.coopId) {
+                getItemSettingsIBP();
+            }
+        }
+
+        function getItemSettingsIBP() {
+            tag.isLoadDataSettingIBP = false
+            tag.showLoaderSettingIBP = true
+            tag.update();
+
+            const requestItemSettingsUrl = tag.config.APIGATEWAY_ADDRESS + '/check/securitycheck/' + tag.organizationId + '/' + tag.projectId + '/' + tag.coopId + '/itemsettings?groupFilter=IBP'
+            tag.commonUtils.callApi(tag, requestItemSettingsUrl, "GET").then(function(itemSettings) {
+                tag.list_item_setting_ibp = itemSettings
+                tag.showLoaderSettingIBP = false
+                tag.update();
+            })
+        }
+
+        function getLabelExclusion(managedFlag, exclusionFlag) {
+            let labelExclusion = ''
+            if (managedFlag == 1) {
+                labelExclusion = tag._t('managed')
+            } else if (exclusionFlag == 1) {
+                labelExclusion = tag._t('excluded')
+            } else {
+                labelExclusion = tag._t('included')
+            }
+            return labelExclusion
+        }
+
+        function getLabelManual(managedFlag, assessmentFlag) {
+            let labelManual = ''
+            if (managedFlag != 1) {
+                if (assessmentFlag == 1) {
+                    labelManual = tag._t('evaluated')
+                } else if (assessmentFlag == 0) {
+                    labelManual = tag._t('unrated')
+                }
+            }
+            return labelManual
+        }
+
+        function getLabelExcludedResource(excludedResourceFlag) {
+            let labelExcludedResource = ''
+            if (excludedResourceFlag == 1) {
+                labelExcludedResource = tag._t('excluded_resources')
+            } else if(excludedResourceFlag == 0) {
+                labelExcludedResource = tag._t('included_resources')
+            }
+            return labelExcludedResource
+        }
+
+        function getClassObjSetting(managedFlag, statusFlag, typeSetting) {
+            let classObjSetting = {
+                'col-11': true,
+                'float-left': true
+            }
+            if (managedFlag != 1) {
+                classObjSetting["badge-setting"] = true
+                if (classSetting[typeSetting][statusFlag]) {
+                    classObjSetting[classSetting[typeSetting][statusFlag]] = true
+                }
+            }
+            return classObjSetting
+        }
+
+        function getClassObjExcludedResource(statusFlag, typeSetting) {
+            let classObjExcludedResource = {
+                'col-11': true,
+                'float-left': true
+            }
+            if (statusFlag == 1 || statusFlag == 0 ) {
+                classObjExcludedResource["badge-setting"] = true
+                if (classSetting[typeSetting][statusFlag]) {
+                    classObjExcludedResource[classSetting[typeSetting][statusFlag]] = true
+                }
+            }
+            return classObjExcludedResource
+        }
+
+        function getAwsAccount(awsAccount, awsAccountName) {
+            let result = awsAccount
+            if (awsAccountName) {
+                result += " | " + awsAccountName
+            }
+            return result
+        }
+
+        function setDefaultData() {
+            tag.list_item_setting_cis = []
+            tag.list_item_setting_asc = []
+            tag.list_item_setting_ibp = []
+            tag.coopId = null
+            tag.update()
+
+            const refCheckCis = tag.refs.refCheckCis
+            if (refCheckCis.attributes['aria-expanded'].value == 'false') {
+                refCheckCis.click()
+            }
+            const refCheckAsc = tag.refs.refCheckAsc
+            if (refCheckAsc.attributes['aria-expanded'].value == 'true') {
+                refCheckAsc.click()
+            }
+            const refCheckIbp = tag.refs.refCheckIbp
+            if (refCheckIbp.attributes['aria-expanded'].value == 'true') {
+                refCheckIbp.click()
+            }
+        }
+
+        function openModalSettingExcept(checkItemCode, event) {
+            const requestGetExcluesionItem = tag.config.APIGATEWAY_ADDRESS + "/check/securitycheck/" + tag.organizationId + "/" + tag.projectId + "/" + tag.coopId + "/exclusionitems/" + checkItemCode + "?" + tag.commonUtils.getCurrentTime()
+            tag.commonUtils.callApiWithLoader(tag, requestGetExcluesionItem, "GET", null, false).then(function(excluesion_item) {
+                tag.modal = $('#modal-setting-except')
+                informationModalSettingExcept = {}
+                informationModalSettingExcept['title'] = checkItemCode.match(/CIS|ASC|IBP/)[0] + " " + getNummberItemCode(checkItemCode)
+                informationModalSettingExcept['check_item_code'] = checkItemCode
+                informationModalSettingExcept['emailAddress'] = excluesion_item['mailAddress']
+                informationModalSettingExcept['createAt'] = excluesion_item['createdAt']
+                informationModalSettingExcept['isExistSettingExcept'] = 'Except'
+                informationModalSettingExcept['exclusionComment'] = ''
+                if ('exclusionComment' in excluesion_item) {
+                    informationModalSettingExcept['exclusionComment'] = excluesion_item['exclusionComment']
+                }
+
+                tag.obs.trigger('modal-setting-except-open', informationModalSettingExcept);
+                tag.obs.one('information-modal-close', function(e) {
+                    loadData(checkItemCode)
+                });
+            }).catch(function(errorPromise) {
+                errorPromise.then(function(value) {
+                    if (value.responseStatus == 404) {
+                        tag.modal = $('#modal-setting-except')
+                        informationModalSettingExcept = {}
+                        informationModalSettingExcept['title'] = checkItemCode.match(/CIS|ASC|IBP/)[0] + " " + getNummberItemCode(checkItemCode)
+                        informationModalSettingExcept['check_item_code'] = checkItemCode
+                        informationModalSettingExcept['isExistSettingExcept'] = 'NotExcept'
+                        informationModalSettingExcept['exclusionComment'] = ''
+                        tag.obs.trigger('modal-setting-except-open', informationModalSettingExcept);
+                        tag.obs.one('information-modal-close', function(e) {
+                            loadData(checkItemCode)
+                        });
+                    } else {
+                        tag.obs.trigger('error-modal-open', value);
+                        tag.obs.one('error-modal-close', function(value) {
+                            tag.commonUtils.backHome(value)
+                        })
+                    }
+                })
+            })
+        }
+
+        function openModalSettingManual(checkItemCode, event) {
+            const requestGetAssessmentItem = tag.config.APIGATEWAY_ADDRESS + "/check/securitycheck/" + tag.organizationId + "/" + tag.projectId + "/" + tag.coopId + "/assessments/" + checkItemCode + "?" + tag.commonUtils.getCurrentTime()
+            tag.commonUtils.callApiWithLoader(tag, requestGetAssessmentItem, "GET", null, false).then(function(assessment_item) {
+                tag.modal = $('#modal-setting-manual')
+                informationModalSettingManual = {}
+                informationModalSettingManual['title'] = checkItemCode.match(/CIS|ASC|IBP/)[0] + " " + getNummberItemCode(checkItemCode)
+                informationModalSettingManual['check_item_code'] = checkItemCode
+                informationModalSettingManual['emailAddress'] = assessment_item['mailAddress']
+                informationModalSettingManual['createAt'] = assessment_item['createdAt']
+                informationModalSettingManual['isExistSettingManual'] = "Assessment"
+                informationModalSettingManual['assessmentComment'] = ''
+                if ('assessmentComment' in assessment_item) {
+                    informationModalSettingManual['assessmentComment'] = assessment_item['assessmentComment']
+                }
+
+                tag.obs.trigger('modal-setting-manual-open', informationModalSettingManual);
+                tag.obs.one('information-modal-close', function(e) {
+                    loadData(checkItemCode)
+                });
+            }).catch(function(errorPromise) {
+                errorPromise.then(function(value) {
+                    if (value.responseStatus == 404) {
+                        tag.modal = $('#modal-setting-manual')
+                        informationModalSettingManual = {}
+                        informationModalSettingManual['title'] = checkItemCode.match(/CIS|ASC|IBP/)[0] + " " + getNummberItemCode(checkItemCode)
+                        informationModalSettingManual['check_item_code'] = checkItemCode
+                        informationModalSettingManual['isExistSettingManual'] = "NotAssessment"
+                        informationModalSettingManual['assessmentComment'] = ''
+                        tag.obs.trigger('modal-setting-manual-open', informationModalSettingManual);
+                        tag.obs.one('information-modal-close', function(e) {
+                            loadData(checkItemCode)
+                        });
+                    } else {
+                        tag.obs.trigger('error-modal-open', value);
+                        tag.obs.one('error-modal-close', function(value) {
+                            tag.commonUtils.backHome(value)
+                        })
+                    }
+                })
+            })
+        }
+
+        function openModalExclusionResource(checkItemCode, event) {
+            informationModalExclusionResource = {}
+            informationModalExclusionResource['title'] = checkItemCode.match(/CIS|ASC|IBP/)[0] + " " + getNummberItemCode(checkItemCode)
+            informationModalExclusionResource['checkItemCode'] = checkItemCode
+            informationModalExclusionResource['organizationName'] = tag.refs.organization.options[tag.refs.organization.selectedIndex].label
+            informationModalExclusionResource['projectName'] = tag.refs.project.options[tag.refs.project.selectedIndex].label
+            informationModalExclusionResource['awsCoopName'] = tag.refs.awsCoop.options[tag.refs.awsCoop.selectedIndex].label
+            informationModalExclusionResource['organizationId'] = tag.organizationId
+            informationModalExclusionResource['projectId'] = tag.projectId
+            informationModalExclusionResource['coopId'] = tag.coopId
+            tag.obs.trigger('modal-exclusion-resource-open', informationModalExclusionResource);
+            tag.obs.on('information-modal-close', function() {
+                loadData(checkItemCode)
+            })
+        }
+
+        function getNummberItemCode(checkItemCode) {
+            const typeCheck = checkItemCode.match(/CIS|ASC|IBP/)[0]
+            return i18next.t(typeCheck + "." + checkItemCode + ".number")
+        }
+
+        require('../../check/component/ModalSettingExcept.tag.html');
+        require('../../check/component/ModalSettingManual.tag.html');
+        require('../../common/component/InformationModal.tag.html');
+        require('../../check/component/ModalExclusionResource.tag.html');
+    </script>
+</check-item-settings-container>

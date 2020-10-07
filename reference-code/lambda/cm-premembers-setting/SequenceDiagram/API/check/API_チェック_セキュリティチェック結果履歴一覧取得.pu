@@ -1,0 +1,26 @@
+@startuml{API_チェック_セキュリティチェック結果履歴一覧取得.png}
+title [チェックAPI_セキュリティチェック結果履歴一覧取得]
+hide footbox
+
+boundary 画面 as view
+participant チェックAPI as api_check #cyan
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database チェック履歴 as table_check_history <<dynamodb>> #royalblue
+
+view -> api_check :GET /check/securitycheck/{organization_id}/{project_id}/results/history
+activate api_check
+    api_check -> api_check :メールアドレス取得
+    |||
+    ref over api_check, table_affiliation :アクセス権限チェック
+    |||
+    api_check -> table_check_history :query（ProjectIndex: プロジェクトIDをキーとする。）
+    note right
+        組織IDをフィルタに設定する。
+        ソート順を降順とする。
+    end note
+    table_check_history --> api_check
+    |||
+    api_check -> api_check :レスポンス作成
+    api_check --> view :200:チェック結果履歴情報一覧
+deactivate api_check
+@enduml

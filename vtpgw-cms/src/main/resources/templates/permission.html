@@ -1,0 +1,163 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ApplicationPermission</title>
+    <th:block th:insert="~{fragments/my-template :: link}"/>
+</head>
+<body>
+
+<div class="d-flex" id="wrapper">
+    <div th:insert="~{fragments/my-template :: side-bar}"></div>
+
+    <div id="page-content-wrapper">
+        <div th:insert="~{fragments/my-template :: header}"></div>
+        <div class="container-fluid">
+            <div class="head-table">
+                <div class="col-lg-6 col-xl-6 pl-0 ml-0 float-left">
+                    <input id="search" type="text" onchange="search()" class="form-control input-search"
+                           placeholder="Search">
+                </div>
+                <input type="file" id="real-file" accept="json" class="vertical-center" hidden="hidden"/>
+                <div class="col-lg-6 col-xl-6 pl-0 ml-0 float-left page-control-wrapper">
+                    <button onclick="search()" class="btn vertical-center"
+                            style="background-color: #00918C; color: white">Search
+                    </button>
+                    <div class="vertical-center " style="right: 0;">
+                        <span>Total records: </span>
+                        <span id="totalRecords"></span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="seperate"></div>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" th:checked="false" th:id="select-all">
+                            <label style="font-weight: normal" class="custom-control-label" th:for="select-all"></label>
+                        </div>
+                    </th>
+                    <th class="th-table" style="width: 30%;">Application</th>
+                    <th class="th-table" style="width: 30%;">Service</th>
+                    <th class="th-table" style="width: 20%;">Capacity</th>
+                    <th class="th-table" style="width: 15%;">Period</th>
+                    <th style="width: 5%;"></th>
+                </tr>
+                </thead>
+                <tbody id="listAppPermission">
+
+                </tbody>
+            </table>
+        </div>
+        <nav aria-label="Page" class="float-right">
+            <ul class="pagination" id="pagination"></ul>
+        </nav>
+        <div class="modal fade" id="modalPermission" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel"
+             aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title w-100 font-weight-bold" id="modalTitle">Application permission</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span onclick="resetModal()" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body mx-3">
+                        <form id="formPermission" action="#">
+                            <div class="row">
+                                <div class="col-lg-6 float-left">
+                                    <input type="hidden" id="f-id">
+                                    <input type="hidden" id="f-permissionId">
+                                    <div class="form-group">
+                                        <label for="selectApplication">Application:</label>
+                                        <select class="form-control" id="selectApplication" name="application"></select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 float-left">
+                                    <div class="form-group">
+                                        <label for="selectService">Service:</label>
+                                        <select type="text" class="form-control" id="selectService" name="service"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-lg-3 float-left">
+                                    <label for="capacity" class="required">Capacity:</label>
+                                    <input class="form-control" id="capacity" name="capacity" pattern="^[0-9]*$" placeholder="capacity" required>
+                                    <div class="invalid-feedback">Type number only</div>
+                                </div>
+                                <div class="form-group col-lg-3 float-left">
+                                    <label for="period" class="required">Period:</label>
+                                    <input class="form-control" id="period" name="period" pattern="^[0-9]*$" placeholder="period" required>
+                                    <div class="invalid-feedback">Type number only</div>
+                                </div>
+                                <div class="form-group col-lg-6 float-left">
+                                    <label for="activatedDate" class="required">Activated:</label>
+                                    <input type="datetime-local" class="form-control" id="activatedDate" name="activated" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="custom-control custom-checkbox float-left ml-3">
+                                    <input type="checkbox" class="custom-control-input" id="noContent">
+                                    <label class="custom-control-label" for="noContent">No content</label>
+                                </div>
+                                <div class="custom-control custom-checkbox float-left ml-3">
+                                    <input type="checkbox" class="custom-control-input" id="sandBox">
+                                    <label class="custom-control-label" for="sandBox">Sandbox</label>
+                                </div>
+                                <div class="custom-control custom-checkbox float-left ml-3">
+                                    <input type="checkbox" class="custom-control-input" id="debug">
+                                    <label class="custom-control-label" for="debug">Debug</label>
+                                </div>
+                            </div>
+                            <div class="row" style="border: solid 1px #3991ff;width: 100%;padding: 5px  15px;display: table;margin-left: 1px;" id="ips">
+                                <div class="seperate pt-2"></div>
+                                <button onclick="addTableRow()" class="border-0 float-right"
+                                        style="background-color: white">
+                                    <img width="30" height="30" src="../img/icon_add.png"/>
+                                </button>
+                            </div>
+                            <div class="form-group row" style="clear: both; padding: 5px  15px">
+                                <label for="methods">Methods:</label><br>
+                                <select id="methods" name="methods" class="form-control">
+                                    <option value="GET">GET</option>
+                                    <option value="POST">POST</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="display: none" id="updateStatus">
+                                <label for="timeUpdated">Updated: </label>
+                                <input type="datetime-local" class="form-control" id="timeUpdated" disabled>
+                            </div>
+                            <div class="modal-footer row" style="clear: both">
+                                <button onclick="resetModal()" class="btn btn-danger float-right mr-3"
+                                        data-dismiss="modal"
+                                        aria-label="Close">
+                                    Cancel
+                                </button>
+                                <button id="btnSubmitForm" class="btn btn-primary float-right" type="button"> Confirm </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<th:block th:insert="~{fragments/my-template :: body/script}"/>
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/twbsPagination.js}"></script>
+<script th:src="@{/js/bootstrapValidator.min.js}"></script>
+<script th:src="@{/js/permission.js}"></script>
+
+</body>
+</html>

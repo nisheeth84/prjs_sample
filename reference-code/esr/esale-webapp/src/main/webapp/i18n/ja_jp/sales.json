@@ -1,0 +1,257 @@
+{
+  "sales": {
+    "sidebar": {
+      "title": {
+        "myProductTrading": "自分の取引商品",
+        "allProductTrading": "全ての取引商品",
+        "listProductTrading": "顧客リストの取引商品",
+        "list-favorite": "お気に入りリスト",
+        "my-group": "マイリスト",
+        "shared-group": "共有リスト"
+      },
+      "place-holder": {
+        "searchCustomer": "顧客を検索",
+        "searchBusinessCard": "名刺を検索"
+      },
+      "search": {
+        "placeholder": "全ての取引商品"
+      },
+      "duplicate": " のコピー（{{n}}）"
+    },
+    "component": {
+      "change-display": {
+        "search-placeholder": "進捗状況を検索",
+        "lead-in": "リードイン",
+        "edit-item": "項目編集"
+      },
+      "list-detail-product-trading": {
+        "analysis": "取引商品の内訳"
+      }
+    },
+    "top": {
+      "title": {
+        "change-progress-title": "進捗状況を変更",
+        "change-progress-button": "進捗状況を選択",
+        "popupChangeStatus": "確認",
+        "btn-edit": "簡易編集",
+        "btn-cancel": "キャンセル",
+        "btn-save": "変更を保存",
+        "move-group": "リストへ移動",
+        "add-to-group": "リストへ追加",
+        "create-my-list": "マイリストを作成",
+        "create-share-list": "共有リストを作成",
+        "leave-group": "リストから削除",
+        "fieldLabel": "時点からの差",
+        "buttonText": "取引のインポート"
+      },
+      "place-holder": {
+        "search": "取引商品を検索",
+        "searching": "詳細検索条件を編集"
+      },
+      "list-operation": "リスト操作",
+      "dialog": {
+        "title-delete-group": "削除",
+        "message-delete-group": "{{itemName}}本当に削除してよろしいですか？",
+        "confirm-delete-group": "削除",
+        "title-auto-group": "確認",
+        "confirm-auto-group": "変更",
+        "title-leave-group": "削除",
+        "message-leave-group": "本当に削除してよろしいですか？",
+        "confirm-leave-group": "削除",
+        "title-remove-manager": "確認",
+        "message-remove-manager": "選択した社員のマネージャー設定を解除します。本当によろしいですか？",
+        "message-remove-manager-move": "このページを離れると、入力中のデータが削除されます。本当に移動してもよろしいですか？",
+        "confirm-remove-manager": "解除",
+        "cancel-text": "キャンセル",
+        "change-my-list-to-share-list": "マイリストを共有リストに変更してよろしいですか？",
+        "confirm-change": "確認",
+        "message-leave-list": "{{0}}件の取引商品を取引商品管理リストから外します。よろしいですか？"
+      },
+      "label-tooltip": {
+        "button-edit": "編集",
+        "button-erase": "消去",
+        "button-switch-display": "表示切り替え",
+        "button-update": "更新",
+        "button-set-manager": "マネージャー設定",
+        "button-remove-manager": "マネージャー設定の解除",
+        "button-download": "ダウンロード",
+        "button-copy-group": "グループを複製",
+        "button-send-email": "メール送信",
+        "switch-view": "カードビュー",
+        "add-to-favourite": "お気に入りリストに登録",
+        "remove-from-favourite": "お気に入りから削除",
+        "button-top-edit": "編集",
+        "button-top-delete": "リストを削除",
+        "button-top-dupplicate": "リストを複製",
+        "button-top-convert-sharelist": "共有リストに変更",
+        "list-view": "リストビュー",
+        "board-view": "ボードビュー"
+      }
+    },
+    "card-view": {
+      "total-quantity": "件の取引商品",
+      "end-plan-date": "完了予定日",
+      "total-amount": "合計金額",
+      "employees": "担当",
+      "collapse-expand": "取引商品の内訳"
+    },
+    "modal": {
+      "header": {
+        "create-my-list": "マイリストを作成"
+      },
+      "body": {
+        "create-a-list-with-n-items": "件でリストを作成します。",
+        "list-name": "リスト名",
+        "require": "必須",
+        "enter-list": "リストを入力",
+        "show-other-language": "他言語を表示",
+        "list-participants": "リストの参加者",
+        "company": "社",
+        "sales-department": "営業部",
+        "sales-taro-manager": "営業太郎 部長",
+        "owner": "オーナー",
+        "add-list-participants": "リストの参加者を追加"
+      },
+      "footer": {
+        "create": "作成"
+      }
+    },
+    "group-card": {
+      "submenu": {
+        "edit-group": "リストを編集",
+        "delete-group": "リストを削除",
+        "duplicate-group": "リストを複製",
+        "update-list": "リストを更新",
+        "remove-from-favorite": "お気に入りリストから外す",
+        "add-to-favorite": "お気に入りリストに登録",
+        "remove-to-favorite": "お気に入りリストから外す",
+        "change-my-list-to-share-list": "共有リストに変更"
+      }
+    },
+    "group": {
+      "group-modal-move-to-group": {
+        "title": "リストの移動",
+        "sale-checklist-length": "{{saleCheckListLength}} 件をリストに追加します。",
+        "group-title": "移動するリスト",
+        "group-default-option": "移動するリストを選択",
+        "button-move": "移動",
+        "button-cancel": "×",
+        "list-group": "お気に入りリスト ",
+        "my-group": "マイリスト",
+        "share-group": "共有リスト",
+        "required": "必須"
+      },
+      "group-modal-add-to-group": {
+        "title": "リストへ追加",
+        "sale-checklist-length": "{{saleCheckListLength}} 件を他のリストへ移動します。",
+        "group-title": "追加するリスト ",
+        "group-default-option": "追加するリストを選択",
+        "button-add": "追加",
+        "button-cancel": "×",
+        "list-group": "お気に入りリスト ",
+        "my-group": "マイリスト",
+        "share-group": "共有リスト",
+        "required": "必須"
+      },
+      "group-modal-create-my-group": {
+        "title": " マイリストを作成",
+        "sale-checklist-length": "{{empCheckListLength}} 件でリストを作成します。",
+        "group-title": "グループ名",
+        "group-name-placeholder": "リスト名を入力",
+        "button-create": "作成",
+        "button-cancel": "×",
+        "required": "必須"
+      },
+      "group-modal-create-shared-group": {
+        "title": " 共有リストを作成",
+        "sale-checklist-length": "{{empCheckListLength}} 件でリストを作成します。",
+        "group-title": "グループ名",
+        "group-name-placeholder": "リスト名を入力",
+        "button-create": "作成",
+        "button-cancel": "×",
+        "required": "必須"
+      },
+      "group-modal-add-edit-my-group": {
+        "title": "マイリストを作成",
+        "edit_title": "マイリストを編集",
+        "group-title": "リスト名 ",
+        "required": "必須",
+        "group-name-placeholder": "リスト名を入力",
+        "display-other-language": "他言語を表示",
+        "group_type": "リストの種類",
+        "radio-manual": "手動",
+        "radio-auto": "自動追加",
+        "button-create": "作成",
+        "button-edit": "更新",
+        "button-cancel": "×",
+        "auto-group-condition-search-title": "自動追加リストの検索条件",
+        "btn-setting-search-condition": "詳細検索条件を編集",
+        "is-overwrite": "更新時に条件に合致しない場合、グループから削除する",
+        "list-update-time": "毎日 {{0}} 時にリストが自動に更新されます"
+      },
+      "setting-search-condition": {
+        "cancel": "キャンセル",
+        "save-search-condition": "検索条件を保存",
+        "checkbox-select-all": "全選択",
+        "checkbox-deselect": "選択解除",
+        "checkbox-select-inversion": "選択反転",
+        "textbox-search-placeholder": "社員を検索"
+      },
+      "department-card": {
+        "submenu": {
+          "edit-department": "部署を編集",
+          "delete-department": "部署を削除"
+        }
+      }
+    },
+    "sharegroup": {
+      "lbCreateGroup": "共有リストを作成",
+      "lbEditGroup": "共有リストを編集",
+      "lbSwitchGroupType": "共有リストへ変更",
+      "lbCreateGroupWith": "件でグループを作成します",
+      "btnUpdate": "更新",
+      "btnChange": "変更",
+      "btnCreate": "作成",
+      "radHideOtherLanguage": "他言語を非表示",
+      "radShowOtherLanguage": "他言語を表示",
+      "lbRequire": "必須",
+      "lbGroupName": "リスト名",
+      "hintGroupName": "リスト名を入力",
+      "lbListParticipants": "リストの参加者",
+      "hintListParticipants": "リストの参加者",
+      "placeholderShareListTool": "リストを入力",
+      "placeholderParticipants": "リストの参加者を追加",
+      "icCompany": "社",
+      "lbSearchCondition": "自動追加リストの検索条件",
+      "lbSettingSearch": "詳細検索条件を編集",
+      "lbNoteForCheckBox": "更新時に条件に合致しない場合、リストから削除する",
+      "hintJapanese": "(日本語)",
+      "hintChinese": "(中文（简体）",
+      "hintEnglish": "(English （US）)",
+      "hintKorean": "(한국어)",
+      "lbGroupType": "リストの種類",
+      "radManual": "手動",
+      "radAuto": "自動追加",
+      "permision.viewer": "閲覧者",
+      "permision.owner": "オーナー"
+    },
+    "add-to-favorite": "{{groupName}}をお気に入りリストに追加しますか?",
+    "remove-to-favorite": "{{groupName}}お気に入りリストに追加しますか?",
+    "INF_COM_0015": "{{0}}件をリストに追加します。",
+    "INF_COM_0016": "{{0}}件を他のリストへ移動します。",
+    "all-status": "全て",
+    "complete-status": "終了",
+    "not-complete-status": "継続中",
+    "contact-date1": "最終接触日から",
+    "contact-date2": "日以上経っている",
+    "item-drag": {
+      "list": " 件の取引商品管理を移動"
+    },
+    "placeholder": {
+      "find-an-item": "進捗状況を検索"
+    },
+    "button":{
+      "edit-search-condition":"詳細検索条件を編集"
+    }
+  }
+}

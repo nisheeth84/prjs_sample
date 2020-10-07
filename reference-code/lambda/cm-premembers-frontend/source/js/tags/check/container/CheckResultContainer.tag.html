@@ -1,0 +1,667 @@
+<check-result-container>
+    <div class="page">
+        <div class="page-header">
+            <h1 class="page-title mt-2">{_t('check_result')}</h1>
+            <p>{_t('CheckResult.description_check_result')}</p>
+        </div>
+        <div class="page-content container-fluid">
+            <div class="row mb-30">
+                <div class="col-5">
+                    <h4>{_t('organization')}</h4>
+                    <select ref="organization" class="form-control check-background-none h-150" onchange={changeOrganizationHandler} size="6">
+                        <option each="{organization in organizations}" value="{organization.organization.id}" selected="{organizationId == organization.organization.id}">{ organization.organization.name }</option>
+                    </select>
+                </div>
+                <div class="col-5">
+                    <h4>{_t('project')}</h4>
+                    <select ref="project" disabled="{! projectEnable}" class="form-control check-background-none h-150" onchange={changeProjectHandler}
+                        size="6">
+                        <option each="{project in projects}" value="{project.id}" selected="{projectId == project.id}">{ project.name }</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Check Managed -->
+            <managed-check-description show="{showTitleCheck && !isResultCheckItemCIS12}" members_aws_accounts="{members_aws_accounts}"></managed-check-description>
+            <managed-check-description-cis12 show="{showTitleCheck && isResultCheckItemCIS12}" members_aws_accounts="{members_aws_accounts}"></managed-check-description-cis12>
+
+            <!-- Check CIS -->
+            <div class="plus-icon" show="{showTitleCheck}">
+                <div class="card card-outline-danger" aria-multiselectable="true" role="tablist">
+                    <div class="check-title">
+                        <div class="card-title">
+                            <a ref="refCheckCis" class="managed-title" aria-expanded="true" data-toggle="collapse" href="#checkCis">
+                                <h2 class="text-left inline">{_t('cis_title')}</h2>
+                            </a>
+                            <a href="{_t('CheckResult.user_guide_check_item_cis_url')}" target="_blank">
+                                <i class="icon wb-help-circle margin-left_10 font-size-20" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt--30 collapse show mb-20" id="checkCis" role="tabpanel">
+                    <div show="{showLoaderCIS}" class="mt-80 pm-loading__loader vertical-align text-center">
+                        <div class="loader vertical-align-middle loader-round-circle"></div>
+                    </div>
+                    <span class="text-left mt-20" if="{notificationCIS.length > 0}">{notificationCIS}</span>
+                    <cis-iam-check list_manual={list_manual} list_iam="{list_iam}" show="{!isResultCheckItemCIS12}"></cis-iam-check>
+                    <cis12-iam-check list_manual={list_manual} list_iam="{list_iam}" show="{isResultCheckItemCIS12}"></cis12-iam-check>
+                    <cis-logging-check list_manual={list_manual} list_logging="{list_logging}" show="{!isResultCheckItemCIS12}"></cis-logging-check>
+                    <cis12-logging-check list_manual={list_manual} list_logging="{list_logging}" show="{isResultCheckItemCIS12}"></cis12-logging-check>
+                    <cis-monitoring-check list_manual={list_manual} list_monitoring="{list_monitoring}" show="{!isResultCheckItemCIS12}"></cis-monitoring-check>
+                    <cis12-monitoring-check list_manual={list_manual} list_monitoring="{list_monitoring}" show="{isResultCheckItemCIS12}"></cis12-monitoring-check>
+                    <cis-networking-check list_manual={list_manual} list_network="{list_network}" show="{!isResultCheckItemCIS12}"></cis-networking-check>
+                    <cis12-networking-check list_manual={list_manual} list_network="{list_network}" show="{isResultCheckItemCIS12}"></cis12-networking-check>
+                </div>
+            </div>
+            <!-- Check ASC -->
+            <div class="plus-icon" show="{showTitleCheck}">
+                <div class="card card-outline-danger mt-60" aria-multiselectable="true" role="tablist">
+                    <div class="check-title">
+                        <div class="card-title">
+                            <a ref="refCheckAsc" class="managed-title" aria-expanded="false" data-toggle="collapse" onclick={loadResultCheckASC} href="#checkAsc">
+                                <h2 class="text-left inline">{_t('asc_title')}</h2>
+                            </a>
+                            <a href="{_t('CheckResult.user_guide_check_item_asc_url')}" target="_blank">
+                                <i class="icon wb-help-circle margin-left_10 font-size-20" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt--30 collapse mb-20" id="checkAsc" role="tabpanel">
+                    <div show="{showLoaderASC}" class="mt-80 pm-loading__loader vertical-align text-center">
+                        <div class="loader vertical-align-middle loader-round-circle"></div>
+                    </div>
+                    <span class="text-left mt-20" if="{notificationASC.length > 0}">{notificationASC}</span>
+                    <security-checklist-general list_manual={list_manual} list_security_checklist_general="{list_security_checklist_general}"></security-checklist-general>
+                    <security-checklist-ec2-vpc-ebs list_manual={list_manual} list_security_checklist_ec2_vpc_ebs="{list_security_checklist_ec2_vpc_ebs}"></security-checklist-ec2-vpc-ebs>
+                    <security-checklist-s3 list_manual={list_manual} list_security_checklist_s3="{list_security_checklist_s3}"></security-checklist-s3>
+                </div>
+            </div>
+            <!-- Check IBP -->
+            <div class="plus-icon" show="{showTitleCheck}">
+                <div class="card card-outline-danger mt-60" aria-multiselectable="true" role="tablist">
+                    <div class="check-title">
+                        <div class="card-title">
+                            <a ref="refCheckIbp" class="managed-title" aria-expanded="false" data-toggle="collapse" onclick={loadResultCheckIBP} href="#checkIbp">
+                                <h2 class="text-left inline">{_t('ibp_title')}</h2>
+                            </a>
+                            <a href="{_t('CheckResult.user_guide_check_item_ibp_url')}" target="_blank">
+                                <i class="icon wb-help-circle margin-left_10 font-size-20" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt--30 collapse mb-20" id="checkIbp" role="tabpanel">
+                    <div show="{showLoaderIBP}" class="mt-80 pm-loading__loader vertical-align text-center">
+                        <div class="loader vertical-align-middle loader-round-circle"></div>
+                    </div>
+                    <span class="text-left mt-20" if="{notificationIBP.length > 0}">{notificationIBP}</span>
+                    <iam-best-practices list_manual={list_manual} list_iam_best_practice="{list_iam_best_practice}"></iam-best-practices>
+                </div>
+            </div>
+        </div>
+    </div>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        const tag = this
+        const obs = riot.observable()
+        const requestOrganizationUrl = tag.config.APIGATEWAY_ADDRESS + '/myorganizations?inviteStatus=1';
+        tag.cognitoUser = riot.mixin('cognitoUser');
+        tag.obs = obs
+        tag.changeOrganizationHandler = changeOrganizationHandler
+        tag.changeProjectHandler = changeProjectHandler
+        tag.showCheckError = showCheckError
+        tag.loadResultCheckASC = loadResultCheckASC
+        tag.loadResultCheckIBP = loadResultCheckIBP
+        tag.showLoaderIBP = false
+        tag.showLoaderASC = false
+        tag.showLoaderCIS = false
+        tag.isResultCheckItemCIS12 = false
+        tag.organizations = []
+        tag.organizationId = tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkOrganization')) ? tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkOrganization')) : null
+        tag.organizationId = opts['organization_id'] ? opts['organization_id'] : tag.organizationId
+        tag.projectId = tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkProject')) ? tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkProject')) : null
+        tag.projectId = opts['project_id'] ? opts['project_id'] : tag.projectId
+
+        // Logic Check
+        const listCisIamCheck = [
+            "CHECK_CIS_ITEM_1_01", "CHECK_CIS_ITEM_1_02", "CHECK_CIS_ITEM_1_03", "CHECK_CIS_ITEM_1_04",
+            "CHECK_CIS_ITEM_1_05", "CHECK_CIS_ITEM_1_06", "CHECK_CIS_ITEM_1_07", "CHECK_CIS_ITEM_1_08",
+            "CHECK_CIS_ITEM_1_09", "CHECK_CIS_ITEM_1_10", "CHECK_CIS_ITEM_1_11", "CHECK_CIS_ITEM_1_12",
+            "CHECK_CIS_ITEM_1_13", "CHECK_CIS_ITEM_1_14", "CHECK_CIS_ITEM_1_15", "CHECK_CIS_ITEM_1_16",
+            // "CHECK_CIS_ITEM_1_17", "CHECK_CIS_ITEM_1_19", "CHECK_CIS_ITEM_1_20", "CHECK_CIS_ITEM_1_21",
+            // "CHECK_CIS_ITEM_1_22", "CHECK_CIS_ITEM_1_23", "CHECK_CIS_ITEM_1_24"
+            "CHECK_CIS_ITEM_1_17", "CHECK_CIS_ITEM_1_18", "CHECK_CIS_ITEM_1_19", "CHECK_CIS_ITEM_1_20",
+            "CHECK_CIS_ITEM_1_21", "CHECK_CIS_ITEM_1_22", "CHECK_CIS_ITEM_1_23", "CHECK_CIS_ITEM_1_24",
+            "CHECK_CIS12_ITEM_1_01", "CHECK_CIS12_ITEM_1_02", "CHECK_CIS12_ITEM_1_03", "CHECK_CIS12_ITEM_1_04",
+            "CHECK_CIS12_ITEM_1_05", "CHECK_CIS12_ITEM_1_06", "CHECK_CIS12_ITEM_1_07", "CHECK_CIS12_ITEM_1_08",
+            "CHECK_CIS12_ITEM_1_09", "CHECK_CIS12_ITEM_1_10", "CHECK_CIS12_ITEM_1_11", "CHECK_CIS12_ITEM_1_12",
+            "CHECK_CIS12_ITEM_1_13", "CHECK_CIS12_ITEM_1_14", "CHECK_CIS12_ITEM_1_15", "CHECK_CIS12_ITEM_1_16",
+            "CHECK_CIS12_ITEM_1_17", "CHECK_CIS12_ITEM_1_18", "CHECK_CIS12_ITEM_1_19", "CHECK_CIS12_ITEM_1_20",
+            "CHECK_CIS12_ITEM_1_21", "CHECK_CIS12_ITEM_1_22"
+        ]
+        // const listCisNetworkingCheck = ["CHECK_CIS_ITEM_4_01", "CHECK_CIS_ITEM_4_02", "CHECK_CIS_ITEM_4_05"]
+        const listCisNetworkingCheck = [
+            "CHECK_CIS_ITEM_4_01", "CHECK_CIS_ITEM_4_02", "CHECK_CIS_ITEM_4_03", "CHECK_CIS_ITEM_4_04", "CHECK_CIS_ITEM_4_05",
+            "CHECK_CIS12_ITEM_4_01", "CHECK_CIS12_ITEM_4_02", "CHECK_CIS12_ITEM_4_03", "CHECK_CIS12_ITEM_4_04"
+        ]
+        const listCisLoggingCheck = [
+            "CHECK_CIS_ITEM_2_01", "CHECK_CIS_ITEM_2_02", "CHECK_CIS_ITEM_2_03", "CHECK_CIS_ITEM_2_04",
+            // "CHECK_CIS_ITEM_2_06", "CHECK_CIS_ITEM_2_07", "CHECK_CIS_ITEM_2_08"
+            "CHECK_CIS_ITEM_2_05", "CHECK_CIS_ITEM_2_06", "CHECK_CIS_ITEM_2_07", "CHECK_CIS_ITEM_2_08",
+            "CHECK_CIS12_ITEM_2_01", "CHECK_CIS12_ITEM_2_02", "CHECK_CIS12_ITEM_2_03", "CHECK_CIS12_ITEM_2_04",
+            "CHECK_CIS12_ITEM_2_05", "CHECK_CIS12_ITEM_2_06", "CHECK_CIS12_ITEM_2_07", "CHECK_CIS12_ITEM_2_08",
+            "CHECK_CIS12_ITEM_2_09"
+        ]
+        // const listCisMonitoringCheck = ["CHECK_CIS12_ITEM_3_15"]
+        const listCisMonitoringCheck = [
+            "CHECK_CIS_ITEM_3_01", "CHECK_CIS_ITEM_3_02", "CHECK_CIS_ITEM_3_03", "CHECK_CIS_ITEM_3_04",
+            "CHECK_CIS_ITEM_3_05", "CHECK_CIS_ITEM_3_06", "CHECK_CIS_ITEM_3_07", "CHECK_CIS_ITEM_3_08",
+            "CHECK_CIS_ITEM_3_09", "CHECK_CIS_ITEM_3_10", "CHECK_CIS_ITEM_3_11", "CHECK_CIS_ITEM_3_12",
+            "CHECK_CIS_ITEM_3_13", "CHECK_CIS_ITEM_3_14", "CHECK_CIS_ITEM_3_15", "CHECK_CIS12_ITEM_3_01",
+            "CHECK_CIS12_ITEM_3_02", "CHECK_CIS12_ITEM_3_03", "CHECK_CIS12_ITEM_3_04", "CHECK_CIS12_ITEM_3_05",
+            "CHECK_CIS12_ITEM_3_06", "CHECK_CIS12_ITEM_3_07", "CHECK_CIS12_ITEM_3_08", "CHECK_CIS12_ITEM_3_09",
+            "CHECK_CIS12_ITEM_3_10", "CHECK_CIS12_ITEM_3_11", "CHECK_CIS12_ITEM_3_12", "CHECK_CIS12_ITEM_3_13",
+            "CHECK_CIS12_ITEM_3_14"
+        ]
+        const listIAMBestPractice = [
+            "CHECK_IBP_ITEM_01_01", "CHECK_IBP_ITEM_02_01", "CHECK_IBP_ITEM_03_01", "CHECK_IBP_ITEM_04_01",
+            "CHECK_IBP_ITEM_05_01", "CHECK_IBP_ITEM_06_01", "CHECK_IBP_ITEM_07_01", "CHECK_IBP_ITEM_07_02",
+            "CHECK_IBP_ITEM_07_03", "CHECK_IBP_ITEM_07_04", "CHECK_IBP_ITEM_07_05", "CHECK_IBP_ITEM_07_06",
+            "CHECK_IBP_ITEM_07_07", "CHECK_IBP_ITEM_07_08", "CHECK_IBP_ITEM_08_01", "CHECK_IBP_ITEM_09_01",
+            "CHECK_IBP_ITEM_10_01", "CHECK_IBP_ITEM_11_01", "CHECK_IBP_ITEM_12_01", "CHECK_IBP_ITEM_13_01",
+            "CHECK_IBP_ITEM_14_01", "CHECK_IBP_ITEM_14_02", "CHECK_IBP_ITEM_14_03", "CHECK_IBP_ITEM_14_04",
+            "CHECK_IBP_ITEM_14_05"
+        ]
+
+        const listManual = [
+            "CHECK_CIS_ITEM_1_15", "CHECK_CIS_ITEM_1_17", "CHECK_CIS_ITEM_1_19", "CHECK_CIS_ITEM_1_20",
+            "CHECK_ASC_ITEM_02_02", "CHECK_CIS_ITEM_3_15", "CHECK_CIS_ITEM_4_05", "CHECK_ASC_ITEM_05_01",
+            "CHECK_ASC_ITEM_06_01", "CHECK_ASC_ITEM_09_01", "CHECK_ASC_ITEM_11_01", "CHECK_ASC_ITEM_14_01",
+            "CHECK_ASC_ITEM_15_01", "CHECK_IBP_ITEM_04_01", "CHECK_IBP_ITEM_06_01", "CHECK_IBP_ITEM_10_01",
+            "CHECK_IBP_ITEM_13_01", "CHECK_IBP_ITEM_14_03", "CHECK_CIS12_ITEM_1_15", "CHECK_CIS12_ITEM_1_17",
+            "CHECK_CIS12_ITEM_1_18", "CHECK_CIS12_ITEM_4_04"
+        ]
+
+        tag.list_iam = []
+        tag.list_network = []
+        tag.list_logging = []
+        tag.list_monitoring = []
+        tag.notificationCIS = []
+        tag.notificationASC = []
+        tag.notificationIBP = []
+
+        tag.list_security_checklist_general = []
+        tag.list_security_checklist_ec2_vpc_ebs = []
+        tag.list_security_checklist_s3 = []
+
+        tag.list_iam_best_practice = []
+        tag.list_manual = listManual
+
+        const listSecurityGeneralChecklist = [
+            "CHECK_ASC_ITEM_01_01", "CHECK_ASC_ITEM_02_01", "CHECK_ASC_ITEM_02_02", "CHECK_ASC_ITEM_03_01",
+            "CHECK_ASC_ITEM_04_01", "CHECK_ASC_ITEM_05_01", "CHECK_ASC_ITEM_06_01"
+        ]
+        const listSecurityEc2VpcEbsChecklist = [
+            "CHECK_ASC_ITEM_07_01", "CHECK_ASC_ITEM_08_01", "CHECK_ASC_ITEM_09_01", "CHECK_ASC_ITEM_10_01",
+            "CHECK_ASC_ITEM_11_01"
+        ]
+        const listSecurityS3Checklist = [
+            "CHECK_ASC_ITEM_12_01", "CHECK_ASC_ITEM_13_01", "CHECK_ASC_ITEM_14_01", "CHECK_ASC_ITEM_15_01",
+            "CHECK_ASC_ITEM_16_01"
+        ]
+
+        tag.members_aws_accounts = []
+        tag.on('mount', function() {
+            if (!tag.organizations || !tag.organizations.length) {
+                tag.obs.trigger('pm-loader-show');
+                tag.cognitoUser.getSession(function(err, session) {
+                    if (err) {
+                        tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    } else {
+                        var idToken = session.getIdToken().getJwtToken();
+                        let fetchResponse = null
+                        fetch(requestOrganizationUrl, {
+                            method: 'GET',
+                            headers: {
+                                'Authorization': idToken
+                            }
+                        }).then(function(response) {
+                            fetchResponse = response
+                            return response
+                        }).then(tag.commonUtils.checkStatus)
+                            .then(function(response) {
+                                tag.obs.trigger('pm-loader-hide');
+                                return response.json();
+                            }).then(function(organizations) {
+                                tag.organizations = organizations
+                                tag.update();
+                                if (tag.organizationId) {
+                                    let isExistsOrganization = tag.organizations.find(function(organization) {
+                                        return organization.organization.id === tag.organizationId
+                                    })
+                                    if (isExistsOrganization) {
+                                        tag.selectOrganization = isExistsOrganization
+                                        tag.update(tag.selectOrganization)
+                                        changeOrganization(tag.organizationId)
+                                    }
+                                }
+                            }).catch(function(error) {
+                                tag.obs.trigger('pm-loader-hide');
+                                error.then(function(value) {
+                                    value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                                })
+                                tag.obs.trigger('error-modal-open', error);
+                                tag.obs.one('error-modal-close', function(value) {
+                                    tag.commonUtils.backHome(value)
+                                })
+                            })
+                    }
+                });
+            }
+        })
+
+        tag.on('updated', function() {
+            const table_striped = $('.table-striped').toArray()
+            table_striped.forEach(function(objTable) {
+                const child = $(objTable).find('.child').toArray()
+                child.forEach(function(objTr, index) {
+                    if (index % 2 === 0) {
+                        objTr.classList.add("gray_tr")
+                    } else {
+                        objTr.classList.add("white_tr")
+                    }
+                });
+            });
+        })
+
+        function loadResultCheckASC(event) {
+            if (tag.isLoadDataCheckASC && tag.projectId) {
+                getCheckSecurityASC();
+            }
+        }
+
+        function loadResultCheckIBP(event) {
+            if (tag.isLoadDataCheckIBP && tag.projectId) {
+                getCheckSecurityIBP();
+            }
+        }
+
+        function changeOrganizationHandler(event) {
+            const organizationId = event.target.value
+            tag.organizationId = organizationId
+            if (organizationId) {
+                let isExistsOrganization = tag.organizations.find(function(organization) {
+                    return organization.organization.id === organizationId
+                })
+                tag.selectOrganization = isExistsOrganization
+            } else {
+                tag.selectOrganization = null
+            }
+            tag.projectId = null
+            tag.members_aws_accounts = []
+            setDefaultCheckResult()
+            if (organizationId) {
+                changeOrganization(organizationId)
+            }
+        }
+
+        function setDefaultCheckResult() {
+            tag.notificationCIS = []
+            tag.notificationASC = []
+            tag.notificationIBP = []
+            tag.list_iam = []
+            tag.list_network = []
+            tag.list_logging = []
+            tag.list_monitoring = []
+            tag.list_security_checklist_general = []
+            tag.list_security_checklist_ec2_vpc_ebs = []
+            tag.list_security_checklist_s3 = []
+            tag.list_iam_best_practice = []
+            tag.isResultCheckItemCIS12 = false
+            tag.update()
+            const refCheckCis = tag.refs.refCheckCis
+            if (refCheckCis.attributes['aria-expanded'].value == 'false') {
+                refCheckCis.click()
+            }
+            const refCheckAsc = tag.refs.refCheckAsc
+            if (refCheckAsc.attributes['aria-expanded'].value == 'true') {
+                refCheckAsc.click()
+            }
+            const refCheckIbp = tag.refs.refCheckIbp
+            if (refCheckIbp.attributes['aria-expanded'].value == 'true') {
+                refCheckIbp.click()
+            }
+        }
+
+        function changeOrganization(organizationId) {
+            if (organizationId) {
+                tag.obs.trigger('pm-loader-show');
+                tag.cognitoUser.getSession(function(err, session) {
+                    if (err) {
+                        tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    } else {
+                        var idToken = session.getIdToken().getJwtToken();
+                        const requestProjectUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + organizationId + '/projects';
+                        let fetchResponse = null
+                        fetch(requestProjectUrl, {
+                            method: 'GET',
+                            headers: {
+                                'Authorization': idToken
+                            }
+                        }).then(function(response) {
+                            fetchResponse = response
+                            return response
+                        })
+                            .then(tag.commonUtils.checkStatus)
+                            .then(function(response) {
+                                tag.obs.trigger('pm-loader-hide');
+                                return response.json();
+                            }).then(function(projects) {
+                                tag.projects = projects;
+                                tag.projectEnable = !!tag.projects.length
+                                let isExistsProject = tag.projects.find(function(project) {
+                                    return tag.projectId === project.id
+                                })
+                                tag.update();
+                                if (tag.projectId && isExistsProject) {
+                                    changeProject(tag.projectId)
+                                }
+                            }).catch(function(error) {
+                                tag.obs.trigger('pm-loader-hide');
+                                error.then(function(value) {
+                                    value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                                })
+                                tag.obs.trigger('error-modal-open', error);
+                                tag.obs.one('error-modal-close', function(value) {
+                                    tag.commonUtils.backHome(value)
+                                })
+                            })
+                    }
+                });
+            } else {
+                tag.projects = []
+                tag.projectEnable = !!tag.projects.length
+            }
+        }
+
+        function changeProjectHandler(event) {
+            tag.showTitleCheck = false
+            setDefaultCheckResult()
+            const projectId = event.target.value
+            if (projectId) {
+                changeProject(projectId)
+            }
+        }
+
+        function changeProject(projectId) {
+            tag.isLoadDataCheckASC = true
+            tag.isLoadDataCheckIBP = true
+            tag.projectId = projectId
+            const organizationId = tag.organizationId
+            tag.obs.trigger('pm-loader-show');
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    getAwsCoops(idToken, organizationId, projectId)
+                        .then(function(response) {
+                            fetchResponse = response
+                            return response
+                        }).then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            return response.json();
+                        }).then(function(result) {
+                            awsCoops = result
+                            members_aws_accounts = []
+                            awsCoops.forEach(function(awsCoop) {
+                                if (awsCoop['members'] == 1) {
+                                    awsCoop['organizationName'] = tag.refs.organization.options[tag.refs.organization.selectedIndex].label;
+                                    awsCoop['projectName'] = tag.refs.project.options[tag.refs.project.selectedIndex].label;
+                                    members_aws_accounts.push(awsCoop)
+                                }
+                            })
+                            tag.members_aws_accounts = members_aws_accounts
+                            tag.commonUtils.setItemToLocalStorage(tag.commonUtils.getLocalStorageKey('checkOrganization'), tag.organizationId)
+                            tag.commonUtils.setItemToLocalStorage(tag.commonUtils.getLocalStorageKey('checkProject'), tag.projectId)
+                            tag.obs.trigger('pm-loader-hide');
+                            tag.showTitleCheck = true
+                            tag.update();
+                            getCheckSecurityCis(organizationId, projectId);
+                        }).catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            });
+        }
+
+        function getCheckSecurityCis(organizationId, projectId) {
+            tag.showLoaderCIS = true
+            tag.update();
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    getCheckSecurity(idToken, organizationId, projectId, 'CIS')
+                        .then(function(response) {
+                            fetchResponse = response
+                            return response
+                        }).then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            return response.json();
+                        }).then(function(result) {
+                            resultCheckCis = result
+                            tag.list_iam = []
+                            tag.list_network = []
+                            tag.list_logging = []
+                            tag.list_monitoring = []
+                            tag.notificationCIS = tag._t('CheckResult.notification_check')
+                            var list_cis = tag.commonUtils.groupBy(resultCheckCis, function(item) {
+                                return [item.checkItemCode];
+                            });
+                            list_cis.forEach(function(cisItem) {
+                                let obj = cisItem.filter(function(rec) {
+                                    return rec.exclusionFlag !== 1;
+                                });
+                                if(obj.length === 0){ return; }
+                                if (obj[0].resources != "") {
+                                    if (obj[0]['checkItemCode'].startsWith('CHECK_CIS12_ITEM')) {
+                                        tag.isResultCheckItemCIS12 = true
+                                    }
+                                    obj[0]['organizationId'] = organizationId
+                                    obj[0]['projectId'] = projectId
+                                    if (listCisNetworkingCheck.indexOf(obj[0].checkItemCode) > -1) {
+                                        tag.list_network.push(obj)
+                                    } else if (listCisLoggingCheck.indexOf(obj[0].checkItemCode) > -1) {
+                                        tag.list_logging.push(obj)
+                                    } else if (listCisMonitoringCheck.indexOf(obj[0].checkItemCode) > -1) {
+                                        tag.list_monitoring.push(obj)
+                                    } else if (listCisIamCheck.indexOf(obj[0].checkItemCode) > -1) {
+                                        tag.list_iam.push(obj)
+                                    }
+                                    tag.notificationCIS = []
+                                }
+                            });
+                            tag.showLoaderCIS = false
+                            tag.update();
+                        }).catch(function(error) {
+                            tag.showLoaderCIS = false
+                            tag.update();
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            });
+        }
+
+        function getCheckSecurityASC() {
+            tag.isLoadDataCheckASC = false
+            const projectId = tag.projectId
+            const organizationId = tag.organizationId
+            tag.showLoaderASC = true
+            tag.update();
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    getCheckSecurity(idToken, organizationId, projectId, 'ASC')
+                        .then(function(response) {
+                            fetchResponse = response
+                            return response
+                        }).then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            return response.json();
+                        }).then(function(result) {
+                            resultCheckASC = result
+                            tag.list_security_checklist_general = []
+                            tag.list_security_checklist_ec2_vpc_ebs = []
+                            tag.list_security_checklist_s3 = []
+                            tag.notificationASC = tag._t('CheckResult.notification_check')
+                            var list_asc = tag.commonUtils.groupBy(resultCheckASC, function(item) {
+                                return [item.checkItemCode];
+                            });
+                            list_asc.forEach(function(ascItem) {
+                                let obj = ascItem.filter(function(rec) {
+                                    return rec.exclusionFlag !== 1;
+                                });
+                                if(obj.length === 0){ return; }
+                                obj[0]['organizationId'] = organizationId
+                                obj[0]['projectId'] = projectId
+                                if (listSecurityGeneralChecklist.indexOf(obj[0].checkItemCode) > -1) {
+                                    tag.list_security_checklist_general.push(obj)
+                                } else if (listSecurityEc2VpcEbsChecklist.indexOf(obj[0].checkItemCode) > -1) {
+                                    tag.list_security_checklist_ec2_vpc_ebs.push(obj)
+                                } else if (listSecurityS3Checklist.indexOf(obj[0].checkItemCode) > -1) {
+                                    tag.list_security_checklist_s3.push(obj)
+                                }
+                                tag.notificationASC = []
+                            });
+                            tag.showLoaderASC = false
+                            tag.update();
+                        }).catch(function(error) {
+                            tag.showLoaderASC = false
+                            tag.update();
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            });
+        }
+
+        function getCheckSecurityIBP() {
+            tag.isLoadDataCheckIBP = false
+            const projectId = tag.projectId
+            const organizationId = tag.organizationId
+            tag.showLoaderIBP = true
+            tag.update();
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    getCheckSecurity(idToken, organizationId, projectId, 'IBP')
+                        .then(function(response) {
+                            fetchResponse = response
+                            return response
+                        }).then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            return response.json();
+                        }).then(function(result) {
+                            resultCheckIBP = result
+                            tag.list_iam_best_practice = []
+                            tag.notificationIBP = tag._t('CheckResult.notification_check')
+                            var list_ibp = tag.commonUtils.groupBy(resultCheckIBP, function(item) {
+                                return [item.checkItemCode];
+                            });
+                            list_ibp.forEach(function(ibpItem) {
+                                let obj = ibpItem.filter(function(rec) {
+                                    return rec.exclusionFlag !== 1;
+                                });
+                                if(obj.length === 0){ return; }
+                                obj[0]['organizationId'] = organizationId
+                                obj[0]['projectId'] = projectId
+                                if (listIAMBestPractice.indexOf(obj[0].checkItemCode) > -1) {
+                                    tag.list_iam_best_practice.push(obj)
+                                }
+                                tag.notificationIBP = []
+                            });
+                            tag.showLoaderIBP = false
+                            tag.update();
+                        }).catch(function(error) {
+                            tag.showLoaderIBP = false
+                            tag.update();
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            });
+        }
+
+        function getAwsCoops(idToken, organizationId, projectId) {
+            const requestAwsCoopsUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + organizationId + '/projects/' + projectId + '/awscoops'
+            return fetch(requestAwsCoopsUrl, {
+                method: 'GET',
+                headers: {
+                    'Authorization': idToken
+                }
+            })
+        }
+
+        function getCheckSecurity(idToken, organizationId, projectId, groupFilter) {
+            const requestGetCheckSecurity = tag.config.APIGATEWAY_ADDRESS + "/check/securitycheck/" + organizationId + "/" + projectId + "/results?groupFilter=" + groupFilter
+            return fetch(requestGetCheckSecurity, {
+                method: 'GET',
+                headers: {
+                    'Authorization': idToken
+                }
+            })
+        }
+
+        function showCheckError(checkItemCode, awsAccountName, awsAccount, bucketName) {
+            const errorMessageObject = tag._t("CheckResult.CheckS3ErrorMessage", { returnObjects: true })
+            const title = errorMessageObject.title
+            const description = errorMessageObject.description
+            const cases = [errorMessageObject.case_1, errorMessageObject.case_2]
+            const errorObj = {
+                "errorTitle": title,
+                "clientWarningPlain": description,
+                "clientWarningDetails": cases,
+                "awsAccountName": awsAccountName,
+                "awsAccount": awsAccount,
+                "bucketName": bucketName
+            }
+            const promiseErrorObj = Promise.resolve(errorObj);
+            tag.obs.trigger('error-modal-open', promiseErrorObj);
+        }
+        require('../component/ManagedCheckDescription.tag.html');
+        require('../component/ManagedCheckDescriptionCIS12.tag.html');
+        require('../component/CISIamCheck.tag.html');
+        require('../component/CIS12IamCheck.tag.html');
+        require('../component/CISLoggingCheck.tag.html');
+        require('../component/CIS12LoggingCheck.tag.html');
+        require('../component/CISMonitoringCheck.tag.html');
+        require('../component/CIS12MonitoringCheck.tag.html');
+        require('../component/CISNetworkingCheck.tag.html');
+        require('../component/CIS12NetworkingCheck.tag.html');
+        require('../component/CISNetworkingCheckCIS4_04.tag.html');
+        require('../component/CIS12NetworkingCheckCIS4_03.tag.html');
+        require('../component/SecurityChecklistEC2VPCEBS.tag.html');
+        require('../component/SecurityChecklistGeneral.tag.html');
+        require('../component/SecurityChecklistS3.tag.html');
+        require('../component/IAMBestPractices.tag.html');
+    </script>
+</check-result-container>

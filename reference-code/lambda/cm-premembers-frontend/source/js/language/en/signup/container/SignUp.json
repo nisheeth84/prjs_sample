@@ -1,0 +1,10 @@
+{
+    "SignUp": {
+        "re_password": "Re-enter Password",
+        "terms_service_1": "I agree to ",
+        "terms_service_2": "the Terms of Service",
+        "terms_service_3": "",
+        "you_have_account": "Already have an account?",
+        "regist_user": "Sign Up"
+    }
+}

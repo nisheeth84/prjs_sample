@@ -1,0 +1,12 @@
+{
+    "logGroupName": "CloudTrail/CIS3",
+    "filterName": "CIS-3-1",
+    "filterPattern": "{ ($.errorCode = \"*UnauthorizedOperation\") || ($.errorCode = \"AccessDenied*\") }",
+    "metricTransformations": [
+        {
+            "metricName": "CIS-3-1",
+            "metricNamespace": "CISBenchmark",
+            "metricValue": "1"
+        }
+    ]
+}

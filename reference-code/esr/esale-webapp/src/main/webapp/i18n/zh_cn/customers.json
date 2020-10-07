@@ -1,0 +1,434 @@
+{
+  "customers": {
+    "business-name": "行业类型",
+    "is-display-child-customers": "在搜索结果中显示子客户 ",
+    "list": {
+      "dot": "・",
+      "show-more-next": "其他{{0}}件",
+      "place-holder": {
+        "search": "搜索列表"
+      }
+    },
+    "move-to-list": {
+      "title": {
+        "header": "移动列表"
+      },
+      "message": {
+        "record-number-info": "{{count}}件将移到另一个列表。"
+      },
+      "form": {
+        "label": "移动的列表",
+        "nonselect": "选择移动的列表"
+      },
+      "button": {
+        "move": "移动"
+      }
+    },
+    "add-to-list": {
+      "title": {
+        "header": "添加到列表"
+      },
+      "message": {
+        "record-number-info": "{{count}}件将添加到列表。"
+      },
+      "form": {
+        "label": "添加的列表",
+        "nonselect": "选择添加的列表"
+      },
+      "button": {
+        "add": "添加"
+      }
+    },
+    "option-group": {
+      "favorites-list": "喜爱的列表",
+      "my-list": "我的列表",
+      "shared-list": "共享列表"
+    },
+    "top": {
+      "title": {
+        "btn-registration": "注册员工",
+        "btn-group-operation": "群组操作",
+        "btn-edit": "简单编辑",
+        "btn-cancel": "取消",
+        "btn-save": "保存更改",
+        "add-to-group": "添加至群组",
+        "create-my-group": "创建我的群组",
+        "create-shared-group": "创建分享组",
+        "move-group": "移动群组",
+        "leave-group": "从群组中删除",
+        "register-employee": "注册员工",
+        "invite-employee": "邀请员工",
+        "register-department": "注册部门",
+        "import-employee": "导入员工",
+        "import-department": "导入部门"
+      },
+      "button": {
+        "btn-registration": "客户注册",
+        "btn-import": "导入客户",
+        "btn-buy-outside": "从外部购买",
+        "btn-list-operator": "列表操作",
+        "btn-add-to-list": "添加到列表",
+        "btn-move-list": "移动列表",
+        "btn-create-my-list": "创建我的列表",
+        "btn-create-share-list": "创建共享列表",
+        "btn-remove-from-list": "从列表中删除",
+        "btn-edit-simple": "简单编辑"
+      },
+      "place-holder": {
+        "search": "搜索客户",
+        "searching": "编辑详细的搜索条件"
+      },
+      "popup": {
+        "lbl-customer": "客户",
+        "title-delete": "删除",
+        "title-confirm": "您确定要删除吗？",
+        "btn-cancel": "取消",
+        "btn-delete": "删除"
+      },
+      "dialog": {
+        "title-move-customer": "确认",
+        "title-add-customers-to-auto-list": "确认",
+        "title-delete-list": "删除",
+        "title-remove-favourite-list": "删除",
+        "confirm-move-customer": "OK",
+        "confirm-add-customers-to-auto-list": "更改",
+        "confirm-delete-list": "删除",
+        "confirm-remove-favourite-list": "删除",
+        "title-remove-manager": "确认",
+        "message-remove-manager": "将移除所选员工的上级设置。您确定要移除吗？",
+        "confirm-remove-manager": "移除",
+        "cancel-text": "取消",
+        "title-auto-group": "确认",
+        "confirm-auto-group": "更改",
+        "title-add-list-to-favourite-list": "确认"
+      },
+      "label-tooltip": {
+        "customer-integration": "集成",
+        "delete": "删除",
+        "download": "下载",
+        "switch-display": "切换显示"
+      }
+    },
+    "sidebar": {
+      "title": {
+        "customer-charge": "负责的客户",
+        "all-customer": "所有客户",
+        "favourite-list": "喜爱的列表",
+        "my-list": "我的列表",
+        "shared-list": "共享列表"
+      },
+      "option": {
+        "update-list": "更新列表",
+        "add-to-favorites-list": "注册到喜爱的列表",
+        "remove-from-favorites-list": "从喜爱的列表中移除",
+        "edit-list": "编辑列表",
+        "delete-list": "删除列表",
+        "duplicate-list": "复制列表",
+        "change-to-shared-list": "更改为共享列表"
+      }
+    },
+    "displayCondition": {
+      "buttonShowCondition": "详细的搜索条件",
+      "form": {
+        "conditionSearch": "详细的搜索条件",
+        "filter": "筛选条件",
+        "conditionSave": "保存自动添加列表的条件"
+      },
+      "buttonShowScroll": "全部显示"
+    },
+    "create-edit-modal": {
+      "title-create-customer": "客户注册",
+      "title-edit-customer": "客户编辑",
+      "create-customer-title": "客户注册",
+      "title-required": "必须",
+      "edit-customer-title": "客户编辑",
+      "create-button": "注册",
+      "edit-button": "保存",
+      "business": "行业类型",
+      "business-main": "选择大项目",
+      "business-sub": "选择小项目",
+      "company-description": "股份公司（后）",
+      "product": "交易产品",
+      "employee": "负责",
+      "picture-logo": "客户标识",
+      "cancel-button": "取消",
+      "modal-title": "客户注册",
+      "customer-parent": "父客户",
+      "placeholder-customer-parent": "选择父客户",
+      "placeholder-employee": "选择负责人",
+      "text-customer-id": "自动编号",
+      "text-created-date": "自动注册",
+      "text-created-user": "自动注册",
+      "text-updated-date": "自动注册",
+      "text-updated-user": "自动注册",
+      "msg-customer-logo": "客户标识",
+      "btn-drag-drop-image": "请点击或将文件放下",
+      "title-intergation": "选择集成时要保留的项目"
+    },
+    "scenario-popup": {
+      "btn-create-milestone": "注册里程碑",
+      "btn-edit-scenario": "保存",
+      "btn-create-task": "添加任务",
+      "btn-add-list": "新添加场景",
+      "btn-add-remove-list": "覆盖场景",
+      "field-scenario": "编辑场景",
+      "title-scenario": "场景",
+      "title-template": "反映模板",
+      "title-search": "显示时间",
+      "title-no-template-selected": "选择要反映的模板",
+      "title-delete-milestone": "删除里程碑",
+      "title-delete-tasks": "任务删除",
+      "title-confirm-update-scenario": "模板反映",
+      "title-date-from-date": "～",
+      "msg-confirm-update-scenario-top": "将模板反映到场景中。",
+      "msg-confirm-update-scenario-bottom": "请选择反映方式。",
+      "msg-delete-milestone": "您确定要删除吗？",
+      "btn-cancel": "取消",
+      "btn-delete": "删除",
+      "btn-confirm": "确认",
+      "title-comfirm-close": "更改取消确认",
+      "content-comfirm-close": "您确定要取消这种更改吗？",
+      "placeholder-search-start-date": "开始日期",
+      "placeholder-search-finish-date": "结束日期",
+      "info-number-task": "有{{0}}件不完整的任务。",
+      "place-holder-create-milestone": "里程碑名称将显示在此处。",
+      "place-holder-create-memo": "备忘录名称将显示在此处。",
+      "place-holder-create-tasks": "任务名称将显示在此处。"
+    },
+    "dialog-delete-logo": {
+      "title": "删除客户标识",
+      "content": "您确定要删除吗？",
+      "cancel": "取消",
+      "submit": "删除"
+    },
+    "customer-integration": {
+      "title": "集成",
+      "search-title": "选择集成时要保留的项目",
+      "search-placeholder": "添加客户",
+      "check-all": "全选",
+      "button-cancel": "取消",
+      "button-submit": "集成",
+      "required": "必须",
+      "manual-input-text": "手动输入",
+      "business": "行业类型",
+      "cannot-enter-value": "无法输入价值",
+      "customer-code": "客户代码"
+    },
+    "title": {
+      "popupErrorMessage.delete": "删除",
+      "popupChangeStatus": "确认"
+    },
+    "warning": {
+      "popupErrorMessage.delete": "由于存在链接数据，因此无法删除。",
+      "popupSettingFieldCreateField": "可以通过拖放来添加项目。",
+      "popupSettingFieldEditField": "可以添加未使用的项目。"
+    },
+    "suggest": {
+      "popupErrorMessage.delete": "请删除数据，然后再次删除。"
+    },
+    "error": {
+      "delete": {
+        "countCustomers": "由{{employeeName}}被设置为负责人的客户：{{count}}件",
+        "countSchedules": "{{employeeName}}在作为参与者的时间表数量：{{count}}件",
+        "countSaleProducts": "{{employeeName}}已交易的产品：{{count}}件 ",
+        "countNameCards": "{{employeeName}}已收到的名片：{{count}}件",
+        "countTimeLines": "{{employeeName}}的时间轴上的帖子和评论数：{{count}}件",
+        "countTimeLineGroups": "{{employeeName}}参与的时间轴上的组数：{{count}}件",
+        "countTimeLineGroupsFavorites": "{{employeeName}}的喜爱时间轴上的组数：{{count}}件",
+        "countTimeLineWatchs": "{{employeeName}}关注的时间轴上的对象数：{{count}}件",
+        "countTimeLineNotices": "发送到{{employeeName}}的时间轴的通知数：{{count}}件",
+        "countTimeLineStars": "{{employeeName}}的喜爱时间轴上的帖子数：{{count}}件",
+        "countTimeLineReactions": "{{employeeName}}的时间轴上的反馈信息件数：{{count}}件",
+        "countTimeLineFilters": "{{employeeName}}的时间轴上已过滤的信息件数：{{count}}件",
+        "countActivities": "{{employeeName}}已报告的活动：{{count}}件",
+        "countAnalysisReports": "{{employeeName}}作为参与者报告的报告：{{count}}件",
+        "countTodos": "{{employeeName}}被设置为负责人的任务：{{count}}件",
+        "countOcrNameCards": "{{employeeName}}从应用程序获取的名片：{{count}}件"
+      }
+    },
+    "detail": {
+      "label": {
+        "department.name": "的上级已设置。",
+        "button.edit": "编辑画面",
+        "button.cancel": "取消",
+        "button.save": "保存",
+        "button.follow": "关注",
+        "button.unfollow": "取消关注",
+        "button.delete": "DELETE",
+        "button.participate": "参与",
+        "manager": "上级",
+        "subordinate": "下属",
+        "amountTotal": "金额",
+        "moneyType": "日元",
+        "tab.customer": "客户",
+        "tab.businessCard": "名片",
+        "tab.calendar": "日历",
+        "tab.calendarNoPlan": "没有计划",
+        "tab.task": "任务",
+        "tab.changeHistory": "修订记录",
+        "tab.group": "在参与的群组",
+        "tab.tradingProduct": "交易产品",
+        "customerName": "客户名称",
+        "createdDate": "注册日期",
+        "industry": "行业类型",
+        "address": "地址",
+        "phoneNumber": "电话号码",
+        "faxNumber": "传真号码",
+        "businessCardImage": "名片图片",
+        "customerNameBusinessCardName": "客户名称/名片上的姓名",
+        "departmentTitle": "部门/职务名称",
+        "contactInformation": "联系地址",
+        "deadline": "期限",
+        "taskName": "任务名称",
+        "productName": "产品名称",
+        "status": "状态",
+        "personInCharge": "负责人",
+        "postedDate": "发布日期",
+        "product": "产品",
+        "customerContactPerson": "客户端负责人",
+        "progress": "进度状态",
+        "completionDate": "预计完成日期",
+        "amountOfMoney": "金额",
+        "total": "合计",
+        "createDateGroup": "发布日期",
+        "history.day": "日",
+        "history.month": "月",
+        "history.year": "年",
+        "history.labelChange": "已更改。",
+        "iconSubordinateInformation": "※",
+        "tab.newField": "添加的项目",
+        "tab.unVailableField": "未使用的项目",
+        "tab.revenueInfomation": "营业额",
+        "tab.activityHistory": "活动历史",
+        "tab.contactHistory": "接触历史",
+        "tab.schedule": "时间表",
+        "tab.mail": "电子邮件",
+        "button.preview": "预览注册画面",
+        "history.employeeStatus": "员工状态",
+        "history.working": "通常",
+        "history.retired": "已辞职",
+        "history.deleted": "已删除",
+        "displayRange": "显示范围",
+        "displayRange.showAll": "全部显示",
+        "displayRange.displayOnlyUserLogin": "仅显示自己负责的部分",
+        "displayRange.allCustomer": "所有客户",
+        "displayRange.customerCurrentOpen": "在打开的客户",
+        "scenario": "场景",
+        "item": "件",
+        "history.labelChangeUpdate": "{{0}}已被注册。",
+        "history.labelChangeCreate": "{{0}}已被更改。",
+        "history.labelChangeMerge": "{{0}}已集成到{{1}}。",
+        "business": "行业类型",
+        "show-more": "其他{{count}}个人",
+        "tab.calendarMonth": "月",
+        "tab.calendarWeek": "周",
+        "tab.calendarList": "列表"
+      },
+      "title": {
+        "popupErrorMessage.delete": "删除",
+        "popupChangeStatus": "确认"
+      },
+      "warning": {
+        "popupErrorMessage.delete": "由于存在链接数据，因此无法删除 。",
+        "popupSettingFieldCreateField": "可以通过拖放来添加项目。",
+        "popupSettingFieldEditField": "可以添加未使用的项目。"
+      },
+      "suggest": {
+        "popupErrorMessage.delete": "请删除数据，然后再次删除。"
+      },
+      "error": {
+        "delete": {
+          "countCustomers": "由{{employeeName}}被设置为负责人的客户：{{count}}件",
+          "countSchedules": "{{employeeName}}在作为参与者的时间表数量：{{count}}件",
+          "countSaleProducts": "{{employeeName}}已交易的产品：{{count}}件 ",
+          "countNameCards": "{{employeeName}}已收到的名片：{{count}}件",
+          "countTimeLines": "{{employeeName}}的时间轴上的帖子和评论数：{{count}}件",
+          "countTimeLineGroups": "{{employeeName}}参与的时间轴上的组数：{{count}}件",
+          "countTimeLineGroupsFavorites": "{{employeeName}}的喜爱时间轴上的组数：{{count}}件",
+          "countTimeLineWatchs": "{{employeeName}}关注的时间轴上的对象数：{{count}}件",
+          "countTimeLineNotices": "发送到{{employeeName}}的时间轴的通知数：{{count}}件",
+          "countTimeLineStars": "{{employeeName}}的喜爱时间轴上的帖子数：{{count}}件",
+          "countTimeLineReactions": "{{employeeName}}的时间轴上的反馈信息件数：{{count}}件",
+          "countTimeLineFilters": "{{employeeName}}的时间轴上已过滤的信息件数：{{count}}件",
+          "countActivities": "{{employeeName}}已报告的活动：{{count}}件",
+          "countAnalysisReports": "{{employeeName}}作为参与者报告的报告：{{count}}件",
+          "countTodos": "{{employeeName}}被设置为负责人的任务：{{count}}件",
+          "countOcrNameCards": "{{employeeName}}从应用程序获取的名片：{{count}}件"
+        }
+      }
+    },
+    "network-map": {
+      "title": "客户关系网络图",
+      "btn-save": "保存",
+      "btn-edit-network-map": "编辑关系网络图",
+      "business-card-received": "收到的名片",
+      "mode-table": {
+        "btn-add-department": "添加部门",
+        "btn-add-business-card": "添加名片"
+      },
+      "department-name-not-empty": "请输入部门名称。",
+      "department-name-exist": "您输入的部门名称已存在。 请输入其他名称。 ",
+      "notification-save": "请将名片添加到{{0}}。",
+      "department-new-name-default": "部门",
+      "view-current-customer": "显示在打开的客户",
+      "add-department": {
+        "title": "添加部门",
+        "department-name.label": "部门名称",
+        "department-name.placeholder": "输入部门名称",
+        "department-belong.label": "所属部门",
+        "department-belong.placeholder": "选择所属部门",
+        "btn-cancel": "取消",
+        "btn-add": "添加"
+      },
+      "business-card": {
+        "add-position": "添加角色"
+      },
+      "department-card-network": {
+        "close": "关闭",
+        "show-all": "全部显示"
+      },
+      "tooltip-add-position": {
+        "position": "角色",
+        "motivation": "愿望",
+        "memo": "评论",
+        "memo-placeholder": "输入评论",
+        "button-cancel": "取消",
+        "button-add": "添加",
+        "button-edit": "保存"
+      },
+      "tooltip-position-network-detail": {
+        "position": "角色",
+        "motivation": "愿望",
+        "memo": "评论",
+        "memo-placeholder": "输入评论",
+        "button-cancel": "取消",
+        "button-add": "添加",
+        "button-edit": "保存"
+      },
+      "popup-warning": {
+        "warning": "警告",
+        "ok": "OK"
+      },
+      "form-new-department": {
+        "department-placeholder": "部门名称"
+      }
+    },
+    "field-info-network": {
+      "business-card-image": "名片图片",
+      "department": "部门",
+      "position": "职务",
+      "business-card-name": "名片上的姓名",
+      "mail-address": "电子邮件地址",
+      "phone-number": "电话号码",
+      "last-contact-date": "最后接触日期",
+      "company-personnel": "自己公司的负责人",
+      "motivation": "愿望",
+      "stand": "角色",
+      "memo": "评论",
+      "date-of-receipt": "接收日期"
+    },
+    "search-controller": {
+      "placeholder": "搜索关系网络图"
+    }
+  }
+}

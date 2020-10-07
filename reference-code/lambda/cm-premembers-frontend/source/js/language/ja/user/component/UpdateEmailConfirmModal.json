@@ -1,0 +1,12 @@
+{
+    "UpdateEmailConfirmModal": {
+        "title": "メールアドレス変更の確認",
+        "body": "下記のメールアドレスへ変更します。",
+        "email_address_before_change": "変更前メールアドレス",
+        "email_address_after_change": "変更後メールアドレス",
+        "information_complete": {
+            "title": "メールアドレス変更を受け付けました",
+            "body": "変更するメールアドレスへ確認用メールを送信しました。<br>メールに記載されたURLへアクセスしてください。"
+        }
+    }
+}

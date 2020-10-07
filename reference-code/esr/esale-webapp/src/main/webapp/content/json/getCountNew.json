@@ -1,0 +1,23 @@
+{
+  "counter": {
+    "allTimeline": 0,
+    "myTimeline": 5,
+    "favoriteTimeline": 3,
+    "groupTimeline": [
+      { "groupId": 9, "newItem": 27 },
+      { "groupId": 10, "newItem": 33 },
+      { "groupId": 10001, "newItem": 33 },
+      { "groupId": 10002, "newItem": 33 }
+    ],
+    "departmentTimeline": [
+      { "departmentId": 10, "newItem": 100 },
+      { "departmentId": 11, "newItem": 4 }
+    ],
+    "customerTimeline": [{ "listId": 1, "newItem": 100 }, { "listId": 2, "newItem": 4 }],
+    "bizcardTimeline": [
+      { "listId": 1, "newItem": 100 },
+      { "listId": 2, "newItem": 4 },
+      { "listId": 3, "newItem": 0 }
+    ]
+  }
+}

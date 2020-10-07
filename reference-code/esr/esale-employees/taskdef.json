@@ -1,0 +1,281 @@
+{
+  "family": "__LOWER_STAGE__-employees",
+  "containerDefinitions": [
+    {
+      "name": "employees",
+      "essential": true,
+      "image": "<IMAGE_NAME>",
+      "cpu": 0,
+      "memoryReservation": 4096,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/__LOWER_STAGE__-employees",
+          "awslogs-region": "ap-northeast-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+    },
+     "portMappings": [
+       {
+         "hostPort": 8081,
+         "containerPort": 8081,
+         "protocol": "tcp"
+       },
+		   {
+         "hostPort": 9081,
+         "containerPort": 9081,
+         "protocol": "tcp"
+       }
+      ],
+      "environment": [
+        {
+          "name": "_JAVA_OPTIONS",
+          "value": "-Xmx512m -Xms256m"
+        },
+        {
+          "name": "AWS_XRAY_CONTEXT_MISSING",
+          "value": "LOG_ERROR"
+        },
+        {
+          "name": "AWS_XRAY_DAEMON_ADDRESS",
+          "value": "xray.esms:2000"
+        },
+        {
+          "name": "ELASTICSEARCH_PORT",
+          "value": "443"
+        },
+        {
+          "name": "ELASTICSEARCH_SSL",
+          "value": "TRUE"
+        },
+        {
+          "name": "EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE",
+          "value": "http://admin:${jhipster.registry.password}@registry1.esms:8761/eureka/,http://admin:${jhipster.registry.password}@registry2.esms:8761/eureka/"
+        },
+        {
+          "name": "EUREKA_INSTANCE_IP_ADDRESS",
+          "value": "${ECS_INSTANCE_IP_ADDRESS}"
+        },
+        {
+          "name": "EUREKA_INSTANCE_PREFER_IP_ADDRESS",
+          "value": "TRUE"
+        },
+        {
+          "name": "GRPC_DOMAIN_ACTIVITIES",
+          "value": "activities.esms:9087"
+        },
+        {
+          "name": "GRPC_DOMAIN_ANALYSIS",
+          "value": "analysis.esms:9096"
+        },
+        {
+          "name": "GRPC_DOMAIN_BUSINESSCARDS",
+          "value": "businesscards.esms:9091"
+        },
+        {
+          "name": "GRPC_DOMAIN_CHATS",
+          "value": "chats.esms:9092"
+        },
+        {
+          "name": "GRPC_DOMAIN_COMMONS",
+          "value": "commons.esms:9083"
+        },
+        {
+          "name": "GRPC_DOMAIN_CUSTOMERS",
+          "value": "customers.esms:9086"
+        },
+        {
+          "name": "GRPC_DOMAIN_EMPLOYEES",
+          "value": "employees.esms:9081"
+        },
+        {
+          "name": "GRPC_DOMAIN_EXTERNALS",
+          "value": "externals.esms:9093"
+        },
+        {
+          "name": "GRPC_DOMAIN_MAILS",
+          "value": "mails.esms:9082"
+        },
+        {
+          "name": "GRPC_DOMAIN_OCRS",
+          "value": "ocrs.esms:9090"
+        },
+        {
+          "name": "GRPC_DOMAIN_PRODUCTS",
+          "value": "products.esms:9085"
+        },
+        {
+          "name": "GRPC_DOMAIN_SALES",
+          "value": "sales.esms:9094"
+        },
+        {
+          "name": "GRPC_DOMAIN_SCHEDULES",
+          "value": "schedules.esms:9084"
+        },
+        {
+          "name": "GRPC_DOMAIN_TENANTS",
+          "value": "tenants.esms:9089"
+        },
+        {
+          "name": "GRPC_DOMAIN_TIMELINES",
+          "value": "timelines.esms:9088"
+        },
+        {
+          "name": "GRPC_DOMAIN_TUTORIALS",
+          "value": "tutorials.esms:9095"
+        },
+        {
+          "name": "JHIPSTER_LOGGING_LOGSTASH_ENABLED",
+          "value": "TRUE"
+        },
+        {
+          "name": "JHIPSTER_LOGGING_LOGSTASH_HOST",
+          "value": "logstash.esms"
+        },
+        {
+          "name": "JHIPSTER_LOGGING_LOGSTASH_PORT",
+          "value": "5000"
+        },
+        {
+          "name": "JHIPSTER_LOGGING_LOGSTASH_QUEUESIZE",
+          "value": "512"
+        },
+        {
+          "name": "JHIPSTER_METRICS_LOGS_ENABLED",
+          "value": "TRUE"
+        },
+        {
+          "name": "JHIPSTER_METRICS_LOGS_REPORTFREQUENCY",
+          "value": "60"
+        },
+        {
+          "name": "MULTITENANT_APP_TENANT_DATASOURCE_AUTOCOMMIT",
+          "value": "FALSE"
+        },
+        {
+          "name": "MULTITENANT_APP_TENANT_DATASOURCE_CONNECTIONTIMEOUT",
+          "value": "20000"
+        },
+        {
+          "name": "MULTITENANT_APP_TENANT_DATASOURCE_DRIVERCLASSNAME",
+          "value": "org.postgresql.Driver"
+        },
+        {
+          "name": "MULTITENANT_APP_TENANT_DATASOURCE_IDLETIMEOUT",
+          "value": "10000"
+        },
+        {
+          "name": "MULTITENANT_APP_TENANT_DATASOURCE_LEAK_DETECTION_THRESHOLD",
+          "value": "1080000"
+        },
+        {
+          "name": "MULTITENANT_APP_TENANT_DATASOURCE_MAXLIFETIME",
+          "value": "1200000"
+        },
+        {
+          "name": "MULTITENANT_APP_TENANT_DATASOURCE_MAXPOOLSIZE",
+          "value": "30"
+        },
+        {
+          "name": "MULTITENANT_APP_TENANT_DATASOURCE_MINIDLE",
+          "value": "10"
+        },
+        {
+          "name": "MULTITENANT_APP_TENANT_DATASOURCE_POOLNAME",
+          "value": "tenantdb-connection-pool"
+        },
+        {
+          "name": "MULTITENANT_APP_TENANT_DATASOURCE_USERNAME",
+          "value": "postgres"
+        },
+        {
+          "name": "SPRING_CLOUD_URI",
+          "value": "http://admin:${jhipster.registry.password}@registry1.esms:8761/config"
+        },
+        {
+          "name": "SPRING_MAIL_HOST",
+          "value": "email-smtp.us-east-1.amazonaws.com"
+        },
+        {
+          "name": "SPRING_MAIL_PORT",
+          "value": "587"
+        },
+        {
+          "name": "SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH",
+          "value": "TRUE"
+        },
+        {
+          "name": "SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLE",
+          "value": "TRUE"
+        },
+        {
+          "name": "SPRING_PROFILES_ACTIVE",
+          "value": "dev"
+        },
+        {
+          "name": "XRAY_ENABLED",
+          "value": "TRUE"
+        }
+      ],
+		"secrets": [
+        {
+          "valueFrom": "/__STAGE__/S3/FILES/BUCKET",
+          "name": "APPLICATION_UPLOAD_BUCKET"
+        },
+        {
+          "valueFrom": "/__STAGE__/JHIPSTER/MAIL/BASEURL",
+          "name": "JHIPSTER_MAIL_BASEURL"
+        },
+        {
+          "valueFrom": "/__STAGE__/JHIPSTER/MAIL/FROM",
+          "name": "JHIPSTER_MAIL_FROM"
+        },
+        {
+          "valueFrom": "/__STAGE__/JHIPSTER/REGISTRY/PASSWORD",
+          "name": "JHIPSTER_REGISTRY_PASSWORD"
+        },
+        {
+          "valueFrom": "/__STAGE__/RDS/MASTER/EMPLOYEES/URL",
+          "name": "MULTITENANT_APP_TENANT_DATASOURCE_MASTERURL"
+        },
+        {
+          "valueFrom": "/__STAGE__/RDS/PASSWORD",
+          "name": "MULTITENANT_APP_TENANT_DATASOURCE_PASSWORD"
+        },
+        {
+          "valueFrom": "/__STAGE__/RDS/SLAVE/EMPLOYEES/URL",
+          "name": "MULTITENANT_APP_TENANT_DATASOURCE_SLAVEURL"
+        },
+        {
+          "valueFrom": "/__STAGE__/ELASTICACHE/MASTER/ENDPOINT",
+          "name": "REDIS_MASTER"
+        },
+        {
+          "valueFrom": "/__STAGE__/ELASTICACHE/SLAVE/ENDPOINT",
+          "name": "REDIS_SLAVE"
+        },
+        {
+          "valueFrom": "/SES/PASSWORD",
+          "name": "SPRING_MAIL_PASSWORD"
+        },
+        {
+          "valueFrom": "/SES/USER",
+          "name": "SPRING_MAIL_USERNAME"
+        },
+        {
+          "valueFrom": "/__STAGE__/ELASTICSEARCH/SEARCH/URL",
+          "name": "ELASTICSEARCH_HOST"
+        }
+      ]
+	 
+}
+  ],
+  "requiresCompatibilities": [
+        "FARGATE"
+    ],
+  "networkMode": "awsvpc",
+  "memory": "4096",
+  "cpu": "2048",
+  "executionRoleArn": "__EXECUTION_ROLE_ARN__",
+  "taskRoleArn": "__TASK_ROLE_ARN__"
+}

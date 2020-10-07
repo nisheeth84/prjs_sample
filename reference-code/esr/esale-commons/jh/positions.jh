@@ -1,0 +1,21 @@
+/**
+ * The Positions entity.
+ */
+@dto(mapstruct)
+@service(serviceImpl)
+entity Positions(positions){
+    /** 
+     * The Positions ID
+     */
+    positionId Long required,
+
+    /** 
+     * The Name
+     */
+    positionName String required maxlength(50),
+    
+    /** 
+     * The Order
+     */
+    displayOrder Integer
+}

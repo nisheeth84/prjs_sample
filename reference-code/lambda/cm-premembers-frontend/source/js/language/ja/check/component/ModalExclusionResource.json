@@ -1,0 +1,43 @@
+{
+    "ModalExclusionResource": {
+        "title": "リソース除外設定",
+        "choice": "選択",
+        "setting_status": "設定有無",
+        "exclusion_date": "除外登録日",
+        "registered_person": "登録者",
+        "exclusion_comment": "除外コメント",
+        "setting_except": "除外設定",
+        "cancel_exclusion": "除外解除",
+        "regist": "登録する",
+        "cancel": "解除する",
+        "label_resource_selected_setting_except": "除外対象として選択されたリソース",
+        "label_resource_selected_cancel_except": "除外解除で選択されたリソース",
+        "excluded": "除外",
+        "policy": "ポリシー",
+        "resource_type": "リソースタイプ",
+        "resource_name": "リソース名",
+        "region" : "リージョン",
+        "notice_cancel_exclusion_resource_01": "除外解除した場合、除外されていたリソースがリソース除外選択モーダルへ表示されなくなります。",
+        "notice_cancel_exclusion_resource_02": "再度、チェック実行をおこない、セキュリティリスクをご確認ください。",
+        "notice_not_exists_resource": "除外対象のチェックＮＧのリソースや除外設定されているリソースがありませんでした。",
+        "name_resource_type": {
+            "S3BucketName": "S3バケット名",
+            "VpcId": "VPC ID",
+            "user": "IAMユーザー",
+            "role": "IAMロール",
+            "group": "IAMグループ",
+            "GroupId": "グループID",
+            "CloudTrailName": "CloudTrail名",
+            "KeyId": "KMSキーID",
+            "InstanceId": "EC2インスタンスID"
+        },
+        "information_cancel_except_resource_complete": {
+            "title": "除外解除完了",
+            "body": "次回以降のチェックで反映されます。"
+        },
+        "information_except_setting_resource_complete": {
+            "title": "除外設定完了",
+            "body": "次回以降のチェックで反映されます。"
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "RDS":{
+        "DBInstance": [
+            // describe_db_instancesを用いてDBの情報を収集
+            // DB毎のtag情報はlist_tags_for_resourceから取得し,tagのキーに追加しておく
+        ],
+        "Snapshots":[
+            // describe_db_snapshotsを用いてSnapshotの情報を収集
+        ],
+        "RI":[
+            // describe_reserved_db_instances
+        ]
+    }
+}

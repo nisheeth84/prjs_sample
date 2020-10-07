@@ -1,0 +1,16 @@
+@startuml{API_契約.png}
+title [契約API]
+hide footbox
+
+boundary 画面 as view
+participant 契約API as api_contract #cyan
+database ユーザープール as user_pools <<cognito>> #purple
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database 組織 as table_organizations <<dynamodb>> #royalblue
+database 契約情報 as table_contractinfo <<dynamodb>> #royalblue
+
+== 契約変更 ==
+
+
+
+@enduml

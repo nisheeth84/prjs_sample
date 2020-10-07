@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ASC_OverView_Page" pageWidth="475" pageHeight="720" columnWidth="475" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="072c9a1d-cb98-4614-be55-45c3b4e22e1e">
+	<property name="ireport.zoom" value="1.7715610000000017"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="net.sf.jasperreports.awt.ignore.missing.font" value="true"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\Projects\\prjo_AWSAccount\\30_implementation\\31_requirement\\VN\\Latest\\Luvina Design Require\\templatePdf\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="lsAwsAccountsDto" class="java.util.List"/>
+	<field name="executeDateTime" class="java.lang.String"/>
+	<field name="organizationName" class="java.lang.String"/>
+	<field name="projectName" class="java.lang.String"/>
+	<detail>
+		<band height="720" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="55" width="475" height="12" uuid="2f869759-ebe7-44d9-be07-bda154309900"/>
+				<textElement textAlignment="Justified">
+					<font fontName="IPAexGothic" size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{overview.asc.descript}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="79" width="475" height="12" uuid="f6817351-bf12-44f4-8828-b1d517516227"/>
+				<textElement textAlignment="Justified">
+					<font fontName="IPAexGothic" size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{overview.service_check}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="92" width="475" height="12" uuid="a81b0b0b-8ce9-4cc9-b399-0de1dc12e1b2"/>
+				<textElement textAlignment="Justified">
+					<font fontName="IPAexGothic" size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["     - " + $R{overview.aws_iam}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="105" width="475" height="12" uuid="08b9f777-c9c8-4316-b899-5e646a65df79"/>
+				<textElement textAlignment="Justified">
+					<font fontName="IPAexGothic" size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["     - " + $R{overview.aws_cloudtrail}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="118" width="475" height="12" uuid="86fee839-76aa-40e9-bfed-9c1518fe6cf3"/>
+				<textElement textAlignment="Justified">
+					<font fontName="IPAexGothic" size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["     - " + $R{overview.aws_sts}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="131" width="475" height="12" uuid="ba524ecb-7d35-431c-92aa-962e13156e1b"/>
+				<textElement textAlignment="Justified">
+					<font fontName="IPAexGothic" size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["     - " + $R{overview.aws_ec2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="144" width="475" height="12" uuid="63ca6ea1-1f94-4b3e-a1ca-53ff1cffcf15"/>
+				<textElement textAlignment="Justified">
+					<font fontName="IPAexGothic" size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["     - " + $R{overview.aws_vpc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="157" width="475" height="12" uuid="50a78cea-fa99-4a9a-a588-0e6237326f5c"/>
+				<textElement textAlignment="Justified">
+					<font fontName="IPAexGothic" size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["     - " + $R{overview.aws_ebs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="170" width="475" height="12" uuid="fd43a2f5-9dcb-4511-ae3a-3762f0895919"/>
+				<textElement textAlignment="Justified">
+					<font fontName="IPAexGothic" size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["     - " + $R{overview.aws_s3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="475" height="30" uuid="86b99ab1-fd06-49ce-bcbe-9d52766f4c05"/>
+				<textElement>
+					<font fontName="IPAexGothic" size="16" isBold="true" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{overview.asc.title}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true" hyperlinkType="Reference">
+				<reportElement x="0" y="211" width="357" height="12" isPrintWhenDetailOverflows="true" uuid="b31f9843-1f6b-467c-a901-03151f73cffc"/>
+				<textElement>
+					<font fontName="IPAexGothic" size="9" isUnderline="false" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{overview.asc.guide_download.link}]]></textFieldExpression>
+				<hyperlinkReferenceExpression><![CDATA["https://d1.awsstatic.com/whitepapers/Security/AWS_Security_Checklist.pdf"]]></hyperlinkReferenceExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="199" width="475" height="12" isPrintWhenDetailOverflows="true" uuid="210ffd66-d20b-43a5-aa89-9f03d1cc7e14"/>
+				<textElement textAlignment="Justified">
+					<font fontName="IPAexGothic" size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{overview.asc.guide_download}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="333" width="100" height="25" forecolor="#4FB01C" backcolor="#4FB01C" uuid="fbc52277-44b5-4125-b60e-4b03fabdf29e"/>
+			</rectangle>
+			<textField>
+				<reportElement x="113" y="333" width="362" height="25" uuid="5f60acc6-db17-4ce9-b6d1-0ab560c6fea4"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="IPAexGothic" size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{overview.normal.descript}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="333" width="100" height="25" forecolor="#FFFFFF" uuid="b18da1b4-96ba-4205-86a2-90dce214187d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAexGothic" size="12" isBold="true" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{overview.normal}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="307" width="100" height="25" forecolor="#296BCC" backcolor="#296BCC" uuid="e13b0137-9232-47f7-9562-78d36219dc50"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="359" width="100" height="25" forecolor="#DB0700" backcolor="#DB0700" uuid="d2dff32e-dbd4-4107-b754-4e02a857882c"/>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="307" width="100" height="25" forecolor="#FFFFFF" uuid="089ea6fb-de79-46c8-b872-9b3b247b752e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAexGothic" size="12" isBold="true" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{overview.managed}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="359" width="362" height="25" uuid="4b9d316e-2f5e-4548-90f4-32c2bc589018"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="IPAexGothic" size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{overview.asc.critical.descript}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="307" width="362" height="25" uuid="529816be-0d01-48d5-ac4e-4a1573a71860"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="IPAexGothic" size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{overview.managed.descript}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="279" width="475" height="20" uuid="00a56ba7-ed9e-44a6-91d5-fed129587f24"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAexGothic" size="14" isBold="true" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{overview.important_results}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="359" width="100" height="25" forecolor="#FFFFFF" uuid="615af545-9a7c-4754-af62-82d33e594987"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAexGothic" size="12" isBold="true" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{overview.critical}]]></textFieldExpression>
+			</textField>
+			<elementGroup>
+				<rectangle>
+					<reportElement x="0" y="384" width="100" height="25" forecolor="#A5A5A5" backcolor="#A5A5A5" uuid="d3aa5291-8090-426f-8e64-614c3b55ccc2"/>
+				</rectangle>
+				<textField>
+					<reportElement mode="Transparent" x="0" y="384" width="100" height="25" forecolor="#FFFFFF" backcolor="#330099" uuid="f1cfd448-63c5-40ce-913b-cbaa821c960e"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="IPAexGothic" size="12" isBold="true" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{overview.exclusion}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="113" y="384" width="362" height="25" uuid="fb01de07-1bee-4704-8bc2-98fc4734e354"/>
+					<textElement textAlignment="Justified" verticalAlignment="Middle">
+						<font fontName="IPAexGothic" size="9" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+						<paragraph lineSpacing="1_1_2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$R{overview.exclusion.descript}]]></textFieldExpression>
+				</textField>
+			</elementGroup>
+		</band>
+	</detail>
+</jasperReport>

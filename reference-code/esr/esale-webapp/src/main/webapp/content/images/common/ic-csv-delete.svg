@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="97" height="99" viewBox="0 0 97 99">
+  <g id="Group_27183" data-name="Group 27183" transform="translate(-673 -235)">
+    <g id="Group_27181" data-name="Group 27181" transform="translate(0 -42)">
+      <g id="Group_27164" data-name="Group 27164" transform="translate(-107 -1772)">
+        <g id="Group_27162" data-name="Group 27162" transform="translate(-26 57)">
+          <g id="Group_27160" data-name="Group 27160" transform="translate(2)">
+            <path id="Path_11794" data-name="Path 11794" d="M0,0H60.424L82,21.777V88H0Z" transform="translate(809 1992)" fill="#f9f9f9"/>
+            <path id="Path_11795" data-name="Path 11795" d="M8.186-11.92,29.843,10.3H8.186Z" transform="translate(861 2004)" fill="#ededed"/>
+          </g>
+          <text id="Customer" transform="translate(821 2013)" fill="#999" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Customer</tspan></text>
+          <line id="Line_2907" data-name="Line 2907" x2="62" transform="translate(821.5 2019.5)" fill="none" stroke="#999" stroke-width="1"/>
+          <rect id="Rectangle_18419" data-name="Rectangle 18419" width="93.8" height="19.87" transform="translate(806 2029.1)" fill="#2ecc71"/>
+          <text id="CSV" transform="translate(834 2045)" fill="#fff" stroke="#fff" stroke-width="1" font-size="18" font-family="SegoeUI, Segoe UI" letter-spacing="0.15em"><tspan x="0" y="0">CSV</tspan></text>
+          <line id="Line_2908" data-name="Line 2908" x2="62" transform="translate(821.5 2024.5)" fill="none" stroke="#999" stroke-width="1"/>
+          <line id="Line_2909" data-name="Line 2909" x2="62" transform="translate(821.5 2053.5)" fill="none" stroke="#999" stroke-width="1"/>
+          <line id="Line_2910" data-name="Line 2910" x2="62" transform="translate(821.5 2058.5)" fill="none" stroke="#999" stroke-width="1"/>
+          <line id="Line_2911" data-name="Line 2911" x2="62" transform="translate(821.5 2063.5)" fill="none" stroke="#999" stroke-width="1"/>
+          <line id="Line_2912" data-name="Line 2912" x2="62" transform="translate(821.5 2068.5)" fill="none" stroke="#999" stroke-width="1"/>
+        </g>
+      </g>
+    </g>
+    <g id="Group_27182" data-name="Group 27182" transform="translate(-18 -19)">
+      <circle id="Ellipse_82" data-name="Ellipse 82" cx="17.5" cy="17.5" r="17.5" transform="translate(753 318)" fill="#f92525"/>
+      <g id="ボタン" transform="translate(-3529 -568)">
+        <g id="ボタン_閉じる" transform="translate(-2 2)">
+          <path id="Path_4553" data-name="Path 4553" d="M4308.869,895.066l-.883-.884a.625.625,0,0,0-.884,0l-5.55,5.55-5.548-5.55a.625.625,0,0,0-.884,0l-.883.884a.624.624,0,0,0,0,.885l5.549,5.549-5.549,5.548a.624.624,0,0,0,0,.885l.883.884a.625.625,0,0,0,.884,0l5.548-5.55,5.55,5.55a.625.625,0,0,0,.884,0l.883-.884a.626.626,0,0,0,0-.885l-5.55-5.548,5.55-5.549A.626.626,0,0,0,4308.869,895.066Z" fill="#fff"/>
+          <rect id="Rectangle_4265" data-name="Rectangle 4265" width="24" height="24" rx="8" transform="translate(4288 888)" fill="none"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

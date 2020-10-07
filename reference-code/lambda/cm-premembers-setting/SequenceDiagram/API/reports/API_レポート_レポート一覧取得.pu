@@ -1,0 +1,29 @@
+@startuml{API_レポート_レポート一覧取得.png}
+title [レポートAPI_レポート一覧取得]
+hide footbox
+
+boundary 画面 as view
+participant レポートAPI as api_reports #cyan
+'database ユーザープール as user_pools <<cognito>> #purple
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database レポート as table_reports <<dynamodb>> #royalblue
+
+view -> api_reports :GET /organizations/{organization_id}/projects/{project_id}/reports
+activate api_reports
+    api_reports -> api_reports :メールアドレス取得
+    |||
+    ref over api_reports, table_affiliation :アクセス権限チェック
+    |||
+    api_reports -> api_reports :レポート一覧取得
+    activate api_reports
+        api_reports -> table_reports :query
+        table_reports --> api_reports
+        api_reports --> api_reports
+    deactivate api_reports
+    |||
+    api_reports -> api_reports :レスポンス作成
+    api_reports --> view :200:レポート情報リスト
+deactivate api_reports
+
+
+@enduml

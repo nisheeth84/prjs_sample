@@ -1,0 +1,55 @@
+<input-email>
+    <input ref="email" type="email" class="form-control" onfocus="{trimEmpty}" onBlur="{addEmpty}" name="email" required="{submitted}"
+        oninput="{checkMail}" placeholder="{_t('InputEmail.email_placeholder')}"/>
+    <script>
+        const tag = this;
+        const obs = tag.parent.obs
+        tag.observer = obs;
+        tag.trimEmpty = trimEmpty
+        tag.addEmpty = addEmpty
+        tag.checkMail = checkMail
+        tag.on('mount', function() {
+            tag.submitted = false
+            const elem = tag.refs.email
+            elem.classList.add('empty');
+            const validationMessage = tag._t('Validation_message.invalid_require')
+            elem.setCustomValidity(validationMessage);
+            tag.observer.on("submit", function(successInformation) {
+                console.info("received submit event")
+                tag.submitted = true
+            });
+        })
+        const optsMixin = {
+            getInputValue: function() {
+                return tag.refs.email.value
+            }
+        }
+        tag.mixin(optsMixin)
+
+        function trimEmpty(event) {
+            console.info("trimEmpty")
+            const elem = event.srcElement
+            elem.classList.remove('empty');
+            if (!elem.value && !tag.submitted) {
+                elem.setCustomValidity('');
+            }
+        }
+
+        function addEmpty(event) {
+            console.info("AddEmpty")
+            const elem = event.srcElement
+            if (!elem.value && !tag.submitted) {
+                elem.classList.add('empty');
+            }
+        }
+        function checkMail(event) {
+            console.info("checkMail")
+            let validationMessage = ''
+            const elem = event.srcElement
+            if (elem.value === '') {
+                validationMessage = tag._t('Validation_message.invalid_require')
+            }
+            elem.setCustomValidity(validationMessage);
+        }
+    </script>
+</input-email>

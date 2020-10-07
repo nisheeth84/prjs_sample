@@ -1,0 +1,7 @@
+{
+    "UserMFADisableConfirmModal": {
+        "confirm_disable_mfa": "MFA無効化確認",
+        "confirm_deactivate_mfa": "MFAを無効化しますか？",
+        "disable": "無効化"
+    }
+}

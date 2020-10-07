@@ -1,0 +1,193 @@
+{
+  "tasks": {
+    "required": "必須",
+    "common": {},
+    "list": {
+      "isPublic": {
+        "public": "公開",
+        "notPublic": "非公開"
+      },
+      "status-task": {
+        "no-start": "未着手",
+        "start": "着手中",
+        "complete": "完了"
+      },
+      "createtaskbutton": "タスクを登録",
+      "createtask": "タスクを登録",
+      "registermilestone": "マイルストーンを登録",
+      "popup": {
+        "verification": "確認",
+        "cancel": "キャンセル",
+        "delete": "削除",
+        "youcantsubtasktoincomplete": "完了したタスクに未完了のサブタスクが含まれています。処理を選択してください。",
+        "movetoincompleteforeachtask": "サブタスクも完了",
+        "subtaskalsocomplete": "サブタスクも完了",
+        "convertsubtasktotask": "サブタスクをタスクに変換",
+        "deletesubtask": "サブタスクも削除",
+        "pleaseselectanoption": "削除するタスクにサブタスクが含まれています。処理を選択してください。",
+        "tasktodeletecontainsubtask": "削除するタスクにサブタクが含まれています",
+        "areyousuretodeletetask": "タスクを削除してもよろしいですか？"
+      },
+      "statustask": ["未着手", "着手中", "完了済み"],
+      "card": {
+        "customer": "顧客",
+        "product": "商品",
+        "task": "タスク",
+        "term": "期限 :",
+        "milestone": "マイルストーン",
+        "subtask": "サブタスク",
+        "plan": "予定",
+        "currentschedule": "現在のスケジュール",
+        "consultation": "相談",
+        "eigorou": "えいぎょうたろう",
+        "employeetaro": "社員太郎"
+      },
+      "top": {
+        "searchplaceholder": "タスクを検索",
+        "updatetonotstart": "未着手にする",
+        "updatetoworking": "着手中にする",
+        "updatetofinish": "完了にする",
+        "title": {
+          "btn-edit": "簡易編集",
+          "btn-cancel": "キャンセル",
+          "btn-save": "変更を保存"
+        }
+      },
+      "left": {
+        "customertasklist": "顧客リストのタスク",
+        "favoritelist": "お気に入りリスト",
+        "personincharge": "担当者",
+        "searchpersontodisplay": "表示する担当者を検索",
+        "department": "部署",
+        "employee": "社員",
+        "group": "グループ",
+        "period": "期間",
+        "alltime": "全期間",
+        "periodspecification": "期間指定",
+        "choose_employee": "この社員のみ表示",
+        "remove_employee": "この社員を除外",
+        "choose_departerment": "この部署を除外",
+        "remove_departerment": "このグループを除外"
+      },
+      "importtask": "タスクをインポート"
+    },
+    "create-edit": {
+      "button": {
+        "cancel": "キャンセル",
+        "create": "登録",
+        "edit": "保存",
+        "confirm_sub_done": "サブタスクも完了",
+        "confirm_sub_to_primary": "サブタスクをタスクに変換"
+      },
+      "title": {
+        "confirm-subtask": "完了したタスクに未完了のサブタスクが含まれています。処理を選択してください。"
+      },
+      "label": {
+        "require": "必須",
+        "register": "タスク登録",
+        "task-edit": "タスク編集",
+        "subtask-register": "サブタスク登録",
+        "subtask-edit": "サブタスク編集",
+        "file": "ファイル添付",
+        "subtask": "サブタスク名",
+        "taskname": "タスク名",
+        "status": "ステータス",
+        "customer": "顧客名",
+        "product": "取引商品",
+        "operators": "担当者",
+        "startDate": "開始日",
+        "finishDate": "完了予定日",
+        "public": "公開設定",
+        "memo": "メモ",
+        "subtaskName": "サブタスク名",
+        "registerSubtask": "サブタスク登録",
+        "milestone": "マイルストーン",
+        "confirm-subtask": "確認",
+        "cancel-popup": "キャンセル",
+        "status-task": {
+          "no-start": "未着手",
+          "start": "着手中",
+          "complete": "完了"
+        },
+        "createdDate": "登録日",
+        "createdUser": "登録者",
+        "updatedDate": "最終更新日",
+        "updatedUser": "最終更新者",
+        "registeredAuto": "自動で登録されます。"
+      },
+      "placeholder": {
+        "file": "クリックするか、ファイルをドロップしてください",
+        "subtask": "サブタスクを追加",
+        "taskname": "タスク名を入力",
+        "status": "ステータスを選択",
+        "customer": "顧客名を追加",
+        "product": "取引商品を追加",
+        "operators": "担当者を追加",
+        "startDate": "開始日を追加",
+        "finishDate": "完了予定日を追加",
+        "public": "公開する",
+        "memo": "メモ",
+        "subtaskName": "サブタスク名を入力",
+        "milestone": "マイルストーンを選択",
+        "taskId": "自動で採番されます",
+        "suggest-single": "{{placeholder}}を選択",
+        "suggest-multi": "{{placeholder}}を追加"
+      },
+      "confirm-delete-subtask": {
+        "title": "確認",
+        "message": "削除するタスクにサブタスクが含まれています。処理を選択してください。",
+        "delete-subtask": "物理削除する。",
+        "delete-subtask-relation": "タスク・サブタスクの紐付けを解除",
+        "cancel": "キャンセル"
+      }
+    },
+    "detail": {
+      "form": {
+        "product": {
+          "tradingProduct": "取引商品",
+          "product": "商品",
+          "customerName": "顧客名",
+          "customerContactPerson": "客先担当者",
+          "personInCharge": "担当者",
+          "progress": "進捗状況",
+          "completionDate": "完了予定日",
+          "amountOfMoney": "金額",
+          "total": "合計",
+          "moneyType": "円"
+        },
+        "button-setting": "画面編集",
+        "task-name": "タスク名",
+        "memo": "メモ",
+        "employee": "担当者",
+        "firt-n": "他",
+        "last-n": "名",
+        "start-date": "開始日",
+        "end-date": "完了予定日",
+        "customer-name": "顧客名",
+        "milestone-name": "マイルストーン",
+        "files": "ファイル添付",
+        "status": "ステータス",
+        "isdone": "公開設定",
+        "is-public-true": "公開する",
+        "is-public-false": "非公開する",
+        "isdone-0": "非公開する",
+        "subtask": "サブタスク",
+        "year": "年",
+        "month": "月",
+        "date": "日",
+        "time": "火",
+        "text": "削除するタスクにサブタスクが含まれています。処理を選択してください。",
+        "text-delete-3": "サブタスクをタスクに変換",
+        "button-update": "完了にする",
+        "not-start": "未着手",
+        "started": "着手中",
+        "finished": "完了",
+        "button-preview": "登録画面プレビュー",
+        "label-infor": "タスクのサンダルデータ"
+      },
+      "info": {
+        "infoScroll": "上にスクロールできる。"
+      }
+    }
+  }
+}

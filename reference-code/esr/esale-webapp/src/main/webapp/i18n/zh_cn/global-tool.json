@@ -1,0 +1,61 @@
+﻿{
+  "global-tool": {
+    "footer": {
+      "private.policy": "隐私政策",
+      "term.service": "使用规约",
+      "copyright": "@SOFTBRAIN CO.,Ltd."
+    },
+    "messages": {
+      "validate": {
+        "newpassword": {
+          "required": "请输入密码。",
+          "minlength": "请输入8个字符以上的密码。",
+          "maxlength": "请输入32个字符以下的密码。"
+        },
+        "confirmpassword": {
+          "required": "请输入确认密码。",
+          "minlength": "请输入8个字符以下的确认密码。",
+          "maxlength": "请输入32个字符以下的确认密码。",
+          "dontmatch": "密码不匹配!"
+        },
+        "milestonename": {
+          "required": "请输入里程碑名称。",
+          "maxlength": "里程碑名称不能超过255个字符。"
+        }
+      },
+      "scheduleTitle": "时间表"
+    },
+    "recenttodolist": "最近的工作列表（{{count}}件）",
+    "lastcompletetask": "最后完成的任务（{{count}}件)",
+    "customer": "客户",
+    "product": "产品",
+    "task": "任务",
+    "recenttask": "最新任务",
+    "createtask": "注册任务",
+    "createmilestone": "注册里程碑",
+    "deadline": "期限",
+    "milestone": "里程碑",
+    "subtasks": "子任务",
+    "personincharge": "负责人",
+    "currentschedule": "当前时间表",
+    "consultation": "曾经见过",
+    "plan": "计划",
+    "left": "其他{{number}}个人",
+    "popup": {
+      "delete": "删除",
+      "taskdeletecontainsubtask": "要删除的任务包含子任务。请选择处理。",
+      "deletesubtask": "同时删除子任务",
+      "convertsubtasktotask": "将子任务转换为任务",
+      "cancel": "取消",
+      "areyousuredelete": "您确定要删除任务吗？",
+      "areyousuredeltemilestone": "您确定要删除里程碑吗？",
+      "confirm": "确认",
+      "completetaskincludesubtasknotcomplete": "您刚选择完成的任务包含未完成的子任务。请选择一种处理方式。",
+      "subtaskalsocomplete": "同时完成子任务",
+      "completetask": "完成任务",
+      "milestoneincludenotcompletetask": "您刚选择完成的里程碑包含任务。请选择一种处理方式。"
+    },
+    "eigorou": "太郎业务",
+    "employeetaro": "太郎员工"
+  }
+}

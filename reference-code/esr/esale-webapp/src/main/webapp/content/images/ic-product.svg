@@ -1,0 +1,9 @@
+<svg id="ic-sidebar-product" xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16">
+  <path id="_7" data-name="7" d="M-334,275.5h-9l-4,2v10a2,2,0,0,0,2,2h12a2,2,0,0,0,2-2v-10Z" transform="translate(348 -273.5)"/>
+  <path id="_6" data-name="6" d="M-334,287.5h-12a2,2,0,0,1-2-2v-10h16v10a2,2,0,0,1-2,2" transform="translate(348 -273.5)" fill="#ffc86c"/>
+  <path id="_5" data-name="5" d="M16,2H0L4,0h9Z" fill="#bf7d06"/>
+  <path id="_4" data-name="4" d="M10,9,9,8.43,8,9,7,8.43,6,9V2h4Z" fill="#ff5c5c"/>
+  <path id="_3" data-name="3" d="M10,2H6L7,0H9Z" fill="#8c1515"/>
+  <rect id="_2" data-name="2" width="1.89" height="1" transform="translate(2.08 11.34)" fill="#999"/>
+  <rect id="_1" data-name="1" width="1.89" height="1" transform="translate(4.97 11.34)" fill="#999"/>
+</svg>

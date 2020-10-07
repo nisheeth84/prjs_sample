@@ -1,0 +1,47 @@
+<pm-loading>
+    <div if="{visible}" class="pm-loading__bg">
+        <div class="pm-loading__loader vertical-align text-center">
+            <div class="loader vertical-align-middle loader-round-circle"></div>
+        </div>
+    </div>
+    <script>
+        const tag = this;
+        const obs = tag.parent.obs
+        tag.observer = obs;
+        tag.observer.on("pm-loader-show", function(value) {
+            tag.visible = true
+            tag.update()
+        });
+        tag.observer.on("pm-loader-hide", function(value) {
+            tag.visible = false
+            tag.update()
+        });
+        tag.visible = false
+    </script>
+    <style>
+        .pm-loading__bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            background: #fff;
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+        .pm-loading__loader {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            margin-top: -100px;
+            margin-left: -100px;
+            text-align: center;
+            color: #fff;
+            z-index: 2;
+        }
+
+    </style>
+</pm-loading>

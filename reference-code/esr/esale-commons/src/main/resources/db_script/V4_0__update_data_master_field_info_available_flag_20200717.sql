@@ -1,0 +1,1 @@
+UPDATE field_info SET "available_flag" = 3 WHERE "field_id" IN ( 146, 147, 148, 149 )

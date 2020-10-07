@@ -1,0 +1,1 @@
+UPDATE "services_info" SET "icon_path" = '/content/images/ic-sidebar-sales.svg', "service_path" = '/sales/list' WHERE "service_id" = 16;

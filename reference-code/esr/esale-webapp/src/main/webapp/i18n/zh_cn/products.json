@@ -1,0 +1,252 @@
+{
+  "products": {
+    "edit-simple-text": "已更新。",
+    "popup": {
+      "move-to-category": {
+        "title": "移动类别",
+        "parentId": "类别名称 ",
+        "parentId.placeHolder": "选择类别名",
+        "cancel": "取消",
+        "confirm": "OK",
+        "confirmChanges": "修订内容"
+      }
+    },
+    "list-view": {
+      "sort": {
+        "label": "排序",
+        "asc": "升序",
+        "desc": "降序",
+        "product-code": "产品代码",
+        "product-name": "产品名称",
+        "unit-price": "单价",
+        "product-category": "类别"
+      }
+    },
+    "create-set": {
+      "title": "创建套组",
+      "title-edit": "编辑套组",
+      "product-linked": "产品细目",
+      "product-linked-placeholder": "添加产品",
+      "product-set-image": "产品套组图像",
+      "platehoder-upload": "请点击或将文件放下",
+      "isDisplay-label1": "显示插头",
+      "isDisplay-label2": "显示",
+      "product-code": "自动编号",
+      "category-name": "选择类别名称",
+      "date-create": "自动注册",
+      "label-prefix": "套组",
+      "placeholder-category": "选择类别名称",
+      "placeholder-type-product": "选择产品类型",
+      "placeholder-type-product-set": "选择产品套组类型",
+      "btn-edit": "编辑",
+      "btn-create": "创建",
+      "product-relation-id": "添加产品",
+      "th-product": "产品信息",
+      "th-quantity": "数量",
+      "th-total": "合计"
+    },
+    "list": {
+      "label": {
+        "is-display": {
+          "true": "显示",
+          "false": "隐藏"
+        }
+      }
+    },
+    "top": {
+      "is-contain-category-child": "在子类别下也显示产品",
+      "title": {
+        "btn-registration": "注册产品",
+        "register-product": "注册产品",
+
+        "create-product-set": "创建套组",
+        "move-category": "移动类别",
+        "btn-export": "导出",
+        "btn-delete": "清除",
+        "switch-display": "切换显示",
+        "switch-view": "板块视图",
+
+        "create-product-set-list": "注册产品套组",
+        "edit-product-set": "编辑套组",
+        "create-category": "添加类别",
+        "import-product": "导入产品",
+        "import-product-breakdown": "产品细目导入",
+        "btn-edit": "简单编辑",
+        "btn-cancel": "取消",
+        "btn-save": "保存更改"
+      },
+      "place-holder": {
+        "search": "搜索产品",
+        "searching": "编辑详细的搜索条件"
+      },
+      "dialog": {
+        "title-delete-products": "删除",
+        "message-delete-products": "产品将被删除。您确定吗？",
+        "confirm-delete-products": "删除",
+        "cancel-text": "取消",
+        "confirm-delete-products1": "删除所选产品后，产品套组中包含的产品将丢失，因此产品套组也将被删除。 您确定要删除吗？",
+        "confirm-delete-products2": "将删除套组中包含的产品。您确定要删除吗？"
+      }
+    },
+    "detail": {
+      "label": {
+        "title.create": "已进行新的注册。",
+        "title.update": "以下项目已得到更新。",
+        "title.insert": "已被添加。",
+        "title.updateSet": "已被更改。",
+        "title.delete": "已被删除。",
+        "title.reasonEdit": "变更的原因",
+        "content.create": " 否",
+        "department.name": "的上级已设置。",
+        "button.edit": "编辑画面",
+        "button.cancel": "取消",
+        "button.save": "保存",
+        "button.follow": "关注",
+        "button.unfollow": "取消关注",
+        "button-create": "注册",
+        "button-edit": "保存",
+        "button.delete": "DELETE",
+        "button.deleteSet": "删除产品和套组",
+        "button.preview": "预览注册画面",
+        "manager": "上级",
+        "subordinate": "下属",
+        "tab.customer": "客户",
+        "tab.businessCard": "名片",
+        "tab.calendar": "日历",
+        "tab.task": "任务",
+        "tab.group": "在参与的群组",
+
+        "tab.productSets": "包含此产品的套组",
+        "tab.productOfSets": "包含此套组的产品",
+        "tab.productTrading": "交易产品",
+        "tab.productHistory": "修订记录",
+        "label.addSet": "套组",
+        "total": "合计",
+        "suffix.name": "已更改",
+
+        "product.id": "产品套组代码",
+        "product.name": "产品套组名称",
+        "product.imagename": "产品套组图像",
+        "product.typeid": "产品套组类型",
+        "product.unitprice": "套组单价"
+      },
+      "title": {
+        "popupErrorMessage.delete": "删除",
+        "popupChangeStatus": "确认"
+      },
+      "warning": {
+        "popupErrorMessage.delete": "由于存在链接数据，因此无法删除。"
+      },
+      "suggest": {
+        "popupErrorMessage.delete": "请删除数据，然后再次删除。"
+      },
+      "error": {
+        "delete": {
+          "countCustomers": "由{{employeeName}}被设置为负责人的客户：{{count}}件",
+          "countSchedules": "由{{employeeName}}被设置为参与者的时间表：{{count}}件",
+          "countSaleProducts": "{{employeeName}}已交易的产品：{{count}}件 ",
+          "countNameCards": "{{employeeName}}已收到的名片：{{count}}件",
+          "countTimeLines": "{{employeeName}}的时间轴上的帖子和评论数：{{count}}件",
+          "countTimeLineGroups": "{{employeeName}}参与的时间轴上的组数：{{count}}件",
+          "countTimeLineGroupsFavorites": "{{employeeName}}的喜爱时间轴上的组数：{{count}}件",
+          "countTimeLineWatchs": "{{employeeName}}关注的时间轴上的对象数：{{count}}件",
+          "countTimeLineNotices": "发送到{{employeeName}}的时间轴的通知数：{{count}}件",
+          "countTimeLineStars": "{{employeeName}}的喜爱时间轴上的帖子数：{{count}}件",
+          "countTimeLineReactions": "{{employeeName}}的时间轴上的反馈信息件数：{{count}}件",
+          "countTimeLineFilters": "{{employeeName}}的时间轴上已过滤的信息件数：{{count}}件",
+          "countActivities": "{{employeeName}}已报告的活动：{{count}}件",
+          "countAnalysisReports": "{{employeeName}}作为参与者报告的报告：{{count}}件",
+          "countTodos": "{{employeeName}}被设置为负责人的任务：{{count}}件",
+          "countOcrNameCards": "{{employeeName}}从应用程序获取的名片：{{count}}件"
+        }
+      }
+    },
+    "sidebar": {
+      "title": {
+        "all-product": "所有产品",
+        "categories": "类别"
+      }
+    },
+    "category": {
+      "form": {
+        "title": {
+          "regis": "创建类别",
+          "edit": "编辑类别",
+          "createProduct": "注册产品",
+          "editProduct": "编辑产品"
+        },
+        "button": {
+          "cancel": "取消",
+          "regis": "创建",
+          "edit": "保存",
+          "create": "注册"
+        },
+        "name": "类别名称 ",
+        "name-placeholder": "输入类别名称",
+        "parentId": "父类别",
+        "category-placeholder": "选择类别名称",
+        "createDate": "注册日期",
+        "createBy": "注册者",
+        "updateDate": "最后更新日期",
+        "updateBy": "最终更新者",
+        "show-language": "显示其他语言",
+        "hide-language": "隐藏其他语言"
+      },
+      "category-regist-edit": {
+        "form": {
+          "title.regist": "注册部门",
+          "title.edit": "编辑部门",
+          "departmentName": "部门名称",
+          "departmentName.placeholder": "输入部门名称",
+          "managerId": "上级",
+          "managerId.default": "选择上级",
+          "parentId": "所属部门",
+          "parentId.default": "选择所属部门",
+          "button.regist": "注册",
+          "button.edit": "保存",
+          "button.cancel": "取消",
+          "button.confirm": "确认",
+          "button.close": "×",
+          "required": "必须"
+        }
+      }
+    },
+    "category-card": {
+      "submenu": {
+        "edit-category": "编辑类别",
+        "delete-category": "删除类别",
+        "add-category-child": "添加子类别"
+      }
+    },
+    "popupComfirm": {
+      "title": "保存已编辑的套组",
+      "label": "变更的原因",
+      "CompareNamme": "产品名称"
+    },
+    "product-view": {
+      "unit-price": "单价",
+      "product-code": "产品代码",
+      "category-name": "类别"
+    },
+    "displayCondition": {
+      "buttonShowCondition": "详细的搜索条件",
+      "form": {
+        "conditionSearch": "详细的搜索条件",
+        "filter": "筛选条件",
+        "conditionSave": "保存自动添加列表的条件"
+      },
+      "buttonShowScroll": "全部显示"
+    },
+    "japanese": "日本語",
+    "english": "English(US)",
+    "chinese": "中文（简体）",
+    "confirm-edit": "以下更改将得到反映。您确定吗？",
+    "reason-edit": "变更的原因",
+    "product-name": "产品套组名称",
+    "set-name": "套组名称",
+    "delete-product-and-set": "删除产品和套组",
+    "item-drag": {
+      "list": " 移动项目"
+    }
+  }
+}

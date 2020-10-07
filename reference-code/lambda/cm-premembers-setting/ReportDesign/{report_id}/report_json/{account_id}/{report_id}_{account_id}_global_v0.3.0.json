@@ -1,0 +1,59 @@
+{
+    "account": "109054975408",
+    "region": "global",
+    "schema_version": "1.0",
+    "report_name": "TESTREPORT", 
+    "IAM":{ // {report_id}/resource/{account_id}/global/IAM.json
+        "iam_user": [ // iam_user
+            {
+                "user_name": "cm-abe.shinya",// userName
+                "password": true, //  PasswordLastUsedから取得ができればtrue PasswordLastUsedの項目が無ければfalse
+                "access_key": [true,true], // access_keyから取得 AccessKeyのStatusを反映
+                "mfa": true, // mfaの項目があればtrue
+                "password_last_used": "2017-08-15T16:10:26.060358", //この段階ではUTC
+                "create_date": "2017-08-15T16:10:26.060358" // この段階ではUTC
+            }
+        ],
+        "access_key":[ //access_key
+            {
+                "user_name": "cm-abe.shinya", // UserName
+                "access_key_id" : "Axxxxxxxxxxxxx", //AccessKeyId
+                "create_date": "2017-08-15T16:10:26.060358", // この段階ではUTC
+                "last_used_date"  : "2017-08-15T16:10:26.060358", // この段階ではUTC get_access_key_last_usedから取得
+                "status" :"Active" //Status
+            }
+        ],
+        "group":[ // group
+            {
+                "group_name" : "cm-di", // GroupName
+                "user" : ["cm-abe.shinya", "cm-inage.toru", "cm-kajiwara", "cm-tago.masayuki"], //user
+                "managed_policies": ["AmazonRDSFullAccess","AmazonEC2FullAccess","AmazonS3FullAccess","AmazonRedshiftFullAccess","AmazonSESFullAccess","AmazonSNSFullAccess"], // managed_policies
+                "inline_policies": ["Force_MFA","switch-role"], // inline_policies
+                "create_date": "2017-08-15T16:10:26.060358" // Create_date この段階ではUTC
+            }
+        ],
+        "role":[ // role
+            {
+                "role_name":"cm-helpdesk",// RoleName
+                "description": "",//Description
+                "managed_policies": [], // managed_policies
+                "inline_policies": [],// inline_policies
+                "principal_account_id" : [
+                    "arn:aws:iam::245619162629:root",
+                    "arn:aws:iam::344117861442:root"
+                ], // AssumeRolePolicyDocument > Statement > Principalの中にAWSの値があれば、そのオブジェクトの値(複数の場合も有り)
+                "create_date": "2017-08-15T16:10:26.060358" // Create_date この段階ではUTC
+            }
+        ]
+    },
+    "CloudTrail":{ //{report_id}/resource/{account_id}/global/CloudTrail.json
+        "trail":{ // trail
+            "name":"default", //Name
+            "region":"ap-northeast-1", // hHomeRegion
+            "is_logging":true, // trail_status > IsLogging 
+            "s3_bucketName": "cloudtrail-ap-northeast-1-216054658829" // S3BucketName
+        }
+        
+    }
+
+}

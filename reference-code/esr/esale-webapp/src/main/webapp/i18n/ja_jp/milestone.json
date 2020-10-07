@@ -1,0 +1,78 @@
+{
+  "milestone": {
+    "create-edit": {
+      "title": "マイルストーン登録",
+      "title-edit": "マイルストーン編集",
+      "menu": {
+        "menu-status-not-started": "未着手",
+        "menu-status-at-work": "着手中",
+        "menu-status-over": "完了"
+      },
+      "form": {
+        "milestone-name": "マイルストーン名",
+        "milestone-name-placeholder": "マイルストーン名を入力",
+        "finnish-date": "完了予定日",
+        "finnish-date-placeholder": "完了予定日を追加",
+        "isdone": "完了設定",
+        "isdone-comment": "このマイルストーンを完了にする",
+        "comment": "メモ",
+        "comment-placeholder": "メモを入力",
+        "create-date": "登録日",
+        "create-per": "登録者",
+        "update-date": "最終更新日",
+        "update-per": "最终更新者",
+        "default": "自動で登録されます",
+        "required": "必須",
+        "button-create": "登録",
+        "button-edit": "保存",
+        "button-cancel": "キャンセル",
+        "message-required": "マイルストーン名を入力してください。",
+        "is-public-title": "公開設定",
+        "is-public-checkbox": "公開する",
+        "customer": "顧客名",
+        "customer-placeholder": "顧客を追加"
+      }
+    },
+    "detail": {
+      "popup-delete": {
+        "title": "削除",
+        "detail": "マイルストーンを削除してもよろしいですか？",
+        "button-delete": "削除",
+        "button-cancel": "キャンセル"
+      },
+      "popup-update-status": {
+        "title": "確認",
+        "detail_1": "完了したマイルストーンに未完了のタスクが含まれています。",
+        "detail_2": "処理を選択してください。",
+        "button-update": "タスクを完了",
+        "button-cancel": "キャンセル"
+      },
+      "form": {
+        "regist": "活動登録",
+        "milestone-name": "マ イ ル ス ト ー 名",
+        "comment": "メモ",
+        "task": "タスク",
+        "isdone-title": "完了設定",
+        "isdone": "完了",
+        "undone": "未完成",
+        "expected-date": "完了予定日",
+        "create-date": "登録日 : ",
+        "create-per": "登録者 : ",
+        "update-date": "最終更新日 : ",
+        "update-per": "最终更新者 : ",
+        "button-finish": "完了にする",
+        "count-task": "他の{{countTask}}名",
+        "customer": "顧客",
+        "buton-activity-history": "活動履歴",
+        "label-change-history-create": "新規に登録されました。",
+        "label-change-history-update": "以下の項目が更新されました。",
+        "history-year": "年",
+        "history-month": "月",
+        "history-day": "日",
+        "change-history": "変更履歴",
+        "tab-summary": "基本情報",
+        "tab-history": "変更履歴"
+      }
+    }
+  }
+}

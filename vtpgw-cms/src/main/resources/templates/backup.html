@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Backup</title>
+    <th:block th:insert="~{fragments/my-template :: link}"/>
+
+</head>
+
+<body>
+
+<div class="d-flex" id="wrapper">
+
+    <div th:insert="~{fragments/my-template :: side-bar}"></div>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div th:insert="~{fragments/my-template :: header}"></div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        <div style="width: 70%;" class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" th:checked="false" th:id="select-all">
+                            <label class="custom-control-label th-table"
+                                   th:for="select-all">Version</label>
+                        </div>
+                    </th>
+                    <th class="th-table" style="width: 30%;">Updated</th>
+                </tr>
+                </thead>
+                <tbody id="listBackup">
+                <tr>
+                    <td>
+                        <div style="width: 70%;" class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="cb-">
+                            <label class="custom-control-label" for="cb-">2135747758767</label>
+                        </div>
+                    </td>
+                    <td style="width: 30%;">2020-02-02 08:00:00</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="width: 70%;" class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="cb-">
+                            <label class="custom-control-label" for="cb-">21436585788</label>
+                        </div>
+                    </td>
+                    <td style="width: 30%;">2020-02-02 08:00:00</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="width: 70%;" class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="cb-">
+                            <label class="custom-control-label" for="cb-">90785343323</label>
+                        </div>
+                    </td>
+                    <td style="width: 30%;">2020-02-02 08:00:00</td>
+                </tr>
+                </tbody>
+            </table>
+            <nav aria-label="Page" class="float-right">
+                <ul class="pagination" id="pagination"></ul>
+            </nav>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+</div>
+<!-- /#wrapper -->
+
+<th:block th:insert="~{fragments/my-template :: body/script}"/>
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/twbsPagination.js}"></script>
+<script th:src="@{/js/backup.js}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+export interface FieldInfoItem {
+  fieldId: number;
+  fieldBelong?: number;
+  fieldName?: string;
+  fieldLabel?: string;
+  fieldType?: number;
+  fieldOrder?: number;
+  isDefault?: boolean;
+  maxLength?: number;
+  modifyFlag?: number;
+  availableFlag?: number;
+  isDoubleColumn?: boolean;
+  ownPermissionLevel?: any;
+  othersPermissionLevel?: any;
+  defaultValue?: string;
+  currencyUnit?: string;
+  typeUnit?: number;
+  decimalPlace?: number;
+  urlType?: number;
+  urlTarget?: string;
+  urlEncode?: number;
+  urlText?: string;
+  linkTarget?: any;
+  configValue?: string;
+  isLinkedGoogleMap?: boolean;
+  fieldGroup?: number;
+  lookupData?: any;
+  relationData?: any;
+  tabData?: Array<any>;
+  updatedDate?: string;
+  fieldItems?: Array<any>;
+  relationFieldId?:any;
+}

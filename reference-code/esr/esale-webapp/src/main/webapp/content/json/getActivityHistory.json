@@ -1,0 +1,120 @@
+{
+  "data": {
+    "getActivityHistory": {
+      "activityHistories": [
+        {
+          "activityHistoryId": 3087,
+          "activityId": 3396,
+          "updatedDate": "2007-03-05T10:00:00Z",
+          "updatedUser": {
+            "employeeId": 1,
+            "employeeName": "春山 96",
+            "employeeSurname": "春山",
+            "employeePhoto": {
+              "filePath": "abc",
+              "fileName": "abc"
+            }
+          },
+          "contentChange": {
+            "memo": {
+              "new": "memo 2",
+              "old": "memo"
+            },
+            "customerId": {
+              "new": 2,
+              "old": 1
+            },
+            "activityDuration": {
+              "new": 30,
+              "old": 20
+            }
+          }
+        },
+        {
+          "activityHistoryId": 3087,
+          "activityId": 3396,
+          "updatedDate": "2007-03-05T10:00:00Z",
+          "updatedUser": {
+            "employeeId": 1,
+            "employeeName": "春山 96",
+            "employeeSurname": "春山",
+            "employeePhoto": {
+              "filePath": "abc",
+              "fileName": "abc"
+            }
+          },
+          "contentChange": {
+            "memo": {
+              "new": "memo 2",
+              "old": "memo"
+            },
+            "customerId": {
+              "new": 2,
+              "old": 1
+            },
+            "activityDuration": {
+              "new": 30,
+              "old": 20
+            }
+          }
+        },
+        {
+          "activityHistoryId": 3088,
+          "activityId": 3396,
+          "updatedDate": "2007-03-05T10:00:00Z",
+          "updatedUser": {
+            "employeeId": 1,
+            "employeeName": "春山 96",
+            "employeeSurname": "春山",
+            "employeePhoto": {
+              "filePath": "abc",
+              "fileName": "abc"
+            }
+          },
+          "contentChange": {
+            "memo": {
+              "new": "memo 2",
+              "old": "memo"
+            },
+            "customerId": {
+              "new": 2,
+              "old": 1
+            },
+            "activityDuration": {
+              "new": 30,
+              "old": 20
+            }
+          }
+        },
+        {
+          "activityHistoryId": 3089,
+          "activityId": 3396,
+          "updatedDate": "2007-03-05T10:00:00Z",
+          "updatedUser": {
+            "employeeId": 1,
+            "employeeName": "春山 96",
+            "employeeSurname": "春山",
+            "employeePhoto": {
+              "filePath": "abc",
+              "fileName": "abc"
+            }
+          },
+          "contentChange": {
+            "memo": {
+              "new": "memo 2",
+              "old": "memo"
+            },
+            "customerId": {
+              "new": 2,
+              "old": 1
+            },
+            "activityDuration": {
+              "new": 30,
+              "old": 20
+            }
+          }
+        }
+      ]
+    }
+  }
+}

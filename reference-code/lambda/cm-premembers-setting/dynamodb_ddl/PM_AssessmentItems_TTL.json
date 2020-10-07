@@ -1,0 +1,7 @@
+{
+    "TableName": "PM_AssessmentItems",
+    "TimeToLiveSpecification": {
+        "Enabled": true,
+        "AttributeName": "TimeToLive"
+    }
+}

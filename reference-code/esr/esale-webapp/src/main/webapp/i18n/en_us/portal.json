@@ -1,0 +1,43 @@
+{
+  "portal": {
+    "popupLogin": {
+      "hello": "Welcome",
+      "content": "e-Sales Manager system provides a collective management of information with features that can be used throughout the company. In addition to customer management and sales management, such features also include scheduling, business card management, timeline (internal SNS), etc...",
+      "footer": "With 30 days of free trial, you can easily use our service even if you have no experience on CRM/SFA before.",
+      "next": "Next"
+    },
+    "popupExperiment": {
+      "title": "Trial Instruction",
+      "content": "During the trial period, please follow the steps below to experience the benefits of CRM/SFA.",
+      "boxOneTitle": "Register customer information",
+      "boxOneContent": "Register real customer information to feel the efficiency.",
+      "boxTwoTitle": "Experience 5 transitions",
+      "boxTwoContent": "Experience efficiency through the \"transition\" of five activities in business.",
+      "button": "Click here for details",
+      "boxThree": "Improve productivity!",
+      "back": "Back"
+    },
+    "popupStart": {
+      "title": "Let's start!",
+      "contentOne": " eSales Manager Remix",
+      "contentTwo": "MS will help improve productivity of your enterprise.",
+      "button": "Start",
+      "footer": "Don't show me this introduction again."
+    },
+    "modalPortal": {
+      "title": "esm’s Beginner Portal",
+      "boxOneTitle": "Register your customer contact list!",
+      "boxOneContent": "Experience the convenience of ESM by importing your customer information into the system and performing the trial with real data.",
+      "boxOneButton": "Register all customer data at once",
+      "boxTwoTitle": "Invite team members!",
+      "boxTwoContent": "Invite team members via email to experience eSM‘S.",
+      "boxTwoButton": "Invite employees",
+      "boxThreeTitle": "Solve your problems!",
+      "boxThreeContent": "Solve your problems through case studies regarding use-case scenarios we have collected",
+      "boxThreeButton": "Show support site"
+    },
+    "importPortal": {
+      "apologize": "This part will be updated when the customer import screen is completed."
+    }
+  }
+}

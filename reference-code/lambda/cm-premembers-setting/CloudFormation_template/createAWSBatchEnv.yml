@@ -1,0 +1,101 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Build AWS Batch environment
+Parameters:
+  Env:
+    Description: 'Choose the environment to create: ''dev'' or ''stg'' or''prd'''
+    Type: String
+    Default: dev
+    AllowedValues:
+    - dev
+    - stg
+    - prd
+  AwsBatchServiceRoleArn:
+    Type: String
+    Default: arn:aws:iam::216054658829:role/service-role/AWSBatchServiceRole
+  ECSInstanceRole:
+    Type: String
+    Default: arn:aws:iam::216054658829:instance-profile/ecsInstanceRole
+  AWSBatchSubnets:
+    Type: List<AWS::EC2::Subnet::Id>
+    Description: The AWS Batch subnet Ids
+    Default: subnet-6172d128,subnet-9a2ecdc1
+  AWSBatchSecurityGroups:
+    Type: List<AWS::EC2::SecurityGroup::Id>
+    Description: The AWS Batch Security Group Ids
+    Default: sg-a27e4dc4, sg-9c685bfa
+  ServiceName:
+    Description: Name for the service
+    Type: String
+    Default: premembers
+    AllowedPattern: "[-_ a-zA-Z0-9]*"
+    ConstraintDescription: can contain only alphanumeric characters, spaces, dashes
+      and underscores.
+  FunctionName:
+    Description: Create AWS Butch Function Name
+    Type: String
+    Default: check
+    AllowedValues:
+    - check 
+    - report
+  AWSBuildRole:
+    Type: String
+    Default: arn:aws:iam::216054658829:role/service-role/code-build-ServerlessBuild-service-role
+Resources:
+### ---ComputeEnvironment---
+###
+  BatchEnv:
+    Type: "AWS::Batch::ComputeEnvironment"
+    Properties:
+      Type: MANAGED
+      ServiceRole: !Ref AwsBatchServiceRoleArn
+      ComputeEnvironmentName: !Sub ${ServiceName}-${FunctionName}-batch-compute-environment
+      ComputeResources:
+        MaxvCpus: 256
+        MinvCpus: 0
+        DesiredvCpus: 0
+        SecurityGroupIds: !Ref AWSBatchSecurityGroups
+        Type: EC2
+        Subnets: !Ref AWSBatchSubnets
+        InstanceRole: !Ref ECSInstanceRole
+        InstanceTypes:
+          - optimal
+      State: ENABLED
+###---Resources:JobQueue---
+###
+  JobQueue:
+    Type: AWS::Batch::JobQueue
+    Properties:
+      ComputeEnvironmentOrder:
+        - Order: 1
+          ComputeEnvironment: !Ref BatchEnv
+      State: ENABLED
+      Priority: 1
+      JobQueueName: !Sub ${ServiceName}-${FunctionName}-batch-job-queue
+###---Resources:Elastic Container Registry---
+###
+  JobContainerRegistry:
+    Type: "AWS::ECR::Repository"
+    Properties: 
+      RepositoryName: !Sub ${ServiceName}-${FunctionName}-batch
+      RepositoryPolicyText: 
+        Version: "2012-10-17"
+        Statement: 
+          - 
+            Sid: AllowPushPull
+            Effect: Allow
+            Principal: 
+              AWS: 
+                - !Ref AWSBuildRole
+              Service: codebuild.amazonaws.com
+            Action: 
+              - "ecr:GetDownloadUrlForLayer"
+              - "ecr:BatchGetImage"
+              - "ecr:BatchCheckLayerAvailability"
+              - "ecr:PutImage"
+              - "ecr:InitiateLayerUpload"
+              - "ecr:UploadLayerPart"
+              - "ecr:CompleteLayerUpload"
+Outputs:
+  ECRRegistory:
+    Value:
+      !Ref JobContainerRegistry

@@ -1,0 +1,8 @@
+{
+    "Error": {
+        "error_title": "リクエストされた処理が正常に完了しませんでした。",
+        "error_advice": "お手数ですが、お問い合わせフォームよりご連絡ください。",
+        "contact_us": "お問合せ",
+        "contact_us_url": "https://insightwatch.zendesk.com/hc/ja/requests/new"
+    }
+}

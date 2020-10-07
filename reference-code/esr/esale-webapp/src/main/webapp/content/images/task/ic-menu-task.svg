@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23.999" height="24" viewBox="0 0 23.999 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_2231" data-name="Rectangle 2231" width="23.999" height="24" transform="translate(24 3628)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_1" data-name="Group 1" transform="translate(-24 -3628)">
+    <g id="Group_3153" data-name="Group 3153" clip-path="url(#clip-path)">
+      <path id="Path_2572" data-name="Path 2572" d="M31.5,3646.5v-.5a.5.5,0,0,0-1,0v.5H28a2.5,2.5,0,0,1-2.5-2.5v-8a2.5,2.5,0,0,1,2.5-2.5h2.5v.5a.5.5,0,0,0,1,0v-.5H44a2.5,2.5,0,0,1,2.5,2.5v8a2.5,2.5,0,0,1-2.5,2.5Zm-.5-4a.5.5,0,1,0,.5.5.5.5,0,0,0-.5-.5m0-3a.5.5,0,1,0,.5.5.5.5,0,0,0-.5-.5m0-3a.5.5,0,1,0,.5.5.5.5,0,0,0-.5-.5" fill="#fff"/>
+      <path id="Path_2573" data-name="Path 2573" d="M44,3634a2,2,0,0,1,2,2v8a2,2,0,0,1-2,2H32a1,1,0,0,0-2,0H28a2,2,0,0,1-2-2v-8a2,2,0,0,1,2-2h2a1,1,0,0,0,2,0H44m-13,4a1,1,0,1,0-1-1,1,1,0,0,0,1,1m0,3a1,1,0,1,0-1-1,1,1,0,0,0,1,1m0,3a1,1,0,1,0-1-1,1,1,0,0,0,1,1m13-11H28a3,3,0,0,0-3,3v8a3,3,0,0,0,3,3h3v0H44a3,3,0,0,0,3-3v-8a3,3,0,0,0-3-3" fill="#fff"/>
+      <path id="Path_2574" data-name="Path 2574" d="M30,3637a1,1,0,0,1,1-1v-1a1,1,0,0,1-1-1H28a2,2,0,0,0-2,2v8a2,2,0,0,0,2,2h2a1,1,0,0,1,1-1v-1a1,1,0,0,1,0-2v-1a1,1,0,0,1,0-2v-1a1,1,0,0,1-1-1" fill="#bf6017"/>
+      <path id="Path_2575" data-name="Path 2575" d="M32,3643a1,1,0,0,1-1,1v1a1,1,0,0,1,1,1H44a2,2,0,0,0,2-2v-8a2,2,0,0,0-2-2H32a1,1,0,0,1-1,1v1a1,1,0,0,1,0,2v1a1,1,0,0,1,0,2v1a1,1,0,0,1,1,1" fill="#ff9a4c"/>
+      <rect id="Rectangle_2228" data-name="Rectangle 2228" width="4" height="2" transform="translate(34 3636)" fill="#ffd0a5"/>
+      <rect id="Rectangle_2229" data-name="Rectangle 2229" width="10" height="2" transform="translate(34 3639)" fill="#ffd0a5"/>
+      <rect id="Rectangle_2230" data-name="Rectangle 2230" width="10" height="2" transform="translate(34 3642)" fill="#ffd0a5"/>
+    </g>
+  </g>
+</svg>

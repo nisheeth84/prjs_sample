@@ -1,0 +1,15 @@
+{
+  "name": "dynamodb-local-admin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "set DYNAMO_ENDPOINT=http://localhost:8000 && dynamodb-admin"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "dynamodb-admin": "^1.12.0"
+  }
+}

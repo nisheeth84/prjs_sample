@@ -1,0 +1,16 @@
+{
+    "CheckHistory": {
+        "description_check_history": "過去のチェック結果のレポートをダウンロードできます。",
+        "execution_date_and_time": "実行日時",
+        "status": "ステータス",
+        "pdf": "PDF",
+        "no_output": "未出力",
+        "waiting": "待機中",
+        "checking_in_progress": "チェック実行中",
+        "check_execution_completed": "チェック実行完了",
+        "aggregating": "集計中",
+        "aggregation_complete": "集計完了",
+        "report_outputting": "レポート出力中",
+        "report_output_complete": "レポート出力完了"
+    }
+}

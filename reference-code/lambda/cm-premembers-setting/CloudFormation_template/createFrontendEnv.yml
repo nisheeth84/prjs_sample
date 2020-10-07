@@ -1,0 +1,56 @@
+Description: Premembers Frontend Environment
+Parameters:
+  Env:
+    Description: 'Choose the environment to create: ''Dev'' or ''Stg'' or''Prd'''
+    Type: String
+    Default: dev
+    AllowedValues:
+    - dev
+    - stg
+    - prd
+  ServiceName:
+    Description: Name for the service
+    Type: String
+    Default: premembers
+    AllowedPattern: "[-_ a-z0-9]*"
+    ConstraintDescription: can contain only alphanumeric characters, spaces, dashes
+      and underscores.
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: 
+        Fn::Join:
+          - "-"
+          - - Ref: ServiceName 
+            - Ref: Env
+            - 'website'
+            - 'bucket'
+      Tags:
+      - Key: Service
+        Value:
+          Ref: ServiceName
+      - Key: Env
+        Value:
+          Ref: Env
+      LoggingConfiguration:
+           DestinationBucketName:
+            Fn::Join:
+              - "-"
+              - - Ref: ServiceName 
+                - Ref: Env
+                - 's3'
+                - 'access'
+                - 'log'
+           LogFilePrefix: "website-bucket/" 
+    DeletionPolicy: Retain
+Outputs:
+  S3WebsiteBucket:
+    Value:
+      Ref: S3Bucket
+  WebsiteURL:
+    Value: !GetAtt [S3Bucket, WebsiteURL]
+    Description: URL for website hosted on S3
+  S3BucketSecureURL:
+    Value: !Join ['', ['https://', !GetAtt [S3Bucket, DomainName]]]
+    Description: Name of S3 bucket to hold website content

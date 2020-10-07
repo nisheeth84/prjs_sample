@@ -1,0 +1,101 @@
+{
+  "localNavigation": {
+    "allTimeline": 3,
+    "myTimeline": 2,
+    "favoriteTimeline": 2,
+    "groupTimeline": {
+      "joinedGroup": [
+        {
+          "groupId": 1,
+          "groupName": "GroupDD",
+          "newItem": 1
+        },
+        {
+          "groupId": 2,
+          "groupName": "GroupAAA",
+          "newItem": 2
+        },
+        {
+          "groupId": 3,
+          "groupName": "Group3",
+          "newItem": 3
+        }
+      ],
+      "favoriteGroup": [
+        {
+          "groupId": 10,
+          "groupName": "Group524",
+          "newItem": 7
+        },
+        {
+          "groupId": 1,
+          "groupName": "Group145",
+          "newItem": 4
+        },
+        {
+          "groupId": 2,
+          "groupName": "Group145",
+          "newItem": 1
+        },
+        {
+          "groupId": 3,
+          "groupName": "Group1747",
+          "newItem": 4
+        },
+        {
+          "groupId": 6,
+          "groupName": "Group17",
+          "newItem": 24
+        },
+        {
+          "groupId": 7,
+          "groupName": "Group42",
+          "newItem": 432
+        },
+        {
+          "groupId": 8,
+          "groupName": "Group441",
+          "newItem": 22
+        },
+        {
+          "groupId": 9,
+          "groupName": "Group1",
+          "newItem": 145
+        }
+      ],
+      "requestToJoinGroup": [
+        {
+          "groupId": 10001,
+          "groupName": "Group1",
+          "newItem": 1
+        },
+        {
+          "groupId": 10002,
+          "groupName": "Group1",
+          "newItem": 1
+        }
+      ]
+    },
+    "departmentTimeline": [
+      {
+        "departmentId": 1000,
+        "departmentName": "Group1",
+        "newItem": 1
+      }
+    ],
+    "customerTimeline": [
+      {
+        "listId": 1000,
+        "listName": "Group1",
+        "newItem": 1
+      }
+    ],
+    "businessCardTimeline": [
+      {
+        "listId": 1000,
+        "listName": "Group1",
+        "newItem": 1
+      }
+    ]
+  }
+}

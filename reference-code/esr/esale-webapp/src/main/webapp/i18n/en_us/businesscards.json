@@ -1,0 +1,261 @@
+{
+  "businesscards": {
+    "add-edit-list": {
+      "title": {
+        "show-language": "Show other languages"
+      }
+    },
+    "list": {
+      "isWorking": {
+        "working": "Working",
+        "notWorking": "Retired"
+      },
+      "saveMode": "Awaiting update",
+      "header": {
+        "companyName": "Customer name/Bussiness card name",
+        "positionName": "Department/Position",
+        "contactName": "Contact",
+        "address": "Contact"
+      }
+    },
+    "list-view": {
+      "sort": {
+        "label": "Sort",
+        "asc": "A to Z",
+        "desc": "Z to A",
+        "name": "Business card name",
+        "first-name": "Name",
+        "last-name": "Surname",
+        "position": "Position",
+        "receiver": "Recipient",
+        "receiver-number": "Number of recipients",
+        "receive-date": "Received date",
+        "updated-date": "Last updated date",
+        "last-contact-date": "Last contacted date"
+      }
+    },
+    "item-drag": {
+      "list": " Business card (total)"
+    },
+    "displayCondition": {
+      "buttonShowCondition": "Advanced search conditions",
+      "form": {
+        "conditionSearch": "Advanced search conditions",
+        "filter": "Filtering conditions",
+        "conditionSave": "Conditions to save automatically-added list"
+      }
+    },
+    "top": {
+      "title": {
+        "btn-registration": "Register business card",
+        "btn-import": "Import business card",
+        "btn-operation": "Control list",
+        "btn-add-to-list": "Add to list",
+        "btn-create-my-list": "Create my list",
+        "btn-create-shared-list": "Create shared list",
+        "btn-update-list": "Update list",
+        "btn-move-list": "Move to another list",
+        "btn-remove-from-list": "Remove from list",
+        "btn-edit": "Simple edit",
+        "btn-cancel": "Cancel",
+        "btn-save": "Save changes"
+      },
+      "place-holder.search": "Search Businesscard"
+    },
+    "sidebar": {
+      "title": {
+        "all-cards": "All business cards",
+        "receiver": " Received business cards",
+        "favorite-list": "Favorite list",
+        "my-list": "My list",
+        "shared-list": "Shared list"
+      },
+      "place-holder.search": "Search business card",
+      "card": {
+        "btn-refresh-auto-list": "Update list",
+        "btn-remove-from-favorite": "Remove from favorite",
+        "btn-add-to-favorite": "Add to favorite",
+        "btn-edit-list": "Edit list",
+        "btn-delete-list": "Delete list",
+        "btn-duplicate-list": "Copy list",
+        "change-to-shared-list": "Convert to shared list"
+      }
+    },
+    "popup": {
+      "add-card-to-list": {
+        "title": "Add to list",
+        "list-card": "List to add",
+        "placeholder": "Select a target list",
+        "btn-submit": "Add",
+        "err-not-select": "This is a required field. Please enter value."
+      },
+      "move-list": {
+        "title": "Move to another list",
+        "list-card": "List to move",
+        "list-card-default": "Select a target list",
+        "btn-submit": "Move",
+        "my-list": "My list",
+        "share-list": "Shared list",
+        "favorite-list": "Favorite list"
+      }
+    },
+    "mylist": {
+      "title": "Create my list",
+      "edit-title": "Edit my list",
+      "my-title": "List name",
+      "required": "※",
+      "lable-language": "Show other languages",
+      "lable-name-languageJp": "日本語",
+      "lable-name-languageEn": "English (US)",
+      "lable-name-languageZn": "中文 (簡体)",
+      "button-create": "Create",
+      "button-edit": "Update",
+      "radio-auto": "Auto-added",
+      "radio-manual": "Manual",
+      "mylist-name-placeholder": "Enter list name",
+      "mylist-radio-manual": "Type of list",
+      "mylist-radio-auto": "Type of list",
+      "setting-search-condition": "Edit search condition",
+      "is-overwrite": "Delete updated items that do not match with these conditions from the list.",
+      "button-cancel": "×",
+      "mylist-type": "Type of list",
+      "auto-group-condition-search-title": "Condition to search automatically-added list",
+      "list-update-time": "Update list automatically at {{0}} o’clock everyday",
+      "duplicate": "_Copied ({{n}})",
+      "duplicate-check": "_Copied",
+      "search-condition-input-placeholder": "Search item"
+    },
+    "detail": {
+      "label": {
+        "button.save": "Save",
+        "button.cancel": "Cancel",
+        "button.confirm": "Delete",
+        "button.confirmOnly": "Delete card only",
+        "button.confirmMulti": "Delete both",
+        "button.createFollowed": "Follow",
+        "button.deleteFolloweds": "Unfollow",
+        "button.displayArea": "Display range",
+        "button.editMode": "Edit screen",
+        "button.optionAll": "Show all",
+        "button.optionCost": "Show my contact only",
+        "button.optionCustomer": "All customers",
+        "button.optionOpen": "Currently displayed customer",
+        "button.sampleData": "Sample data of business card ",
+        "button.exampleData": "Preview registration",
+        "title.activityHistories": "Activity history",
+        "title.productTradings": "Trading product",
+        "title.calendar": "Calendar",
+        "title.delete": "Delete",
+        "active": "Familiar",
+        "lastContactDate": "Last contacted date",
+        "lastContact": "Last contacted person",
+        "more-receiver": "{{0}} others",
+        "badges.empty": "No plan"
+      }
+    },
+    "history": {
+      "title.info": " has been registered.",
+      "title.coherence": "Integrated.",
+      "title.update": "has been updated."
+    },
+    "sharelist": {
+      "lbCreateShare": "Create shared list",
+      "list-name-place-holder": "Enter list name",
+      "lbEditShare": "Edit shared list",
+      "lbSwitchShareType": "Convert to shared group",
+      "lbCreateShareWith": " item(s) will be added to a new group",
+      "btnUpdate": "Update",
+      "btnCreate": "Create",
+      "radHideOtherLanguage": "Hide other languages",
+      "radShowOtherLanguage": "Show other languages",
+      "lbRequire": "※",
+      "lbShareName": "List name",
+      "hintShareName": "Enter list name",
+      "list-participants": "Participants",
+      "lbListParticipants": "Participants",
+      "hintListParticipants": "Add participant",
+      "icCompany": " Co.",
+      "lbSearchCondition": "Search condition for automatically-added list",
+      "lbSettingSearch": "Edit search condition",
+      "lbNoteForCheckBox": "Delete updated items that do not match with these conditions from the list.",
+      "hintJapanese": "(日本語)",
+      "hintChinese": "(中文（简体）)",
+      "hintEnglish": "(English （US）)",
+      "hintKorean": "(한국어)",
+      "lbGroupType": "Type of list",
+      "radManual": "Manual",
+      "radAuto": "Auto-added",
+      "permision.viewer": "Viewer",
+      "permision.owner": "Owner",
+      "list-update-time": "Update group automatically at {{0}} o’clock everyday",
+      "duplicate": "_Copied ({{n}})",
+      "duplicate-check": "_Copied"
+    },
+    "transfer": {
+      "lbInput": "Target customer",
+      "placeholder": "Select target customer",
+      "tilte": "Transfer",
+      "buttomSubmit": "Transfer",
+      "buttomCancel": "Cancel"
+    },
+    "auto": {
+      "right": "Add new",
+      "placeholder": "Advanced search"
+    },
+    "create-edit": {
+      "modal-heading-create": "Register business card",
+      "modal-heading-edit": "Edit business card",
+      "label-name-group": "Business card name",
+      "label-name-kana-group": "Business card name (kana)",
+      "label-department-group": "Department/Position",
+      "employee-id": "Recipient",
+      "employee-id-placeholder": "Select recipient",
+      "receive-date": "Received date",
+      "receive-person": "Recipient",
+      "receive-date-placeholder": "Enter received date",
+      "button-create": "Register",
+      "button-edit": "Save",
+      "button-cancel": "Cancel",
+      "button-add-receive": "Add recipient",
+      "created-date": "Registration date",
+      "created-user": "Registrant",
+      "updated-date": "Last updated date",
+      "updated-user": "Last updated person",
+      "auto-generate": "Automatically registered",
+      "auto-update": "Automatically updated",
+      "last-contract-date": "Last contacted date",
+      "isWorking": "Working ",
+      "notWorking": "Retired",
+      "working": "Working",
+      "isRequired": "※",
+      "inputPlaceHolder": " ",
+      "customer-name-placeholder": "Select customer name",
+      "input": " "
+    },
+    "merge-business-card": {
+      "btn-merge": "Integrate",
+      "manual-input": "Enter manually",
+      "placeholder": "Add business card",
+      "select-all": "Select all",
+      "select-item": "Select items to keep when integrating",
+      "union": "Integrate",
+      "cannot-enter": "Cannot enter value"
+    },
+    "detailHistory": {
+      "titleOne": "This business card information is obtained at this time",
+      "titleTwo": " ",
+      "buttonBackToNow": "Lastest info",
+      "comapnyName": "Customer name",
+      "urlTarget": "Displayed text",
+      "urlText": "Linked URL",
+      "recievesDate": "(Date of receipt:",
+      "recievesItem": "Receiver"
+    },
+    "calendarTab": {
+      "month": "Month",
+      "week": "Week",
+      "list": "List",
+      "now": "Today"
+    }
+  }
+}

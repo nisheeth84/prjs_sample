@@ -1,0 +1,51 @@
+{
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "ExclusionItemID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "CheckItemCode",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "AccountRefineCode",
+            "AttributeType": "S"
+        }
+    ],
+    "TableName": "PM_ExclusionItems",
+    "KeySchema": [
+        {
+            "AttributeName": "ExclusionItemID",
+            "KeyType": "HASH"
+        }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+        {
+            "IndexName": "AccountRefineIndex",
+            "KeySchema": [
+                {
+                    "AttributeName": "AccountRefineCode",
+                    "KeyType": "HASH"
+                },
+                {
+                    "AttributeName": "CheckItemCode",
+                    "KeyType": "RANGE"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "INCLUDE",
+                "NonKeyAttributes": [
+                    "OrganizationID",
+                    "ProjectID",
+                    "AWSAccount",
+                    "ExclusionComment",
+                    "UserID",
+                    "MailAddress",
+                    "CreatedAt"
+                ]
+            }
+        }
+    ]
+}

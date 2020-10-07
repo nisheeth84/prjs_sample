@@ -1,0 +1,12 @@
+{
+    "logGroupName": "CloudTrail/CIS3",
+    "filterName": "CIS-3-10",
+    "filterPattern": "{ ($.eventName = AuthorizeSecurityGroupIngress) || ($.eventName = AuthorizeSecurityGroupEgress) || ($.eventName = RevokeSecurityGroupIngress) ||($.eventName = RevokeSecurityGroupEgress) || ($.eventName = CreateSecurityGroup) ||($.eventName = DeleteSecurityGroup)}",
+    "metricTransformations": [
+        {
+            "metricName": "CIS-3-10",
+            "metricNamespace": "CISBenchmark",
+            "metricValue": "1"
+        }
+    ]
+}

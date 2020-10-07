@@ -1,0 +1,9 @@
+{
+    "ModalSettingExcept": {
+        "exclusion_setting": "Exclusion setting",
+        "currently_set_of": "Current status",
+        "evaluation_cancel": "Cancel evaluation",
+        "exclude": "Exclude",
+        "include": "Include"
+    }
+}

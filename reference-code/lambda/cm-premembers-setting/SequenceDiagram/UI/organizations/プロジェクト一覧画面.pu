@@ -1,0 +1,20 @@
+@startuml{プロジェクト一覧画面.png}
+title [プロジェクト一覧画面]
+hide footbox
+
+actor ユーザー as user
+boundary プロジェクト一覧画面 as view
+participant プロジェクトAPI as api_purojects #cyan
+
+== 表示 ==
+user -> view:表示
+activate view
+    view -> api_purojects :GET /organizations/{organization_id}/projects
+    activate api_purojects
+        api_purojects --> view :200:プロジェクトリスト
+    deactivate api_purojects
+    view -> view :画面描画
+    view --> user
+deactivate view
+
+@enduml

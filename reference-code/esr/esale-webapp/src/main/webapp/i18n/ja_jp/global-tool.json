@@ -1,0 +1,61 @@
+{
+  "global-tool": {
+    "footer": {
+      "private.policy": "プライバシーポリシー",
+      "term.service": "利用規約",
+      "copyright": "@SOFTBRAIN CO.,Ltd."
+    },
+    "messages": {
+      "validate": {
+        "newpassword": {
+          "required": "パスワードを入力してください。",
+          "minlength": "パスワードは8文字以上で入力してください。",
+          "maxlength": "パスワードは32文字以下で入力してください。"
+        },
+        "confirmpassword": {
+          "required": "パスワード(確認)を入力してください。",
+          "minlength": "パスワード(確認)は8文字以上で入力してください。",
+          "maxlength": "パスワード(確認)は32文字以下で入力してください。",
+          "dontmatch": "パスワードが一致しません!"
+        },
+        "milestonename": {
+          "required": "マイルストーン名を入力してください。",
+          "maxlength": "マイルストーン名は255文字以下です。"
+        }
+      },
+      "scheduleTitle": "スケジュール"
+    },
+    "recenttodolist": "直近のやることリスト（{{count}}件）",
+    "lastcompletetask": "直近の完了タスク（{{count}}件)",
+    "customer": "顧客",
+    "product": "商品",
+    "task": "タスク",
+    "recenttask": "直近タスク",
+    "createtask": "タスクを登録",
+    "createmilestone": "マイルストーンを登録",
+    "deadline": "期限",
+    "milestone": "マイルストーン",
+    "subtasks": "サブタスク",
+    "personincharge": "担当者",
+    "currentschedule": "現在のスケジュール",
+    "consultation": "相談",
+    "plan": "予定",
+    "left": "他{{number}}名",
+    "popup": {
+      "delete": "削除",
+      "taskdeletecontainsubtask": "削除するタスクにサブタスクが含まれています。処理を選択してください。",
+      "deletesubtask": "サブタスクも削除",
+      "convertsubtasktotask": "サプタスクをタスクに変換",
+      "cancel": "キャンセル",
+      "areyousuredelete": "タスクを削除してもよろしいですか？",
+      "areyousuredeltemilestone": "マイルストーンを削除してもよろしいですか？",
+      "confirm": "確認",
+      "completetaskincludesubtasknotcomplete": "完了したタスクに未完了のサブタスクが含まれています。処理を選択してください。",
+      "subtaskalsocomplete": "サブタスクも完了",
+      "completetask": "タスクを完了",
+      "milestoneincludenotcompletetask": "完了したマイルストーンに未完了のタスクが含まれています。処理を選択してください。"
+    },
+    "eigorou": "えいぎょうたろう",
+    "employeetaro": "社員太郎"
+  }
+}

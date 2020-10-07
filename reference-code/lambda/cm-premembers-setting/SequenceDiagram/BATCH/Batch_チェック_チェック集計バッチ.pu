@@ -1,0 +1,78 @@
+@startuml{Batch_チェック_チェック集計バッチ.png}
+title [チェックバッチ_チェック集計バッチ]
+hide footbox
+
+participant チェック集計バッチ as batch_check_aggregate_job <<batch>> #darkorange
+'database プロジェクト as table_projects <<dynamodb>> #royalblue
+database チェック履歴 as table_check_history <<dynamodb>> #royalblue
+database チェック結果 as table_check_results <<dynamodb>> #royalblue
+database 個別チェック結果 as table_check_resultitems <<dynamodb>> #royalblue
+database 最新チェック結果 as table_latest_check_result <<dynamodb>> #royalblue
+database チェックジョブ履歴 as storage_check_joblog <<s3>> #crimson
+
+database 宛先 as table_destinations <<dynamodb>> #royalblue
+participant 通知メール送信 as func_mail_sending <<lambda>> #violet
+
+->> batch_check_aggregate_job
+note right :実行時引数としてチェック履歴ID（必須）、ログID（オプション）を受け取る
+activate batch_check_aggregate_job
+    batch_check_aggregate_job -> batch_check_aggregate_job :引数のバリデーションチェック
+    |||
+    opt 引数でログIDが渡された場合
+    |||
+    batch_check_aggregate_job -> batch_check_aggregate_job :ログストリーム名記録
+    activate batch_check_aggregate_job
+        batch_check_aggregate_job -> storage_check_joblog :ファイル取得 {bucket}/check_batch/{CheckHistoryID}/{LogID}.json
+        storage_check_joblog --> batch_check_aggregate_job
+        batch_check_aggregate_job -> batch_check_aggregate_job :自分のジョブ情報を取得する（describe_jobs）
+        note right :ログストリーム名を取得する
+        batch_check_aggregate_job -> storage_check_joblog :ファイル更新
+        note right :ログストリーム名を記録する
+        storage_check_joblog --> batch_check_aggregate_job
+        batch_check_aggregate_job --> batch_check_aggregate_job
+    deactivate batch_check_aggregate_job
+    |||
+    end
+    |||
+    batch_check_aggregate_job -> table_check_history :レコード取得
+    table_check_history --> batch_check_aggregate_job
+    batch_check_aggregate_job -> batch_check_aggregate_job :ステータスチェック
+    batch_check_aggregate_job -> table_check_history :チェック結果項目数更新
+    note right :チェック実行ステータス=チェック集計中(3)
+    table_check_history --> batch_check_aggregate_job
+    batch_check_aggregate_job -> table_check_resultitems :query
+    note right :チェック履歴ID配下のチェック個別結果を取得する
+    table_check_resultitems --> batch_check_aggregate_job
+    |||
+    loop 1, チェック結果ID件数
+        |||
+        batch_check_aggregate_job -> batch_check_aggregate_job :チェック結果ID毎の項目数をカウントする
+        batch_check_aggregate_job -> table_check_results :レコード更新
+        note right :OKCount / CriticalCount / NGCount / ManagedCount / ErrorCount
+        table_check_results --> batch_check_aggregate_job
+        |||
+    end
+    |||
+    batch_check_aggregate_job -> table_check_history :レコード更新
+    note right :チェック実行ステータス=チェック集計完了(4)
+    table_check_history --> batch_check_aggregate_job
+    batch_check_aggregate_job -> table_latest_check_result :レコード更新
+    note right :実行時引数で渡されたチェック履歴IDでレコードを作成（更新）する
+    table_latest_check_result --> batch_check_aggregate_job
+    |||
+    group チェック結果通知
+        note over batch_check_aggregate_job, table_check_results :いずれかのAWSアカウントのチェック結果に異常、またはエラーがあり（NG > 0 | Critical > 0 | Error > 0）、\nかつ宛先設定済みの場合のみ、結果通知メール送信処理を呼び出す。
+        opt チェック結果異常あり
+            batch_check_aggregate_job -> table_destinations :getitem
+            table_destinations --> batch_check_aggregate_job
+            |||
+            opt 宛先設定済み
+                batch_check_aggregate_job ->> func_mail_sending :invoke (InvocationType='Event')
+                |||
+            end
+        end
+    end
+    batch_check_aggregate_job --> batch_check_aggregate_job
+deactivate batch_check_aggregate_job
+
+@enduml

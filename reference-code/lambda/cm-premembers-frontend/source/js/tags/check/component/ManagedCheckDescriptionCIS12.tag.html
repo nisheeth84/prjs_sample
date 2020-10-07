@@ -1,0 +1,134 @@
+<managed-check-description-cis12>
+    <div class="example" if="{opts.members_aws_accounts.length > 0}">
+        <div class="card card-bordered card-outline-primary" id="exampleAccordionDefault" aria-multiselectable="true" role="tablist">
+            <div class="card-block pb-0">
+                <div class="card-title">
+                    <a class="managed-title" data-toggle="collapse" href="#exampleCollapseDefaultOneV12" data-parent="#exampleAccordionDefault"
+                        aria-expanded="false" aria-controls="exampleCollapseDefaultOne12">
+                        <h3 class="text-left inline">{_t('ManagedCheckDescription.title_managed')}</h3>
+                    </a>
+                    <p class="mt-20">{_t('ManagedCheckDescription.description_managed_1')}
+                        <br> {_t('ManagedCheckDescription.description_managed_2')}
+                        <br> {_t('ManagedCheckDescription.description_managed_3')}
+                    </p>
+                    </p>
+                </div>
+            </div>
+            <div class="card-block collapse" id="exampleCollapseDefaultOneV12" aria-labelledby="exampleHeadingDefaultOne" role="tabpanel">
+
+                <virtual each="{check_managed_item, code_check_item in check_managed_item_list}">
+                    <div class="card-title">
+                        <div class="vertical-align-middle">
+                            <span class="note_version float-left mr-2 mt-10" show="{code_check_item.startsWith('CHECK_CIS12_ITEM')}">CIS v1.2</span>
+                            <h4 class="float-left">{check_managed_item.item_code}</h4>
+                        </div>
+                    </div>
+                    <ul>
+                        <li each="{description in check_managed_item.descriptions}">{commonUtils.parseHtml(this, description)}</li>
+                    </ul>
+                </virtual>
+                <div class="card-title">
+                    <div class="vertical-align-middle">
+                        <h4>{_t('ManagedCheckDescription.list_account_members')}</h4>
+                    </div>
+                </div>
+                <table class="table table-hover table-bordered table-striped table-layout-fixed">
+                    <thead>
+                        <tr>
+                            <th class="font-weight-900 check-header">{_t('organization')}</th>
+                            <th class="font-weight-900 check-header">{_t('project')}</th>
+                            <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                        </tr>
+                    </thead>
+                    <tbody each="{aws_account in opts.members_aws_accounts}">
+                        <tr class="child">
+                            <td class="word-break-all">{aws_account.organizationName}</td>
+                            <td class="word-break-all">{aws_account.projectName}</td>
+                            <td class="table-account-column">
+                                <p>{aws_account.awsAccount}
+                                    <span if="{aws_account.awsAccountName}">| {aws_account.awsAccountName}</span>
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        const tag = this
+        tag.check_managed_item_list = {
+            "CHECK_CIS12_ITEM_1_01": {
+                "item_code": tag.commonUtils.getItemCodeCheckItem('CHECK_CIS12_ITEM_1_01'),
+                "descriptions": [
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.root_account'),
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.classmethod_managed')
+                ]
+            },
+            "CHECK_CIS12_ITEM_1_12": {
+                "item_code": tag.commonUtils.getItemCodeCheckItem('CHECK_CIS12_ITEM_1_12'),
+                "descriptions": [
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.root_account'),
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.classmethod_managed')
+                ]
+            },
+            "CHECK_CIS12_ITEM_1_13": {
+                "item_code": tag.commonUtils.getItemCodeCheckItem('CHECK_CIS12_ITEM_1_13'),
+                "descriptions": [
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.root_account'),
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.classmethod_managed')
+                ]
+            },
+            "CHECK_CIS12_ITEM_1_14": {
+                "item_code": tag.commonUtils.getItemCodeCheckItem('CHECK_CIS12_ITEM_1_14'),
+                "descriptions": [
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.root_account'),
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.classmethod_managed')
+                ]
+            },
+            "CHECK_CIS12_ITEM_1_15": {
+                "item_code": tag.commonUtils.getItemCodeCheckItem('CHECK_CIS12_ITEM_1_15'),
+                "descriptions": [
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.security_questions'),
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.classmethod_managed')
+                ]
+            },
+            "CHECK_CIS12_ITEM_1_17": {
+                "item_code": tag.commonUtils.getItemCodeCheckItem('CHECK_CIS12_ITEM_1_17'),
+                "descriptions": [
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.current_contact'),
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.classmethod_managed')
+                ]
+            },
+            "CHECK_CIS12_ITEM_1_18": {
+                "item_code": tag.commonUtils.getItemCodeCheckItem('CHECK_CIS12_ITEM_1_18'),
+                "descriptions": [
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.security_contact'),
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.classmethod_managed')
+                ]
+            },
+            "CHECK_CIS12_ITEM_1_20": {
+                "item_code": tag.commonUtils.getItemCodeCheckItem('CHECK_CIS12_ITEM_1_20'),
+                "descriptions": [
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.aws_support_1'),
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.aws_support_2'),
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.classmethod_managed')
+                ]
+            },
+            "CHECK_ASC_ITEM_01_01": {
+                "item_code": tag.commonUtils.getItemCodeCheckItem('CHECK_ASC_ITEM_01_01'),
+                "descriptions": [
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.root_account'),
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.classmethod_managed')
+                ]
+            },
+            "CHECK_IBP_ITEM_01_01": {
+                "item_code": tag.commonUtils.getItemCodeCheckItem('CHECK_IBP_ITEM_01_01'),
+                "descriptions": [
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.root_account'),
+                    tag._t('ManagedCheckDescription.managed_checkitem_description.classmethod_managed')
+                ]
+            }
+        }
+    </script>
+</managed-check-description-cis12>

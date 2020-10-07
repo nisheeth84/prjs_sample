@@ -1,0 +1,10 @@
+{
+  "analysis": {
+    "common": {},
+    "top": {
+      "button": {
+        "addDataSet": "データセットの作成-en"
+      }
+    }
+  }
+}

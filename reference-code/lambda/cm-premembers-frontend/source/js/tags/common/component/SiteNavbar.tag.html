@@ -1,0 +1,92 @@
+<site-navbar>
+    <div class="navbar-fixed-top bg-white">
+        <div class="pt-20 pb-20 alter-icon alert-warning font-size-16 text-center text-dark col-12" if="{showOtherBrowerAccessWarning}" role="alert">
+            {_t('guaranteed_environment_1')}<a href='https://www.google.co.jp/chrome/index.html' target='_blank'>{_t('guaranteed_environment_2')}</a>{_t('guaranteed_environment_3')}
+        </div>
+        <nav class="site-navbar navbar navbar-default navbar-mega br-rounded-0" role="navigation">
+            <div class="beta col-6">
+                <img class="brand-img h-60 " src="./assets/images/iw_yoko_white.svg" alt="..." />
+            </div>
+            <div class="h-60 col-6" hide={isHideMenuLeft}>
+                <div class="mt-4 float-right grey-100 dropdown">
+                    <i class="icon wb-user-circle font-size-20 cursor-pointer" data-toggle="dropdown" aria-hidden="true"></i>
+                    <span class="ml-5 cursor-pointer" data-toggle="dropdown">{mailAddress}</span>
+                    <div class="dropdown-menu dropdown-menu-caret dropdown-menu-end">
+                        <ul class="site-menu">
+                            <li class="site-menu-item">
+                                <a class="dropdown-item" href="#/user/info/">{_t('user_information')}</a>
+                            </li>
+                            <li class="site-menu-item">
+                                <a class="dropdown-item" href="#/user/update_email/">{_t('SiteNavbar.update_email')}</a>
+                            </li>
+                            <div class="pr-10 pl-10">
+                                <hr>
+                            </div>
+                            <li class="site-menu-item">
+                                <a class="dropdown-item" href="#/check/integrations/">{_t('integrations')}</a>
+                            </li>
+                            <div class="pr-10 pl-10">
+                                <hr>
+                            </div>
+                            <li class="site-menu-item">
+                                <a class="dropdown-item" onclick={logout} role="menuitem">{_t('SiteNavbar.logout')}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <script>
+        const tag = this
+        tag.cognitoUser = riot.mixin('cognitoUser');
+        const obs = riot.observable()
+        tag.obs = obs
+
+        tag.logout = logout
+        tag.showOtherBrowerAccessWarning = tag.parent.showOtherBrowerAccessWarning
+        tag.isHideMenuLeft = false
+
+        tag.on('mount', function() {
+            tag.isHideMenuLeft = isHideMenuLeft()
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    tag.cognitoUser.getUserAttributes(function(err, result) {
+                        if (err) {
+                            tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                            return;
+                        }
+                        for (i = 0; i < result.length; i++) {
+                            if (result[i].getName() == "email") {
+                                tag.mailAddress = result[i].getValue();
+                            }
+                        }
+                        tag.update();
+                    });
+                }
+            })
+        })
+
+        function isHideMenuLeft() {
+            let hash = location.hash
+            const pageNotShowMenuLeftLst = [
+                '#/user/registration/'
+            ]
+            let returnFlag = false
+            pageNotShowMenuLeftLst.forEach(function(pageNotShowMenuLeft) {
+                let re = new RegExp('^' + pageNotShowMenuLeft + '$')
+                if (re.test(hash)) {
+                    returnFlag = true
+                    return false
+                }
+            })
+            return returnFlag
+        }
+
+        function logout(event) {
+            tag.commonUtils.signOut(tag.cognitoUser)
+        }
+    </script>
+</site-navbar>

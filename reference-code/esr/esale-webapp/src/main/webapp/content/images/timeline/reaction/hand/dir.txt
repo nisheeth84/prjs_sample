@@ -1,0 +1,19 @@
+ Volume in drive E has no label.
+ Volume Serial Number is E5AC-A800
+
+ Directory of E:\Projects\LUV\esale-webapp-code\src\main\webapp\content\images\timeline\reaction\hand
+
+07/27/2020  03:24 PM    <DIR>          .
+07/27/2020  03:24 PM    <DIR>          ..
+07/27/2020  03:25 PM                70 dir.txt
+10/22/2019  02:53 AM             5,140 emoji_u1f44a.png
+10/22/2019  02:53 AM             5,647 emoji_u1f44b.png
+10/22/2019  02:53 AM             5,492 emoji_u1f44c.png
+10/22/2019  02:53 AM             5,021 emoji_u1f44d.png
+10/22/2019  02:53 AM             6,080 emoji_u1f44f.png
+10/22/2019  02:53 AM             5,365 emoji_u1f64c.png
+10/22/2019  02:53 AM             7,583 emoji_u270a.png
+10/22/2019  02:53 AM             4,270 emoji_u270b.png
+10/22/2019  02:53 AM             6,033 emoji_u270c.png
+              10 File(s)         50,701 bytes
+               2 Dir(s)  219,904,114,688 bytes free

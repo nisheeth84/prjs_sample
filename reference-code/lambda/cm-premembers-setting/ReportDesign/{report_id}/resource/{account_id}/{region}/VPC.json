@@ -1,0 +1,74 @@
+{
+    "schema_version": "1.0",
+    "VPC": {
+        "security_group": [ //{report_id}/raw/{account_id}/{region}/VPC_SecurityGroups.jsonから取得
+            {
+                "name":"", // Tags の中の KeyがNameの値を参照
+                "Description": "default VPC security group",
+                "GroupId": "sg-a2566bc5",
+                "GroupName": "default",
+                "IpPermissions": [
+                    {
+                        "FromPort": 3389,
+                        "IpProtocol": "tcp",
+                        "IpRanges": [
+                            {
+                                "CidrIp": "39.110.201.10/32"
+                            },
+                            {
+                                "CidrIp": "172.31.21.41/32"
+                            }
+                        ],
+                        "Ipv6Ranges": [],
+                        "PrefixListIds": [],
+                        "ToPort": 3389,
+                        "UserIdGroupPairs": [
+                            {
+                                "GroupId": "sg-11916576",
+                                "UserId": "109054975408"
+                            },
+                            {
+                                "GroupId": "sg-10916577",
+                                "UserId": "109054975408"
+                            }
+                        ]
+                    },
+                    {
+                        "FromPort": 0,
+                        "IpProtocol": "udp",
+                        "IpRanges": [],
+                        "Ipv6Ranges": [],
+                        "PrefixListIds": [],
+                        "ToPort": 65535,
+                        "UserIdGroupPairs": [
+                            {
+                                "GroupId": "sg-11916576",
+                                "UserId": "109054975408"
+                            },
+                            {
+                                "GroupId": "sg-10916577",
+                                "UserId": "109054975408"
+                            }
+                        ]
+                    }
+                ],
+                "IpPermissionsEgress": [
+                    {
+                        "IpProtocol": "-1",
+                        "IpRanges": [
+                            {
+                                "CidrIp": "0.0.0.0/0",
+                                "Description": "premembers_output"
+                            }
+                        ],
+                        "Ipv6Ranges": [],
+                        "PrefixListIds": [],
+                        "UserIdGroupPairs": []
+                    }
+                ],
+                "OwnerId": "109054975408",
+                "VpcId": "vpc-d66cf9b2"
+            }
+        ]
+    }
+}

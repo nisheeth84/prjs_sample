@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="Group_3188" data-name="Group 3188" transform="translate(-3260 -890)">
+    <rect id="Rectangle_4255" data-name="Rectangle 4255" width="20" height="20" rx="8" transform="translate(3260 890)" fill="none"/>
+    <g id="Group_3187" data-name="Group 3187">
+      <path id="Rectangle_4256" data-name="Rectangle 4256" d="M4,0H8a4,4,0,0,1,4,4V18a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(3264.5 892)" fill="#666" opacity="0.5"/>
+      <path id="Rectangle_4257" data-name="Rectangle 4257" d="M2,0h8a2,2,0,0,1,2,2V18a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V2A2,2,0,0,1,2,0Z" transform="translate(3263.5 890)" fill="#ccc"/>
+      <path id="Path_4552" data-name="Path 4552" d="M3271.4,902h-3.8a.1.1,0,0,0-.1.1V908h4v-5.9A.1.1,0,0,0,3271.4,902Z" fill="#8c8b8b"/>
+      <g id="Rectangle_4258" data-name="Rectangle 4258" transform="translate(3267.5 902)" fill="#666" stroke="#999" stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
+        <rect width="4" height="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="3" height="5" fill="none"/>
+      </g>
+      <rect id="Rectangle_4259" data-name="Rectangle 4259" width="2" height="2" transform="translate(3270.5 898)" fill="#fff"/>
+      <rect id="Rectangle_4260" data-name="Rectangle 4260" width="2" height="2" transform="translate(3270.5 895)" fill="#fff"/>
+      <rect id="Rectangle_4261" data-name="Rectangle 4261" width="2" height="2" transform="translate(3270.5 892)" fill="#fff"/>
+      <rect id="Rectangle_4262" data-name="Rectangle 4262" width="2" height="2" transform="translate(3266.5 898)" fill="#fff"/>
+      <rect id="Rectangle_4263" data-name="Rectangle 4263" width="2" height="2" transform="translate(3266.5 895)" fill="#fff"/>
+      <rect id="Rectangle_4264" data-name="Rectangle 4264" width="2" height="2" transform="translate(3266.5 892)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

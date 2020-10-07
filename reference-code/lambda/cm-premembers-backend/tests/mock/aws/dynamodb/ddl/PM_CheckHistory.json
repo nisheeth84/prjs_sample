@@ -1,0 +1,48 @@
+{
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "CheckHistoryID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "ProjectID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "ExecutedDateTime",
+            "AttributeType": "S"
+        }
+    ],
+    "TableName": "PM_CheckHistory",
+    "KeySchema": [
+        {
+            "AttributeName": "CheckHistoryID",
+            "KeyType": "HASH"
+        }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+        {
+            "IndexName": "ProjectIndex",
+            "KeySchema": [
+                {
+                    "AttributeName": "ProjectID",
+                    "KeyType": "HASH"
+                },
+                {
+                    "AttributeName": "ExecutedDateTime",
+                    "KeyType": "RANGE"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "INCLUDE",
+                "NonKeyAttributes": [
+                    "OrganizationID",
+                    "CheckStatus",
+                    "ErrorCode",
+                    "ExecutedType"
+                ]
+            }
+        }
+    ]
+}

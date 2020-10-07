@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="92" viewBox="0 0 160 92">
+  <g id="Group_3721" data-name="Group 3721" transform="translate(-2160 -4540)">
+    <g id="カード">
+      <g id="名刺画像">
+        <g id="Rectangle_4646" data-name="Rectangle 4646" transform="translate(2160 4540)" fill="#fff" stroke="#fff" stroke-miterlimit="10" stroke-width="1">
+          <rect width="160" height="92" rx="4" stroke="none"/>
+          <rect x="0.5" y="0.5" width="159" height="91" rx="3.5" fill="none"/>
+        </g>
+      </g>
+    </g>
+    <g id="Group_3448" data-name="Group 3448">
+      <text id="営業部" transform="translate(2168 4545.561)" fill="#333" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="14">営業部</tspan></text>
+      <text id="タイトル" transform="translate(2168 4566.32)" fill="#333" font-size="14" font-family="NotoSansCJKjp-Medium, Noto Sans CJK JP" font-weight="500"><tspan x="0" y="16">営業 太郎</tspan></text>
+    </g>
+  </g>
+</svg>

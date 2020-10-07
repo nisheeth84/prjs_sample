@@ -1,0 +1,4 @@
+flyway.url=jdbc:postgresql://localhost:32770/tenants?currentSchema=tenants
+flyway.table=flyway_schema_history
+flyway.user=postgres
+flyway.password=

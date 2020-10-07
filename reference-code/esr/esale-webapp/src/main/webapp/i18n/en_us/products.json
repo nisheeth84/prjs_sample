@@ -1,0 +1,252 @@
+{
+  "products": {
+    "edit-simple-text": " has been updated.",
+    "popup": {
+      "move-to-category": {
+        "title": "Change category",
+        "parentId": "Category name",
+        "parentId.placeHolder": "Select a target category",
+        "cancel": "Cancel",
+        "confirm": "OK",
+        "confirmChanges": "Changed content"
+      }
+    },
+    "list-view": {
+      "sort": {
+        "label": "Sort",
+        "asc": "A to Z",
+        "desc": "Z to A",
+        "product-code": "Product code",
+        "product-name": "Product name",
+        "unit-price": "Price",
+        "product-category": "Category"
+      }
+    },
+    "create-set": {
+      "title": "Create set",
+      "title-edit": "Edit set",
+      "product-linked": "Product cart",
+      "product-linked-placeholder": "Add product",
+      "product-set-image": "Product set image",
+      "platehoder-upload": "Please click or drop file",
+      "isDisplay-label1": "Display flag",
+      "isDisplay-label2": "Display",
+      "product-code": "Automatically numbered",
+      "category-name": "Select category",
+      "date-create": "Automatically registered",
+      "label-prefix": "Set ",
+      "placeholder-category": "Select category",
+      "placeholder-type-product": "Select product type",
+      "placeholder-type-product-set": "Select product set type",
+      "btn-edit": "Edit",
+      "btn-create": "Create",
+      "product-relation-id": "Add product",
+      "th-product": "Product information",
+      "th-quantity": "Quantity",
+      "th-total": "Total"
+    },
+    "list": {
+      "label": {
+        "is-display": {
+          "true": "Show",
+          "false": "Hide"
+        }
+      }
+    },
+    "top": {
+      "is-contain-category-child": "Show products included in subcategories as well",
+      "title": {
+        "btn-registration": "Register product",
+        "register-product": "Register Product",
+
+        "create-product-set": "Create set",
+        "move-category": "Change category",
+        "btn-export": "Export",
+        "btn-delete": "Delete",
+        "switch-display": "Switch display",
+        "switch-view": "Board view",
+
+        "create-product-set-list": "Register product set",
+        "edit-product-set": "Edit set",
+        "create-category": "Add category",
+        "import-product": "Import product",
+        "import-product-breakdown": "Import product cart",
+        "btn-edit": "Simple edit",
+        "btn-cancel": "Cancel",
+        "btn-save": "Save changes"
+      },
+      "place-holder": {
+        "search": "Search product",
+        "searching": "Edit advanced search"
+      },
+      "dialog": {
+        "title-delete-products": "Delete",
+        "message-delete-products": "Are you sure you want to delete this product?",
+        "confirm-delete-products": "Delete",
+        "cancel-text": "Cancel",
+        "confirm-delete-products1": "If you delete the selected product, the set including it might dissappear. Are you sure?",
+        "confirm-delete-products2": "Are you sure you want to delete products included in the set?"
+      }
+    },
+    "detail": {
+      "label": {
+        "title.create": "Successfully registered.",
+        "title.update": "The following items have been updated.",
+        "title.insert": " has been added.",
+        "title.updateSet": " has been updated",
+        "title.delete": " has been deleted.",
+        "title.reasonEdit": "Changed reason",
+        "content.create": " None",
+        "department.name": "'s manager has been appointed.",
+        "button.edit": "Edit screen",
+        "button.cancel": "Cancel",
+        "button.save": "Save",
+        "button.follow": "Follow",
+        "button.unfollow": "Unfollow",
+        "button-create": "Register",
+        "button-edit": "Save",
+        "button.delete": "DELETE",
+        "button.deleteSet": "Delete product and set",
+        "button.preview": "Preview registration",
+        "manager": "Manager",
+        "subordinate": "Staff",
+        "tab.customer": "Customer",
+        "tab.businessCard": "Business card",
+        "tab.calendar": "Calendar",
+        "tab.task": "Task",
+        "tab.group": "Joined group",
+
+        "tab.productSets": "Sets including this product",
+        "tab.productOfSets": "Products included in this set",
+        "tab.productTrading": "Trading Product",
+        "tab.productHistory": "History",
+        "label.addSet": "Set ",
+        "total": "Total",
+        "suffix.name": " has been updated",
+
+        "product.id": "Product set code",
+        "product.name": "Product set name",
+        "product.imagename": "Product set image",
+        "product.typeid": "Product set type",
+        "product.unitprice": "Set price"
+      },
+      "title": {
+        "popupErrorMessage.delete": "Delete",
+        "popupChangeStatus": "Confirm"
+      },
+      "warning": {
+        "popupErrorMessage.delete": "This can not be deleted because there is data related with it."
+      },
+      "suggest": {
+        "popupErrorMessage.delete": "Please try again after deleting such data."
+      },
+      "error": {
+        "delete": {
+          "countCustomers": "Customers for which {{employeeName}} has been set as person in charge: {{count}} items",
+          "countSchedules": "Schedules in which {{employeeName}} has been set as participant: {{count}} items",
+          "countSaleProducts": "Products traded by {{employeeName}}: {{count}} items",
+          "countNameCards": "Business cards received by {{employeeName}}: {{count}} items",
+          "countTimeLines": "Number of comments/posts on timeline of {{employeeName}}: {{count}} items",
+          "countTimeLineGroups": "Number of timeline groups {{employeeName}} has joined: {{count}} items",
+          "countTimeLineGroupsFavorites": "Number of timeline groups {{employeeName}} added to favorite: {{count}} items",
+          "countTimeLineWatchs": "Number of timelines {{employeeName}}’s following: {{count}} items",
+          "countTimeLineNotices": "Number of notifications sent to {{employeeName}}'s timeline : {{count}} items",
+          "countTimeLineStars": "Number of timeline posts {{employeeName}} liked: {{count}} items",
+          "countTimeLineReactions": "Number of reactions on {{employeeName}}'s timeline: {{count}} items",
+          "countTimeLineFilters": "Number of filtered information on {{employeeName}}'s timeline : {{count}} items",
+          "countActivities": "Activites reported by {{employeeName}}: {{count}} items",
+          "countAnalysisReports": "Reports {{employeeName}} has done as participants: {{count}} items",
+          "countTodos": "Tasks in which {{employeeName}} has been set as person in charge: {{count}} items",
+          "countOcrNameCards": "Business cards {{employeeName}} received from mobile app: {{count}} items"
+        }
+      }
+    },
+    "sidebar": {
+      "title": {
+        "all-product": "All products",
+        "categories": "Categories"
+      }
+    },
+    "category": {
+      "form": {
+        "title": {
+          "regis": "Create category",
+          "edit": "Edit category",
+          "createProduct": "Register product",
+          "editProduct": "Edit product"
+        },
+        "button": {
+          "cancel": "Cancel",
+          "regis": "Create",
+          "edit": "Save",
+          "create": "Register"
+        },
+        "name": "Category name",
+        "name-placeholder": "Enter category name",
+        "parentId": "Parent category",
+        "category-placeholder": "Select category",
+        "createDate": "Registration date",
+        "createBy": "Registrant",
+        "updateDate": "Last updated date",
+        "updateBy": "Last updated person",
+        "show-language": "Show other languages",
+        "hide-language": "Hide other languages"
+      },
+      "category-regist-edit": {
+        "form": {
+          "title.regist": "Register department",
+          "title.edit": "Edit department",
+          "departmentName": "Department name",
+          "departmentName.placeholder": "Enter department name",
+          "managerId": "Manager",
+          "managerId.default": "Select manager",
+          "parentId": "Assigned department",
+          "parentId.default": "Select assigned department",
+          "button.regist": "Register",
+          "button.edit": "Save",
+          "button.cancel": "Cancel",
+          "button.confirm": "Confirm",
+          "button.close": "×",
+          "required": "※"
+        }
+      }
+    },
+    "category-card": {
+      "submenu": {
+        "edit-category": "Edit category",
+        "delete-category": "Delete category",
+        "add-category-child": "Add subcategory"
+      }
+    },
+    "popupComfirm": {
+      "title": "Save edited set",
+      "label": "Changed reason",
+      "CompareNamme": "Product name"
+    },
+    "product-view": {
+      "unit-price": "Price",
+      "product-code": "Product code",
+      "category-name": "Category"
+    },
+    "displayCondition": {
+      "buttonShowCondition": "Advanced search conditions",
+      "form": {
+        "conditionSearch": "Advanced search conditions",
+        "filter": "Filtering criteria",
+        "conditionSave": "Conditions to save auto-added list"
+      },
+      "buttonShowScroll": "Show all"
+    },
+    "japanese": "日本語",
+    "english": "English(US)",
+    "chinese": "中文（简体）",
+    "confirm-edit": "The following changes will be made. Are you sure?",
+    "reason-edit": "Changed reason",
+    "product-name": "Set product name",
+    "set-name": "Set name",
+    "delete-product-and-set": "Delete product and set",
+    "item-drag": {
+      "list": " products (total)"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.wrapper-business-card-control-sidebar {
+  &.esr-content-sidebar.list-category {
+    overflow: hidden !important;
+    padding: 24px 0 !important;
+    min-height: calc(100vh - 90px) !important;
+    height: calc(100vh - 90px) !important;
+    white-space: nowrap;
+  }
+  .button-left-expand {
+    position: absolute !important;
+    bottom: 0;
+    left: 0 !important;
+    background: #f9f9f9;
+    border-top: 1px solid #dee2e6;
+    text-align: center;
+    width: 100% !important;
+  }
+  .wrap-card .item-card {
+    overflow: hidden;
+  }
+}

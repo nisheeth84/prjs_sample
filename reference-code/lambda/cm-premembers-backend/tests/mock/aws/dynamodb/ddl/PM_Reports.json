@@ -1,0 +1,57 @@
+{
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "ReportID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "ProjectID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "CreatedAt",
+            "AttributeType": "S"
+        }
+    ],
+    "TableName": "PM_Reports",
+    "KeySchema": [
+        {
+            "AttributeName": "ReportID",
+            "KeyType": "HASH"
+        }
+    ],
+    "GlobalSecondaryIndexes": [
+        {
+            "IndexName": "ProjectIndex",
+            "KeySchema": [
+                {
+                    "AttributeName": "ProjectID",
+                    "KeyType": "HASH"
+                },
+                {
+                    "AttributeName": "CreatedAt",
+                    "KeyType": "RANGE"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "INCLUDE",
+                "NonKeyAttributes": [
+                    "ReportName",
+                    "GenerateUser",
+                    "AWSAccounts",
+                    "ReportStatus",
+                    "ErrorCode",
+                    "JsonOutputTime",
+                    "HTMLOutputStatus",
+                    "HTMLOutputTime",
+                    "ExcelOutputStatus",
+                    "ExcelOutputTime",
+                    "OrganizationID",
+                    "SchemaVersion",
+                    "UpdatedAt"
+                ]
+            }
+        }
+    ],
+    "BillingMode": "PAY_PER_REQUEST"
+}

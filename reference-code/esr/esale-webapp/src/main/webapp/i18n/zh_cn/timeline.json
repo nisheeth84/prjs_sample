@@ -1,0 +1,246 @@
+{
+  "timeline": {
+    "control": {
+      "sidebar": {
+        "all-timeline": "全部时间线",
+        "my-timeline": "我的时间线",
+        "favorite-timeline": "喜爱的时间线",
+        "group-timeline": "",
+        "depart-timeline": "",
+        "customer-timeline": "客户列表的时间线",
+        "business-card-timeline": "名片列表的时间线",
+        "group-add-timeline": "频道",
+        "all-group": "显示频道列表",
+        "search-group": "搜索频道",
+        "search-box": "搜索部门",
+        "search-customer-timeline": "搜索客户列表",
+        "search-business-card-timeline": "搜索名片列表",
+        "favorite-group": "喜爱的频道",
+        "joined-group": "在参与的频道",
+        "request-to-join-group": "在要求参与的频道",
+        "department": "部门",
+        "taget": "收件地址"
+      },
+      "local-tool": {
+        "add-timeline": "最新发布",
+        "sort": "更新顺序",
+        "sort-created-date": "发布顺序",
+        "sort-update-date": "更新顺序",
+        "filter": "过滤",
+        "filter-all": "全部显示",
+        "filter-not-seen": "仅显示未读",
+        "btn-all": "全选",
+        "btn-not-all": "取消选择",
+        "filter-1": "发布",
+        "filter-2": "频道发布",
+        "filter-3": "活动报告",
+        "filter-4": "客户",
+        "filter-5": "名片",
+        "filter-6": "时间表",
+        "filter-78": "里程碑/任务",
+        "filter-10": "规则引擎通知",
+        "filter-9": "任务通知",
+        "filter-timeline": "搜索时间线",
+        "show-follow": "关注管理",
+        "search-value": "搜索时间线",
+        "not-select-group": "不选择群组",
+        "address-default": "收件地址",
+        "placeholders-content": "输入发布内容",
+        "post": "发布",
+        "btn-save-filter": "适用",
+        "post-comment": "回复",
+        "part-of-quote": "引用"
+      }
+    },
+    "group": {
+      "sorttype": {
+        "last-post-date-descending-order": "最后发布日期降序",
+        "registration-date-descending-order": "注册日期降序",
+        "member-order": "成员",
+        "owner-order": "所有者"
+      },
+      "participants": {
+        "modal-name": "频道参与者",
+        "requesting-participation": "在要求参与",
+        "participating": "在参与",
+        "owner": "所有者",
+        "member": "成员"
+      },
+      "participants-owner": {
+        "modal-name": "频道参与者",
+        "request-participation": "在要求参与",
+        "approval-btn": "承认",
+        "reject-btn": "拒绝",
+        "participant-permission": "在参与",
+        "button-add": "添加参与者",
+        "owner": "所有者",
+        "button-delete-member": "移除"
+      },
+      "add-member": {
+        "add-participants": "添加参与者",
+        "group-member": "频道成员",
+        "search": "搜索部门/群组/员工",
+        "owner": "所有者",
+        "notification-content": "通知内容",
+        "enter-notification-content": "输入通知内容",
+        "add": "添加"
+      },
+      "registration-date": "注册日期",
+      "post-date": "发布日期",
+      "participate": "参与",
+      "new-post": "最新发布"
+    },
+    "message": {
+      "confirm": {},
+      "add-request": "尚未参与群组。",
+      "delete-member": "在要求参与。"
+    },
+    "list": {
+      "btn-expand-reply": "件回复",
+      "btn-expand-comment": "显示过去的回复",
+      "btn-show-comment": "阅读更多",
+      "body": {}
+    },
+    "modal": {
+      "title": "频道注册",
+      "group-name-label": "频道名称",
+      "group-name-placeholder": "输入频道名称",
+      "require": "必须",
+      "image-group-label": "频道图片",
+      "image-group-placeholder": "选择频道图片",
+      "comment-label": "评论",
+      "comment-placeholder": "输入评论",
+      "select-color-label": "频道标签",
+      "is-public-label": "公开",
+      "public": "公开",
+      "private": "不公开",
+      "approval-label": "是否必要承认",
+      "approval": "必要",
+      "reject": "不必要",
+      "select-invite-label": "频道成员",
+      "select-invite-placeholder": "搜索部门/群组/员工",
+      "button-create": "注册",
+      "button-update": "保存",
+      "title-update": "频道编辑"
+    },
+    "common": {
+      "target-all": "大家"
+    },
+    "popup-delete": {
+      "button-cancel": "取消",
+      "button-delete": "删除",
+      "content": "您确定要删除发布吗？",
+      "content-modal": "正在编辑的数据将被取消。您确定吗？"
+    },
+    "modal-confirm": {},
+    "local-tool": {
+      "search-group": {
+        "placeholder": "搜索频道"
+      }
+    },
+    "sidebar-list-attached-file": {
+      "title": "文件列表"
+    },
+    "no-data": "不要选择频道",
+    "popup-ok": {
+      "button-cancel": "Cancel",
+      "button-ok": "OK",
+      "content": "将授权从所有者更改为成员。您确定吗？"
+    },
+    "popup-privilege": {
+      "button-ok": "OK",
+      "content": "无法更改，因为没有拥有所有者权限的用户。"
+    },
+    "share-timeline-modal": {
+      "button-share": "发布",
+      "share-modal-title": "共享"
+    },
+    "popup-group": {
+      "title": "删除频道",
+      "button-cancel": "取消",
+      "button-delete": "删除",
+      "content": "如果删除频道，则全部已发布的文章都将被删除。",
+      "contentBottom": "您确定要删除吗？"
+    },
+    "popup-group-delete-member": {
+      "title": "离开频道",
+      "button-cancel": "取消",
+      "button-delete": "离开",
+      "content": "您确定要离开频道吗？"
+    },
+    "timeline-group": {
+      "join-request": "在要求参与。",
+      "have-invite-request": "您在收到参与{{0}}的要求。",
+      "not-join-request": "尚未参与频道。",
+      "text-request": "参与请求确认",
+      "btn-show-comment": "阅读更多"
+    },
+    "following-management": {
+      "following-name": "关注管理",
+      "type": "类型",
+      "name": "名称",
+      "keep-date": "关注开始日期",
+      "showing-results": "件显示",
+      "page": "件",
+      "employee": "员工",
+      "customer": "客户",
+      "card": "名片",
+      "first-record": "显示15件",
+      "center-record": "显示30件",
+      "last-record": "显示50件",
+      "message-delete": "已删除。",
+      "message-no-data": "无数据。"
+    },
+    "pulldown-channel": {
+      "place-holder": "选择要发布的频道"
+    },
+    "pulldown-target-deliver": {
+      "place-holder": "详细的搜索",
+      "button-add-new": "添加新的"
+    },
+    "message-followes": {
+      "label-modal": "删除关注",
+      "message": "您确定要删除关注吗?"
+    },
+    "button": {
+      "edit": "编辑",
+      "delete": "清除",
+      "like": "注册到喜爱的列表",
+      "exit-group": "离开频道",
+      "addRequest": "参与要求"
+    },
+    "authority": {
+      "member": "成员",
+      "owner": "所有者"
+    },
+    "dirty-check": {
+      "title": "您确定要离开此页面吗？",
+      "button-cancel": "离开此页面",
+      "button-ok": "在此页面上停留",
+      "content": "将不发布评论并结束。您的输入内容将被取消。您确定吗?",
+      "content-create-timeline-group": "如果离开此页面，则在输入的数据将被删除。您确定要切换页面吗？",
+      "owner": "所有者",
+      "member": "成员"
+    },
+    "reaction": {
+      "seach-placeholder": "搜索表情符号",
+      "recent": "常用的表情符号",
+      "face": "脸",
+      "hand": "手",
+      "other": "其他表情符号",
+      "result-seach": "搜索结果",
+      "clickFunction": "点击取消",
+      "cancel": "反应。"
+    },
+    "popup-show-detail": {
+      "status": "联机",
+      "button-sent-mail": "交换"
+    },
+    "dialog-group-delete-member": {
+      "content": "将被踢出频道",
+      "contentBottom": "您确定吗？",
+      "button-cancel": "取消",
+      "button-delete": "删除"
+    }
+  }
+}

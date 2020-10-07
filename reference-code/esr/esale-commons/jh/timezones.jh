@@ -1,0 +1,23 @@
+/**
+ * The Timezone entity.
+ */
+@dto(mapstruct)
+@service(serviceImpl)
+entity Timezones(timezones) {
+    /** 
+     * The Timezone id
+     */
+    timezoneId Long required,
+    /** 
+     * The Timezone shortName
+     */
+    timezoneShortName String required maxlength(50),
+    /** 
+     * The Timezone name
+     */
+    timezoneName String required maxlength(20),
+    /** 
+     * The Timezone displayOrder
+     */
+    displayOrder Integer
+}

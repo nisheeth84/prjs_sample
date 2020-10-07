@@ -1,0 +1,19 @@
+{
+    "Validation_message": {
+        "invalid_require": "このフィールドを入力して下さい",
+        "invalid_password": "パスワードは小文字大文字数字を含む８文字以上として下さい",
+        "incorrect_password": "パスワードが一致していません",
+        "send_code_confirm_error": "確認コード送付中にエラーが発生しました。",
+        "incorrect_verification_code": "確認コードが正しくありません。",
+        "email_already_regist": "既にこのメールアドレスは登録されています。",
+        "invalid_email": "別のメールアドレスで登録して下さい。",
+        "incorrect_code_confirm": "確認コードは6桁の数字です。",
+        "password_reset_failed": "パスワードリセットに失敗しました。 確認コードが正しく入力されていることを確認し、再度実行してください。",
+        "email_not_regist": "このメールアドレスは登録されておりません。",
+        "incorrect_auth_code": "認証コードが正しくありません。",
+        "incorrect_email": "メールアドレスが一致していません",
+        "invalid_require_resource_regist": "除外リソースを選択してください。",
+        "invalid_require_resource_delete": "除外解除するリソースを選択してください。",
+        "invalid_choose_resource_not_excluded": "除外設定されているリソースを選択してください。"
+    }
+}

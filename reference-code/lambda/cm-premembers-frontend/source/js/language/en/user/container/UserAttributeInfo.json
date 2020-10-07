@@ -1,0 +1,19 @@
+{
+    "UserAttributeInfo": {
+        "configure_info_user": "Configure your user profile and authentication settings.",
+        "info_attr": "User Profile",
+        "edit_info_attr": "Edit User Profile",
+        "auth_setting": "Authentication",
+        "mfa": "MFA",
+        "enable_mfa": "Enable MFA",
+        "disable_mfa": "Disable MFA",
+        "language_setting": "Language",
+        "language": "Language",
+        "regist_language_setting": "Save Change",
+        "notice_mfa_valid": "MFA is already enabled for this user. Please reload the page.",
+        "japanese": "Japanese",
+        "english": "English",
+        "Change_mail_receive_setting": "Change email preferences",
+        "region": "Country / Region"
+    }
+}

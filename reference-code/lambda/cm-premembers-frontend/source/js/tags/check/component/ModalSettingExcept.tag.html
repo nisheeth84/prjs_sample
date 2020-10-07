@@ -1,0 +1,121 @@
+<modal-setting-except>
+    <div class="modal fade modal-info" id="modal-setting-except" aria-hidden="true" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">{_t('ModalSettingExcept.exclusion_setting')}：{informationModalSettingExcept.title}</h4>
+                </div>
+                <div class="modal-body">
+                    <p if="{informationModalSettingExcept.check_item_code}">{commonUtils.getTitleCheckItem(informationModalSettingExcept.check_item_code)}</p>
+                    <p ref="descriptionModalSettingExcept" if="{informationModalSettingExcept.check_item_code}">{commonUtils.parseHtmlByRef(this.refs.descriptionModalSettingExcept,
+                        commonUtils.getDescriptionCheckItem(informationModalSettingExcept.check_item_code)[0])}</p>
+                    <hr>
+                    <span class="text-decoration-underline">{_t('ModalSettingExcept.currently_set_of')}</span>
+                    <span class="badge badge-success ml-10 mr-10" if="{informationModalSettingExcept.isExistSettingExcept == 'NotExcept'}">{_t(SettingCurrentExcept[informationModalSettingExcept.isExistSettingExcept])}</span>
+                    <span class="badge badge-warning ml-10 mr-10" if="{informationModalSettingExcept.isExistSettingExcept == 'Except'}">{_t(SettingCurrentExcept[informationModalSettingExcept.isExistSettingExcept])}</span>
+                    <span if="{informationModalSettingExcept.createAt}">{commonUtils.displayDate(informationModalSettingExcept.createAt,
+                        "YYYY/MM/DD")}</span>
+                    <span class="ml-10" if="{informationModalSettingExcept.emailAddress}">({informationModalSettingExcept.emailAddress})</span>
+                    <hr>
+                    <br>
+                    <input type="radio" name="radioExcept" id="idRadioExceptExclude" ref="radioExcept" value="{_t('excluded')}"
+                        checked="{informationModalSettingExcept.isExistSettingExcept == 'Except'}">
+                    <label class="ml-10" for="idRadioExceptExclude">{_t('ModalSettingExcept.exclude')}</label>
+                    <textarea class="form-control" rows="6" ref="exclusionComment" name="exclusionComment" value="{informationModalSettingExcept.exclusionComment}"
+                        placeholder="{_t('notify_comment')}" maxlength="300"></textarea>
+                    <input type="radio" name="radioExcept" id="idRadioExceptNotExclude" value="{_t('included')}" checked="{informationModalSettingExcept.isExistSettingExcept == 'NotExcept'}">
+                    <label class="ml-10 mt-20" for="idRadioExceptNotExclude">{_t('ModalSettingExcept.include')}</label>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnCloseModalSettingExcept" type="button" class="btn btn-default" data-dismiss="modal">{_t('cancel')}</button>
+                    <button type="button" class="btn btn-inverse bg-info" onclick="{doClickConfirm}">{_t('regist')}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const tag = this;
+        const obs = tag.parent.obs
+        tag.observer = obs;
+        const dictionary = tag.commonUtils.getMyDictionary()
+        const information = {
+            'title': tag._t('title_info_modal_setting'),
+            'body': tag._t('body_info_modal_setting')
+        }
+        const informationModalSettingExceptDefault = {
+            'title': '',
+            'isExistSettingExcept': '',
+            'emailAddress': '',
+            'createAt': '',
+            'exclusionComment': ''
+        }
+
+        tag.doClickConfirm = doClickConfirm;
+        tag.SettingCurrentExcept = dictionary.SettingCurrentExcept
+        tag.informationModalSettingExcept = informationModalSettingExceptDefault
+
+        tag.on('mount', function() {
+            tag.modal = $('#modal-setting-except')
+            tag.observer.on("modal-setting-except-open", function(informationModalSettingExcept) {
+                tag.informationModalSettingExcept = informationModalSettingExceptDefault
+                tag.update()
+
+                tag.informationModalSettingExcept = informationModalSettingExcept
+                tag.refs.exclusionComment.value = informationModalSettingExcept['exclusionComment']
+                tag.modal.modal()
+                tag.update();
+            });
+
+            tag.modal.on('hidden.bs.modal', function(e) {
+                tag.observer.trigger("modal-setting-except-close");
+            });
+        })
+
+        tag.on('unmount', function() {
+            tag.modal.off('hidden.bs.modal');
+        })
+
+        function doClickConfirm(event) {
+            tag.modal.modal('hide')
+            if (tag.refs.radioExcept.checked) {
+                createExcluesionItem(tag.informationModalSettingExcept["check_item_code"], tag.refs.exclusionComment.value)
+            } else {
+                deleteExcluesionItem(tag.informationModalSettingExcept["check_item_code"])
+            }
+        }
+
+        function createExcluesionItem(checkItemCode, exclusionComment) {
+            const body = {
+                'exclusionComment': exclusionComment
+            }
+
+            const requestCreateExcluesionItemUrl = tag.config.APIGATEWAY_ADDRESS + "/check/securitycheck/" + tag.parent.organizationId + "/" + tag.parent.projectId + "/" + tag.parent.coopId + "/exclusionitems/" + checkItemCode
+            tag.commonUtils.callApiWithLoader(tag.parent, requestCreateExcluesionItemUrl, "POST", body).then(function(response) {
+                if (response) {
+                    tag.parent.obs.trigger('information-modal-open', information)
+                }
+            })
+        }
+
+        function deleteExcluesionItem(checkItemCode) {
+            const requestDeleteExcluesionItemUrl = tag.config.APIGATEWAY_ADDRESS + "/check/securitycheck/" + tag.parent.organizationId + "/" + tag.parent.projectId + "/" + tag.parent.coopId + "/exclusionitems/" + checkItemCode
+            tag.commonUtils.callApiWithLoader(tag.parent, requestDeleteExcluesionItemUrl, "DELETE", null, false).then(function(response) {
+                tag.parent.obs.trigger('information-modal-open', information)
+            }).catch(function(errorPromise) {
+                errorPromise.then(function(value) {
+                    if (value.responseStatus == 404) {
+                        tag.parent.obs.trigger('information-modal-open', information)
+                    } else {
+                        tag.obs.trigger('error-modal-open', value);
+                        tag.obs.one('error-modal-close', function(value) {
+                            tag.commonUtils.backHome(value)
+                        })
+                    }
+                })
+            })
+        }
+    </script>
+</modal-setting-except>

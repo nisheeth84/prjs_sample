@@ -1,0 +1,35 @@
+@startuml{API_セキュリティチェック項目設定_セキュリティチェック項目除外情報削除.png}
+title [セキュリティチェック項目設定API_セキュリティチェック項目除外情報削除]
+hide footbox
+
+boundary 画面 as view
+participant セキュリティチェック項目設定API as api_exclusion #cyan
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database チェック項目除外設定 as table_exclusion_items <<dynamodb>> #royalblue
+
+view -> api_exclusion :DELETE /check/securitycheck/{organization_id}/{project_id}/{coop_id}/exclusionitems/{check_item_code}
+activate api_exclusion
+    api_exclusion -> api_exclusion :メールアドレス取得
+    |||
+    ref over api_exclusion, table_affiliation :アクセス権限チェック
+    |||
+    api_exclusion -> api_exclusion :チェック項目除外設定取得
+    activate api_exclusion
+        api_exclusion -> table_exclusion_items :チェック項目除外設定情報取得
+        table_exclusion_items --> api_exclusion
+        note left
+            レコードの存在確認として、レコードを取得する
+        end note
+        |||
+        api_exclusion -> api_exclusion :削除条件チェック
+        |||
+        api_exclusion -> table_exclusion_items :レコード削除
+        table_exclusion_items --> api_exclusion
+        |||
+        api_exclusion --> api_exclusion
+    deactivate api_exclusion
+    |||
+    api_exclusion -> api_exclusion :レスポンス作成
+    api_exclusion --> view :204:BODY無し
+deactivate api_exclusion
+@enduml

@@ -1,0 +1,9 @@
+{
+    "UserInvite": {
+        "title": "ユーザー招待",
+        "invite": "招待する",
+        "invite_to": "{{name}}に招待する",
+        "info_title": "ユーザーを招待しました。",
+        "info_body": "を招待しました。"
+    }
+}

@@ -1,0 +1,105 @@
+swagger: '2.0'
+info:
+  description: チェック外部実行API
+  version: 1.0.0
+  title: Externally executable API
+host: api.dev.insightwatch.io
+basePath: /
+tags:
+  - name: チェック外部実行
+    description: セキュリティチェックを外部から実行します。
+schemes:
+  - https
+paths:
+  /check/securitycheck/webhooks/{webhook_path}:
+    post:
+      tags:
+        - チェック外部実行
+      summary: チェック実行
+      description: チェック実行の要求をします。
+      parameters:
+        - in: path
+          name: webhook_path
+          description: Webhookパス
+          required: true
+          type: string
+        - in: query
+          name: reportLang
+          description: >-
+            チェック結果レポートの出力言語を指定します。<br/>
+            ・'ja' : 日本語(デフォルト)<br/>
+            ・'en' : 英語<br/>
+          required: false
+          type: string
+      responses:
+        '201':
+          description: 正常終了。
+          schema:
+            type: object
+            required:
+              - id
+              - webhookPath
+              - userId
+              - enabled
+              - createdAt
+              - updatedAt
+            properties:
+              id:
+                type: string
+                description: Webhook ID
+              webhookPath:
+                type: string
+                description: Webhookパス
+              userId:
+                type: string
+                description: Webhook作成ユーザーID
+              enabled:
+                type: boolean
+                description: >-
+                  有効/無効
+                    true：有効
+                    false：無効
+              createdAt:
+                type: string
+                format: 'YYYYY-MM-DD hh:mm:ss.sss'
+                description: 作成日時
+              updatedAt:
+                type: string
+                format: 'YYYYY-MM-DD hh:mm:ss.sss'
+                description: 更新日時
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象が「有効」に設定されている必要があります。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: 24時間以内の実行回数上限を超えています。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+definitions:
+  ErrorResponse:
+    type: object
+    required:
+      - code
+      - errorId
+      - message
+    properties:
+      code:
+        type: integer
+        description: エラーコード
+      errorId:
+        type: string
+        description: エラーID
+      message:
+        type: string
+        description: エラー概要説明
+      description:
+        type: string
+        description: エラー詳細説明

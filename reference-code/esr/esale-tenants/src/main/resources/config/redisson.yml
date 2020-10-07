@@ -1,0 +1,11 @@
+# ===================================================================
+# Redis server config
+# ===================================================================
+
+singleServerConfig:
+  address: "redis://${REDIS_HOST:-127.0.0.1:6379}"
+  connectionPoolSize: 64
+  timeout: 3000
+  retryAttempts: 3
+  retryInterval: 1500
+  

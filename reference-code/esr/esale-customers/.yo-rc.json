@@ -1,0 +1,44 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "jp.co.softbrain.esales.customers",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.4.1",
+    "applicationType": "microservice",
+    "baseName": "customers",
+    "packageName": "jp.co.softbrain.esales.customers",
+    "packageFolder": "jp/co/softbrain/esales/customers",
+    "serverPort": "8081",
+    "authenticationType": "uaa",
+    "uaaBaseName": "uaa",
+    "cacheProvider": "redis",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YzA1NzQ5ZTA5NzdhMGQ1ZDI4OTcxM2RjOWFjZjlmNDUwOWFjZDdiNGFmNmM1YzA0MGIwM2VhNTE5Yzg5MDc2MTMxZWEwZTBhNmE5ZTQ4M2UxMTBmNTc4OThmNGM0YTQ1ZGNhZDJkM2I2MDNhZmI2OWY0NDZjMzI5MjM4YWQ4Mzc=",
+    "embeddableLaunchScript": false,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "ja"
+    ],
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

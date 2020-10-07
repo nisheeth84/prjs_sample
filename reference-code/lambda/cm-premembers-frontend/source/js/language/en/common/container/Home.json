@@ -1,0 +1,11 @@
+{
+    "Home": {
+        "close_notice":"Close the notice",
+        "close_guide": "Close the guide below",
+        "category": "[Caution]",
+        "message_error_send_mail": "Failed to send an email to the current email address. Please confirm that your email address is correct. You can change your email address <a href=\"/app/#/user/update_email/\"> here </a>.",
+        "message_error_linked_aws_account": "AWSアカウント[{{awsAccount}}]が連携に失敗しています。<a href=\"{{url}}\">こちら</a>から確認してください。",
+        "message_notice_organization_invited": "組織[{{organizationName}}]へ招待されています。<a href=\"/app/#/invitations/\">こちら</a>から確認してください。",
+        "category_notice": "[お知らせ]"
+    }
+}

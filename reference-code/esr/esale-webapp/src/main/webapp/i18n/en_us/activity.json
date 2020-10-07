@@ -1,0 +1,148 @@
+{
+  "activity": {
+    "title": "Activity",
+    "title-2": "This activity",
+    "control": {
+      "sidebar": {
+        "all-activity": "All activities",
+        "my-activity": "My activities",
+        "draft-activity": "Draft",
+        "customer-activity": "Customers – Activities",
+        "list-card": "Business cards – Activities",
+        "customer-activity-search": "Search activity",
+        "list-product": "Trading products – Activities"
+      },
+      "top": {
+        "create-activity": "Register activity",
+        "import-activity": "Import activity",
+        "filter-condition": "Search activity",
+        "searching": "Edit advanced search",
+        "filter": "Filter active products",
+        "filter-placeholder": "Product name",
+        "clear": "Clear",
+        "config": "Apply",
+        "sort": "Sort",
+        "asc": "A to Z",
+        "desc": "Z to A",
+        "report-date-time": "Reported time"
+      }
+    },
+    "message": {
+      "404": "Activity not found.",
+      "confirm": {
+        "confirmreateactivity1": "Do you want to discard registered content and end the registration?",
+        "confirmreateactivity2": "Please select \"Save as draft\" to save temporarily.",
+        "discard1": "Do you want to discard registered content and end the registration?",
+        "discard2": "Please select \"Save as draft\" to save temporarily."
+      }
+    },
+    "list": {
+      "body": {
+        "contact-date": "Contacted date",
+        "isDraft": "Draft",
+        "activity-time": "Activity duration",
+        "discussion-person": "Discussed person",
+        "customerName-productName": "Customer name/Trading product",
+        "quality": "Quantity",
+        "price": "Price",
+        "amount": "Subtotal",
+        "employee-name": "Person in charge",
+        "product-trading-progress-name": "Progress",
+        "end-plan-date": "Completion date (estimated)",
+        "memo-name": "Memo",
+        "memo-active": "Memo",
+        "create-date": "Registration date",
+        "create-user-name": "Registrant",
+        "updated-date": "Last updated date",
+        "updated-user-name": "Last updated person",
+        "san": " along with",
+        "to": " and",
+        "business-card-amount": " {{amount}} others",
+        "about": ": ",
+        "product-amount": " and {{amount}} other products",
+        "product-trading": "Trading product",
+        "order-plan-date": "Order date (estimated)",
+        "quantity": "Quantity",
+        "next-schedule": "Next schedule",
+        "related_activities": " involved.",
+        "uptime": "Activity duration",
+        "interviewer": "Discussed person",
+        "customer-transactionalProduct": "Customer name/Trading product",
+        "develop": "Progress",
+        "dateRes": "Registration date",
+        "peopelSigned": "Registrant",
+        "latest-updates": "Last updated date",
+        "last-updated-by": "Last updated person",
+        "finish-day": "Completion date (estimated)",
+        "memoJ": "Memo",
+        "yen": "JPY"
+      }
+    },
+    "modal": {
+      "button-edit": "Save changes",
+      "data-draft": "Data has been updated from draft.",
+      "delete-draft": "Discard draft",
+      "button.preview": "Preview registration",
+      "title-detail": "Activity Details",
+      "title-add": "Register Activity",
+      "title-edit": "Edit Activity",
+      "minute": "m",
+      "checkbox-duration": "Adjust end time based on start time",
+      "report-person-default": "Registrant A",
+      "activity-format": "Activity format",
+      "customer": "Customer name",
+      "customer-placeholder": "Add customer name",
+      "button-cancel": "Cancel",
+      "button-close": "Discard",
+      "business-card": "Discussed person",
+      "business-card-placeholder": "Add discussed person",
+      "customer-relation-placeholder": "Add related customer",
+      "product-placeholder": "Add trading product",
+      "memo-placeholder": "Add memo",
+      "created-date-default": "Automatically registered",
+      "created-by-default": "Automatically registered",
+      "updated-date-default": "Automatically registered",
+      "updated-by-default": "Automatically registered",
+      "button-save-draft": "Save as draft",
+      "button-save": "Register",
+      "button-discard": "Discard",
+      "button-scenario": "Edit scenario",
+      "scenario": "Scenario",
+      "report-target-placeholder": "Add report object",
+      "show-edit-customer": "Edit customer",
+      "calendar": "Calendar",
+      "task": "Task",
+      "milestone": "Milestone",
+      "product-trading": "Trading product name",
+      "product-suggest": "Product",
+      "add-business-card": "{{0}} (Save as text)",
+      "text-activity-id" : "Automatically numbered"
+    },
+    "common": {
+      "required": "※",
+      "button-cancel": "Cancel"
+    },
+    "popup-delete": {
+      "title": "Delete",
+      "detail": "Are you sure you want to delete activity?",
+      "button-delete": "Delete",
+      "button-cancel": "Cancel"
+    },
+    "modal-confirm": {
+      "title": "Discard",
+      "content-1": "Do you want to discard registered content and end the registration?",
+      "content-2": "Please select \"Save as Draft\" to save temporarily.",
+      "button-cancel": "Cancel",
+      "button-save-draft": "Save as draft",
+      "button-discard": "Discard",
+      "button-confirm": "Confirm",
+      "confirm-customer": "The customer you have selected is different from the one specified in \"Report object\". If you still select it, the data filled in \"Report object\" will be discarded. Are you sure to continue?"
+    },
+    "activityDetail": {
+      "button.edit": "Edit screen",
+      "history": "History",
+      "blank": "(Blank)",
+      "tab-history": "History"
+    }
+  }
+}

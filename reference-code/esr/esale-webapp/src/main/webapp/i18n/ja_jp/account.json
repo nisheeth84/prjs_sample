@@ -1,0 +1,123 @@
+{
+  "account": {
+    "common": {},
+    "login": {
+      "form": {
+        "username": "メールアドレス",
+        "username.placeholder": "メールアドレスを入力",
+        "password": "パスワード",
+        "password.placeholder": "パスワードを入力",
+        "tenant": "テナントID",
+        "tenant.placeholder": "テナントIDを入力",
+        "link.reset-password": "パスワードを忘れた方は<a href=\"{{tenant}}/account/reset/password\">こちら</a>",
+        "rememberme": "ログイン状態を保存する",
+        "button.login": "ログイン",
+        "button.next": "次へ",
+        "label.required": "必須"
+      },
+      "messages": {
+        "errors": {
+          "trial-left-days": "トライアル期間は残り{{trial}}日です。",
+          "trial-ended": "トライアル期間が終了しました。引き続きご利用される場合は、ログインを行い、登録のお手続きをしてください。",
+          "authentication": "ユーザIDまたはパスワードが間違っています。ログインできない場合は、管理者にお問い合わせください。",
+          "username.requried": "ユーザーIDを空にすることはできません",
+          "password.requried": "パスワードを空にすることはできません",
+          "tenant.requried": "テナントIDを空にすることはできません"
+        }
+      }
+    },
+    "password": {
+      "title": "パスワード再設定",
+      "messages": {
+        "errors": {
+          "update-failed": "<strong>エラーが発生しました!</strong> パスワードは更新されませんでした。"
+        },
+        "success": "<strong>パスワードが更新されました!</strong>",
+        "info1": "パスワード再設定のためのメールを送信します。",
+        "info2": "新規にパスワードを設定してください。",
+        "suggest-info1": "パスワードの設定には以下の条件があります。",
+        "suggest-info2": "パスワードの有効期限は設定から90日間です。",
+        "suggest-info3": "パスワードは8-32文字で設定してください。",
+        "suggest-info4": "パスワードには、半角英字、半角数字、半角記号のうち2種類以上を使用してください。",
+        "suggest-info5": "メールと同じパスワードは設定できません。",
+        "expired-message": "パスワードの有効期限が終了しました。<br/>引き続きご利用される場合は、新しいパスワードを設定してください。"
+      },
+      "form": {
+        "current-password": "現在のパスワード",
+        "current-password-placeholder": "現在のパスワードを入力",
+        "new-password": "新しいパスワード",
+        "new-password-placeholder": "新しいパスワードを入力",
+        "new-password-confirm": "新しいパスワード（確認用）",
+        "new-password-confirm-placeholder": "新しいパスワードを入力",
+        "button-update": "変更"
+      },
+      "reset": {
+        "messages": {
+          "info": "パスワード再設定を行います。"
+        },
+        "url-invalid": "URLが不正、もしくは有効期限切れです。"
+      },
+      "change": {
+        "password-thesame-employee-id": "社員IDと同じパスワードは設定できません。",
+        "password-old-incorrect": "パスワードが正しくありません。",
+        "password-upto-three": "3世代前までのパスワードは使用できません。"
+      },
+      "change-finish": {
+        "info": "パスワード再設定が完了しました。<br/>ログイン画面より、再度ログインしてください。",
+        "button-back-login": "ログイン画面へ"
+      }
+    },
+    "newPassword": {
+      "NotBlank": "パスワードを入力してください。",
+      "Pattern": "パスワードには、半角英字、半角数字、半角記号のうち2種類以上を使用してください。",
+      "Size": "パスワードは8-32文字で設定してください。"
+    },
+    "reset": {
+      "title": "パスワード再設定",
+      "init": {
+        "info1": "パスワード再設定のためのメール送信が完了しました。",
+        "info2": "届いたメールからパスワードの再設定を行ってください。",
+        "info3": "5分経っても届かない場合はシステム管理者にお問い合わせください。",
+        "form": {
+          "username": "メールアドレス",
+          "username-placeholder": "メールアドレスを入力",
+          "code": "Reset Code",
+          "code-placeholder": "ResetCodeを入力",
+          "button-submit": "送信",
+          "button-back": "戻る"
+        },
+        "messages": {
+          "info": "パスワード再設定のためのメールを送信します。",
+          "user-notfound": "ユーザIDが間違っています。",
+          "errors": {
+            "username.requried": "ユーザーIDを空にすることはできません",
+            "code.requried": "ResetCodeを空にすることはできません"
+          }
+        }
+      },
+      "finish": {
+        "info1": "URLが不正、もしくは有効期限切れです。",
+        "info2": "ログイン画面からパスワード再設定手続きをしてください 。",
+        "button-back-login": "ログイン画面へ"
+      }
+    },
+    "popup": {
+      "destination.title": "接続先の確認",
+      "destination.message": "ログイン後の接続先のサービスを選択ください。",
+      "btn-contract": "契約者サイト",
+      "btn-back-login": "ログインページへ",
+      "btn-esms": "esm's"
+    },
+    "tenant": {
+      "input-tenant.button": "次へ",
+      "contract-info.title": "【重要】環境停止のお知らせ",
+      "contract-info.content1": "お客様の環境は現在停止させて頂いております。",
+      "contract-info.content2": "環境停止については",
+      "contract-info.content3": "をご参照ください。",
+      "contract-info.content4": "環境停止の理由については契約者サイトにログインしてご確認ください。"
+    },
+    "licenses": {
+      "error-licenses.message": "ライセンス数が不足しています。 管理者に問い合わせてください。"
+    }
+  }
+}

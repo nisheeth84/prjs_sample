@@ -1,0 +1,13 @@
+version: "2"
+services:
+    node_alpine_front_build:
+        image: node:8-alpine
+        container_name: "node_alpine_front_build"
+        working_dir: /src
+        volumes: 
+            - ./:/src
+            - /src/node_modules
+        command: npm start
+        ports: 
+            - 3000:3000
+            - 3001:3001

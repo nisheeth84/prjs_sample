@@ -1,0 +1,66 @@
+@startuml{API_セキュリティチェック項目設定_セキュリティチェック項目除外情報取得.png}
+title [セキュリティチェック項目設定API_セキュリティチェック項目除外情報取得]
+hide footbox
+
+boundary 画面 as view
+participant セキュリティチェック項目設定API as api_url #cyan
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database プロジェクト as table_project <<dynamodb>> #royalblue
+database AWSアカウント連携 as table_awscoop <<dynamodb>> #royalblue
+database チェック項目除外設定 as table_exclusion <<dynamodb>> #royalblue
+database 評価結果 as table_assessment <<dynamodb>> #royalblue
+
+view -> api_url :GET /check/securitycheck/{organization_id}/{project_id}/{coop_id}/itemsettings
+activate api_url
+    api_url -> api_url :メールアドレス取得
+    |||
+    ref over api_url, table_affiliation :アクセス権限チェック
+    |||
+    api_url -> api_url :リソース関連性のバリデーションチェック
+    activate api_url
+        api_url -> table_project :query プロジェクトの存在確認
+        table_project --> api_url
+        api_url -> table_awscoop :query AWSアカウントの存在確認
+        table_awscoop --> api_url
+        api_url --> api_url
+    deactivate api_url
+    |||
+    api_url -> api_url :チェック項目除外情報取得
+    activate api_url
+        api_url -> table_exclusion :query
+        table_exclusion --> api_url
+        api_url --> api_url
+    deactivate api_url
+    |||
+    api_url -> api_url :マニュアル評価情報取得
+    activate api_url
+        api_url -> table_assessment :query
+        table_assessment --> api_url
+        api_url --> api_url
+    deactivate api_url
+    |||
+    api_url -> api_url :メンバーズ加入アカウント確認
+    activate api_url
+        api_url -> table_awscoop :query
+        note left
+            前述のAWSアカウントの存在確認時に合わせて実施しても構わない
+        end note
+        table_awscoop --> api_url
+        api_url --> api_url
+    deactivate api_url
+    |||
+    api_url -> api_url :戻り値の配列を作成
+    activate api_url
+        loop groupFilterで指定されたチェックの個数分、繰り返す
+            api_url --> api_url : チェック項目コード
+            api_url --> api_url : マネージド項目有無
+            api_url --> api_url : チェック項目除外有無
+            api_url --> api_url : マニュアル評価設定有無
+        end 
+    api_url --> api_url
+    deactivate api_url
+    |||
+    api_url -> api_url :レスポンス作成
+    api_url --> view :200:セキュリティチェック項目設定一覧Arry<SecurityItemSetting>
+deactivate api_url
+@enduml

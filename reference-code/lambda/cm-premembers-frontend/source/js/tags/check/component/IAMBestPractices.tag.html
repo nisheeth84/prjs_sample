@@ -1,0 +1,281 @@
+<iam-best-practices>
+    <div class="card card-bordered card-outline-danger carousel" if="{opts.list_iam_best_practice.length > 0}">
+        <div class="card-block check-ibp">
+            <div class="card-title">
+                <p class="text-right inline float-right">
+                    {_t('check_date_time')}: {commonUtils.displayDate(opts.list_iam_best_practice[0][0].executedDateTime)}
+                </p>
+            </div>
+        </div>
+        <virtual each="{results in opts.list_iam_best_practice}">
+            <div class="card-block mt-10">
+                <div class="card-title">
+                    <div class="vertical-align-middle">
+                        <h4>
+                            <i class="{commonUtils.getClassIconCheckCIS(results[0].checkItemCode)}"></i>
+                            {commonUtils.getItemCodeCheckItem(results[0].checkItemCode)}
+                            <span class="px-2 py-1 badge-setting badge-danger align-middle" if="{opts.list_manual.includes(results[0].checkItemCode)}">{_t('CheckResult.manual')}</span>
+                        </h4>
+                    </div>
+                </div>
+                <ul>
+                    <li each="{description in commonUtils.getDescriptionCheckItem(results[0].checkItemCode)}">{commonUtils.parseHtml(this, description)}</li>
+                </ul>
+                <virtual if="{results[0].checkResult == 99 && results[0].resources.length == 0}">
+                    <div class="empty-resources">
+                        <p class="mt-15">{_t('Error_message.check_error_message_1')}</p>
+                        <p class="mt--10">{_t('Error_message.check_error_message_2')}</p>
+                    </div>
+                </virtual>
+                <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].resources.length > 0 && results[0].checkItemCode == 'CHECK_IBP_ITEM_14_05'}">
+                    <thead>
+                        <tr>
+                            <th class="font-weight-900 check-header">{_t('organization')}</th>
+                            <th class="font-weight-900 check-header">{_t('project')}</th>
+                            <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                            <th class="font-weight-900 check-header">{_t('region')}</th>
+                            <th class="font-weight-900 check-header">{_t('s3_bucket')}</th>
+                        </tr>
+                    </thead>
+                    <tbody each="{result in results}">
+                        <tr class="child" each="{resource in result.resources}">
+                            <td class="word-break-all">{result.organizationName}</td>
+                            <td class="word-break-all">{result.projectName}</td>
+                            <td class="table-account-column">
+                                <p>{result.awsAccount}
+                                    <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                </p>
+                            </td>
+                            <td class="word-break-all">{resource.Region}</td>
+                            <td class="word-break-all">
+                                {resource.DetectionItem.BucketName}
+                                <i class="icon fa-exclamation-circle text-danger" aria-hidden="true" if="{resource.DetectionItem.ErrorOperation}" onclick="{showCheckError.bind(this, results[0].checkItemCode, result.awsAccountName, result.awsAccount, resource.DetectionItem.BucketName)}">
+                                </i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <virtual if="{results[0].checkResult != 99}">
+                    <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_IBP_ITEM_01_01' || results[0].checkItemCode == 'CHECK_IBP_ITEM_02_01'
+                        || results[0].checkItemCode == 'CHECK_IBP_ITEM_07_01' || results[0].checkItemCode == 'CHECK_IBP_ITEM_07_02' || results[0].checkItemCode == 'CHECK_IBP_ITEM_07_03'
+                        || results[0].checkItemCode == 'CHECK_IBP_ITEM_07_04' || results[0].checkItemCode == 'CHECK_IBP_ITEM_07_05' || results[0].checkItemCode == 'CHECK_IBP_ITEM_07_06'
+                        || results[0].checkItemCode == 'CHECK_IBP_ITEM_07_07' || results[0].checkItemCode == 'CHECK_IBP_ITEM_07_08'}">
+                        <thead>
+                            <tr>
+                                <th class="font-weight-900 check-header">{_t('organization')}</th>
+                                <th class="font-weight-900 check-header">{_t('project')}</th>
+                                <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                            </tr>
+                        </thead>
+                        <tbody each="{result in results}">
+                            <tr class="child" each="{resource in result.resources}">
+                                <td class="word-break-all">{result.organizationName}</td>
+                                <td class="word-break-all">{result.projectName}</td>
+                                <td class="table-account-column">
+                                    <p>{result.awsAccount}
+                                        <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_IBP_ITEM_03_01'}">
+                        <thead>
+                            <tr>
+                                <th class="font-weight-900 check-header">{_t('organization')}</th>
+                                <th class="font-weight-900 check-header">{_t('project')}</th>
+                                <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                                <th class="font-weight-900 check-header">{_t('iam_user')}</th>
+                            </tr>
+                        </thead>
+                        <tbody each="{result in results}">
+                            <tr class="child" each="{resource in result.resources}">
+                                <td class="word-break-all">{result.organizationName}</td>
+                                <td class="word-break-all">{result.projectName}</td>
+                                <td class="table-account-column">
+                                    <p>{result.awsAccount}
+                                        <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                    </p>
+                                </td>
+                                <td class="word-break-all">{resource.DetectionItem.UserName}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_IBP_ITEM_04_01' || results[0].checkItemCode == 'CHECK_IBP_ITEM_06_01' || results[0].checkItemCode == 'CHECK_IBP_ITEM_10_01'
+                        || results[0].checkItemCode == 'CHECK_IBP_ITEM_13_01' || results[0].checkItemCode == 'CHECK_IBP_ITEM_14_03'}">
+                        <thead>
+                            <tr>
+                                <th class="font-weight-900 check-header">{_t('organization')}</th>
+                                <th class="font-weight-900 check-header">{_t('project')}</th>
+                                <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                            </tr>
+                        </thead>
+                        <tbody each="{result in results}">
+                            <tr class="child" each="{resource in result.resources}">
+                                <td class="word-break-all">{result.organizationName}</td>
+                                <td class="word-break-all">{result.projectName}</td>
+                                <td class="table-account-column">
+                                    <p>{result.awsAccount}
+                                        <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_IBP_ITEM_05_01'}">
+                        <thead>
+                            <tr>
+                                <th class="font-weight-900 check-header">{_t('organization')}</th>
+                                <th class="font-weight-900 check-header">{_t('project')}</th>
+                                <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                                <th class="font-weight-900 check-header">{_t('policy')}</th>
+                                <th class="font-weight-900 check-header">{_t('iam_group')}</th>
+                                <th class="font-weight-900 check-header">{_t('iam_role')}</th>
+                                <th class="font-weight-900 check-header">{_t('iam_user')}</th>
+                            </tr>
+                        </thead>
+                        <tbody each="{result in results}">
+                            <tr class="child" each="{resource in result.resources}">
+                                <td class="word-break-all">{result.organizationName}</td>
+                                <td class="word-break-all">{result.projectName}</td>
+                                <td class="table-account-column">
+                                    <p>{result.awsAccount}
+                                        <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                    </p>
+                                </td>
+                                <td class="word-break-all">{resource.DetectionItem.PolicyName}</td>
+                                <td>
+                                    <span class="d-block word-break-all" each="{abnormalityGroup in resource.DetectionItem.AbnormalityGroups}">{abnormalityGroup}</span>
+                                </td>
+                                <td>
+                                    <span class="d-block word-break-all" each="{abnormalityRole in resource.DetectionItem.AbnormalityRoles}">{abnormalityRole}</span>
+                                </td>
+                                <td>
+                                    <span class="d-block word-break-all" each="{abnormalityUser in resource.DetectionItem.AbnormalityUsers}">{abnormalityUser}</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_IBP_ITEM_08_01'}">
+                        <thead>
+                            <tr>
+                                <th class="font-weight-900 check-header">{_t('organization')}</th>
+                                <th class="font-weight-900 check-header">{_t('project')}</th>
+                                <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                                <th class="font-weight-900 check-header">{_t('iam_user')}</th>
+                            </tr>
+                        </thead>
+                        <tbody each="{result in results}">
+                            <tr class="child" each="{abnormalityUser in result.resources[0].DetectionItem.AbnormalityUsers}">
+                                <td class="word-break-all">{result.organizationName}</td>
+                                <td class="word-break-all">{result.projectName}</td>
+                                <td class="table-account-column">
+                                    <p>{result.awsAccount}
+                                        <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                    </p>
+                                </td>
+                                <td class="word-break-all">{abnormalityUser}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_IBP_ITEM_09_01'}">
+                        <thead>
+                            <tr>
+                                <th class="font-weight-900 check-header">{_t('organization')}</th>
+                                <th class="font-weight-900 check-header">{_t('project')}</th>
+                                <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                                <th class="font-weight-900 check-header">{_t('region')}</th>
+                                <th class="font-weight-900 check-header">{_t('name')}</th>
+                                <th class="font-weight-900 check-header">{_t('instance_id')}</th>
+                            </tr>
+                        </thead>
+                        <tbody each="{result in results}">
+                            <tr class="child" each="{resource in result.resources}">
+                                <td class="word-break-all">{result.organizationName}</td>
+                                <td class="word-break-all">{result.projectName}</td>
+                                <td class="table-account-column">
+                                    <p>{result.awsAccount}
+                                        <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                    </p>
+                                </td>
+                                <td class="word-break-all">{resource.Region}</td>
+                                <td class="word-break-all">{resource.DetectionItem.Name}</td>
+                                <td class="word-break-all">{resource.DetectionItem.InstanceId}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_IBP_ITEM_11_01' || results[0].checkItemCode == 'CHECK_IBP_ITEM_12_01'}">
+                        <thead>
+                            <tr>
+                                <th class="font-weight-900 check-header">{_t('organization')}</th>
+                                <th class="font-weight-900 check-header">{_t('project')}</th>
+                                <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                                <th class="font-weight-900 check-header">{_t('iam_user')}</th>
+                            </tr>
+                        </thead>
+                        <tbody each="{result in results}">
+                            <tr class="child" each="{resource in result.resources}">
+                                <td class="word-break-all">{result.organizationName}</td>
+                                <td class="word-break-all">{result.projectName}</td>
+                                <td class="table-account-column">
+                                    <p>{result.awsAccount}
+                                        <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                    </p>
+                                </td>
+                                <td class="word-break-all">{resource.DetectionItem.User}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_IBP_ITEM_14_01'}">
+                        <thead>
+                            <tr>
+                                <th class="font-weight-900 check-header">{_t('organization')}</th>
+                                <th class="font-weight-900 check-header">{_t('project')}</th>
+                                <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                                <th class="font-weight-900 check-header">{_t('IAMBestPractices.distribution_id')}</th>
+                            </tr>
+                        </thead>
+                        <tbody each="{result in results}">
+                            <tr class="child" each="{resource in result.resources}">
+                                <td class="word-break-all">{result.organizationName}</td>
+                                <td class="word-break-all">{result.projectName}</td>
+                                <td class="table-account-column">
+                                    <p>{result.awsAccount}
+                                        <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                    </p>
+                                </td>
+                                <td class="word-break-all">{resource.DetectionItem.DistributionId}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_IBP_ITEM_14_02' || results[0].checkItemCode == 'CHECK_IBP_ITEM_14_04'}">
+                        <thead>
+                            <tr>
+                                <th class="font-weight-900 check-header">{_t('organization')}</th>
+                                <th class="font-weight-900 check-header">{_t('project')}</th>
+                                <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                                <th class="font-weight-900 check-header">{_t('region')}</th>
+                            </tr>
+                        </thead>
+                        <tbody each="{result in results}">
+                            <tr class="child" each="{resource in result.resources}">
+                                <td class="word-break-all">{result.organizationName}</td>
+                                <td class="word-break-all">{result.projectName}</td>
+                                <td class="table-account-column">
+                                    <p>{result.awsAccount}
+                                        <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                    </p>
+                                </td>
+                                <td class="word-break-all">{resource.Region}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </virtual>
+            </div>
+        </virtual>
+    </div>
+    <script>
+        const tag = this
+        tag.showCheckError = tag.parent.showCheckError
+    </script>
+</iam-best-practices>

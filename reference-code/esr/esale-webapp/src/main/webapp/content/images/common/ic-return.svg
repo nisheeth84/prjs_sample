@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 12">
+    <defs>
+        <style>.cls-1{fill:#999;}</style>
+    </defs>
+    <title>ic-Return</title>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="コンテンツ">
+            <g id="矢印">
+                <path class="cls-1"
+                      d="M15.5,5H3.6L7.1,1.6c.2-.2.2-.6,0-.7L6.4.1H5.6L1.2,4.6.1,5.6a1.1,1.1,0,0,0,0,.8l1.1,1,4.4,4.5h.8l.7-.8c.2-.1.2-.5,0-.7L3.6,7H15.5a.5.5,0,0,0,.5-.5v-1A.5.5,0,0,0,15.5,5Z"/>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,45 @@
+{
+  "dataInfo": [
+    {
+      "productId": 1,
+      "productName": "商品B",
+      "unitPrice": 20000,
+      "isDisplay": 1,
+      "productImageName": "sp001.jpg",
+      "productImagePath": "../../../content/images/product1.svg",
+      "memo": "メモの内容が入ります。",
+      "productCategories": [
+        {
+          "productCategoryId": 11,
+          "productCategoryName": "{\"ja_jp\": \"カテゴリ名\",\"en_us\": \"category name\",\"zh_cn\": \"类别\"}",
+          "level": 2
+        },
+        {
+          "productCategoryId": 12,
+          "productCategoryName": "{\"ja_jp\": \"カテゴリ名\",\"en_us\": \"category name\",\"zh_cn\": \"类别\"}",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "productId": 2,
+      "productName": "商品B",
+      "unitPrice": 20000,
+      "isDisplay": 1,
+      "productImageName": "sp001.jpg",
+      "productImagePath": "../../../content/images/product1.svg",
+      "memo": "メモの内容が入ります。",
+      "productCategories": []
+    },
+    {
+      "productId": 3,
+      "productName": "商品B",
+      "unitPrice": 20000,
+      "isDisplay": 1,
+      "productImageName": "sp001.jpg",
+      "productImagePath": "../../../content/images/product2.svg",
+      "memo": "メモの内容が入ります。",
+      "productCategories": []
+    }
+  ]
+}

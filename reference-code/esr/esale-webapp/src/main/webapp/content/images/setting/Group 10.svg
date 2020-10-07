@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="81.326" height="68.913" viewBox="0 0 81.326 68.913">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.648" y1="1" x2="0.648" gradientUnits="objectBoundingBox">
+      <stop offset="0.01" stop-color="#03bf00"/>
+      <stop offset="0.314" stop-color="#26cc00"/>
+      <stop offset="1" stop-color="#73e900"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0.531" stop-color="#fefefe"/>
+      <stop offset="0.655" stop-color="#f0f0f0"/>
+      <stop offset="0.746" stop-color="#e4e4e4"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff156a"/>
+      <stop offset="0.998" stop-color="#c43462"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_10" data-name="Group 10" transform="translate(-3 -3.01)">
+    <g id="Group_9" data-name="Group 9" transform="translate(3 3.01)">
+      <g id="Group_8" data-name="Group 8">
+        <g id="Group_2" data-name="Group 2" transform="translate(17.881 1.99)">
+          <rect id="Rectangle_2" data-name="Rectangle 2" width="7" height="1" rx="0.5" transform="translate(0.119 2)" fill="#e5f2eb"/>
+          <rect id="Rectangle_3" data-name="Rectangle 3" width="7" height="1" rx="0.5" transform="translate(0.119)" fill="#e5f2eb"/>
+          <rect id="Rectangle_4" data-name="Rectangle 4" width="7" height="1" rx="0.5" transform="translate(0.119 4)" fill="#e5f2eb"/>
+        </g>
+        <g id="Group_3" data-name="Group 3" transform="translate(17.881 1.99)">
+          <rect id="Rectangle_5" data-name="Rectangle 5" width="7" height="1" rx="0.5" transform="translate(0.119 2)" fill="#e5f2eb"/>
+          <rect id="Rectangle_6" data-name="Rectangle 6" width="7" height="1" rx="0.5" transform="translate(0.119)" fill="#e5f2eb"/>
+          <rect id="Rectangle_7" data-name="Rectangle 7" width="7" height="1" rx="0.5" transform="translate(0.119 4)" fill="#e5f2eb"/>
+        </g>
+        <g id="Group_4" data-name="Group 4">
+          <path id="Path_1" data-name="Path 1" d="M21.41,3.01H49.028c10.13,0,18.415,7.911,18.415,17.579v4.394c0,9.672-8.285,17.584-18.415,17.584H35.219L21.41,55.751V42.566h0C11.285,42.566,3,34.655,3,24.982V20.589C3,10.921,11.285,3.01,21.41,3.01Z" transform="translate(-3 -3.01)" fill="url(#linear-gradient)"/>
+        </g>
+        <g id="Group_5" data-name="Group 5" transform="translate(21.975 7.866)">
+          <rect id="Rectangle_8" data-name="Rectangle 8" width="22.31" height="3.933" rx="0.467" transform="translate(0 6.492)" fill="#fff"/>
+          <rect id="Rectangle_6277" data-name="Rectangle 6277" width="22.31" height="3.933" rx="0.467" transform="translate(0 14.492)" fill="#fff"/>
+          <rect id="Rectangle_6278" data-name="Rectangle 6278" width="22.31" height="3.933" rx="0.467" transform="translate(0 -1.508)" fill="#fff"/>
+        </g>
+        <g id="Group_7" data-name="Group 7" transform="translate(36.638 33.074)">
+          <ellipse id="Ellipse_1" data-name="Ellipse 1" cx="22" cy="17.5" rx="22" ry="17.5" transform="translate(0.362 -0.084)" fill="url(#linear-gradient-2)"/>
+          <path id="Path_2" data-name="Path 2" d="M32.344,10C20,10,10,17.947,10,27.752S20,45.5,32.344,45.5s22.344-7.947,22.344-17.752S44.686,10,32.344,10Zm0,32.277c-10.1,0-18.282-6.5-18.282-14.524s8.186-14.524,18.282-14.524,18.282,6.5,18.282,14.524S42.44,42.277,32.344,42.277Z" transform="translate(-10 -9.665)" fill="url(#linear-gradient-3)"/>
+          <g id="Group_6" data-name="Group 6" transform="translate(22.078 8.586)">
+            <circle id="Ellipse_2" data-name="Ellipse 2" cx="0.846" cy="0.846" r="0.846" transform="translate(0 13.574)" fill="#444"/>
+            <rect id="Rectangle_11" data-name="Rectangle 11" width="0.846" height="14.42" transform="translate(0.423)" fill="#444"/>
+            <rect id="Rectangle_12" data-name="Rectangle 12" width="11.11" height="0.846" transform="translate(0.816 14.074)" fill="#444"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

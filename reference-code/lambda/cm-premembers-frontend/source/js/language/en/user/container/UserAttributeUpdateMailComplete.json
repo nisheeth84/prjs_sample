@@ -1,0 +1,7 @@
+{
+    "UserAttributeUpdateMailComplete": {
+        "change_email_complete": "The email address has been changed.",
+        "start_insightwatch": "Start insightwatch",
+        "warning_login": "Please sign in insightwatch again. If you have another browser displaying insightwatch, please sign out on that browser."
+    }
+}

@@ -1,0 +1,185 @@
+<signup-container>
+  <link rel="stylesheet" href="./assets/stylesheets/register.css">
+  <div class="animsition page-register-v3 layout-full" style="animation-duration: 800ms; opacity: 1;">
+    <div class="page vertical-align text-center">
+      <div class="page-content vertical-align-middle">
+        <div class="panel">
+          <div class="panel-body">
+            <div class="brand">
+              <div class="beta">
+                <img class="brand-img" src="./assets/images/iw_tate.svg" alt="..."></img>
+              </div>
+            </div>
+            <form method="post" ref="form" action="#" submit="{submit}">
+              <div class="form-group form-material floating">
+                <input ref="email" type="email" class="form-control" onfocus="{trimEmpty}" onBlur="{addEmpty}" name="email" required="{submitted}"
+                  oninput="{commonUtils.checkMessageInput}" />
+                <label class="floating-label">{_t('email')}</label>
+              </div>
+              <div class="form-group form-material floating">
+                <input ref="password" type="password" class="form-control" onfocus="{trimEmpty}" onBlur="{addEmpty}" name="password" oninput="{checkPassword}"
+                  required="{submitted}" />
+                <label class="floating-label">{_t('password')}</label>
+              </div>
+              <div class="form-group form-material floating">
+                <input ref="passwordRetype" type="password" class="form-control" onfocus="{trimEmpty}" onBlur="{addEmpty}" name="PasswordCheck"
+                  oninput="{checkPassword}" required="{submitted}" />
+                <label class="floating-label">{_t('SignUp.re_password')}</label>
+              </div>
+              <div class="form-group floating text-left">
+                <div class="checkbox-custom checkbox-inline checkbox-primary float-left">
+                  <input ref="agree" type="checkbox" id="inputCheckbox" required name="term">
+                  <label for="inputCheckbox"></label>
+                </div>
+                <p class="ml-10">{_t('SignUp.terms_service_1')}<a href="{_t('terms_of_service_url')}" target="_blank" class="margin-left_0">{_t('SignUp.terms_service_2')}</a>{_t('SignUp.terms_service_3')}</p>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block btn-lg mt-40" onclick="{signupClick}">{_t('SignUp.regist_user')}</button>
+            </form>
+            <p>{_t('SignUp.you_have_account')}
+              <a href="#">{_t('login')}</a>
+            </p>
+            <script type="text/javascript">
+              (function(d, t) {
+                var s = d.createElement(t); s.type = 'text/javascript'; s.async = 1;
+                s.setAttribute('data-cbid', '1c6eb8ea-bc5f-48f4-9e80-a6b151b49af1');
+                s.src = 'https://consent.cookiebot.com/uc.js';
+                s.id = "cookiebot"
+                var c = d.getElementsByTagName(t)[0]; c.parentNode.insertBefore(s, c);
+              })(document, 'script');
+            </script>
+          </div>
+        </div>
+        <footer class="page-copyright page-copyright-inverse">
+          <p>{_t('copyright')}</p>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <script>
+    import {
+      AuthenticationDetails,
+      CognitoUserAttribute,
+      CognitoUserPool,
+      CognitoUser
+    } from 'amazon-cognito-identity-js';
+    const tag = this;
+    tag.cognitoUser = opts.cognitoUser;
+    tag.submit = submit;
+    tag.checkPassword = checkPassword
+    tag.trimEmpty = trimEmpty
+    const obs = riot.observable()
+    tag.obs = obs
+    tag.addEmpty = addEmpty
+    tag.signupClick = signupClick
+    tag.submitted = false
+    tag.isSignupError = false
+
+    const poolData = {
+      UserPoolId: tag.config.COGNITO_USER_POOL_ID,
+      ClientId: tag.config.COGNITO_CLIENT_ID
+    };
+    const userPool = new CognitoUserPool(poolData);
+
+    tag.on('mount', function() {
+      tag.submitted = false
+      tag.isSignupError = false
+      initForm()
+    })
+
+    tag.on('unmount', function() {
+      const cookiebotDom = document.getElementById("cookiebot");
+      cookiebotDom.parentNode.removeChild(cookiebotDom);
+    })
+
+    function initForm() {
+      initElem(tag.refs.email)
+      initElem(tag.refs.password)
+      initElem(tag.refs.passwordRetype)
+    }
+
+    function initElem(elem) {
+      elem.classList.add('empty');
+      const validationMessage = tag._t('Validation_message.invalid_require')
+      elem.setCustomValidity(validationMessage);
+    }
+
+    function trimEmpty(event) {
+      const elem = event.srcElement
+      elem.classList.remove('empty');
+      if (!elem.value && !tag.submitted) {
+        elem.setCustomValidity('');
+      }
+    }
+
+    function addEmpty(event) {
+      const elem = event.srcElement
+      if (!elem.value && !tag.submitted) {
+        elem.classList.add('empty');
+      }
+    }
+
+    function checkPassword(event) {
+      const elem = event.srcElement
+      let validationMessage = ''
+      if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}/.test(elem.value)) {
+        validationMessage = tag._t('Validation_message.invalid_password')
+      } else {
+        const password = tag.refs.password
+        const passwordRetype = tag.refs.passwordRetype
+        if (password.value !== passwordRetype.value) {
+          validationMessage = tag._t('Validation_message.incorrect_password')
+        } else {
+          password.setCustomValidity('')
+          passwordRetype.setCustomValidity('')
+        }
+      }
+      elem.setCustomValidity(validationMessage)
+    }
+
+    function signupClick() {
+      tag.submitted = true
+      // console.info("Click")
+    }
+
+    function submit(event) {
+      event.preventDefault()
+      const uuid = tag.commonUtils.uuid()
+      const mail = tag.refs.email.value
+      const password = tag.refs.password.value
+
+      var attributeList = [];
+
+      var dataEmail = {
+        Name: 'email',
+        Value: mail
+      };
+      var attributeEmail = new CognitoUserAttribute(dataEmail);
+
+      let localeAttribute = {
+        Name: 'locale',
+        Value: tag.commonUtils.getLanguageFromBrowser()
+      };
+      const attributeLocale = new CognitoUserAttribute(localeAttribute);
+      attributeList.push(attributeEmail);
+      attributeList.push(attributeLocale);
+      userPool.signUp(uuid, password, attributeList, null, function(err, result) {
+        if (err) {
+          alert(err);
+          return;
+        }
+        var authenticationDetails =
+          new AuthenticationDetails({
+            UserName: mail,
+            Password: password
+          });
+        const signupParam = {
+          'signupUser': uuid,
+          'signupMail': mail,
+          'signupAuthenticationDetails': authenticationDetails,
+        }
+        tag.commonUtils.paramSender(signupParam)
+        window.location.href = '#/sign_up/confirm/'
+      })
+    }
+  </script>
+</signup-container>

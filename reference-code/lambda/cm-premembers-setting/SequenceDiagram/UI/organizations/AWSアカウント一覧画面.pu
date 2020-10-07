@@ -1,0 +1,20 @@
+@startuml{AWSアカウント一覧画面.png}
+title [AWSアカウント一覧画面]
+hide footbox
+
+actor ユーザー as user
+boundary AWSアカウント一覧画面 as view
+participant AWSアカウントAPI as api_awsaccounts #cyan
+
+== 表示 ==
+user -> view:表示
+activate view
+    view -> api_awsaccounts :GET /organizations/{organization_id}/projects/{project_id}/awsaccounts
+    activate api_awsaccounts
+        api_awsaccounts --> view :200:AWSアカウントリスト
+    deactivate api_awsaccounts
+    view -> view :画面描画
+    view --> user
+deactivate view
+
+@enduml

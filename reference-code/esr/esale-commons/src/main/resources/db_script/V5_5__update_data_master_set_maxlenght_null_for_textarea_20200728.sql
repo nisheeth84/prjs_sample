@@ -1,0 +1,1 @@
+UPDATE "field_info" SET "max_length" = NULL WHERE "field_type" = 10 AND "max_length" = 0;

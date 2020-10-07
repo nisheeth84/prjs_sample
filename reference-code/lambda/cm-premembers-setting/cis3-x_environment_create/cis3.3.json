@@ -1,0 +1,12 @@
+{
+    "logGroupName": "CloudTrail/CIS3",
+    "filterName": "CIS-3-3",
+    "filterPattern": "{ $.userIdentity.type = \"Root\" && $.userIdentity.invokedBy NOT EXISTS && $.eventType != \"AwsServiceEvent\" }",
+    "metricTransformations": [
+        {
+            "metricName": "CIS-3-3",
+            "metricNamespace": "CISBenchmark",
+            "metricValue": "1"
+        }
+    ]
+}

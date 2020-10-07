@@ -1,0 +1,9 @@
+{
+    "UserInvite": {
+        "title": "User invitation",
+        "invite": "Invite",
+        "invite_to": "Invite to {{name}}",
+        "info_title": "I invited a user.",
+        "info_body": "I invited you."
+    }
+}

@@ -1,0 +1,46 @@
+{
+  "ja": [
+    {
+      "category": "[重要なお知らせ]",
+      "text": "インサイトウォッチ「ジョブ実行機能」は提供を終了し、新規ジョブ実行サービス「opswitch」へ移行しました。詳しくは<a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360028054211\" class=\"alert-link font-weight-800\" target=\"_blank\">こちら</a>をご覧ください。",
+      "TimeToLive": 16672635400
+    },
+    {
+      "category": "[お知らせ]",
+      "text": "2019年9月3日(火) insightwatchのメンテナンスを実施します。詳しくは<a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360032960191\" class=\"alert-link font-weight-800\" target=\"_blank\">こちら</a>をご覧ください。",
+      "TimeToLive": 15674976000
+    },
+    {
+      "category": "[お知らせ]",
+      "text": "ユーザーガイドへチェック実行でエラーになるパターンを幾つか追記しました。詳しくは<a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360002029532#%E3%81%9D%E3%81%AE%E4%BB%96\" class=\"alert-link font-weight-800\" target=\"_blank\">こちら</a>の「Q: チェック実行がエラーになるのはなぜですか？」をご覧ください。",
+      "TimeToLive": 15677604000
+    },
+    {
+      "category": "[お知らせ]",
+      "text": "2019年6月25日(火) insightwatchのメンテナンスを実施します。詳しくは<a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360029608571\" class=\"alert-link font-weight-800\" target=\"_blank\">こちら</a>をご覧ください。",
+      "TimeToLive": 15614568000
+    }
+  ],
+  "en": [
+    {
+      "category": "[重要なお知らせ]",
+      "text": "インサイトウォッチ「ジョブ実行機能」は提供を終了し、新規ジョブ実行サービス「opswitch」へ移行しました。詳しくは<a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360028054211\" class=\"alert-link font-weight-800\" target=\"_blank\">こちら</a>をご覧ください。",
+      "TimeToLive": 15672635400
+    },
+    {
+      "category": "[Maintenance]",
+      "text": "Planned maintenance on Tuesday, September 3, 2019. <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360032960191\" class=\"alert-link font-weight-800\" target=\"_blank\">[detail]</a>",
+      "TimeToLive": 15674976000
+    },
+    {
+      "category": "[Maintenance]",
+      "text": "Planned maintenance on Thursday, August 1, 2019. <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360031341531\" class=\"alert-link font-weight-800\" target=\"_blank\">[detail]</a>",
+      "TimeToLive": 15646194000
+    },
+    {
+      "category": "[Maintenance]",
+      "text": "Planned maintenance on Friday,June 14, 2019. <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360029411711\" class=\"alert-link font-weight-800\" target=\"_blank\">[detail]</a>",
+      "TimeToLive": 15605064000
+    }
+  ]
+}

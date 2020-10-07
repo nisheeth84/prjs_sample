@@ -1,0 +1,81 @@
+<organization-create-container>
+    <div class="page">
+        <div class="page-header">
+            <h1 class="page-title mt-2 ">{_t('OrganizationCreate.title')}</h1>
+        </div>
+        <div class="page-content container-fluid">
+            <form autocomplete="off" onsubmit={createOrganization} ref=form>
+                <div class="example-wrap">
+                    <h4 class="example-title">{_t('organization_name')}</h4>
+                    <input type="text" ref="companyName" required class="form-control" id="inputFocus" placeholder="{_t('organization_name_example')}">
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <button type="button" onclick="{back}" class="btn btn-block btn-default">{_t('back')}</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-block btn-success">{_t('create')}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        const tag = this
+        tag.cognitoUser = riot.mixin('cognitoUser');
+        tag.back = back;
+        tag.createOrganization = createOrganization;
+        const obs = riot.observable()
+        tag.obs = obs
+        function back(event) {
+            window.location.href = "#/organizations/";
+        }
+        function createOrganization(event) {
+            event.preventDefault();
+            tag.obs.trigger("pm-loader-show");
+            const form = tag.refs.form
+            tag.commonUtils.submitDisable(form);
+            const requestOrganizationUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations';
+            const companyName = tag.refs.companyName.value
+            const organizationInformation = {
+                "name": companyName,
+                "contract": 0,
+                "contractStatus": 1
+            }
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    let fetchResponse = null
+                    fetch(requestOrganizationUrl, {
+                        method: "POST",
+                        headers: {
+                            'Authorization': idToken
+                        },
+                        body: JSON.stringify(organizationInformation)
+                    }).then(function(response) {
+                        fetchResponse = response
+                        return response
+                    }).then(tag.commonUtils.checkStatus)
+                        .then(function() {
+                            tag.obs.trigger("pm-loader-hide");
+                            back()
+                        }).catch(function(error) {
+                            tag.obs.trigger("pm-loader-hide");
+                            tag.commonUtils.submitEnable(tag.refs.form);
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                            })
+                            tag.obs.trigger("error-modal-open", error);
+                            tag.obs.one("error-modal-close", function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        });
+                }
+            });
+        }
+    </script>
+</organization-create-container>

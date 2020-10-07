@@ -1,0 +1,64 @@
+@startuml{Batch_レポート_AWS利用状況情報収集.png}
+title [レポートバッチ_AWS利用状況情報収集]
+hide footbox
+
+participant AWS利用状況情報収集ジョブ as batch_report_job <<batch>> #darkorange
+database レポート as table_reports <<dynamodb>> #royalblue
+database レポートジョブ履歴 as table_report_joblog <<dynamodb>> #royalblue
+database AWSアカウント連携 as table_awsac_coops <<dynamodb>> #royalblue
+database レポートストレージ as storage <<s3>> #crimson
+box "ユーザーのAWS" #floralwhite
+participant AWS as users_aws #efaf27
+end box
+
+->> batch_report_job
+note right :実行時引数としてレポートID、ログIDを受け取る
+|||
+activate batch_report_job
+    batch_report_job -> batch_report_job :引数のバリデーションチェック
+    |||
+    ref over batch_report_job, table_report_joblog :ログストリーム名取得
+    ||| 
+    batch_report_job -> batch_report_job :AWS利用状況情報収集処理
+    activate batch_report_job
+        batch_report_job -> table_reports :レコード取得
+        table_reports --> batch_report_job
+        batch_report_job -> batch_report_job :ステータスチェック
+        note right :ステータスが待機中(0)であることを確認する。
+        batch_report_job -> table_reports :レコード更新（ステータス＝情報収集中(1)）
+        table_reports --> batch_report_job
+        |||
+        note over batch_report_job, users_aws :アカウント単位で並列処理を行う
+        par アカウントA
+        batch_report_job -> table_awsac_coops : query
+        table_awsac_coops --> batch_report_job
+        batch_report_job -> users_aws :一時クレデンシャルの取得
+        users_aws --> batch_report_job
+        group 生成順序 0
+        batch_report_job -> users_aws :リソース利用状況の取得
+        users_aws --> batch_report_job
+        batch_report_job -> storage :取得情報（生JSON）保存
+        storage --> batch_report_job
+        |||
+        end
+        group 生成順序 1
+        batch_report_job -> batch_report_job :一次中間ファイル作成処理
+        batch_report_job -> storage :一次中間ファイル（JSON）保存
+        storage --> batch_report_job
+        batch_report_job -> batch_report_job :後始末
+        note right :実行環境上のテンポラリ領域のクリーンアップなど
+        |||
+        end
+        else アカウントB
+        |||
+        end
+        batch_report_job -> batch_report_job :全ての並列処理が終了するまで待つ
+        |||
+        batch_report_job -> table_reports :レコード更新（ステータス＝情報収集完了(2)、エラーコードを削除）
+        table_reports --> batch_report_job
+        batch_report_job --> batch_report_job
+    deactivate batch_report_job
+    |||
+deactivate batch_report_job
+
+@enduml

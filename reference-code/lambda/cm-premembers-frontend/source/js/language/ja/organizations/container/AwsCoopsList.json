@@ -1,0 +1,10 @@
+{
+    "AwsCoopsList": {
+        "back_project": "プロジェクト一覧に戻る",
+        "title": "AWSアカウント連携一覧",
+        "account_id": "アカウントID",
+        "failure": "失敗",
+        "unconfirmed": "未確認",
+        "effectiveness": "有効"
+    }
+}

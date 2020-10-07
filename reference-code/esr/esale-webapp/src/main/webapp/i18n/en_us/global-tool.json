@@ -1,0 +1,61 @@
+{
+  "global-tool": {
+    "footer": {
+      "private.policy": "Privacy Policy",
+      "term.service": "Terms of service",
+      "copyright": "@SOFTBRAIN CO.,Ltd."
+    },
+    "messages": {
+      "validate": {
+        "newpassword": {
+          "required": "Please enter your password.",
+          "minlength": "Password must contain at least 8 characters.",
+          "maxlength": "Password must contain no more than 32 characters."
+        },
+        "confirmpassword": {
+          "required": "Please confirm your password.",
+          "minlength": "Password must contain at least 8 characters.",
+          "maxlength": "Password must contain no more than 32 characters.",
+          "dontmatch": "Passwords do not match!"
+        },
+        "milestonename": {
+          "required": "Please enter milestone name.",
+          "maxlength": "Milestone name must contain no more than 255 characters."
+        }
+      },
+      "scheduleTitle": "Schedule"
+    },
+    "recenttodolist": "Recent to-do-list ({{count}} items)",
+    "lastcompletetask": "Last completed task ({{count}} items)",
+    "customer": "Customer",
+    "product": "Product",
+    "task": "Task",
+    "recenttask": "Recent task",
+    "createtask": "Register task",
+    "createmilestone": "Register milestone",
+    "deadline": "Due date",
+    "milestone": "Milestone",
+    "subtasks": "Subtask",
+    "personincharge": "Person in charge",
+    "currentschedule": "Current schedule",
+    "consultation": "Discuss",
+    "plan": "Plan",
+    "left": "{{number}} others",
+    "popup": {
+      "delete": "Delete",
+      "taskdeletecontainsubtask": "The task you want to delete contains subtask. Please select an action.",
+      "deletesubtask": "Delete subtask",
+      "convertsubtasktotask": "Convert subtask to task",
+      "cancel": "Cancel",
+      "areyousuredelete": "Are you sure you want to delete this task?",
+      "areyousuredeltemilestone": "Are you sure you want to delete this milestone?",
+      "confirm": "Confirm",
+      "completetaskincludesubtasknotcomplete": "Completed task contains unfinished subtask. Please select an action.",
+      "subtaskalsocomplete": "Complete subtask also",
+      "completetask": "Complete task",
+      "milestoneincludenotcompletetask": "Completed milestone contains unfinished task. Please select an action."
+    },
+    "eigorou": "Eigyou Taro",
+    "employeetaro": "Employee Taro"
+  }
+}

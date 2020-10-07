@@ -1,0 +1,52 @@
+{
+    "ModalSettingManual": {
+        "CHECK_CIS12_ITEM_1_15": {
+            "question": "設定されていることを確認しましたか？"
+        },
+        "CHECK_CIS12_ITEM_1_17": {
+            "question": "情報が最新になっていることを確認しましたか？"
+        },
+        "CHECK_CIS12_ITEM_1_18": {
+            "question": "情報が最新になっていることを確認しましたか？"
+        },
+        "CHECK_CIS12_ITEM_4_04": {
+            "question": "不要なVPCピアリングが無いことを確認しましたか？"
+        },
+        "CHECK_ASC_ITEM_02_02": {
+            "question": "バケットが公開設定となっていないことを確認しましたか？"
+        },
+        "CHECK_ASC_ITEM_05_01": {
+            "question": "STSとロールを利用していることを確認しましたか？"
+        },
+        "CHECK_ASC_ITEM_06_01": {
+            "question": "請求レポートで使用状況を確認しましたか？"
+        },
+        "CHECK_ASC_ITEM_09_01": {
+            "question": "EC2キーペアが適切に管理されていることを確認しましたか？"
+        },
+        "CHECK_ASC_ITEM_11_01": {
+            "question": "通信が 制御されていることを確認しましたか？"
+        },
+        "CHECK_ASC_ITEM_14_01": {
+            "question": "トラフィックが暗号化されていることを確認しましたか？"
+        },
+        "CHECK_ASC_ITEM_15_01": {
+            "question": "S3のバージョン管理、ライフサイクルポリシーを理解し適切に設定されていることを確認しましたか？"
+        },
+        "CHECK_IBP_ITEM_04_01": {
+            "question": "アクセス権限はAWS定義のポリシーを使用していましたか？"
+        },
+        "CHECK_IBP_ITEM_06_01": {
+            "question": "IAMポリシーが提供するサービスへのアクセス権限を確認しましたか？"
+        },
+        "CHECK_IBP_ITEM_10_01": {
+            "question": "他のAWSアカウントからのアクセス許可にはIAMロールを使用していましたか？"
+        },
+        "CHECK_IBP_ITEM_13_01": {
+            "question": "IAMポリシーには条件を定義していますか？"
+        },
+        "CHECK_IBP_ITEM_14_03": {
+            "question": "CloudWatchメトリクスを確認していましたか？"
+        }
+    }
+}

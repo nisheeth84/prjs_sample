@@ -1,0 +1,69 @@
+@startuml{API_レポート_レポート作成.png}
+title [レポートAPI_レポート作成]
+hide footbox
+
+boundary 画面 as view
+participant レポートAPI as api_reports #cyan
+'database ユーザープール as user_pools <<cognito>> #purple
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database レポート as table_reports <<dynamodb>> #royalblue
+database レポートジョブ定義 as table_report_jobdef <<dynamodb>> #royalblue
+database レポートジョブ履歴 as table_report_joblog <<dynamodb>> #royalblue
+database レポートジョブキュー as batch_report_output <<batch>> #darkorange
+
+view -> api_reports :POST /organizations/{organization_id}/projects/{project_id}/reports
+note right :bodyにレポート作成のパラメータ
+activate api_reports
+    api_reports -> api_reports :メールアドレス取得
+    |||
+    ref over api_reports, table_affiliation :アクセス権限チェック
+    |||
+    api_reports -> api_reports :バリデーションチェック
+    |||
+    api_reports -> api_reports :レポート情報作成
+    activate api_reports
+        api_reports -> table_reports :レコード作成
+        note right :レポート作成ステータス「待機中」
+        table_reports --> api_reports
+        |||
+        group AWS利用状況情報取集処理
+            api_reports -> table_report_jobdef :レコード取得
+            table_report_jobdef --> api_reports
+            api_reports -> batch_report_output :利用状況収集処理をサブミット
+            batch_report_output --> api_reports
+            api_reports -> table_report_joblog :レコード作成（AWS利用状況情報取集ジョブ履歴）
+            table_report_joblog --> api_reports
+            |||
+        end
+        |||
+        group レポート中間ファイル生成処理
+            api_reports -> table_report_jobdef :レコード取得
+            table_report_jobdef --> api_reports
+            api_reports -> batch_report_output :レポート中間ファイル生成処理をサブミット
+            note right :AWS利用状況収集処理の後続処理として依存関係を設定
+            batch_report_output --> api_reports
+            api_reports -> table_report_joblog :レコード作成（レポート中間ファイル生成ジョブ履歴）
+            table_report_joblog --> api_reports
+            |||
+        end
+        |||
+        opt 続けてレポート出力も実行
+            group レポート出力処理
+                api_reports -> table_report_jobdef :レコード取得
+                table_report_jobdef --> api_reports
+                api_reports -> batch_report_output :レポート出力処理をサブミット
+                note right :レポート中間ファイル生成処理の後続処理として依存関係を設定
+                batch_report_output --> api_reports
+                api_reports -> table_report_joblog :レコード作成（レポート出力ジョブ履歴）
+                table_report_joblog --> api_reports
+                |||
+            end
+        end
+        api_reports --> api_reports
+    deactivate api_reports
+    |||
+    api_reports -> api_reports :レスポンス作成
+    api_reports --> view : 201:レポート情報
+deactivate api_reports
+
+@enduml

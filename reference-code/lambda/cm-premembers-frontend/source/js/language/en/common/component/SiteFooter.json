@@ -1,0 +1,12 @@
+{
+    "SiteFooter": {
+        "inquiry": "Contact us",
+        "inquiry_url": "https://insightwatch.io/en/contact/Contact.html",
+        "user_guide": "User guide",
+        "user_guide_url": "https://insightwatch.io/en/user-guide/UserGuide.html",
+        "privacy_policy": "Privacy policy",
+        "privacy_policy_url": "https://insightwatch.io/en/privacy/PrivacyPolicy.html",
+        "faq": "FAQ",
+        "faq_url": "https://insightwatch.io/en/faq/FAQ.html"
+    }
+}

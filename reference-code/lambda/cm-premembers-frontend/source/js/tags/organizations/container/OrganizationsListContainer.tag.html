@@ -1,0 +1,93 @@
+<organizations-list-container>
+    <div class="page">
+        <div class="page-header row">
+            <h1 class="page-title mt-2 col-sm-10">{_t('OrganizationsList.title')}</h1>
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-floating btn-primary btn-sm" onclick={createOrganization}>
+                    <i class="icon wb-plus" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+        <div class="page-content container-fluid">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>{_t('organization_name')}</th>
+                        <th>{_t('authority')}</th>
+                        <th>{_t('affiliated_users_list')}</th>
+                        <th>{_t('project_list')}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr each="{organization in organizations}">
+                        <td>
+                            <a href="#/organizations/{organization.organization.id}/">{organization.organization.name}</a>
+                        </td>
+                        <td>{commonUtils.convertShowAuthority(organization.authority)}</td>
+                        <td>
+                            <a href="#/organizations/{organization.organization.id}/users/">
+                                <i class="icon wb-list" aria-hidden="true"></i> {_t('affiliated_users_list')}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#/organizations/{organization.organization.id}/projects/">
+                                <i class="icon wb-list" aria-hidden="true"></i> {_t('project_list')}</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        const tag = this
+        tag.cognitoUser = riot.mixin('cognitoUser');
+        tag.createOrganization = createOrganization;
+        const obs = riot.observable()
+        tag.obs = obs
+        const requestOrganizationUrl = tag.config.APIGATEWAY_ADDRESS + '/myorganizations';
+        const inviteParam = "?inviteStatus=1"
+        function createOrganization(event) {
+            window.location.href = "#/organizations/create/";
+        }
+        tag.on('mount', function() {
+            tag.obs.trigger("pm-loader-show");
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    // alert('getSession()でエラー\n' + err);
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    let fetchResponse = null
+                    fetch(requestOrganizationUrl + inviteParam, {
+                        method: "GET",
+                        headers: {
+                            'Authorization': idToken
+                        }
+                    }).then(function(response) {
+                        fetchResponse = response
+                        return response
+                    }).then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            tag.obs.trigger("pm-loader-hide");
+                            return response.json();
+                        }).then(function(organizations) {
+                            tag.commonUtils.setMyOrganizations(organizations)
+                            tag.organizations = organizations;
+                            tag.update();
+                        }).catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                            })
+                            tag.obs.trigger("error-modal-open", error);
+                            tag.obs.one("error-modal-close", function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        });
+                }
+            });
+        })
+    </script>
+</organizations-list-container>

@@ -1,0 +1,186 @@
+<users-list-container>
+    <div class="page">
+        <div class="page-header">
+            <a href="#/organizations/">&lt; {_t('back_organization')}</a>
+            <h1 class="page-title mt-2">{_t('UsersList.title')}</h1>
+            <p>{_t('UsersList.info')}</p>
+            <div class="page-header-actions">
+                <button show="{isMeOwner}" class="btn btn-floating btn-sm btn-primary" onclick="{inviteUser}">+</button>
+            </div>
+        </div>
+        <div class="page-content container-fluid">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>{_t('mail_address')}</th>
+                        <th>{_t('authority')}</th>
+                        <th>{_t('UsersList.invitation_status')}</th>
+                        <th>{_t('delete')}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr each="{user in users}">
+                        <td>
+                            {user.mailAddress}
+                            <span if="{user.isMe}">{_t('UsersList.myself')}</span>
+                        </td>
+                        <td>
+                            <a show="{(!user.isMe || (user.isMe && enableEdit)) && isMeOwner}" href="#" onclick="{changeAuthority.bind(this,user)}">{commonUtils.convertShowAuthority(user.authority)}</a>
+                            <span hide="{(!user.isMe || (user.isMe && enableEdit)) && isMeOwner}">{commonUtils.convertShowAuthority(user.authority)}</span>
+                        </td>
+                        <td>{commonUtils.convertInviteStatus(user.invitationStatus)}</td>
+                        <td>
+                            <button if="{(!user.isMe || (user.isMe && enableEdit)) && isMeOwner}" type="button" class="btn btn-sm btn-icon btn-flat btn-danger" data-toggle="tooltip"
+                                data-original-title="Delete" onclick={deleteUserModal.bind(this,user.id,user.mailAddress)}>
+                                <i class="icon wb-close" aria-hidden="true"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <delete-confirm-modal-container></delete-confirm-modal-container>
+    <script>
+        const tag = this
+        tag.cognitoUser = riot.mixin('cognitoUser')
+        const obs = riot.observable()
+        tag.obs = obs
+        tag.organization_id = opts.organization_id
+        tag.inviteUser = inviteUser
+        tag.deleteUserModal = deleteUserModal
+        tag.changeAuthority = changeAuthority
+        const requestUsersUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + tag.organization_id + '/users';
+        tag.on('mount', function() {
+            tag.obs.trigger("pm-loader-show")
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    getUsers(idToken)
+                }
+            });
+        });
+        tag.obs.on('delete-confirm-modal-close', function(userId) {
+            closeDeleteUserHandler(userId)
+        })
+        function closeDeleteUserHandler(userId) {
+            tag.obs.trigger("pm-loader-show")
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    // alert('getSession()でエラー\n' + err);
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    // 削除対象が自分かどうかの判断を実施
+                    const ownId = tag.cognitoUser.username
+                    const isDeleteTargetOwn = userId === ownId
+                    let fetchResponse = null
+                    // 削除を実施
+                    deleteUser(idToken, userId)
+                        .then(function(response) {
+                            fetchResponse = response
+                            return response
+                        })
+                        .then(tag.commonUtils.checkStatus)
+                        .then(function() {
+                            if (isDeleteTargetOwn) {
+                                // 削除対象が自分の場合は組織一覧への遷移を実施 
+                                tag.obs.trigger('pm-loader-hide');
+                                window.location.href = '#/organizations/';
+                            } else {
+                                // 一覧取得を実施
+                                getUsers(idToken)
+                            }
+                        }).catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                            })
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            })
+        }
+        function getUsers(idToken) {
+            let fetchResponse = null
+            getUsersPromise(idToken)
+                .then(function(response) {
+                    fetchResponse = response
+                    return response
+                })
+                .then(tag.commonUtils.checkStatus)
+                .then(function(response) {
+                    return response.json()
+                })
+                .then(function(users) {
+                    const ownId = tag.cognitoUser.username
+                    var ownerCount = 0
+                    tag.isMeOwner = false
+                    users.forEach(function(user) {
+                        user['isMe'] = user['id'] === ownId
+                        if (isOwner(user)) {
+                            if (user['isMe']) {
+                                tag.isMeOwner = true
+                            }
+                            ownerCount++
+                        }
+                    })
+                    tag.enableEdit = ownerCount > 1
+                    tag.users = users
+                    tag.obs.trigger('pm-loader-hide');
+                    tag.update()
+                }).catch(function(error) {
+                    tag.obs.trigger('pm-loader-hide');
+                    error.then(function(value) {
+                        value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                    })
+                    tag.obs.trigger('error-modal-open', error);
+                    tag.obs.one('error-modal-close', function(value) {
+                        tag.commonUtils.backHome(value)
+                    })
+                })
+        }
+
+        function isOwner(user) {
+            const dictionary = tag.commonUtils.getMyDictionary()
+            const authorityOwner = dictionary.AuthorityOwner
+            const belongOrganization = dictionary.BelongOrganization
+            return user['authority'] === authorityOwner && user['invitationStatus'] === belongOrganization
+        }
+        function getUsersPromise(idToken) {
+            return fetch(requestUsersUrl, {
+                method: 'GET',
+                headers: {
+                    'Authorization': idToken
+                }
+            })
+        }
+        function deleteUser(idToken, userId) {
+            return fetch(requestUsersUrl + '/' + userId, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': idToken
+                }
+            })
+        }
+        function inviteUser(event) {
+            window.location.href = '#/organizations/' + tag.organization_id + '/users/invite/';
+        }
+        function deleteUserModal(userId, mailAddress) {
+            tag.obs.trigger('delete-confirm-modal-open', userId, mailAddress)
+        }
+        function changeAuthority(user, event) {
+            event.preventDefault()
+            const param = { 'authorityChangeUser': user }
+            tag.commonUtils.paramSender(param)
+            window.location.href = '#/organizations/' + tag.organization_id + '/users/' + user.id + '/';
+        }
+    </script>
+</users-list-container>

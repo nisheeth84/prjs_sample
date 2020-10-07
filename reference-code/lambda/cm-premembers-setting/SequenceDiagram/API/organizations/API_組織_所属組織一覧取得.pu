@@ -1,0 +1,32 @@
+@startuml{API_組織_所属組織一覧取得.png}
+title [組織_所属組織一覧取得]
+hide footbox
+
+boundary 画面 as view
+participant 組織API as api_organizations #cyan
+'database ユーザープール as user_pools <<cognito>> #purple
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database 組織 as table_organizations <<dynamodb>> #royalblue
+
+view -> api_organizations :GET /myorganizations
+note right :クエリストリングで承認ステータスの絞り込みを行う
+activate api_organizations
+    api_organizations -> api_organizations :メールアドレス取得
+    |||
+    api_organizations -> api_organizations :所属組織を取得
+    activate api_organizations
+        api_organizations -> table_affiliation :query
+        table_affiliation --> api_organizations
+        loop 1, 所属組織数
+            api_organizations -> table_organizations :query
+            table_organizations --> api_organizations
+            |||
+        end
+        api_organizations --> api_organizations
+    deactivate api_organizations
+    |||
+    api_organizations -> api_organizations :レスポンス作成
+    api_organizations --> view :200:組織リスト
+deactivate api_organizations
+
+@enduml

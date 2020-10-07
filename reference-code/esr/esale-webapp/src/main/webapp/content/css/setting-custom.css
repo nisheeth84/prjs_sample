@@ -1,0 +1,166 @@
+.setting-input-valid {
+  border: 1px solid #e90e0e !important;
+  background-color: #f5c6c6 !important;
+  color: red !important;
+}
+.setting-input-valis-msg {
+  color: red !important;
+  font-size: 12px;
+}
+.setting-pos-relative {
+  position: relative !important;
+}
+
+/* custom css for sceen ip address */
+.setting-icon-clear {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 9999;
+}
+
+/**/
+.setting-row-dnd-preview .setting-row-dnd-preview-top {
+  border-top: 1px solid black;
+}
+
+.setting-row-dnd-preview .setting-row-dnd-preview-bottom {
+  border-bottom: 1px solid black;
+}
+
+.setting-row-dnd-arrow-preview {
+  position: relative;
+}
+
+.setting-row-dnd-arrow-preview:after {
+  content: '';
+  position: absolute;
+  left: -6px;
+  bottom: -6px;
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-left: 6px solid #000;
+  border-bottom: 6px solid transparent;
+  clear: both;
+}
+
+.setting-layer-style {
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+}
+
+.setting-layer-style div {
+  width: 800px;
+  height: 30px;
+  border-radius: 50px;
+  background-color: #fff;
+  padding: 2px 0;
+  box-shadow: 5px 10px 18px grey;
+}
+
+.setting-layer-style .icon-drag {
+  width: 20px;
+  height: 20px;
+}
+
+.setting-underline {
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  margin-right: 10px;
+  position: relative;
+}
+
+.setting-underline:after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: -5px;
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-left: 6px solid #000;
+  border-bottom: 6px solid transparent;
+  clear: both;
+}
+
+.wrap-setting .table-calendar-wrap .table-default th,
+.wrap-setting .table-calendar-wrap .table-default td {
+  padding: 9px 5px !important;
+}
+
+.wrap-setting
+  .modal
+  .modal-dialog
+  .modal-content
+  .modal-body
+  .popup-content
+  .setting-popup-wrap
+  .setting-popup-content
+  .form-group
+  .position-relative
+  .table-tooltip-box-custome
+  .table-tooltip-box-footer
+  .button-blue
+  .button-small {
+  max-width: 118px;
+  font-size: 12px;
+  padding: 5px 47px;
+  border-radius: 7px;
+}
+
+.wrap-setting
+  .modal
+  .modal-dialog
+  .modal-content
+  .modal-body
+  .popup-content
+  .setting-popup-wrap
+  .setting-popup-content
+  .form-group
+  .position-relative
+  .table-tooltip-box-custome
+  .table-tooltip-box-footer
+  .button-cancel.button-small {
+  max-width: 118px;
+  font-size: 12px;
+  padding: 6px 28px;
+  border-radius: 7px;
+}
+.wrap-setting .wrap-check .wrap-check-box .check-box-item {
+  flex: unset !important;
+}
+
+.wrap-setting .schedule-setting .upload-wrap .fileUpload:hover {
+  border-color: #0f6db5 !important;
+  background: #ededed !important;
+  color: #0f6db5 !important;
+}
+
+.wrap-setting .schedule-setting .upload-wrap .fileUpload:hover span {
+  color: #0f6db5 !important;
+}
+
+.schedule-setting-error-upload-file {
+  border: 1px solid #e90e0e !important;
+  background-color: #f5c6c6 !important;
+}
+
+a.setting-activity-choose-lang:hover {
+  color: #0f6db5 !important;
+}
+
+a.setting-equipment-choose-lang:hover {
+  color: #0f6db5 !important;
+}
+
+a.setting-holiday-add:hover,
+a.setting-holiday-choose-lang:hover,
+a.setting-schedule-add:hover,
+a.setting-schedule-choose-lang:hover {
+  color: #0f6db5 !important;
+}

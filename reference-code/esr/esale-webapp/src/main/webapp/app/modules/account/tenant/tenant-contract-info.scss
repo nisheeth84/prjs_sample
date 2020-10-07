@@ -1,0 +1,11 @@
+.import-email {
+  &.notification-tenant-expired {
+    min-width: 520px !important;
+    padding: 21px !important;
+    text-align: left;
+
+    .link-to-site {
+      color: #0d6db5;
+    }
+  }
+}

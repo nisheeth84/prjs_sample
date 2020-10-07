@@ -1,0 +1,119 @@
+{
+  "project_info": {
+    "project_number": "872284859939",
+    "firebase_url": "https://testawssns-3c9ad.firebaseio.com",
+    "project_id": "testawssns-3c9ad",
+    "storage_bucket": "testawssns-3c9ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872284859939:android:95b41596b61381a6008b96",
+        "android_client_info": {
+          "package_name": "com.esrmobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "872284859939-v8fef5g3pj2ob8969477qm1f5hk0gv5o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjWwEM8okM81VYGSxGBrBTeKLqpuofgx0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872284859939-v8fef5g3pj2ob8969477qm1f5hk0gv5o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "872284859939-ee7hmlcjjk6hf4hp7i5j396pf8bf3uro.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.luvina.TestModule"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872284859939:android:143e0b3846e67bb6008b96",
+        "android_client_info": {
+          "package_name": "com.firebasenativemodule"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "872284859939-v8fef5g3pj2ob8969477qm1f5hk0gv5o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjWwEM8okM81VYGSxGBrBTeKLqpuofgx0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872284859939-v8fef5g3pj2ob8969477qm1f5hk0gv5o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "872284859939-ee7hmlcjjk6hf4hp7i5j396pf8bf3uro.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.luvina.TestModule"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872284859939:android:38951c7844d51112008b96",
+        "android_client_info": {
+          "package_name": "com.testfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "872284859939-v8fef5g3pj2ob8969477qm1f5hk0gv5o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjWwEM8okM81VYGSxGBrBTeKLqpuofgx0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872284859939-v8fef5g3pj2ob8969477qm1f5hk0gv5o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "872284859939-ee7hmlcjjk6hf4hp7i5j396pf8bf3uro.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.luvina.TestModule"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

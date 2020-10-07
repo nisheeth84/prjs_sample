@@ -1,0 +1,52 @@
+{
+    "IAM":{
+        "iam_user": [// list_users > Users > User
+            {
+                "user_name": "cm-abe.shinya",// userName
+                "password": true, //  PasswordLastUsedから取得ができればtrue PasswordLastUsedの項目が無ければfalse
+                "access_key": 2, // list_access_keysから取得 表現内容と表現方法については要検討
+                "mfa": true, // list_mfaからUserNameが一致する物があればtrue
+                "password_last_used": "2017-08-15T16:10:26.060358", //この段階ではUTC
+                "create_date": "2017-08-15T16:10:26.060358" // この段階ではUTC
+            }
+        ],
+        "access_key":[ // list_access_keys > AccessKeyMetadata
+            {
+                "user_name": "cm-abe.shinya", // UserName
+                "access_key_id" : "Axxxxxxxxxxxxx", //
+                "create_date": "2017-08-15T16:10:26.060358", // この段階ではUTC
+                "last_used_date"  : "2017-08-15T16:10:26.060358", // この段階ではUTC get_access_key_last_usedから取得
+                "status" :"Active" //Status
+            }
+        ],
+        "groups":[ // list_groups > Group
+            {
+                "group_name" : "cm-di",
+                "user" : ["cm-abe.shinya", "cm-inage.toru", "cm-kajiwara", "cm-tago.masayuki"], //get_group から Users内のuserNameを取得
+                "managed_policies": ["AmazonRDSFullAccess","AmazonEC2FullAccess","AmazonS3FullAccess","AmazonRedshiftFullAccess","AmazonSESFullAccess","AmazonSNSFullAccess"], // list_attached_group_policies > AttachedPolicies > PolicyName
+                "inline_policies": ["Force_MFA","switch-role"], //list_group_policies > PolicyNames
+                "create_date": "2017-08-15T16:10:26.060358" // Create_date この段階ではUTC
+            }
+        ],
+        "roles":[ // list_roles > Roles
+            {
+                "role_name":"cm-helpdesk",// RoleName
+                "description": "",//Description
+                "managed_policies": [], // list_attached_role_policies()
+                "inline_policies": [],// list_role_policies > PolicyNames  AttachedPolicies > PolicyName
+                "principal_account_id" : ["216054658829","749077664194"], // AssumeRolePolicyDocument > Statement > PrincipalからAccount_idのみ抽出
+                "create_date": "2017-08-15T16:10:26.060358" // Create_date この段階ではUTC
+            }
+        ]
+    },
+    "CloudTrail":{
+        "trail":{
+            "name":"default",
+            "region":"ap-northeast-1",
+            "is_logging":true,
+            "s3_bucketName": "cloudtrail-ap-northeast-1-216054658829"
+        }
+        
+    }
+
+}

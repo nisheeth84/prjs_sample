@@ -1,0 +1,21 @@
+{
+  "history": {
+    "title": {
+      "create": "新規に登録されました。",
+      "edit": "以下の項目が更新されました。"
+    },
+    "reason": "変更理由",
+    "blank-text": "(空欄)",
+    "organization": {
+      "department": "部署",
+      "employee": "社員",
+      "group": "部署"
+    },
+    "read-more": "続きを読む",
+    "collapse": "閉じる",
+    "is_display": {
+      "true": "表示",
+      "false": "非表示"
+    }
+  }
+}

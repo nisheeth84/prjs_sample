@@ -1,0 +1,62 @@
+{
+    "account": "109054975408",
+    "region": "ap-northeast-1",
+    "schema_version": "1.0",
+    "report_name": "TESTREPORT", 
+    "VPC": { //{report_id}/resource/{account_id}/{region}/VPC.json
+        "security_group":[ // security_group
+            {
+                "name":"", // name
+                "id":"sg-7592af12", // GroupId
+                "vpc_id": "vpc-e13dc985", // VpcId
+                "inbound":[ // IpPermissions
+                    {
+                        "protocol": "TCP", // IpProtocol
+                        "from_port" : 3389, // FromPort
+                        "to_port" : 3389, // ToPort
+                        "source" :"39.110.201.10/32", // IpRanges・IPv6Range・PrefixListIds・UserIdGroupPairs内から取得
+                        "description" : "" // IpRanges・IPv6Range・PrefixListIds・UserIdGroupPairs内のDescription取得
+                    },
+                    {
+                        "protocol": "TCP", // IpProtocol
+                        "from_port" : 3389, // FromPort
+                        "to_port" : 3389, // ToPort
+                        "source" :"172.31.21.41/32", // IpRanges・IPv6Range・PrefixListIds・UserIdGroupPairs内から取得
+                        "description" : "" // IpRanges・IPv6Range・PrefixListIds・UserIdGroupPairs内のDescription取得
+                    },
+                    {
+                        "protocol": "UDP", // IpProtocol
+                        "from_port" : 0, // FromPort
+                        "to_port" : 65535, // ToPort
+                        "source" :"sg-11916576", // IpRanges・IPv6Range・PrefixListIds・UserIdGroupPairs内からのCidrIp・CidrIpv6・PrefixListId・GroupId
+                        "description" : "" // IpRanges・IPv6Range・PrefixListIds・UserIdGroupPairs内のDescription取得
+                    },
+                    {
+                        "protocol": "UDP", // IpProtocol
+                        "from_port" : 0, // FromPort
+                        "to_port" : 65535, // ToPort
+                        "source" :"sg-10916577", // IpRanges・IPv6Range・PrefixListIds・UserIdGroupPairs内からCidrIp・CidrIpv6・PrefixListId・GroupIdを一つずつ取得
+                        "description" : "" // IpRanges・IPv6Range・PrefixListIds・UserIdGroupPairs内のDescription取得
+                    }
+                ],
+                "outbound":[ // IpPermissionsEgress
+                    {
+                        "protocol": "-1", // IpProtocol -1 の場合はすべてのプロトコル
+                        "from_port" : 0, // FromPort
+                        "to_port" : 65535, // ToPort
+                        "source" :"0.0.0.0/0", // IpRanges・IPv6Range・PrefixListIds・UserIdGroupPairs内からCidrIp・CidrIpv6・PrefixListId・GroupIdを一つずつ取得
+                        "description" : "premembers_output" // IpRanges・IPv6Range・PrefixListIds・UserIdGroupPairs内のDescription取得
+                    }
+                ]
+            }
+        ]
+    },
+    "S3": [ //{report_id}/resource/{account_id}/{region}/S3.json
+        {
+            "bucket_name": "bucket-xxxx1", // Name
+            "public_access": true,// 設定方法については別途Wikiに記載
+            "bucket_policy": true,// 設定方法については別途Wikiに記載
+            "bucket_acl": false// 設定方法については別途Wikiに記載
+        }
+    ]
+}

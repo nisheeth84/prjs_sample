@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}">
+<head>
+<title th:text="#{email.invite.employee.subject(${dto.companyName})}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<br />
+	<p
+		th:text="#{email.invite.employee.body.line1(${dto.firstName}, ${dto.lastName})}">
+	</p>
+	<p th:text="#{email.invite.employee.body.line2(${dto.companyName})}">
+	</p>
+	<p th:text="#{email.invite.employee.body.line3}"></p>
+	<p>
+		<span th:text="#{email.invite.employee.body.line4}"></span><br /> <span
+			th:text="#{email.invite.employee.body.line5}"></span><br /> <span
+			th:text="#{email.invite.employee.body.line6(${dto.emailAddress})}"></span><br />
+		<span th:text="#{email.invite.employee.body.line7(${dto.password})}"></span>
+	</p>
+	<p>
+		<span th:text="#{email.invite.employee.body.line8}"></span><br /> <span
+			th:text="#{email.invite.employee.body.line9}"></span>
+	</p>
+	<p>
+		<span th:text="#{email.invite.employee.body.line10}"></span><br /> <span
+			th:text="#{email.invite.employee.body.line11}"></span><br /> <span
+			th:text="#{email.invite.employee.body.line12}"></span>
+	</p>
+	<p>
+		<span th:text="#{email.invite.employee.body.line13}"></span><br /> <span
+			th:text="#{email.invite.employee.body.line14}"></span><br /> <span
+			th:text="#{email.invite.employee.body.line15}"></span>
+	</p>
+	<p>
+		<span th:text="#{email.invite.employee.body.line16}"></span><br /> <span
+			th:text="#{email.invite.employee.body.line17}"></span>
+	</p>
+	<p>
+		<span th:text="#{email.invite.employee.body.line18}"></span>
+	</p>
+	<p>
+		<span th:text="#{email.invite.employee.body.line19}"></span><br /> <span
+			th:text="#{email.invite.employee.body.line20}"></span><br /> <span
+			th:text="#{email.invite.employee.body.line21(${dto.emailAddress})}"></span>
+	</p>
+	<p>
+		<span th:text="#{email.invite.employee.body.line22}"></span><br /> <span
+			th:text="#{email.invite.employee.body.line23}"></span><br /> <span
+			th:text="#{email.invite.employee.body.line24}"></span>
+	</p>
+	<p>
+		<span th:text="#{email.invite.employee.body.line25}"></span><br /> <span
+			th:text="#{email.invite.employee.body.line26}"></span><br /> <span
+			th:text="#{email.invite.employee.body.line27}"></span><br /> <span
+			th:text="#{email.invite.employee.body.line28}"></span><br /> <span
+			th:text="#{email.invite.employee.body.line29}"></span><br /> <span
+			th:text="#{email.invite.employee.body.line30}"></span>
+	</p>
+	<p>
+		<span th:text="#{email.invite.employee.body.line31}"></span><br /> <span
+			th:text="#{email.invite.employee.body.line32}"></span>
+	</p>
+	<p>
+		<span th:text="#{email.invite.employee.body.line33}"></span><br /> <br />
+		<br /> <br /> <span th:text="#{email.invite.employee.body.line34}"></span>
+	</p>
+</body>
+</html>

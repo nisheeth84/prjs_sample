@@ -1,0 +1,33 @@
+{
+  "feedbacks": {
+    "popup": {
+      "text-title": "Feedback",
+      "comfortable": {
+        "text-title": "Are you satisfied with our service?",
+        "text-feedback": "Your feedback will be received by esm’s development team of SOFTBRAIN Co., Ltd and will be used to improve our service.",
+        "text-contact1": "If you have any question about how to use or want to report any issue, please click ",
+        "text-contact-link": "here",
+        "text-contact2": ".",
+        "btn-favorite": "Yes, I like it",
+        "btn-distlike": "No, I don't like it"
+      },
+      "Additional-feedback": {
+        "text-title": "Detailed comments",
+        "text-title-red": "※",
+        "placehoder": "Examples \n • Calendar is easy to use \n • I do not know what to do \n • Timeline is displayed too slowly \n • I have too enter too many items on the activity registration screen \n • I want internal questionnaire function"
+      },
+      "btn-send": "Submit"
+    }
+  },
+  "feedbacksuccess": {
+    "popup": {
+      "text-title": "Feedback",
+      "content": {
+        "content1": "Sent successfully.",
+        "content2": "Thank you for your feedback.",
+        "content3": "*This window will be automatically closed after 3s."
+      },
+      "btn-close": "Close"
+    }
+  }
+}

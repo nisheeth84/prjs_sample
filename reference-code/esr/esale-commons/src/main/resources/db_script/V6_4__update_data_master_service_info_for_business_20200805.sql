@@ -1,0 +1,1 @@
+UPDATE "services_info" SET "service_path" = '/businesscard/list' WHERE "service_id" = 4

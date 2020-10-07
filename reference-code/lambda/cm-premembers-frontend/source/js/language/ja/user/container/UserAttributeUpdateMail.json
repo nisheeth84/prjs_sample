@@ -1,0 +1,10 @@
+{
+    "UserAttributeUpdateMail": {
+        "email_address_change": "メールアドレス変更",
+        "guide_change_mail_1": "登録ボタンをクリックすると、変更するメールアドレスへ確認メールが送信されます。",
+        "guide_change_mail_2": "確認メールへ記載されたURLをクリックすることで変更が有効になります。",
+        "current_email_address": "現在のメールアドレス",
+        "email_address_to_change": "変更するメールアドレス",
+        "email_address_to_change_confirm": "変更するメールアドレス（確認用）"
+    }
+}

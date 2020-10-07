@@ -1,0 +1,22 @@
+{
+  "customers": [
+    {
+      "customerId": 1,
+      "customerName": "name",
+      "parentCustomerName": "parentCustomerName",
+      "address": "address 1"
+    },
+    {
+      "customerId": 2,
+      "customerName": "name 2",
+      "parentCustomerName": "parentCustomerName 2",
+      "address": "address 2"
+    },
+    {
+      "customerId": 3,
+      "customerName": "name 2",
+      "parentCustomerName": "parentCustomerName 2",
+      "address": "address 3"
+    }
+  ]
+}

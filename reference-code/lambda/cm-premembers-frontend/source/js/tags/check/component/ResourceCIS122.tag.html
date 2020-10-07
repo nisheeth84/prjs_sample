@@ -1,0 +1,59 @@
+<resource-cis122>
+    <div class="example bootstrap-table">
+        <div class="fixed-table-container">
+            <div class="fixed-table-header">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="w-50 th-inner text-center check-header">{_t('ModalExclusionResource.choice')}</th>
+                            <th class="mw-150 th-inner check-header">{_t('ModalExclusionResource.policy')}</th>
+                            <th class="mw-150 th-inner check-header">{_t('ModalExclusionResource.resource_type')}</th>
+                            <th class="mw-150 th-inner check-header">{_t('ModalExclusionResource.resource_name')}</th>
+                            <th class="w-50 th-inner text-center check-header">{_t('ModalExclusionResource.setting_status')}</th>
+                            <th class="th-inner check-header">{_t('ModalExclusionResource.exclusion_comment')}</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="fixed-table-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="w-50 th-inner text-center check-header">{_t('ModalExclusionResource.choice')}</th>
+                            <th class="mw-150 th-inner check-header">{_t('ModalExclusionResource.policy')}</th>
+                            <th class="mw-150 th-inner check-header">{_t('ModalExclusionResource.resource_type')}</th>
+                            <th class="mw-150 th-inner check-header">{_t('ModalExclusionResource.resource_name')}</th>
+                            <th class="w-50 th-inner text-center check-header">{_t('ModalExclusionResource.setting_status')}</th>
+                            <th class="th-inner check-header">{_t('ModalExclusionResource.exclusion_comment')}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr each="{resource in opts.list_resources}">
+                            <td class="w-50">
+                                <div class="checkbox-custom checkbox-primary">
+                                    <input type="checkbox" ref="inputCheckBox" name="resourceSelected" autocomplete="off" />
+                                    <label for="inputCheckBoxExclusion"></label>
+                                </div>
+                            </td>
+                            <td class="mw-150 break-word">
+                                {commonUtils.getPolicyName(resource.resourceName)}
+                            </td>
+                            <td class="mw-150 break-word">
+                                {_t('ModalExclusionResource.name_resource_type.' + resource.resourceType)}
+                            </td>
+                            <td class="mw-150 break-word">
+                                {commonUtils.getResourceName(resource.resourceName)}
+                            </td>
+                            <td class="w-50 text-center">
+                                <span if="{resource.isExclusion}" class="col-8 badge-setting badge-warning">{_t('ModalExclusionResource.excluded')}</span>
+                            </td>
+                            <td>
+                                <p if="{resource.exclusionComment}" class="break-word margin-bottom-0">{resource.exclusionComment}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</resource-cis122>

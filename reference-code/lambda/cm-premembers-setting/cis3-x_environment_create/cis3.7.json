@@ -1,0 +1,12 @@
+{
+    "logGroupName": "CloudTrail/CIS3",
+    "filterName": "CIS-3-7",
+    "filterPattern": "{($.eventSource = kms.amazonaws.com) &&(($.eventName=DisableKey)||($.eventName=ScheduleKeyDeletion))}",
+    "metricTransformations": [
+        {
+            "metricName": "CIS-3-7",
+            "metricNamespace": "CISBenchmark",
+            "metricValue": "1"
+        }
+    ]
+}

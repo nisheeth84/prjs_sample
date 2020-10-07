@@ -1,0 +1,534 @@
+{
+  "setting": {
+    "title": "Setting",
+    "lang": {
+      "jaJp": "日本語",
+      "enUs": "English(US)",
+      "zhCn": "中文（簡体）"
+    },
+    "button": {
+      "save": "Save",
+      "add": "Register",
+      "edit": "Edit",
+      "cancel": "Undo",
+      "saveAPI": "Apply"
+    },
+    "confirm": {
+      "yes": "Yes",
+      "no": "No"
+    },
+    "available": {
+      "yes": "Available",
+      "no": "Unavailable"
+    },
+    "system": {
+      "title": "System setting",
+      "nav": {
+        "ipAddress": "IP Address Control",
+        "saml": "SAML Authentication",
+        "period": "Opening Period",
+        "history": "Various Logs",
+        "general": "List Setting",
+        "publicAPI": "URL API Setting"
+      },
+      "ipAddress": {
+        "title": "IP address",
+        "notificaation": "You can only connect from the IP address entered below.",
+        "placeholder": "Enter IP address",
+        "btnAdd": "Add IP address"
+      },
+      "saml": {
+        "title": "Activate",
+        "titleWarning": "Set the device that uses SAML authentication. Once enabled, please be careful of the following restrictions.",
+        "titleWarning1": "1. You won't be able to access login screen.",
+        "titleWarning2": "2. As a result, you must grant the administrator’s login permission to the employee, or register the administrator to the ID provider.",
+        "titleWarning3": "3. Stay logged in function will be disabled. (Comply with the technical specifications of the ID provider.)",
+        "isPc": "PC version",
+        "isApp": "Application version",
+        "CooperationItem": "Linked Item",
+        "UserID": "User ID",
+        "referenceTypeSubject": "Linked item is included the NameIdentifier element of the Subject statement",
+        "referenceTypeAttribute": "Linked item is included the Attribute element",
+        "placeholderpublisher": " Enter publisher",
+        "titleIssure": "Linked Item",
+        "publisher": "Publisher",
+        "isRq": "※",
+        "placeholderIssure": "Enter content of linked item",
+        "Certificate": "Metadata document",
+        "btnUploadFile": "Please click or drop file",
+        "urlLogin": "Login URL for ID provider",
+        "urlLogOut": "Logout URL for ID provider",
+        "placeholderUrlLogin": "Enter login URL for ID provider",
+        "placeholderUrlLogout": "Enter logout URL for ID provider"
+      },
+      "period": {
+        "title": "Opening month",
+        "titleWarning": "Set the opening month used in the analysis function.",
+        "month": "(Month number 1, 2, 3,... of the year)",
+        "startYear": "Start of fiscal year",
+        "calendarYear": "Same as calendar year",
+        "LastYear": "Previous year",
+        "description": "Ex: Fiscal year {{0}} will begin in {{2}}/{{1}}",
+        "notification": "If \"Previous year\" is selected, it will be changed to \"Ex: Fiscal year {{0}} will begin in {{2}}/{{1}}\""
+      },
+      "general": {
+        "title": "List Setting",
+        "action": "Auto-update starting time",
+        "placeholder": "Select time"
+      },
+      "accesslog": {
+        "title": "Download access logs of this period",
+        "dateTime": "Date&Time",
+        "accountName": "Account",
+        "ipAddress": "IP address",
+        "event": "Event",
+        "result": "Result",
+        "errorInfomation": "Error infomation",
+        "entityId": "Entity ID",
+        "additionalInformation": "Additional information",
+        "search": "Display",
+        "downloadLogAccess": "Download",
+        "diaryLog": "Access log",
+        "selectLanguage": "Select the character code of the log file.",
+        "record": " item(s)",
+        "to": "~",
+        "dateTo": "'  ",
+        "placeholder": "Search log",
+        "item": " results displayed"
+      },
+      "urlAPI": {
+        "notifi": "Set the URL API function to directly display various screens of e-Sales Manager Remix without going through login screen.",
+        "isPublicUrlApi": "URL API Authentication",
+        "apiRadio1": "On",
+        "apiRadio2": "Off",
+        "authenticationType": "URL expires after",
+        "expiredTime": " minute(s)",
+        "placeholder": "1440"
+      }
+    },
+    "calendar": {
+      "title": "Calendar",
+      "title-fix": "Calendar Setting",
+      "nav": {
+        "google": "Link to Google Calendar",
+        "scheduleType": "Schedule Type",
+        "equiqmentType": "Facilities",
+        "holiday": "Holiday/Week Starting"
+      },
+      "scheduleType": {
+        "messageFile": "This is a required field. Please enter value.",
+        "title": "Schedule type",
+        "notification": "Set the type used in the calendar's schedule.",
+        "add": "Add",
+        "icon": "Image",
+        "name": "Type name",
+        "status": "Register",
+        "action": "Action",
+        "new": {
+          "title": "Add schedule type",
+          "titleEdit": "Update schedule type",
+          "lang": "Type name",
+          "langActive": "※",
+          "placeholder": "Enter type name",
+          "langOther": "Show other languages",
+          "icon": "Icon",
+          "uploadFile": "Upload image",
+          "btnUploadFile": "Please click or drop file",
+          "active": "Availability",
+          "noActive": "Unavailable",
+          "isActive": "Available",
+          "save": "Add",
+          "edit": "Update",
+          "cancel": "Cancel",
+          "message-delete": " will be deleted. Are you sure?",
+          "hideMore": "Hide other languages"
+        }
+      },
+      "equiqment": {
+        "title": " Facilities",
+        "notification": "Manage the facilities used in the schedule.",
+        "btnEquiqment": "Add facilities",
+        "titleBtnEquiqment": "Update facilities",
+        "titleEquiqment": "Facility name",
+        "placeholderEquiqment": "Enter facility name",
+        "placeholderType": "Enter type name",
+        "btnType": "Add type",
+        "titleEdit": "Update type",
+        "tblEquiqment": "Meeting room A",
+        "tblType": "Meeting room",
+        "typeAdd": {
+          "title": ""
+        },
+        "equiqmentAdd": {
+          "titleCheck": "Availability",
+          "isvailable": "Available",
+          "noIsvailable": "Unavailable",
+          "Type": "Type"
+        },
+        "dialog": {
+          "message-delete-group": " will be deleted. Are you sure?"
+        }
+      },
+      "google": {
+        "title": "Authentication Setting",
+        "title-snd": "Sync Setting",
+        "text1": "Google account authentication has not been properly performed.",
+        "text2": "Authentication information has not been obtained. Please enter Client ID and Client secret to get authentication information.",
+        "text3": "'s information is required. You will be logged in to Google to acquire authentication information. Please make sure you have specified a super administrator account. If you have already logged in to Google, please log out before obtaining authentication information.",
+        "text4": "If you extend the period set, the synchronization process will take more time. It will also affect the maximum duration of the recurring schedules in Google Calendar. For example, if you change the sync period to the past 7 days ~ the next 1 year, only that range included in the 3-year-recurring schedule which had been registered in Google Calendar will be reflected into e-Sales Manager MS.",
+        "text5": "If no subject is entered in Google Calendar, the subject specified here will be reflected into eSales Manager MS.",
+        "text6": "It is used to reflect the schedule registered in Google Calendar into eSales Manager MS.",
+        "text7": "It cannot be used for schedules which has already been synchronized once before or registered in eSales Manager MS.",
+        "autInfomation": "Authentication information",
+        "btnAuthInfomation": "Get Authentication Information",
+        "googleAcc": "Google Account Reference",
+        "btnConnectionTest": "Test connection",
+        "radioSync": "Sync interval",
+        "time": "o'clock",
+        "from": "~",
+        "forUpTo": "Run every ",
+        "minute": " minute(s)",
+        "runEveryMinute": " ",
+        "runTo": "Run everyday at this time",
+        "sync": "Sync target period",
+        "past": "Past",
+        "day": "days",
+        "future": "Next",
+        "year": "years",
+        "scheduleTemplate": "Schedule Template",
+        "defaultSubject": "Default subject",
+        "defaultScheduleType": "Default schedule type"
+      },
+      "holiday": {
+        "label": "Holiday",
+        "title": "Set company holidays.",
+        "month": " ",
+        "year": "/",
+        "notification": "Set company holidays",
+        "monday": "Mon",
+        "tuesday": "Tue",
+        "wednesday": "Wed",
+        "thursday": "Thu",
+        "friday": "Fri",
+        "saturday": "Sat",
+        "sunday": "Sun",
+        "dayName": "{{0}}",
+        "haveHoliday": {
+          "title": "Holiday",
+          "notification": "You can decide whether to use Japanese holidays.",
+          "yes": "Yes",
+          "no": "No"
+        },
+        "company": {
+          "title": "Company holiday",
+          "notification": "Company-specific holidays can be added.",
+          "add": "Add",
+          "edit": "Update",
+          "buttonCancel": "Cancel",
+          "no": "No",
+          "name": "Holiday name",
+          "date": "Date",
+          "action": "Action",
+          "formAdd": {
+            "title": " Add company holiday",
+            "titleEdit": "Update company holiday ",
+            "labelNameHoliday": "Holiday name",
+            "placeholderName": "Enter holiday name ",
+            "labelButtonAddLanguage": "Show other languages",
+            "labelOptionLoop": "Recurring",
+            "labelIsRepeat": "Yes",
+            "labelNonRepeat": "No",
+            "labelChosenDate": "Date",
+            "placeholderInputDate": "Select date"
+          },
+          "dialog": {
+            "title": "",
+            "lang": "",
+            "placeholder": ""
+          }
+        },
+        "start": {
+          "title": "Start day of the week",
+          "notification": "The start day of the calendar week can be set here."
+        }
+      }
+    },
+    "task": {
+      "title": "Activity Setting",
+      "format": "Format",
+      "titleInEmpty": "Activity",
+      "activityFormat": {
+        "title": "Report Format",
+        "btnAdd": "Add",
+        "add": {
+          "title": "Add report format",
+          "titleEdit": "Update report format",
+          "lang": "Name",
+          "placeholder": "Enter name",
+          "langMore": "Show other languages",
+          "hideMore": "Hide other languages",
+          "use": "Availability",
+          "active": "Available",
+          "noActive": "Unavailable",
+          "save": "Add",
+          "edit": "Update",
+          "cancel": "Cancel"
+        },
+        "toolTip": "You can set product information items to be displayed according to each product category. \nProduct categories of which display settings are being individually set will have \n[Individual setting] displayed next to the product category name. \nProduct categories that have not been individually set will have the same settings as the lastest parent category which was set individually. To cancel an individual setting, click 'Remove'.",
+        "tbl": {
+          "no": "No",
+          "field": "Item name",
+          "menu": "Item",
+          "format": "Report format"
+        }
+      }
+    },
+    "customer": {
+      "title": "Customer",
+      "btnEdit": "Update",
+      "noMasterMotivations": "Willingness master has not been registered.",
+      "noMasterStands": "Role master has not been registered.",
+      "nav": {
+        "masterPosition": "Network map",
+        "scenatios": "Scenarios"
+      },
+      "masterPosition": {
+        "placeHolderMasterStands": " Enter role name",
+        "title": "Role master",
+        "titleTwo": "Willingness master",
+        "warning": "The role used in the network map can be set here.",
+        "btn": "Add",
+        "tblStandCol2": "Role name",
+        "tblStandCol3": "Register",
+        "tblStandCol4": "Action",
+        "upload": "Upload icon",
+        "BackgroundColor": "Background Color",
+        "no": "No",
+        "tblMotivationCol2": "Display"
+      },
+      "scenarios": {
+        "title": "Scenario Setting",
+        "warning": "Scenario templates can be created here.",
+        "btn": "Register",
+        "tblCol2": "Template name",
+        "tblCol3": "Milestone name",
+        "tblCol4": "Action",
+        "titleAdd": "Scenario setting",
+        "milestone": "Scenario",
+        "placeMilestoneName": "Enter milestone name",
+        "btnAdd": "Add",
+        "iconType": "Icon",
+        "required": "※"
+      }
+    },
+    "card": {
+      "title": "Business card"
+    },
+    "product": {
+      "title": "Product",
+      "titleModal": "Product Setting",
+      "titleCreatr": "Add product type",
+      "projectSetting": "Item Setting",
+      "productMaster": "Product Type Master",
+      "titleAdd": "Update product type",
+      "header": "Product type",
+      "format": "Report format",
+      "defaultMess": "Item for each product type can be set here.",
+      "defaultPlaceholder": "Enter product type name",
+      "defaultPlaceholderAdd": "Enter product type name",
+      "productTypeName": "Product type name",
+      "edit": {
+        "titleCreact": "Add progress",
+        "titleEdit": "Update progress",
+        "progressName": "Progress name",
+        "placeholder": "Enter progress name"
+      }
+    },
+    "sales": {
+      "title": "Trading product",
+      "title-fix": "Trading Product Setting",
+      "title-snd": "Trade Management",
+      "nav": {
+        "productTrade": "Progress Master"
+      },
+      "productTrade": {
+        "messageFile": "This is a required field. Please enter value.",
+        "title": "Progress",
+        "titleWarning": "The progress used for trade management can be set here.",
+        "btnAdd": "Add",
+        "jobTitle": "Position",
+        "OrderEntry": "Order booked",
+        "lostNote": "Order failed",
+        "interruption": "Suspended",
+        "end": "Completed",
+        "operation": "Action",
+        "titleIssure": "Issuer (Entity ID)",
+        "addStandard": {
+          "title": "Add role master",
+          "titleEdit": "Update role master",
+          "langs": "Role name"
+        },
+        "add": {
+          "title": "Add willingness master",
+          "titleEdit": "Update willingness master",
+          "langs": "Willingness name",
+          "placeholder": "Progress A",
+          "placeholderNew": "Enter willingness name ",
+          "placeholderNewStandard": "Enter template name",
+          "placeholderScenario": "Progress A",
+          "langMore": "Show other languages",
+          "langLess": "Hide other languages",
+          "bookedOrder": {
+            "title": "Order Entry",
+            "no": "None　　　",
+            "receive": "Order booked",
+            "lost": "Order failed",
+            "pending": "Suspended"
+          },
+          "end": {
+            "title": "Completion Setting",
+            "value": "Completed"
+          },
+          "available": {
+            "title": "Availability",
+            "active": "Available",
+            "noActive": "Unavailable"
+          }
+        }
+      }
+    },
+    "activity": {
+      "title": "Activity",
+      "msg": "Items used in each report format can be set here."
+    },
+    "employee": {
+      "titlePopup": "Employee Setting",
+      "title": "Employee",
+      "titleDetail": "Customer Setting",
+      "jobTitleMaster": "Position Master",
+      "employeePosition": {
+        "title": "Title",
+        "titleWarning": "Position put higher in the list below will be displayed with priority in employee details or suggested positions when selecting employee.",
+        "btnAdd": "Add",
+        "btnEdit": "Update",
+        "titlePopup": "Add position",
+        "titleEditPopup": "Update position",
+        "titlePosition": "Position name",
+        "Note": "※",
+        "positionPlahorder": "Enter position name",
+        "editPlahorder": "Representative director",
+        "otherLanguageTitle": "Show other languages",
+        "register": "Availability",
+        "usable": "Available",
+        "unUsable": "Unavailable",
+        "positionColum": "Position",
+        "operation": "Action",
+        "toggleOtherLanguages": "Hide other languages",
+        "toggleOtherLanguagesEdit": "Show other languages",
+        "cancel": "Cancel"
+      }
+    },
+    "taskManagement": {
+      "title": "Task Management"
+    },
+    "importCSV": {
+      "title": "Import",
+      "followHeader": {
+        "stepUploadFile": "1. Upload file",
+        "stepMapping": "2. Mapping",
+        "stepAfterImport": "3. Action after import",
+        "stepSimulation": "4. Simulation",
+        "stepExecution": "5. Import"
+      },
+      "botton": {
+        "next": "Next",
+        "previous": "Back",
+        "executeImport": "Import",
+        "runSimulation": "Simulate",
+        "suspendSimulation": "Suspend simulation"
+      },
+      "screenOne": {
+        "header": "Select an action to the data to be imported.",
+        "buttonImportCSV": "Upload file",
+        "openFileMess": "Or drag and drop file here.",
+        "infoLineOne": "Or drag and drop file here.",
+        "infoLineTwo": "Only support .csv file.",
+        "infoLineThree": " ",
+        "infoDownloadTemplate": "Please click ",
+        "btnDownloadTemplate": "here",
+        "infoPlease": " to download CSV template for creating the data you want to import.",
+        "infoUseSimulation": "Please click ",
+        "openHistories": "here",
+        "infoPleaseClick": " to correct the last simulation result and simulate again.",
+        "btnNewOnly": "Register only",
+        "btnOverwriteOnly": "Overwrite only",
+        "btnNewAndOverwrite": "Register and overwrite",
+        "infoChooseHandleDuplicate": "Select an action toward duplicate data.",
+        "btnAllowHandleDuplicates": "Register duplicate data",
+        "btnNotAllowHandleDuplicates": "Do not register duplicate data"
+      },
+      "screenTwo": {
+        "header": "Configure data mapping",
+        "buttonSetMappingRelations": "Configure the items used for mapping with existing data",
+        "mappingKeyRelation": "Mapping key item",
+        "mappingKeyRelationSame": "(Identical)",
+        "targetRelation": "Set matching for relation-typed items",
+        "matchingSettingLabel": "Set matching for relation-typed items",
+        "red": " Items displayed in red",
+        "itemDisplayLabel": " are mapping key items.",
+        "CSVHeader": "CSV file item",
+        "dataHeader": "Mapping key item",
+        "numberHeader": "Sample",
+        "placeHolderMatchingKey": "Customer name"
+      },
+      "simulation": {
+        "infoSimulateCompleted": "Import simulation completed",
+        "infoProgressing": "Simulating…",
+        "remainingProgressMinute": "Time remaining: {{0}} minutes",
+        "infoError": "Confirm error data",
+        "infoRecords": "{{0}} item(s)",
+        "infoCompletedRecords": "Number of check completed items",
+        "infoImportableRecords": "Number of importable items",
+        "infoUnimportableRecords": "Number of unimportable items"
+      },
+      "afterImport": {
+        "noticeLabel": "Address to be notified after completing simulation/import",
+        "noticePlaceHoder": "Add employee, department or group",
+        "timelineLabel": "Notify the data you registered on the timeline ",
+        "timelineInfo": " Please select whether to notify content of the data you have registered to timeline.",
+        "notice": "Notify",
+        "doNotNotice": "Do not notify",
+        "typeListLabel": "Additional action",
+        "typeListInfo": "The data you have registered can be added to a particular list by configuring settings.",
+        "addToMyList": "Add to my list",
+        "addToShareList": "Add to shared list",
+        "doNotAddToList": "Do not add to list",
+        "listName": "List name",
+        "listNamePlaceHolder": "Enter list name",
+        "listParticipants": "Participants",
+        "listParticipantsHolder": "Add participant",
+        "require": "※"
+      },
+      "simulationImport": {
+        "numberOfProcessing": "Processed : ",
+        "rowOne": " item(s)/",
+        "rowTwo": " item(s)"
+      },
+      "historiesImport": {
+        "title": "Import History",
+        "inforMess": "History will be saved for 90 days after running import.",
+        "headerTable": {
+          "createdDate": "Date time",
+          "importFileName": "File name",
+          "isImportSucceed": "Status",
+          "employeeName": "Employee",
+          "insertedCount": "Registered data",
+          "updatedCount": "Updated data",
+          "errorCount": "Error data"
+        },
+        "success": "Done",
+        "failure": "Failed"
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+export const MENU_TYPE = {
+  ALL_EMPLOYEES: 0,
+  DEPARTMENT: 1,
+  QUIT_JOB: 2,
+  MY_GROUP: 3,
+  SHARED_GROUP: 4
+};
+
+export const SELECT_TARGET_TYPE = {
+  ALL_EMPLOYEE: 0,
+  EMPLOYEE_QUIT_JOB: 1,
+  DEPARTMENT: 2,
+  GROUP: 3,
+  SHARE_GROUP: 4
+};

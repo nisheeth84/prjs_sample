@@ -1,0 +1,1 @@
+INSERT INTO "employees_packages" VALUES (1, NOW(), 1, NOW(), 1, 1, 8);

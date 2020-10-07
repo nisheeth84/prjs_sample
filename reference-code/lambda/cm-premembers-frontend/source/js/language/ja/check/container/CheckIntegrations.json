@@ -1,0 +1,13 @@
+{
+    "CheckIntegrations": {
+        "description": "チェック実行するためのURLを発行します。",
+        "generate_url": "URLを作成する",
+        "regenerate_url": "URLを再作成する",
+        "url_label": "チェック実行用URL",
+        "url_guide": "以下のようにPOSTリクエストを送ることによりチェック実行が可能です。",
+        "enabled": "有効",
+        "disabled": "無効",
+        "enable": "有効にする",
+        "disable": "無効にする"
+    }
+}

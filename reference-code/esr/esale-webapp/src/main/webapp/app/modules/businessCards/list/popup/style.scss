@@ -1,0 +1,35 @@
+.wrap-popup-add-card-to-list {
+  .selected-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 8px;
+    margin: 4px;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #666;
+    padding: 8px;
+    color: white;
+    padding-right: 32px;
+    .wrap {
+      white-space: nowrap;
+      width: 300px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: 16px;
+    }
+  }
+  .close {
+    opacity: 1;
+    right: 0;
+    font-size: 1rem;
+  }
+  .select-option.remove-after::after {
+    display: none;
+  }
+
+  .input-common-wrap .icon-delete {
+    cursor: pointer;
+    z-index: 5;
+  }
+}

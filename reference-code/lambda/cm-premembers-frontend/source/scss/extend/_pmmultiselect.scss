@@ -1,0 +1,24 @@
+.org_notif{
+    ul.ms-list{
+        height: 300px;
+    }
+    .custom-header{
+        background: $page-bg;
+    }
+} 
+
+.org_select_wrap{
+    width: 100%;
+    select::-ms-expand {
+        display: none;
+    }
+    select{
+        background-image: none !important;
+    }
+}
+
+.ms-container:before{
+    font-family: "Font Awesome";
+    content: '\f0ec';
+    padding-top: 80px;
+}

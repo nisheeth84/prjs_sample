@@ -1,0 +1,252 @@
+{
+  "timelineGroup": [
+    {
+      "timelineGroupId": "10002",
+      "timelineGroupName": "test1",
+      "comment": "test group1",
+      "createdDate": "2019-05-12",
+      "isPublic": false,
+      "color": "0x00012354",
+      "imagePath": "CHANNEL A",
+      "imageName": "groupImage",
+      "width": "15px",
+      "height": "12px",
+      "changedDate": "2019-05-12",
+      "invites": [
+        {
+          "inviteId": "19",
+          "inviteType": "1",
+          "inviteName": "Dai",
+          "inviteImagePath": "../../../content/images/timeline/ic-user1.svg",
+          "departmentEmployees": [
+            {
+              "employeeId": 1,
+              "employeeName": "aa"
+            }
+          ],
+          "status": 1,
+          "authority": 1
+        },
+        {
+          "inviteId": "20",
+          "inviteType": "1",
+          "inviteName": "abc1",
+          "inviteImagePath": "../../../content/images/timeline/ic-user2.svg",
+          "employeeNames": ["aa1", "bbb1", "ccc1"],
+          "status": 1,
+          "authority": 2
+        },
+        {
+          "inviteId": "21",
+          "inviteType": "2",
+          "inviteName": "abc2",
+          "inviteImagePath": null,
+          "employeeNames": null,
+          "status": 2,
+          "authority": 1
+        },
+        {
+          "inviteId": "22",
+          "inviteType": "2",
+          "inviteName": "abc3",
+          "inviteImagePath": "../../../content/images/timeline/ic-user1.svg",
+          "employeeNames": null,
+          "status": 1,
+          "authority": 1
+        },
+        {
+          "inviteId": "23",
+          "inviteType": "2",
+          "inviteName": "abc4",
+          "inviteImagePath": "",
+          "employeeNames": null,
+          "status": "2",
+          "authority": 1
+        },
+        {
+          "inviteId": "24",
+          "inviteType": "2",
+          "inviteName": "abc5",
+          "inviteImagePath": "../../../content/images/timeline/ic-user1.svg",
+          "employees": [
+            {
+              "employeeNames": "nth",
+              "employeeDepartments": [
+                {
+                  "departmentName": "D2T",
+                  "positionName": "emp1 "
+                }
+              ]
+            }
+          ],
+          "employeeNames": null,
+          "status": "2",
+          "authority": 1
+        },
+        {
+          "inviteId": "25",
+          "inviteType": "2",
+          "inviteName": "abc6",
+          "inviteImagePath": "../../../content/images/timeline/ic-user1.svg",
+          "employees": [
+            {
+              "employeeNames": "nth1",
+              "employeeDepartments": [
+                {
+                  "departmentName": "D2T",
+                  "positionName": "emp2 "
+                }
+              ]
+            }
+          ],
+          "status": "2",
+          "authority": 1
+        },
+        {
+          "inviteId": "26",
+          "inviteType": "2",
+          "inviteName": "abc7",
+          "inviteImagePath": "../../../content/images/timeline/ic-user2.svg",
+          "employees": [
+            {
+              "employeeNames": "nth3",
+              "employeeDepartments": [
+                {
+                  "departmentName": "D2T",
+                  "positionName": "emp3 "
+                }
+              ]
+            }
+          ],
+          "status": "2",
+          "authority": 1
+        },
+        {
+          "inviteId": "27",
+          "inviteType": "2",
+          "inviteName": "abc8",
+          "inviteImagePath": "../../../content/images/timeline/ic-user2.svg",
+          "employees": [
+            {
+              "employeeNames": "nth4",
+              "employeeDepartments": [
+                {
+                  "departmentName": "D2T",
+                  "positionName": "emp4 "
+                }
+              ]
+            }
+          ],
+          "status": "2",
+          "authority": 1
+        }
+      ]
+    },
+    {
+      "timelineGroupId": "10001",
+      "timelineGroupName": "test1",
+      "comment": "test group1",
+      "createdDate": "2019-05-12",
+      "isPublic": true,
+      "imagePath": "/group/ImagePath",
+      "imageName": "groupImage",
+      "width": "15px",
+      "height": "12px",
+      "changedDate": "2019-05-12",
+      "invites": [
+        {
+          "inviteId": "19",
+          "inviteType": "2",
+          "inviteName": "abc7",
+          "inviteImagePath": "../../../content/images/timeline/ic-user2.svg",
+          "employees": [
+            {
+              "employeeNames": "nth",
+              "employeeDepartments": [
+                {
+                  "departmentName": "D2T",
+                  "positionName": "emp1 "
+                }
+              ]
+            }
+          ],
+          "status": "1",
+          "authority": 2
+        },
+        {
+          "inviteId": "21",
+          "inviteType": "2",
+          "inviteName": "Dai1",
+          "inviteImagePath": "../../../content/images/timeline/ic-user1.svg",
+          "status": "1",
+          "authority": 1
+        },
+        {
+          "inviteId": "20",
+          "inviteType": "2",
+          "inviteName": "abcdef71",
+          "inviteImagePath": "../../../content/images/timeline/ic-user2.svg",
+          "status": "2",
+          "authority": 2
+        },
+        {
+          "inviteId": "22",
+          "inviteType": "2",
+          "inviteName": "Hoannt",
+          "inviteImagePath": "",
+          "employees": [
+            {
+              "employeeNames": "hnt",
+              "employeeDepartments": [
+                {
+                  "departmentName": "D2T",
+                  "positionName": "emp3 "
+                }
+              ]
+            }
+          ],
+          "status": "2",
+          "authority": 1
+        }
+      ]
+    },
+    {
+      "timelineGroupId": "10003",
+      "timelineGroupName": "test1",
+      "comment": "test group1",
+      "createdDate": "2019-05-12",
+      "isPublic": true,
+      "imagePath": "CHANNEL",
+      "imageName": "groupImage",
+      "width": "15px",
+      "height": "12px",
+      "changedDate": "2019-05-12",
+      "invites": [
+        {
+          "inviteId": "20",
+          "inviteType": "2",
+          "inviteName": "Dai2",
+          "inviteImagePath": "../../../content/images/timeline/ic-user2.svg",
+          "status": "1",
+          "authority": 2
+        },
+        {
+          "inviteId": "21",
+          "inviteType": "2",
+          "inviteName": "abcdef82",
+          "inviteImagePath": "../../../content/images/timeline/ic-user3.svg",
+          "status": "1",
+          "authority": 1
+        },
+        {
+          "inviteId": "22",
+          "inviteType": "2",
+          "inviteName": "LMAO",
+          "inviteImagePath": "",
+          "status": "1",
+          "authority": 1
+        }
+      ]
+    }
+  ]
+}

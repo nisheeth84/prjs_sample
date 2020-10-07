@@ -1,0 +1,193 @@
+{
+  "tasks": {
+    "required": "必须",
+    "common": {},
+    "list": {
+      "isPublic": {
+        "public": "公开",
+        "notPublic": "不公开"
+      },
+      "status-task": {
+        "no-start": "尚未开始",
+        "start": "工作中",
+        "complete": "完成"
+      },
+      "createtaskbutton": "注册任务",
+      "createtask": "注册任务",
+      "registermilestone": "注册里程碑",
+      "popup": {
+        "verification": "确认",
+        "cancel": "取消",
+        "delete": "删除",
+        "youcantsubtasktoincomplete": " 已完成的任务包括未完成的子任务。请选择处理。",
+        "movetoincompleteforeachtask": "同时完成子任务",
+        "subtaskalsocomplete": "同时完成子任务",
+        "convertsubtasktotask": "将子任务转换为任务",
+        "deletesubtask": "同时删除子任务",
+        "pleaseselectanoption": "要删除的任务包含子任务。请选择处理。",
+        "tasktodeletecontainsubtask": "要删除的任务包含子任务",
+        "areyousuretodeletetask": "您确定要删除任务吗？"
+      },
+      "statustask": ["尚未开始", "正在工作", "已完成"],
+      "card": {
+        "customer": "客户",
+        "product": "产品",
+        "task": "任务",
+        "term": "期限:",
+        "milestone": "里程碑",
+        "subtask": "子任务",
+        "plan": "计划",
+        "currentschedule": "当前时间表",
+        "consultation": "咨询",
+        "eigorou": "太郎业务",
+        "employeetaro": "太郎员工"
+      },
+      "top": {
+        "searchplaceholder": "搜索任务",
+        "updatetonotstart": "更新为尚未开始",
+        "updatetoworking": "更新为工作中",
+        "updatetofinish": "更新为完成",
+        "title": {
+          "btn-edit": "简单编辑",
+          "btn-cancel": "取消",
+          "btn-save": "保存更改"
+        }
+      },
+      "left": {
+        "customertasklist": "客户列表的任务",
+        "favoritelist": "喜爱的列表",
+        "personincharge": "负责人",
+        "searchpersontodisplay": "检索要显示的负责人",
+        "department": "部门",
+        "employee": "员工",
+        "group": "组",
+        "period": "期间",
+        "alltime": "全期间",
+        "periodspecification": "期间指定",
+        "choose_employee": "仅显示此员工",
+        "remove_employee": "排除此员工",
+        "choose_departerment": "排除此部门",
+        "remove_departerment": "排除此组"
+      },
+      "importtask": "导入任务"
+    },
+    "create-edit": {
+      "button": {
+        "cancel": "取消",
+        "create": "注册",
+        "edit": "保存",
+        "confirm_sub_done": "同时完成子任务",
+        "confirm_sub_to_primary": "将子任务转换为任务"
+      },
+      "title": {
+        "confirm-subtask": "  已完成的任务包括未完成的子任务。请选择处理。"
+      },
+      "label": {
+        "require": "必须",
+        "register": "任务注册",
+        "task-edit": "任务编辑",
+        "subtask-register": "子任务注册",
+        "subtask-edit": "子任务编辑",
+        "file": "附加文件",
+        "subtask": "子任务名称",
+        "taskname": "任务名称",
+        "status": "状态",
+        "customer": "客户名称",
+        "product": "交易产品",
+        "operators": "负责人",
+        "startDate": "开始日期",
+        "finishDate": "预计完成日期",
+        "public": "公开设置",
+        "memo": "备忘录",
+        "subtaskName": "子任务名称",
+        "registerSubtask": "子任务注册",
+        "milestone": "里程碑",
+        "confirm-subtask": "确认",
+        "cancel-popup": "取消",
+        "status-task": {
+          "no-start": "尚未开始",
+          "start": "工作中",
+          "complete": "完成"
+        },
+        "createdDate": "注册日期",
+        "createdUser": "注册者",
+        "updatedDate": "最后更新日期",
+        "updatedUser": "最后更新者",
+        "registeredAuto": "自动注册。"
+      },
+      "placeholder": {
+        "file": "请点击或将文件放下",
+        "subtask": "添加子任务",
+        "taskname": "输入任务名称",
+        "status": "选择状态",
+        "customer": "添加客户名称",
+        "product": "添加交易产品",
+        "operators": "添加负责人",
+        "startDate": "添加开始日期",
+        "finishDate": "添加预计完成日期",
+        "public": "公开",
+        "memo": "备忘录",
+        "subtaskName": "输入子任务名称",
+        "milestone": "选择里程碑",
+        "taskId": "自动注册",
+        "suggest-single": "选择{{placeholder}}",
+        "suggest-multi": "添加{{placeholder}}"
+      },
+      "confirm-delete-subtask": {
+        "title": "确认",
+        "message": "要删除的任务包含子任务。请选择处理。",
+        "delete-subtask": "物理删除。",
+        "delete-subtask-relation": "取消任务与子任务之间的链接",
+        "cancel": "取消"
+      }
+    },
+    "detail": {
+      "form": {
+        "product": {
+          "tradingProduct": "交易产品",
+          "product": "产品",
+          "customerName": "添加客户名称",
+          "customerContactPerson": "客户端负责人",
+          "personInCharge": "负责人",
+          "progress": "进度状态",
+          "completionDate": "预计完成日期",
+          "amountOfMoney": "金额",
+          "total": "合计",
+          "moneyType": "日元"
+        },
+        "button-setting": "编辑画面",
+        "task-name": "任务名称",
+        "memo": "备忘录",
+        "employee": "负责人",
+        "firt-n": "其他",
+        "last-n": "个人",
+        "start-date": "开始日期",
+        "end-date": "预计完成日期",
+        "customer-name": "客户名称",
+        "milestone-name": "里程碑",
+        "files": "附加文件",
+        "status": "状态",
+        "isdone": "公开设置",
+        "is-public-true": "公开",
+        "is-public-false": "不公开",
+        "isdone-0": "不公开",
+        "subtask": "子任务",
+        "year": "年",
+        "month": "月",
+        "date": "日",
+        "time": "星期二",
+        "text": "要删除的任务包含子任务。请选择处理。",
+        "text-delete-3": "将子任务转换为任务",
+        "button-update": "更新为完成",
+        "not-start": "尚未开始",
+        "started": "工作中",
+        "finished": "完成",
+        "button-preview": "预览注册画面",
+        "label-infor": "任务的标准数据"
+      },
+      "info": {
+        "infoScroll": "可以向上滚动。"
+      }
+    }
+  }
+}

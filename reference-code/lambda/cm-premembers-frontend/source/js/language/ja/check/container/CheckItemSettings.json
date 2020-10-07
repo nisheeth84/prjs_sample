@@ -1,0 +1,11 @@
+{
+    "CheckItemSettings": {
+        "item_setting": "項目設定",
+        "description_item_setting": "アカウント単位でチェックを除外する設定ができます。また、設定を解除することも可能です。",
+        "check_item": "チェック項目",
+        "item_exclusion": "チェック項目除外",
+        "copy_item_setting": "AWSアカウント間でコピー",
+        "user_guide_url": "https://insightwatch.zendesk.com/hc/ja/articles/360021813751",
+        "resources_exclusion": "リソース除外"
+    }
+}

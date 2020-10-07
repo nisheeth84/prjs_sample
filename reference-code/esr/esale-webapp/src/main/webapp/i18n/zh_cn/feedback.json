@@ -1,0 +1,33 @@
+{
+  "feedbacks": {
+    "popup": {
+      "text-title": "反馈 ",
+      "comfortable": {
+        "text-title": "您使用起来感觉如何？",
+        "text-feedback": "客户反馈由SOFTBRAIN Co., Ltd.的esm’s开发团队接受，并用于改善esm’s。",
+          "text-contact1": "如果您对功能操作方法或故障有任何疑问，请点击",
+        "text-contact-link": "这里",
+        "text-contact2": "。",
+        "btn-favorite": "喜欢",
+        "btn-distlike": "不喜欢"
+      },
+      "Additional-feedback": {
+        "text-title": "附加反馈",
+        "text-title-red": "必须",
+        "placehoder": "输入示例\n •  易于使用的日历\n •  我不知道该怎么办\n •  时间轴显示缓慢\n •   活动注册屏幕上的输入项太多\n •  我想要内部调查功能"
+      },
+      "btn-send": "发送"
+    }
+  },
+  "feedbacksuccess": {
+    "popup": {
+      "text-title": "反馈 ",
+      "content": {
+        "content1": "发送完成。",
+        "content2": "感谢您的反馈意见。",
+        "content3": "※此屏幕将在3秒钟后自动关闭。"
+      },
+      "btn-close": "关闭"
+    }
+  }
+}

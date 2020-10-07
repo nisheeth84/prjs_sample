@@ -1,0 +1,32 @@
+version: 0.2
+run-as: root
+phases:
+  install:
+    commands:
+      - echo "Start build"
+  pre_build:
+    commands:
+      - IMAGE_URI=504903465441.dkr.ecr.ap-northeast-1.amazonaws.com/esale-webapp:latest
+      - ECR=504903465441.dkr.ecr.ap-northeast-1.amazonaws.com
+      - SERVICE_NAME=webapp
+      - aws ecr get-login-password | docker login --username AWS --password-stdin $ECR 
+  build:
+    commands:
+      - npm install
+      - npm update
+      - npm run webpack:prod:main
+      - docker build -t $IMAGE_URI .
+  post_build:
+    commands:
+      - docker push $IMAGE_URI
+      - printf '[{"name":"%s","imageUri":"%s"}]' $SERVICE_NAME $IMAGE_URI > imagedefinitions.json
+      - printf '{"ImageURI":"%s"}' $IMAGE_URI > imageDetail.json
+      - printf '{"imageURI":"%s"}' $IMAGE_URI > imageUris.json
+      - git clone --mirror https://phongbt-at-504903465441:$GIT_PASSWORD@git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/esale-webapp
+      - cd esale-webapp.git && git push --mirror https://buithephong:$GIT_TOKEN@git.luvina.net/esr/esale-webapp.git
+artifacts:
+  files:
+    - imagedefinitions.json
+    - imageUris.json
+    - imageDetail.json
+  discard-paths: yes

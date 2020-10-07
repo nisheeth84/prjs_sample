@@ -1,0 +1,49 @@
+{
+    "resource": "/test/url/{this}/{is}/{test}",
+    "path": "/test/user/this/is/test",
+    "httpMethod": "GET",
+    "headers": null,
+    "queryStringParameters": null,
+    "pathParameters": null,
+    "stageVariables": null,
+    "requestContext": {
+        "path": "/test/user/this/is/test",
+        "accountId": "216054658829",
+        "resourceId": "02d23z",
+        "stage": "dev",
+        "authorizer": {
+            "claims": {
+                "sub": "8d98a38c-7da7-11e7-b449-cbc5f83452fc",
+                "aud": "4vm4sjuubpir4hk6f2nqitshh3",
+                "email_verified": "true",
+                "token_use": "id",
+                "auth_time": "1502351715",
+                "iss": "https://cognito-idp.ap-northeast-1.amazonaws.com/ap-northeast-1_BJ2S5VHa6",
+                "cognito:username": "test_user_01",
+                "exp": "Thu Aug 10 08:55:15 UTC 2017",
+                "iat": "Thu Aug 10 07:55:15 UTC 2017",
+                "email": "test_user_01@sample.com" 
+            }
+        },
+        "requestId": "1222c81b-7da3-11e7-8162-e57d6d81daf4",
+        "identity": {
+            "cognitoIdentityPoolId": null,
+            "accountId": null,
+            "cognitoIdentityId": null,
+            "caller": null,
+            "apiKey": "",
+            "sourceIp": "39.110.201.10",
+            "accessKey": null,
+            "cognitoAuthenticationType": null,
+            "cognitoAuthenticationProvider": null,
+            "userArn": null,
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36",
+            "user": null
+        },
+        "resourcePath": "/test/url/{this}/{is}/{test}",
+        "httpMethod": "GET",
+        "apiId": "vy0p6ndo2i"
+    },
+    "body": null,
+    "isBase64Encoded": false
+}

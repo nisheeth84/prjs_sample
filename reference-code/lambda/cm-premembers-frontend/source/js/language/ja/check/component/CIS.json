@@ -1,0 +1,922 @@
+{
+    "CIS": {
+        "check_group_name": "CIS",
+        "CHECK_CIS_ITEM_1_01": {
+            "title": "rootアカウントが利用されていないこと",
+            "number": "1.1",
+            "alert_criteria": "アラート基準：過去2週間以内にrootアカウントが利用された場合",
+            "description_1": "rootアカウントは強力な権限を持つため、rootアカウントを利用せずIAMユーザーを利用してください",
+            "description_2": "通常運用でrootアカウントが利用されていないか確認し、利用している場合はIAMユーザーを利用するように変更してください",
+            "description_3": "ただし、rootアカウントでしかできない<a href=\"https://dev.classmethod.jp/etc/only_aws_account/\" target=\"_blank\">作業</a>があります",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>をご利用中の場合、お客様の依頼に基づきクラスメソッドにてrootアカウント作業を代行する場合があります"
+        },
+        "CHECK_CIS_ITEM_1_02": {
+            "title": "コンソールログイン用のパスワードが設定されたIAMユーザにMFAが有効化されていること",
+            "number": "1.2",
+            "alert_criteria": "アラート基準：IAMユーザーにMFAが設定されていない場合",
+            "description_1": "IAMユーザーのMulti-Factor Authentication (MFA)を有効化し、ログイン時のセキュリティを強化します",
+            "description_2": "MFAを有効化してください",
+            "description_3": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/20170120-enabel-mfa/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_1_03": {
+            "title": "90日以上利用されていない認証情報は無効化されていること",
+            "number": "1.3",
+            "alert_criteria": "アラート基準：90日以上利用していない認証情報(IAMユーザー、アクセスキー)が存在する場合",
+            "description_1": "利用していない認証情報(IAMユーザー、アクセスキー)を定期的に棚卸し、セキュリティを向上させます",
+            "description_2": "認証情報の無効化、または削除を行なってください",
+            "description_3": "対応手順<ul><li><a href=\"http://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html\" target=\"_blank\">IAMユーザー</a></li><li><a href=\"http://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_access-keys.html\" target=\"_blank\">アクセスキー</a></li></ul></li>"
+        },
+        "CHECK_CIS_ITEM_1_04": {
+            "title": "アクセスキーが90日以内にローテーションされていること",
+            "number": "1.4",
+            "alert_criteria": "アラート基準<ul><li>90日以上ローテーションされていないアクセスキーが存在する場合</li><li>ローテーションされてから利用されていないアクセスキーが存在する場合</li></ul>",
+            "description_1": "アクセスキーは、ツール(AWS CLIやPowerShell、AWS SDKなど)からAWSを利用するための認証情報です",
+            "description_2": "定期的にローテーションすることで、アクセスキーの盗難や漏洩に対するリスクを軽減します",
+            "description_3": "アクセスキーのローテーションを行なってください",
+            "description_4": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_RotateAccessKey\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_1_05": {
+            "title": "IAMのパスワードポリシーにて「1文字以上の大文字」を有効にすること",
+            "number": "1.5",
+            "alert_criteria": "アラート基準：IAMのパスワードポリシーにて「1文字以上の大文字」が無効になっている場合",
+            "description_1": "IAMユーザーのパスワードポリシーを強化することでパスワードを推測されにくくします",
+            "description_2": "「1文字以上の大文字」を有効にしてください",
+            "description_3": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/password_policy_for_aws_account/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_1_06": {
+            "title": "IAMのパスワードポリシーにて「1文字以上の小文字」を有効にすること",
+            "number": "1.6",
+            "alert_criteria": "アラート基準：IAMのパスワードポリシーにて「1文字以上の大文字」が無効になっている場合",
+            "description_1": "IAMユーザーのパスワードポリシーを強化することでパスワードを推測されにくくします",
+            "description_2": "「1文字以上の大文字」を有効にしてください",
+            "description_3": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/password_policy_for_aws_account/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_1_07": {
+            "title": "IAMのパスワードポリシーにて「1文字以上の記号」を有効にすること",
+            "number": "1.7",
+            "alert_criteria": "アラート基準：IAMのパスワードポリシーにて「1文字以上の記号」が無効になっている場合",
+            "description_1": "IAMユーザーのパスワードポリシーを強化することでパスワードを推測されにくくします",
+            "description_2": "「1文字以上の記号」を有効にしてください",
+            "description_3": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/password_policy_for_aws_account/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_1_08": {
+            "title": "IAMのパスワードポリシーにて「1文字以上の数字」を有効にすること",
+            "number": "1.8",
+            "alert_criteria": "アラート基準：IAMのパスワードポリシーにて「1文字以上の数字」が無効になっている場合",
+            "description_1": "IAMユーザーのパスワードポリシーを強化することでパスワードを推測されにくくします",
+            "description_2": "「1文字以上の数字」を有効にしてください",
+            "description_3": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/password_policy_for_aws_account/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_1_09": {
+            "title": "IAMのパスワードポリシーにて「パスワードを14文字以上」を有効にすること",
+            "number": "1.9",
+            "alert_criteria": "アラート基準：IAMのパスワードポリシーにて「パスワードを14文字以上」が無効になっている場合",
+            "description_1": "IAMユーザーのパスワードポリシーを強化することでパスワードを推測されにくくします",
+            "description_2": "「パスワードを14文字以上」を有効にしてください",
+            "description_3": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/password_policy_for_aws_account/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_1_10": {
+            "title": "IAMのパスワードポリシーにて「パスワードの再利用禁止」を有効にすること",
+            "number": "1.10",
+            "alert_criteria": "アラート基準<ul><li>IAMのパスワードポリシーにて「パスワードの再利用禁止」が無効になっている</li><li>記憶するパスワードの数が「24」になっていない</li></ul>",
+            "description_1": "IAMユーザーのパスワードポリシーを強化することでパスワードを推測されにくくします",
+            "description_2": "「パスワードの再利用禁止」を有効にしてください",
+            "description_3": "記憶するパスワードの数は「24」を指定してください。24以外を指定した場合はチェックNGになります。",
+            "description_4": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/password_policy_for_aws_account/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_1_11": {
+            "title": "IAMのパスワードポリシーにて「90日以内のパスワード有効期限」を有効にすること",
+            "number": "1.11",
+            "alert_criteria": "アラート基準：IAMのパスワードポリシーにて「90日以内のパスワード有効期限」が無効になっている場合",
+            "description_1": "IAMユーザーのパスワードポリシーを強化することでパスワードを推測されにくくします",
+            "description_2": "「90日以内のパスワード有効期限」を有効にしてください",
+            "description_3": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/password_policy_for_aws_account/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_1_12": {
+            "title": "rootアカウントのアクセスキーが設定されていないこと",
+            "number": "1.12",
+            "alert_criteria": "アラート基準：rootアカウントにアクセスキーが設定されている場合",
+            "description_1": "rootアカウントは強力な権限を持ちます。rootアカウントは利用せずIAMユーザーを利用します",
+            "description_2": "rootアカウントのアクセスキーを削除し、IAMユーザーを利用してください",
+            "description_3": "対応手順は<a href=\"http://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_delete-key\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_1_13": {
+            "title": "rootアカウントがMFAにより保護されていること",
+            "number": "1.13",
+            "alert_criteria": "アラート基準：rootアカウントにアクセスキーが設定されている場合",
+            "description_1": "rootアカウントは強力な権限を持ちます。rootカウントは利用せずIAMユーザーを利用します",
+            "description_2": "rootアカウントのアクセスキーを削除し、IAMユーザーを利用してください",
+            "description_3": "対応手順は<a href=\"http://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_delete-key\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_1_14": {
+            "title": "rootアカウントがハードウェアMFAにより保護されていること",
+            "number": "1.14",
+            "alert_criteria": "アラート基準：rootアカウントでハードウェアMFAを利用していない場合",
+            "description_1": "ハードウェアMFAは仮想MFAに比べ攻撃されるリスクが低く、最も強い権限を持つrootアカウントに適用することが推奨されています",
+            "description_2": "rootアカウントに対しハードウェアMFAを導入してください",
+            "description_3": "ただし、複数AWSアカウントを利用している場合はハードウェアMFAデバイスの管理が問題になる可能性がります。この場合は、高セキュリティが必要なアカウントに対しハードウェアMFAを導入し、残りのアカウントは仮想MFAを導入することを検討してください",
+            "description_4": "対応手順は<a href=\"http://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html#enable-hw-mfa-for-root\" target=\"_blank\">こちら</a>",
+            "description_5": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、クラスメソッドで管理している項目となり「マネージド」と表示されます"
+        },
+        "CHECK_CIS_ITEM_1_15": {
+            "title": "秘密の質問が設定されていること",
+            "number": "1.15",
+            "alert_criteria_1": "アラート基準：ユーザーによる評価が実施されていないか、前回の評価から180日経過している場合",
+            "alert_criteria_2": "ユーザー自身での確認が必要な <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360021813891\" target=\"_blank\">マニュアル評価項目</a>です",
+            "description_1": "秘密の質問はAWSカスタマーサービスでの本人認証で利用されます。確認できないとAWSサポートへ問い合わせができなくなる可能性があります",
+            "description_2": "例えば、MFAデバイス障害などでAWSコンソールへのログインが不能となった際の問い合わせ時に必要です",
+            "description_3": "秘密の質問が最新になっているか確認してください",
+            "description_4": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/after_get_aws_account/#account_setting\" target=\"_blank\">こちら</a>",
+            "description_5": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、クラスメソッドで管理している項目となり「マネージド」と表示されます"
+        },
+        "CHECK_CIS_ITEM_1_16": {
+            "title": "IAMポリシーがグループまたはロールにのみ適用されていること",
+            "number": "1.16",
+            "alert_criteria": "アラート基準：IAMユーザーにIAMポリシーがアタッチされている場合",
+            "description_1": "グループレベルで権限を割り当てることで、ユーザーが増えた場合の複雑さを軽減し、誤った権限を付与するリスクを低下させます",
+            "description_2": "IAMユーザーをグループに所属させ、グループにポリシーをアタッチ、IAMユーザーからポリシーを削除してください",
+            "description_3": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_users_change-permissions.html\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_1_17": {
+            "title": "AWS のコストと使用状況レポートの有効化",
+            "number": "1.17",
+            "alert_criteria_1": "アラート基準：ユーザーによる評価が実施されていないか、前回の評価から180日経過している場合",
+            "alert_criteria_2": "ユーザー自身での確認が必要な <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360021813891\" target=\"_blank\">マニュアル評価項目</a>です",
+            "description_1": "請求レポートを有効化することで、詳細なAWS利用状況(CSV)をS3に出力します",
+            "description_2": "コストエクスプローラーを利用しグラフ化、予算に合わせたアラートを設定できます",
+            "description_3": "AWS Cost and Usage report を有効化してください",
+            "description_4": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/awsaccountbilling/latest/aboutv2/billing-reports-gettingstarted-turnonreports.html\" target=\"_blank\">こちら</a>",
+            "description_5": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、クラスメソッドで管理している項目となり「マネージド」と表示されます"
+        },
+        "CHECK_CIS_ITEM_1_18": {
+            "title": "IAMマスターロールとIAMマネージャーロールを作成し運用していること",
+            "number": "1.18",
+            "alert_criteria": "アラート基準：IAMマスターロール、IAMマネージャーロールが存在しない場合",
+            "description_1": "IAMに関する操作権限は一般的なユーザーから分離し、専用のIAMロールを利用することで権限を分離します<ul><li>IAMマスターロール：ユーザー、グループ、およびロールを作成</li><li>IAMマネージャーロール：ユーザーとロールをグループに割り当て</li></ul>",
+            "description_2": "IAMマスターロール、IAMマネージャーロールを作成し運用してください。",
+            "description_3": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/cis-manager-master-role/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_1_19": {
+            "title": "連絡先の情報更新",
+            "number": "1.19",
+            "alert_criteria_1": "アラート基準：ユーザーによる評価が実施されていないか、前回の評価から180日経過している場合",
+            "alert_criteria_2": "ユーザー自身での確認が必要な <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360021813891\" target=\"_blank\">マニュアル評価項目</a>です",
+            "description_1": "連絡先は、セキュリティ上の問題やAWSポリシー違反などの通知に利用されます",
+            "description_2": "連絡先の情報(メールアドレス、電話番号、住所など)が最新になっているか確認してください",
+            "description_3": "対応手順は<a href=\"http://docs.aws.amazon.com/ja_jp/awsaccountbilling/latest/aboutv2/manage-account-payment.html#contact-info\" target=\"_blank\">こちら</a>",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、クラスメソッドで管理している項目となり「マネージド」と表示されます"
+        },
+        "CHECK_CIS_ITEM_1_20": {
+            "title": "セキュリティに関する連絡先の登録",
+            "number": "1.20",
+            "alert_criteria_1": "アラート基準：ユーザーによる評価が実施されていないか、前回の評価から180日経過している場合",
+            "alert_criteria_2": "ユーザー自身での確認が必要な <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360021813891\" target=\"_blank\">マニュアル評価項目</a>です",
+            "description_1": "連絡先は、AWSからの連絡の中でもセキュリティに関する連絡先になります",
+            "description_2": "セキュリティに関する連絡先を指定することで、組織内のセキュリティチームへ連絡できます",
+            "description_3": "セキュリティに関する連絡先の情報が最新になっているか確認してください",
+            "description_4": "対応手順は<a href=\"http://docs.aws.amazon.com/ja_jp/awsaccountbilling/latest/aboutv2/manage-account-payment.html#contact-info\" target=\"_blank\">こちら</a>",
+            "description_5": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、クラスメソッドで管理している項目となり「マネージド」と表示されます"
+        },
+        "CHECK_CIS_ITEM_1_21": {
+            "title": "EC2でのAWSリソースへのAPIアクセスはIAMインスタンスロールを利用していること",
+            "number": "1.21",
+            "alert_criteria": "アラート基準：EC2にIAMロールがアタッチされていない場合",
+            "description_1": "IAMロールでは期限付きの一時的なキーを利用します",
+            "description_2": "EC2からAWSリソースへのアクセスは、アクセスキーではなくIAMロールを利用することでキー漏洩時のリスクを低減できます",
+            "description_3": "適切な権限を付与したIAMロールを作成し、EC2にアタッチしてください",
+            "description_4": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/replace-attach-iamrole-ec2console/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_1_22": {
+            "title": "特定のユーザーにAWSサポートへの問い合わせ権限が付与されていること",
+            "number": "1.22",
+            "alert_criteria": "アラート基準：IAMポリシー「AWSSupportAccess」がアタッチされたグループ、ユーザーまたはロールが存在しない場合",
+            "description_1": "特定の許可されたユーザーのみがAWSサポートへ問い合わせできるようにします",
+            "description_2": "グループ、またはロールにIAMポリシー「AWSSupportAccess」をアタッチしてください",
+            "description_3": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/access_policies_manage-attach-detach.html#attach-managed-policy-console\" target=\"_blank\">こちら</a>",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、クラスメソッドで管理している項目となり「マネージド」と表示されます"
+        },
+        "CHECK_CIS_ITEM_1_23": {
+            "title": "不要なアクセスキーの発行を避ける",
+            "number": "1.23",
+            "alert_criteria": "アラート基準：一度も利用していないアクセスキーが存在する場合",
+            "description_1": "利用していない認証情報は削除してください",
+            "description_2": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_1_24": {
+            "title": "制限なしのアクセス許可を指定したIAMポリシーを利用しない",
+            "number": "1.24",
+            "alert_criteria": "アラート基準：Admin権限 ( \"Effect\": \"Allow\", \"Action\": \"*\", \"Resource\": \"*\" ) ポリシーが付与されている場合",
+            "description_1": "IAMには最小権限を付与することで、必要なタスクのみ実行できるようになります",
+            "description_2": "ユーザーが利用するサービスを確認し、必要な権限のみを付与してください",
+            "description_3": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/best-practices.html#grant-least-privilege\" target=\"_blank\">こちら</a>",
+            "description_4": "補足情報<ul><li><a href=\"https://dev.classmethod.jp/cloud/aws/iam-pass-role/\" target=\"_blank\">【Tips】Admin権限を持っていないIAMユーザーでIAM Roleを設定するためのポリシー設定</a></li><li><a href=\"https://dev.classmethod.jp/cloud/aws/cis-manager-master-role/\" target=\"_blank\">CISで語られているIAMマスターロールとIAMマネージャーロールについて整理</a></li></ul>"
+        },
+        "CHECK_CIS_ITEM_2_01": {
+            "title": "全リージョンでCloudTrailが有効であること",
+            "number": "2.1",
+            "alert_criteria": "アラート基準：CloudTrailが有効になっていないリージョンが存在する場合",
+            "description_1": "CloudTrailはAWSのAPI呼び出しを記録します(IP、時刻、パラメータ)",
+            "description_2": "セキュリティ分析、リソース変更追跡、コンプライアンス監査に必要です",
+            "description_3": "CloudTrailを有効化してください",
+            "description_4": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.html#creating-a-trail-in-the-console\" target=\"_blank\">こちら</a>",
+            "description_5": "参考：AWS CloudTrailに関する<a href=\"https://aws.amazon.com/jp/cloudtrail/pricing/\" target=\"_blank\">料金</a>"
+        },
+        "CHECK_CIS_ITEM_2_02": {
+            "title": "CloudTrailログファイルの検証が有効化されていること",
+            "number": "2.2",
+            "alert_criteria": "アラート基準：CloudTrailログファイルの検証が有効になっていない場合",
+            "description_1": "ログファイルの検証を有効化することで、デジタル署名が作成されます",
+            "description_2": "ログファイルに改ざんが無かったかを確認することができます",
+            "description_3": "ログファイルの検証を有効化してください",
+            "description_4": "対応手順は<a href=\"http://docs.aws.amazon.com/ja_jp/awscloudtrail/latest/userguide/cloudtrail-log-file-validation-enabling.html\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_2_03": {
+            "title": "CloudTrailログのS3バケットが公開設定となっていないこと",
+            "number": "2.3",
+            "alert_criteria": "アラート基準：CloudTrailログを保管しているS3バケットがパブリック公開されている場合",
+            "description_1": "不特定多数が読み取れる状態になっている為、今すぐパブリック公開設定を削除してください",
+            "description_2": "対応手順は<a href=\"http://docs.aws.amazon.com/ja_jp/AmazonS3/latest/user-guide/bucket-permissions-check.html\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_2_04": {
+            "title": "CloudTrailログがCloudWatch Logsに配信設定されていること",
+            "number": "2.4",
+            "alert_criteria": "アラート基準：CloudTrailログが、CloudWatch Logsへ配信設定されていない場合",
+            "description_1": "CloudWatch LogsへCloudTrailログを配信することでリアルタイム分析、フィルタ、アラームが利用できます",
+            "description_2": "CloudWatch Logsへの配信は、適切な監視、アラートを目的とします",
+            "description_3": "CloudWatch Logsへの配信設定をしてください",
+            "description_4": "対応手順は<a href=\"http://docs.aws.amazon.com/ja_jp/awscloudtrail/latest/userguide/send-cloudtrail-events-to-cloudwatch-logs.html\" target=\"_blank\">こちら</a>",
+            "description_5": "補足<ul><li>ロググループに適切な保管期間を<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html\" target=\"_blank\">設定</a>してください</li></ul>",
+            "description_6": "参考：Amazon CloudWatch Logsに関する<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">料金</a>"
+        },
+        "CHECK_CIS_ITEM_2_05": {
+            "title": "全リージョンでAWS Configが有効であること",
+            "number": "2.5",
+            "alert_criteria": "アラート基準：AWS Configが有効になっていないリージョンが存在する場合",
+            "description_1": "AWS Configを有効にすることでサポートされているリソースの構成管理ができ、セキュリティ分析、リソース変更の追跡、コンプライアンス監査が可能になります",
+            "description_2": "AWS Configの設定を有効化してください<ul><li>すべてのリソース配下の「このリージョンではサポートされているすべてのリソースを記録します」のチェックボックスが有効になっていること</li><li>すべてのリソース配下の「グローバルリソース (AWS IAM リソースなど) を含める」は少なくとも1つのリージョンでチェックボックスが有効になっていること</li><li>S3バケットが設定されていること</li><li>SNSトピックが設定されていること</li></ui>",
+            "description_3": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/config/latest/developerguide/gs-console.html\" target=\"_blank\">こちら</a>",
+            "description_4": "参考：AWS Configに関する<a href=\"https://aws.amazon.com/jp/config/pricing/\" target=\"_blank\">料金</a>"
+        },
+        "CHECK_CIS_ITEM_2_06": {
+            "title": "CloudTrailログが格納されているS3バケットでログ記録が有効になっていること",
+            "number": "2.6",
+            "alert_criteria": "アラート基準：CloudTrailを格納しているS3バケットのアクセスログ記録が有効化されていない場合",
+            "description_1": "S3バケットのアクセスログには、アクセス時間、操作対象のリソース、操作内容が記録され監査ログとして有効です",
+            "description_2": "S3バケットのアクセスログを有効化してください",
+            "description_3": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/user-guide/server-access-logging.html\" target=\"_blank\">こちら</a>",
+            "description_4": "参考：Amazon S3に関する<a href=\"https://aws.amazon.com/jp/s3/pricing/\" target=\"_blank\">料金</a>"
+        },
+        "CHECK_CIS_ITEM_2_07": {
+            "title": "CloudTrailログがSSE-KMSで暗号化設定されていること",
+            "number": "2.7",
+            "alert_criteria": "アラート基準：CloudTrailログが暗号化されていない場合",
+            "description_1": "暗号化することで、機密性コントロールが追加できます",
+            "description_2": "ログを参照するユーザーはS3バケットへの読み込み権限に加え、復号化権限(KMSの権限)が必要となります",
+            "description_3": "AWS Key Management Service（KMS）を利用することで、S3上のCloudTrailログを暗号化(サーバーサイド暗号化)します",
+            "description_4": "CloudTrailログを暗号化してください",
+            "description_5": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/awscloudtrail/latest/userguide/encrypting-cloudtrail-log-files-with-aws-kms.html\" target=\"_blank\">こちら</a>",
+            "description_6": "参考：AWS KMSに関する<a href=\"https://aws.amazon.com/jp/kms/pricing/\" target=\"_blank\">料金</a>"
+        },
+        "CHECK_CIS_ITEM_2_08": {
+            "title": "KMSマスターキーがローテーション設定されていること",
+            "number": "2.8",
+            "alert_criteria": "アラート基準：KMSキーのローテーション設定がされていない場合",
+            "description_1": "暗号化キーをローテーションすることで漏洩時の影響を限定できます",
+            "description_2": "キーのローテーションを有効化しても、過去のキーは保存されている為複合化は透過的に行われます。そのためユーザーで運用作業は必要ありません",
+            "description_3": "KMSマスターキーのローテーションを設定してください",
+            "description_4": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/kms/latest/developerguide/rotate-keys.html#rotating-keys-enable-disable\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_3_01": {
+            "title": "許可されていないAPIコールに対して、アラーム通知設定されていること",
+            "number": "3.1",
+            "alert_criteria": "アラート基準：許可されていないAPIコールに対するアラームが設定されていない場合",
+            "description_1": "許可されていないAPIコールを監視することで、アプリケーションエラー、悪意のあるアクティビティ検出を早めます",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.1を参照し設定してください",
+            "description_3": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_4": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS_ITEM_3_02": {
+            "title": "MFAなしでのAWSマネージメントコンソールログインに対して、アラーム通知設定されていること",
+            "number": "3.2",
+            "alert_criteria": "アラート基準：MFAなしログインに対するアラームが設定されていない場合",
+            "description_1": "MFAなしログインを監視することで、MFAなしログインの検出を早めます",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.2を参照し設定してください",
+            "description_3": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_4": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS_ITEM_3_03": {
+            "title": "rootアカウントの利用に対して、アラーム通知設定されていること",
+            "number": "3.3",
+            "alert_criteria": "アラート基準：rootアカウントの利用に対するアラームが設定されていない場合",
+            "description_1": "rootアカウントのアクティビティを監視することで、強力な権限を持つユーザーを利用しないよう維持します",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.3を参照し設定してください",
+            "description_3": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_4": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS_ITEM_3_04": {
+            "title": "IAMポリシーの変更に対して、アラーム通知設定されていること",
+            "number": "3.4",
+            "alert_criteria": "アラート基準：IAMポリシーの変更に対してアラームが設定されていない場合",
+            "description_1": "IAMポリシーの変更を監視することで、認証と承認の制御を確実に維持します",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.4を参照し設定してください",
+            "description_3": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_4": "モニタリングで設定しているアラーム通知発生時の連絡先が最新であるか定期的に確認します"
+        },
+        "CHECK_CIS_ITEM_3_05": {
+            "title": "CloudTrail設定の変更に対して、アラーム通知設定されていること",
+            "number": "3.5",
+            "alert_criteria": "CloudTrail設定の変更を監視することで、AWSアカウントで実行されるアクティビティの持続的な可視性を維持します",
+            "description_1": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.5を参照し設定してください",
+            "description_2": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_3": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS_ITEM_3_06": {
+            "title": "AWSマネージメントコンソールのログイン失敗に対して、アラーム通知設定されていること",
+            "number": "3.6",
+            "alert_criteria": "アラート基準：AWSマネージメントコンソールへのログイン失敗アラームが設定されていない場合",
+            "description_1": "ログイン失敗を監視することで、早期に不正なアタックを検知します",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.6を参照し設定してください",
+            "description_3": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_4": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS_ITEM_3_07": {
+            "title": "KMSマスターキーの無効化またはスケジュール削除に対して、アラーム通知設定されていること",
+            "number": "3.7",
+            "alert_criteria": "アラート基準：KMSマスターキーの無効化またはスケジュール削除に対してアラームが設定されていない場合",
+            "description_1": "キーの無効化や削除に関して監視することで、誤ったキー削除を防ぎます",
+            "description_2": "キーを誤って削除した場合データにアクセスアクセスできなくなります",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.7を参照し設定してください",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_5": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS_ITEM_3_08": {
+            "title": "S3バケットポリシー変更に対して、アラーム通知設定されていること",
+            "number": "3.8",
+            "alert_criteria": "アラート基準：S3バケットポリシー変更に対するアラームが設定されていない場合",
+            "description_1": "S3バケットポリシーはデータへのアクセス権限を設定する重要な項目です",
+            "description_2": "変更を監視することで機密性の高い情報の保護を維持します",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.8を参照し設定してください",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_5": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS_ITEM_3_09": {
+            "title": "AWS Config変更に対して、アラーム通知設定されていること",
+            "number": "3.9",
+            "alert_criteria": "アラート基準：AWS Configの設定変更に対してアラームが設定されていない場合",
+            "description_1": "AWS ConfigではAWSリソースの変更を記録し追跡できます",
+            "description_2": "AWS Configへの意図しない設定変更がないか監視し、AWS Configでの変更管理が継続的行えるように維持します",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.9を参照し設定してください",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_5": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS_ITEM_3_10": {
+            "title": "セキュリティグループ変更に対して、アラーム通知設定されていること",
+            "number": "3.10",
+            "alert_criteria": "アラート基準：セキュリティグループの設定変更に対してアラームが設定されていない場合",
+            "description_1": "セキュリティグループの変更を監視することで、リソースやサービスが誤って公開されないように維持します",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.10を参照し設定してください",
+            "description_3": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_4": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS_ITEM_3_11": {
+            "title": "ネットワークACL変更に対して、アラーム通知設定されていること",
+            "number": "3.11",
+            "alert_criteria": "アラート基準：ネットワークACLの設定変更に対してアラームが設定されていない場合",
+            "description_1": "ネットワークACLの変更を監視することで、サービスが誤って公開されないように維持します",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.11を参照し設定してください",
+            "description_3": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_4": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS_ITEM_3_12": {
+            "title": "インターネットゲートウェイ変更に対して、アラーム通知設定されていること",
+            "number": "3.12",
+            "alert_criteria": "アラート基準：インターネットゲートウェイの設定変更に対してアラームが設定されていない場合",
+            "description_1": "インターネットゲートウェイはインターネットアクセスへの経路です",
+            "description_2": "インターネットゲートウェイの変更を監視することで、サービスが誤って公開されないよう維持します",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.12を参照し設定してください",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_5": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS_ITEM_3_13": {
+            "title": "ルートテーブル変更に対して、アラーム通知設定されていること",
+            "number": "3.13",
+            "alert_criteria": "アラート基準：ルートテーブルの設定変更に対してアラームが設定されていない場合",
+            "description_1": "ルートテーブルではインターネットや専用線などへの経路情報を定義します",
+            "description_2": "ルートテーブルの変更を監視し、誤った経路情報が登録されないよう維持します",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.13を参照し設定してください",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_5": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS_ITEM_3_14": {
+            "title": "VPC変更に対して、アラーム通知設定されていること",
+            "number": "3.14",
+            "alert_criteria": "アラート基準：ルートテーブルの設定変更に対してアラームが設定されていない場合",
+            "description_1": "ルートテーブルではインターネットや専用線などへの経路情報を定義します",
+            "description_2": "ルートテーブルの変更を監視し、誤った経路情報が登録されないよう維持します",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.13を参照し設定してください",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_5": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS_ITEM_3_15": {
+            "title": "SNS TopicのSubscriberに適切な連絡先が設定されていること",
+            "number": "3.15",
+            "alert_criteria_1": "アラート基準：ユーザーによる評価が実施されていないか、前回の評価から180日経過している場合",
+            "alert_criteria_2": "ユーザー自身での確認が必要な <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360021813891\" target=\"_blank\">マニュアル評価項目</a>です",
+            "description_1": "モニタリングで設定しているアラームの通知先が最新になっているか確認してください",
+            "description_2": "対応手順<ul> <li><a href=\"https://docs.aws.amazon.com/ja_jp/sns/latest/dg/SubscribeTopic.html\" target=\"_blank\">トピックへのサブスクライブ</a></li> <li><a href=\"https://docs.aws.amazon.com/ja_jp/sns/latest/dg/CleanUp.html\" target=\"_blank\">サブスクライブの解除</a></li> <li><a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様で、CIS 3 Monitoringに関してCloudFormationで設定している場合は<a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360002504712\" target=\"_blank\">こちら</a></li> </ul>"
+        },
+        "CHECK_CIS_ITEM_4_01": {
+            "title": "Security Groupにて、0.0.0.0/0からポート22番(SSH)への接続が許可されていないこと",
+            "number": "4.1",
+            "alert_criteria": "アラート基準：セキュリティグループで22番ポートが0.0.0.0/0で許可されている場合",
+            "description_1": "SSHへのアクセスが無制限となっているセキュリティグループがあります",
+            "description_2": "アクセス元を絞ることで、不特定多数からのアクセスを防ぎます",
+            "description_3": "セキュリティグループの設定を変更し、アクセス元を絞るか、不要な場合は削除してください",
+            "description_4": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html#AddRemoveRules\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_4_02": {
+            "title": "Security Groupにて、0.0.0.0/0からポート3389番(RDP)への接続が許可されていないこと",
+            "number": "4.2",
+            "alert_criteria": "アラート基準：セキュリティグループで3389番ポートが0.0.0.0/0で許可されている場合",
+            "description_1": "RDPへのアクセスが無制限となっているセキュリティグループがあります",
+            "description_2": "アクセス元を絞ることで、不特定多数からのアクセスを防ぎます",
+            "description_3": "セキュリティグループの設定を変更し、アクセス元を絞るか、不要な場合は削除してください",
+            "description_4": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html#AddRemoveRules\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_4_03": {
+            "title": "利用可能な全てのリージョンにおいて、VPC Flow Logsが有効化されていること",
+            "number": "4.3",
+            "alert_criteria": "アラート基準：VPC Flow Logsが有効化されていない場合",
+            "description_1": "VPC Flow Logsは、VPC内のネットワーク通信のログを保存します",
+            "description_2": "セキュリティ分析や異常な通信を調査するのに役立ちます",
+            "description_3": "VPC Flow Logを有効化してください",
+            "description_4": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/introduce-to-vpc-flow-log/\" target=\"_blank\">こちら</a>",
+            "description_5": "CloudWatch Logsは保持期間を設定しない限り、ログが無期限に保存されるため、<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/logs/SettingLogRetention.html\" target=\"_blank\">こちら</a>を参照し、ログの保持期間を最短365日に設定します",
+            "description_6": "<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">VPC Flow Logs</a>(Amazon CloudWatch 供給ログ)に関する料金"
+        },
+        "CHECK_CIS_ITEM_4_04": {
+            "title": "defaultセキュリティグループが全ての通信を許可していないこと",
+            "number": "4.4",
+            "alert_criteria": "アラート基準<ul><li>defaultセキュリティグループにルールが設定されている場合</li><li>defaultセキュリティグループを利用しているEC2インスタンスがある場合</li></ul>",
+            "description_1": "defaultセキュリティグループは、VPC作成時に自動で作成され、インスタンスを起動するときにセキュリティグループを指定しないと、そのインスタンスはデフォルトのセキュリティグループに自動的に関連付けられます",
+            "description_2": "意図した設定を行うためdefaultセキュリティグループの利用を避けます",
+            "description_3": "defaultセキュリティグループ以外のセキュリティグループを用意し、EC2へアタッチしてください",
+            "description_4": "defaultセキュリティグループからアウトバウンド・インバウンドルールを削除し、インスタンスにアタッチしている場合はデタッチしてください",
+            "description_5": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html#WorkingWithSecurityGroups\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS_ITEM_4_05": {
+            "title": "必要最低限のVPCピアリング用のルーティングを追加すること",
+            "number": "4.5",
+            "alert_criteria_1": "アラート基準：ユーザーによる評価が実施されていないか、前回の評価から180日経過している場合",
+            "alert_criteria_2": "ユーザー自身での確認が必要な <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360021813891\" target=\"_blank\">マニュアル評価項目</a>です",
+            "description_1": "VPCピアリングを利用することで、VPC間で通信することができます",
+            "description_2": "必要最低限のVPCピアリング用のルーティングが登録されているか確認してください",
+            "description_3": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/vpc/latest/peering/vpc-peering-routing.html\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_1_01": {
+            "title": "rootアカウントが利用されていないこと",
+            "number": "1.1",
+            "alert_criteria": "アラート基準：過去2週間以内にrootアカウントが利用された場合",
+            "description_1": "rootアカウントは強力な権限を持つため、rootアカウントを利用せずIAMユーザーを利用してください",
+            "description_2": "通常運用でrootアカウントが利用されていないか確認し、利用している場合はIAMユーザーを利用するように変更してください",
+            "description_3": "ただし、rootアカウントでしかできない<a href=\"https://dev.classmethod.jp/etc/only_aws_account/\" target=\"_blank\">作業</a>があります",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>をご利用中の場合、お客様の依頼に基づきクラスメソッドにてrootアカウント作業を代行する場合があります"
+        },
+        "CHECK_CIS12_ITEM_1_02": {
+            "title": "コンソールログイン用のパスワードが設定されたIAMユーザにMFAが有効化されていること",
+            "number": "1.2",
+            "alert_criteria": "アラート基準：IAMユーザーにMFAが設定されていない場合",
+            "description_1": "IAMユーザーのMulti-Factor Authentication (MFA)を有効化し、ログイン時のセキュリティを強化します",
+            "description_2": "MFAを有効化してください",
+            "description_3": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/20170120-enabel-mfa/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_1_03": {
+            "title": "90日以上利用されていない認証情報は無効化されていること",
+            "number": "1.3",
+            "alert_criteria": "アラート基準：90日以上利用していない認証情報(IAMユーザー、アクセスキー)が存在する場合",
+            "description_1": "利用していない認証情報(IAMユーザー、アクセスキー)を定期的に棚卸し、セキュリティを向上させます",
+            "description_2": "認証情報の無効化、または削除を行なってください",
+            "description_3": "対応手順<ul><li><a href=\"http://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html\" target=\"_blank\">IAMユーザー</a></li><li><a href=\"http://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_access-keys.html\" target=\"_blank\">アクセスキー</a></li></ul></li>"
+        },
+        "CHECK_CIS12_ITEM_1_04": {
+            "title": "アクセスキーが90日以内にローテーションされていること",
+            "number": "1.4",
+            "alert_criteria": "アラート基準<ul><li>90日以上ローテーションされていないアクセスキーが存在する場合</li><li>ローテーションされてから利用されていないアクセスキーが存在する場合</li></ul>",
+            "description_1": "アクセスキーは、ツール(AWS CLIやPowerShell、AWS SDKなど)からAWSを利用するための認証情報です",
+            "description_2": "定期的にローテーションすることで、アクセスキーの盗難や漏洩に対するリスクを軽減します",
+            "description_3": "アクセスキーのローテーションを行なってください",
+            "description_4": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_RotateAccessKey\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_1_05": {
+            "title": "IAMのパスワードポリシーにて「1文字以上の大文字」を有効にすること",
+            "number": "1.5",
+            "alert_criteria": "アラート基準：IAMのパスワードポリシーにて「1文字以上の大文字」が無効になっている場合",
+            "description_1": "IAMユーザーのパスワードポリシーを強化することでパスワードを推測されにくくします",
+            "description_2": "「1文字以上の大文字」を有効にしてください",
+            "description_3": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/password_policy_for_aws_account/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_1_06": {
+            "title": "IAMのパスワードポリシーにて「1文字以上の小文字」を有効にすること",
+            "number": "1.6",
+            "alert_criteria": "アラート基準：IAMのパスワードポリシーにて「1文字以上の大文字」が無効になっている場合",
+            "description_1": "IAMユーザーのパスワードポリシーを強化することでパスワードを推測されにくくします",
+            "description_2": "「1文字以上の大文字」を有効にしてください",
+            "description_3": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/password_policy_for_aws_account/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_1_07": {
+            "title": "IAMのパスワードポリシーにて「1文字以上の記号」を有効にすること",
+            "number": "1.7",
+            "alert_criteria": "アラート基準：IAMのパスワードポリシーにて「1文字以上の記号」が無効になっている場合",
+            "description_1": "IAMユーザーのパスワードポリシーを強化することでパスワードを推測されにくくします",
+            "description_2": "「1文字以上の記号」を有効にしてください",
+            "description_3": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/password_policy_for_aws_account/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_1_08": {
+            "title": "IAMのパスワードポリシーにて「1文字以上の数字」を有効にすること",
+            "number": "1.8",
+            "alert_criteria": "アラート基準：IAMのパスワードポリシーにて「1文字以上の数字」が無効になっている場合",
+            "description_1": "IAMユーザーのパスワードポリシーを強化することでパスワードを推測されにくくします",
+            "description_2": "「1文字以上の数字」を有効にしてください",
+            "description_3": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/password_policy_for_aws_account/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_1_09": {
+            "title": "IAMのパスワードポリシーにて「パスワードを14文字以上」を有効にすること",
+            "number": "1.9",
+            "alert_criteria": "アラート基準：IAMのパスワードポリシーにて「パスワードを14文字以上」が無効になっている場合",
+            "description_1": "IAMユーザーのパスワードポリシーを強化することでパスワードを推測されにくくします",
+            "description_2": "「パスワードを14文字以上」を有効にしてください",
+            "description_3": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/password_policy_for_aws_account/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_1_10": {
+            "title": "IAMのパスワードポリシーにて「パスワードの再利用禁止」を有効にすること",
+            "number": "1.10",
+            "alert_criteria": "アラート基準<ul><li>IAMのパスワードポリシーにて「パスワードの再利用禁止」が無効になっている</li><li>記憶するパスワードの数が「24」になっていない</li></ul>",
+            "description_1": "IAMユーザーのパスワードポリシーを強化することでパスワードを推測されにくくします",
+            "description_2": "「パスワードの再利用禁止」を有効にしてください",
+            "description_3": "記憶するパスワードの数は「24」を指定してください。24以外を指定した場合はチェックNGになります。",
+            "description_4": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/password_policy_for_aws_account/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_1_11": {
+            "title": "IAMのパスワードポリシーにて「90日以内のパスワード有効期限」を有効にすること",
+            "number": "1.11",
+            "alert_criteria": "アラート基準：IAMのパスワードポリシーにて「90日以内のパスワード有効期限」が無効になっている場合",
+            "description_1": "IAMユーザーのパスワードポリシーを強化することでパスワードを推測されにくくします",
+            "description_2": "「90日以内のパスワード有効期限」を有効にしてください",
+            "description_3": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/password_policy_for_aws_account/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_1_12": {
+            "title": "rootアカウントのアクセスキーが設定されていないこと",
+            "number": "1.12",
+            "alert_criteria": "アラート基準：rootアカウントにアクセスキーが設定されている場合",
+            "description_1": "rootアカウントは強力な権限を持ちます。rootアカウントは利用せずIAMユーザーを利用します",
+            "description_2": "rootアカウントのアクセスキーを削除し、IAMユーザーを利用してください",
+            "description_3": "対応手順は<a href=\"http://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_delete-key\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_1_13": {
+            "title": "rootアカウントがMFAにより保護されていること",
+            "number": "1.13",
+            "alert_criteria": "アラート基準：rootアカウントにアクセスキーが設定されている場合",
+            "description_1": "rootアカウントは強力な権限を持ちます。rootカウントは利用せずIAMユーザーを利用します",
+            "description_2": "rootアカウントのアクセスキーを削除し、IAMユーザーを利用してください",
+            "description_3": "対応手順は<a href=\"http://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_delete-key\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_1_14": {
+            "title": "rootアカウントがハードウェアMFAにより保護されていること",
+            "number": "1.14",
+            "alert_criteria": "アラート基準：rootアカウントでハードウェアMFAを利用していない場合",
+            "description_1": "ハードウェアMFAは仮想MFAに比べ攻撃されるリスクが低く、最も強い権限を持つrootアカウントに適用することが推奨されています",
+            "description_2": "rootアカウントに対しハードウェアMFAを導入してください",
+            "description_3": "ただし、複数AWSアカウントを利用している場合はハードウェアMFAデバイスの管理が問題になる可能性がります。この場合は、高セキュリティが必要なアカウントに対しハードウェアMFAを導入し、残りのアカウントは仮想MFAを導入することを検討してください",
+            "description_4": "対応手順は<a href=\"http://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html#enable-hw-mfa-for-root\" target=\"_blank\">こちら</a>",
+            "description_5": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、クラスメソッドで管理している項目となり「マネージド」と表示されます"
+        },
+        "CHECK_CIS12_ITEM_1_15": {
+            "title": "秘密の質問が設定されていること",
+            "number": "1.15",
+            "alert_criteria_1": "アラート基準：ユーザーによる評価が実施されていないか、前回の評価から180日経過している場合",
+            "alert_criteria_2": "ユーザー自身での確認が必要な <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360021813891\" target=\"_blank\">マニュアル評価項目</a>です",
+            "description_1": "秘密の質問はAWSカスタマーサービスでの本人認証で利用されます。確認できないとAWSサポートへ問い合わせができなくなる可能性があります",
+            "description_2": "例えば、MFAデバイス障害などでAWSコンソールへのログインが不能となった際の問い合わせ時に必要です",
+            "description_3": "秘密の質問が最新になっているか確認してください",
+            "description_4": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/after_get_aws_account/#account_setting\" target=\"_blank\">こちら</a>",
+            "description_5": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、クラスメソッドで管理している項目となり「マネージド」と表示されます"
+        },
+        "CHECK_CIS12_ITEM_1_16": {
+            "title": "IAMポリシーがグループまたはロールにのみ適用されていること",
+            "number": "1.16",
+            "alert_criteria": "アラート基準：IAMユーザーにIAMポリシーがアタッチされている場合",
+            "description_1": "グループレベルで権限を割り当てることで、ユーザーが増えた場合の複雑さを軽減し、誤った権限を付与するリスクを低下させます",
+            "description_2": "IAMユーザーをグループに所属させ、グループにポリシーをアタッチ、IAMユーザーからポリシーを削除してください",
+            "description_3": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_users_change-permissions.html\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_1_17": {
+            "title": "連絡先の情報更新",
+            "number": "1.17",
+            "alert_criteria_1": "アラート基準：ユーザーによる評価が実施されていないか、前回の評価から180日経過している場合",
+            "alert_criteria_2": "ユーザー自身での確認が必要な <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360021813891\" target=\"_blank\">マニュアル評価項目</a>です",
+            "description_1": "連絡先は、セキュリティ上の問題やAWSポリシー違反などの通知に利用されます",
+            "description_2": "連絡先の情報(メールアドレス、電話番号、住所など)が最新になっているか確認してください",
+            "description_3": "対応手順は<a href=\"http://docs.aws.amazon.com/ja_jp/awsaccountbilling/latest/aboutv2/manage-account-payment.html#contact-info\" target=\"_blank\">こちら</a>",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、クラスメソッドで管理している項目となり「マネージド」と表示されます"
+        },
+        "CHECK_CIS12_ITEM_1_18": {
+            "title": "セキュリティに関する連絡先の登録",
+            "number": "1.18",
+            "alert_criteria_1": "アラート基準：ユーザーによる評価が実施されていないか、前回の評価から180日経過している場合",
+            "alert_criteria_2": "ユーザー自身での確認が必要な <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360021813891\" target=\"_blank\">マニュアル評価項目</a>です",
+            "description_1": "連絡先は、AWSからの連絡の中でもセキュリティに関する連絡先になります",
+            "description_2": "セキュリティに関する連絡先を指定することで、組織内のセキュリティチームへ連絡できます",
+            "description_3": "セキュリティに関する連絡先の情報が最新になっているか確認してください",
+            "description_4": "対応手順は<a href=\"http://docs.aws.amazon.com/ja_jp/awsaccountbilling/latest/aboutv2/manage-account-payment.html#contact-info\" target=\"_blank\">こちら</a>",
+            "description_5": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、クラスメソッドで管理している項目となり「マネージド」と表示されます"
+        },
+        "CHECK_CIS12_ITEM_1_19": {
+            "title": "EC2でのAWSリソースへのAPIアクセスはIAMインスタンスロールを利用していること",
+            "number": "1.19",
+            "alert_criteria": "アラート基準：EC2にIAMロールがアタッチされていない場合",
+            "description_1": "IAMロールでは期限付きの一時的なキーを利用します",
+            "description_2": "EC2からAWSリソースへのアクセスは、アクセスキーではなくIAMロールを利用することでキー漏洩時のリスクを低減できます",
+            "description_3": "適切な権限を付与したIAMロールを作成し、EC2にアタッチしてください",
+            "description_4": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/replace-attach-iamrole-ec2console/\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_1_20": {
+            "title": "特定のユーザーにAWSサポートへの問い合わせ権限が付与されていること",
+            "number": "1.20",
+            "alert_criteria": "アラート基準：IAMポリシー「AWSSupportAccess」がアタッチされたグループ、ユーザーまたはロールが存在しない場合",
+            "description_1": "特定の許可されたユーザーのみがAWSサポートへ問い合わせできるようにします",
+            "description_2": "グループ、またはロールにIAMポリシー「AWSSupportAccess」をアタッチしてください",
+            "description_3": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/access_policies_manage-attach-detach.html#attach-managed-policy-console\" target=\"_blank\">こちら</a>",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、クラスメソッドで管理している項目となり「マネージド」と表示されます"
+        },
+        "CHECK_CIS12_ITEM_1_21": {
+            "title": "不要なアクセスキーの発行を避ける",
+            "number": "1.21",
+            "alert_criteria": "アラート基準：一度も利用していないアクセスキーが存在する場合",
+            "description_1": "利用していない認証情報は削除してください",
+            "description_2": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_1_22": {
+            "title": "制限なしのアクセス許可を指定したIAMポリシーを利用しない",
+            "number": "1.22",
+            "alert_criteria": "アラート基準：Admin権限 ( \"Effect\": \"Allow\", \"Action\": \"*\", \"Resource\": \"*\" ) ポリシーが付与されている場合",
+            "description_1": "IAMには最小権限を付与することで、必要なタスクのみ実行できるようになります",
+            "description_2": "ユーザーが利用するサービスを確認し、必要な権限のみを付与してください",
+            "description_3": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/best-practices.html#grant-least-privilege\" target=\"_blank\">こちら</a>",
+            "description_4": "補足情報<ul><li><a href=\"https://dev.classmethod.jp/cloud/aws/iam-pass-role/\" target=\"_blank\">【Tips】Admin権限を持っていないIAMユーザーでIAM Roleを設定するためのポリシー設定</a></li><li><a href=\"https://dev.classmethod.jp/cloud/aws/cis-manager-master-role/\" target=\"_blank\">CISで語られているIAMマスターロールとIAMマネージャーロールについて整理</a></li></ul>"
+        },
+        "CHECK_CIS12_ITEM_2_01": {
+            "title": "全リージョンでCloudTrailが有効であること",
+            "number": "2.1",
+            "alert_criteria": "アラート基準：CloudTrailが有効になっていないリージョンが存在する場合",
+            "description_1": "CloudTrailはAWSのAPI呼び出しを記録します(IP、時刻、パラメータ)",
+            "description_2": "セキュリティ分析、リソース変更追跡、コンプライアンス監査に必要です",
+            "description_3": "CloudTrailを有効化してください",
+            "description_4": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.html#creating-a-trail-in-the-console\" target=\"_blank\">こちら</a>",
+            "description_5": "参考：AWS CloudTrailに関する<a href=\"https://aws.amazon.com/jp/cloudtrail/pricing/\" target=\"_blank\">料金</a>"
+        },
+        "CHECK_CIS12_ITEM_2_02": {
+            "title": "CloudTrailログファイルの検証が有効化されていること",
+            "number": "2.2",
+            "alert_criteria": "アラート基準：CloudTrailログファイルの検証が有効になっていない場合",
+            "description_1": "ログファイルの検証を有効化することで、デジタル署名が作成されます",
+            "description_2": "ログファイルに改ざんが無かったかを確認することができます",
+            "description_3": "ログファイルの検証を有効化してください",
+            "description_4": "対応手順は<a href=\"http://docs.aws.amazon.com/ja_jp/awscloudtrail/latest/userguide/cloudtrail-log-file-validation-enabling.html\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_2_03": {
+            "title": "CloudTrailログのS3バケットが公開設定となっていないこと",
+            "number": "2.3",
+            "alert_criteria": "アラート基準：CloudTrailログを保管しているS3バケットがパブリック公開されている場合",
+            "description_1": "不特定多数が読み取れる状態になっている為、今すぐパブリック公開設定を削除してください",
+            "description_2": "対応手順は<a href=\"http://docs.aws.amazon.com/ja_jp/AmazonS3/latest/user-guide/bucket-permissions-check.html\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_2_04": {
+            "title": "CloudTrailログがCloudWatch Logsに配信設定されていること",
+            "number": "2.4",
+            "alert_criteria": "アラート基準：CloudTrailログが、CloudWatch Logsへ配信設定されていない場合",
+            "description_1": "CloudWatch LogsへCloudTrailログを配信することでリアルタイム分析、フィルタ、アラームが利用できます",
+            "description_2": "CloudWatch Logsへの配信は、適切な監視、アラートを目的とします",
+            "description_3": "CloudWatch Logsへの配信設定をしてください",
+            "description_4": "対応手順は<a href=\"http://docs.aws.amazon.com/ja_jp/awscloudtrail/latest/userguide/send-cloudtrail-events-to-cloudwatch-logs.html\" target=\"_blank\">こちら</a>",
+            "description_5": "補足<ul><li>ロググループに適切な保管期間を<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html\" target=\"_blank\">設定</a>してください</li></ul>",
+            "description_6": "参考：Amazon CloudWatch Logsに関する<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">料金</a>"
+        },
+        "CHECK_CIS12_ITEM_2_05": {
+            "title": "全リージョンでAWS Configが有効であること",
+            "number": "2.5",
+            "alert_criteria": "アラート基準：AWS Configが有効になっていないリージョンが存在する場合",
+            "description_1": "AWS Configを有効にすることでサポートされているリソースの構成管理ができ、セキュリティ分析、リソース変更の追跡、コンプライアンス監査が可能になります",
+            "description_2": "AWS Configの設定を有効化してください<ul><li>すべてのリソース配下の「このリージョンではサポートされているすべてのリソースを記録します」のチェックボックスが有効になっていること</li><li>すべてのリソース配下の「グローバルリソース (AWS IAM リソースなど) を含める」は少なくとも1つのリージョンでチェックボックスが有効になっていること</li><li>S3バケットが設定されていること</li><li>SNSトピックが設定されていること</li></ui>",
+            "description_3": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/config/latest/developerguide/gs-console.html\" target=\"_blank\">こちら</a>",
+            "description_4": "参考：AWS Configに関する<a href=\"https://aws.amazon.com/jp/config/pricing/\" target=\"_blank\">料金</a>"
+        },
+        "CHECK_CIS12_ITEM_2_06": {
+            "title": "CloudTrailログが格納されているS3バケットでログ記録が有効になっていること",
+            "number": "2.6",
+            "alert_criteria": "アラート基準：CloudTrailを格納しているS3バケットのアクセスログ記録が有効化されていない場合",
+            "description_1": "S3バケットのアクセスログには、アクセス時間、操作対象のリソース、操作内容が記録され監査ログとして有効です",
+            "description_2": "S3バケットのアクセスログを有効化してください",
+            "description_3": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/user-guide/server-access-logging.html\" target=\"_blank\">こちら</a>",
+            "description_4": "参考：Amazon S3に関する<a href=\"https://aws.amazon.com/jp/s3/pricing/\" target=\"_blank\">料金</a>"
+        },
+        "CHECK_CIS12_ITEM_2_07": {
+            "title": "CloudTrailログがSSE-KMSで暗号化設定されていること",
+            "number": "2.7",
+            "alert_criteria": "アラート基準：CloudTrailログが暗号化されていない場合",
+            "description_1": "暗号化することで、機密性コントロールが追加できます",
+            "description_2": "ログを参照するユーザーはS3バケットへの読み込み権限に加え、復号化権限(KMSの権限)が必要となります",
+            "description_3": "AWS Key Management Service（KMS）を利用することで、S3上のCloudTrailログを暗号化(サーバーサイド暗号化)します",
+            "description_4": "CloudTrailログを暗号化してください",
+            "description_5": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/awscloudtrail/latest/userguide/encrypting-cloudtrail-log-files-with-aws-kms.html\" target=\"_blank\">こちら</a>",
+            "description_6": "参考：AWS KMSに関する<a href=\"https://aws.amazon.com/jp/kms/pricing/\" target=\"_blank\">料金</a>"
+        },
+        "CHECK_CIS12_ITEM_2_08": {
+            "title": "KMSマスターキーがローテーション設定されていること",
+            "number": "2.8",
+            "alert_criteria": "アラート基準：KMSキーのローテーション設定がされていない場合",
+            "description_1": "暗号化キーをローテーションすることで漏洩時の影響を限定できます",
+            "description_2": "キーのローテーションを有効化しても、過去のキーは保存されている為複合化は透過的に行われます。そのためユーザーで運用作業は必要ありません",
+            "description_3": "KMSマスターキーのローテーションを設定してください",
+            "description_4": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/kms/latest/developerguide/rotate-keys.html#rotating-keys-enable-disable\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_2_09": {
+            "title": "利用可能な全てのリージョンにおいて、VPC Flow Logsが有効化されていること",
+            "number": "2.9",
+            "alert_criteria": "アラート基準：VPC Flow Logsが有効化されていない場合",
+            "description_1": "VPC Flow Logsは、VPC内のネットワーク通信のログを保存します",
+            "description_2": "セキュリティ分析や異常な通信を調査するのに役立ちます",
+            "description_3": "VPC Flow Logを有効化してください",
+            "description_4": "対応手順は<a href=\"https://dev.classmethod.jp/cloud/aws/introduce-to-vpc-flow-log/\" target=\"_blank\">こちら</a>",
+            "description_5": "CloudWatch Logsは保持期間を設定しない限り、ログが無期限に保存されるため、<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/logs/SettingLogRetention.html\" target=\"_blank\">こちら</a>を参照し、ログの保持期間を最短365日に設定します",
+            "description_6": "<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">VPC Flow Logs</a>(Amazon CloudWatch 供給ログ)に関する料金"
+        },
+        "CHECK_CIS12_ITEM_3_01": {
+            "title": "許可されていないAPIコールに対して、アラーム通知設定されていること",
+            "number": "3.1",
+            "alert_criteria": "アラート基準：許可されていないAPIコールに対するアラームが設定されていない場合",
+            "description_1": "許可されていないAPIコールを監視することで、アプリケーションエラー、悪意のあるアクティビティ検出を早めます",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.1を参照し設定してください",
+            "description_3": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_4": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS12_ITEM_3_02": {
+            "title": "MFAなしでのAWSマネージメントコンソールログインに対して、アラーム通知設定されていること",
+            "number": "3.2",
+            "alert_criteria": "アラート基準：MFAなしログインに対するアラームが設定されていない場合",
+            "description_1": "MFAなしログインを監視することで、MFAなしログインの検出を早めます",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.2を参照し設定してください",
+            "description_3": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_4": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS12_ITEM_3_03": {
+            "title": "rootアカウントの利用に対して、アラーム通知設定されていること",
+            "number": "3.3",
+            "alert_criteria": "アラート基準：rootアカウントの利用に対するアラームが設定されていない場合",
+            "description_1": "rootアカウントのアクティビティを監視することで、強力な権限を持つユーザーを利用しないよう維持します",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.3を参照し設定してください",
+            "description_3": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_4": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS12_ITEM_3_04": {
+            "title": "IAMポリシーの変更に対して、アラーム通知設定されていること",
+            "number": "3.4",
+            "alert_criteria": "アラート基準：IAMポリシーの変更に対してアラームが設定されていない場合",
+            "description_1": "IAMポリシーの変更を監視することで、認証と承認の制御を確実に維持します",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.4を参照し設定してください",
+            "description_3": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_4": "モニタリングで設定しているアラーム通知発生時の連絡先が最新であるか定期的に確認します"
+        },
+        "CHECK_CIS12_ITEM_3_05": {
+            "title": "CloudTrail設定の変更に対して、アラーム通知設定されていること",
+            "number": "3.5",
+            "alert_criteria": "CloudTrail設定の変更を監視することで、AWSアカウントで実行されるアクティビティの持続的な可視性を維持します",
+            "description_1": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.5を参照し設定してください",
+            "description_2": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_3": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS12_ITEM_3_06": {
+            "title": "AWSマネージメントコンソールのログイン失敗に対して、アラーム通知設定されていること",
+            "number": "3.6",
+            "alert_criteria": "アラート基準：AWSマネージメントコンソールへのログイン失敗アラームが設定されていない場合",
+            "description_1": "ログイン失敗を監視することで、早期に不正なアタックを検知します",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.6を参照し設定してください",
+            "description_3": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_4": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS12_ITEM_3_07": {
+            "title": "KMSマスターキーの無効化またはスケジュール削除に対して、アラーム通知設定されていること",
+            "number": "3.7",
+            "alert_criteria": "アラート基準：KMSマスターキーの無効化またはスケジュール削除に対してアラームが設定されていない場合",
+            "description_1": "キーの無効化や削除に関して監視することで、誤ったキー削除を防ぎます",
+            "description_2": "キーを誤って削除した場合データにアクセスアクセスできなくなります",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.7を参照し設定してください",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_5": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS12_ITEM_3_08": {
+            "title": "S3バケットポリシー変更に対して、アラーム通知設定されていること",
+            "number": "3.8",
+            "alert_criteria": "アラート基準：S3バケットポリシー変更に対するアラームが設定されていない場合",
+            "description_1": "S3バケットポリシーはデータへのアクセス権限を設定する重要な項目です",
+            "description_2": "変更を監視することで機密性の高い情報の保護を維持します",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.8を参照し設定してください",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_5": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS12_ITEM_3_09": {
+            "title": "AWS Config変更に対して、アラーム通知設定されていること",
+            "number": "3.9",
+            "alert_criteria": "アラート基準：AWS Configの設定変更に対してアラームが設定されていない場合",
+            "description_1": "AWS ConfigではAWSリソースの変更を記録し追跡できます",
+            "description_2": "AWS Configへの意図しない設定変更がないか監視し、AWS Configでの変更管理が継続的行えるように維持します",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.9を参照し設定してください",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_5": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS12_ITEM_3_10": {
+            "title": "セキュリティグループ変更に対して、アラーム通知設定されていること",
+            "number": "3.10",
+            "alert_criteria": "アラート基準：セキュリティグループの設定変更に対してアラームが設定されていない場合",
+            "description_1": "セキュリティグループの変更を監視することで、リソースやサービスが誤って公開されないように維持します",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.10を参照し設定してください",
+            "description_3": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_4": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS12_ITEM_3_11": {
+            "title": "ネットワークACL変更に対して、アラーム通知設定されていること",
+            "number": "3.11",
+            "alert_criteria": "アラート基準：ネットワークACLの設定変更に対してアラームが設定されていない場合",
+            "description_1": "ネットワークACLの変更を監視することで、サービスが誤って公開されないように維持します",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.11を参照し設定してください",
+            "description_3": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_4": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS12_ITEM_3_12": {
+            "title": "インターネットゲートウェイ変更に対して、アラーム通知設定されていること",
+            "number": "3.12",
+            "alert_criteria": "アラート基準：インターネットゲートウェイの設定変更に対してアラームが設定されていない場合",
+            "description_1": "インターネットゲートウェイはインターネットアクセスへの経路です",
+            "description_2": "インターネットゲートウェイの変更を監視することで、サービスが誤って公開されないよう維持します",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.12を参照し設定してください",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_5": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS12_ITEM_3_13": {
+            "title": "ルートテーブル変更に対して、アラーム通知設定されていること",
+            "number": "3.13",
+            "alert_criteria": "アラート基準：ルートテーブルの設定変更に対してアラームが設定されていない場合",
+            "description_1": "ルートテーブルではインターネットや専用線などへの経路情報を定義します",
+            "description_2": "ルートテーブルの変更を監視し、誤った経路情報が登録されないよう維持します",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.13を参照し設定してください",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_5": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS12_ITEM_3_14": {
+            "title": "VPC変更に対して、アラーム通知設定されていること",
+            "number": "3.14",
+            "alert_criteria": "アラート基準：ルートテーブルの設定変更に対してアラームが設定されていない場合",
+            "description_1": "ルートテーブルではインターネットや専用線などへの経路情報を定義します",
+            "description_2": "ルートテーブルの変更を監視し、誤った経路情報が登録されないよう維持します",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a>の3.13を参照し設定してください",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">クラスメソッドメンバーズ</a>ご利用のお客様は、CloudFormationテンプレートをご用意しているため簡単にセットアップできます。クラスメソッドメンバーズのご利用をご検討ください。詳細は<a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">こちら</a>",
+            "description_5": "参考：<a href=\"https://aws.amazon.com/jp/sns/pricing/\" target=\"_blank\">Amazon SNS</a>、<a href=\"https://aws.amazon.com/jp/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a>(カスタムメトリクス、アラーム)に関する料金"
+        },
+        "CHECK_CIS12_ITEM_4_01": {
+            "title": "Security Groupにて、0.0.0.0/0からポート22番(SSH)への接続が許可されていないこと",
+            "number": "4.1",
+            "alert_criteria": "アラート基準：セキュリティグループで22番ポートが0.0.0.0/0で許可されている場合",
+            "description_1": "SSHへのアクセスが無制限となっているセキュリティグループがあります",
+            "description_2": "アクセス元を絞ることで、不特定多数からのアクセスを防ぎます",
+            "description_3": "セキュリティグループの設定を変更し、アクセス元を絞るか、不要な場合は削除してください",
+            "description_4": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html#AddRemoveRules\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_4_02": {
+            "title": "Security Groupにて、0.0.0.0/0からポート3389番(RDP)への接続が許可されていないこと",
+            "number": "4.2",
+            "alert_criteria": "アラート基準：セキュリティグループで3389番ポートが0.0.0.0/0で許可されている場合",
+            "description_1": "RDPへのアクセスが無制限となっているセキュリティグループがあります",
+            "description_2": "アクセス元を絞ることで、不特定多数からのアクセスを防ぎます",
+            "description_3": "セキュリティグループの設定を変更し、アクセス元を絞るか、不要な場合は削除してください",
+            "description_4": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html#AddRemoveRules\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_4_03": {
+            "title": "defaultセキュリティグループが全ての通信を許可していないこと",
+            "number": "4.3",
+            "alert_criteria": "アラート基準<ul><li>defaultセキュリティグループにルールが設定されている場合</li><li>defaultセキュリティグループを利用しているEC2インスタンスがある場合</li></ul>",
+            "description_1": "defaultセキュリティグループは、VPC作成時に自動で作成され、インスタンスを起動するときにセキュリティグループを指定しないと、そのインスタンスはデフォルトのセキュリティグループに自動的に関連付けられます",
+            "description_2": "意図した設定を行うためdefaultセキュリティグループの利用を避けます",
+            "description_3": "defaultセキュリティグループ以外のセキュリティグループを用意し、EC2へアタッチしてください",
+            "description_4": "defaultセキュリティグループからアウトバウンド・インバウンドルールを削除し、インスタンスにアタッチしている場合はデタッチしてください",
+            "description_5": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html#WorkingWithSecurityGroups\" target=\"_blank\">こちら</a>"
+        },
+        "CHECK_CIS12_ITEM_4_04": {
+            "title": "必要最低限のVPCピアリング用のルーティングを追加すること",
+            "number": "4.4",
+            "alert_criteria_1": "アラート基準：ユーザーによる評価が実施されていないか、前回の評価から180日経過している場合",
+            "alert_criteria_2": "ユーザー自身での確認が必要な <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360021813891\" target=\"_blank\">マニュアル評価項目</a>です",
+            "description_1": "VPCピアリングを利用することで、VPC間で通信することができます",
+            "description_2": "必要最低限のVPCピアリング用のルーティングが登録されているか確認してください",
+            "description_3": "対応手順は<a href=\"https://docs.aws.amazon.com/ja_jp/vpc/latest/peering/vpc-peering-routing.html\" target=\"_blank\">こちら</a>"
+        }
+    }
+}

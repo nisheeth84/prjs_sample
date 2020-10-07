@@ -1,0 +1,24 @@
+{
+    "OrganizationNotify": {
+        "title": "Notification settings",
+        "user": "Notification candidate user",
+        "destination": "Notification setting user",
+        "info_title": "Save successful",
+        "info_body": "Notification destination updated",
+        "destination_setting": "Save",
+        "mail_notify_settings": "Email",
+        "slack_notify_setting": "Slack",
+        "delete_setting": "Delete",
+        "webhook_url": "Webhook URL",
+        "notify_setting": "Add notification",
+        "mentions": "Mentions",
+        "info_body_regist_success": "Slack notification has been added",
+        "info_body_delete_success": "Slack notification has been deleted",
+        "explain_mentions": "You can add your own message preceding the checkup results.</br>You can also use @channel / @group / @here / @everyone to notify members in the channel.",
+        "info_body_test_slack_completely": "Test message has been sent.",
+        "info_title_test_slack_completely": "Test message",
+        "message_test_slack": "insightwatch Test Message",
+        "send_test": "Send a test message",
+        "user_guide_url": "https://insightwatch.zendesk.com/hc/ja/articles/360029191451"
+    }
+}

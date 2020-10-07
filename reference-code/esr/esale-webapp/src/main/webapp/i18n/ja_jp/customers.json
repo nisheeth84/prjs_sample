@@ -1,0 +1,434 @@
+{
+  "customers": {
+    "business-name": "業種",
+    "is-display-child-customers": "子顧客を検索結果に表示する",
+    "list": {
+      "dot": "・",
+      "show-more-next": "他{{0}}件",
+      "place-holder": {
+        "search": "リストを検索"
+      }
+    },
+    "move-to-list": {
+      "title": {
+        "header": "リストの移動"
+      },
+      "message": {
+        "record-number-info": "{{count}}件を他のリストへ移動します。"
+      },
+      "form": {
+        "label": "移動するリスト",
+        "nonselect": "移動するリストを選択"
+      },
+      "button": {
+        "move": "移動"
+      }
+    },
+    "add-to-list": {
+      "title": {
+        "header": "リストへ追加"
+      },
+      "message": {
+        "record-number-info": "{{count}}件をリストに追加します。"
+      },
+      "form": {
+        "label": "追加するリスト",
+        "nonselect": "追加するリストを選択"
+      },
+      "button": {
+        "add": "追加"
+      }
+    },
+    "option-group": {
+      "favorites-list": "お気に入りリスト",
+      "my-list": "マイリスト",
+      "shared-list": "共有リスト"
+    },
+    "top": {
+      "title": {
+        "btn-registration": "社員登録",
+        "btn-group-operation": "グループ操作",
+        "btn-edit": "簡易編集",
+        "btn-cancel": "キャンセル",
+        "btn-save": "変更を保存",
+        "add-to-group": "グループへ追加",
+        "create-my-group": "マイグループを作成",
+        "create-shared-group": "共有グループを作成",
+        "move-group": "グループの移動",
+        "leave-group": "グループから削除",
+        "register-employee": "社員の登録",
+        "invite-employee": "社員を招待",
+        "register-department": "部署を登録",
+        "import-employee": "社員をインポート",
+        "import-department": "部署をインポート"
+      },
+      "button": {
+        "btn-registration": "顧客の登録",
+        "btn-import": "顧客をインポート",
+        "btn-buy-outside": "外部から購入する",
+        "btn-list-operator": "リスト操作",
+        "btn-add-to-list": "リストへ追加",
+        "btn-move-list": "リストの移動",
+        "btn-create-my-list": "マイリストを作成",
+        "btn-create-share-list": "共有リストを作成",
+        "btn-remove-from-list": "リストから削除",
+        "btn-edit-simple": "簡易編集"
+      },
+      "place-holder": {
+        "search": "顧客を検索",
+        "searching": "詳細検索条件を編集"
+      },
+      "popup": {
+        "lbl-customer": "顧客",
+        "title-delete": "削除",
+        "title-confirm": "本当に削除してよろしいですか？",
+        "btn-cancel": "キャンセル",
+        "btn-delete": "削除"
+      },
+      "dialog": {
+        "title-move-customer": "確認",
+        "title-add-customers-to-auto-list": "確認",
+        "title-delete-list": "削除",
+        "title-remove-favourite-list": "削除",
+        "confirm-move-customer": "OK",
+        "confirm-add-customers-to-auto-list": "変更",
+        "confirm-delete-list": "削除",
+        "confirm-remove-favourite-list": "削除",
+        "title-remove-manager": "確認",
+        "message-remove-manager": "選択した社員のマネージャー設定を解除します。本当によろしいですか？",
+        "confirm-remove-manager": "解除",
+        "cancel-text": "キャンセル",
+        "title-auto-group": "確認",
+        "confirm-auto-group": "変更",
+        "title-add-list-to-favourite-list": "確認"
+      },
+      "label-tooltip": {
+        "customer-integration": "統合",
+        "delete": "削除",
+        "download": "ダウンロード",
+        "switch-display": "表示切り替え"
+      }
+    },
+    "sidebar": {
+      "title": {
+        "customer-charge": "担当顧客",
+        "all-customer": "全ての顧客",
+        "favourite-list": "お気に入りリスト",
+        "my-list": "マイリスト",
+        "shared-list": "共有リスト"
+      },
+      "option": {
+        "update-list": "リストを更新",
+        "add-to-favorites-list": "お気に入りリストに登録",
+        "remove-from-favorites-list": "お気に入りリストから外す",
+        "edit-list": "リストを編集",
+        "delete-list": "リストを削除",
+        "duplicate-list": "リストを複製",
+        "change-to-shared-list": "共有リストに変更"
+      }
+    },
+    "displayCondition": {
+      "buttonShowCondition": "詳細検索条件",
+      "form": {
+        "conditionSearch": "詳細検索条件",
+        "filter": "フィルタ条件",
+        "conditionSave": "自動追加リストの保存条件"
+      },
+      "buttonShowScroll": "全て表示"
+    },
+    "create-edit-modal": {
+      "title-create-customer": "顧客登録",
+      "title-edit-customer": "顧客編集",
+      "create-customer-title": "顧客登録",
+      "title-required": "必須",
+      "edit-customer-title": "顧客編集",
+      "create-button": "登録",
+      "edit-button": "保存",
+      "business": "業種",
+      "business-main": "大項目を選択",
+      "business-sub": "小項目を選択",
+      "company-description": "株式会社(後)",
+      "product": "取引商品",
+      "employee": "担当",
+      "picture-logo": "顧客ロゴ",
+      "cancel-button": "キャンセル",
+      "modal-title": "顧客登録",
+      "customer-parent": "親顧客",
+      "placeholder-customer-parent": "親顧客を選択",
+      "placeholder-employee": "担当を選択",
+      "text-customer-id": "自動で採番されます",
+      "text-created-date": "自動で登録されます",
+      "text-created-user": "自動で登録されます",
+      "text-updated-date": "自動で登録されます",
+      "text-updated-user": "自動で登録されます",
+      "msg-customer-logo": "顧客ロゴ",
+      "btn-drag-drop-image": "クリックするか、ファイルをドロップしてください",
+      "title-intergation": "統合する際に残す項目を選択"
+    },
+    "scenario-popup": {
+      "btn-create-milestone": "マイルストーン登録",
+      "btn-edit-scenario": "保存",
+      "btn-create-task": "タスク追加",
+      "btn-add-list": "シナリオを新規追加",
+      "btn-add-remove-list": "シナリオを上書き",
+      "field-scenario": "シナリオを編集",
+      "title-scenario": "シナリオ",
+      "title-template": "テンプレートを反映",
+      "title-search": "表示期間",
+      "title-no-template-selected": "反映するテンプレートを選択",
+      "title-delete-milestone": "マイルストーンの削除",
+      "title-delete-tasks": "タスクの削除",
+      "title-confirm-update-scenario": "テンプレート反映",
+      "title-date-from-date": "から",
+      "msg-confirm-update-scenario-top": "シナリオにテンプレートを反映します。",
+      "msg-confirm-update-scenario-bottom": "反映方法を選択してください。",
+      "msg-delete-milestone": "本当に削除してよろしいですか？",
+      "btn-cancel": "キャンセル",
+      "btn-delete": "削除",
+      "btn-confirm": "確認",
+      "title-comfirm-close": "変更キャンセルの確認",
+      "content-comfirm-close": "この変更をキャンセルしますか？",
+      "placeholder-search-start-date": "開始日付",
+      "placeholder-search-finish-date": "終了日付",
+      "info-number-task": "未完了タスクが{{0}}件あります。",
+      "place-holder-create-milestone": "ここにマイルストーン名が入ります。",
+      "place-holder-create-memo": "ここにメモ名が入ります。",
+      "place-holder-create-tasks": "ここにタスク名が入ります。"
+    },
+    "dialog-delete-logo": {
+      "title": "顧客ロゴの削除",
+      "content": "本当に削除してよろしいですか？",
+      "cancel": "キャンセル",
+      "submit": "削除"
+    },
+    "customer-integration": {
+      "title": "統合",
+      "search-title": "統合する際に残す項目を選択",
+      "search-placeholder": "顧客を追加",
+      "check-all": "全選択",
+      "button-cancel": "キャンセル",
+      "button-submit": "統合",
+      "required": "必須",
+      "manual-input-text": "手動入力",
+      "business": "業種",
+      "cannot-enter-value": "値を入力することができません",
+      "customer-code": "顧客コード"
+    },
+    "title": {
+      "popupErrorMessage.delete": "削除",
+      "popupChangeStatus": "確認"
+    },
+    "warning": {
+      "popupErrorMessage.delete": "紐づいているデータが存在するため削除できません。",
+      "popupSettingFieldCreateField": "ドラッグアンドドロップで項目を追加できます。",
+      "popupSettingFieldEditField": "使用していない項目を追加できます。"
+    },
+    "suggest": {
+      "popupErrorMessage.delete": "データを削除してから再度削除を行ってください 。"
+    },
+    "error": {
+      "delete": {
+        "countCustomers": "{{employeeName}}が担当者に設定されている顧客：{{count}}件",
+        "countSchedules": "{{employeeName}}が参加者に設定されているスケジュール：{{count}}件",
+        "countSaleProducts": "{{employeeName}}が取引した商品：{{count}}件 ",
+        "countNameCards": "{{employeeName}}が受け取った名刺：{{count}}件",
+        "countTimeLines": "{{employeeName}}のタイムラインの投稿・コメントの件数：{{count}}件",
+        "countTimeLineGroups": "{{employeeName}}が参加しているタイムラインのグループの数：{{count}}件",
+        "countTimeLineGroupsFavorites": "{{employeeName}}のお気に入りのタイムラインのグループの数：{{count}}件",
+        "countTimeLineWatchs": "{{employeeName}}がフォローしているタイムラインの対象の数：{{count}}件",
+        "countTimeLineNotices": "{{employeeName}}のタイムラインに送信した通知の数：{{count}}件",
+        "countTimeLineStars": "{{employeeName}}のお気に入りのタイムライン投稿の数：{{count}}件",
+        "countTimeLineReactions": "{{employeeName}}のタイムラインのリアクション情報の件数：{{count}}件",
+        "countTimeLineFilters": "{{employeeName}}のタイムラインのフィルター情報の件数：{{count}}件",
+        "countActivities": "{{employeeName}}が報告した活動：{{count}}件",
+        "countAnalysisReports": "{{employeeName}}が参加者として報告したレポート：{{count}}件",
+        "countTodos": "{{employeeName}}が担当者に設定されているタスク：{{count}}件",
+        "countOcrNameCards": "{{employeeName}}がアプリから受け取った名刺：{{count}}件"
+      }
+    },
+    "detail": {
+      "label": {
+        "department.name": "のマネージャーが設定されています。",
+        "button.edit": "画面編集",
+        "button.cancel": "キャンセル",
+        "button.save": "保存",
+        "button.follow": "フォローする",
+        "button.unfollow": "フォローを外す",
+        "button.delete": "DELETE",
+        "button.participate": "参加する",
+        "manager": "上司",
+        "subordinate": "部下",
+        "amountTotal": "金額",
+        "moneyType": "円",
+        "tab.customer": "顧客",
+        "tab.businessCard": "名刺",
+        "tab.calendar": "カレンダー",
+        "tab.calendarNoPlan": "予定なし",
+        "tab.task": "タスク",
+        "tab.changeHistory": "変更履歴",
+        "tab.group": "参加中グループ",
+        "tab.tradingProduct": "取引商品",
+        "customerName": "顧客名",
+        "createdDate": "登録日",
+        "industry": "業種",
+        "address": "住所",
+        "phoneNumber": "電話番号",
+        "faxNumber": "FAX番号",
+        "businessCardImage": "名刺画像",
+        "customerNameBusinessCardName": "顧客名・名刺名",
+        "departmentTitle": "部署・役職名",
+        "contactInformation": "連絡先",
+        "deadline": "期限",
+        "taskName": "タスク名",
+        "productName": "商品名",
+        "status": "ステータス",
+        "personInCharge": "担当者",
+        "postedDate": "投稿日",
+        "product": "商品",
+        "customerContactPerson": "客先担当者",
+        "progress": "進捗状況",
+        "completionDate": "完了予定日",
+        "amountOfMoney": "金額",
+        "total": "合計",
+        "createDateGroup": "投稿日",
+        "history.day": "日",
+        "history.month": "月",
+        "history.year": "年",
+        "history.labelChange": "を変更しました。",
+        "iconSubordinateInformation": "※",
+        "tab.newField": "追加項目",
+        "tab.unVailableField": "未使用項目",
+        "tab.revenueInfomation": "売上",
+        "tab.activityHistory": "活動履歴",
+        "tab.contactHistory": "接触履歴",
+        "tab.schedule": "スケジュール",
+        "tab.mail": "メール",
+        "button.preview": "登録画面プレビュー",
+        "history.employeeStatus": "社員のステータス",
+        "history.working": "通常",
+        "history.retired": "退職済",
+        "history.deleted": "削除済",
+        "displayRange": "表示範囲",
+        "displayRange.showAll": "全て表示",
+        "displayRange.displayOnlyUserLogin": "自分の担当のみ表示",
+        "displayRange.allCustomer": "全顧客",
+        "displayRange.customerCurrentOpen": "現在開いている顧客",
+        "scenario": "シナリオ",
+        "item": "件",
+        "history.labelChangeCreate": "{{0}}登録されました。",
+        "history.labelChangeUpdate": "{{0}}が変更されました。",
+        "history.labelChangeMerge": "{{0}}が{{1}}に統合されました。",
+        "business": "業種",
+        "show-more": "他{{count}}名",
+        "tab.calendarMonth": "月",
+        "tab.calendarWeek": "週",
+        "tab.calendarList": "リスト"
+      },
+      "title": {
+        "popupErrorMessage.delete": "削除",
+        "popupChangeStatus": "確認"
+      },
+      "warning": {
+        "popupErrorMessage.delete": "紐 づ い て い る デ ー タ が 存 在 す る た め 削 除 で き ま せ ん 。",
+        "popupSettingFieldCreateField": "ドラッグアンドドロップで項目を追加できます。",
+        "popupSettingFieldEditField": "使用していない項目を追加できます。"
+      },
+      "suggest": {
+        "popupErrorMessage.delete": "デ ー タ を 削 除 し て か ら 再 度 削 除 を 行 っ て く だ さ い 。"
+      },
+      "error": {
+        "delete": {
+          "countCustomers": "{{employeeName}}が担当者に設定されている顧客：{{count}}件",
+          "countSchedules": "{{employeeName}}が参加者に設定されているスケジュール：{{count}}件",
+          "countSaleProducts": "{{employeeName}}が取引した商品：{{count}}件 ",
+          "countNameCards": "{{employeeName}}が受け取った名刺：{{count}}件",
+          "countTimeLines": "{{employeeName}}のタイムラインの投稿・コメントの件数：{{count}}件",
+          "countTimeLineGroups": "{{employeeName}}が参加しているタイムラインのグループの数：{{count}}件",
+          "countTimeLineGroupsFavorites": "{{employeeName}}のお気に入りのタイムラインのグループの数：{{count}}件",
+          "countTimeLineWatchs": "{{employeeName}}がフォローしているタイムラインの対象の数：{{count}}件",
+          "countTimeLineNotices": "{{employeeName}}のタイムラインに送信した通知の数：{{count}}件",
+          "countTimeLineStars": "{{employeeName}}のお気に入りのタイムライン投稿の数：{{count}}件",
+          "countTimeLineReactions": "{{employeeName}}のタイムラインのリアクション情報の件数：{{count}}件",
+          "countTimeLineFilters": "{{employeeName}}のタイムラインのフィルター情報の件数：{{count}}件",
+          "countActivities": "{{employeeName}}が報告した活動：{{count}}件",
+          "countAnalysisReports": "{{employeeName}}が参加者として報告したレポート：{{count}}件",
+          "countTodos": "{{employeeName}}が担当者に設定されているタスク：{{count}}件",
+          "countOcrNameCards": "{{employeeName}}がアプリから受け取った名刺：{{count}}件"
+        }
+      }
+    },
+    "network-map": {
+      "title": "顧客人脈マップ",
+      "btn-save": "保存",
+      "btn-edit-network-map": "人脈マップ編集",
+      "business-card-received": "受け取った名刺",
+      "mode-table": {
+        "btn-add-department": "部署を追加",
+        "btn-add-business-card": "名刺を追加"
+      },
+      "department-name-not-empty": "部署名を入力してください。",
+      "department-name-exist": "入力した部署名がすでに存在していますので、他の部署名を入力してください。",
+      "notification-save": "{{0}}に名刺を追加してください",
+      "department-new-name-default": "部署",
+      "view-current-customer": "現在開いている顧客を表示",
+      "add-department": {
+        "title": "部署を追加",
+        "department-name.label": "部署名",
+        "department-name.placeholder": "部署名を入力",
+        "department-belong.label": "所属する部署",
+        "department-belong.placeholder": "所属させる部署を選択",
+        "btn-cancel": "キャンセル",
+        "btn-add": "追加"
+      },
+      "business-card": {
+        "add-position": "立場を追加"
+      },
+      "department-card-network": {
+        "close": "閉じる",
+        "show-all": "全て表示"
+      },
+      "tooltip-add-position": {
+        "position": "立場",
+        "motivation": "意欲",
+        "memo": "コメント",
+        "memo-placeholder": "コメントを入力",
+        "button-cancel": "キャンセル",
+        "button-add": "追加",
+        "button-edit": "保存"
+      },
+      "tooltip-position-network-detail": {
+        "position": "立場",
+        "motivation": "意欲",
+        "memo": "コメント",
+        "memo-placeholder": "コメントを入力",
+        "button-cancel": "キャンセル",
+        "button-add": "追加",
+        "button-edit": "保存"
+      },
+      "popup-warning": {
+        "warning": "警告",
+        "ok": "OK"
+      },
+      "form-new-department": {
+        "department-placeholder": "部署名"
+      }
+    },
+    "field-info-network": {
+      "business-card-image": "名刺画像",
+      "department": "部署",
+      "position": "役職",
+      "business-card-name": "名刺氏名",
+      "mail-address": "メールアドレス",
+      "phone-number": "電話番号",
+      "last-contact-date": "最終接触日",
+      "company-personnel": "自社担当者",
+      "motivation": "意欲",
+      "stand": "立場",
+      "memo": "コメント",
+      "date-of-receipt": "受取日"
+    },
+    "search-controller": {
+      "placeholder": "人脈マップを検索"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+    "CheckExecute": {
+        "description_check_execution": "Start the security checkup. This will take several minutes to complete.",
+        "title_info_execute_check": "Security checkup process started",
+        "body_info_execute_check": "Security checkup processing started. Please check the security checkup history for the status report."
+    }
+}

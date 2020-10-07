@@ -1,0 +1,400 @@
+{
+  "employees": {
+    "common": {
+      "lable-require": "必须"
+    },
+    "isAdmin": ["无管理员权限", "具有管理员权限"],
+    "list": {
+      "dialog": {
+        "title-move-to-department": "调换部门",
+        "message-move-to-department": "您确定要调换部门吗？ 还是想兼职？",
+        "confirm-transfer-department": "调换",
+        "confirm-concurrent-department": "兼职",
+        "cancel-text": "取消"
+      },
+      "title": {
+        "manager-name": "　上级： "
+      },
+      "special": {
+        "position-label": "选择职务名称"
+      }
+    },
+    "sidebar": {
+      "title": {
+        "all-user": "所有员工",
+        "department": "部门",
+        "quit-job": "辞职者",
+        "my-group": "我的群组",
+        "shared-group": "分享组"
+      },
+      "search": {
+        "placeholder": "搜索部门/群组"
+      }
+    },
+    "top": {
+      "title": {
+        "btn-registration": "注册员工",
+        "btn-group-operation": "群组操作",
+        "btn-edit": "简单编辑",
+        "btn-cancel": "取消",
+        "btn-save": "保存更改",
+        "add-to-group": "添加至群组",
+        "create-my-group": "创建我的群组",
+        "create-shared-group": "创建分享组",
+        "move-group": "移动群组",
+        "leave-group": "从群组中删除",
+        "register-employee": "注册员工",
+        "invite-employee": "邀请员工",
+        "register-department": "注册部门",
+        "import-employee": "导入员工",
+        "import-department": "导入部门"
+      },
+      "place-holder": {
+        "search": "搜索员工",
+        "searching": "编辑详细的搜索条件"
+      },
+      "dialog": {
+        "title-delete-group": "删除",
+        "message-delete-group": "您确定要删除{{itemName}}吗？",
+        "confirm-delete-group": "删除",
+        "title-auto-group": "确认",
+        "confirm-auto-group": "更改",
+        "title-leave-group": "删除",
+        "message-leave-group": "您确定要删除吗？",
+        "confirm-leave-group": "删除",
+        "title-remove-manager": "确认",
+        "message-remove-manager": "将移除所选员工的上级设置。您确定要移除吗？",
+        "confirm-remove-manager": "移除",
+        "cancel-text": "取消"
+      },
+      "label-tooltip": {
+        "button-edit": "编辑",
+        "button-erase": "删除",
+        "button-switch-display": "切换显示",
+        "button-update": "更新",
+        "button-set-manager": "上级设置",
+        "button-remove-manager": "取消上級设置",
+        "button-download": "下载",
+        "button-copy-group": "复制群组",
+        "button-send-email": "发送电子邮件",
+        "button-top-convert-sharelist": "更改为共享列表"
+      }
+    },
+    "detail": {
+      "label": {
+        "department.name": "的上级已设置。",
+        "button.edit": "编辑画面",
+        "button.cancel": "取消",
+        "button.save": "保存",
+        "button.confirm": "确认",
+        "button.follow": "关注",
+        "button.unfollow": "取消关注",
+        "button.delete": "DELETE",
+        "button.participate": "参与",
+        "manager": "上级",
+        "subordinate": "下属",
+        "remain": "其他{{count}}个人",
+        "amountTotal": "金额",
+        "moneyType": "日元",
+        "tab.customer": "客户",
+        "tab.businessCard": "名片",
+        "tab.calendar": "日历",
+        "tab.task": "任务",
+        "tab.group": "在参与的群组",
+        "tab.tradingProduct": "交易产品",
+        "customerName": "客户名称",
+        "createdDate": "注册日期",
+        "industry": "行业类型",
+        "address": "地址",
+        "phoneNumber": "电话号码",
+        "faxNumber": "传真号码",
+        "businessCardImage": "名片图片",
+        "customerNameBusinessCardName": "客户名称/名片名称",
+        "departmentTitle": "部门/职务名称",
+        "contactInformation": "联系地址",
+        "deadline": "期限",
+        "taskName": "任务名称",
+        "productName": "产品名称",
+        "status": "状态",
+        "personInCharge": "负责人",
+        "postedDate": "发布日期",
+        "product": "产品",
+        "customerContactPerson": "客户端负责人",
+        "progress": "进度状态",
+        "completionDate": "预计完成日期",
+        "amountOfMoney": "金额",
+        "total": "合计",
+        "createDateGroup": "发布日期",
+        "history.day": "日",
+        "history.month": "月",
+        "history.year": "年",
+        "history.labelChangeUpdate": "{{employeeName}}已被更改。",
+        "history.labelChangeCreate": "{{employeeName}}已被注册。",
+        "iconSubordinateInformation": "※",
+        "button.preview": "预览注册画面",
+        "history.employeeStatus": "员工状态",
+        "history.working": "通常",
+        "history.retired": "已辞职",
+        "history.deleted": "已删除",
+        "badges.empty": "没有计划"
+      },
+      "title": {
+        "popupErrorMessage.delete": "删除",
+        "popupChangeStatus": "确认"
+      },
+      "warning": {
+        "popupErrorMessage.delete": "由于存在链接数据，因此无法删除。"
+      },
+      "suggest": {
+        "popupErrorMessage.delete": "请删除数据，然后再次删除。"
+      },
+      "error": {
+        "delete": {
+          "countCustomers": "有{{employeeName}}}被设置为负责人的客户数量：{{count}}件",
+          "countSchedules": "由{{employeeName}}被设置为参与者的时间表：{{count}}件",
+          "countSaleProducts": "{{employeeName}}已交易的产品：{{count}}件 ",
+          "countNameCards": "{{employeeName}}已收到的名片：{{count}}件",
+          "countTimeLines": "{{employeeName}}的时间轴上的帖子和评论数：{{count}}件",
+          "countTimeLineGroups": "{{employeeName}}参与的时间轴上的组数：{{count}}件",
+          "countTimeLineGroupsFavorites": "{{employeeName}}的喜爱时间轴上的组数：{{count}}件",
+          "countTimeLineWatchs": "{{employeeName}}关注的时间轴上的对象数：{{count}}件",
+          "countTimeLineNotices": "发送到{{employeeName}}的时间轴的通知数：{{count}}件",
+          "countTimeLineStars": "{{employeeName}}的喜爱时间轴上的帖子数：{{count}}件",
+          "countTimeLineReactions": "{{employeeName}}的时间轴上的反馈信息件数：{{count}}件",
+          "countTimeLineFilters": "{{employeeName}}的时间轴上已过滤的信息件数：{{count}}件",
+          "countActivities": "{{employeeName}}已报告的活动：{{count}}件",
+          "countAnalysisReports": "{{employeeName}}作为参与者报告的报告：{{count}}件",
+          "countTodos": "{{employeeName}}被设置为负责人的任务：{{count}}件",
+          "countOcrNameCards": "{{employeeName}}从应用程序获取的名片：{{count}}件"
+        }
+      },
+      "info": {
+        "infoScroll": "可以向上滚动。"
+      }
+    },
+    "group-card": {
+      "submenu": {
+        "edit-group": "编辑群组",
+        "delete-group": "删除群组",
+        "duplicate-group": "复制群组",
+        "change-my-list-to-share-group": "更改为共享列表"
+      }
+    },
+    "department-card": {
+      "submenu": {
+        "edit-department": "编辑部门",
+        "delete-department": "删除部门"
+      }
+    },
+    "popup": {
+      "move-to-department": {
+        "title": "调换部门",
+        "transfer-option": "调换",
+        "concurrent-option": "兼职",
+        "cancel-text": "取消"
+      },
+      "delete-employee-popup": {
+        "title": "删除",
+        "confirm-text": "确认"
+      }
+    },
+    "group": {
+      "group-modal-move-to-group": {
+        "title": "移动群组",
+        "employee-checklist-length": "{{empCheckListLength}}件将移到另一个群组。",
+        "group-title": "移至的群组",
+        "group-default-option": "选择移至的群组",
+        "button-move": "移动",
+        "button-close": "×",
+        "button-cancel": "取消",
+        "button-confirm": "确认",
+        "required": "必须"
+      },
+      "group-modal-add-to-group": {
+        "title": "添加至群组",
+        "employee-checklist-length": "{{empCheckListLength}}件将添加到群组。",
+        "group-title": "添加的群组",
+        "group-default-option": "选择添加的群组",
+        "button-add": "添加",
+        "button-cancel": "×",
+        "my-group": "我的群组",
+        "share-group": "分享组",
+        "required": "必须"
+      },
+      "group-modal-create-my-group": {
+        "title": "创建我的群组",
+        "employee-checklist-length": "{{empCheckListLength}}件将被创建成群组。",
+        "group-title": "群组名称",
+        "group-name-placeholder": "输入群组名称",
+        "button-create": "创建",
+        "button-cancel": "×",
+        "required": "必须"
+      },
+      "group-modal-add-edit-my-group": {
+        "title": "创建我的群组",
+        "edit_title": "编辑我的群组",
+        "group-title": "群组名称 ",
+        "required": "必须",
+        "group-name-placeholder": "输入群组名称",
+        "display-other-language": "显示其他语言",
+        "group_type": "群组类型",
+        "radio-manual": "手动",
+        "radio-auto": "自动添加",
+        "button-create": "创建",
+        "button-edit": "更新",
+        "button-cancel": "?",
+        "auto-group-condition-search-title": "自动添加组的搜索条件",
+        "setting-search-condition": "设置搜索条件",
+        "is-overwrite": "如果与更新时的条件不匹配，将从群组中进行删除",
+        "list-update-time": "每天{{0}}点时自动进行群组更新"
+      },
+      "setting-search-condition": {
+        "cancel": "取消",
+        "save-search-condition": "保存搜索条件",
+        "checkbox-select-all": "全选",
+        "checkbox-deselect": "取消选择",
+        "checkbox-select-inversion": "反转选择",
+        "textbox-search-placeholder": "搜索员工"
+      }
+    },
+    "department": {
+      "department-regist-edit": {
+        "form": {
+          "title.regist": "部门注册",
+          "title.edit": "部门编辑",
+          "departmentName": "部门名称",
+          "departmentName.placeholder": "输入部门名称",
+          "managerId": "上级",
+          "managerId.default": "选择上级",
+          "parentId": "所属部门",
+          "parentId.default": "选择所属部门",
+          "button.regist": "注册",
+          "button.edit": "保存",
+          "button.cancel": "取消",
+          "button.confirm": "确认",
+          "button.close": "×",
+          "required": "必须"
+        }
+      }
+    },
+    "displayCondition": {
+      "buttonShowCondition": "详细的搜索条件",
+      "form": {
+        "conditionSearch": "详细的搜索条件",
+        "filter": "筛选条件",
+        "conditionSave": "保存自动添加列表的条件"
+      },
+      "buttonShowScroll": "全部显示"
+    },
+    "manager": {
+      "manager-setting": {
+        "form": {
+          "title": "设置上级",
+          "managerName": "组织上级：",
+          "employeeName": "对象员工 :",
+          "organizationNanager": "设置组织上级",
+          "individualManager": "设置单独的上级",
+          "manager": "上级",
+          "manager.default": "选择上级",
+          "button.edit": "保存",
+          "button.cancel": "取消",
+          "button.confirm": "确认"
+        }
+      }
+    },
+    "inviteEmployees": {
+      "form": {
+        "title.inviteEmployees": "邀请发送清单",
+        "title.informationLine1": "将输入您要邀请的成员的姓名，邮件地址，附属部门和包，然后发送邀请邮件。",
+        "title.informationLine2": "{{packageName}}包：剩余的{{remainPackages}}包",
+        "title.informationLine3": "已超出包装限制。",
+        "title.tooltip": "接管部门，许可证，选件并添加新行。",
+        "title.invitedMember": "已邀请的成员",
+        "modal.name": "邀请员工",
+        "header.memberName": "将邀请的员工姓名",
+        "header.memberEmail": "电子邮件地址 ",
+        "header.memberDepartment": "部门",
+        "header.memberPackage": "包",
+        "header.memberLogin": "契约者网站",
+        "header.memberAdmin": "管理员权限",
+        "label.surname": "姓 ",
+        "label.name": "名称",
+        "placeholder.surname": "输入姓",
+        "placeholder.name": "输入名",
+        "placeholder.email": "输入电子邮件地址",
+        "placeholder.department": "选择部门",
+        "placeholder.package": "选择包",
+        "label.red": "必须",
+        "button.addRow": "行添加",
+        "button.cancel": "取消",
+        "button.ok": "发送邀请",
+        "button.notify": "如果有错误邮件发送到",
+        "notify.sendedMail": "已将邀请邮件发给成员。如果邮件发送失败，则可能会有错误的电子邮件发送到您的邮件地址。",
+        "button.addNew": "添加新的",
+        "button.finish": "完成"
+      },
+      "error": {
+        "emailFormat": "电子邮件地址"
+      }
+    },
+    "create-edit": {
+      "button-add-department": "添加部门名称/职务名称",
+      "position-placehoder": "选择职务名称",
+      "department-placehoder": "选择部门名称",
+      "modal-title-create": "员工注册",
+      "modal-title-edit": "员工编辑",
+      "button-cancel": "取消",
+      "button-create": "注册",
+      "button-edit": "保存",
+      "label-employee-surname": "帐户名",
+      "label-employee-surname-kana": "帐户名（假名）",
+      "label-departmanet": "部门名称/职务名称",
+      "label-admin": "具有管理员权限",
+      "label-login": "在契约者网站上为其设置登录权限",
+      "label-received-mail": "发送帐户通知邮件",
+      "send-email.title-modal": "通知",
+      "send-email.button-cancel": "取消",
+      "send-email.button-send": "发送",
+      "send-email.placeholder": "输入通知内容",
+      "send-email.label": "您确定要发送邀请邮件吗？",
+      "placeholder.department": "选择部门名称"
+    },
+    "settings": {
+      "icon-change-password": "密码设置",
+      "icon-language-timezone": "语言和时间设置",
+      "icon-notify": "通知设置",
+      "icon-gear": "个人设置",
+      "notify": {
+        "receive-settings": "接收设置",
+        "destination-posts-comments": "如果指定为帖子/评论的目的地",
+        "posts-article": "当有人对您的帖子做出反应时",
+        "posts-comments": "当有人对您的帖子发表了评论时",
+        "posts-comments-of-comments": "如果在您评论过的帖子上还有评论",
+        "schedule-register-update": "当您作为参与者有注册或更新的时间表时",
+        "task-register-update": "当在您作为负责人的任务中有注册或更新的帖子时",
+        "completed-article": "由于完成模拟/导入而出现帖子时",
+        "schedule": "时间表",
+        "milestone": "里程碑",
+        "task": "任务",
+        "notify-daily-task": "1天任务通知",
+        "prefix-send-to": "每天",
+        "send-to": "将被发送通知。",
+        "send-placeholder": "选择时间",
+        "destination-email": "接收的电子邮件地址",
+        "add-email": "添加电子邮件地址",
+        "button-save": "保存"
+      },
+      "language-time-zone-settings": {
+        "language": "语言",
+        "timezone": "时区",
+        "date-format": "日期格式",
+        "submit": "保存"
+      }
+    },
+    "popup-warning": {
+      "title": "许可证数量不足。",
+      "warning-1": "因为您在使用的许可证数量超过了根据合同购买的许可证数量，所以某些功能可能受到限制。请在员工功能中删除多余的许可证，并将使用的许可证数量设置为少于购买的许可证数量。",
+      "warning-2": "或者，如果您想更改许可证数量，请在契约者网站上购买更多。"
+    }
+  }
+}

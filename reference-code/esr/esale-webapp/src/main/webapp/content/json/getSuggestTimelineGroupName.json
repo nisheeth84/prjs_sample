@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "timelineGroupId": 10002,
+      "timelineGroupName": "Group A",
+      "imagePath": "/S3/aa"
+    },
+    {
+      "timelineGroupId": 10001,
+      "timelineGroupName": "Group B",
+      "imagePath": "/S3/aa"
+    }
+  ]
+}

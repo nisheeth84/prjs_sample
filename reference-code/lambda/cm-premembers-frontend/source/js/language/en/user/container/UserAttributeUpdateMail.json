@@ -1,0 +1,10 @@
+{
+    "UserAttributeUpdateMail": {
+        "email_address_change": "Change the email address for your account",
+        "guide_change_mail_1": "You will receive a confirmation email after clicking the registration button.",
+        "guide_change_mail_2": "The email address will be changed once you have clicked the URL in the email.",
+        "current_email_address": "Current email address",
+        "email_address_to_change": "New email address",
+        "email_address_to_change_confirm": "Confirm new email address"
+    }
+}

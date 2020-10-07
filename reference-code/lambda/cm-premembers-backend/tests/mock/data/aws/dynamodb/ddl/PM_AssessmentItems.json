@@ -1,0 +1,84 @@
+{
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "AssessmentItemID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "OrganizationID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "ProjectID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "CheckItemCode",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "AccountRefineCode",
+            "AttributeType": "S"
+        }
+    ],
+    "TableName": "PM_AssessmentItems",
+    "KeySchema": [
+        {
+            "AttributeName": "AssessmentItemID",
+            "KeyType": "HASH"
+        }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+        {
+            "IndexName": "OrganizationIndex",
+            "KeySchema": [
+                {
+                    "AttributeName": "OrganizationID",
+                    "KeyType": "HASH"
+                },
+                {
+                    "AttributeName": "ProjectID",
+                    "KeyType": "RANGE"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "INCLUDE",
+                "NonKeyAttributes": [
+                    "OrganizationID",
+                    "ProjectID",
+                    "AWSAccount",
+                    "CheckItemCode",
+                    "AssessmentComment",
+                    "UserID",
+                    "MailAddress",
+                    "CreatedAt"
+                ]
+            }
+        },{
+            "IndexName": "AccountRefineIndex",
+            "KeySchema": [
+                {
+                    "AttributeName": "AccountRefineCode",
+                    "KeyType": "HASH"
+                },
+                {
+                    "AttributeName": "CheckItemCode",
+                    "KeyType": "RANGE"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "INCLUDE",
+                "NonKeyAttributes": [
+                    "OrganizationID",
+                    "ProjectID",
+                    "AWSAccount",
+                    "AssessmentComment",
+                    "UserID",
+                    "MailAddress",
+                    "CreatedAt"
+                ]
+            }
+        }
+    ]
+}

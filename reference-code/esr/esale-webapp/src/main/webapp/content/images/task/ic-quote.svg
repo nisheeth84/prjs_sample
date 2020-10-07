@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="7" viewBox="0 0 16 7">
+  <defs>
+    <clipPath id="clip-iPhone_X_XS_11_Pro_1">
+      <rect width="16" height="7"/>
+    </clipPath>
+  </defs>
+  <g id="iPhone_X_XS_11_Pro_1" data-name="iPhone X/XS/11 Pro – 1" clip-path="url(#clip-iPhone_X_XS_11_Pro_1)">
+    <rect width="16" height="7" fill="#fff"/>
+    <path id="Path_31074" data-name="Path 31074" d="M1780.17,4843.46h-5.67c-.312,0-.566.171-.566.382v4.2c0,.211.254.382.566.382h3.377v1.5c.036.024,0,.034,0,0l1.719-1.5h.566c.313,0,.566-.171.566-.382v-4.2C1780.73,4843.64,1780.48,4843.46,1780.17,4843.46Z" transform="translate(-1773.934 -4843.46)" fill="#999"/>
+    <path id="Path_31074-2" data-name="Path 31074" d="M1780.17,4843.46h-5.67c-.312,0-.566.171-.566.382v4.2c0,.211.254.382.566.382h3.377v1.5c.036.024,0,.034,0,0l1.719-1.5h.566c.313,0,.566-.171.566-.382v-4.2C1780.73,4843.64,1780.48,4843.46,1780.17,4843.46Z" transform="translate(-1764.934 -4843.46)" fill="#999"/>
+  </g>
+</svg>

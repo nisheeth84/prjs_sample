@@ -1,0 +1,19 @@
+/**
+ * The EmployeesHistories entity.
+ */
+@dto(mapstruct)
+@service(serviceImpl)
+entity EmployeesOptions {
+    /** 
+     * The EmployeesOptions employeeOptionId
+     */
+    employeeOptionId Long required
+    /** 
+     * The EmployeesOptions employeeId
+     */
+    employeeId Long required
+    /** 
+     * The EmployeesOptions optionId
+     */
+    optionId Long required
+}

@@ -1,0 +1,63 @@
+@startuml{Batch_チェック_チェックレポートバッチ.png}
+title [チェックバッチ_チェックレポートバッチ]
+hide footbox
+
+participant チェックジョブバッチ as batch_check_job <<batch>> #darkorange
+database チェック履歴 as table_check_history <<dynamodb>> #royalblue
+database チェック結果 as table_check_results <<dynamodb>> #royalblue
+database 個別チェック結果 as table_check_resultitems <<dynamodb>> #royalblue
+database チェックストレージ as storage <<s3>> #crimson
+database チェックジョブ履歴 as storage_check_joblog <<s3>> #crimson
+
+->> batch_check_job
+note right :実行時引数としてチェック履歴ID（必須）、ログID（オプション）を受け取る
+activate batch_check_job
+    batch_check_job -> batch_check_job :引数のバリデーションチェック
+    |||
+    opt 引数でログIDが渡された場合
+    |||
+    batch_check_job -> batch_check_job :ログストリーム名記録
+    activate batch_check_job
+        batch_check_job -> storage_check_joblog :ファイル取得 {bucket}/check_batch/{CheckHistoryID}/{LogID}.json
+        storage_check_joblog --> batch_check_job
+        batch_check_job -> batch_check_job :自分のジョブ情報を取得する（describe_jobs）
+        note right :ログストリーム名を取得する
+        batch_check_job -> storage_check_joblog :ファイル更新
+        note right :ログストリーム名を記録する
+        storage_check_joblog --> batch_check_job
+        batch_check_job --> batch_check_job
+    deactivate batch_check_job
+    |||
+    end
+    |||
+    batch_check_job -> table_check_history :レコード取得
+    table_check_history --> batch_check_job
+    batch_check_job -> batch_check_job :ステータスチェック
+    batch_check_job -> table_check_history :レコード更新
+    note right :チェック実行ステータス=チェックレポート出力中(5)
+    table_check_history --> batch_check_job
+    |||
+    batch_check_job -> table_check_results :query（CheckHistoryIndex: チェック履歴IDをキーとする）
+    table_check_results --> batch_check_job
+    |||
+    loop 1, チェック結果の件数（=チェック対象のAWSアカウント数）
+        batch_check_job -> table_check_resultitems: query（CheckResultIndex: チェック結果IDをキーとする）
+        table_check_resultitems --> batch_check_job
+        |||
+    end
+    |||
+    group チェック結果レポート出力処理
+        |||
+        batch_check_job -> batch_check_job :チェック結果レポート出力
+        batch_check_job -> storage :チェック結果レポート保存
+        storage --> batch_check_job
+        |||
+    end
+    |||
+    batch_check_job -> table_check_history :レコード更新
+    note right :チェック実行ステータス=チェックレポート出力完了(6)
+    table_check_history --> batch_check_job
+    batch_check_job --> batch_check_job
+deactivate batch_check_job
+
+@enduml

@@ -1,0 +1,174 @@
+<user-invite-container>
+    <div class="page">
+        <div class="page-header pb-0">
+            <div>
+                <h1 class="page-title mt-2">{_t('UserInvite.title')}</h1>
+                <div class="font-size-20 font-weight-bold mt-5 margin-left_5" if="{myOrganization}">
+                    {_t('UserInvite.invite_to', {name: myOrganization.organization.name})}
+                </div>
+            </div>
+        </div>
+        <form ref="form" autocomplete="off" submit="{inviteUserHandler}" action="#" method="POST">
+            <div class="page-content container-fluid">
+                <div class="row">
+                    <div class="form-group floating col-lg-9">
+                        <label class="floating-label" for="inviteUserEmail">{_t('mail_address')}</label>
+                        <input-email ref="email"></input-email>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group floating col-lg-9">
+                        <label class="floating-label">{_t('authority')}</label>
+                        <select ref="authority" class="form-control">
+                            <option value="3">{_t('auth_owner')}</option>
+                            <option value="2">{_t('auth_edit')}</option>
+                            <option selected value="1">{_t('auth_view')}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <button type="button" onclick={back} class="btn btn-block btn-default">{_t('back')}</button>
+                    </div>
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-4">
+                        <button type="submit" class="btn btn-block btn-success" onclick="{inviteUserClick}">{_t('UserInvite.invite')}</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <success-modal></success-modal>
+    <error-modal></error-modal>
+    <confirm-invited-user-modal></confirm-invited-user-modal>
+    <pm-loading></pm-loading>
+    <script>
+        require('../../common/component/InputEmail.tag.html')
+        require('../../common/component/SuccessModal.tag.html')
+        require('../component/ConfirmInvitedUserModal.tag.html');
+        const tag = this
+        const dictionary = tag.commonUtils.getMyDictionary()
+        tag.cognitoUser = riot.mixin('cognitoUser')
+        const obs = riot.observable()
+        tag.obs = obs
+        tag.organization_id = opts.organization_id
+        tag.inviteUserHandler = inviteUserHandler
+        tag.inviteUserClick = inviteUserClick
+        tag.back = back
+        tag.on('mount', function() {
+            tag.obs.trigger("pm-loader-show")
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    let fetchResponse = null
+                    tag.commonUtils.getMyOrganization(idToken, tag.organization_id).then(function(response) {
+                        fetchResponse = response
+                        return response
+                    }).then(function(myOrganization) {
+                        tag.obs.trigger('pm-loader-hide');
+                        tag.myOrganization = myOrganization
+                        tag.update(myOrganization)
+                    }).catch(function(error) {
+                        tag.obs.trigger('pm-loader-hide');
+                        error.then(function(value) {
+                            value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                        })
+                        tag.obs.trigger('error-modal-open', error);
+                        tag.obs.one('error-modal-close', function(value) {
+                            tag.commonUtils.backHome(value)
+                        })
+                    })
+                }
+            })
+        })
+        function inviteUserHandler(event) {
+            event.preventDefault()
+            const form = tag.refs.form
+            const mailAddress = tag.refs.email.getInputValue()
+            const authority = tag.refs.authority.value
+            tag.commonUtils.submitDisable(form);
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    let fetchResponse = null
+                    inviteUser(idToken, mailAddress, authority)
+                        .then(function(response) {
+                            tag.commonUtils.submitEnable(form);
+                            fetchResponse = response
+                            return response
+                        })
+                        .then(tag.commonUtils.checkStatus)
+                        .then(function() {
+                            tag.obs.trigger('pm-loader-hide');
+                            const successInformation = {
+                                'title': tag._t('UserInvite.info_title'),
+                                'body': mailAddress + tag._t('UserInvite.info_body')
+                            }
+                            tag.obs.trigger('success-modal-open', successInformation)
+                            tag.obs.one('success-modal-close', function(value) {
+                                back()
+                            })
+                        }).catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function(value) {
+                                let isInviteUserNotRegister = false
+
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                                if (fetchResponse.status == 422) {
+                                    errors = value.errors
+                                    if (errors) {
+                                        errors.forEach(function(error) {
+                                            if (error.code == 999) {
+                                                isInviteUserNotRegister = true
+                                                return false
+                                            }
+                                        })
+                                    }
+                                }
+
+                                if (isInviteUserNotRegister) {
+                                    const informationModal = {
+                                        'organizationId': tag.organization_id,
+                                        'authority': authority,
+                                        'mailAddress': mailAddress,
+                                        'serviceName': dictionary.ServiceName
+                                    }
+                                    tag.obs.trigger('confirm-invited-user-modal-open', informationModal);
+                                } else {
+                                    tag.obs.trigger('error-modal-open', error);
+                                    tag.obs.one('error-modal-close', function(value) {
+                                        tag.commonUtils.backHome(value)
+                                    })
+                                }
+                            })
+                        })
+                }
+            });
+        }
+        function back() {
+            window.location.href = '#/organizations/' + tag.organization_id + '/users/'
+        }
+        function inviteUserClick() {
+            tag.obs.trigger('submit');
+        }
+        function inviteUser(idToken, mailAddress, authority) {
+            const requestInviteUserUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + tag.organization_id + '/invites'
+            const requestParam = {
+                "mailAddress": mailAddress,
+                "authority": parseInt(authority)
+            }
+            return fetch(requestInviteUserUrl, {
+                method: 'POST',
+                headers: {
+                    'Authorization': idToken
+                },
+                body: JSON.stringify(requestParam)
+            })
+        }
+
+    </script>
+</user-invite-container>

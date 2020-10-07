@@ -1,0 +1,78 @@
+<signup-complete-container>
+  <link rel="stylesheet" href="./assets/stylesheets/register.css">
+  <div class="animsition page-register-v3 layout-full" style="animation-duration: 800ms; opacity: 1;">
+    <div class="page vertical-align text-center">
+      <div class="page-content vertical-align-middle">
+        <div class="panel">
+          <div class="panel-body">
+            <div class="brand">
+              <div class="beta">
+                <img class="brand-img" src="./assets/images/iw_tate.svg" alt="..."></img>
+              </div>
+            </div>
+            <p>{_t('SignUpComplete.congratulations')}
+              <br>{_t('SignUpComplete.regist_complete')}</p>
+            <button type="button" onclick="{move}" show={isMoveHome} class="btn btn-primary btn-block btn-lg mt-40">{_t('SignUpComplete.start_insightwatch')}</button>
+            <button type="button" onclick="{move}" hide={isMoveHome} class="btn btn-primary btn-block btn-lg mt-40">{_t('login')}</button>
+          </div>
+        </div>
+        <footer class="page-copyright page-copyright-inverse">
+          <p>{_t('copyright')}</p>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <script>
+    import {
+      CognitoUserPool,
+      CognitoUser
+    } from 'amazon-cognito-identity-js';
+    const tag = this;
+    tag.cognitoUser = opts.cognitoUser;
+    tag.move = move;
+    const obs = riot.observable()
+    tag.obs = obs
+    tag.isMoveHome = false
+
+    const poolData = {
+      UserPoolId: tag.config.COGNITO_USER_POOL_ID,
+      ClientId: tag.config.COGNITO_CLIENT_ID
+    };
+    const userPool = new CognitoUserPool(poolData);
+
+    const signupAuthenticationDetails = tag.commonUtils.paramReceiver('signupAuthenticationDetails')
+    if (signupAuthenticationDetails) {
+      tag.isMoveHome = true
+      tag.signupAuthenticationDetails = signupAuthenticationDetails
+    }
+
+    tag.on('mount', function() {
+    })
+
+    function move(event) {
+      if (tag.isMoveHome) {
+        const poolData = {
+          UserPoolId: tag.config.COGNITO_USER_POOL_ID,
+          ClientId: tag.config.COGNITO_CLIENT_ID
+        };
+        const userPool = new CognitoUserPool(poolData);
+        const signupUser = tag.commonUtils.paramReceiver('signupUser')
+        var cognitoUser = new CognitoUser({
+          Username: signupUser,
+          Pool: userPool
+        });
+        cognitoUser.authenticateUser(tag.signupAuthenticationDetails, {
+          onSuccess: function(result) {
+            tag.commonUtils.setItemToLocalStorage("language", tag.commonUtils.getLanguageFromBrowser());
+            window.location.href = "#/user/registration/";
+          },
+          onFailure: function(err) {
+            window.location.href = "#/sign_in/";
+          }
+        });
+      } else {
+        window.location.href = "#/sign_in/";
+      }
+    }
+  </script>
+</signup-complete-container>

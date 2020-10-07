@@ -1,0 +1,7 @@
+{
+    "SignUpConfirm": {
+        "code_confirm": "Confirmation code",
+        "enter_received_confirm_code": "Please enter the confirmation code sent to your email address.",
+        "code_validity_period_notify": "Confirmation codes expire after 24 hours."
+    }
+}

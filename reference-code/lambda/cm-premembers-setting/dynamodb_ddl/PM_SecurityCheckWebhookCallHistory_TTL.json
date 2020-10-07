@@ -1,0 +1,7 @@
+{
+    "TableName": "PM_SecurityCheckWebhookCallHistory",
+    "TimeToLiveSpecification": {
+        "Enabled": true,
+        "AttributeName": "TimeToLive"
+    }
+}

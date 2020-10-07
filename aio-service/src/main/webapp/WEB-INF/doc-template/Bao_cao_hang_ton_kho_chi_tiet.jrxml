@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Bao_cao_hang_ton_kho_chi_tiet" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5306b572-9d3a-4e20-8b89-914ef0c134ae">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Bold_Left" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Times New Roman" isBold="true" isItalic="false" isUnderline="false" pdfFontName="TIMESBD.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box leftPadding="3"/>
+	</style>
+	<style name="Bold_Right" hAlign="Right" vAlign="Middle" isBlankWhenNull="true" fontName="Times New Roman" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="TIMESBD.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box rightPadding="3"/>
+	</style>
+	<style name="Bold_Center" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Times New Roman" isBold="true" isItalic="false" isUnderline="false" pdfFontName="TIMESBD.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+	<style name="Italic_Left" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Times New Roman" isBold="false" isItalic="true" isUnderline="false" pdfFontName="TIMESI.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box leftPadding="3"/>
+	</style>
+	<style name="Italic_Right" hAlign="Right" vAlign="Middle" isBlankWhenNull="true" fontName="Times New Roman" isBold="false" isItalic="true" isUnderline="false" pdfFontName="TIMESI.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box rightPadding="3"/>
+	</style>
+	<style name="Italic_Center" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Times New Roman" isBold="false" isItalic="true" isUnderline="false" pdfFontName="TIMESI.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+	<style name="Nomal_Left" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Times New Roman" isBold="false" isItalic="false" isUnderline="false" pdfFontName="TIMES.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box leftPadding="3"/>
+	</style>
+	<style name="Nomal_Right" hAlign="Right" vAlign="Middle" isBlankWhenNull="true" fontName="Times New Roman" isBold="false" isItalic="false" isUnderline="false" pdfFontName="TIMES.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box rightPadding="3"/>
+	</style>
+	<style name="Nomal_Center" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Times New Roman" isBold="false" isItalic="false" isUnderline="false" pdfFontName="TIMES.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+	<style name="BoldItalic_Left" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Times New Roman" isBold="true" isItalic="true" isUnderline="false" pdfFontName="TIMESBI.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box leftPadding="3"/>
+	</style>
+	<style name="BoldItalic_Right" hAlign="Right" vAlign="Middle" isBlankWhenNull="true" fontName="Times New Roman" isBold="true" isItalic="true" isUnderline="false" pdfFontName="TIMESBI.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box rightPadding="3"/>
+	</style>
+	<style name="BoldItalic_Center" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Times New Roman" isBold="true" isItalic="true" isUnderline="false" pdfFontName="TIMESBI.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+	<style name="Underline_Left" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="Times New Roman" isBold="false" isItalic="false" isUnderline="true" pdfFontName="TIMESBI.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box leftPadding="3"/>
+	</style>
+	<style name="Underline_Right" hAlign="Right" vAlign="Middle" isBlankWhenNull="true" fontName="Times New Roman" isBold="false" isItalic="false" isUnderline="true" pdfFontName="TIMESBI.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box rightPadding="3"/>
+	</style>
+	<style name="Underline_Center" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="Times New Roman" isBold="false" isItalic="false" isUnderline="true" pdfFontName="TIMESBI.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+	<parameter name="keySearch" class="java.lang.String"/>
+	<parameter name="sysGroupCode" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+  s.CODE sysGroupCode,
+  s.NAME sysGroupName,
+  (s.CODE
+  ||'-'
+  || s.NAME) text,
+  m.GOODS_CODE goodsCode,
+  m.GOODS_NAME goodsName,
+  m.CAT_UNIT_NAME catUnitName,
+  SUM(m.AMOUNT) amount,
+  m.IMPORT_DATE importDate,
+  m.serial serial,
+  c.name stockName
+FROM
+  CAT_STOCK c
+LEFT JOIN MER_ENTITY m
+ON
+  c.CAT_STOCK_ID = m.STOCK_ID
+LEFT JOIN CTCT_CAT_OWNER.SYS_GROUP s
+ON
+  c.SYS_GROUP_ID = s.SYS_GROUP_ID
+WHERE
+  c.TYPE           = 4
+AND c.LEVEL_STOCK IN (1,2,3)
+AND
+  (
+    m.STATUS = 4
+  OR
+    (
+      m.MER_ENTITY_ID IN
+      (
+        SELECT
+          MER_ENTITY_ID
+        FROM
+          STOCK_TRANS_DETAIL_SERIAL
+        WHERE
+          STOCK_TRANS_ID IN
+          (
+            SELECT
+              STOCK_TRANS_ID
+            FROM
+              STOCK_TRANS
+            WHERE
+              TYPE             = 2
+            AND BUSINESS_TYPE IN (8,12)
+            AND CONFIRM       !=1
+            AND STATUS         = 2
+          )
+      )
+    )
+  OR
+    (
+      m.MER_ENTITY_ID IN
+      (
+        SELECT
+          MER_ENTITY_ID
+        FROM
+          STOCK_TRANS_DETAIL_SERIAL
+        WHERE
+          STOCK_TRANS_ID IN
+          (
+            SELECT
+              STOCK_TRANS_ID
+            FROM
+              STOCK_TRANS
+            WHERE
+              TYPE                  = 2
+            AND BUSINESS_TYPE       = 4
+            AND STATUS              = 2
+            AND STOCK_TRANS_ID NOT IN
+              (
+                SELECT
+                  FROM_STOCK_TRANS_ID
+                FROM
+                  STOCK_TRANS
+              )
+          )
+      )
+    )
+  )
+AND (CASE WHEN $P{sysGroupCode} is not null and upper(s.CODE) LIKE upper($P{sysGroupCode}) THEN 1
+          WHEN $P{sysGroupCode} is null THEN 1
+                             ELSE 0 END)=1
+AND (CASE WHEN $P{keySearch} is not null and (
+    upper(m.GOODS_CODE) LIKE upper($P{keySearch})
+  OR upper(m.GOODS_NAME) LIKE upper($P{keySearch}) ESCAPE '&'
+  ) THEN 1
+          WHEN $P{keySearch} is null THEN 1
+                             ELSE 0 END)=1
+GROUP BY
+  s.CODE,
+  s.NAME,
+  m.GOODS_CODE,
+  m.GOODS_NAME,
+  m.CAT_UNIT_NAME,
+  m.IMPORT_DATE,
+  m.serial,
+  c.name
+ORDER BY
+  s.CODE,
+  s.NAME,
+  m.GOODS_CODE,
+  m.GOODS_NAME,
+  m.CAT_UNIT_NAME,
+  m.IMPORT_DATE,
+  m.serial,
+  c.name]]>
+	</queryString>
+	<field name="text" class="java.lang.String">
+		<fieldDescription><![CDATA[text]]></fieldDescription>
+	</field>
+	<field name="goodsCode" class="java.lang.String">
+		<fieldDescription><![CDATA[goodsCode]]></fieldDescription>
+	</field>
+	<field name="goodsName" class="java.lang.String">
+		<fieldDescription><![CDATA[goodsName]]></fieldDescription>
+	</field>
+	<field name="catUnitName" class="java.lang.String">
+		<fieldDescription><![CDATA[catUnitName]]></fieldDescription>
+	</field>
+	<field name="amount" class="java.lang.Double">
+		<fieldDescription><![CDATA[amount]]></fieldDescription>
+	</field>
+	<field name="serial" class="java.lang.String">
+		<fieldDescription><![CDATA[serial]]></fieldDescription>
+	</field>
+	<field name="stockName" class="java.lang.String">
+		<fieldDescription><![CDATA[stockName]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="165" splitType="Stretch">
+			<staticText>
+				<reportElement style="Bold_Center" x="0" y="11" width="301" height="40" uuid="1c7a9db8-3331-47a7-8dec-42ad61dcb9bf"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="14" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[TỔNG CÔNG TY CỔ PHẦN CÔNG TRÌNH VIETTEL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Bold_Center" x="301" y="0" width="254" height="30" uuid="87b5afc6-2f86-4e84-99f1-762899ecf147"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="13" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Bold_Center" x="317" y="31" width="221" height="20" uuid="00954ca2-175f-4a2a-b289-78916167fe88"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true" isUnderline="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ĐỘC LẬP - TỰ DO - HẠNH PHÚC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Bold_Center" x="10" y="86" width="530" height="35" uuid="a272a1f2-4f56-4fd1-b21d-b06428956b8c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="20" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[BÁO CÁO HÀNG TỒN KHO CHI TIẾT]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Italic_Center" x="145" y="121" width="249" height="30" uuid="17523b4e-ca78-405a-aa33-00b7834b1aac"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ngày lập báo cáo: " + new SimpleDateFormat("dd/MM/yyyy").format(new Date())]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="44" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement style="Bold_Center" mode="Opaque" x="285" y="18" width="128" height="43" backcolor="#BDD7EE" uuid="52471885-7466-448f-bd2d-c5d6c9b2a838"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Tên vật tư]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Bold_Center" mode="Opaque" x="0" y="18" width="20" height="43" backcolor="#BDD7EE" uuid="fb72f532-f25b-409e-8194-b7b3c5511276"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[TT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Bold_Center" mode="Opaque" x="239" y="18" width="46" height="43" backcolor="#BDD7EE" uuid="fe40f07d-ba20-42a5-8886-3db750b20d03"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Mã vật tư]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Bold_Center" mode="Opaque" x="413" y="18" width="42" height="43" backcolor="#BDD7EE" uuid="cbde41a7-59fb-4035-9f50-97aaf4550085"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Đơn vị tính]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Bold_Center" mode="Opaque" x="20" y="18" width="125" height="43" backcolor="#BDD7EE" uuid="de55cfcd-61f4-414a-983d-b80db43b916e"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Đơn vị]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Bold_Center" mode="Opaque" x="505" y="18" width="50" height="43" backcolor="#BDD7EE" uuid="84fb855c-6acc-4328-b828-f255fb7bde1f"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Số lượng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Bold_Center" mode="Opaque" x="145" y="18" width="94" height="43" backcolor="#BDD7EE" uuid="1b55dc92-b56a-4d37-9bec-6b72435eb521"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Kho TTKT/NV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Bold_Center" mode="Opaque" x="455" y="18" width="50" height="43" backcolor="#BDD7EE" uuid="35086a33-56c8-4d15-80db-543892355467"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Serial]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="55" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement style="Nomal_Left" x="285" y="0" width="128" height="55" forecolor="#000000" uuid="7e7077f1-c97a-436e-9c2d-ebe963f9e959"/>
+				<box>
+					<pen lineColor="#000000"/>
+					<topPen lineWidth="0.5" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{goodsName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Nomal_Center" x="0" y="0" width="20" height="55" forecolor="#000000" uuid="afb7385f-780d-434d-bb03-538e56202385"/>
+				<box>
+					<pen lineColor="#000000"/>
+					<topPen lineWidth="0.5" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Nomal_Center" x="239" y="0" width="46" height="55" forecolor="#000000" uuid="a3741a2a-35df-49c9-b303-41ede2ed2c6a"/>
+				<box>
+					<pen lineColor="#000000"/>
+					<topPen lineWidth="0.5" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{goodsCode}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Nomal_Left" x="20" y="0" width="125" height="55" forecolor="#000000" uuid="7128be50-73d6-4917-807c-5e1097a11220"/>
+				<box>
+					<pen lineColor="#000000"/>
+					<topPen lineWidth="0.5" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{text}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Nomal_Center" x="505" y="0" width="50" height="55" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="c5e7f982-1094-4467-a057-f03ffe26cdd0"/>
+				<box>
+					<pen lineColor="#000000"/>
+					<topPen lineWidth="0.5" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Nomal_Center" x="413" y="0" width="42" height="55" forecolor="#000000" uuid="be626a95-246b-449c-9f6f-44473df25c8d"/>
+				<box>
+					<pen lineColor="#000000"/>
+					<topPen lineWidth="0.5" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{catUnitName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Nomal_Center" x="145" y="0" width="94" height="55" forecolor="#000000" uuid="470d02d8-1106-4c58-9d76-9e0607b2532c"/>
+				<box>
+					<pen lineColor="#000000"/>
+					<topPen lineWidth="0.5" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stockName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Nomal_Center" x="455" y="0" width="50" height="55" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="7852736e-d8d6-4c07-b46a-2fcc1c59f5b2"/>
+				<box>
+					<pen lineColor="#000000"/>
+					<topPen lineWidth="0.5" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{serial}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,44 @@
+@startuml{API_レポート_レポート削除.png}
+title [レポートAPI_レポート削除]
+hide footbox
+
+boundary 画面 as view
+participant レポートAPI as api_reports #cyan
+'database ユーザープール as user_pools <<cognito>> #purple
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database レポート as table_reports <<dynamodb>> #royalblue
+database 組織タスク as table_org_task <<dynamodb>> #royalblue
+database 組織タスクトピック as topic_org_task <<sns>> #gold
+database 組織タスクキュー as queue_org_task <<sqs>> #gold
+’database レポートストレージ as storage <<s3>> #crimson
+
+view -> api_reports :DELETE /organizations/{organization_id}/projects/{project_id}/reports/{report_id}
+activate api_reports
+    api_reports -> api_reports :メールアドレス取得
+    |||
+    ref over api_reports, table_affiliation :アクセス権限チェック
+    |||
+    api_reports -> api_reports :レポート削除
+    activate api_reports
+        api_reports -> table_reports :レコード削除
+        table_reports --> api_reports
+        |||
+        group レポートファイル遅延削除準備
+            api_reports -> table_org_task :レコード作成
+            table_org_task --> api_reports
+            api_reports -> topic_org_task :レポートファイル削除メッセージ追加
+            topic_org_task --> api_reports
+            |||
+        end
+        group 実装対象外
+            topic_org_task -> queue_org_task :メッセージ送信
+            |||
+        end
+        api_reports --> api_reports
+    deactivate api_reports
+    |||
+    api_reports -> api_reports :レスポンス作成
+    api_reports --> view :204
+deactivate api_reports
+
+@enduml

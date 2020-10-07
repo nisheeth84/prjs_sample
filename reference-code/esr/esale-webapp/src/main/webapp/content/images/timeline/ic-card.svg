@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23.999" height="23.999" viewBox="0 0 23.999 23.999">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5601" data-name="Rectangle 5601" width="23.999" height="23.999" transform="translate(1524 194.098)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_5597" data-name="Rectangle 5597" width="18" height="14" transform="translate(1528 201.097)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_26109" data-name="Group 26109" transform="translate(-1524 -194.098)">
+    <g id="Group_8422" data-name="Group 8422" clip-path="url(#clip-path)">
+      <g id="Group_8421" data-name="Group 8421" opacity="0.3">
+        <g id="Group_8420" data-name="Group 8420">
+          <g id="Group_8419" data-name="Group 8419" clip-path="url(#clip-path-2)">
+            <g id="Group_8418" data-name="Group 8418">
+              <g id="Group_8417" data-name="Group 8417" clip-path="url(#clip-path-2)">
+                <path id="Path_5207" data-name="Path 5207" d="M1542,215.1h-10a4,4,0,0,1-4-4v-6a4,4,0,0,1,4-4h10a4,4,0,0,1,4,4v6a4,4,0,0,1-4,4"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <path id="Path_5208" data-name="Path 5208" d="M1541,213.1h-10a4,4,0,0,1-4-4v-6a4,4,0,0,1,4-4h10a4,4,0,0,1,4,4v6a4,4,0,0,1-4,4" fill="#fff"/>
+      <rect id="Rectangle_5598" data-name="Rectangle 5598" width="6" height="1" transform="translate(1536 205.097)" fill="#666"/>
+      <rect id="Rectangle_5599" data-name="Rectangle 5599" width="6" height="1" transform="translate(1536 203.097)" fill="#666"/>
+      <rect id="Rectangle_5600" data-name="Rectangle 5600" width="6" height="2" transform="translate(1536 207.097)" fill="#666"/>
+      <path id="Path_5209" data-name="Path 5209" d="M1534,203.6a1.5,1.5,0,1,1-1.5-1.5,1.5,1.5,0,0,1,1.5,1.5" fill="#09f"/>
+      <path id="Path_5210" data-name="Path 5210" d="M1535,209.1h-5v-1a2,2,0,0,1,2-2h1a2,2,0,0,1,2,2Z" fill="#09f"/>
+    </g>
+  </g>
+</svg>

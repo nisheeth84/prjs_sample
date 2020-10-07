@@ -1,0 +1,3443 @@
+swagger: '2.0'
+info:
+  description: プレメンバーズAPI
+  version: 1.0.0
+  title: Premembers API
+host: api.dev.insightwatch.io
+basePath: /
+tags:
+  - name: 組織
+    description: 組織に対する操作を行います。
+  - name: プロジェクト
+    description: プロジェクトに対する操作を行います。
+  - name: AWSアカウント連携
+    description: AWSアカウントとの連携に対する操作を行います。
+  - name: 所属ユーザー
+    description: 組織に所属するユーザーに対する操作を行います。
+  - name: 招待
+    description: 組織へのユーザー招待に対する操作を行います。
+  - name: ユーザー
+    description: 　実行ユーザー自身のユーザー情報に対する操作を行います。
+  - name: レポート
+    description: AWS利用状況レポートに対する操作を行います。
+  - name: チェック
+    description: AWS利用状況チェックに対する操作を行います。
+  - name: セキュリティチェック項目設定
+    description: セキュリティチェック項目に対して評価設定を行います。
+  - name: チェック外部実行設定
+    description: セキュリティチェックを外部から実行する設定を行います。
+schemes:
+  - https
+paths:
+  /myorganizations:
+    get:
+      tags:
+        - 組織
+      summary: 所属組織一覧取得
+      description: 実行ユーザーが所属している組織のリストを取得します。
+      parameters:
+        - in: query
+          name: inviteStatus
+          description: >-
+            実行ユーザーの組織に対する招待状態で取得する組織リストの絞り込みを行います。 <br/>1 : 組織に所属（招待受入済み） <br/>0
+            : 組織に招待されている <br/>-1: 組織への招待を拒否
+          required: true
+          type: integer
+          format: int
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 正常終了。
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AffiliationUserWithOrganization'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  /myorganizations/count:
+    get:
+      tags:
+        - 組織
+      summary: 所属組織数取得
+      description: 実行ユーザーが所属している組織の数を取得します。
+      parameters:
+        - in: query
+          name: inviteStatus
+          description: >-
+            実行ユーザーの組織に対する招待状態で取得する組織数の絞り込みを行います。 <br/>1 : 組織に所属（招待受入済み） <br/>0 :
+            組織に招待されている <br/>-1: 組織への招待を拒否
+          required: true
+          type: integer
+          format: int
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 正常終了。
+          schema:
+            type: object
+            properties:
+              count:
+                type: integer
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  /organizations:
+    post:
+      tags:
+        - 組織
+      summary: 組織作成
+      description: 組織を作成します。作成した組織は実行ユーザーがオーナーとなります。
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: 作成する組織情報。
+          required: true
+          schema:
+            type: object
+            required: 
+              - name
+              - contract
+              - contractStatus
+            properties:
+              name:
+                type: string
+              contract:
+                type: integer
+                enum:
+                  - 0
+              contractStatus:
+                type: integer
+                enum:
+                  - 1
+      produces:
+        - application/json
+      responses:
+        '201':
+          description: 組織作成成功。
+          schema:
+            $ref: '#/definitions/Organization'
+        '400':
+          description: パースエラー。リクエストボディのJSONがパースできません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  '/organizations/{organization_id}':
+    get:
+      tags:
+        - 組織
+      summary: 組織情報取得
+      description: 組織の情報を取得します。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 正常終了。
+          schema:
+            $ref: '#/definitions/Organization'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織に所属している必要があります。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+    delete:
+      tags:
+        - 組織
+      summary: 組織削除
+      description: 組織を削除します。<br> 対象の組織の下位の要素も一緒に削除されます。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '204':
+          description: 削除成功。レスポンスボディなし。
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  '/organizations/{organization_id}/name':
+    put:
+      tags:
+        - 組織
+      summary: 組織名変更
+      description: 組織名を変更します。
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: 'name:組織名'
+          required: true
+          schema:
+            type: object
+            required:
+              - name
+            properties:
+              name:
+                type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 組織名更新成功
+          schema:
+            $ref: '#/definitions/Organization'
+        '400':
+          description: パースエラー。リクエストボディのJSONがパースできません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  '/organizations/{organization_id}/nofitymail/destinations':
+    post:
+      tags:
+        - 組織
+      summary: 組織別通知メール宛先作成
+      description: 組織単位で送信するEメール通知の宛先を設定します。宛先として選択できるのは、プレメンバーズにアカウントを持っているユーザーのみです。
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: メール宛先情報
+          required: true
+          schema:
+            type: object
+            required:
+              - notifyCode
+              - users
+            properties:
+              notifyCode:
+                type: string
+                description: 通知種別を示すコード。現在は'CHECK_CIS'（セキュリティチェック結果通知）固定。
+              users:
+                type: array
+                items: 
+                  type: string
+                  description: 宛先ユーザーのユーザーID
+      responses:
+        '201':
+          description: 宛先作成成功
+          schema:
+            $ref: '#/definitions/OrgMailDestination'
+        '400':
+          description: パースエラー。リクエストボディのJSONがパースできません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+    get:
+      tags:
+        - 組織
+      summary: 組織別通知メール宛先取得
+      description: 組織単位で送信するEメール通知の宛先を取得します。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: query
+          name: notifyCode
+          description: 通知種別を示すコード。現在は'CHECK_CIS'（セキュリティチェック結果通知）固定。
+          required: true
+          type: string
+      responses:
+        '200':
+          description: 正常終了
+          schema:
+            type: array
+            items: 
+              $ref: '#/definitions/OrgMailDestination'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+    delete:
+      tags:
+        - 組織
+      summary: 組織別通知メール宛先削除
+      description: 組織単位で送信するEメール通知の宛先を削除します。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: query
+          name: notifyCode
+          description: 通知種別を示すコード。現在は'CHECK_CIS'（セキュリティチェック結果通知）固定。
+          required: true
+          type: string
+      responses:
+        '204':
+          description: 削除成功。レスポンスボディなし。
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  '/organizations/{organization_id}/projects':
+    get:
+      tags:
+        - プロジェクト
+      summary: プロジェクト一覧取得
+      description: 組織に属するプロジェクトのリストを取得します。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Project'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+    post:
+      tags:
+        - プロジェクト
+      summary: プロジェクト作成
+      description: 組織の下にプロジェクトを作成します。
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: 作成するプロジェクト情報。
+          required: true
+          schema:
+            type: object
+            required:
+              - name
+            properties:
+              name:
+                type: string
+                description: プロジェクト名
+              description:
+                type: string
+                description: 説明
+      produces:
+        - application/json
+      responses:
+        '201':
+          description: プロジェクト作成成功。
+          schema:
+            $ref: '#/definitions/Project'
+        '400':
+          description: パースエラー。リクエストボディのJSONがパースできません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。組織の「オーナー」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  '/organizations/{organization_id}/projects/{project_id}':
+    get:
+      tags:
+        - プロジェクト
+      summary: プロジェクト情報取得
+      description: プロジェクト情報を取得します。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Project'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織に所属している必要があります。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+    patch:
+      tags:
+        - プロジェクト
+      summary: プロジェクト変更
+      description: プロジェクト名、説明を変更します。
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: '変更するプロジェクト情報（name:プロジェクト名、description:説明）'
+          required: true
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                description: プロジェクト名
+              description:
+                type: string
+                description: 説明
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: プロジェクト更新成功
+          schema:
+            $ref: '#/definitions/Project'
+        '400':
+          description: パースエラー。リクエストボディのJSONがパースできません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+    delete:
+      tags:
+        - プロジェクト
+      summary: プロジェクト削除
+      description: プロジェクトを削除します。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+      responses:
+        '204':
+          description: プロジェクト削除成功。レスポンスボディなし。
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  '/organizations/{organization_id}/projects/{project_id}/awscoops':
+    get:
+      tags:
+        - AWSアカウント連携
+      summary: AWSアカウント連携一覧取得
+      description: プロジェクトに属するAWSアカウント連携のリストを取得します。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+        - in: query
+          name: effective
+          description: >-
+            AWSアカウントの連携確認結果による絞り込み。 <br/>1 : 有効（連携確認済み） <br/>0
+            : 連携未確認 <br/>-1: 連携失敗<br/>未指定の場合は絞り込みを行いません。
+          type: integer
+          format: int
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/AWSAccountCoop'
+        '401':
+          description: 認証エラー。認証されていないユーザーです
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織に所属している必要があります。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+    post:
+      tags:
+        - AWSアカウント連携
+      summary: AWSアカウント連携作成
+      description: >-
+        プロジェクトの下に、新たにAWSアカウントとの連携を作成します。 <br/>
+        作成時に外部IDを発行し、レスポンスで返します。<br/>
+        ここでつくられるAWSアカウント連携情報は不完全です。ユーザーはこのAPIのレスポンスの外部IDを使用して自身の管理するAWSアカウントにロールを作成し、
+        その情報でAWSアカウント連携情報を更新して連携を有効化する必要があります。
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '201':
+          description: AWSアカウント連携作成成功。
+          schema:
+            $ref: '#/definitions/AWSAccountCoop'
+        '400':
+          description: パースエラー。リクエストボディのJSONがパースできません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。組織の「オーナー」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  '/organizations/{organization_id}/projects/{project_id}/awscoops/{coop_id}':
+    get:
+      tags:
+        - AWSアカウント連携
+      summary: AWSアカウント連携情報取得
+      description: AWSアカウント連携情報を取得します。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+        - in: path
+          name: coop_id
+          description: AWSアカウント連携ID
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK。
+          schema:
+            $ref: '#/definitions/AWSAccountCoop'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織に所属している必要があります。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+    patch:
+      tags:
+        - AWSアカウント連携
+      summary: AWSアカウント連携変更
+      description: >-
+        AWSアカウント連携情報を更新します。 <br/>
+        <br/>指定されたAWSアカウントに対してロール名としてアクセスを試み、ロールに必要なマネージドポリシーが付与されているか確認します。v1では「ReadOnlyAccess」ポリシーが付与されていることを確認します。
+        <br/>必要なポリシーを持ったロールでアクセスできることが確認されれば、「有効」状態として連携情報を更新します。アクセスに失敗した場合やロールに必要なポリシーが付与されていなかった場合は、「無効」状態として連携情報を更新します。
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+        - in: path
+          name: coop_id
+          description: AWSアカウント連携ID
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: 連携するAWSアカウント情報。
+          required: true
+          schema:
+            type: object
+            required:
+              - awsAccount
+              - roleName
+            properties:
+              awsAccount:
+                type: string
+                description: AWSアカウントID
+              awsAccountName:
+                type: string
+                description: AWSアカウントにつけた名前
+              roleName:
+                type: string
+                description: ロール名
+              description:
+                type: string
+                description: 説明
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/AWSAccountCoop'
+        '400':
+          description: パースエラー。リクエストボディのJSONがパースできません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。組織の「オーナー」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+    delete:
+      tags:
+        - AWSアカウント連携
+      summary: AWSアカウント連携削除
+      description: >-
+        AWSアカウント連携情報を削除します。<br/>AWSアカウントそのものの削除（解約）ではありません。また対象のAWSアカウントに作成した連携用のIAMロールはこの処理では削除されません。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+        - in: path
+          name: coop_id
+          description: AWSアカウント連携ID
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '204':
+          description: 削除成功。レスポンスボディなし。
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。組織の「オーナー」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  '/organizations/{organization_id}/users':
+    get:
+      tags:
+        - 所属ユーザー
+      summary: 所属ユーザー一覧取得
+      description: 組織に所属しているユーザーリストを取得します。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: query
+          name: inviteStatus
+          description: >-
+            ユーザーの組織に対する招待状態で取得するユーザーリストの絞り込みを行います。 <br/>1 : 組織に所属（招待受入済み） <br/>0
+            : 組織に招待されている <br/>-1: 組織への招待を拒否
+          type: integer
+          format: int
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 正常終了。
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AffiliationUser'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織に所属している必要があります。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  '/organizations/{organization_id}/users/{user_id}':
+    delete:
+      tags:
+        - 所属ユーザー
+      summary: 所属ユーザー除外
+      description: >-
+        組織から指定のユーザーを除外します。
+
+        組織のオーナーが自分自身を組織から除外することもできますが、その条件として組織に自分自身以外にオーナー権限を保有するユーザーがいることが必要です。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: user_id
+          description: ユーザーID
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '204':
+          description: 削除成功。レスポンスボディなし。
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。組織の「オーナー」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '412':
+          description: 除外条件を満たしませんでした。組織オーナーが自身を組織から除外しようとしたときに、他にオーナー権限を保有するユーザーがいませんでした。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  '/organizations/{organization_id}/users/{user_id}/authority':
+    put:
+      tags:
+        - 所属ユーザー
+      summary: ユーザー権限変更
+      description: >-
+        ユーザーの所属組織における権限を変更します。 <br/>
+        <br/>組織のオーナーが自分自身をオーナー以外の権限に変更することもできますが、その条件として組織に自分自身以外にオーナー権限を保有するユーザーがいることが必要です。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: user_id
+          description: ユーザーID
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: '組織に対する権限'
+          required: true
+          schema:
+            type: object
+            required: 
+              - authority
+            properties:
+              authority:
+                type: integer
+                enum:
+                  - 3
+                  - 2
+                  - 1
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 権限変更成功
+          schema:
+            $ref: '#/definitions/AffiliationUser'
+        '400':
+          description: パースエラー。リクエストボディのJSONがパースできません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  '/organizations/{organization_id}/invites':
+    post:
+      tags:
+        - 招待
+      summary: ユーザー招待
+      description: |-
+        組織にユーザーを招待します。
+        現在はすでにプレメンバーズにアカウントを持っているユーザーのみ、招待することが可能です。
+        ※まだプレメンバーズにアカウントを持っていないユーザの招待は今後実装予定です。
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: 招待するユーザーのメールアドレスと組織における権限
+          required: true
+          schema:
+            type: object
+            required: 
+              - mailAddress
+              - authority
+            properties:
+              mailAddress:
+                type: string
+                format: email
+                description: メールアドレス
+              authority:
+                type: integer
+                enum:
+                  - 3
+                  - 2
+                  - 1
+      produces:
+        - application/json
+      responses:
+        '201':
+          description: ユーザー招待作成成功
+          schema:
+            $ref: '#/definitions/AffiliationUser'
+        '400':
+          description: パースエラー。リクエストボディのJSONがパースできません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '409':
+          description: 重複エラー。招待したユーザーは既に対象の組織に所属しています。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  '/organizations/{organization_id}/invites/{user_id}/accept':
+    post:
+      tags:
+        - 招待
+      summary: 招待受理
+      description: 組織への招待を受け入れ、組織に所属します。 実行ユーザー自身に対する招待のみこの操作が可能です。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: user_id
+          description: ユーザーID
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '201':
+          description: 招待受け入れ
+          schema:
+            $ref: '#/definitions/AffiliationUser'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。実行ユーザー自分自身への招待のみ受け入れ可能です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  '/organizations/{organization_id}/invites/{user_id}/reject':
+    post:
+      tags:
+        - 招待
+      summary: 招待拒否
+      description: 組織への招待を拒否します。 実行ユーザー自身に対する招待のみこの操作が可能です。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: user_id
+          description: ユーザーID
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '201':
+          description: 招待拒否
+          schema:
+            $ref: '#/definitions/AffiliationUser'
+        '400':
+          description: パースエラー。リクエストボディのJSONがパースできません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。実行ユーザー自分自身への招待のみ拒否可能です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  /myself/mailaddress:
+    put:
+      tags:
+        - ユーザー
+      summary: メールアドレス変更
+      description: 実行ユーザーのメールアドレスを変更します。
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: 変更後のメールアドレス。
+          required: true
+          schema:
+            type: object
+            required:
+              - mailAddress
+            properties:
+              mailAddress:
+                type: string
+                format: email
+                description: メールアドレス
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 正常終了。
+          schema:
+            type: object
+            required:
+              - mailAddress
+            properties:
+              mailAddress:
+                type: string
+                format: email
+                description: メールアドレス
+        '400':
+          description: パースエラー。リクエストボディのJSONがパースできません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  /myself/attribute:
+    get:
+      tags:
+        - ユーザー
+      summary: ユーザー属性情報取得
+      description: 実行ユーザーの属性情報（名前、会社名、部署名）を取得します。
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 正常終了。
+          schema:
+            $ref: '#/definitions/UserAttribute'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+    put:
+      tags:
+        - ユーザー
+      summary: ユーザー属性情報変更
+      description: 実行ユーザーの属性情報（名前、会社名、部署名）を変更します。いずれも任意項目です。
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: ユーザー属性情報。
+          required: true
+          schema:
+            type: object
+            properties:
+              userName:
+                type: string
+                description: ユーザー名
+              companyName:
+                type: string
+                description: 会社名
+              departmentName:
+                type: string
+                description: 部署名
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 正常終了。
+          schema:
+            $ref: '#/definitions/UserAttribute'
+        '400':
+          description: パースエラー。リクエストボディのJSONがパースできません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  /myself/unsubscribe:
+    post:
+      tags:
+        - ユーザー
+      summary: 退会
+      description: |-
+        プレメンバーズから退会します。
+        この操作は退会処理をリクエストするタスクを作成して終了します。 ***退会処理の詳細については要検討***
+      responses:
+        '200':
+          description: OK
+  /organizations/{organization_id}/projects/{project_id}/reports:
+    get:
+      tags:
+        - レポート
+      summary: レポート一覧取得
+      description: プロジェクト配下にあるレポート情報の一覧を取得します。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+      responses:
+        '200':
+          description: 正常終了。
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Report'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織に所属している必要があります。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+    post:
+      tags:
+        - レポート
+      summary: レポート作成
+      description: >-
+        レポートの（メタ）情報を作成します。レスポンスとして作成したレポート情報を返します。<br/>
+        この操作を実行すると、レポート情報の作成とともにAWS利用状況情報収集処理の実行が設定されます。<br/>
+        AWS利用状況情報収集処理終了後に引き続きレポートファイル出力を実行する場合は、リクエストボディのoutputFileTypeに出力したいファイル形式を指定してください（現在は'EXCEL'のみ指定可能）。<br/>
+        レスポンスが戻った時点ではAWS利用状況情報収集、およびレポートファイル出力は完了していません。<br/>
+        それらの処理はリクエスト内容にもとづいて非同期で実行されます。それらの処理状況はレポート情報取得で確認できます。
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: レポート作成情報
+          required: true
+          schema: 
+            type: object
+            required:
+              - name
+              - awsAccounts
+            properties:
+              name:
+                type: string
+                description: レポート名
+              awsAccounts:
+                type: array
+                items:
+                  type: string
+                  description: レポート対象のAWSアカウントID
+              outputFileType:
+                type: string
+                description: レポート出力形式（'EXCEL'）
+      produces:
+        - application/json
+      responses:
+        '201':
+          description: レポート情報作成成功。
+          schema:
+            $ref: '#/definitions/Report'
+        '400':
+          description: パースエラー。リクエストボディのJSONがパースできません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」または「編集者」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  /organizations/{organization_id}/projects/{project_id}/reports/{report_id}:
+    get:
+      tags:
+        - レポート
+      summary: レポート情報取得
+      description: レポート情報を取得します。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+        - in: path
+          name: report_id
+          description: レポートID
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 正常終了。
+          schema:
+            $ref: '#/definitions/Report'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織に所属している必要があります。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+    delete:
+      tags:
+        - レポート
+      summary: レポート削除
+      description: >-
+        レポートを削除します。<br/>
+        レポート情報を削除するとともに、出力したレポートファイルの削除処理実行が設定されます。<br/>
+        レスポンスが戻った時点ではレポートファイルの削除は完了していません。それは非同期で実行されます。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+        - in: path
+          name: report_id
+          description: レポートID
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '204':
+          description: 正常終了。
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」または「編集者」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  /organizations/{organization_id}/projects/{project_id}/reports/{report_id}/output:
+    post:
+      tags:
+        - レポート
+      summary: レポートファイル出力
+      description: >-
+        レポートファイル出力処理実行を設定します。<br/>
+        事前にレポートに必要なAWS利用状況情報収集処理が完了している必要があります。<br/>
+        レスポンスが戻った時点ではレポートファイル出力は完了していません。<br/>
+        それはリクエスト内容にもとづいて非同期で実行されます。その処理状況はレポート情報取得で確認できます。
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+        - in: path
+          name: report_id
+          description: レポートID
+          required: true
+          type: string
+        - in: query
+          name: fileType
+          description: レポートファイル形式（'EXCEL'）
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '201':
+          description: レポート出力処理設定成功。
+          schema:
+            type: object
+            required:
+              - jobId
+            properties:
+              jobId:
+                type: string
+                description: レポート出力ジョブID
+        '400':
+          description: パースエラー。リクエストボディのJSONがパースできません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」または「編集者」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '409':
+          description: 指定した形式のレポートファイルは既に出力済みです。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+    get:
+      tags:
+        - レポート
+      summary: レポートファイルURL取得
+      description: >-
+        レポートファイルをダウンロードする署名付きURLを取得します。
+        URLには有効期限があります（1時間）。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+        - in: path
+          name: report_id
+          description: レポートID
+          required: true
+          type: string
+        - in: query
+          name: fileType
+          description: レポートファイル形式（'EXCEL'）
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 正常終了。
+          schema:
+            type: object
+            required:
+              - URL
+            properties:
+              URL:
+                type: string
+                description: レポートファイルダウンロードURL
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織に所属している必要があります。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  /check/securitycheck/{organization_id}/{project_id}/results:
+    post:
+      tags:
+        - チェック
+      summary: セキュリティチェック実行
+      description: >-
+        セキュリティチェックの（メタ）情報を作成します。レスポンスとして作成したチェック情報を返します。<br/>
+        この操作を実行すると、チェック情報の作成とともにセキュリティチェック処理の実行が設定されます。<br/>
+        レスポンスが戻った時点ではセキュリティチェック処理は完了していません。<br/>
+        チェック処理はリクエスト内容にもとづいて非同期で実行されます。それらの処理状況はセキュリティチェック結果履歴一覧取得で確認できます。<br/>
+        チェック処理は指定したプロジェクトに連携されているAWSアカウントを対象として実行されます。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+        - in: query
+          name: reportLang
+          description: >-
+            チェック結果レポートの出力言語を指定します。<br/>
+            ・'ja' : 日本語<br/>
+            ・'en' : 英語<br/>
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '201':
+          description: チェック情報作成成功。
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+                description: チェック履歴ID（UUID）
+              organizationId:
+                type: string
+                description: 組織ID（UUID）
+              projectId:
+                type: string
+                description: プロジェクトID（UUID）
+              checkCode:
+                type: string
+                description: チェック処理の種別を示すコード。セキュリティチェックは'CHECK_SECURITY'
+              checkStatus:
+                type: integer
+                enum:
+                  - 0
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  - 5
+                  - 6
+                description: >-
+                  レポート生成状態
+                    0：待機中
+                    1：チェック実行中
+                    2：チェック実行完了
+                    3：集計中
+                    4：集計完了
+                    5: レポート出力中
+                    6: レポート出力完了
+              errorCode:
+                type: string
+                description: エラー発生時の種別を示すコード。正常時はなし
+              executedType:
+                type: string
+                enum:
+                   - 'AUTO'
+                   - 'MANUAL'
+                description: >-
+                  実行種別
+                    'AUTO': 定期（自動）実行
+                    'MANUAL': 手動実行
+              executedDateTime:
+                type: string
+                format: 'YYYYY-MM-DD hh:mm:ss.sss'
+                description: チェック実行日時
+              createdAt:
+                type: string
+                format: 'YYYYY-MM-DD hh:mm:ss.sss'
+                description: 作成日時
+              updatedAt:
+                type: string
+                format: 'YYYYY-MM-DD hh:mm:ss.sss'
+                description: 更新日時
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」または「編集者」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+    get:
+      tags:
+        - チェック
+      summary: セキュリティチェック結果詳細情報取得
+      description: >-
+        CISベンチマークに基づくチェック項目をはじめとした、セキュリティチェック結果の詳細情報を取得します。<br/>
+        結果が「異常（注意・重要）」と判定されたチェック項目の情報、および「異常」と判定された原因となるリソース情報が取得できます。
+        また、チェック中にエラーが発生したリソースがある（かつ処理を中断せずに継続した）チェック項目も取得されます。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+        - in: query
+          name: groupFilter
+          description: >-
+            セキュリティチェックグループを指定して取得する結果を絞り込みを行います。<br/>
+            ・'CIS' : CISベンチマークに基づくチェック結果を取得します。<br/>
+            ・'ASC' : AWSセキュリティチェックリストに基づくチェック結果を取得します。<br/>
+            ・'IBP' : IAMベストプラクティスに基づくチェック結果を取得します。<br/>
+            <br/>
+            未指定の場合は全てのチェック結果を取得します。
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 正常終了。
+          schema:
+            type: array
+            items: 
+              $ref: '#/definitions/SecurityCheckResultItem'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象のチェック結果を所有する組織に所属している必要があります。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  /check/securitycheck/{organization_id}/{project_id}/results/history:
+    get:
+      tags:
+        - チェック
+      summary: セキュリティチェック結果履歴一覧取得
+      description: >-
+        セキュリティチェック結果の履歴の一覧を取得します。<br/>
+        チェック結果の履歴は30日間保管されます。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 正常終了。
+          schema:
+            type: array
+            items: 
+              $ref: '#/definitions/SecurityCheckHistory'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  /check/securitycheck/results/summary:
+    get:
+      tags:
+        - チェック
+      summary: セキュリティチェック結果サマリー取得
+      description: >-
+        セキュリティチェック結果のサマリーを取得します。<br/>
+        サマリーには、実行ユーザーが所属する全ての組織内のプロジェクトに連携されたAWSアカウントを対象とした最新のチェック結果が含まれます。
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 正常終了。
+          schema:
+            type: object
+            required:
+              - okCount
+              - ngCount
+              - criticalCount
+              - managedCount
+              - errorCount
+            properties:
+              okCount:
+                type: integer
+                description: チェック結果が「正常」の件数
+              ngCount:
+                type: integer
+                description: チェック結果が「異常（注意）」の件数
+              criticalCount:
+                type: integer
+                description: チェック結果が「異常（重要）」の件数
+              managedCount:
+                type: integer
+                description: メンバーズ管理となるチェック項目の件数
+              errorCount:
+                type: integer
+                description: チェック処理中にエラーとなった項目数
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  /check/securitycheck/results/awsaccountsummary:
+    get:
+      tags:
+        - チェック
+      summary: セキュリティチェック結果AWSアカウントサマリー取得
+      description: >-
+        セキュリティチェック結果のAWSアカウントごとのサマリーを取得します。
+        サマリーには、実行ユーザーが所属する全ての組織内のプロジェクトに連携されたAWSアカウントを対象とした最新のチェック結果が含まれます。
+      parameters:
+        - in: query
+          name: awsAccount
+          description: >-
+            取得するサマリーを指定したAWSアカウントのチェック結果サマリーだけに絞り込みます。
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 正常終了。
+          schema:
+            type: array
+            items: 
+              $ref: '#/definitions/SecurityCheckResult'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  /check/securitycheck/results/{history_id}/output:
+    get:
+      tags:
+        - チェック
+      summary: セキュリティチェック結果レポートファイルURL取得
+      description: >-
+        チェック結果レポートファイルをダウンロードする署名付きURLを取得します。
+        URLには有効期限があります（1時間）。
+      parameters:
+        - in: path
+          name: history_id
+          description: チェック結果履歴ID
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 正常終了。
+          schema:
+            type: object
+            required:
+              - URL
+            properties:
+              URL:
+                type: string
+                description: チェック結果レポートファイルダウンロードURL
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象のチェック結果を所有する組織に所属している必要があります。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  '/check/securitycheck/{organization_id}/{project_id}/{coop_id}/itemsettings':
+    get:
+      tags:
+        - セキュリティチェック項目設定
+      summary: セキュリティチェック項目設定一覧取得
+      description: >-
+        チェック項目に対して設定されている「チェック項目除外」「マニュアル評価」等の情報を取得します。<br/>
+        また、合わせてアカウントがメンバーズだった場合、マネージド項目も返却します。<br/>
+        権限は対象アカウントが所属しているの組織のオーナーもしくは編集者。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+        - in: path
+          name: coop_id
+          description: AWSアカウント連携ID
+          required: true
+          type: string
+        - in: query
+          name: groupFilter
+          description: >-
+            セキュリティチェックグループを指定して取得する結果を絞り込みを行います。<br/> ・'CIS' :
+            CISベンチマークに基づくチェック結果を取得します。<br/> ・'ASC' :
+            AWSセキュリティチェックリストに基づくチェック結果を取得します。<br/> ・'IBP' :
+            IAMベストプラクティスに基づくチェック結果を取得します。<br/> <br/>
+            未指定の場合は全てのチェック結果を取得します。
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 正常終了。
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SecurityItemSetting'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」または「編集者」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  '/check/securitycheck/{organization_id}/{project_id}/{coop_id}/exclusionitems/{check_item_code}':
+    get:
+      tags:
+        - セキュリティチェック項目設定
+      summary: セキュリティチェック項目除外情報取得
+      description: チェック項目単位で設定されている除外設定を取得します。権限は対象アカウントが所属しているの組織のオーナーもしくは編集者。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+        - in: path
+          name: coop_id
+          description: AWSアカウント連携ID
+          required: true
+          type: string
+        - in: path
+          name: check_item_code
+          description: チェック項目コード
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK。
+          schema:
+            $ref: '#/definitions/ExclusionItem'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」または「編集者」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+    post:
+      tags:
+        - セキュリティチェック項目設定
+      summary: セキュリティチェック項目除外情報登録
+      description: チェック項目単位で除外設定を登録します。<br/ >  すでに登録されていた場合、上書きします。権限は対象アカウントが所属しているの組織のオーナーもしくは編集者。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+        - in: path
+          name: coop_id
+          description: AWSアカウント連携ID
+          required: true
+          type: string
+        - in: path
+          name: check_item_code
+          description: チェック項目コード
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: 登録するチェック項目除外の情報
+          required: true
+          schema:
+            type: object
+            properties:
+              exclusionComment:
+                type: string
+                description: チェック項目除外コメント
+      produces:
+        - application/json
+      responses:
+        '201':
+          description: チェック項目除外登録成功
+          schema:
+            $ref: '#/definitions/ExclusionItem'
+        '400':
+          description: パースエラー。リクエストボディのJSONがパースできません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」または「編集者」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+    delete:
+      tags:
+        - セキュリティチェック項目設定
+      summary: セキュリティチェック項目除外情報削除
+      description: チェック項目単位で設定されている除外設定を削除します。権限は対象アカウントが所属しているの組織のオーナーもしくは編集者。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+        - in: path
+          name: coop_id
+          description: AWSアカウント連携ID
+          required: true
+          type: string
+        - in: path
+          name: check_item_code
+          description: チェック項目コード
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '204':
+          description: 削除成功。レスポンスボディなし。
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」または「編集者」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  '/check/securitycheck/{organization_id}/{project_id}/{coop_id}/assessments/{check_item_code}':
+    get:
+      tags:
+        - セキュリティチェック項目設定
+      summary: マニュアル評価結果取得
+      description: マニュアル評価結果設定を取得します。権限は対象アカウントが所属しているの組織のオーナーもしくは編集者。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+        - in: path
+          name: coop_id
+          description: AWSアカウント連携ID
+          required: true
+          type: string
+        - in: path
+          name: check_item_code
+          description: チェック項目コード
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK。
+          schema:
+            $ref: '#/definitions/AssessmentItem'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」または「編集者」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+    post:
+      tags:
+        - セキュリティチェック項目設定
+      summary: マニュアル評価結果登録
+      description: チェック項目単位でマニュアル評価設定を登録します。<br/ > すでに登録されていた場合、上書きします。権限は対象アカウントが所属しているの組織のオーナーもしくは編集者。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+        - in: path
+          name: coop_id
+          description: AWSアカウント連携ID
+          required: true
+          type: string
+        - in: path
+          name: check_item_code
+          description: チェック項目コード
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: 登録するチェック項目除外の情報
+          required: true
+          schema:
+            type: object
+            properties:
+              assessmentComment:
+                type: string
+                description: チェック項目除外コメント
+      produces:
+        - application/json
+      responses:
+        '201':
+          description: チェック項目除外登録成功
+          schema:
+            $ref: '#/definitions/AssessmentItem'
+        '400':
+          description: パースエラー。リクエストボディのJSONがパースできません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」または「編集者」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+    delete:
+      tags:
+        - セキュリティチェック項目設定
+      summary: マニュアル評価結果削除
+      description: チェック項目単位で設定されているマニュアル評価設定を削除します。権限は対象アカウントが所属しているの組織のオーナーもしくは編集者。
+      parameters:
+        - in: path
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+        - in: path
+          name: coop_id
+          description: AWSアカウント連携ID
+          required: true
+          type: string
+        - in: path
+          name: check_item_code
+          description: チェック項目コード
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '204':
+          description: 削除成功。レスポンスボディなし。
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」または「編集者」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  '/check/securitycheck/webhooks':
+    get:
+      tags:
+        - チェック外部実行設定
+      summary: Webhook取得
+      description: 組織IDとプロジェクトIDからWebhookを取得します。
+      parameters:
+        - in: query
+          name: organization_id
+          description: 組織ID
+          required: true
+          type: string
+        - in: query
+          name: project_id
+          description: プロジェクトID
+          required: true
+          type: string
+      responses:
+        '200':
+          description: 正常終了。
+          schema:
+            type: object
+            required:
+              - id
+              - webhookPath
+              - userId
+              - enabled
+              - createdAt
+              - updatedAt
+            properties:
+              id:
+                type: string
+                description: Webhook ID
+              webhookPath:
+                type: string
+                description: Webhookパス
+              userId:
+                type: string
+                description: Webhook作成ユーザーID
+              enabled:
+                type: boolean
+                description: >-
+                  有効/無効
+                    true：有効
+                    false：無効
+              createdAt:
+                type: string
+                format: 'YYYYY-MM-DD hh:mm:ss.sss'
+                description: 作成日時
+              updatedAt:
+                type: string
+                format: 'YYYYY-MM-DD hh:mm:ss.sss'
+                description: 更新日時
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+    post:
+      tags:
+        - チェック外部実行設定
+      summary: Webhook作成
+      description: Webhookを作成します。
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: 作成するWebhook情報。
+          required: true
+          schema:
+            type: object
+            required:
+              - organization_id
+              - project_id
+            properties:
+              organization_id:
+                type: string
+              project_id:
+                type: string
+      responses:
+        '201':
+          description: 正常終了。
+          schema:
+            type: object
+            required:
+              - webhookPath
+            properties:
+              webhookPath:
+                type: string
+                description: Webhookパス
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '409':
+          description: 重複エラー。Webhookは既に作成されています。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  '/check/securitycheck/webhooks/{webhook_path}':
+    put:
+      tags:
+        - チェック外部実行設定
+      summary: Webhook更新
+      description: Webhookパスを再作成したり、有効/無効を切り替えます。
+      parameters:
+        - in: path
+          name: webhook_path
+          description: 更新対象のWebhookパス
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: Webhook情報の更新内容。
+          required: true
+          schema:
+            type: object
+            required:
+              - webhookPath
+              - enabled
+            properties:
+              webhookPath:
+                type: string
+                description: Webhookパスを再作成する場合はリセットのためnullを渡す。
+              enabled:
+                type: boolean
+                description: >-
+                  有効/無効
+                    true：有効
+                    false：無効
+      responses:
+        '200':
+          description: 正常終了。
+          schema:
+            type: object
+            required:
+              - id
+              - webhookPath
+              - userId
+              - enabled
+              - createdAt
+              - updatedAt
+            properties:
+              id:
+                type: string
+                description: Webhook ID
+              webhookPath:
+                type: string
+                description: Webhookパス
+              userId:
+                type: string
+                description: Webhook作成ユーザーID
+              enabled:
+                type: boolean
+                description: >-
+                  有効/無効
+                    true：有効
+                    false：無効
+              createdAt:
+                type: string
+                format: 'YYYYY-MM-DD hh:mm:ss.sss'
+                description: 作成日時
+              updatedAt:
+                type: string
+                format: 'YYYYY-MM-DD hh:mm:ss.sss'
+                description: 更新日時
+        '400':
+          description: パースエラー。リクエストボディのJSONがパースできません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+  '/check/securitycheck/{organization_id}/{project_id}/{coop_id}/itemsettings/_copy':
+    post:
+      tags:
+        - セキュリティチェック項目設定
+      summary: セキュリティチェック項目設定コピー
+      description: >-
+        BODYで指定したコピー元のAWSアカウントに設定された項目設定（除外設定、マニュアル評価）をPATHに指定されたコピー先AWSアカウントへコピーします。<br/ > すでに登録があったチェック項目は上書きされます<br/ >権限は対象アカウントが所属しているの組織のオーナーもしくは編集者。
+      parameters:
+        - in: path
+          name: organization_id
+          description: コピー先の組織ID
+          required: true
+          type: string
+        - in: path
+          name: project_id
+          description: コピー先のプロジェクトID
+          required: true
+          type: string
+        - in: path
+          name: coop_id
+          description: コピー先のAWSアカウント連携ID
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: コピー元のID情報
+          required: true
+          schema:
+            type: object
+            properties:
+              copy_source:
+                type: object
+                properties:
+                  organization_id:
+                    type: string
+                    description: コピー元の組織ID
+                  project_id:
+                    type: string
+                    description: コピー元のプロジェクトID
+                  coop_id:
+                    type: string
+                    description: コピー元のAWSアカウント連携ID
+      produces:
+        - application/json
+      responses:
+        '204':
+          description: 項目設定情報のコピーに成功。レスポンスボディなし。
+        '400':
+          description: パースエラー。リクエストボディのJSONがパースできません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: 認証エラー。認証されていないユーザーです。
+          schema:
+            $ref: '#/definitions/UnauthorizedErrorResponse'
+        '403':
+          description: 権限エラー。この操作を実行するために必要な権限がありません。対象の組織の「オーナー」または「編集者」権限が必要です。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '404':
+          description: 対象のリソースが見つかりません。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: バリデーションエラー。リクエストに不正なパラメータが含まれます。
+          schema:
+            $ref: '#/definitions/ValidErrorResponse'
+        '500':
+          description: サーバーで予期しないエラーが発生しました。
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      security:
+        - premembers_auth: []
+securityDefinitions:
+  premembers_auth:
+    type: apiKey
+    name: Authorization
+    in: header
+definitions:
+  Organization:
+    type: object
+    properties:
+      id:
+        type: string
+        description: 組織ID（UUID）
+      name:
+        type: string
+        description: 組織名
+      contract:
+        type: integer
+        description: 組織契約種別
+        enum:
+          - 0
+      contractStatus:
+        type: integer
+        description: 契約状態
+        enum:
+          - 1
+      createdAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 作成日時
+      updatedAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 更新日時
+  AffiliationUser:
+    type: object
+    properties:
+      id:
+        type: string
+        description: ユーザーID（UUID）
+      mailAddress:
+        type: string
+        format: email
+        description: メールアドレス
+      organizationId:
+        type: string
+        description: 組織ID
+      authority:
+        type: integer
+        description: 組織に対する権限
+        enum:
+          - 3
+          - 2
+          - 1
+      invitationStatus:
+        type: integer
+        description: 組織への招待ステータス
+        enum:
+          - 1
+          - 0
+          - -1
+      createdAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 作成日時
+      updatedAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 更新日時
+  AffiliationUserWithOrganization:
+    type: object
+    properties:
+      id:
+        type: string
+        description: ユーザーID（UUID）
+      mailAddress:
+        type: string
+        format: email
+        description: メールアドレス
+      authority:
+        type: integer
+        description: 組織に対する権限
+        enum:
+          - 3
+          - 2
+          - 1
+      invitationStatus:
+        type: integer
+        description: 組織への招待ステータス
+        enum:
+          - 1
+          - 0
+          - -1
+      organization:
+        $ref: '#/definitions/Organization'
+      createdAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 作成日時
+      updatedAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 更新日時
+  OrgMailDestination:
+    type: object
+    required:
+      - organizationId
+      - notifyCode
+      - destinations
+      - createdAt
+      - updatedAt
+    properties:
+      organizationId:
+        type: string
+        description: 組織ID（UUID）
+      notifyCode:
+        type: string
+        description: 通知コード
+      destinations:
+        type: array
+        items:
+          type: object
+          required:
+            - userId
+            - mailAddress
+          properties:
+            userId:
+              type: string
+              description: ユーザーID（UUID）
+            mailAddress:
+              type: string
+              format: email
+              description: メールアドレス
+      createdAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 作成日時
+      updatedAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 更新日時
+  Project:
+    type: object
+    properties:
+      id:
+        type: string
+        description: プロジェクトID（UUID）
+      name:
+        type: string
+        description: プロジェクト名
+      description:
+        type: string
+        description: 説明
+      organizationId:
+        type: string
+        description: プロジェクトが属する組織ID
+      createdAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 作成日時
+      updatedAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 更新日時
+  AWSAccountCoop:
+    type: object
+    properties:
+      id:
+        type: string
+        description: AWSアカウント連携ID（UUID）
+      awsAccount:
+        type: string
+        description: 連携対象のAWSアカウントID
+      awsAccountName:
+        type: string
+        description: AWSアカウントにつけた名前
+      roleName:
+        type: string
+        description: 連携時に使用するロール名
+      externalId:
+        type: string
+        description: ロールに関連付けられた外部ID
+      effective:
+        type: integer
+        description: 有効フラグ
+        enum:
+          - 1
+          - 0
+          - -1
+      members:
+        type: integer
+        description: CMメンバーズ契約アカウントを示すフラグ（1=メンバーズ契約アカウント）
+        enum:
+          - 0
+          - 1
+      projectId:
+        type: string
+        description: AWSアカウントが属するプロジェクトID
+      organizationId:
+        type: string
+        description: AWSアカウントが属する組織ID
+      description:
+        type: string
+        description: 説明
+      createdAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 作成日時
+      updatedAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 更新日時
+  UserAttribute:
+    type: object
+    properties:
+      id:
+        type: string
+        description: ユーザーID
+      userName:
+        type: string
+        description: ユーザー名
+      companyName:
+        type: string
+        description: 会社名
+      depertmentName:
+        type: string
+        description: 部署名
+      createdAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 作成日時
+      updatedAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 更新日時
+  Report:
+    type: object
+    properties:
+      id:
+        type: string
+        description: レポートID（UUID）
+      name:
+        type: string
+        description: レポート名
+      generateUser:
+        type: string
+        format: email
+        description: 作成者のメールアドレス
+      awsAccounts:
+        type: array
+        items:
+          type: string
+          description: レポート作成対象のAWSアカウント
+      status:
+        type: integer
+        enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+        description: >-
+          レポート生成状態
+            0：待機中
+            1：情報収集中
+            2：情報収集完了
+            3：情報変換中
+            4：情報変換完了
+      errorCode:
+        type: string
+        description: エラー発生時の種別を示すコード。正常時はなし
+      jsonOutputTime:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: レポート構成用JSONファイルを出力した日時
+#      htmlOutputStatus:
+#        type: integer
+#        enum:
+#          - 0
+#          - 1
+#          - 2
+#          - -1
+#        description: >-
+#          HTML形式レポート出力ステータス
+#            0：未出力
+#            1：出力処理中
+#            2：出力済み
+#            -1: 前回処理が失敗（エラー）
+#      htmlOutputTime:
+#        type: string
+#        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+#        description: HTML形式レポートを出力した日時
+      excelOutputStatus:
+        type: integer
+        enum:
+          - 0
+          - 1
+          - 2
+          - -1
+        description: >-
+          Excel形式レポート出力ステータス
+            0：未出力
+            1：出力処理中
+            2：出力済み
+            -1: 前回処理が失敗（エラー）
+      excelOutputTime:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: Excel形式レポートを出力した日時
+      schemaVersion:
+        type: string
+        description: レポート出力形式のバージョン
+      projectId:
+        type: string
+        description: レポートを作成したプロジェクトのID
+      organizationId:
+        type: string
+        description: レポートを作成した組織のID
+      createdAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 作成日時
+      updatedAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 更新日時
+  SecurityCheckHistory:
+    type: object
+    properties:
+      id:
+        type: string
+        description: チェック履歴ID（UUID）
+      organizationId:
+        type: string
+        description: 組織ID（UUID）
+      projectId:
+        type: string
+        description: プロジェクトID（UUID）
+      checkStatus:
+        type: integer
+        enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+        description: >-
+          レポート生成状態
+            0：待機中
+            1：チェック実行中
+            2：チェック実行完了
+            3：集計中
+            4：集計完了
+            5: レポート出力中
+            6: レポート出力完了
+      errorCode:
+        type: string
+        description: エラー発生時の種別を示すコード。正常時はなし
+      executedType:
+        type: string
+        enum:
+           - 'AUTO'
+           - 'MANUAL'
+        description: >-
+          実行種別
+            'AUTO': 定期（自動）実行
+            'MANUAL': 手動実行
+      executedDateTime:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: チェック実行日時
+  SecurityCheckResult:
+    type: object
+    required:
+      - checkResultId
+      - organizationId
+      - organizationName
+      - projectId
+      - projectName
+      - awsAccountCoopId
+      - awsAccount
+      - okCount
+      - ngCount
+      - criticalCount
+      - managedCount
+      - errorCount
+      - executedDateTime
+      - createdAt
+      - updatedAt
+    properties:
+      checkResultId:
+        type: string
+        description: チェック結果ID（UUID）
+      organizationId:
+        type: string
+        description: 組織ID（UUID）
+      organizationName: 
+        type: string
+        description: 組織名
+      projectId:
+        type: string
+        description: プロジェクトID（UUID）
+      projectName:
+        type: string
+        description: プロジェクト名
+      awsAccountCoopId:
+        type: string
+        description: AWSアカウント連携ID（UUID）
+      awsAccount:
+        type: string
+        description: AWSアカウント
+      awsAccountName:
+        type: string
+        description: AWSアカウントにつけた名前
+      okCount:
+        type: integer
+        description: チェック結果が「正常」の件数
+      ngCount:
+        type: integer
+        description: チェック結果が「異常（注意）」の件数
+      criticalCount:
+        type: integer
+        description: チェック結果が「異常（重要）」の件数
+      managedCount:
+        type: integer
+        description: メンバーズ管理となるチェック項目の件数
+      errorCount:
+        type: integer
+        description: チェック処理中にエラーとなった項目数
+      executedDateTime:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: チェック実行日時
+      createdAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 作成日時
+      updatedAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 更新日時
+  SecurityCheckResultItem:
+    type: object
+    required:
+      - id
+      - checkHistoryId
+      - checkResultId
+      - checkItemCode
+      - organizationName
+      - projectName
+      - awsAccount
+      - checkResult
+      - resources
+      - executedDateTime
+      - createdAt
+      - updatedAt
+    properties:
+      id:
+        type: string
+        description: 個別チェック項目ID
+      checkHistoryId:
+        type: string
+        description: チェック履歴ID
+      checkResultId:
+        type: string
+        description: チェック結果ID
+      checkItemCode:
+        type: string
+        description: チェック項目を示すコード
+      organizationName:
+        type: string
+        description: 組織名
+      projectName:
+        type: string
+        description: プロジェクト名
+      awsAccount:
+        type: string
+        description: チェック対象のAWSアカウント
+      awsAccountName:
+        type: string
+        description: チェック対象のAWSアカウントにつけた名前
+      exclusionFlag:
+        type: integer
+        enum:
+          - 0
+          - 1
+        description: |-
+          チェック項目除外有無
+            0 : 除外設定無し
+            1 : 除外設定有り
+      checkResult:
+        type: integer
+        enum:
+          - 1
+          - 2
+          - 99
+        description: >-
+          チェック結果
+            1 : 異常（注意）
+            2 : 異常（重要）
+            99 : エラー
+      resources:
+        type: array
+        items:
+          type: object
+          required:
+            - region
+            - level
+          properties: 
+            region:
+              type: string
+              description: リソースのリージョン
+            level:
+              type: integer
+              description: 緊急度
+            detectionItem:
+              type: object
+      executedDateTime:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: チェック実行日時
+      createdAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 作成日時
+      updatedAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 更新日時
+  AssessmentItem:
+    type: object
+    properties:
+      assessmentItemId:
+        type: string
+        description: プライマリーキー
+      organizationId:
+        type: string
+        description: 組織ID
+      projectId:
+        type: string
+        description: プロジェクトID
+      awsAccount:
+        type: string
+        description: AWSアカウントID
+      checkItemCode:
+        type: string
+        description: チェック項目コード
+      assessmentComment:
+        type: string
+        description: 手動評価コメント
+      mailAddress:
+        type: string
+        description: メールアドレス
+      createdAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 作成日時
+      updatedAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 更新日時
+  SecurityItemSetting:
+    type: object
+    required:
+      - checkItemCode
+      - managedFlag
+      - exclusionFlag
+      - assessmentFlag
+    properties:
+      checkItemCode:
+        type: string
+        description: チェック項目を示すコード
+      managedFlag:
+        type: integer
+        enum:
+          - 0
+          - 1
+        description: |-
+          マネージド項目有無
+            0 : 対象外
+            1 : マネージド対象項目
+      exclusionFlag:
+        type: integer
+        enum:
+          - 0
+          - 1
+        description: |-
+          チェック項目除外有無
+            0 : 除外設定無し
+            1 : 除外設定有り
+      assessmentFlag:
+        type: integer
+        enum:
+          - -1
+          - 0
+          - 1
+        description: |-
+          マニュアル評価設定有無
+            -1 : 対象外
+            0 : 評価設定無し
+            1 : 評価設定有り
+  ExclusionItem:
+    type: object
+    properties:
+      id:
+        type: string
+        description: チェック項目除外ID(プライマリーキー)
+      organizationId:
+        type: string
+        description: 組織ID
+      projectId:
+        type: string
+        description: プロジェクトID
+      awsAccount:
+        type: string
+        description: AWSアカウント
+      checkItemCode:
+        type: string
+        description: チェック項目コード
+      exclusionComment:
+        type: string
+        description: チェック項目除外コメント
+      mailAddress:
+        type: string
+        description: メールアドレス
+      createdAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 作成日時
+      updatedAt:
+        type: string
+        format: 'YYYYY-MM-DD hh:mm:ss.sss'
+        description: 更新日時
+  ErrorResponse:
+    type: object
+    required:
+      - code
+      - errorId
+      - message
+    properties:
+      code:
+        type: integer
+        description: エラーコード
+      errorId:
+        type: string
+        description: エラーID
+      message:
+        type: string
+        description: エラー概要説明
+      description:
+        type: string
+        description: エラー詳細説明
+  ValidErrorResponse:
+    type: object
+    required:
+      - code
+      - errorId
+      - message
+      - errors
+    properties:
+      code:
+        type: integer
+        description: エラーコード
+      errorId:
+        type: string
+        description: エラーID
+      message:
+        type: string
+        description: エラー概要説明
+      errors:
+        type: array
+        description: バリデーションエラー詳細
+        items:
+          type: object
+          required:
+            - code
+            - field
+            - value
+          properties:
+            code:
+              type: integer
+              description: バリデーションエラーコード
+            field:
+              type: string
+              description: エラーが発生したフィールド
+            value:
+              type: string
+              description: エラーとなったパラメータ値
+            message:
+              type: string
+              description: エラー説明
+  UnauthorizedErrorResponse:
+    type: object
+    required:
+      - message
+    properties:
+      message:
+        type: string
+        description: "Unauthorized"

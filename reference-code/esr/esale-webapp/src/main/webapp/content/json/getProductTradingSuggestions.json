@@ -1,0 +1,793 @@
+{
+  "productTradings": [
+    {
+      "productTradingId": 18,
+      "customerId": 3,
+      "customerName": "KH_Yamato_Ohoho",
+      "productId": 43,
+      "productName": "product 3",
+      "productImageName": null,
+      "productImagePath": "https://ms2-dev-files.s3.ap-northeast-1.amazonaws.com/tenants/mercyrrczkni/service_data/product/10002_organ_20200731112121406.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjECIaDmFwLW5vcnRoZWFzdC0xIkgwRgIhAKNFG8LSBHaZoRsr%2BzBwROhU0tgwV%2B1PQrnmw2Am4l9bAiEApeXQk3VINdNNAcCToApa5Ah7PdaNF58RZgxh52o0h18qgAQI6%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgwwMDgwNzYzNjM1MTYiDHQDWcqMaejor5Ls7irUA6USUBeVC74Feo%2B5JnarpS%2B44WK9NVWz8ohBZinao6igb95J8ErzwTyqpZIieTkyTvY8b5d4ylwO0%2BqKeTvud2uXMvoAGRh0roXpWhx9jlwzTqilP9nhhhKKwdw99x02jCuYnOAsqVv4lFMZQoB2MjLqoMZlMjmZhkm7yP%2BDA50D6qbnp1YrtoODGDwia5%2BY%2FJIu3h8yXknhh8vvwkyGmGE9LiFEgtb%2ByjOmgzl4aOJGjonVeNKIM1WUT1SQd5mH%2F0qSFpYbFXFv9zhzMccQIiNeQzLhrCLBBs29tarjzZJgft7i56b36K6KumTqUXhxdz0bYDRDNDvVoDdH97hYCw%2FX%2BkWRp%2FATvHD5D%2Bii1Lah2xDxssoj0QrfB6khlNPQHseOm%2F3QBNgKV7Xls33w8ZMLExoIX7fxPwOuApNPnmul6SHCbLzkxZB%2FxV5e89XAoq01dm%2BpcLyjcggcX%2FO0JnSsVOXKrLe37gBJPJzM7REdr4YDSitD76MYHvkg6IXf2LSYfmL5s2%2F6WHjPDeJM8zGZbcucqz0Cte1DDWc6jWZYG6Xzq2tCEvj8m5dvSfqOJaZTY5VZZDEkhlndfDRUzt%2FUOifJi94wm7gtPdInuEsCLEhyCTDczLT5BTruAXq%2BZAitym5o5AvzI%2BH%2FoWy2E3LSlEI0r6RzTKQ2WmT3SRt4sfKc6c92dFfOlkqRERPyL4Fplt2%2BYokdvhc4xhrFld7Of%2FZheqK0lHzyVZeZ3HzbdJC4TRfkcVnTKwEtc%2FeqzX3SNj3jnwKSPchs%2FvYdl%2FBfNNkVeA4cIts6oKckWC6yDaR3W1kNTeOXC3REFpq4c7uaGJYk7NZJio0vCH6Ilz4sMMu4qXW%2FEAQlScBomPXS7RzujB59uMBkjaviMiZrCYcaCeeSoX%2Be0Z7twQupj6%2BNzGBNQ3MGocCUCMKt9FsSfVSYz39L5v%2FHnGM%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200807T132838Z&X-Amz-SignedHeaders=host&X-Amz-Expires=1000&X-Amz-Credential=ASIAQDYLDQ36LLYILLUX%2F20200807%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Signature=29c4763b441de33a72389086075519218f20cf900f2eab6c72ef20c45809c743",
+      "productCategoryId": null,
+      "productCategoryName": "{\"en_us\": \"productCategoryName 1\", \"ja_jp\": \"productCategoryName 2\", \"zh_cn\": \"productCategoryName 3\"}",
+      "memoProduct": "memoProduct 11111",
+      "quantity": 0,
+      "price": 0,
+      "amount": 0,
+      "employeeId": 1,
+      "employeeSurname": "確保する",
+      "employeeName": "確保する",
+      "employeeIcon": null,
+      "endPlanDate": "2020-08-26T00:00:00Z",
+      "orderPlanDate": "2020-08-24T00:00:00Z",
+      "progressName": "{\"en_us\": \"\", \"ja_jp\": \"j\", \"zh_cn\": \"\"}",
+      "memo": "Memo of product tradings 111111",
+      "productTradingData": [
+        {
+          "key": "memo",
+          "value": null,
+          "fieldType": null
+        },
+        {
+          "key": "price",
+          "value": "0",
+          "fieldType": null
+        },
+        {
+          "key": "amount",
+          "value": "0",
+          "fieldType": null
+        },
+        {
+          "key": "quantity",
+          "value": "0",
+          "fieldType": null
+        },
+        {
+          "key": "date_10004",
+          "value": "",
+          "fieldType": null
+        },
+        {
+          "key": "file_10003",
+          "value": "[]",
+          "fieldType": null
+        },
+        {
+          "key": "file_10004",
+          "value": "[]",
+          "fieldType": null
+        },
+        {
+          "key": "link_10004",
+          "value": "{\"url_text\":\"\",\"sort_value\":\"\",\"url_target\":\"\"}",
+          "fieldType": null
+        },
+        {
+          "key": "text_10003",
+          "value": "mmmm",
+          "fieldType": null
+        },
+        {
+          "key": "email_10003",
+          "value": "",
+          "fieldType": null
+        },
+        {
+          "key": "checkbox_10003",
+          "value": "[]",
+          "fieldType": null
+        },
+        {
+          "key": "pulldown_10006",
+          "value": "10015",
+          "fieldType": null
+        },
+        {
+          "key": "textarea_10003",
+          "value": "kkkkk",
+          "fieldType": null
+        },
+        {
+          "key": "date_time_10005",
+          "value": "",
+          "fieldType": null
+        },
+        {
+          "key": "date_time_10006",
+          "value": "",
+          "fieldType": null
+        },
+        {
+          "key": "calculation_10003",
+          "value": "-149",
+          "fieldType": null
+        },
+        {
+          "key": "phone_number_10003",
+          "value": "",
+          "fieldType": null
+        },
+        {
+          "key": "multiple_pulldown_10004",
+          "value": "[10011, 10012, 10013]",
+          "fieldType": null
+        }
+      ],
+      "updatedDate": "2020-08-07T09:00:19.046130Z",
+      "idHistoryChoice": null
+    },
+    {
+      "productTradingId": 5,
+      "customerId": 1,
+      "customerName": "customer name 1 update",
+      "productId": 42,
+      "productName": "product 2",
+      "productImageName": null,
+      "productImagePath": "https://ms2-dev-files.s3.ap-northeast-1.amazonaws.com/tenants/mercyrrczkni/service_data/product/10002_organ_20200731112121406.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjECIaDmFwLW5vcnRoZWFzdC0xIkgwRgIhAKNFG8LSBHaZoRsr%2BzBwROhU0tgwV%2B1PQrnmw2Am4l9bAiEApeXQk3VINdNNAcCToApa5Ah7PdaNF58RZgxh52o0h18qgAQI6%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgwwMDgwNzYzNjM1MTYiDHQDWcqMaejor5Ls7irUA6USUBeVC74Feo%2B5JnarpS%2B44WK9NVWz8ohBZinao6igb95J8ErzwTyqpZIieTkyTvY8b5d4ylwO0%2BqKeTvud2uXMvoAGRh0roXpWhx9jlwzTqilP9nhhhKKwdw99x02jCuYnOAsqVv4lFMZQoB2MjLqoMZlMjmZhkm7yP%2BDA50D6qbnp1YrtoODGDwia5%2BY%2FJIu3h8yXknhh8vvwkyGmGE9LiFEgtb%2ByjOmgzl4aOJGjonVeNKIM1WUT1SQd5mH%2F0qSFpYbFXFv9zhzMccQIiNeQzLhrCLBBs29tarjzZJgft7i56b36K6KumTqUXhxdz0bYDRDNDvVoDdH97hYCw%2FX%2BkWRp%2FATvHD5D%2Bii1Lah2xDxssoj0QrfB6khlNPQHseOm%2F3QBNgKV7Xls33w8ZMLExoIX7fxPwOuApNPnmul6SHCbLzkxZB%2FxV5e89XAoq01dm%2BpcLyjcggcX%2FO0JnSsVOXKrLe37gBJPJzM7REdr4YDSitD76MYHvkg6IXf2LSYfmL5s2%2F6WHjPDeJM8zGZbcucqz0Cte1DDWc6jWZYG6Xzq2tCEvj8m5dvSfqOJaZTY5VZZDEkhlndfDRUzt%2FUOifJi94wm7gtPdInuEsCLEhyCTDczLT5BTruAXq%2BZAitym5o5AvzI%2BH%2FoWy2E3LSlEI0r6RzTKQ2WmT3SRt4sfKc6c92dFfOlkqRERPyL4Fplt2%2BYokdvhc4xhrFld7Of%2FZheqK0lHzyVZeZ3HzbdJC4TRfkcVnTKwEtc%2FeqzX3SNj3jnwKSPchs%2FvYdl%2FBfNNkVeA4cIts6oKckWC6yDaR3W1kNTeOXC3REFpq4c7uaGJYk7NZJio0vCH6Ilz4sMMu4qXW%2FEAQlScBomPXS7RzujB59uMBkjaviMiZrCYcaCeeSoX%2Be0Z7twQupj6%2BNzGBNQ3MGocCUCMKt9FsSfVSYz39L5v%2FHnGM%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200807T132838Z&X-Amz-SignedHeaders=host&X-Amz-Expires=1000&X-Amz-Credential=ASIAQDYLDQ36LLYILLUX%2F20200807%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Signature=29c4763b441de33a72389086075519218f20cf900f2eab6c72ef20c45809c743",
+      "productCategoryId": 2,
+      "productCategoryName": "{\"en_us\": \"Computer\", \"ja_jp\": \"コンピューター\", \"zh_cn\": \"梅廷\"}",
+      "memoProduct": "",
+      "quantity": 1230,
+      "price": 232,
+      "amount": 285360,
+      "employeeId": 1,
+      "employeeSurname": "確保する",
+      "employeeName": "確保する",
+      "employeeIcon": null,
+      "endPlanDate": "2020-07-30T00:00:00Z",
+      "orderPlanDate": "2020-07-10T00:00:00Z",
+      "progressName": "{\"en_us\": \"\", \"ja_jp\": \"j\", \"zh_cn\": \"\"}",
+      "memo": "addd product trading",
+      "productTradingData": [
+        {
+          "key": "memo",
+          "value": "addd product trading",
+          "fieldType": null
+        },
+        {
+          "key": "price",
+          "value": "232",
+          "fieldType": null
+        },
+        {
+          "key": "amount",
+          "value": "285360",
+          "fieldType": null
+        },
+        {
+          "key": "quantity",
+          "value": "1230",
+          "fieldType": null
+        },
+        {
+          "key": "date_10004",
+          "value": "2020-08-07",
+          "fieldType": null
+        },
+        {
+          "key": "file_10003",
+          "value": "[]",
+          "fieldType": null
+        },
+        {
+          "key": "file_10004",
+          "value": "[]",
+          "fieldType": null
+        },
+        {
+          "key": "link_10004",
+          "value": "{\"url_text\":\"dd\",\"sort_value\":\"dd\",\"url_target\":\"http://24h.com\"}",
+          "fieldType": null
+        },
+        {
+          "key": "text_10003",
+          "value": "ggg",
+          "fieldType": null
+        },
+        {
+          "key": "email_10003",
+          "value": "h22@gmail.com",
+          "fieldType": null
+        },
+        {
+          "key": "radio_10004",
+          "value": "10019",
+          "fieldType": null
+        },
+        {
+          "key": "numeric_10005",
+          "value": "14",
+          "fieldType": null
+        },
+        {
+          "key": "checkbox_10003",
+          "value": "[10018]",
+          "fieldType": null
+        },
+        {
+          "key": "pulldown_10006",
+          "value": "10015",
+          "fieldType": null
+        },
+        {
+          "key": "textarea_10003",
+          "value": "dee",
+          "fieldType": null
+        },
+        {
+          "key": "date_time_10005",
+          "value": "",
+          "fieldType": null
+        },
+        {
+          "key": "date_time_10006",
+          "value": "2020-08-10 22:25:00",
+          "fieldType": null
+        },
+        {
+          "key": "calculation_10004",
+          "value": "28",
+          "fieldType": null
+        },
+        {
+          "key": "phone_number_10003",
+          "value": "3333",
+          "fieldType": null
+        },
+        {
+          "key": "multiple_pulldown_10004",
+          "value": "[10011, 10012]",
+          "fieldType": null
+        }
+      ],
+      "updatedDate": "2020-08-07T09:00:19.046130Z",
+      "idHistoryChoice": null
+    },
+    {
+      "productTradingId": 11,
+      "customerId": 2,
+      "customerName": "KH_giang",
+      "productId": 43,
+      "productName": "product 3",
+      "productImageName": null,
+      "productImagePath": "",
+      "productCategoryId": null,
+      "productCategoryName": null,
+      "memoProduct": "",
+      "quantity": 0,
+      "price": 0,
+      "amount": 0,
+      "employeeId": 1,
+      "employeeSurname": "確保する",
+      "employeeName": "確保する",
+      "employeeIcon": null,
+      "endPlanDate": "2020-08-26T00:00:00Z",
+      "orderPlanDate": "2020-08-24T00:00:00Z",
+      "progressName": "{\"en_us\": \"\", \"ja_jp\": \"j\", \"zh_cn\": \"\"}",
+      "memo": "",
+      "productTradingData": [
+        {
+          "key": "memo",
+          "value": null,
+          "fieldType": null
+        },
+        {
+          "key": "price",
+          "value": "0",
+          "fieldType": null
+        },
+        {
+          "key": "amount",
+          "value": "0",
+          "fieldType": null
+        },
+        {
+          "key": "quantity",
+          "value": "0",
+          "fieldType": null
+        },
+        {
+          "key": "date_10004",
+          "value": "",
+          "fieldType": null
+        },
+        {
+          "key": "file_10003",
+          "value": "[]",
+          "fieldType": null
+        },
+        {
+          "key": "file_10004",
+          "value": "[]",
+          "fieldType": null
+        },
+        {
+          "key": "link_10004",
+          "value": "{\"url_text\":\"\",\"sort_value\":\"https://www.instagram.com\",\"url_target\":\"https://www.instagram.com\"}",
+          "fieldType": null
+        },
+        {
+          "key": "text_10003",
+          "value": "uuu",
+          "fieldType": null
+        },
+        {
+          "key": "email_10003",
+          "value": "",
+          "fieldType": null
+        },
+        {
+          "key": "numeric_10005",
+          "value": "333",
+          "fieldType": null
+        },
+        {
+          "key": "checkbox_10003",
+          "value": "[]",
+          "fieldType": null
+        },
+        {
+          "key": "pulldown_10006",
+          "value": "10016",
+          "fieldType": null
+        },
+        {
+          "key": "textarea_10003",
+          "value": null,
+          "fieldType": null
+        },
+        {
+          "key": "date_time_10005",
+          "value": "",
+          "fieldType": null
+        },
+        {
+          "key": "date_time_10006",
+          "value": "",
+          "fieldType": null
+        },
+        {
+          "key": "calculation_10004",
+          "value": "666",
+          "fieldType": null
+        },
+        {
+          "key": "phone_number_10003",
+          "value": "09999",
+          "fieldType": null
+        },
+        {
+          "key": "multiple_pulldown_10004",
+          "value": "[10011, 10012]",
+          "fieldType": null
+        }
+      ],
+      "updatedDate": "2020-08-07T09:00:19.046130Z",
+      "idHistoryChoice": null
+    },
+    {
+      "productTradingId": 8,
+      "customerId": 2,
+      "customerName": "KH_giang",
+      "productId": 43,
+      "productName": "product 3",
+      "productImageName": null,
+      "productImagePath": "",
+      "productCategoryId": null,
+      "productCategoryName": null,
+      "memoProduct": "",
+      "quantity": 20,
+      "price": 0,
+      "amount": 0,
+      "employeeId": 1,
+      "employeeSurname": "確保する",
+      "employeeName": "確保する",
+      "employeeIcon": null,
+      "endPlanDate": "2020-08-26T00:00:00Z",
+      "orderPlanDate": "2020-08-24T00:00:00Z",
+      "progressName": "{\"en_us\": \"\", \"ja_jp\": \"j\", \"zh_cn\": \"\"}",
+      "memo": "test",
+      "productTradingData": [
+        {
+          "key": "memo",
+          "value": null,
+          "fieldType": null
+        },
+        {
+          "key": "price",
+          "value": "0",
+          "fieldType": null
+        },
+        {
+          "key": "amount",
+          "value": "0",
+          "fieldType": null
+        },
+        {
+          "key": "quantity",
+          "value": "20",
+          "fieldType": null
+        },
+        {
+          "key": "date_10004",
+          "value": "",
+          "fieldType": null
+        },
+        {
+          "key": "file_10003",
+          "value": "[]",
+          "fieldType": null
+        },
+        {
+          "key": "file_10004",
+          "value": "[]",
+          "fieldType": null
+        },
+        {
+          "key": "link_10004",
+          "value": "{\"url_text\":\"\",\"sort_value\":\"\",\"url_target\":\"\"}",
+          "fieldType": null
+        },
+        {
+          "key": "text_10003",
+          "value": "yyy",
+          "fieldType": null
+        },
+        {
+          "key": "email_10003",
+          "value": "",
+          "fieldType": null
+        },
+        {
+          "key": "radio_10004",
+          "value": "10019",
+          "fieldType": null
+        },
+        {
+          "key": "numeric_10005",
+          "value": "22",
+          "fieldType": null
+        },
+        {
+          "key": "checkbox_10003",
+          "value": "[10017]",
+          "fieldType": null
+        },
+        {
+          "key": "pulldown_10006",
+          "value": "10015",
+          "fieldType": null
+        },
+        {
+          "key": "textarea_10003",
+          "value": "tyyyy",
+          "fieldType": null
+        },
+        {
+          "key": "date_time_10005",
+          "value": "2020-08-03 11:25:00",
+          "fieldType": null
+        },
+        {
+          "key": "date_time_10006",
+          "value": "2020-08-02 18:25:00",
+          "fieldType": null
+        },
+        {
+          "key": "calculation_10004",
+          "value": "44",
+          "fieldType": null
+        },
+        {
+          "key": "phone_number_10003",
+          "value": "",
+          "fieldType": null
+        },
+        {
+          "key": "multiple_pulldown_10004",
+          "value": "[10012]",
+          "fieldType": null
+        }
+      ],
+      "updatedDate": "2020-08-07T09:00:19.046130Z",
+      "idHistoryChoice": null
+    },
+    {
+      "productTradingId": 7,
+      "customerId": 2,
+      "customerName": "KH_giang",
+      "productId": 41,
+      "productName": "product 1",
+      "productImageName": "",
+      "productImagePath": "",
+      "productCategoryId": 1,
+      "productCategoryName": "{\"en_us\": \"fruit\", \"ja_jp\": \"フルーツ\", \"zh_cn\": \"水果\"}",
+      "memoProduct": "memo product2",
+      "quantity": 10,
+      "price": 245,
+      "amount": 2450,
+      "employeeId": 1,
+      "employeeSurname": "確保する",
+      "employeeName": "確保する",
+      "employeeIcon": null,
+      "endPlanDate": "2020-07-31T00:00:00Z",
+      "orderPlanDate": "2020-07-22T00:00:00Z",
+      "progressName": "{\"en_us\": \"\", \"ja_jp\": \"Progress1\", \"zh_cn\": \"\"}",
+      "memo": "test",
+      "productTradingData": [
+        {
+          "key": "memo",
+          "value": "test",
+          "fieldType": null
+        },
+        {
+          "key": "price",
+          "value": "245",
+          "fieldType": null
+        },
+        {
+          "key": "amount",
+          "value": "2450",
+          "fieldType": null
+        },
+        {
+          "key": "quantity",
+          "value": "10",
+          "fieldType": null
+        },
+        {
+          "key": "date_10004",
+          "value": "2020-08-11",
+          "fieldType": null
+        },
+        {
+          "key": "file_10003",
+          "value": "[]",
+          "fieldType": null
+        },
+        {
+          "key": "file_10004",
+          "value": "[]",
+          "fieldType": null
+        },
+        {
+          "key": "link_10004",
+          "value": "{\"url_text\":\"\",\"sort_value\":\"http://23h.com\",\"url_target\":\"http://23h.com\"}",
+          "fieldType": null
+        },
+        {
+          "key": "text_10003",
+          "value": "",
+          "fieldType": null
+        },
+        {
+          "key": "email_10003",
+          "value": "",
+          "fieldType": null
+        },
+        {
+          "key": "radio_10004",
+          "value": "10021",
+          "fieldType": null
+        },
+        {
+          "key": "checkbox_10003",
+          "value": "[10018]",
+          "fieldType": null
+        },
+        {
+          "key": "pulldown_10006",
+          "value": "10016",
+          "fieldType": null
+        },
+        {
+          "key": "textarea_10003",
+          "value": "FFFF",
+          "fieldType": null
+        },
+        {
+          "key": "date_time_10005",
+          "value": "2020-08-02 16:00:00",
+          "fieldType": null
+        },
+        {
+          "key": "date_time_10006",
+          "value": "2020-08-10 17:25:00",
+          "fieldType": null
+        },
+        {
+          "key": "phone_number_10003",
+          "value": "",
+          "fieldType": null
+        },
+        {
+          "key": "multiple_pulldown_10004",
+          "value": "[]",
+          "fieldType": null
+        }
+      ],
+      "updatedDate": "2020-08-07T09:00:19.046130Z",
+      "idHistoryChoice": null
+    },
+    {
+      "productTradingId": 6,
+      "customerId": 1,
+      "customerName": "customer name 1 update",
+      "productId": 41,
+      "productName": "product 1",
+      "productImageName": "",
+      "productImagePath": "",
+      "productCategoryId": 1,
+      "productCategoryName": "{\"en_us\": \"fruit\", \"ja_jp\": \"フルーツ\", \"zh_cn\": \"水果\"}",
+      "memoProduct": "memo product2",
+      "quantity": 22202,
+      "price": 245,
+      "amount": 5439490,
+      "employeeId": 1,
+      "employeeSurname": "確保する",
+      "employeeName": "確保する",
+      "employeeIcon": null,
+      "endPlanDate": "2020-07-31T00:00:00Z",
+      "orderPlanDate": "2020-07-22T00:00:00Z",
+      "progressName": "{\"en_us\": \"\", \"ja_jp\": \"Progress1\", \"zh_cn\": \"\"}",
+      "memo": "test",
+      "productTradingData": [
+        {
+          "key": "memo",
+          "value": "test",
+          "fieldType": null
+        },
+        {
+          "key": "price",
+          "value": "245",
+          "fieldType": null
+        },
+        {
+          "key": "amount",
+          "value": "5439490",
+          "fieldType": null
+        },
+        {
+          "key": "quantity",
+          "value": "22202",
+          "fieldType": null
+        },
+        {
+          "key": "date_10004",
+          "value": "",
+          "fieldType": null
+        },
+        {
+          "key": "file_10003",
+          "value": "[]",
+          "fieldType": null
+        },
+        {
+          "key": "file_10004",
+          "value": "[]",
+          "fieldType": null
+        },
+        {
+          "key": "link_10004",
+          "value": "{\"url_text\":\"\",\"sort_value\":\"https://twitter.com/\",\"url_target\":\"https://twitter.com/\"}",
+          "fieldType": null
+        },
+        {
+          "key": "text_10003",
+          "value": "Danh Thuan",
+          "fieldType": null
+        },
+        {
+          "key": "email_10003",
+          "value": "",
+          "fieldType": null
+        },
+        {
+          "key": "numeric_10003",
+          "value": "1231234234",
+          "fieldType": null
+        },
+        {
+          "key": "numeric_10005",
+          "value": "5",
+          "fieldType": null
+        },
+        {
+          "key": "checkbox_10003",
+          "value": "[]",
+          "fieldType": null
+        },
+        {
+          "key": "pulldown_10004",
+          "value": "10006",
+          "fieldType": null
+        },
+        {
+          "key": "pulldown_10006",
+          "value": "10014",
+          "fieldType": null
+        },
+        {
+          "key": "textarea_10003",
+          "value": null,
+          "fieldType": null
+        },
+        {
+          "key": "date_time_10005",
+          "value": "",
+          "fieldType": null
+        },
+        {
+          "key": "date_time_10006",
+          "value": "",
+          "fieldType": null
+        },
+        {
+          "key": "calculation_10004",
+          "value": "10",
+          "fieldType": null
+        },
+        {
+          "key": "phone_number_10003",
+          "value": "09999",
+          "fieldType": null
+        },
+        {
+          "key": "multiple_pulldown_10004",
+          "value": "[10011, 10012]",
+          "fieldType": null
+        }
+      ],
+      "updatedDate": "2020-08-07T09:00:19.046130Z",
+      "idHistoryChoice": null
+    },
+    {
+      "productTradingId": 19,
+      "customerId": 5,
+      "customerName": "Revive",
+      "productId": 43,
+      "productName": "product 3",
+      "productImageName": null,
+      "productImagePath": "",
+      "productCategoryId": null,
+      "productCategoryName": null,
+      "memoProduct": "",
+      "quantity": 0,
+      "price": 0,
+      "amount": 0,
+      "employeeId": 1,
+      "employeeSurname": "確保する",
+      "employeeName": "確保する",
+      "employeeIcon": null,
+      "endPlanDate": "2020-08-26T00:00:00Z",
+      "orderPlanDate": "2020-08-24T00:00:00Z",
+      "progressName": "{\"en_us\": \"\", \"ja_jp\": \"j\", \"zh_cn\": \"\"}",
+      "memo": "Memo of product tradings 22222222",
+      "productTradingData": [
+        {
+          "key": "memo",
+          "value": null,
+          "fieldType": null
+        },
+        {
+          "key": "price",
+          "value": "0",
+          "fieldType": null
+        },
+        {
+          "key": "amount",
+          "value": "0",
+          "fieldType": null
+        },
+        {
+          "key": "quantity",
+          "value": "0",
+          "fieldType": null
+        }
+      ],
+      "updatedDate": "2020-08-07T09:00:19.046130Z",
+      "idHistoryChoice": null
+    }
+  ]
+}

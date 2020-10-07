@@ -1,0 +1,14 @@
+{
+    "python.linting.flake8Enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.formatting.provider": "yapf",
+    "python.testing.unittestEnabled": true,
+    "python.testing.promptToConfigure": false,
+    "python.testing.pytestEnabled": true,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.unittestArgs": [
+        "-v",
+        "-f"
+    ],
+    "files.eol": "\n"
+}

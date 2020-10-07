@@ -1,0 +1,16 @@
+{
+    "CheckResult": {
+        "description_check_result": "You can check the latest check result. The check NG item is displayed.",
+        "notification_check": "No abnormality was detected.",
+        "CheckS3ErrorMessage": {
+            "title": "Failed to acquire S3 information.",
+            "description" : "In the following cases insightwatch check does not correspond.<br> S3 is not in the public setting or manually <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/user-guide/bucket-permissions-check.html\" target=\"_blank\">Confirmation</a> please.",
+            "case_1": "You have specified S3 (cross account) on another AWS account",
+            "case_2": "When IP address restriction is applied by S3 bucket policy"
+        },
+        "manual": "Manual",
+        "user_guide_check_item_cis_url": "https://insightwatch.zendesk.com/hc/ja/articles/360002141251",
+        "user_guide_check_item_asc_url": "https://insightwatch.zendesk.com/hc/ja/articles/360012772952",
+        "user_guide_check_item_ibp_url": "https://insightwatch.zendesk.com/hc/ja/articles/360017951912"
+    }
+}

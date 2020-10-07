@@ -1,0 +1,177 @@
+{
+  "data": {
+    "employeesSuggestion": {
+      "departments": [
+        {
+          "departmentId": 2,
+          "departmentName": "hehe Depart",
+          "parentDepartment": [
+            {
+              "departmentId": 1,
+              "departmentName": "name"
+            }
+          ],
+          "employees": [
+            {
+              "employeeId": 1234,
+              "employeePhoto": {
+                "fileName": "https://",
+                "filePath": "https://"
+              },
+              "employeeSurname": "Surname",
+              "employeeName": "name",
+              "employeeSurnameKana": "SurnameKana",
+              "employeeNameKana": "NameKana",
+              "employeePositonName": "PositonName"
+            },
+            {
+              "employeeId": 124,
+              "isBusy": true,
+              "employeePhoto": {
+                "fileName": "https://",
+                "filePath": "https://"
+              },
+              "employeeSurname": "Surname",
+              "employeeName": "name",
+              "employeeSurnameKana": "SurnameKana",
+              "employeeNameKana": "NameKana",
+              "employeePositonName": "PositonName"
+            }
+          ]
+        },
+        {
+          "departmentId": 12356,
+          "departmentName": "test department",
+          "parentDepartment": [
+            {
+              "departmentId": 3,
+              "departmentName": "name"
+            }
+          ],
+          "employees": [
+            {
+              "employeeId": 12,
+              "employeePhoto": {
+                "fileName": "https://",
+                "filePath": "https://"
+              },
+              "employeeSurname": "hoannt",
+              "employeeName": "hoannt",
+              "employeeSurnameKana": "hoannt",
+              "employeeNameKana": "hoannt",
+              "employeePositonName": "PositonName"
+            },
+            {
+              "employeeId": 123,
+              "isBusy": true,
+              "employeePhoto": {
+                "fileName": "https://",
+                "filePath": "https://"
+              },
+              "employeeSurname": "hoannt test",
+              "employeeName": "hoannt test",
+              "employeeSurnameKana": "hoannt test",
+              "employeeNameKana": "hoannt test",
+              "employeePositonName": "hoannt test"
+            }
+          ]
+        }
+      ],
+      "employees": [
+        {
+          "employeeId": 1,
+          "employeePhoto": {
+            "fileName": "../../../content/images/timeline/ic-user2.svg",
+            "filePath": "../../../content/images/timeline/ic-user2.svg"
+          },
+          "employeeSurname": "NTHoan",
+          "employeeName": "NTHoan",
+          "employeeSurnameKana": "NTHoan",
+          "employeeNameKana": "NTHoan",
+          "employeePositonName": "NTHoan"
+        },
+        {
+          "employeeId": 2,
+          "employeePhoto": {
+            "fileName": "../../../content/images/timeline/ic-user.svg",
+            "filePath": "../../../content/images/timeline/ic-user.svg"
+          },
+          "employeeSurname": "NTH",
+          "employeeName": "NTH",
+          "employeeSurnameKana": "NTH",
+          "employeeNameKana": "NTH",
+          "employeePositonName": "NTH"
+        },
+        {
+          "employeeId": 123,
+          "employeePhoto": {
+            "fileName": "../../../content/images/timeline/ic-user1.svg",
+            "filePath": "../../../content/images/timeline/ic-user1.svg"
+          },
+          "employeeSurname": "MaiKhongOT",
+          "employeeName": "MaiKhongOT",
+          "employeeSurnameKana": "MaiKhongOT",
+          "employeeNameKana": "MaiKhongOT",
+          "employeePositonName": "MaiKhongOT"
+        },
+        {
+          "employeeId": 1234,
+          "employeePhoto": {
+            "fileName": "../../../content/images/timeline/ic-user2.svg",
+            "filePath": "../../../content/images/timeline/ic-user2.svg"
+          },
+          "employeeSurname": "MaiDiOT",
+          "employeeName": "MaiDiOT",
+          "employeeSurnameKana": "MaiDiOT",
+          "employeeNameKana": "MaiDiOT",
+          "employeePositonName": "MaiDiOT"
+        },
+        {
+          "employeeId": 12345,
+          "employeePhoto": {
+            "fileName": "../../../content/images/timeline/ic-user3.svg",
+            "filePath": "../../../content/images/timeline/ic-user3.svg"
+          },
+          "employeeSurname": "MaiEmKhongDiDau",
+          "employeeName": "MaiEmKhongDiDau",
+          "employeeSurnameKana": "MaiEmKhongDiDau",
+          "employeeNameKana": "MaiEmKhongDiDau",
+          "employeePositonName": "MaiEmKhongDiDau"
+        }
+      ],
+      "groups": [
+        {
+          "groupId": 123,
+          "groupName": "name",
+          "employees": [
+            {
+              "employeeId": 123,
+              "employeePhoto": {
+                "fileName": "https://",
+                "filePath": "https://"
+              },
+              "employeeSurname": "Surname",
+              "employeeName": "name",
+              "employeeSurnameKana": "SurnameKana",
+              "employeeNameKana": "NameKana",
+              "employeePositonName": "PositonName"
+            },
+            {
+              "employeeId": 124,
+              "isBusy": true,
+              "employeePhoto": {
+                "fileName": "https://",
+                "filePath": "https://"
+              },
+              "employeeSurname": "Surname",
+              "employeeName": "name",
+              "employeeSurnameKana": "SurnameKana",
+              "employeeNameKana": "NameKana",
+              "employeePositonName": "PositonName"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

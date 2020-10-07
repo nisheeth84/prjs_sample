@@ -1,0 +1,8 @@
+{
+    "UserInviteModal": {
+        "invite": "招待する",
+        "confirm_invite_title": "ユーザーを招待しますか？",
+        "confirm_invite_body_1": "{0}は、insightwatchにユーザー登録されていません。",
+        "confirm_invite_body_2": "ユーザーをinsightwatchへ招待しますか？"
+    }
+}

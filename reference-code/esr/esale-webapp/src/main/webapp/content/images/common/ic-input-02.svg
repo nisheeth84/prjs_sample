@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16.08" height="14.789" viewBox="0 0 16.08 14.789">
+  <g id="Group_28303" data-name="Group 28303" transform="translate(-916.92 -294)">
+    <g id="Rectangle_18199" data-name="Rectangle 18199" transform="translate(917 294)" fill="#fff" stroke="#999" stroke-width="1">
+      <rect width="16" height="8" stroke="none"/>
+      <rect x="0.5" y="0.5" width="15" height="7" fill="none"/>
+    </g>
+    <g id="Polygon_3" data-name="Polygon 3" transform="translate(931 300) rotate(180)" fill="#999">
+      <path d="M 3.93248176574707 2.5 L 1.067518353462219 2.5 L 2.5 0.7810220122337341 L 3.93248176574707 2.5 Z" stroke="none"/>
+      <path d="M 2.5 1.562044024467468 L 2.135036706924438 2 L 2.864963293075562 2 L 2.5 1.562044024467468 M 2.5 0 L 5 3 L 0 3 L 2.5 0 Z" stroke="none" fill="#999"/>
+    </g>
+    <path id="Path_30992" data-name="Path 30992" d="M2501.872,2017.585l-.412-.564-.331.4s-.007,0-.01.009l-.5.6-.044.052h0l-.515.62-.841-1.077-.426.546.841,1.077.427.546.426-.546.5-.6h0Z" transform="translate(-1581.877 -1714)" fill="#999"/>
+    <path id="Path_30993" data-name="Path 30993" d="M2501.872,2017.585l-.412-.564-.331.4s-.007,0-.01.009l-.5.6-.044.052h0l-.515.62-.841-1.077-.426.546.841,1.077.427.546.426-.546.5-.6h0Z" transform="translate(-1581.877 -1711)" fill="#999"/>
+    <line id="Line_2176" data-name="Line 2176" x2="9" transform="translate(922.5 304.5)" fill="none" stroke="#999" stroke-width="1"/>
+    <line id="Line_2177" data-name="Line 2177" x2="9" transform="translate(922.5 307.5)" fill="none" stroke="#999" stroke-width="1"/>
+  </g>
+</svg>

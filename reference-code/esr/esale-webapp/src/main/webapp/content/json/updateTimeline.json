@@ -1,0 +1,10 @@
+{
+  "reactionReaction": {
+    "timelineId": 1000,
+    "reactionType": 1,
+    "employeeId": 10,
+    "employeeName": "Alex",
+    "employeeImagePath": "/image/emp_image.jpg",
+    "status": 0
+  }
+}

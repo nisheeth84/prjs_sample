@@ -1,0 +1,111 @@
+@startuml{API_招待.png}
+title [招待API]
+hide footbox
+
+boundary 画面 as view
+participant 所属ユーザーAPI as api_affiliations #cyan
+'database ユーザープール as user_pools <<cognito>> #purple
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+
+== ユーザー招待 ==
+view -> api_affiliations :POST /organizations/{organization_id}/invitees
+note right : bodyに招待したい人のメールアドレス
+activate api_affiliations
+    api_affiliations -> api_affiliations :メールアドレス取得
+    |||
+    ref over api_affiliations, table_affiliation :アクセス権限チェック
+    |||
+    api_affiliations -> api_affiliations :招待ユーザー追加
+    activate api_affiliations
+        api_affiliations -> user_pools :ユーザー登録確認
+        user_pools --> api_affiliations
+        alt 未登録のユーザーの場合
+            api_affiliations -> user_pools :ユーザー招待
+            note right :ユーザープールにユーザー登録し、招待通知メールを送信する
+            user_pools --> api_affiliations
+            |||
+        else ユーザー登録済みの場合
+            api_affiliations -> api_affiliations :組織招待通知を送る
+            note right #pink : TODO なにで通知するのか要検討
+            |||
+        end
+        api_affiliations -> table_affiliation :ユーザー所属レコード作成
+        note right :招待ステータスは「招待」
+        table_affiliation --> api_affiliations
+        api_affiliations --> api_affiliations
+    deactivate api_affiliations
+    |||
+    api_affiliations -> api_affiliations :レスポンス作成
+    api_affiliations --> view : 201:招待したユーザー
+deactivate api_affiliations
+
+== 招待を承認 ==
+view -> api_affiliations :POST /organizations/{organization_id}/invitees/{user_id}/accept
+note right :組織に招待されたユーザーが招待を承認する
+activate api_affiliations
+    api_affiliations -> api_affiliations :メールアドレス取得
+    |||
+    api_affiliations -> api_affiliations :アクセス権限チェック
+    activate api_affiliations
+        api_affiliations -> table_affiliation :query
+        table_affiliation --> api_affiliations
+        api_affiliations -> api_affiliations :アクセス権限の確認
+        note right
+            ・サインインユーザーが、自身に対する招待の承認をしようとしているかチェックする
+        end note
+        api_affiliations --> api_affiliations
+    deactivate api_affiliations
+    |||
+    api_affiliations -> api_affiliations :ユーザー権限変更
+    activate api_affiliations
+        api_affiliations -> table_affiliation :ユーザー所属レコード更新
+        note right :招待ステータス「招待」→「承認」
+        table_affiliation --> api_affiliations
+        api_affiliations --> api_affiliations
+    deactivate api_affiliations
+    |||
+    api_affiliations -> api_affiliations :レスポンス作成
+    api_affiliations --> view : 201:変更したユーザー
+deactivate api_affiliations
+
+== 招待を拒否 ==
+view -> api_affiliations :POST /organizations/{organization_id}/invitees/{user_id}/reject
+note right :組織に招待されたユーザーが招待を拒否する
+activate api_affiliations
+    api_affiliations -> api_affiliations :メールアドレス取得
+    |||
+    api_affiliations -> api_affiliations :アクセス権限チェック
+    activate api_affiliations
+        api_affiliations -> table_affiliation :query
+        table_affiliation --> api_affiliations
+        api_affiliations -> api_affiliations :アクセス権限の確認
+        note right
+            ・サインインユーザーが、自身に対する招待の拒否をしようとしているかチェックする
+        end note
+        api_affiliations --> api_affiliations
+    deactivate api_affiliations
+    |||
+    api_affiliations -> api_affiliations :ユーザー権限変更
+    activate api_affiliations
+        api_affiliations -> table_affiliation :ユーザー所属レコード更新
+        note right :招待ステータス「招待」→「拒否」
+        table_affiliation --> api_affiliations
+        api_affiliations --> api_affiliations
+    deactivate api_affiliations
+    |||
+    api_affiliations -> api_affiliations :レスポンス作成
+    api_affiliations --> view : 201:変更したユーザー
+deactivate api_affiliations
+
+== 招待キャンセル ==
+view -> api_affiliations :DELETE /organizations/{organization_id}/invitees/{user_id}
+note right :組織へのユーザー招待をキャンセルする
+activate api_affiliations
+    note over api_affiliations, table_affiliation #pink
+        「API_所属ユーザー」の「ユーザー除外」を使用する
+    end note
+    ref over api_affiliations, table_affiliation :API_所属ユーザー：ユーザー除外
+    api_affiliations --> view : 204
+deactivate api_affiliations
+
+@enduml

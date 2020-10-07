@@ -1,0 +1,297 @@
+{
+    "account": "109054975408",
+    "region": "ap-northeast-1",
+    "report_version": "0.0.1",
+    "Services":{
+        "EC2" : 5,
+        "RDS" : 3,
+        "ELB" : 2
+        // 以下追加していく
+    },
+    "EC2": { 
+        "running_ec2": [
+            {
+                "name": "cm-kajiwara-snapshot-check-ec2",
+                "instance_id": "i-09b26a0b8bb5a9448",
+                "instance_type": "t2.nano",
+                "security_groups": [
+                    "cm-kajiwara-sshOnlyCM"
+                ],
+                "vpc_id": "vpc-57cec032",
+                "key_name": null,
+                "availability_zone": "ap-northeast-1a",
+                "launch_time": "2017-07-14T20:31:44+09:00",
+                "tag": [
+                    {
+                        "Name": "cm-kajiwara-snapshot-check-ec2"
+                    }
+                ]
+            },
+            {
+                "name": "barista-bastion",
+                "instance_id": "i-0d336730cc4cedea8",
+                "instance_type": "t2.nano",
+                "security_groups": [
+                    "barista-VPCDefaultSecurityGroup-7F8YGK4E31YS",
+                    "barista-SSHPermanentSecurityGroup-1SVBQGZRFSKKS",
+                    "barista-SSHTemporarySecurityGroup-R461GYWW22CH"
+                ],
+                "vpc_id": "vpc-f6cb9192",
+                "key_name": "dev-sushiro-barista",
+                "availability_zone": "ap-northeast-1a",
+                "launch_time": "2017-08-14T10:46:38+09:00",
+                "tag": [
+                    {
+                        "aws:cloudformation:stack-id": "arn:aws:cloudformation:ap-northeast-1:109054975408:stack/barista/068109f0-8092-11e7-98ad-50d5ca9ff462"
+                    },
+                    {
+                        "Role": "bastion"
+                    },
+                    {
+                        "cm-hoot-enable": "true"
+                    },
+                    {
+                        "Application": "arn:aws:cloudformation:ap-northeast-1:109054975408:stack/barista/068109f0-8092-11e7-98ad-50d5ca9ff462"
+                    },
+                    {
+                        "CmBillingGroup": "Barista"
+                    },
+                    {
+                        "aws:cloudformation:logical-id": "BastionInstance"
+                    },
+                    {
+                        "aws:cloudformation:stack-name": "barista"
+                    },
+                    {
+                        "StackName": "barista"
+                    },
+                    {
+                        "Name": "barista-bastion"
+                    }
+                ]
+            }
+        ],
+        "not_running_ec2": [
+            {
+                "name": "test-ootaki-windows",
+                "instance_id": "i-0816f44e063a0d0e6",
+                "instance_type": "m4.large",
+                "security_groups": [
+                    "ootaki-windows"
+                ],
+                "vpc_id": "vpc-e13dc985",
+                "key_name": "CSA_WORK_KEY",
+                "availability_zone": "ap-northeast-1c",
+                "launch_time": "-",
+                "tag": [
+                    {
+                        "Name": "test-ootaki-windows"
+                    }
+                ]
+            }
+        ],
+        "ami": [
+            {
+                "name_tag": "",
+                "name": "CM-CSA-1.5.2.99",
+                "image_id": "ami-27524740",
+                "public": false,
+                "shared_aws_account": [
+                    {
+                        "UserId": "318507007885"
+                    }
+                ],
+                "source": "109054975408/CM-CSA-1.5.2.99",
+                "creation_date": "2017-06-20T11:10:03+09:00"
+            }
+        ],
+        "ebs": [
+            {
+                "name": "",
+                "volume_id": "vol-ffadb201",
+                "size": 8,
+                "create_time": "2016-09-03T14:29:27.854000+09:00",
+                "availability_zone": "ap-northeast-1a"
+            }
+        ],
+        "snapshot": [
+            {
+                "name": "",
+                "id": "snap-b97a2d81",
+                "volume_size": 16,
+                "description": "Created by CreateImage(i-0129aa31bae5806f9) for ami-ce35e3af from vol-aa02e45b",
+                "start_time": "2016-09-14T12: 38: 09+09: 00",
+                "public": false,
+                "shared_aws_account": [
+                    {
+                        "UserId": "109054975408"
+                    }
+                ]
+            }
+        ],
+        "ri":[
+            {
+                // この中のオブジェクトの項目については、 https://cm1.backlog.jp/view/PREM-190 のチケットを参照して下さい。
+            }
+        ]
+    },
+    "RDS": {
+        "DBInstances": [ // describe_db_instances > DBInstances > DB instance 
+            {
+                "name" : "premembersdevmysql",  // DBInstanceIdentifier
+                "vpc_id" : "vpc-e13dc985",  // DBSubnetGroup > VpcId
+                "multi_az" : true, // MultiAZ
+                "class": "db.t2.micro", // DBInstanceClass
+                "status": "available", // DBInstanceStatus
+                "storage": 10, // AllocatedStorage
+                "security_groups": [ // VpcSecurityGroups　> VpcSecurityGroupId
+                    "cm-kajiwara-sshOnlyCM" 
+                ],
+                "engine" : "postgresql", // Engine
+                "AvailabilityZone": "ap-northeast-1a", // AvailabilityZone
+                "creation_date": "2017-06-20T11:10:03+09:00", //InstanceCreateTime
+                "publicly_accessible": true, // PubliclyAccessible
+                "storage_encrypted": true, // StorageEncrypted
+                "tag": [ // list_tags_for_resourceメソッドから取得
+                    {
+                        "Name": "cm-kajiwara-snapshot-check-ec2" // key : value
+                    }
+                ]
+            }
+        ],
+        "Snapshots": [ //describe_db_snapshots > DBSnapshots > DBsnapshot
+            {
+                "name":"cryv4h3xm84nqp-20170530", // DBSnapshotIdentifier
+                "instance_name":"premembersdevmysql", // DBInstanceIdentifier
+                "creation_date": "2017-06-20T11:10:03+09:00" // SnapshotCreateTime
+            }
+        ]
+    },
+    "Redshift": {
+        "Clusters":[ // client.describe_clusters > Clusters > Cluster
+            {
+                "cluster_identifier" : "csa-redshiftcluster", // ClusterIdentifier
+                "node_type" : "dc1.large", // NodeType
+                "number_of_nodes" : 2, // NumberOfNodes
+                "vpc_id" : "vpc-e13dc985", // VpcId
+                "availability_zone": "ap-northeast-1c", // AvailabilityZone
+                "publicly_accessible": true, // PubliclyAccessible
+                "storage_encrypted": false, // Encrypted
+                "audit_logging": false // describe_logging_statusメソッドのレスポンスの有無
+            }
+        ],
+        "Snapshots": [ // describe_cluster_snapshots > Snapshots > snapshot
+            {
+                "name":"csa-redshiftcluster-20170608", // SnapshotIdentifier
+                "instance_name":"csa-redshiftcluster", // ClusterIdentifier
+                "creation_date": "2017-06-20T11:10:03+09:00" // SnapshotCreateTime
+            }
+        ]
+    },
+    "VPC": {
+        "VPC":[ // describe_vpcs > Vpcs > vpc
+            {
+                "name":"DI-default", // Tags > Name
+                "vpc_id":"vpc-e13dc985", // VpcId
+                "cidr_block":"172.31.0.0/16", // CidrBlock
+                "dhcp_options_id":"dopt-b6166dd3", // DhcpOptionsId
+                "routetable_id":"rtb-7851af1c", // describe_route_tables > RouteTables > RouteTable vpc_idが一致 RouteTableId
+                "network_acl": "acl-3abb4c5e", // describe_network_acls > NetworkAcls > NetworkAcl vpc_idが一致 NetworkAclId
+                "tenancy": "default", // InstanceTenancy
+                "FlowLogs": [] // describe_flow_logs > FlowLogs > Flowlog resourceとarnが一致 https://docs.aws.amazon.com/ja_jp/general/latest/gr/aws-arns-and-namespaces.html  FlowLogId(要検討) 
+            }
+        ],
+        "subnet":[ // describe_subnets > Subnets > Subnet
+            {
+                "subnet_id":"subnet-1c8dd06a", // SubnetId
+                "vpc_id":"vpc-e13dc985", // VpcId
+                "cidr_block": "172.31.0.0/24", // CidrBlock
+                "availability_zone": "ap-northeast-1c", // AvailabilityZone
+                "route_table_id":"rtb-7851af1c", // describe_route_tables > RouteTables > RouteTable > Associations内のSubnetが一致したRouteTableId
+                "network_acl": "acl-3abb4c5e" // describe_network_acls > NetworkAcls > NetworkAcl > Associations内のSubnetIdが一致したNetworkAclId
+            }
+        ],
+        "network_acl":[ // describe_network_acls > NetworkAcls > NetworkAcl
+            {
+                "name":"", // Tags > Name
+                "network_acl_id":"xxxx", // NetworkAclId
+                "vpc_id": "vpc-e13dc985", // VpcId
+                "inbound":[ // Entriesで取得した内 Egress=false
+                    {
+                        "rule_number":100, // RuleNumber
+                        "protocol": "TCP", // protocol ianaのprotcol numberからの変換が必要
+                        "from_port" : 3389, // PortRange > From 
+                        "to_port" : 3389, // PortRange > To
+                        "cidr_block" :"172.31.0.0/16", // CidrBlock
+                        "rule_action": "allow" // RuleAction
+                    }
+                ],
+                "outbound":[ // Entriesで取得した内 Egress=true
+                    {
+                        "rule_number":100, // RuleNumber
+                        "protocol": "TCP", // protocol ianaのprotcol numberからの変換が必要
+                        "from_port" : 3389, // PortRange > From 
+                        "to_port" : 3389, // PortRange > To
+                        "cidr_block" :"172.31.0.0/16", // CidrBlock
+                        "rule_action": "allow" // RuleAction
+                    }
+                ]
+            }
+        ],
+        "security_grouop":[ // describe_security_groups > SecurityGroups > SecurityGroup
+            {
+                "name":"", // Tags > Name
+            "id":"sg-7592af12", // GroupId
+                "vpc_id": "vpc-e13dc985", // VpcId
+                "inbound":[ // IpPermissions
+                    {
+                        "protocol": "TCP", // IpProtocol
+                        "from_port" : 3389, // FromPort
+                        "to_port" : 3389, // ToPort
+                        "source" :"39.110.201.10/32", // IpRanges・IPv6Range・PrefixListIds・UserIdGroupPairs内から取得
+                        "description" : "" // IpRanges・IPv6Range・PrefixListIds・UserIdGroupPairs内のDescription取得
+                    },
+                    {
+                        "protocol": "TCP", // IpProtocol
+                        "from_port" : 3389, // FromPort
+                        "to_port" : 3389, // ToPort
+                        "source" :"172.31.21.41/32", // IpRanges・IPv6Range・PrefixListIds・UserIdGroupPairs内から取得
+                        "description" : "" // IpRanges・IPv6Range・PrefixListIds・UserIdGroupPairs内のDescription取得
+                    },
+                    {
+                        "protocol": "UDP", // IpProtocol
+                        "from_port" : 0, // FromPort
+                        "to_port" : 65535, // ToPort
+                        "source" :"sg-11916576", // IpRanges・IPv6Range・PrefixListIds・UserIdGroupPairs内からのCidrIp・CidrIpv6・PrefixListId・GroupId
+                        "description" : "" // IpRanges・IPv6Range・PrefixListIds・UserIdGroupPairs内のDescription取得
+                    },
+                    {
+                        "protocol": "UDP", // IpProtocol
+                        "from_port" : 0, // FromPort
+                        "to_port" : 65535, // ToPort
+                        "source" :"sg-10916577", // IpRanges・IPv6Range・PrefixListIds・UserIdGroupPairs内からCidrIp・CidrIpv6・PrefixListId・GroupIdを一つずつ取得
+                        "description" : "" // IpRanges・IPv6Range・PrefixListIds・UserIdGroupPairs内のDescription取得
+                    }
+                ],
+                "outbound":[ // IpPermissionsEgress
+                    {
+                        "protocol": "-1", // IpProtocol -1 の場合はすべてのプロトコル
+                        "from_port" : 0, // FromPort
+                        "to_port" : 65535, // ToPort
+                        "source" :"0.0.0.0/0", // IpRanges・IPv6Range・PrefixListIds・UserIdGroupPairs内からCidrIp・CidrIpv6・PrefixListId・GroupIdを一つずつ取得
+                        "description" : "premembers_output" // IpRanges・IPv6Range・PrefixListIds・UserIdGroupPairs内のDescription取得
+                    }
+                ]
+            }
+        ]
+    },
+    "S3": [ // list_buckets > Buckets > Bucket
+        {
+            "bucket_name": "bucket-xxxx1",
+            "public_access": true,// 設定方法については別途Wikiに記載
+            "bucket_policy": true,// 設定方法については別途Wikiに記載
+            "bucket_acl": false,// 設定方法については別途Wikiに記載
+            "bucket_size": 21336
+        }
+    ]
+}

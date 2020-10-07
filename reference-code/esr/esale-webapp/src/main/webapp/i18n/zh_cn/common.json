@@ -1,0 +1,39 @@
+{
+  "common": {
+    "calendar": "日历",
+    "employees": "员工",
+    "products": "产品",
+    "tasks": "任务",
+    "sales": "商谈",
+    "milestone": "里程碑",
+    "customer": "客户",
+    "product-trading": "交易产品",
+    "business-card": "名片"
+  },
+  "status": {
+    "online": "联机",
+    "offline": "离线",
+    "away": "离席"
+  },
+  "commonCharacter": {
+    "comma": "、",
+    "left-parenthesis": "（",
+    "right-parenthesis": "）",
+    "minus": "－",
+    "splash": "／"
+  },
+  "business-card-details": {
+    "last-contact-date": "最后接触日期",
+    "acquainted": "曾经见过",
+    "acquainted-disable": "从未见过"
+  },
+  "dynamic-select-field-tab": {
+    "find-an-item": "搜索项目",
+    "switch-display": "切换显示"
+  },
+  "exception": {
+    "404": "未找到页",
+    "403": "禁止访问。请与管理员联系",
+    "back": "返回"
+  }
+}

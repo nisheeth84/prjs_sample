@@ -1,0 +1,71 @@
+@startuml{Batch_組織_AWSアカウント連携確認.png}
+title [組織_AWSアカウント連携確認]
+hide footbox
+
+participant タスクコントローラ as controller <<lambda>> #violet
+participant AWSアカウント連携確認バッチ as batch_aws_coop_check <<lambda>> #violet
+database 組織タスクキュー as queue_org_task <<sqs>> #gold
+database 組織タスク as table_org_task <<dynamodb>> #royalblue
+database AWSアカウント連携 as table_awsac_coops <<dynamodb>> #royalblue
+box "ユーザーのAWS" #floralwhite
+participant AWS as users_aws #efaf27
+end box
+
+
+controller ->> batch_aws_coop_check :invoke (InvocationType='Event')
+note right :タスクID、メッセージのメッセージIDと受信ハンドルを渡す
+activate batch_aws_coop_check
+    batch_aws_coop_check -> table_org_task :get
+    note right :タスクIDをキーとしてタスク情報を取得
+    table_org_task --> batch_aws_coop_check
+    alt ステータス=0（待機中）
+        batch_aws_coop_check -> table_org_task :更新
+        note right :タスクのステータスを1（実行中）に更新（更新条件：ステータスが0）
+        table_org_task --> batch_aws_coop_check
+        |||
+    else ステータス=1（実行中）
+        note over batch_aws_coop_check: 処理終了
+    else ステータス=2（完了）
+        note over batch_aws_coop_check: 処理終了
+    else ステータス=-1（エラー）、かつリトライ回数=最大リトライ回数
+        note over batch_aws_coop_check: 処理終了
+    else ステータス=-1（エラー）、かつリトライ回数<最大リトライ回数
+        batch_aws_coop_check -> table_org_task :更新
+        note right :タスクのステータスを1（実行中）、リトライ回数+1に更新（更新条件：ステータスが-1）
+        table_org_task --> batch_aws_coop_check
+        |||
+    end
+    |||
+    batch_aws_coop_check -> batch_aws_coop_check :タスク情報から処理対象（AWSアカウント連携ID）を取得
+    batch_aws_coop_check -> table_awsac_coops :get
+    table_awsac_coops --> batch_aws_coop_check
+    |||
+    batch_aws_coop_check -> users_aws :クレデンシャル取得
+    users_aws --> batch_aws_coop_check
+    |||
+    opt クレデンシャル取得失敗
+        batch_aws_coop_check -> table_awsac_coops :更新
+        note right :連携の有効フラグを-1（連携失敗）に更新
+        table_awsac_coops --> batch_aws_coop_check
+        |||
+    end
+    |||
+    alt 処理成功
+        batch_aws_coop_check -> table_org_task :更新
+        note right :タスクのステータスを2（完了）に更新（更新条件：ステータスが1）
+        table_org_task --> batch_aws_coop_check
+        batch_aws_coop_check -> queue_org_task :処理済みのメッセージを削除
+        queue_org_task --> batch_aws_coop_check
+        |||
+    else エラー
+        batch_aws_coop_check -> table_org_task :更新
+        note right :タスクのステータスを-1（エラー）に更新（更新条件：ステータスが1）
+        table_org_task --> batch_aws_coop_check
+        |||
+    end
+deactivate batch_aws_coop_check
+|||
+
+
+
+@enduml

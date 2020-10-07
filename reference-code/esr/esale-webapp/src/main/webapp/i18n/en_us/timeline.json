@@ -1,0 +1,246 @@
+{
+  "timeline": {
+    "control": {
+      "sidebar": {
+        "all-timeline": "All timelines",
+        "my-timeline": "My timeline",
+        "favorite-timeline": "Favorite timelines",
+        "group-timeline": "",
+        "depart-timeline": "",
+        "customer-timeline": "Customers – Timeline",
+        "business-card-timeline": "Businesscards – Timeline",
+        "group-add-timeline": "Channel",
+        "all-group": "Show all channels",
+        "search-group": "Search channel",
+        "search-box": "Search department",
+        "favorite-group": "Favorite channels",
+        "joined-group": "Joined channels",
+        "request-to-join-group": "Request-sent channels",
+        "department": "Department",
+        "search-customer-timeline": "Search customer list",
+        "search-business-card-timeline": "Search business card list",
+        "taget": "Send to"
+      },
+      "local-tool": {
+        "add-timeline": "Add new post",
+        "sort": "Updating order",
+        "sort-created-date": "Posting order",
+        "sort-update-date": "Updating order",
+        "filter": "Filter",
+        "filter-all": "Show all",
+        "filter-not-seen": "Show unread post only",
+        "btn-all": "Select all",
+        "btn-not-all": "Deselect all",
+        "filter-1": "Post",
+        "filter-2": "Post on channel",
+        "filter-3": "Activity report",
+        "filter-4": "Customer",
+        "filter-5": "Businesscard",
+        "filter-6": "Schedule",
+        "filter-78": "Milestone/Task",
+        "filter-10": "Rule engine notification",
+        "filter-9": "Task notification",
+        "filter-timeline": "Search timeline",
+        "show-follow": "Manage follow",
+        "search-value": "Search timeline",
+        "not-select-group": "Do not select group",
+        "address-default": "Send to",
+        "placeholders-content": "Enter the content of your post",
+        "post": "Post",
+        "btn-save-filter": "Apply",
+        "post-comment": "Reply",
+        "part-of-quote": "Quote"
+      }
+    },
+    "group": {
+      "sorttype": {
+        "last-post-date-descending-order": "Newest Post",
+        "registration-date-descending-order": "Newest Channel",
+        "member-order": "Member",
+        "owner-order": "Owner"
+      },
+      "participants": {
+        "modal-name": "Channel participants",
+        "requesting-participation": "Request sent",
+        "participating": "Joined",
+        "owner": "Owner",
+        "member": "Member"
+      },
+      "participants-owner": {
+        "modal-name": "Channel participants",
+        "request-participation": "Request sent",
+        "approval-btn": "Approve",
+        "reject-btn": "Reject",
+        "participant-permission": "Joined",
+        "button-add": "Add participants",
+        "owner": "Owner",
+        "button-delete-member": "Remove member"
+      },
+      "add-member": {
+        "add-participants": "Add participants",
+        "group-member": "Group members",
+        "search": "Search departments,groups,employees",
+        "owner": "Owner",
+        "notification-content": "Notification content",
+        "enter-notification-content": "Enter notification content",
+        "add": "Add"
+      },
+      "registration-date": "Registration date",
+      "post-date": "Posted date",
+      "participate": "Join",
+      "new-post": "Add new post"
+    },
+    "message": {
+      "confirm": {},
+      "add-request": "You have not joined this group yet.",
+      "delete-member": "Your request has been sent."
+    },
+    "list": {
+      "btn-expand-reply": "replies",
+      "btn-expand-comment": "Show previous replies",
+      "btn-show-comment": "Read more",
+      "body": {}
+    },
+    "modal": {
+      "title": "Register channel",
+      "group-name-label": "Channel name",
+      "group-name-placeholder": "Enter channel name",
+      "require": "※",
+      "image-group-label": "Channel image",
+      "image-group-placeholder": "Select channel image",
+      "comment-label": "Comment",
+      "comment-placeholder": "Your comment",
+      "select-color-label": "Channel color",
+      "is-public-label": "Privacy",
+      "public": "Public",
+      "private": "Private",
+      "approval-label": "Approval required or not",
+      "approval": "Required",
+      "reject": "Not necessary",
+      "select-invite-label": "Channel members",
+      "select-invite-placeholder": "Search department, group or employee",
+      "button-create": "Register",
+      "button-update": "Save",
+      "title-update": "Edit channel"
+    },
+    "common": {
+      "target-all": "Everyone"
+    },
+    "popup-delete": {
+      "button-cancel": "Cancel",
+      "button-delete": "Delete",
+      "content": "Are you sure you want to delete this post?",
+      "content-modal": "The data you have edited will be discarded. Are you sure?"
+    },
+    "modal-confirm": {},
+    "local-tool": {
+      "search-group": {
+        "placeholder": "Search channel"
+      }
+    },
+    "sidebar-list-attached-file": {
+      "title": "File list"
+    },
+    "no-data": "No channel selected",
+    "popup-ok": {
+      "button-cancel": "Cancel",
+      "button-ok": "OK",
+      "content": "Are you sure you want to change the authorization from owner to member?"
+    },
+    "popup-privilege": {
+      "button-ok": "OK",
+      "content": "There must be at least one owner."
+    },
+    "share-timeline-modal": {
+      "button-share": "Post",
+      "share-modal-title": "Share"
+    },
+    "popup-group": {
+      "title": "Delete channel",
+      "button-cancel": "Cancel",
+      "button-delete": "Delete",
+      "content": "If the channel is deleted,all the posts will be deleted as well.",
+      "contentBottom": "Are you sure you want to delete?"
+    },
+    "popup-group-delete-member": {
+      "title": "Leave channel",
+      "button-cancel": "Cancel",
+      "button-delete": "Leave",
+      "content": "Are you sure you want to leave this channel?"
+    },
+    "timeline-group": {
+      "join-request": "Your request has been sent.",
+      "have-invite-request": "You have received requests to join channel {{0}}.",
+      "not-join-request": "You have not joined this channel yet.",
+      "text-request": "Confirm request",
+      "btn-show-comment": "Read more"
+    },
+    "following-management": {
+      "following-name": "Manage follow",
+      "type": "Type",
+      "name": "Name",
+      "keep-date": "Following since",
+      "showing-results": " results displayed",
+      "page": " items",
+      "employee": "Employee",
+      "customer": "Customer",
+      "card": "Business card",
+      "first-record": "Show 15 items",
+      "center-record": "Show 30 items",
+      "last-record": "Show 50 items",
+      "message-delete": "Successfully deleted.",
+      "message-no-data": "No data exists."
+    },
+    "pulldown-channel": {
+      "place-holder": "Select channel to post"
+    },
+    "pulldown-target-deliver": {
+      "place-holder": "Advanced search",
+      "button-add-new": "Add"
+    },
+    "message-followes": {
+      "label-modal": "Unfollow",
+      "message": "Are you sure you want to unfollow?"
+    },
+    "button": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "like": "Add to favorite",
+      "exit-group": "Leave channel",
+      "addRequest": "Send request"
+    },
+    "authority": {
+      "member": "Member",
+      "owner": "Owner"
+    },
+    "dirty-check": {
+      "title": "Are you sure you want to leave this page?",
+      "button-cancel": "Leave this page",
+      "button-ok": "Stay on this page",
+      "content": "Your comment will be discard if you leave now. Are you sure you want to exit?",
+      "content-create-timeline-group": "The data you have entered will be discarded. Are you sure to leave the page?",
+      "owner": "Owner",
+      "member": "Member"
+    },
+    "reaction": {
+      "seach-placeholder": "Search emoji",
+      "recent": "Frequently used emojis",
+      "face": "Face",
+      "hand": "Hand",
+      "other": "Other",
+      "result-seach": "Search results",
+      "clickFunction": "Click to remove",
+      "cancel": " your reaction."
+    },
+    "popup-show-detail": {
+      "status": "Online",
+      "button-sent-mail": "Send"
+    },
+    "dialog-group-delete-member": {
+      "content": "This member will be removed from the channel.",
+      "contentBottom": "Are you sure?",
+      "button-cancel": "Cancel",
+      "button-delete": "Remove"
+    }
+  }
+}

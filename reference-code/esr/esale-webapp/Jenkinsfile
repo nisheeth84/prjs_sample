@@ -1,0 +1,110 @@
+pipeline {
+    agent {
+        dockerfile {
+            filename 'Dockerfile.build'
+            dir 'src/main/docker'
+            label 'docker'
+            args '-v "/var/run/docker.sock:/var/run/docker.sock" -u root'
+        }
+    }
+    parameters {
+        string(name: 'MESSAGE_THREAD', defaultValue: '')
+    }
+    environment {
+        CI_REGISTRY = 'registry.luvina.net'
+        CI_REGISTRY_IMAGE = "${CI_REGISTRY}/esr/esale-docker-dev"
+        CI_REGISTRY_LOGIN = credentials('jenkins-luvina-esr-dev')
+        CI_REGISTRY_IMAGE_TAG = "webapp__${CI_COMMIT_SHORT_SHA}"
+        CI_REGISTRY_IMAGE_EXTRA_TAG = "webapp__luvina-develop"
+        CI_REGISTRY_IMAGE_CACHE_TAG = "webapp__build"
+        CI_COMMIT_SHORT_SHA = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
+        CI_COMMIT_MESSAGE = sh(returnStdout: true, script: 'git log -2 --pretty=format:"%h - %an, %ar : %s"').trim()
+        CI_COMMIT_MESSAGE_WITH_MENTION = sh(returnStdout: true, script: 'git log -2 --pretty=format:"%h - @%an, %ar : %s"').trim()
+        MESSAGE_PREFIX = "[<${BUILD_URL}|${JOB_NAME} #${BUILD_NUMBER}>] "
+    }
+    stages {
+        stage('notify started') {
+            steps {
+                echo 'Build started'
+                notifyStarted('Build started \n' + env.CI_COMMIT_MESSAGE)
+            }
+        }
+
+        stage('check docker') {
+            steps {
+                sh "docker -v"
+                sh "docker login -u ${CI_REGISTRY_LOGIN_USR} -p ${CI_REGISTRY_LOGIN_PSW} ${CI_REGISTRY}"
+            }
+        }
+
+        stage('build docker') {
+            when {
+                not {
+                    branch 'luvina-develop'
+                }
+            }
+            steps {
+                sh "docker pull ${CI_REGISTRY_IMAGE}:${CI_REGISTRY_IMAGE_CACHE_TAG} || true"
+                sh "docker build --cache-from ${CI_REGISTRY_IMAGE}:${CI_REGISTRY_IMAGE_CACHE_TAG} -t ${CI_REGISTRY_IMAGE}:${CI_REGISTRY_IMAGE_CACHE_TAG}-${CI_COMMIT_SHORT_SHA} --target build -f src/main/docker/Dockerfile ."
+                sh "docker build --cache-from ${CI_REGISTRY_IMAGE}:${CI_REGISTRY_IMAGE_CACHE_TAG}-${CI_COMMIT_SHORT_SHA} -t ${CI_REGISTRY_IMAGE}:${CI_REGISTRY_IMAGE_TAG} -t ${CI_REGISTRY_IMAGE}:${CI_REGISTRY_IMAGE_EXTRA_TAG} -f src/main/docker/Dockerfile ."
+            }
+        }
+
+        stage('build docker develop') {
+            when {
+                branch 'luvina-develop'
+            }
+            steps {
+                sh "docker pull ${CI_REGISTRY_IMAGE}:${CI_REGISTRY_IMAGE_CACHE_TAG} || true"
+                sh "docker build --cache-from ${CI_REGISTRY_IMAGE}:${CI_REGISTRY_IMAGE_CACHE_TAG} -t ${CI_REGISTRY_IMAGE}:${CI_REGISTRY_IMAGE_CACHE_TAG}-${CI_COMMIT_SHORT_SHA} --target build -f src/main/docker/Dockerfile ."
+                sh "docker build --cache-from ${CI_REGISTRY_IMAGE}:${CI_REGISTRY_IMAGE_CACHE_TAG}-${CI_COMMIT_SHORT_SHA} -t ${CI_REGISTRY_IMAGE}:${CI_REGISTRY_IMAGE_TAG} -t ${CI_REGISTRY_IMAGE}:${CI_REGISTRY_IMAGE_EXTRA_TAG} -f src/main/docker/Dockerfile ."
+                sh "docker push ${CI_REGISTRY_IMAGE}:${CI_REGISTRY_IMAGE_TAG}"
+                sh "docker push ${CI_REGISTRY_IMAGE}:${CI_REGISTRY_IMAGE_EXTRA_TAG}"
+                sh "docker tag ${CI_REGISTRY_IMAGE}:${CI_REGISTRY_IMAGE_CACHE_TAG}-${CI_COMMIT_SHORT_SHA} ${CI_REGISTRY_IMAGE}:${CI_REGISTRY_IMAGE_CACHE_TAG}"
+                sh "docker push ${CI_REGISTRY_IMAGE}:${CI_REGISTRY_IMAGE_CACHE_TAG}"
+            }
+        }
+
+        stage('deploy to develop') {
+            when {
+                branch 'luvina-develop'
+            }
+            environment {
+                _K8S_JOB = 'esale-k8s-dev'
+                _CI_DOCKER_IMAGE = "${CI_REGISTRY_IMAGE}:${CI_REGISTRY_IMAGE_TAG}"
+            }
+            steps {
+                build job: env._K8S_JOB, parameters: [[$class: 'StringParameterValue', name: 'CI_DOCKER_IMAGE', value: env._CI_DOCKER_IMAGE], [$class: 'StringParameterValue', name: 'MESSAGE_PREFIX', value: env.MESSAGE_PREFIX], [$class: 'StringParameterValue', name: 'MESSAGE_THREAD', value: env.MESSAGE_THREAD]], wait: false
+            }
+        }
+    }
+    post {
+        success {
+            echo 'Build success'
+            notify('Build success', '#00FF00')
+        }
+        failure {
+            echo 'Build failed'
+            notify('Build FAILED \n' + env.CI_COMMIT_MESSAGE_WITH_MENTION, '#FF0000')
+        }
+    }
+}
+
+// define funtions
+void notifyStarted(String message = 'Build started') {
+    def response = notify(message)
+    def messageThread = getSlackThread(response)
+    env.MESSAGE_THREAD = messageThread;
+}
+
+void notify(String message, String color = '#0000FF', boolean broadcast = true) {
+    def attachments = java.net.URLEncoder.encode('[{"text": "' + env.MESSAGE_PREFIX + message + '", "color": "' + color + '"}]', "UTF-8")
+    withCredentials([[$class: 'StringBinding', credentialsId: 'slack-token', variable: 'SLACK_TOKEN']]) {
+        return sh(returnStdout: true, script: 'curl -X POST -d "attachments=' + attachments + '&reply_broadcast=' + broadcast + '&thread_ts=' + env.MESSAGE_THREAD + '&link_names=true&channel=esr-jenkins&token=$SLACK_TOKEN" https://slack.com/api/chat.postMessage').trim()
+    }
+}
+
+void getSlackThread(String response = '') {
+    def matches = (response =~ /.+"ts"\:"([^"]+)".+/)
+    return matches.matches() ? "" + matches.group(1) : ''
+}

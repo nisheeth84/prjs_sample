@@ -1,0 +1,33 @@
+@startuml{API_AWSアカウント連携_AWSアカウント連携削除.png}
+title [AWSアカウント連携API_AWSアカウント連携削除]
+hide footbox
+
+boundary 画面 as view
+participant AWSアカウント連携API as api_awsac_coops #cyan
+'database ユーザープール as user_pools <<cognito>> #purple
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database AWSアカウント連携 as table_awsac_coops <<dynamodb>> #royalblue
+box "ユーザーのAWS" #floralwhite
+'participant AWS as users_aws #efaf27
+end box
+
+view -> api_awsac_coops : DELETE /organizations/{organization_id}/projects/{project_id}/awscoops/{coop_id}
+activate api_awsac_coops
+    api_awsac_coops -> api_awsac_coops :メールアドレス取得
+    |||
+    ref over api_awsac_coops, table_affiliation :アクセス権限チェック
+    |||
+    api_awsac_coops -> api_awsac_coops : AWSアカウント削除
+    activate api_awsac_coops
+        api_awsac_coops -> api_awsac_coops : 条件チェック
+        note right :AWSアカウント削除を行う条件を満たしているかチェックする
+        api_awsac_coops -> table_awsac_coops :レコード削除
+        table_awsac_coops --> api_awsac_coops
+        api_awsac_coops --> api_awsac_coops
+    deactivate api_awsac_coops
+    |||
+    api_awsac_coops -> api_awsac_coops :レスポンス作成
+    api_awsac_coops --> view :204
+deactivate api_awsac_coops
+
+@enduml

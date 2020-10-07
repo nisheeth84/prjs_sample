@@ -1,0 +1,126 @@
+{
+  "departments": [
+    {
+      "departmentId": 5,
+      "departmentName": "部署002",
+      "parentDepartment": {
+        "departmentId": null,
+        "departmentName": null
+      },
+      "employeesDepartments": [
+        {
+          "employeeId": 10539,
+          "photoFileName": null,
+          "photoFilePath": null,
+          "employeeSurname": "名前（姓）075",
+          "employeeName": "name 1",
+          "employeeSurnameKana": "",
+          "employeeNameKana": "",
+          "departments": [
+            {
+              "departmentId": 5,
+              "departmentName": "部署002",
+              "positionId": null,
+              "positionName": null
+            }
+          ]
+        },
+        {
+          "employeeId": 10634,
+          "photoFileName": null,
+          "photoFilePath": null,
+          "employeeSurname": "athena",
+          "employeeName": " jonh",
+          "employeeSurnameKana": null,
+          "employeeNameKana": null,
+          "departments": [
+            {
+              "departmentId": 5,
+              "departmentName": "部署002",
+              "positionId": null,
+              "positionName": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "employees": [
+    {
+      "employeeId": 2,
+      "employeeIcon": {
+        "filePath": "",
+        "fileName": "",
+        "fileUrl": null
+      },
+      "photoFilePath": "../../../content/images/timeline/ic-user1.svg",
+      "employeeSurname": "Admin",
+      "employeeName": "名前（名）2",
+      "employeeSurnameKana": "admin",
+      "employeeNameKana": "名前（かな）",
+      "employeeDepartments": [
+        {
+          "departmentId": 3,
+          "departmentName": "開発３部",
+          "positionId": 1,
+          "positionName": ":[{\"en_us\": \"Director\", \"ja_jp\": \"社長\", \"zh_cn\": \"社長_CN\"}"
+        },
+        {
+          "departmentId": 4,
+          "departmentName": "部署A",
+          "positionId": null,
+          "positionName": null
+        }
+      ]
+    },
+    {
+      "employeeId": 3,
+      "employeeIcon": {
+        "filePath": "",
+        "fileName": "",
+        "fileUrl": null
+      },
+      "photoFilePath": "../../../content/images/timeline/ic-user1.svg",
+      "employeeSurname": "Admin",
+      "employeeName": "名前（名）2",
+      "employeeSurnameKana": "admin",
+      "employeeNameKana": "名前（かな）",
+      "employeeDepartments": [
+        {
+          "departmentId": 3,
+          "departmentName": "開発３部",
+          "positionId": 1,
+          "positionName": ":[{\"en_us\": \"Director\", \"ja_jp\": \"社長\", \"zh_cn\": \"社長_CN\"}"
+        },
+        {
+          "departmentId": 4,
+          "departmentName": "部署A",
+          "positionId": null,
+          "positionName": null
+        }
+      ]
+    },
+    {
+      "employeeId": 10469,
+      "employeeIcon": {
+        "filePath": "",
+        "fileName": "",
+        "fileUrl": null
+      },
+      "photoFilePath": "",
+      "employeeSurname": "HungDV 2",
+      "employeeName": "Name",
+      "employeeSurnameKana": "",
+      "employeeNameKana": "",
+      "employeeDepartments": [
+        {
+          "departmentId": 1,
+          "departmentName": "開発１部",
+          "positionId": null,
+          "positionName": null
+        }
+      ]
+    }
+  ],
+  "total": 3
+}

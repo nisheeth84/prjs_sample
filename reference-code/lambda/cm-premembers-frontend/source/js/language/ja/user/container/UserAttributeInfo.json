@@ -1,0 +1,19 @@
+{
+    "UserAttributeInfo": {
+        "configure_info_user": "ユーザー属性や認証情報の設定を行います。",
+        "info_attr": "ユーザー属性情報",
+        "edit_info_attr": "属性情報変更",
+        "auth_setting": "認証設定",
+        "mfa": "MFA",
+        "enable_mfa": "MFAを有効化",
+        "disable_mfa": "MFAを無効化",
+        "language_setting": "言語設定",
+        "language": "言語",
+        "regist_language_setting": "言語設定登録",
+        "notice_mfa_valid": "すでにこのユーザーはMFAが有効です。ユーザーページを再読込します。",
+        "japanese": "日本語",
+        "english": "英語",
+        "Change_mail_receive_setting": "メール受信設定変更",
+        "region": "国 / 地域"
+    }
+}

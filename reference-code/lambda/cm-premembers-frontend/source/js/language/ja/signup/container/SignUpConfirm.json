@@ -1,0 +1,7 @@
+{
+    "SignUpConfirm": {
+        "code_confirm": "確認コード",
+        "enter_received_confirm_code": "受信した確認コードを入力して下さい。",
+        "code_validity_period_notify": "確認コードの有効期限は24時間です。"
+    }
+}

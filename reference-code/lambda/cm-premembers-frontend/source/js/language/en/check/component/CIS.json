@@ -1,0 +1,922 @@
+{
+    "CIS": {
+        "check_group_name": "CIS",
+        "CHECK_CIS_ITEM_1_01": {
+            "title": "Avoid the use of the \"root\" account",
+            "number": "1.1",
+            "alert_criteria": "Alert criteria: When root account was used within the past two weeks",
+            "description_1": "Please use IAM user without root account because root account has strong privilege",
+            "description_2": "Please check that the root account is not used during normal operation, change it to use IAM user if using it",
+            "description_3": "However, there are some <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tasks-that-require-root.html\" target=\"_blank\">AWS Tasks That Require AWS Account Root User Credentials</a>",
+            "description_4": "If you are using <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod members</a>, your request Based on the Classmethod based on the root account work may be delegated"
+        },
+        "CHECK_CIS_ITEM_1_02": {
+            "title": "Ensure multi-factor authentication (MFA) is enabled for all IAM users that have a console password",
+            "number": "1.2",
+            "alert_criteria": "Alert criteria: MFA not set for IAM user",
+            "description_1": "Enable Multi-Factor Authentication (MFA) for IAM users to enhance security at login",
+            "description_2": "Activate MFA",
+            "description_3": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS_ITEM_1_03": {
+            "title": "Ensure credentials unused for 90 days or greater are disabled",
+            "number": "1.3",
+            "alert_criteria": "Alert criteria: When authentication information (IAM user, access key) not used for more than 90 days exists",
+            "description_1": "Inventory periodic inventory of unused authentication information (IAM users, access keys), improve security",
+            "description_2": "Please invalidate or delete authentication information",
+            "description_3": "Response procedure<ul><li><a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html\" target =\"_blank\"> IAM user</a></li><li><a href=\"http://docs.aws.amazon.com/ja_en/IAM/latest/UserGuide/id_credentials_access-keys.html\" target=\"_blank\">Access key</a></li></ul></li>"
+        },
+        "CHECK_CIS_ITEM_1_04": {
+            "title": "Ensure access keys are rotated every 90 days or less",
+            "number": "1.4",
+            "alert_criteria": "Alert criteria<ul><li>If there are access keys that have not been rotated more than 90 days</li><li>If there are access keys that have not been used since rotation</li></ul>",
+            "description_1": "Access key is authentication information for using AWS from the tool (AWS CLI, PowerShell, AWS SDK etc)",
+            "description_2": "Rotating regularly reduces the risk of access key theft and leakage",
+            "description_3": "Please rotate access key",
+            "description_4": "The response procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_RotateAccessKey\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS_ITEM_1_05": {
+            "title": "Ensure IAM password policy requires at least one uppercase letter",
+            "number": "1.5",
+            "alert_criteria": "Alert criteria: When one or more uppercase letters are invalid in IAM's password policy",
+            "description_1": "Improve password policy for IAM users to increase password security",
+            "description_2": "Please enable \"Require at least one uppercase letter\"",
+            "description_3": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_CIS_ITEM_1_06": {
+            "title": "Ensure IAM password policy require at least one lowercase letter",
+            "number": "1.6",
+            "alert_criteria": "Alert criteria: When one or more uppercase letters are invalid in IAM's password policy",
+            "description_1": "Improve password policy for IAM users to increase password security",
+            "description_2": "Please enable \"Require at least one uppercase letter\"",
+            "description_3": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_CIS_ITEM_1_07": {
+            "title": "Ensure IAM password policy require at least one symbol",
+            "number": "1.7",
+            "alert_criteria": "Alert criteria: IAM's password policy \"Require at least one non-alphanumeric character\" is not enabled",
+            "description_1": "Improve password policy for IAM users to increase password security",
+            "description_2": "Please enable \"Require at least one non-alphanumeric character\"",
+            "description_3": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_CIS_ITEM_1_08": {
+            "title": "Ensure IAM password policy require at least one number",
+            "number": "1.8",
+            "alert_criteria": "Alert criteria: When \"Require at least one number\" are invalid in IAM's password policy",
+            "description_1": "Improve password policy for IAM users to increase password security",
+            "description_2": "Please enable \"Require at least one number\"",
+            "description_3": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_CIS_ITEM_1_09": {
+            "title": "Ensure IAM password policy requires minimum length of 14 or greater",
+            "number": "1.9",
+            "alert_criteria": "Alert criteria: Minimum password length is less than 14 characters in IAM password policy",
+            "description_1": "Improve password policy for IAM users to increase password security",
+            "description_2": "Please change \"Minimum password length\" to 14 characters or more",
+            "description_3": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_CIS_ITEM_1_10": {
+            "title": "Ensure IAM password policy prevents password reuse",
+            "number": "1.10",
+            "alert_criteria": "Alert criteria<ul><li>Prohibited password reuse is disabled in IAM password policy</li><li>The number of passwords to remember is 24 Not</li></ul>",
+            "description_1": "Improve password policy for IAM users to increase password security",
+            "description_2": "Please disable password reuse",
+            "description_3": "Please specify 24 for the number of passwords to memorize. If you specify anything other than 24, it will be checked NG.",
+            "description_4": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_CIS_ITEM_1_11": {
+            "title": "Ensure IAM password policy expires passwords within 90 days or less",
+            "number": "1.11",
+            "alert_criteria": "Alert criteria: Password expiration of 90 days or less is invalid in IAM's password policy",
+            "description_1": "Improve password policy for IAM users to increase password security",
+            "description_2": "Please check \"Enable password expiration\" and set expiration within 90 days or less",
+            "description_3": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_CIS_ITEM_1_12": {
+            "title": "Ensure no root account access key exists",
+            "number": "1.12",
+            "alert_criteria": "Alert criteria: If access key is set for root account",
+            "description_1": "The root account has strong privileges. Please use IAM users instead of the root account.",
+            "description_2": "Please delete the access key of root account and use IAM user",
+            "description_3": "The response procedure is <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_delete-key\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS_ITEM_1_13": {
+            "title": "Ensure MFA is enabled for the \"root\" account",
+            "number": "1.13",
+            "alert_criteria": "Alert criteria: If access key is set for root account",
+            "description_1": "The root account has strong privileges. Please use IAM users instead of the root account.",
+            "description_2": "Please delete the access key of root account and use IAM user",
+            "description_3": "The response procedure is <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_delete-key\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS_ITEM_1_14": {
+            "title": "Ensure hardware MFA is enabled for the \"root\" account",
+            "number": "1.14",
+            "alert_criteria": "Alert criteria: When root account is not using hardware MFA",
+            "description_1": "Hardware MFA is less likely to be attacked compared to virtual MFA, it is recommended to apply to root account with strongest authority",
+            "description_2": "Please install hardware MFA for root account",
+            "description_3": "However, if you are using multiple AWS accounts, management of hardware MFA devices may be an issue, in which case we will introduce hardware MFA for accounts that require high security , Consider the remaining accounts to introduce virtual MFA",
+            "description_4": "The response procedure is <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html#enable-hw-mfa-for-root\" target=\"_blank\">here</a>",
+            "description_5": "This item is managed automatically if this AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a>"
+        },
+        "CHECK_CIS_ITEM_1_15": {
+            "title": "Ensure security questions are registered in the AWS account",
+            "number": "1.15",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "The secret question is used for identity authentication with AWS customer service. If you can not confirm it, you may be unable to contact AWS support",
+            "description_2": "Required for inquiries when login to the AWS console becomes impossible due to MFA device failure, etc.",
+            "description_3": "Please make sure secret question is up to date",
+            "description_4": "",
+            "description_5": "This item is managed automatically if this AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a>"
+        },
+        "CHECK_CIS_ITEM_1_16": {
+            "title": "Ensure IAM policies are attached only to groups or roles",
+            "number": "1.16",
+            "alert_criteria": "Alert criteria: IAM policy attached to IAM user",
+            "description_1": "Assigning permissions at the group level reduces the complexity of increasing users and reduces the risk of granting erroneous authority",
+            "description_2": "Make IAM user belong to group, attach policy to group, delete policy from IAM user",
+            "description_3": "The response procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS_ITEM_1_17": {
+            "title": "Enable detailed billing",
+            "number": "1.17",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "Activate billing report to output detailed AWS usage status (CSV) to S3",
+            "description_2": "Graph using the Cost Explorer, you can set alerts according to your budget",
+            "description_3": "Activate AWS Cost and Usage report",
+            "description_4": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-reports-gettingstarted-turnonreports.html\" target=\"_blank\">here</a>",
+            "description_5": "This item is managed automatically if this AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a>"
+        },
+        "CHECK_CIS_ITEM_1_18": {
+            "title": "Ensure IAM Master and IAM Manager roles are active",
+            "number": "1.18",
+            "alert_criteria": "Alert criteria: IAM master role, IAM manager role does not exist",
+            "description_1": "Separate privileges for IAM from general users and utilize dedicated IAM roles<ul><li>IAM Master role: Create users, groups, and roles</li><li>IAM manager role: Assign users and roles to groups</li></ul>",
+            "description_2": "Create and operate IAM master role, IAM manager role",
+            "description_3": ""
+        },
+        "CHECK_CIS_ITEM_1_19": {
+            "title": "Maintain current contact details",
+            "number": "1.19",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "Contacts will be used for notifications such as security issues and AWS policy violations",
+            "description_2": "Please make sure your contact information (email address, phone number, address etc) is up to date",
+            "description_3": "The response procedure is <a href=\"http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-account-payment.html#contact-info\" target=\"_blank\">here</a>",
+            "description_4": "This item is managed automatically if this AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a>"
+        },
+        "CHECK_CIS_ITEM_1_20": {
+            "title": "Ensure security contact information is registered",
+            "number": "1.20",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "Contacts will be contacts for security even in contact from AWS",
+            "description_2": "You can contact the security team in your organization by specifying security contacts",
+            "description_3": "Please check if the security contact information is up to date",
+            "description_4": "The corresponding procedure is <a href=\"http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-account-payment.html#contact-info\" target=\"_blank\">here</a>",
+            "description_5": "This item is managed automatically if this AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a>"
+        },
+        "CHECK_CIS_ITEM_1_21": {
+            "title": "Ensure IAM instance roles are used for AWS resource access from instances",
+            "number": "1.21",
+            "alert_criteria": "Alert criteria: When the IAM role is not attached to EC2",
+            "description_1": "Use a temporary key with a deadline in the IAM role",
+            "description_2": "Access to AWS resources from EC2 can reduce the risk of key leakage by using IAM role instead of access key",
+            "description_3": "Please create an IAM role with proper authority and attach it to EC2",
+            "description_4": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS_ITEM_1_22": {
+            "title": "Ensure a support role has been created to manage incidents with AWS Support",
+            "number": "1.22",
+            "alert_criteria": "Alert criteria: Group, user or role attached with IAM policy AWSSupportAccess does not exist",
+            "description_1": "Allow only specific authorized users to contact AWS support",
+            "description_2": "Please attach IAM policy AWSSupportAccess to group or role",
+            "description_3": "The correspondence procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html#attach-managed-policy-console\" target=\"_blank\">here</a>",
+            "description_4": "This item is managed automatically if this AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a>"
+        },
+        "CHECK_CIS_ITEM_1_23": {
+            "title": "Do not setup access keys during initial user setup for all IAM users that have a console password",
+            "number": "1.23",
+            "alert_criteria": "Alert criterion: When there is an access key that has never been used",
+            "description_1": "Please delete unused authentication information",
+            "description_2": "The response procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS_ITEM_1_24": {
+            "title": "Ensure IAM policies that allow full \"*:*\" administrative privileges are not created",
+            "number": "1.24",
+            "alert_criteria": "Alert criteria: Admin privilege If it is (\" Effect\": \" Allow\", \" Action\": \" *\", \" Resource\": \" *\")",
+            "description_1": "By giving minimum permissions to IAM, you will be able to perform only the tasks you need",
+            "description_2": "Please check the services used by the user and only grant necessary privileges",
+            "description_3": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege\" target=\"_blank\">here</a>",
+            "description_4": ""
+        },
+        "CHECK_CIS_ITEM_2_01": {
+            "title": "Ensure CloudTrail is enabled in all regions",
+            "number": "2.1",
+            "alert_criteria": "Alert criteria: When there are regions where CloudTrail is not enabled",
+            "description_1": "CloudTrail records AWS API call (IP, time, parameter)",
+            "description_2": "Required for security analysis, resource change tracking, compliance audit",
+            "description_3": "Activate CloudTrail",
+            "description_4": "The response procedure is <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.html#creating-a-trail-in-the-console\" target=\"_blank\">here</a>",
+            "description_5": "Reference: <a href=\"https://aws.amazon.com/cloudtrail/pricing/\" target=\"_blank\">Charge</a> about AWS CloudTrail"
+        },
+        "CHECK_CIS_ITEM_2_02": {
+            "title": "Ensure CloudTrail log file validation is enabled",
+            "number": "2.2",
+            "alert_criteria": "Alert criteria: CloudTrail log file validation not enabled",
+            "description_1": "Enable log file validation, digital signature will be created",
+            "description_2": "This setting makes it possible to check whether the log file has been tampered with",
+            "description_3": "Activate log file validation",
+            "description_4": "The response procedure is <a href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-log-file-validation-enabling.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS_ITEM_2_03": {
+            "title": "Ensure the S3 bucket CloudTrail logs to is not publicly accessible",
+            "number": "2.3",
+            "alert_criteria": "Alert criteria: S3 bucket storing CloudTrail log is publicly released",
+            "description_1": "Delete the public disclosure settings right now because the unspecified number is readable",
+            "description_2": "The response procedure is <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/user-guide/bucket-permissions-check.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS_ITEM_2_04": {
+            "title": "Ensure CloudTrail trails are integrated with CloudWatch Logs",
+            "number": "2.4",
+            "alert_criteria": "Alert criteria: CloudTrail log not delivered to CloudWatch Logs",
+            "description_1": "Realtime analysis, filters, alarms can be used by delivering CloudTrail logs to CloudWatch Logs",
+            "description_2": "Delivery to CloudWatch Logs is intended for proper monitoring, alerts",
+            "description_3": "Please configure delivery to CloudWatch Logs",
+            "description_4": "The response procedure is <a href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/send-cloudtrail-events-to-cloudwatch-logs.html\" target=\"_blank\">here</a>",
+            "description_5": "Supplemental <ul><li>Proper storage time for log groups <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html\" target=\"_blank\">please set</a></li></ul>",
+            "description_6": "Reference: <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Charge</a> about Amazon CloudWatch Logs"
+        },
+        "CHECK_CIS_ITEM_2_05": {
+            "title": "Ensure AWS Config is enabled in all regions",
+            "number": "2.5",
+            "alert_criteria": "Alert criteria: When there is a region where AWS Config is not enabled",
+            "description_1": "By enabling AWS Config you can manage the configuration of supported resources, enable security analysis, resource change tracking and, compliance auditing",
+            "description_2": "Activate AWS Config settings <ul><li>The checkbox Enable this region to record all supported resources under all resources is enabled</li><li> The Include global resources (such as AWS IAM resources) under all resources means that check boxes are enabled for at least one region.</li><li> The S3 bucket</li><li> Make sure SNS topic is set</li> </u>",
+            "description_3": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/gs-console.html\" target=\"_blank\">here</a>",
+            "description_4": "Reference: <a href=\"https://aws.amazon.com/config/pricing/\" target=\"_blank\">Charge</a> about AWS Config"
+        },
+        "CHECK_CIS_ITEM_2_06": {
+            "title": "Ensure S3 bucket access logging is enabled on the CloudTrail S3 bucket",
+            "number": "2.6",
+            "alert_criteria": "Alert criteria: When access logging of S3 bucket storing CloudTrail is not activated",
+            "description_1": "The access time of the S3 bucket, the resource to be operated and, operation details are recorded and it is valid as an audit log",
+            "description_2": "Activate S3 access log access log",
+            "description_3": "The response procedure is <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/user-guide/server-access-logging.html\" target=\"_blank\">here</a>",
+            "description_4": "Reference: <a href=\"https://aws.amazon.com/s3/pricing/\" target=\"_blank\">Charge</a> about Amazon S3"
+        },
+        "CHECK_CIS_ITEM_2_07": {
+            "title": "Ensure CloudTrail logs are encrypted at rest using KMS CMKs",
+            "number": "2.7",
+            "alert_criteria": "Alert criteria: CloudTrail log is not encrypted",
+            "description_1": "You can add confidentiality control by encrypting",
+            "description_2": "The user browsing the log needs the decryption authority (authority of KMS) in addition to the read authority to the S3 bucket",
+            "description_3": "Encrypt CloudTrail log on S3 (server side encryption) by using AWS Key Management Service (KMS)",
+            "description_4": "Please encrypt CloudTrail log",
+            "description_5": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/encrypting-cloudtrail-log-files-with-aws-kms.html\" target=\"_blank\">here</a>",
+            "description_6": "Reference: <a href=\"https://aws.amazon.com/kms/pricing/\" target=\"_blank\">Charge</a> about AWS KMS"
+        },
+        "CHECK_CIS_ITEM_2_08": {
+            "title": "Ensure rotation for customer created CMKs is enabled",
+            "number": "2.8",
+            "alert_criteria": "Alert criteria: When rotation of KMS key is not set",
+            "description_1": "Can rotate the encryption key to limit the impact on leakage",
+            "description_2": "Even if key rotation is enabled, compounding is performed transparently because past keys are saved, therefore no user operation is required",
+            "description_3": "Please set rotation of KMS master key",
+            "description_4": "The response procedure is <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotating-keys-enable-disable\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS_ITEM_3_01": {
+            "title": "Ensure a log metric filter and alarm exist for unauthorized API calls",
+            "number": "3.1",
+            "alert_criteria": "Alert criteria: Alarm not set for unauthorized API calls",
+            "description_1": "Wait for application errors, malicious activity detection by monitoring unauthorized API calls",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.1 and set",
+            "description_3": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_4": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS_ITEM_3_02": {
+            "title": "Ensure a log metric filter and alarm exist for Management Console sign-in without MFA",
+            "number": "3.2",
+            "alert_criteria": "Alert criterion: No alarm for MFA no login is set",
+            "description_1": "Monitors detection of no MFA login by monitoring login without MFA",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.2 and set",
+            "description_3": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_4": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS_ITEM_3_03": {
+            "title": "Ensure a log metric filter and alarm exist for usage of \"root\" account",
+            "number": "3.3",
+            "alert_criteria": "Alert criteria: Alarm not set for root account use",
+            "description_1": "Keep not using users with strong authority by monitoring root account activity",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.3 and set",
+            "description_3": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_4": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS_ITEM_3_04": {
+            "title": "Ensure a log metric filter and alarm exist for IAM policy changes",
+            "number": "3.4",
+            "alert_criteria": "Alert criteria: No alarm set for IAM policy change",
+            "description_1": "Ensure control of authentication and authorization is maintained by monitoring IAM policy changes",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.4 and set",
+            "description_3": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_4": "Periodically check that the contact information at the time of alarm notification set in monitoring is the latest"
+        },
+        "CHECK_CIS_ITEM_3_05": {
+            "title": "Ensure a log metric filter and alarm exist for CloudTrail configuration changes",
+            "number": "3.5",
+            "alert_criteria": "Maintains sustained visibility of activities performed in AWS accounts by monitoring changes in CloudTrail settings",
+            "description_1": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.5 and set",
+            "description_2": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_3": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS_ITEM_3_06": {
+            "title": "Ensure a log metric filter and alarm exist for AWS Management Console authentication failures",
+            "number": "3.6",
+            "alert_criteria": "Alert criteria: When the login failure alarm to the AWS management console is not set",
+            "description_1": "Detect incorrect attacks early by monitoring login failure",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.6 and set",
+            "description_3": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_4": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS_ITEM_3_07": {
+            "title": "Ensure a log metric filter and alarm exist for disabling or scheduled deletion of customer created CMKs",
+            "number": "3.7",
+            "alert_criteria": "Alert criteria: Alarm not set for invalidation or schedule deletion of KMS master key",
+            "description_1": "Prevent erroneous key deletion by monitoring for invalidation or deletion of keys",
+            "description_2": "Access to data can not be accessed if key is erroneously deleted",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.7 and set",
+            "description_4": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_5": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS_ITEM_3_08": {
+            "title": "Ensure a log metric filter and alarm exist for S3 bucket policy changes",
+            "number": "3.8",
+            "alert_criteria": "Alert criteria: No alarm set for S3 bucket policy change",
+            "description_1": "S3 bucket policy is an important item to set access privilege of data",
+            "description_2": "Maintain protection of highly confidential information by monitoring changes",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.8 and set",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> can use the CloudFormation template. You can set up easily because it is prepared. Please consider using Classmethod members <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_5": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS_ITEM_3_09": {
+            "title": "Ensure a log metric filter and alarm exist for AWS Config configuration changes",
+            "number": "3.9",
+            "alert_criteria": "Alert criteria: Alarm not set for AWS Config setting change",
+            "description_1": "AWS Config can record and track AWS resource changes",
+            "description_2": "Monitor for unintended configuration changes to AWS Config and maintain? Change management in AWS Config can be continued",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.9 and set",
+            "description_4": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_5": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS_ITEM_3_10": {
+            "title": "Ensure a log metric filter and alarm exist for security group changes",
+            "number": "3.10",
+            "alert_criteria": "Alert criteria: No alarm set for security group setting change",
+            "description_1": "Keeps resources and services from being misdirected by monitoring security group changes",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.10 and set",
+            "description_3": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_4": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS_ITEM_3_11": {
+            "title": "Ensure a log metric filter and alarm exist for changes to Network Access Control Lists (NACL)",
+            "number": "3.11",
+            "alert_criteria": "Alert criteria: No alarm set for network ACL configuration change",
+            "description_1": "Keeps the service from being inadvertently exposed by monitoring network ACL changes",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.11 and set",
+            "description_3": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_4": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS_ITEM_3_12": {
+            "title": "Ensure a log metric filter and alarm exist for changes to network gateways",
+            "number": "3.12",
+            "alert_criteria": "Alert criteria: Alarm not set for Internet gateway configuration change",
+            "description_1": "Internet gateway is a route to Internet access",
+            "description_2": "Keeps the service from being misdirected by monitoring Internet gateway changes",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.12 and set",
+            "description_4": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_5": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS_ITEM_3_13": {
+            "title": "Ensure a log metric filter and alarm exist for route table changes",
+            "number": "3.13",
+            "alert_criteria": "Alert criteria: No alarm set for routing table configuration change",
+            "description_1": "Route table defines route information to the Internet and leased lines",
+            "description_2": "Monitor changes in the route table and keep incorrect routing information not registered",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.13 and set",
+            "description_4": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_5": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS_ITEM_3_14": {
+            "title": "Ensure a log metric filter and alarm exist for VPC changes",
+            "number": "3.14",
+            "alert_criteria": "Alert criteria: No alarm set for routing table configuration change",
+            "description_1": "Route table defines route information to the Internet and leased lines",
+            "description_2": "Monitor changes in the route table and keep incorrect routing information not registered",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.13 and set",
+            "description_4": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_5": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS_ITEM_3_15": {
+            "title": "Ensure appropriate subscribers to each SNS topic",
+            "number": "3.15",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "Please check whether the notification destination of the alarm set in monitoring is latest",
+            "description_2": "Response procedure <ul> <li> <a href =\"https://docs.aws.amazon.com/sns/latest/dg/welcome.html\" target=\"_blank\">Subscribe to a topic</a></li><li> <a href =\"https://docs.aws.amazon.com/sns/latest/dg/CleanUp.html\" target=\"_blank\">Unsubscribing</a></li><li> If you are using <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Membersand</a> set up with CloudFormation on CIS 3 Monitoring. Please click <a href=\"https://insightwatch.zendesk.com/hc/ja/articles/360002504712\" target=\"_blank\">here</a></li></ul>"
+        },
+        "CHECK_CIS_ITEM_4_01": {
+            "title": "Ensure no security groups allow ingress from 0.0.0.0/0 to port 22",
+            "number": "4.1",
+            "alert_criteria": "Alert criteria: When security port 22 is allowed on port 0.0.0.0/0",
+            "description_1": "Security group with unrestricted access to SSH",
+            "description_2": "Prevent access from unspecified majority by narrowing access sources",
+            "description_3": "Please change the security group setting, narrow down the access source or delete it if it is not needed",
+            "description_4": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html#AddRemoveRules\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS_ITEM_4_02": {
+            "title": "Ensure no security groups allow ingress from 0.0.0.0/0 to port 3389",
+            "number": "4.2",
+            "alert_criteria": "Alert criteria: Security group, port 3389 is allowed on 0.0.0.0/0",
+            "description_1": "There are security groups with unrestricted access to RDP",
+            "description_2": "Prevent access from unspecified majority by narrowing access sources",
+            "description_3": "Please change the security group setting, narrow down the access source or delete it if it is not needed",
+            "description_4": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html#AddRemoveRules\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS_ITEM_4_03": {
+            "title": "Ensure VPC flow logging is enabled in all VPCs",
+            "number": "4.3",
+            "alert_criteria": "Alert criteria: When VPC Flow Logs is not activated",
+            "description_1": "VPC Flow Logs saves the log of network communications in VPC",
+            "description_2": "Helps to investigate security analysis and abnormal communication",
+            "description_3": "Activate VPC Flow Log",
+            "description_4": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html\" target=\"_blank\">here</a>",
+            "description_5": "CloudWatch Logs saves the log indefinitely, unless you set a retention period, so <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SettingLogRetention.html\" target=\"_blank\">See Here </a> and set the log retention period to a minimum of 365 days",
+            "description_6": "Charge about <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">VPC Flow Logs</a> (Amazon CloudWatch Supply Log)"
+        },
+        "CHECK_CIS_ITEM_4_04": {
+            "title": "Ensure the default security group of every VPC restricts all traffic",
+            "number": "4.4",
+            "alert_criteria": "Alert criteria <ul><li>if rules are set for the default security group</li><li> If there is an EC2 instance using the default security group</li></ul>",
+            "description_1": "default security group is created automatically when VPC is created, and if you do not specify a security group when invoking the instance, that instance will be automatically associated with the default security group",
+            "description_2": "Avoid using default security group to make the intended settings",
+            "description_3": "Please prepare a security group other than the default security group and attach it to EC2",
+            "description_4": "Remove the outbound inbound rule from the default security group and detach it if attached to the instance",
+            "description_5": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html#WorkingWithSecurityGroups\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS_ITEM_4_05": {
+            "title": "Ensure routing tables for VPC peering are \"least access\"",
+            "number": "4.5",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "By using VPC peering, you can communicate between VPCs",
+            "description_2": "Make sure that minimum routing for VPC peering is registered",
+            "description_3": "The response procedure is <a href=\"https://docs.aws.amazon.com/ja_jp/vpc/latest/peering/vpc-peering-routing.html\" target=\"_blank\">Here</a>"
+        },
+        "CHECK_CIS12_ITEM_1_01": {
+            "title": "Avoid the use of the \"root\" account",
+            "number": "1.1",
+            "alert_criteria": "Alert criteria: When root account was used within the past two weeks",
+            "description_1": "Please use IAM user without root account because root account has strong privilege",
+            "description_2": "Please check that the root account is not used during normal operation, change it to use IAM user if using it",
+            "description_3": "However, there are some <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tasks-that-require-root.html\" target=\"_blank\">AWS Tasks That Require AWS Account Root User Credentials</a>",
+            "description_4": "If you are using <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod members</a>, your request Based on the Classmethod based on the root account work may be delegated"
+        },
+        "CHECK_CIS12_ITEM_1_02": {
+            "title": "Ensure multi-factor authentication (MFA) is enabled for all IAM users that have a console password",
+            "number": "1.2",
+            "alert_criteria": "Alert criteria: MFA not set for IAM user",
+            "description_1": "Enable Multi-Factor Authentication (MFA) for IAM users to enhance security at login",
+            "description_2": "Activate MFA",
+            "description_3": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS12_ITEM_1_03": {
+            "title": "Ensure credentials unused for 90 days or greater are disabled",
+            "number": "1.3",
+            "alert_criteria": "Alert criteria: When authentication information (IAM user, access key) not used for more than 90 days exists",
+            "description_1": "Inventory periodic inventory of unused authentication information (IAM users, access keys), improve security",
+            "description_2": "Please invalidate or delete authentication information",
+            "description_3": "Response procedure<ul><li><a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html\" target =\"_blank\"> IAM user</a></li><li><a href=\"http://docs.aws.amazon.com/ja_en/IAM/latest/UserGuide/id_credentials_access-keys.html\" target=\"_blank\">Access key</a></li></ul></li>"
+        },
+        "CHECK_CIS12_ITEM_1_04": {
+            "title": "Ensure access keys are rotated every 90 days or less",
+            "number": "1.4",
+            "alert_criteria": "Alert criteria<ul><li>If there are access keys that have not been rotated more than 90 days</li><li>If there are access keys that have not been used since rotation</li></ul>",
+            "description_1": "Access key is authentication information for using AWS from the tool (AWS CLI, PowerShell, AWS SDK etc)",
+            "description_2": "Rotating regularly reduces the risk of access key theft and leakage",
+            "description_3": "Please rotate access key",
+            "description_4": "The response procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_RotateAccessKey\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS12_ITEM_1_05": {
+            "title": "Ensure IAM password policy requires at least one uppercase letter",
+            "number": "1.5",
+            "alert_criteria": "Alert criteria: When one or more uppercase letters are invalid in IAM's password policy",
+            "description_1": "Improve password policy for IAM users to increase password security",
+            "description_2": "Please enable \"Require at least one uppercase letter\"",
+            "description_3": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_CIS12_ITEM_1_06": {
+            "title": "Ensure IAM password policy require at least one lowercase letter",
+            "number": "1.6",
+            "alert_criteria": "Alert criteria: When one or more uppercase letters are invalid in IAM's password policy",
+            "description_1": "Improve password policy for IAM users to increase password security",
+            "description_2": "Please enable \"Require at least one uppercase letter\"",
+            "description_3": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_CIS12_ITEM_1_07": {
+            "title": "Ensure IAM password policy require at least one symbol",
+            "number": "1.7",
+            "alert_criteria": "Alert criteria: IAM's password policy \"Require at least one non-alphanumeric character\" is not enabled",
+            "description_1": "Improve password policy for IAM users to increase password security",
+            "description_2": "Please enable \"Require at least one non-alphanumeric character\"",
+            "description_3": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_CIS12_ITEM_1_08": {
+            "title": "Ensure IAM password policy require at least one number",
+            "number": "1.8",
+            "alert_criteria": "Alert criteria: When \"Require at least one number\" are invalid in IAM's password policy",
+            "description_1": "Improve password policy for IAM users to increase password security",
+            "description_2": "Please enable \"Require at least one number\"",
+            "description_3": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_CIS12_ITEM_1_09": {
+            "title": "Ensure IAM password policy requires minimum length of 14 or greater",
+            "number": "1.9",
+            "alert_criteria": "Alert criteria: Minimum password length is less than 14 characters in IAM password policy",
+            "description_1": "Improve password policy for IAM users to increase password security",
+            "description_2": "Please change \"Minimum password length\" to 14 characters or more",
+            "description_3": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_CIS12_ITEM_1_10": {
+            "title": "Ensure IAM password policy prevents password reuse",
+            "number": "1.10",
+            "alert_criteria": "Alert criteria<ul><li>Prohibited password reuse is disabled in IAM password policy</li><li>The number of passwords to remember is 24 Not</li></ul>",
+            "description_1": "Improve password policy for IAM users to increase password security",
+            "description_2": "Please disable password reuse",
+            "description_3": "Please specify 24 for the number of passwords to memorize. If you specify anything other than 24, it will be checked NG.",
+            "description_4": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_CIS12_ITEM_1_11": {
+            "title": "Ensure IAM password policy expires passwords within 90 days or less",
+            "number": "1.11",
+            "alert_criteria": "Alert criteria: Password expiration of 90 days or less is invalid in IAM's password policy",
+            "description_1": "Improve password policy for IAM users to increase password security",
+            "description_2": "Please check \"Enable password expiration\" and set expiration within 90 days or less",
+            "description_3": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_CIS12_ITEM_1_12": {
+            "title": "Ensure no root account access key exists",
+            "number": "1.12",
+            "alert_criteria": "Alert criteria: If access key is set for root account",
+            "description_1": "The root account has strong privileges. Please use IAM users instead of the root account.",
+            "description_2": "Please delete the access key of root account and use IAM user",
+            "description_3": "The response procedure is <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_delete-key\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS12_ITEM_1_13": {
+            "title": "Ensure MFA is enabled for the \"root\" account",
+            "number": "1.13",
+            "alert_criteria": "Alert criteria: If access key is set for root account",
+            "description_1": "The root account has strong privileges. Please use IAM users instead of the root account.",
+            "description_2": "Please delete the access key of root account and use IAM user",
+            "description_3": "The response procedure is <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_delete-key\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS12_ITEM_1_14": {
+            "title": "Ensure hardware MFA is enabled for the \"root\" account",
+            "number": "1.14",
+            "alert_criteria": "Alert criteria: When root account is not using hardware MFA",
+            "description_1": "Hardware MFA is less likely to be attacked compared to virtual MFA, it is recommended to apply to root account with strongest authority",
+            "description_2": "Please install hardware MFA for root account",
+            "description_3": "However, if you are using multiple AWS accounts, management of hardware MFA devices may be an issue, in which case we will introduce hardware MFA for accounts that require high security , Consider the remaining accounts to introduce virtual MFA",
+            "description_4": "The response procedure is <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html#enable-hw-mfa-for-root\" target=\"_blank\">here</a>",
+            "description_5": "This item is managed automatically if this AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a>"
+        },
+        "CHECK_CIS12_ITEM_1_15": {
+            "title": "Ensure security questions are registered in the AWS account",
+            "number": "1.15",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "The secret question is used for identity authentication with AWS customer service. If you can not confirm it, you may be unable to contact AWS support",
+            "description_2": "Required for inquiries when login to the AWS console becomes impossible due to MFA device failure, etc.",
+            "description_3": "Please make sure secret question is up to date",
+            "description_4": "",
+            "description_5": "This item is managed automatically if this AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a>"
+        },
+        "CHECK_CIS12_ITEM_1_16": {
+            "title": "Ensure IAM policies are attached only to groups or roles",
+            "number": "1.16",
+            "alert_criteria": "Alert criteria: IAM policy attached to IAM user",
+            "description_1": "Assigning permissions at the group level reduces the complexity of increasing users and reduces the risk of granting erroneous authority",
+            "description_2": "Make IAM user belong to group, attach policy to group, delete policy from IAM user",
+            "description_3": "The response procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS12_ITEM_1_17": {
+            "title": "Maintain current contact details",
+            "number": "1.17",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "Contacts will be used for notifications such as security issues and AWS policy violations",
+            "description_2": "Please make sure your contact information (email address, phone number, address etc) is up to date",
+            "description_3": "The response procedure is <a href=\"http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-account-payment.html#contact-info\" target=\"_blank\">here</a>",
+            "description_4": "This item is managed automatically if this AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a>"
+        },
+        "CHECK_CIS12_ITEM_1_18": {
+            "title": "Ensure security contact information is registered",
+            "number": "1.18",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "Contacts will be contacts for security even in contact from AWS",
+            "description_2": "You can contact the security team in your organization by specifying security contacts",
+            "description_3": "Please check if the security contact information is up to date",
+            "description_4": "The corresponding procedure is <a href=\"http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-account-payment.html#contact-info\" target=\"_blank\">here</a>",
+            "description_5": "This item is managed automatically if this AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a>"
+        },
+        "CHECK_CIS12_ITEM_1_19": {
+            "title": "Ensure IAM instance roles are used for AWS resource access from instances",
+            "number": "1.19",
+            "alert_criteria": "Alert criteria: When the IAM role is not attached to EC2",
+            "description_1": "Use a temporary key with a deadline in the IAM role",
+            "description_2": "Access to AWS resources from EC2 can reduce the risk of key leakage by using IAM role instead of access key",
+            "description_3": "Please create an IAM role with proper authority and attach it to EC2",
+            "description_4": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS12_ITEM_1_20": {
+            "title": "Ensure a support role has been created to manage incidents with AWS Support",
+            "number": "1.20",
+            "alert_criteria": "Alert criteria: Group, user or role attached with IAM policy AWSSupportAccess does not exist",
+            "description_1": "Allow only specific authorized users to contact AWS support",
+            "description_2": "Please attach IAM policy AWSSupportAccess to group or role",
+            "description_3": "The correspondence procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html#attach-managed-policy-console\" target=\"_blank\">here</a>",
+            "description_4": "This item is managed automatically if this AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a>"
+        },
+        "CHECK_CIS12_ITEM_1_21": {
+            "title": "Do not setup access keys during initial user setup for all IAM users that have a console password",
+            "number": "1.21",
+            "alert_criteria": "Alert criterion: When there is an access key that has never been used",
+            "description_1": "Please delete unused authentication information",
+            "description_2": "The response procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS12_ITEM_1_22": {
+            "title": "Ensure IAM policies that allow full \"*:*\" administrative privileges are not created",
+            "number": "1.22",
+            "alert_criteria": "Alert criteria: Admin privilege If it is (\" Effect\": \" Allow\", \" Action\": \" *\", \" Resource\": \" *\")",
+            "description_1": "By giving minimum permissions to IAM, you will be able to perform only the tasks you need",
+            "description_2": "Please check the services used by the user and only grant necessary privileges",
+            "description_3": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege\" target=\"_blank\">here</a>",
+            "description_4": ""
+        },
+        "CHECK_CIS12_ITEM_2_01": {
+            "title": "Ensure CloudTrail is enabled in all regions",
+            "number": "2.1",
+            "alert_criteria": "Alert criteria: When there are regions where CloudTrail is not enabled",
+            "description_1": "CloudTrail records AWS API call (IP, time, parameter)",
+            "description_2": "Required for security analysis, resource change tracking, compliance audit",
+            "description_3": "Activate CloudTrail",
+            "description_4": "The response procedure is <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.html#creating-a-trail-in-the-console\" target=\"_blank\">here</a>",
+            "description_5": "Reference: <a href=\"https://aws.amazon.com/cloudtrail/pricing/\" target=\"_blank\">Charge</a> about AWS CloudTrail"
+        },
+        "CHECK_CIS12_ITEM_2_02": {
+            "title": "Ensure CloudTrail log file validation is enabled",
+            "number": "2.2",
+            "alert_criteria": "Alert criteria: CloudTrail log file validation not enabled",
+            "description_1": "Enable log file validation, digital signature will be created",
+            "description_2": "This setting makes it possible to check whether the log file has been tampered with",
+            "description_3": "Activate log file validation",
+            "description_4": "The response procedure is <a href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-log-file-validation-enabling.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS12_ITEM_2_03": {
+            "title": "Ensure the S3 bucket CloudTrail logs to is not publicly accessible",
+            "number": "2.3",
+            "alert_criteria": "Alert criteria: S3 bucket storing CloudTrail log is publicly released",
+            "description_1": "Delete the public disclosure settings right now because the unspecified number is readable",
+            "description_2": "The response procedure is <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/user-guide/bucket-permissions-check.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS12_ITEM_2_04": {
+            "title": "Ensure CloudTrail trails are integrated with CloudWatch Logs",
+            "number": "2.4",
+            "alert_criteria": "Alert criteria: CloudTrail log not delivered to CloudWatch Logs",
+            "description_1": "Realtime analysis, filters, alarms can be used by delivering CloudTrail logs to CloudWatch Logs",
+            "description_2": "Delivery to CloudWatch Logs is intended for proper monitoring, alerts",
+            "description_3": "Please configure delivery to CloudWatch Logs",
+            "description_4": "The response procedure is <a href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/send-cloudtrail-events-to-cloudwatch-logs.html\" target=\"_blank\">here</a>",
+            "description_5": "Supplemental <ul><li>Proper storage time for log groups <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html\" target=\"_blank\">please set</a></li></ul>",
+            "description_6": "Reference: <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Charge</a> about Amazon CloudWatch Logs"
+        },
+        "CHECK_CIS12_ITEM_2_05": {
+            "title": "Ensure AWS Config is enabled in all regions",
+            "number": "2.5",
+            "alert_criteria": "Alert criteria: When there is a region where AWS Config is not enabled",
+            "description_1": "By enabling AWS Config you can manage the configuration of supported resources, enable security analysis, resource change tracking and, compliance auditing",
+            "description_2": "Activate AWS Config settings <ul><li>The checkbox Enable this region to record all supported resources under all resources is enabled</li><li> The Include global resources (such as AWS IAM resources) under all resources means that check boxes are enabled for at least one region.</li><li> The S3 bucket</li><li> Make sure SNS topic is set</li> </u>",
+            "description_3": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/gs-console.html\" target=\"_blank\">here</a>",
+            "description_4": "Reference: <a href=\"https://aws.amazon.com/config/pricing/\" target=\"_blank\">Charge</a> about AWS Config"
+        },
+        "CHECK_CIS12_ITEM_2_06": {
+            "title": "Ensure S3 bucket access logging is enabled on the CloudTrail S3 bucket",
+            "number": "2.6",
+            "alert_criteria": "Alert criteria: When access logging of S3 bucket storing CloudTrail is not activated",
+            "description_1": "The access time of the S3 bucket, the resource to be operated and, operation details are recorded and it is valid as an audit log",
+            "description_2": "Activate S3 access log access log",
+            "description_3": "The response procedure is <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/user-guide/server-access-logging.html\" target=\"_blank\">here</a>",
+            "description_4": "Reference: <a href=\"https://aws.amazon.com/s3/pricing/\" target=\"_blank\">Charge</a> about Amazon S3"
+        },
+        "CHECK_CIS12_ITEM_2_07": {
+            "title": "Ensure CloudTrail logs are encrypted at rest using KMS CMKs",
+            "number": "2.7",
+            "alert_criteria": "Alert criteria: CloudTrail log is not encrypted",
+            "description_1": "You can add confidentiality control by encrypting",
+            "description_2": "The user browsing the log needs the decryption authority (authority of KMS) in addition to the read authority to the S3 bucket",
+            "description_3": "Encrypt CloudTrail log on S3 (server side encryption) by using AWS Key Management Service (KMS)",
+            "description_4": "Please encrypt CloudTrail log",
+            "description_5": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/encrypting-cloudtrail-log-files-with-aws-kms.html\" target=\"_blank\">here</a>",
+            "description_6": "Reference: <a href=\"https://aws.amazon.com/kms/pricing/\" target=\"_blank\">Charge</a> about AWS KMS"
+        },
+        "CHECK_CIS12_ITEM_2_08": {
+            "title": "Ensure rotation for customer created CMKs is enabled",
+            "number": "2.8",
+            "alert_criteria": "Alert criteria: When rotation of KMS key is not set",
+            "description_1": "Can rotate the encryption key to limit the impact on leakage",
+            "description_2": "Even if key rotation is enabled, compounding is performed transparently because past keys are saved, therefore no user operation is required",
+            "description_3": "Please set rotation of KMS master key",
+            "description_4": "The response procedure is <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotating-keys-enable-disable\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS12_ITEM_2_09": {
+            "title": "Ensure VPC flow logging is enabled in all VPCs",
+            "number": "2.9",
+            "alert_criteria": "Alert criteria: When VPC Flow Logs is not activated",
+            "description_1": "VPC Flow Logs saves the log of network communications in VPC",
+            "description_2": "Helps to investigate security analysis and abnormal communication",
+            "description_3": "Activate VPC Flow Log",
+            "description_4": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html\" target=\"_blank\">here</a>",
+            "description_5": "CloudWatch Logs saves the log indefinitely, unless you set a retention period, so <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SettingLogRetention.html\" target=\"_blank\">See Here </a> and set the log retention period to a minimum of 365 days",
+            "description_6": "Charge about <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">VPC Flow Logs</a> (Amazon CloudWatch Supply Log)"
+        },
+        "CHECK_CIS12_ITEM_3_01": {
+            "title": "Ensure a log metric filter and alarm exist for unauthorized API calls",
+            "number": "3.1",
+            "alert_criteria": "Alert criteria: Alarm not set for unauthorized API calls",
+            "description_1": "Wait for application errors, malicious activity detection by monitoring unauthorized API calls",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.1 and set",
+            "description_3": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_4": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS12_ITEM_3_02": {
+            "title": "Ensure a log metric filter and alarm exist for Management Console sign-in without MFA",
+            "number": "3.2",
+            "alert_criteria": "Alert criterion: No alarm for MFA no login is set",
+            "description_1": "Monitors detection of no MFA login by monitoring login without MFA",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.2 and set",
+            "description_3": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_4": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS12_ITEM_3_03": {
+            "title": "Ensure a log metric filter and alarm exist for usage of \"root\" account",
+            "number": "3.3",
+            "alert_criteria": "Alert criteria: Alarm not set for root account use",
+            "description_1": "Keep not using users with strong authority by monitoring root account activity",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.3 and set",
+            "description_3": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_4": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS12_ITEM_3_04": {
+            "title": "Ensure a log metric filter and alarm exist for IAM policy changes",
+            "number": "3.4",
+            "alert_criteria": "Alert criteria: No alarm set for IAM policy change",
+            "description_1": "Ensure control of authentication and authorization is maintained by monitoring IAM policy changes",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.4 and set",
+            "description_3": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_4": "Periodically check that the contact information at the time of alarm notification set in monitoring is the latest"
+        },
+        "CHECK_CIS12_ITEM_3_05": {
+            "title": "Ensure a log metric filter and alarm exist for CloudTrail configuration changes",
+            "number": "3.5",
+            "alert_criteria": "Maintains sustained visibility of activities performed in AWS accounts by monitoring changes in CloudTrail settings",
+            "description_1": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.5 and set",
+            "description_2": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_3": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS12_ITEM_3_06": {
+            "title": "Ensure a log metric filter and alarm exist for AWS Management Console authentication failures",
+            "number": "3.6",
+            "alert_criteria": "Alert criteria: When the login failure alarm to the AWS management console is not set",
+            "description_1": "Detect incorrect attacks early by monitoring login failure",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.6 and set",
+            "description_3": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_4": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS12_ITEM_3_07": {
+            "title": "Ensure a log metric filter and alarm exist for disabling or scheduled deletion of customer created CMKs",
+            "number": "3.7",
+            "alert_criteria": "Alert criteria: Alarm not set for invalidation or schedule deletion of KMS master key",
+            "description_1": "Prevent erroneous key deletion by monitoring for invalidation or deletion of keys",
+            "description_2": "Access to data can not be accessed if key is erroneously deleted",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.7 and set",
+            "description_4": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_5": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS12_ITEM_3_08": {
+            "title": "Ensure a log metric filter and alarm exist for S3 bucket policy changes",
+            "number": "3.8",
+            "alert_criteria": "Alert criteria: No alarm set for S3 bucket policy change",
+            "description_1": "S3 bucket policy is an important item to set access privilege of data",
+            "description_2": "Maintain protection of highly confidential information by monitoring changes",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.8 and set",
+            "description_4": "<a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> can use the CloudFormation template. You can set up easily because it is prepared. Please consider using Classmethod members <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_5": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS12_ITEM_3_09": {
+            "title": "Ensure a log metric filter and alarm exist for AWS Config configuration changes",
+            "number": "3.9",
+            "alert_criteria": "Alert criteria: Alarm not set for AWS Config setting change",
+            "description_1": "AWS Config can record and track AWS resource changes",
+            "description_2": "Monitor for unintended configuration changes to AWS Config and maintain? Change management in AWS Config can be continued",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.9 and set",
+            "description_4": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_5": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS12_ITEM_3_10": {
+            "title": "Ensure a log metric filter and alarm exist for security group changes",
+            "number": "3.10",
+            "alert_criteria": "Alert criteria: No alarm set for security group setting change",
+            "description_1": "Keeps resources and services from being misdirected by monitoring security group changes",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.10 and set",
+            "description_3": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_4": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS12_ITEM_3_11": {
+            "title": "Ensure a log metric filter and alarm exist for changes to Network Access Control Lists (NACL)",
+            "number": "3.11",
+            "alert_criteria": "Alert criteria: No alarm set for network ACL configuration change",
+            "description_1": "Keeps the service from being inadvertently exposed by monitoring network ACL changes",
+            "description_2": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.11 and set",
+            "description_3": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_4": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS12_ITEM_3_12": {
+            "title": "Ensure a log metric filter and alarm exist for changes to network gateways",
+            "number": "3.12",
+            "alert_criteria": "Alert criteria: Alarm not set for Internet gateway configuration change",
+            "description_1": "Internet gateway is a route to Internet access",
+            "description_2": "Keeps the service from being misdirected by monitoring Internet gateway changes",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.12 and set",
+            "description_4": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_5": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS12_ITEM_3_13": {
+            "title": "Ensure a log metric filter and alarm exist for route table changes",
+            "number": "3.13",
+            "alert_criteria": "Alert criteria: No alarm set for routing table configuration change",
+            "description_1": "Route table defines route information to the Internet and leased lines",
+            "description_2": "Monitor changes in the route table and keep incorrect routing information not registered",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.13 and set",
+            "description_4": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_5": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS12_ITEM_3_14": {
+            "title": "Ensure a log metric filter and alarm exist for VPC changes",
+            "number": "3.14",
+            "alert_criteria": "Alert criteria: No alarm set for routing table configuration change",
+            "description_1": "Route table defines route information to the Internet and leased lines",
+            "description_2": "Monitor changes in the route table and keep incorrect routing information not registered",
+            "description_3": "<a href=\"https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf\" target=\"_blank\">CIS Amazon Web Services Foundations</a> please refer 3.13 and set",
+            "description_4": "If your AWS account is part of <a href=\"https://classmethod.jp/services/members/\" target=\"_blank\">Classmethod Members</a> you can use the CloudFormation templates provided. Follow procedures by Classmethod <a href=\"https://insightwatch.zendesk.com/hc/ja/sections/360000490432\" target=\"_blank\">here</a>",
+            "description_5": "See also: <a href=\"https://aws.amazon.com/sns/pricing/\" target=\"_blank\">Amazon SNS</a>, <a href=\"https://aws.amazon.com/cloudwatch/pricing/\" target=\"_blank\">Amazon CloudWatch</a> (custom metrics, alarms) price"
+        },
+        "CHECK_CIS12_ITEM_4_01": {
+            "title": "Ensure no security groups allow ingress from 0.0.0.0/0 to port 22",
+            "number": "4.1",
+            "alert_criteria": "Alert criteria: When security port 22 is allowed on port 0.0.0.0/0",
+            "description_1": "Security group with unrestricted access to SSH",
+            "description_2": "Prevent access from unspecified majority by narrowing access sources",
+            "description_3": "Please change the security group setting, narrow down the access source or delete it if it is not needed",
+            "description_4": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html#AddRemoveRules\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS12_ITEM_4_02": {
+            "title": "Ensure no security groups allow ingress from 0.0.0.0/0 to port 3389",
+            "number": "4.2",
+            "alert_criteria": "Alert criteria: Security group, port 3389 is allowed on 0.0.0.0/0",
+            "description_1": "There are security groups with unrestricted access to RDP",
+            "description_2": "Prevent access from unspecified majority by narrowing access sources",
+            "description_3": "Please change the security group setting, narrow down the access source or delete it if it is not needed",
+            "description_4": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html#AddRemoveRules\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS12_ITEM_4_03": {
+            "title": "Ensure the default security group of every VPC restricts all traffic",
+            "number": "4.3",
+            "alert_criteria": "Alert criteria <ul><li>if rules are set for the default security group</li><li> If there is an EC2 instance using the default security group</li></ul>",
+            "description_1": "default security group is created automatically when VPC is created, and if you do not specify a security group when invoking the instance, that instance will be automatically associated with the default security group",
+            "description_2": "Avoid using default security group to make the intended settings",
+            "description_3": "Please prepare a security group other than the default security group and attach it to EC2",
+            "description_4": "Remove the outbound inbound rule from the default security group and detach it if attached to the instance",
+            "description_5": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html#WorkingWithSecurityGroups\" target=\"_blank\">here</a>"
+        },
+        "CHECK_CIS12_ITEM_4_04": {
+            "title": "Ensure routing tables for VPC peering are \"least access\"",
+            "number": "4.4",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "By using VPC peering, you can communicate between VPCs",
+            "description_2": "Make sure that minimum routing for VPC peering is registered",
+            "description_3": "The response procedure is <a href=\"https://docs.aws.amazon.com/ja_jp/vpc/latest/peering/vpc-peering-routing.html\" target=\"_blank\">Here</a>"
+        }
+    }
+}

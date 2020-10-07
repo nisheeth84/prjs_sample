@@ -1,0 +1,266 @@
+{
+  "businesscards": {
+    "add-edit-list": {
+      "title": {
+        "show-language": "他言語を表示"
+      }
+    },
+    "list": {
+      "isWorking": {
+        "working": "在職中にする",
+        "notWorking": "在職中にしない"
+      },
+      "saveMode": "更新待ち",
+      "header": {
+        "companyName": "顧客名・名刺氏名",
+        "positionName": "部署・役職名",
+        "contactName": "連絡先",
+        "address": "連絡先"
+      }
+    },
+    "list-view": {
+      "sort": {
+        "label": "ソート",
+        "asc": "昇順",
+        "desc": "降順",
+        "name": "名刺氏名",
+        "first-name": "名前（名）",
+        "last-name": "名前（姓）",
+        "position": "役職",
+        "receiver": "受取人",
+        "receiver-number": "受取人数",
+        "receive-date": "受取日",
+        "updated-date": "最終更新日",
+        "last-contact-date": "最終接触日",
+        "receiver-info": "自動で統合されます。"
+      }
+    },
+    "displayCondition": {
+      "buttonShowCondition": "詳細検索条件",
+      "form": {
+        "conditionSearch": "詳細検索条件",
+        "filter": "フィルタ条件",
+        "conditionSave": "自動追加リストの保存条件"
+      }
+    },
+    "top": {
+      "title": {
+        "btn-registration": "名刺を登録",
+        "btn-import": "名刺をインポート",
+        "btn-operation": "リスト操作",
+        "btn-add-to-list": "リストへ追加",
+        "btn-create-my-list": "マイリストを作成",
+        "btn-create-shared-list": "共有リストを作成",
+        "btn-update-list": "リストを更新",
+        "btn-move-list": "リストへ移動",
+        "btn-remove-from-list": "リストから削除",
+        "btn-edit": "簡易編集",
+        "btn-cancel": "キャンセル",
+        "btn-save": "変更を保存"
+      },
+      "place-holder.search": "名刺を検索"
+    },
+    "sidebar": {
+      "title": {
+        "all-cards": "全ての名刺",
+        "receiver": "受け取った名刺",
+        "favorite-list": "お気に入りリスト",
+        "my-list": "マイリスト",
+        "shared-list": "共有リスト"
+      },
+      "place-holder.search": "名刺を検索",
+      "card": {
+        "btn-refresh-auto-list": "リストを更新",
+        "btn-remove-from-favorite": "お気に入りリストから外す",
+        "btn-add-to-favorite": "お気に入りリストに登録",
+        "btn-edit-list": "リストを編集",
+        "btn-delete-list": "リストを削除",
+        "btn-duplicate-list": "リストを複製",
+        "change-to-shared-list": "共有リストに変更"
+      }
+    },
+    "popup": {
+      "add-card-to-list": {
+        "title": "リストへ追加",
+        "list-card": "追加するリスト",
+        "placeholder": "追加するリストを選択",
+        "btn-submit": "追加",
+        "err-not-select": "入力必須項目です。値を入力してください。"
+      },
+      "move-list": {
+        "title": "リストの移動",
+        "list-card": "移動するリスト",
+        "list-card-default": "移動するリストを選択",
+        "btn-submit": "移動",
+        "my-list": "マイリスト",
+        "share-list": "共有リスト",
+        "favorite-list": "お気に入りリスト"
+      }
+    },
+    "item-drag": {
+      "list": " 件の名刺を移動"
+    },
+    "mylist": {
+      "title": "マイリストを作成",
+      "edit-title": "マイリストを編集",
+      "my-title": "リスト名",
+      "required": "必須",
+      "lable-language": "他言語を表示",
+      "lable-name-languageJp": "日本語",
+      "lable-name-languageEn": "English(US)",
+      "lable-name-languageZn": "中文（簡体",
+      "button-create": "作成",
+      "button-edit": "变更",
+      "radio-auto": "自動追加",
+      "radio-manual": "手動",
+      "mylist-name-placeholder": "リスト名を入力",
+      "mylist-radio-manual": "リストの種類",
+      "mylist-radio-auto": "リストの種類",
+      "setting-search-condition": "検索条件編集",
+      "is-overwrite": "更新時に条件に合致しない場合、リストから削除する",
+      "button-cancel": "×",
+      "mylist-type": "リストの種類",
+      "auto-group-condition-search-title": "自動追加リストの検索条件",
+      "list-update-time": "毎日「{{0}}」時にリストを自動に更新されます",
+      "duplicate": " のコピー（{{n}}）",
+      "duplicate-check": " のコピー",
+      "search-condition-input-placeholder": "項目を検索"
+    },
+    "detail": {
+      "label": {
+        "button.save": "保存",
+        "button.cancel": "キャンセル",
+        "button.confirm": "削除",
+        "button.confirmOnly": "名刺のみ削除",
+        "button.confirmMulti": "顧客と名刺の削除",
+        "button.createFollowed": "フォローする",
+        "button.deleteFolloweds": "フォローを外す",
+        "button.displayArea": "表示範囲",
+        "button.editMode": "画面編集",
+        "button.optionAll": "全て表示",
+        "button.optionCost": "自分の担当のみ表示",
+        "button.optionCustomer": "全顧客",
+        "button.optionOpen": "現在開いている顧客",
+        "button.sampleData": "名刺のサンプルデータ",
+        "button.exampleData": "登録画面プレビュー",
+        "title.activityHistories": "活動履歴",
+        "title.productTradings": "取引商品",
+        "title.calendar": "カレンダー",
+        "title.delete": "削 除",
+        "active": "面識あり",
+        "lastContactDate": "最終接触日",
+        "lastContact": "最終接触者",
+        "more-receiver": "他{{0}}名",
+        "badges.empty": "予定なし"
+      }
+    },
+    "history": {
+      "title.info": "が登録されました。",
+      "title.coherence": "に統合されました。",
+      "title.update": "が変更されました。"
+    },
+    "sharelist": {
+      "lbCreateShare": "共有リストを作成",
+      "list-name-place-holder": "リスト名を入力",
+      "lbEditShare": "共有リストを編集",
+      "lbSwitchShareType": "共有グループに変更",
+      "lbCreateShareWith": "件でグループを作成します",
+      "btnUpdate": "更新",
+      "btnCreate": "作成",
+      "radHideOtherLanguage": "他言語を非表示",
+      "radShowOtherLanguage": "他言語を表示",
+      "lbRequire": "必須",
+      "lbShareName": "リスト名",
+      "hintShareName": "リスト名を入力",
+      "list-participants": "リストの参加者",
+      "lbListParticipants": "リストの参加者",
+      "hintListParticipants": "リストの参加者を追加",
+      "icCompany": "社",
+      "lbSearchCondition": "自動追加リストの検索条件",
+      "lbSettingSearch": "検索条件編集",
+      "lbNoteForCheckBox": "更更新時に条件に合致しない場合、リストから削除する",
+      "hintJapanese": "(日本語)",
+      "hintChinese": "(中文（简体）",
+      "hintEnglish": "(English （US）)",
+      "hintKorean": "(한국어)",
+      "lbGroupType": "リストの種類",
+      "radManual": "手動",
+      "radAuto": "自動追加",
+      "permision.viewer": "閲覧者",
+      "permision.owner": "オーナー",
+      "list-update-time": "毎日「{{0}}」時にグループが自動に更新されます",
+      "duplicate": "のコピー（{{n}}）",
+      "duplicate-check": "のコピー"
+    },
+    "transfer": {
+      "lbInput": "異動先の顧客",
+      "placeholder": "異動先の顧客を選択",
+      "tilte": "異動",
+      "buttomSubmit": "異動",
+      "buttomCancel": "キャンセル"
+    },
+    "auto": {
+      "right": "新規追加",
+      "placeholder": "詳細検索"
+    },
+    "create-edit": {
+      "modal-heading-create": "名刺登録",
+      "modal-heading-edit": "名刺編集",
+      "label-name-group": "名刺氏名",
+      "label-name-kana-group": "名刺氏名（かな）",
+      "label-department-group": "部署・役職",
+      "employee-id": "受取人",
+      "employee-id-placeholder": "受取人を選択",
+      "receive-date": "受取日",
+      "receive-person": "受取人",
+      "receive-date-placeholder": "受取日を入力",
+      "button-create": "登録",
+      "button-edit": "保存",
+      "button-cancel": "キャンセル",
+      "button-add-receive": "受取人を追加",
+      "created-date": "登録日",
+      "created-user": "登録者",
+      "updated-date": "最終更新日",
+      "updated-user": "最終更新者",
+      "auto-generate": "自動で登録されます",
+      "auto-update": "自動的に更新されます",
+      "last-contract-date": "最終接触日",
+      "isWorking": "在職中にする",
+      "notWorking": "在職中にしない",
+      "working": "在職中",
+      "isRequired": "必須",
+      "inputPlaceHolder": "を入力",
+      "customer-name-placeholder": "顧客名を選択",
+      "input": "を入力"
+    },
+    "merge-business-card": {
+      "btn-merge": "統合",
+      "manual-input": "手動入力",
+      "placeholder": "名刺を追加",
+      "select-all": "全選択",
+      "select-item": "統合する際に残す項目を選択",
+      "union": "名刺統合",
+      "cannot-enter": "値を入力することができません"
+    },
+    "detailHistory": {
+      "titleOne": "この名刺の情報は",
+      "titleTwo": "時点の情報です。",
+      "buttonBackToNow": "最新の名刺情報へ",
+      "comapnyName": "顧客名",
+      "urlTarget": "リンク先のURL",
+      "urlText": "表示上の文字",
+      "recievesDate": "(受取日 :",
+      "recievesItem": "受取人",
+      "mergeOne": ")が",
+      "endMergeOne": ")、",
+      "mergeTwo": "が",
+      "endMergeTwo": "、"
+    },
+    "calendarTab": {
+      "month": "月",
+      "week": "週",
+      "list": "リスト",
+      "now": "今日"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+@startuml{Batch_レポート_共通処理_ログストリーム名取得.png}
+title [レポートバッチ_共通処理_ログストリーム名取得]
+hide footbox
+
+participant レポートジョブ as batch_report_job <<batch>> #darkorange
+database レポートジョブ履歴 as table_report_joblog <<dynamodb>> #royalblue
+
+batch_report_job -> table_report_joblog :レコード取得（キーはレポートID、ログID）
+table_report_joblog --> batch_report_job
+batch_report_job -> batch_report_job :自身のジョブ情報を取得する（describe_jobs）
+note right :ログストリーム名を取得する。
+batch_report_job -> table_report_joblog :レコード更新
+note right :ログストリーム名を記録する
+table_report_joblog --> batch_report_job
+
+@enduml

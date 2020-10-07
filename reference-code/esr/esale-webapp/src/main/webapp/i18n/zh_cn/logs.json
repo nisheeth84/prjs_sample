@@ -1,0 +1,11 @@
+{
+  "logs": {
+    "title": "ログ-cn",
+    "nbloggers": "合計 {{ total }} 件のログがあります-cn",
+    "filter": "フィルター-cn",
+    "table": {
+      "name": "Name-cn",
+      "level": "Level-cn"
+    }
+  }
+}

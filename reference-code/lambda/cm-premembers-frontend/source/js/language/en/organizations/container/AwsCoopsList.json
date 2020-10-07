@@ -1,0 +1,10 @@
+{
+    "AwsCoopsList": {
+        "back_project": "Back to Project List",
+        "title": "AWS account linkage list",
+        "account_id": "Account ID",
+        "failure": "Failure",
+        "unconfirmed": "Unconfirmed",
+        "effectiveness": "Effectiveness"
+    }
+}

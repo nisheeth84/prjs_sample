@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="517" height="247" viewBox="0 0 517 247">
+  <g id="Group_27789" data-name="Group 27789" transform="translate(-162 -103)">
+    <line id="Line_347" data-name="Line 347" x2="32" transform="translate(239.5 251.5)" fill="none" stroke="#00558e" stroke-width="1"/>
+    <line id="Line_349" data-name="Line 349" x2="32" transform="translate(453.5 251.5)" fill="none" stroke="#89e6f9" stroke-width="1"/>
+    <text id="_1" data-name="1" transform="translate(488 254)" fill="#333" font-size="8" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">1</tspan></text>
+    <text id="_2" data-name="2" transform="translate(230 254)" fill="#333" font-size="8" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">2</tspan></text>
+    <text id="Id_こよるカウント_of_Price" data-name="Id（こよるカウント of Price" transform="translate(162 116)" fill="#333" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Id</tspan><tspan y="0" font-family="YuGothicUI-Regular, Yu Gothic UI">（こよるカウント</tspan><tspan y="0" xml:space="preserve"> of Price</tspan></text>
+    <text id="_1-2" data-name="1" transform="translate(628 162)" fill="#333" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">1</tspan></text>
+    <text id="_2_" data-name="2
+" transform="translate(628 197)" fill="#333" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">2</tspan><tspan font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="16.8"></tspan></tspan></text>
+    <text id="Id" transform="translate(602 134)" fill="#333" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Id</tspan></text>
+    <g id="Rectangle_18419" data-name="Rectangle 18419" transform="translate(262 150)" fill="#00558e" stroke="#00558e" stroke-width="1">
+      <path d="M100,0h0a0,0,0,0,1,0,0V200a0,0,0,0,1,0,0h0A100,100,0,0,1,0,100v0A100,100,0,0,1,100,0Z" stroke="none"/>
+      <path d="M99.5.5h0a0,0,0,0,1,0,0V199.5a0,0,0,0,1,0,0h0a99,99,0,0,1-99-99V99.5A99,99,0,0,1,99.5.5Z" fill="none"/>
+    </g>
+    <g id="Rectangle_18420" data-name="Rectangle 18420" transform="translate(362 150)" fill="#89e6f9" stroke="#89e6f9" stroke-width="1">
+      <path d="M0,0H0A100,100,0,0,1,100,100v0A100,100,0,0,1,0,200H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" stroke="none"/>
+      <path d="M.5.5h0a99,99,0,0,1,99,99v1.01a99,99,0,0,1-99,99h0a0,0,0,0,1,0,0V.5a0,0,0,0,1,0,0Z" fill="none"/>
+    </g>
+    <path id="Path_130" data-name="Path 130" d="M7714,886.5h0m1-2h-14a1,1,0,0,0-1,1v14a1,1,0,0,0,1,1h14a1,1,0,0,0,1-1v-14a1,1,0,0,0-1-1Z" transform="translate(-7097 -736.002)" fill="#89e6f9"/>
+    <path id="Path_30766" data-name="Path 30766" d="M7714,886.5h0m1-2h-14a1,1,0,0,0-1,1v14a1,1,0,0,0,1,1h14a1,1,0,0,0,1-1v-14a1,1,0,0,0-1-1Z" transform="translate(-7097 -701.002)" fill="#00558e"/>
+    <path id="Path_30953" data-name="Path 30953" d="M444.414,600.469l4.44-4.439a.5.5,0,0,0,0-.707l-.707-.707a.5.5,0,0,0-.708,0L443,599.055l-4.439-4.439a.5.5,0,0,0-.708,0l-.707.707a.5.5,0,0,0,0,.707l4.44,4.439,1.06,1.061a.5.5,0,0,0,.708,0Z" transform="translate(230 -486.469)" fill="#999"/>
+  </g>
+</svg>

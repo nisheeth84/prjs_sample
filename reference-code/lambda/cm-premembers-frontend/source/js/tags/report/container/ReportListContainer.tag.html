@@ -1,0 +1,376 @@
+<report-list-container>
+    <div class="page">
+        <div class="page-header row">
+            <h1 class="page-title mt-2 col-md-11">レポート一覧</h1>
+            <div class="page-header-actions col-md-1">
+                <button class="btn btn-floating btn-sm btn-primary" onclick="{createReport}" disabled="{isNoEditorOrganization}">+</button>
+            </div>
+        </div>
+        <div class="page-content container-fluid">
+            <div class="row">
+
+                <select ref="organization" class="form-control col-md-5" onchange={changeOrganization}>
+                    <option value="">組織を選択して下さい</option>
+                    <option each="{organization in organizations}" value="{organization.organization.id}" selected="{organizationId == organization.organization.id}">{ organization.organization.name }</option>
+                </select>
+                <select ref="project" disabled="{! projectEnable}" class="form-control col-md-5" onchange={changeProjectHandler}>
+                    <option value="">プロジェクトを選択して下さい</option>
+                    <option each="{project in projects}" value="{project.id}" selected="{projectId == project.id}">{ project.name }</option>
+                </select>
+                <div class="col-md-1"></div>
+                <div class="col-md-1">
+                    <button class="btn btn-floating btn-sm btn-primary" disabled="{!projectEnableReload}" onclick="{reloadProjectHandler}">
+                        <i class="icon fa-refresh" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>レポート名</th>
+                        <th>情報収集ステータス</th>
+                        <th>Excel</th>
+                        <th>作成日</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr each="{report in reports}">
+                        <td>
+                            <a href="#" onclick="{showInformation.bind(this,report.id)}">{report.name}</a>
+                        </td>
+                        <td>
+                            <span class="{createEffectiveClassObj(report.viewStatus)}">
+                                {commonUtils.convertShowReportStatus(report.viewStatus)}
+                            </span>
+                        </td>
+                        <td>
+                            <span hide="{report.excelOutputStatus ==2}">
+                                {commonUtils.convertExcelOutputStatus(report.excelOutputStatus)}
+                            </span>
+                            <button type="button" class="btn btn-sm btn-icon btn-flat btn-link p-0" show="{report.excelOutputStatus ==2}" onclick="{getExcelDownloadHandler.bind(this,report.id)}">
+                                <i class="icon wb-download" aria-hidden="true"></i>
+                            </button>
+                        </td>
+                        <td>{report.createdAt}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        const tag = this
+        const obs = riot.observable()
+        const requestOrganizationUrl = tag.config.APIGATEWAY_ADDRESS + '/myorganizations';
+        const inviteParam = '?inviteStatus=1'
+        tag.cognitoUser = riot.mixin('cognitoUser');
+        tag.obs = obs
+        tag.changeOrganization = changeOrganization
+        tag.changeProjectHandler = changeProjectHandler
+        tag.reloadProjectHandler = reloadProjectHandler
+        tag.organizations = []
+        tag.createReport = createReport
+        tag.showInformation = showInformation
+        tag.getExcelDownloadHandler = getExcelDownloadHandler
+        tag.projectEnableReload = false
+        tag.createEffectiveClassObj = createEffectiveClassObj
+        tag.on('mount', function() {
+            const isReportListBack = tag.commonUtils.paramReceiver('isReportListBack')
+            if (isReportListBack) {
+                const reportListParam = {
+                    'isReportListBack': false
+                }
+                tag.commonUtils.paramSender(reportListParam)
+                const organizations = tag.commonUtils.paramReceiver('reportOrganizations')
+                tag.organizations = organizations
+                if (!tag.organizations || !tag.organizations.length) {
+                    location.reload();
+                }
+                const organizationId = tag.commonUtils.paramReceiver('reportOrganizationId')
+                if (organizationId) {
+                    tag.organizationId = organizationId
+                }
+                const projects = tag.commonUtils.paramReceiver('reportProjects')
+                tag.projects = projects
+                if (!tag.projects || !tag.projects.length) {
+                    tag.projects = []
+                }
+                tag.projectEnable = !!tag.projects.length
+                const projectId = tag.commonUtils.paramReceiver('reportProjectId')
+                if (projectId) {
+                    tag.projectId = projectId
+                    changeProject(tag.projectId)
+                }
+                checkIsNoEditorOrganization(tag.organizations)
+                tag.update()
+            }
+            if (!tag.organizations || !tag.organizations.length) {
+                tag.obs.trigger('pm-loader-show');
+                tag.cognitoUser.getSession(function(err, session) {
+                    if (err) {
+                        tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                        // alert('getSession()でエラー\n' + err);
+                    } else {
+                        var idToken = session.getIdToken().getJwtToken();
+                        let fetchResponse = null
+                        fetch(requestOrganizationUrl + inviteParam, {
+                            method: 'GET',
+                            headers: {
+                                'Authorization': idToken
+                            }
+                        }).then(function(response) {
+                            fetchResponse = response
+                            return response
+                        }).then(tag.commonUtils.checkStatus)
+                            .then(function(response) {
+                                tag.obs.trigger('pm-loader-hide');
+                                return response.json();
+                            }).then(function(organizations) {
+                                tag.organizations = organizations
+                                checkIsNoEditorOrganization(tag.organizations)
+                                tag.update();
+                            }).catch(function(error) {
+                                tag.obs.trigger('pm-loader-hide');
+                                error.then(function(value) {
+                                    value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                                })
+                                tag.obs.trigger('error-modal-open', error);
+                                tag.obs.one('error-modal-close', function(value) {
+                                    tag.commonUtils.backHome(value)
+                                })
+                            })
+                    }
+                });
+            }
+        })
+
+        function changeOrganization(event) {
+            const organizationId = event.target.value
+            tag.organizationId = organizationId
+            tag.projectId = null
+            tag.reports = []
+            if (organizationId) {
+                tag.obs.trigger('pm-loader-show');
+                tag.cognitoUser.getSession(function(err, session) {
+                    if (err) {
+                        tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                        // alert('getSession()でエラー\n' + err);
+                    } else {
+                        var idToken = session.getIdToken().getJwtToken();
+                        const requestProjectUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + organizationId + '/projects';
+                        let fetchResponse = null
+                        fetch(requestProjectUrl, {
+                            method: 'GET',
+                            headers: {
+                                'Authorization': idToken
+                            }
+                        }).then(function(response) {
+                            fetchResponse = response
+                            return response
+                        })
+                            .then(tag.commonUtils.checkStatus)
+                            .then(function(response) {
+                                tag.obs.trigger('pm-loader-hide');
+                                return response.json();
+                            }).then(function(projects) {
+                                tag.projects = projects;
+                                tag.projectEnable = !!tag.projects.length
+                                tag.update();
+                            }).catch(function(error) {
+                                tag.obs.trigger('pm-loader-hide');
+                                error.then(function(value) {
+                                    value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                                })
+                                tag.obs.trigger('error-modal-open', error);
+                                tag.obs.one('error-modal-close', function(value) {
+                                    tag.commonUtils.backHome(value)
+                                })
+                            })
+                    }
+                });
+            } else {
+                tag.projects = []
+                tag.projectEnable = !!tag.projects.length
+            }
+        }
+
+        function reloadProjectHandler() {
+            changeProject(tag.projectId)
+        }
+
+        function changeProjectHandler(event) {
+            const projectId = event.target.value
+            if (projectId) {
+                changeProject(projectId)
+            } else {
+                tag.reports = []
+                tag.projectEnableReload = false
+            }
+            tag.update()
+        }
+
+
+        function changeProject(projectId) {
+            tag.projectId = projectId
+            const organizationId = tag.organizationId
+            tag.obs.trigger('pm-loader-show');
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    // alert('getSession()でエラー\n' + err);
+                } else {
+                    const requestReportUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + organizationId + '/projects/' + projectId + '/reports'
+                    var idToken = session.getIdToken().getJwtToken()
+                    let fetchResponse = null
+                    fetch(requestReportUrl, {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': idToken
+                        }
+                    }).then(function(response) {
+                        fetchResponse = response
+                        return response
+                    })
+                        .then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            tag.obs.trigger('pm-loader-hide');
+                            return response.json();
+                        }).then(function(reports) {
+                            reports.forEach(function(report) {
+                                viewStatus = report['errorCode'] ? report['errorCode'] : report['status']
+                                report['viewStatus'] = viewStatus
+                            })
+                            tag.reports = reports;
+                            tag.projectEnableReload = true
+                            tag.update();
+                        }).catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                            })
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            });
+        }
+
+        function createReport() {
+            const reportListParam = {
+                'reportOrganizations': tag.organizations,
+                'reportOrganizationId': tag.organizationId ? tag.organizationId : null,
+                'reportProjects': tag.projects ? tag.projects : null,
+                'reportProjectId': tag.projectId ? tag.projectId : null,
+                'isReportListBack': false
+            }
+            tag.commonUtils.paramSender(reportListParam)
+            window.location.href = "#/reports/create/"
+        }
+
+        function showInformation(reportId, event) {
+            event.preventDefault()
+            const reportListParam = {
+                'reportOrganizations': tag.organizations,
+                'reportProjects': tag.projects ? tag.projects : null,
+                'reportReport': null, //TODO: reportIdを用いてreportsからの抽出を実施
+                'isReportListBack': true
+            }
+            tag.commonUtils.paramSender(reportListParam)
+            window.location.href = '#/reports/' + tag.organizationId + '/' + tag.projectId + '/' + reportId + '/'
+        }
+
+        function getExcelDownloadHandler(reportId, event) {
+            event.preventDefault()
+            tag.obs.trigger('pm-loader-show');
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    // alert('getSession()でエラー\n' + err);
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    let fetchResponse = null
+                    getExcelDownload(idToken, reportId)
+                        .then(function(response) {
+                            fetchResponse = response
+                            return response
+                        })
+                        .then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            return response.json()
+                        })
+                        .then(function(result) {
+                            download(result['URL'])
+                            // console.info(result)
+                            tag.obs.trigger('pm-loader-hide');
+                        }).catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                            })
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            });
+        }
+
+        function createEffectiveClassObj(effective) {
+            const effectiveClass = {
+                'badge': true
+            }
+            switch (effective) {
+                case 0:
+                    effectiveClass['badge-default'] = true
+                    break
+                case 1:
+                    effectiveClass['badge-default'] = true
+                    break
+                case 2:
+                    effectiveClass['badge-default'] = true
+                    break
+                case 3:
+                    effectiveClass['badge-default'] = true
+                    break
+                case 4:
+                    effectiveClass['badge-success'] = true
+                    break
+                default:
+                    effectiveClass['badge-danger'] = true
+                    break
+            }
+            return effectiveClass
+        }
+
+        function download(uri) {
+            var link = document.createElement('a');
+            link.href = uri;
+            // console.info(uri)
+            link.click();
+        }
+
+        function getExcelDownload(idToken, reportId) {
+            const fileTypeParam = "?fileType=EXCEL"
+            const requestReportOutputUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + tag.organizationId + '/projects/' + tag.projectId + '/reports/' + reportId + '/output'
+            return fetch(requestReportOutputUrl + fileTypeParam, {
+                method: 'GET',
+                headers: {
+                    'Authorization': idToken
+                }
+            })
+        }
+
+        function checkIsNoEditorOrganization(organizations) {
+            tag.isNoEditorOrganization = true
+            organizations.forEach(function(organization) {
+                if (tag.commonUtils.isEditor(organization)) {
+                    tag.isNoEditorOrganization = false
+                }
+            })
+        }
+    </script>
+</report-list-container>

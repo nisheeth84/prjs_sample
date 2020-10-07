@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="281.036" height="102" viewBox="0 0 281.036 102">
+  <g id="Group_26161" data-name="Group 26161" transform="translate(-384.234 -4965)">
+    <g id="Group_25712" data-name="Group 25712" transform="translate(-61 3841.9)">
+      <g id="Group_1144" data-name="Group 1144" transform="translate(726.27 1186.944) rotate(180)">
+        <rect id="Rectangle_986" data-name="Rectangle 986" width="24" height="24" rx="8" transform="translate(0)" fill="none"/>
+        <path id="Path_14127" data-name="Path 14127" d="M15.5,5H7.061c.01-.312.042-2.687,0-4.147L6.354.146a.5.5,0,0,0-.708,0L1.207,4.586.146,5.646a.5.5,0,0,0,0,.707L1.207,7.414l4.439,4.439a.5.5,0,0,0,.708,0l.707-.706c.01-3.115-.005-3.49,0-4.147H15.5a.5.5,0,0,0,.5-.5v-1A.5.5,0,0,0,15.5,5Z" transform="translate(3 5.943)" fill="#f92525"/>
+      </g>
+    </g>
+    <path id="Path_14148" data-name="Path 14148" d="M3.306,0H123.2c1.162,0,2.1.448,2.1,1h0c0,.552-.942,1-2.1,1H3.306C3.309.272,3.306,0,3.306,0Z" transform="translate(380.928 5015.9)" fill="#999"/>
+    <circle id="Ellipse_279" data-name="Ellipse 279" cx="4" cy="4" r="4" transform="translate(503 5012.9)" fill="#f92525"/>
+    <rect id="Rectangle_11331" data-name="Rectangle 11331" width="151" height="2" rx="1" transform="translate(506 5015.9)" fill="#f92525"/>
+    <g id="Group_25713" data-name="Group 25713" transform="translate(422.7 4986.854)">
+      <path id="Path_14138" data-name="Path 14138" d="M7185.7,2353.335s2.415-6.994,6.514-6.961,29.689,0,31.956,0,2.878-2.339,3.082-3.824a44.232,44.232,0,0,0,.141-4.7" transform="translate(-7185.7 -2337.853)" fill="none" stroke="#707070" stroke-width="1"/>
+      <path id="Path_14139" data-name="Path 14139" d="M7227.3,2353.335s-2.408-6.994-6.5-6.961-29.617,0-31.877,0-2.871-2.339-3.074-3.824a44.326,44.326,0,0,1-.14-4.7" transform="translate(-7143.999 -2337.853)" fill="none" stroke="#707070" stroke-width="1"/>
+    </g>
+    <text id="_3天" data-name="3天" transform="translate(452 4965)" fill="#171615" font-size="14" font-family="NotoSansCJKjp-Medium, Noto Sans CJK JP" font-weight="500"><tspan x="0" y="16">3天</tspan></text>
+    <text id="今天" transform="translate(408 5047)" fill="#171615" font-size="14" font-family="NotoSansCJKjp-Medium, Noto Sans CJK JP" font-weight="500"><tspan x="0" y="16">今天</tspan></text>
+    <path id="Path_14169" data-name="Path 14169" d="M1,0H16.312c0,1.859,0,.063,0,2H1Z" transform="translate(422.5 5008.532) rotate(90)" fill="#171615"/>
+  </g>
+</svg>

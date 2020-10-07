@@ -1,0 +1,14 @@
+{
+    "ConfirmCheckItemSettingCopyModal": {
+        "title": "コピー確認",
+        "body": "下記の内容で項目設定の情報をコピーします。",
+        "information_complete": {
+            "title": "項目設定情報のコピーを処理しました",
+            "body": "項目設定情報を対象AWSアカウントへコピーしました。<br>項目設定にて確認ください。"
+        },
+        "copy_source": "コピー元",
+        "copy_destination": "コピー先",
+        "confirm_question": "コピーを実行しますか？",
+        "copy": "コピー"
+    }
+}

@@ -1,0 +1,1588 @@
+{
+  "timelines": [
+    {
+      "timelineId": 11284,
+      "parentId": null,
+      "rootId": null,
+      "timelineType": [
+        {
+          "timelineTypeId": 2
+        }
+      ],
+      "createdUser": 1,
+      "createdUserName": "確保 確保 確保する",
+      "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+      "createdDate": "2020-08-10T11:40:24Z",
+      "changedDate": "2020-08-10T11:40:24Z",
+      "timelineGroupId": 111,
+      "timelineGroupName": "how many people in your family mới đúng nhé ae!!!",
+      "color": null,
+      "imagePath": "https://duytt.s3.ap-southeast-1.amazonaws.com/tenants/common16/service_data/timeline/1_maxresdefault_20200810183923630.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=9c703051a07dfc523bd487cbdd9999e45deb5d23b74240ae0a2bc5daff839b33",
+      "header": null,
+      "targetDelivers": [
+        {
+          "targetType": 4,
+          "targetId": 111,
+          "targetName": "how many people in your family mới đúng nhé ae!!!"
+        }
+      ],
+      "comment": {
+        "mode": 1,
+        "content": "<span>チャンネル名:</span> <span>how many people in your family mới đúng nhé ae</span> &#8594; <span>how many people in your family mới đúng nhé ae!!!</span><br/><span>公開:</span> <span>公開</span><br/><span>チャンネル名:</span> <span>必要</span>"
+      },
+      "sharedTimeline": {
+        "timelineId": null,
+        "parentId": null,
+        "rootId": null,
+        "createdUser": null,
+        "createdUserName": "",
+        "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+        "createdDate": null,
+        "timelineGroupId": null,
+        "timelineGroupName": null,
+        "imagePath": null,
+        "header": null,
+        "comment": null
+      },
+      "attachedFiles": [],
+      "reactions": [],
+      "isFavorite": false,
+      "commentTimelines": [],
+      "updatedDate": null
+    },
+    {
+      "timelineId": 11283,
+      "parentId": null,
+      "rootId": null,
+      "timelineType": [
+        {
+          "timelineTypeId": 2
+        }
+      ],
+      "createdUser": 1,
+      "createdUserName": "確保 確保 確保する",
+      "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+      "createdDate": "2020-08-10T11:39:26Z",
+      "changedDate": "2020-08-10T11:39:26Z",
+      "timelineGroupId": 111,
+      "timelineGroupName": "how many people in your family mới đúng nhé ae",
+      "color": null,
+      "imagePath": "https://duytt.s3.ap-southeast-1.amazonaws.com/tenants/common16/service_data/timeline/1_maxresdefault_20200810183923630.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=9c703051a07dfc523bd487cbdd9999e45deb5d23b74240ae0a2bc5daff839b33",
+      "header": null,
+      "targetDelivers": [
+        {
+          "targetType": 4,
+          "targetId": 111,
+          "targetName": "how many people in your family mới đúng nhé ae!!!"
+        }
+      ],
+      "comment": {
+        "mode": 0,
+        "content": "<span>チャンネル名:</span> <span>how many people in your family mới đúng nhé ae</span><br/><span>公開:</span> <span>非公開</span> &#8594; <span>公開</span><br/><span>チャンネル名:</span> <span>不要</span> &#8594; <span>必要</span>"
+      },
+      "sharedTimeline": {
+        "timelineId": null,
+        "parentId": null,
+        "rootId": null,
+        "createdUser": null,
+        "createdUserName": "",
+        "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+        "createdDate": null,
+        "timelineGroupId": null,
+        "timelineGroupName": null,
+        "imagePath": null,
+        "header": null,
+        "comment": null
+      },
+      "attachedFiles": [],
+      "reactions": [],
+      "isFavorite": false,
+      "commentTimelines": [],
+      "updatedDate": null
+    },
+    {
+      "timelineId": 11282,
+      "parentId": null,
+      "rootId": null,
+      "timelineType": [
+        {
+          "timelineTypeId": 3
+        }
+      ],
+      "createdUser": 1,
+      "createdUserName": "確保 確保 確保する",
+      "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+      "createdDate": "2020-08-10T11:36:56Z",
+      "changedDate": "2020-08-10T11:36:56Z",
+      "timelineGroupId": null,
+      "timelineGroupName": null,
+      "color": null,
+      "imagePath": null,
+      "header": {
+        "headerType": 6,
+        "headerId": 106,
+        "headerContent": {
+          "jaJp": "ElasticDate(date=2020-08-04T17:45:00Z, mdFormat=2020/08/04, hmFormat=17:45) - ElasticDate(date=2020-08-04T18:45:00Z, mdFormat=2020/08/04, hmFormat=18:45)の活動(())が報告されました。",
+          "enUs": "ElasticDate(date=2020-08-04T17:45:00Z, mdFormat=2020/08/04, hmFormat=17:45) - ElasticDate(date=2020-08-04T18:45:00Z, mdFormat=2020/08/04, hmFormat=18:45)の活動(())が報告されました。",
+          "zhCn": "ElasticDate(date=2020-08-04T17:45:00Z, mdFormat=2020/08/04, hmFormat=17:45) - ElasticDate(date=2020-08-04T18:45:00Z, mdFormat=2020/08/04, hmFormat=18:45)の活動(())が報告されました。"
+        }
+      },
+      "targetDelivers": [
+        {
+          "targetType": 1,
+          "targetId": 1,
+          "targetName": "確保 確保 確保する"
+        },
+        {
+          "targetType": 3,
+          "targetId": 1,
+          "targetName": "DEV1"
+        },
+        {
+          "targetType": 5,
+          "targetId": 40,
+          "targetName": "Luu Quang Vu"
+        }
+      ],
+      "comment": {
+        "mode": 1,
+        "content": "{\"customer_id\": {\"new\": 1, \"old\": 3}, \"schedule_id\": {\"new\": \"\", \"old\": 1}, \"contact_date\": {\"new\": {\"nanos\": 0, \"seconds\": 1596412800}, \"old\": {\"nanos\": 0, \"seconds\": 1595635200}}, \"activity_end_time\": {\"new\": {\"nanos\": 0, \"seconds\": 1596448800}, \"old\": {\"nanos\": 0, \"seconds\": 1595835900}}, \"activity_start_time\": {\"new\": {\"nanos\": 0, \"seconds\": 1596445200}, \"old\": {\"nanos\": 0, \"seconds\": 1595835900}}}"
+      },
+      "sharedTimeline": {
+        "timelineId": null,
+        "parentId": null,
+        "rootId": null,
+        "createdUser": null,
+        "createdUserName": "",
+        "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+        "createdDate": null,
+        "timelineGroupId": null,
+        "timelineGroupName": null,
+        "imagePath": null,
+        "header": {
+          "headerType": null,
+          "headerId": null,
+          "headerContent": null
+        },
+        "comment": null
+      },
+      "attachedFiles": [],
+      "reactions": [],
+      "isFavorite": false,
+      "commentTimelines": [],
+      "updatedDate": null
+    },
+    {
+      "timelineId": 11251,
+      "parentId": null,
+      "rootId": null,
+      "timelineType": [
+        {
+          "timelineTypeId": 2
+        }
+      ],
+      "createdUser": 1,
+      "createdUserName": "確保 確保 確保する",
+      "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+      "createdDate": "2020-08-10T10:32:46Z",
+      "changedDate": "2020-08-10T11:31:58Z",
+      "timelineGroupId": null,
+      "timelineGroupName": null,
+      "color": null,
+      "imagePath": null,
+      "header": null,
+      "targetDelivers": [
+        {
+          "targetType": 4,
+          "targetId": 28,
+          "targetName": "test_123%,_,\\,',--123"
+        }
+      ],
+      "comment": {
+        "mode": 0,
+        "content": "<span>チャンネル名:</span> <span>test_123%,_,\\,',--123</span><br/><span>公開:</span> <span>公開</span><br/><span>チャンネル名:</span> <span>不要</span>"
+      },
+      "sharedTimeline": {
+        "timelineId": null,
+        "parentId": null,
+        "rootId": null,
+        "createdUser": null,
+        "createdUserName": "",
+        "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+        "createdDate": null,
+        "timelineGroupId": null,
+        "timelineGroupName": null,
+        "imagePath": null,
+        "header": null,
+        "comment": null
+      },
+      "attachedFiles": [],
+      "reactions": [],
+      "isFavorite": false,
+      "commentTimelines": [
+        {
+          "timelineId": 11272,
+          "parentId": 11251,
+          "rootId": 11251,
+          "createdUser": 1,
+          "createdUserName": "確保 確保 確保する",
+          "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+          "createdDate": "2020-08-10T10:59:52Z",
+          "targetDelivers": [
+            {
+              "targetType": 1,
+              "targetId": 1,
+              "targetName": "確保 確保 確保する"
+            }
+          ],
+          "comment": {
+            "mode": 0,
+            "content": "đâsd"
+          },
+          "quotedTimeline": null,
+          "attachedFiles": [
+            {
+              "fileName": "1_IMG_6489_20200810175954164.JPG",
+              "filePath": "tenants/common16/service_data/timeline/1_IMG_6489_20200810175954164.JPG",
+              "fileUrl": "https://duytt.s3.ap-southeast-1.amazonaws.com/tenants/common16/service_data/timeline/1_IMG_6489_20200810175954164.JPG?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122158Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=cb7d55c8e1e3e9db8a49fdab716b34de08b2fd77ad2fa187a134106d276c9ef1"
+            }
+          ],
+          "reactions": [],
+          "replyTimelines": [
+            {
+              "timelineId": 11278,
+              "parentId": 11272,
+              "rootId": 11251,
+              "createdUser": 1,
+              "createdUserName": "確保 確保 確保する",
+              "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+              "createdDate": "2020-08-10T11:24:18Z",
+              "targetDelivers": [
+                {
+                  "targetType": 1,
+                  "targetId": 1,
+                  "targetName": "確保 確保 確保する"
+                },
+                {
+                  "targetType": 1,
+                  "targetId": 1,
+                  "targetName": "確保 確保 確保する"
+                }
+              ],
+              "comment": {
+                "mode": 0,
+                "content": "quote 1"
+              },
+              "quotedTimeline": {
+                "timelineId": 11272,
+                "parentId": 11251,
+                "rootId": 11251,
+                "comment": {
+                  "mode": 0,
+                  "content": "đâsd"
+                },
+                "createdUser": 1,
+                "createdUserName": "確保 確保 確保する",
+                "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+                "createdDate": "2020-08-10T10:59:52Z"
+              },
+              "attachedFiles": [],
+              "reactions": [],
+              "isFavorite": false,
+              "updatedDate": null
+            }
+          ],
+          "isFavorite": false,
+          "updatedDate": null
+        },
+        {
+          "timelineId": 11276,
+          "parentId": 11251,
+          "rootId": 11251,
+          "createdUser": 1,
+          "createdUserName": "確保 確保 確保する",
+          "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+          "createdDate": "2020-08-10T11:14:26Z",
+          "targetDelivers": [
+            {
+              "targetType": 1,
+              "targetId": 1,
+              "targetName": "確保 確保 確保する"
+            }
+          ],
+          "comment": {
+            "mode": 0,
+            "content": "dđ"
+          },
+          "quotedTimeline": null,
+          "attachedFiles": [
+            {
+              "fileName": "1_user_20200810181428037.png",
+              "filePath": "tenants/common16/service_data/timeline/1_user_20200810181428037.png",
+              "fileUrl": "https://duytt.s3.ap-southeast-1.amazonaws.com/tenants/common16/service_data/timeline/1_user_20200810181428037.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122158Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=2aaabd7108f4f6dec46b461d70f4e78e930c52261d88eb027e1450e99d8fc270"
+            }
+          ],
+          "reactions": [],
+          "replyTimelines": [],
+          "isFavorite": false,
+          "updatedDate": null
+        },
+        {
+          "timelineId": 11277,
+          "parentId": 11251,
+          "rootId": 11251,
+          "createdUser": 1,
+          "createdUserName": "確保 確保 確保する",
+          "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+          "createdDate": "2020-08-10T11:15:20Z",
+          "targetDelivers": [
+            {
+              "targetType": 1,
+              "targetId": 1,
+              "targetName": "確保 確保 確保する"
+            }
+          ],
+          "comment": {
+            "mode": 0,
+            "content": "dfgdfg"
+          },
+          "quotedTimeline": null,
+          "attachedFiles": [
+            {
+              "fileName": "1_Le Quang Son-DEV_20200810181521614.jpg",
+              "filePath": "tenants/common16/service_data/timeline/1_Le Quang Son-DEV_20200810181521614.jpg",
+              "fileUrl": "https://duytt.s3.ap-southeast-1.amazonaws.com/tenants/common16/service_data/timeline/1_Le%20Quang%20Son-DEV_20200810181521614.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122158Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=7325cc9013bbdb09b17a5cc7a7699785f78ea7c6e6cc62264ab22967d04cd829"
+            }
+          ],
+          "reactions": [],
+          "replyTimelines": [],
+          "isFavorite": false,
+          "updatedDate": null
+        },
+        {
+          "timelineId": 11281,
+          "parentId": 11251,
+          "rootId": 11251,
+          "createdUser": 1,
+          "createdUserName": "確保 確保 確保する",
+          "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+          "createdDate": "2020-08-10T11:31:58Z",
+          "targetDelivers": [
+            {
+              "targetType": 1,
+              "targetId": 1,
+              "targetName": "確保 確保 確保する"
+            }
+          ],
+          "comment": {
+            "mode": 0,
+            "content": "manhnh"
+          },
+          "quotedTimeline": null,
+          "attachedFiles": [
+            {
+              "fileName": "1_03_Timeline_Fixbug_Progress_20200810183158697.xlsx",
+              "filePath": "tenants/common16/service_data/timeline/1_03_Timeline_Fixbug_Progress_20200810183158697.xlsx",
+              "fileUrl": "https://duytt.s3.ap-southeast-1.amazonaws.com/tenants/common16/service_data/timeline/1_03_Timeline_Fixbug_Progress_20200810183158697.xlsx?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122158Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=1d94053ede15a6045df59c9ee5dbbceb1cee170d6c92f40431c7dd489336263b"
+            },
+            {
+              "fileName": "1_Image Pasted at 2020-3-23 15-54_20200810183200363.png",
+              "filePath": "tenants/common16/service_data/timeline/1_Image Pasted at 2020-3-23 15-54_20200810183200363.png",
+              "fileUrl": "https://duytt.s3.ap-southeast-1.amazonaws.com/tenants/common16/service_data/timeline/1_Image%20Pasted%20at%202020-3-23%2015-54_20200810183200363.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122158Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=5c6308a66126eb6954ad1881d819b3afedfe1a6df290c1dd13ff859babdc8a69"
+            }
+          ],
+          "reactions": [],
+          "replyTimelines": [],
+          "isFavorite": false,
+          "updatedDate": null
+        }
+      ],
+      "updatedDate": "2020-08-10T11:24:18Z"
+    },
+    {
+      "timelineId": 11273,
+      "parentId": null,
+      "rootId": null,
+      "timelineType": [
+        {
+          "timelineTypeId": 3
+        }
+      ],
+      "createdUser": 1,
+      "createdUserName": "確保 確保 確保する",
+      "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+      "createdDate": "2020-08-10T11:09:45Z",
+      "changedDate": "2020-08-10T11:09:45Z",
+      "timelineGroupId": null,
+      "timelineGroupName": null,
+      "color": null,
+      "imagePath": null,
+      "header": {
+        "headerType": 6,
+        "headerId": 106,
+        "headerContent": {
+          "jaJp": "ElasticDate(date=2020-08-04T17:45:00Z, mdFormat=2020/08/04, hmFormat=17:45) - ElasticDate(date=2020-08-04T18:45:00Z, mdFormat=2020/08/04, hmFormat=18:45)の活動(())が報告されました。",
+          "enUs": "ElasticDate(date=2020-08-04T17:45:00Z, mdFormat=2020/08/04, hmFormat=17:45) - ElasticDate(date=2020-08-04T18:45:00Z, mdFormat=2020/08/04, hmFormat=18:45)の活動(())が報告されました。",
+          "zhCn": "ElasticDate(date=2020-08-04T17:45:00Z, mdFormat=2020/08/04, hmFormat=17:45) - ElasticDate(date=2020-08-04T18:45:00Z, mdFormat=2020/08/04, hmFormat=18:45)の活動(())が報告されました。"
+        }
+      },
+      "targetDelivers": [
+        {
+          "targetType": 1,
+          "targetId": 1,
+          "targetName": "確保 確保 確保する"
+        },
+        {
+          "targetType": 3,
+          "targetId": 1,
+          "targetName": "DEV1"
+        },
+        {
+          "targetType": 5,
+          "targetId": 40,
+          "targetName": "Luu Quang Vu"
+        }
+      ],
+      "comment": {
+        "mode": 1,
+        "content": "{\"customer_id\": {\"new\": 1, \"old\": 3}, \"schedule_id\": {\"new\": \"\", \"old\": 1}, \"contact_date\": {\"new\": {\"nanos\": 0, \"seconds\": 1596412800}, \"old\": {\"nanos\": 0, \"seconds\": 1595635200}}, \"activity_end_time\": {\"new\": {\"nanos\": 0, \"seconds\": 1596448800}, \"old\": {\"nanos\": 0, \"seconds\": 1595835900}}, \"activity_start_time\": {\"new\": {\"nanos\": 0, \"seconds\": 1596445200}, \"old\": {\"nanos\": 0, \"seconds\": 1595835900}}}"
+      },
+      "sharedTimeline": {
+        "timelineId": null,
+        "parentId": null,
+        "rootId": null,
+        "createdUser": null,
+        "createdUserName": "",
+        "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+        "createdDate": null,
+        "timelineGroupId": null,
+        "timelineGroupName": null,
+        "imagePath": null,
+        "header": {
+          "headerType": null,
+          "headerId": null,
+          "headerContent": null
+        },
+        "comment": null
+      },
+      "attachedFiles": [],
+      "reactions": [],
+      "isFavorite": false,
+      "commentTimelines": [],
+      "updatedDate": "2020-08-10T11:09:45Z"
+    },
+    {
+      "timelineId": 11271,
+      "parentId": null,
+      "rootId": null,
+      "timelineType": [
+        {
+          "timelineTypeId": 2
+        }
+      ],
+      "createdUser": 1,
+      "createdUserName": "確保 確保 確保する",
+      "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+      "createdDate": "2020-08-10T10:59:09Z",
+      "changedDate": "2020-08-10T10:59:09Z",
+      "timelineGroupId": 108,
+      "timelineGroupName": "what is his name ? ? ? 1231",
+      "color": null,
+      "imagePath": "https://duytt.s3.ap-southeast-1.amazonaws.com/tenants/common16/service_data/timeline/1_s8ori_800x600_20200810174023869.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=b2f960673d41631a0eac278db20ce0adb291d8bfcb80161b519454cd73a68c1c",
+      "header": null,
+      "targetDelivers": [
+        {
+          "targetType": 4,
+          "targetId": 108,
+          "targetName": "what is his name ? ? ? 1231"
+        }
+      ],
+      "comment": {
+        "mode": 1,
+        "content": "<span>チャンネル名:</span> <span>what is his name ? ? ? 1231</span><br/><span>公開:</span> <span>公開</span><br/><span>チャンネル名:</span> <span>不要</span>"
+      },
+      "sharedTimeline": {
+        "timelineId": null,
+        "parentId": null,
+        "rootId": null,
+        "createdUser": null,
+        "createdUserName": "",
+        "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+        "createdDate": null,
+        "timelineGroupId": null,
+        "timelineGroupName": null,
+        "imagePath": null,
+        "header": null,
+        "comment": null
+      },
+      "attachedFiles": [],
+      "reactions": [],
+      "isFavorite": false,
+      "commentTimelines": [],
+      "updatedDate": null
+    },
+    {
+      "timelineId": 11268,
+      "parentId": null,
+      "rootId": null,
+      "timelineType": [
+        {
+          "timelineTypeId": 2
+        }
+      ],
+      "createdUser": 1,
+      "createdUserName": "確保 確保 確保する",
+      "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+      "createdDate": "2020-08-10T10:57:29Z",
+      "changedDate": "2020-08-10T10:57:29Z",
+      "timelineGroupId": null,
+      "timelineGroupName": null,
+      "color": null,
+      "imagePath": null,
+      "header": null,
+      "targetDelivers": [
+        {
+          "targetType": 4,
+          "targetId": 108,
+          "targetName": "what is his name ? ? ? 1231"
+        }
+      ],
+      "comment": {
+        "mode": 1,
+        "content": "<span>チャンネル名:</span> <span>what is his name ? ? ? 1231</span><br/><span>公開:</span> <span>公開</span><br/><span>チャンネル名:</span> <span>不要</span>"
+      },
+      "sharedTimeline": {
+        "timelineId": null,
+        "parentId": null,
+        "rootId": null,
+        "createdUser": null,
+        "createdUserName": "",
+        "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+        "createdDate": null,
+        "timelineGroupId": null,
+        "timelineGroupName": null,
+        "imagePath": null,
+        "header": null,
+        "comment": null
+      },
+      "attachedFiles": [],
+      "reactions": [],
+      "isFavorite": false,
+      "commentTimelines": [],
+      "updatedDate": null
+    },
+    {
+      "timelineId": 11265,
+      "parentId": null,
+      "rootId": null,
+      "timelineType": [
+        {
+          "timelineTypeId": 2
+        }
+      ],
+      "createdUser": 1,
+      "createdUserName": "確保 確保 確保する",
+      "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+      "createdDate": "2020-08-10T10:54:22Z",
+      "changedDate": "2020-08-10T10:54:22Z",
+      "timelineGroupId": 110,
+      "timelineGroupName": "how many people are your family ??",
+      "color": null,
+      "imagePath": "https://duytt.s3.ap-southeast-1.amazonaws.com/tenants/common16/service_data/timeline/1_11_20200810175348127.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fcd5192ee52e1a4b1dd938e476cf6289d16a18c1367dc2282d986a0782a2ab2e",
+      "header": null,
+      "targetDelivers": [
+        {
+          "targetType": 4,
+          "targetId": 110,
+          "targetName": "how many people are your family ??"
+        }
+      ],
+      "comment": {
+        "mode": 0,
+        "content": "<span>チャンネル名:</span> <span>how many people are your family ??</span><br/><span>公開:</span> <span>非公開</span> &#8594; <span>公開</span><br/><span>チャンネル名:</span> <span>不要</span>"
+      },
+      "sharedTimeline": {
+        "timelineId": null,
+        "parentId": null,
+        "rootId": null,
+        "createdUser": null,
+        "createdUserName": "",
+        "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+        "createdDate": null,
+        "timelineGroupId": null,
+        "timelineGroupName": null,
+        "imagePath": null,
+        "header": null,
+        "comment": null
+      },
+      "attachedFiles": [],
+      "reactions": [],
+      "isFavorite": false,
+      "commentTimelines": [],
+      "updatedDate": null
+    },
+    {
+      "timelineId": 11264,
+      "parentId": null,
+      "rootId": null,
+      "timelineType": [
+        {
+          "timelineTypeId": 2
+        }
+      ],
+      "createdUser": 1,
+      "createdUserName": "確保 確保 確保する",
+      "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+      "createdDate": "2020-08-10T10:53:21Z",
+      "changedDate": "2020-08-10T10:53:21Z",
+      "timelineGroupId": null,
+      "timelineGroupName": null,
+      "color": null,
+      "imagePath": null,
+      "header": null,
+      "targetDelivers": [
+        {
+          "targetType": 4,
+          "targetId": 108,
+          "targetName": "what is his name ? ? ? 1231"
+        }
+      ],
+      "comment": {
+        "mode": 1,
+        "content": "<span>チャンネル名:</span> <span>what is his name ? ? ?</span> &#8594; <span>what is his name ? ? ? 1231</span><br/><span>公開:</span> <span>公開</span><br/><span>チャンネル名:</span> <span>不要</span>"
+      },
+      "sharedTimeline": {
+        "timelineId": null,
+        "parentId": null,
+        "rootId": null,
+        "createdUser": null,
+        "createdUserName": "",
+        "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+        "createdDate": null,
+        "timelineGroupId": null,
+        "timelineGroupName": null,
+        "imagePath": null,
+        "header": null,
+        "comment": null
+      },
+      "attachedFiles": [],
+      "reactions": [],
+      "isFavorite": false,
+      "commentTimelines": [],
+      "updatedDate": null
+    },
+    {
+      "timelineId": 11263,
+      "parentId": null,
+      "rootId": null,
+      "timelineType": [
+        {
+          "timelineTypeId": 3
+        }
+      ],
+      "createdUser": 1,
+      "createdUserName": "確保 確保 確保する",
+      "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+      "createdDate": "2020-08-10T10:52:24Z",
+      "changedDate": "2020-08-10T10:52:24Z",
+      "timelineGroupId": null,
+      "timelineGroupName": null,
+      "color": null,
+      "imagePath": null,
+      "header": {
+        "headerType": 6,
+        "headerId": 106,
+        "headerContent": {
+          "jaJp": "ElasticDate(date=2020-08-04T17:45:00Z, mdFormat=2020/08/04, hmFormat=17:45) - ElasticDate(date=2020-08-04T18:45:00Z, mdFormat=2020/08/04, hmFormat=18:45)の活動(())が報告されました。",
+          "enUs": "ElasticDate(date=2020-08-04T17:45:00Z, mdFormat=2020/08/04, hmFormat=17:45) - ElasticDate(date=2020-08-04T18:45:00Z, mdFormat=2020/08/04, hmFormat=18:45)の活動(())が報告されました。",
+          "zhCn": "ElasticDate(date=2020-08-04T17:45:00Z, mdFormat=2020/08/04, hmFormat=17:45) - ElasticDate(date=2020-08-04T18:45:00Z, mdFormat=2020/08/04, hmFormat=18:45)の活動(())が報告されました。"
+        }
+      },
+      "targetDelivers": [
+        {
+          "targetType": 1,
+          "targetId": 1,
+          "targetName": "確保 確保 確保する"
+        },
+        {
+          "targetType": 3,
+          "targetId": 1,
+          "targetName": "DEV1"
+        },
+        {
+          "targetType": 5,
+          "targetId": 40,
+          "targetName": "Luu Quang Vu"
+        }
+      ],
+      "comment": {
+        "mode": 1,
+        "content": "{\"customer_id\": {\"new\": 1, \"old\": 3}, \"schedule_id\": {\"new\": \"\", \"old\": 1}, \"contact_date\": {\"new\": {\"nanos\": 0, \"seconds\": 1596412800}, \"old\": {\"nanos\": 0, \"seconds\": 1595635200}}, \"activity_end_time\": {\"new\": {\"nanos\": 0, \"seconds\": 1596448800}, \"old\": {\"nanos\": 0, \"seconds\": 1595835900}}, \"activity_start_time\": {\"new\": {\"nanos\": 0, \"seconds\": 1596445200}, \"old\": {\"nanos\": 0, \"seconds\": 1595835900}}}"
+      },
+      "sharedTimeline": {
+        "timelineId": null,
+        "parentId": null,
+        "rootId": null,
+        "createdUser": null,
+        "createdUserName": "",
+        "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+        "createdDate": null,
+        "timelineGroupId": null,
+        "timelineGroupName": null,
+        "imagePath": null,
+        "header": {
+          "headerType": null,
+          "headerId": null,
+          "headerContent": null
+        },
+        "comment": null
+      },
+      "attachedFiles": [],
+      "reactions": [],
+      "isFavorite": false,
+      "commentTimelines": [],
+      "updatedDate": "2020-08-10T10:52:24Z"
+    },
+    {
+      "timelineId": 11262,
+      "parentId": null,
+      "rootId": null,
+      "timelineType": [
+        {
+          "timelineTypeId": 2
+        }
+      ],
+      "createdUser": 1,
+      "createdUserName": "確保 確保 確保する",
+      "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+      "createdDate": "2020-08-10T10:52:15Z",
+      "changedDate": "2020-08-10T10:52:15Z",
+      "timelineGroupId": 109,
+      "timelineGroupName": "how many people are your family ?",
+      "color": null,
+      "imagePath": "https://duytt.s3.ap-southeast-1.amazonaws.com/tenants/common16/service_data/timeline/1_11_20200810175151614.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=032f2a4f3b0c794103ec01722c6bc17811d8838e983c90882cec42044a0b6d5f",
+      "header": null,
+      "targetDelivers": [
+        {
+          "targetType": 4,
+          "targetId": 109,
+          "targetName": "how many people are your family ?"
+        }
+      ],
+      "comment": {
+        "mode": 0,
+        "content": "<span>チャンネル名:</span> <span>how many people are your family ?</span><br/><span>公開:</span> <span>非公開</span> &#8594; <span>公開</span><br/><span>チャンネル名:</span> <span>不要</span>"
+      },
+      "sharedTimeline": {
+        "timelineId": null,
+        "parentId": null,
+        "rootId": null,
+        "createdUser": null,
+        "createdUserName": "",
+        "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+        "createdDate": null,
+        "timelineGroupId": null,
+        "timelineGroupName": null,
+        "imagePath": null,
+        "header": null,
+        "comment": null
+      },
+      "attachedFiles": [],
+      "reactions": [],
+      "isFavorite": false,
+      "commentTimelines": [],
+      "updatedDate": null
+    },
+    {
+      "timelineId": 11218,
+      "parentId": null,
+      "rootId": null,
+      "timelineType": [
+        {
+          "timelineTypeId": 3
+        }
+      ],
+      "createdUser": 1,
+      "createdUserName": "確保 確保 確保する",
+      "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+      "createdDate": "2020-08-10T08:29:33Z",
+      "changedDate": "2020-08-10T10:51:57Z",
+      "timelineGroupId": 26,
+      "timelineGroupName": "group manh tao",
+      "color": "#CC8BD1",
+      "imagePath": null,
+      "header": null,
+      "targetDelivers": [
+        {
+          "targetType": 1,
+          "targetId": 1,
+          "targetName": "確保 確保 確保する"
+        },
+        {
+          "targetType": 3,
+          "targetId": 1,
+          "targetName": "DEV1"
+        },
+        {
+          "targetType": 5,
+          "targetId": 63,
+          "targetName": "Customer"
+        },
+        {
+          "targetType": 4,
+          "targetId": 26,
+          "targetName": "group manh tao"
+        }
+      ],
+      "comment": {
+        "mode": 2,
+        "content": "create timeline auto"
+      },
+      "sharedTimeline": {
+        "timelineId": null,
+        "parentId": null,
+        "rootId": null,
+        "createdUser": null,
+        "createdUserName": "",
+        "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+        "createdDate": null,
+        "timelineGroupId": null,
+        "timelineGroupName": null,
+        "imagePath": null,
+        "header": null,
+        "comment": null
+      },
+      "attachedFiles": [],
+      "reactions": [],
+      "isFavorite": false,
+      "commentTimelines": [
+        {
+          "timelineId": 11221,
+          "parentId": 11218,
+          "rootId": 11218,
+          "createdUser": 10002,
+          "createdUserName": "admin2@luvina.net admin2@luvina.net Manhnh",
+          "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+          "createdDate": "2020-08-10T08:46:40Z",
+          "targetDelivers": [
+            {
+              "targetType": 1,
+              "targetId": 10002,
+              "targetName": "admin2@luvina.net admin2@luvina.net Manhnh"
+            }
+          ],
+          "comment": {
+            "mode": 0,
+            "content": "dddd"
+          },
+          "quotedTimeline": null,
+          "attachedFiles": [
+            {
+              "fileName": "10002_Capture_20200810154643282.jpg",
+              "filePath": "tenants/common16/service_data/timeline/10002_Capture_20200810154643282.jpg",
+              "fileUrl": "https://duytt.s3.ap-southeast-1.amazonaws.com/tenants/common16/service_data/timeline/10002_Capture_20200810154643282.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122158Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c8781407ddde53128ba43bee0b72a53333150cd0ee96fab499a739b87be9b3f5"
+            }
+          ],
+          "reactions": [],
+          "replyTimelines": [],
+          "isFavorite": false,
+          "updatedDate": null
+        },
+        {
+          "timelineId": 11261,
+          "parentId": 11218,
+          "rootId": 11218,
+          "createdUser": 10002,
+          "createdUserName": "admin2@luvina.net admin2@luvina.net Manhnh",
+          "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+          "createdDate": "2020-08-10T10:51:57Z",
+          "targetDelivers": [
+            {
+              "targetType": 1,
+              "targetId": 1,
+              "targetName": "確保 確保 確保する"
+            }
+          ],
+          "comment": {
+            "mode": 0,
+            "content": "manhnh"
+          },
+          "quotedTimeline": null,
+          "attachedFiles": [],
+          "reactions": [],
+          "replyTimelines": [],
+          "isFavorite": false,
+          "updatedDate": null
+        }
+      ],
+      "updatedDate": "2020-08-10T08:46:40Z"
+    },
+    {
+      "timelineId": 11260,
+      "parentId": null,
+      "rootId": null,
+      "timelineType": [
+        {
+          "timelineTypeId": 3
+        }
+      ],
+      "createdUser": 1,
+      "createdUserName": "確保 確保 確保する",
+      "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+      "createdDate": "2020-08-10T10:50:59Z",
+      "changedDate": "2020-08-10T10:50:59Z",
+      "timelineGroupId": null,
+      "timelineGroupName": null,
+      "color": null,
+      "imagePath": null,
+      "header": {
+        "headerType": 6,
+        "headerId": 106,
+        "headerContent": {
+          "jaJp": "ElasticDate(date=2020-08-04T17:45:00Z, mdFormat=2020/08/04, hmFormat=17:45) - ElasticDate(date=2020-08-04T18:45:00Z, mdFormat=2020/08/04, hmFormat=18:45)の活動(())が報告されました。",
+          "enUs": "ElasticDate(date=2020-08-04T17:45:00Z, mdFormat=2020/08/04, hmFormat=17:45) - ElasticDate(date=2020-08-04T18:45:00Z, mdFormat=2020/08/04, hmFormat=18:45)の活動(())が報告されました。",
+          "zhCn": "ElasticDate(date=2020-08-04T17:45:00Z, mdFormat=2020/08/04, hmFormat=17:45) - ElasticDate(date=2020-08-04T18:45:00Z, mdFormat=2020/08/04, hmFormat=18:45)の活動(())が報告されました。"
+        }
+      },
+      "targetDelivers": [
+        {
+          "targetType": 1,
+          "targetId": 1,
+          "targetName": "確保 確保 確保する"
+        },
+        {
+          "targetType": 3,
+          "targetId": 1,
+          "targetName": "DEV1"
+        },
+        {
+          "targetType": 5,
+          "targetId": 40,
+          "targetName": "Luu Quang Vu"
+        }
+      ],
+      "comment": {
+        "mode": 1,
+        "content": "{\"customer_id\": {\"new\": 1, \"old\": 3}, \"schedule_id\": {\"new\": \"\", \"old\": 1}, \"contact_date\": {\"new\": {\"nanos\": 0, \"seconds\": 1596412800}, \"old\": {\"nanos\": 0, \"seconds\": 1595635200}}, \"activity_end_time\": {\"new\": {\"nanos\": 0, \"seconds\": 1596448800}, \"old\": {\"nanos\": 0, \"seconds\": 1595835900}}, \"activity_start_time\": {\"new\": {\"nanos\": 0, \"seconds\": 1596445200}, \"old\": {\"nanos\": 0, \"seconds\": 1595835900}}}"
+      },
+      "sharedTimeline": {
+        "timelineId": null,
+        "parentId": null,
+        "rootId": null,
+        "createdUser": null,
+        "createdUserName": "",
+        "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+        "createdDate": null,
+        "timelineGroupId": null,
+        "timelineGroupName": null,
+        "imagePath": null,
+        "header": {
+          "headerType": null,
+          "headerId": null,
+          "headerContent": null
+        },
+        "comment": null
+      },
+      "attachedFiles": [],
+      "reactions": [],
+      "isFavorite": false,
+      "commentTimelines": [],
+      "updatedDate": "2020-08-10T10:50:59Z"
+    },
+    {
+      "timelineId": 11258,
+      "parentId": null,
+      "rootId": null,
+      "timelineType": [
+        {
+          "timelineTypeId": 2
+        }
+      ],
+      "createdUser": 1,
+      "createdUserName": "確保 確保 確保する",
+      "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+      "createdDate": "2020-08-10T10:50:19Z",
+      "changedDate": "2020-08-10T10:50:19Z",
+      "timelineGroupId": null,
+      "timelineGroupName": null,
+      "color": null,
+      "imagePath": null,
+      "header": null,
+      "targetDelivers": [
+        {
+          "targetType": 4,
+          "targetId": 108,
+          "targetName": "what is his name ? ? ? 1231"
+        }
+      ],
+      "comment": {
+        "mode": 1,
+        "content": "<span>チャンネル名:</span> <span>what is his name ? ? ?</span><br/><span>公開:</span> <span>公開</span><br/><span>チャンネル名:</span> <span>不要</span>"
+      },
+      "sharedTimeline": {
+        "timelineId": null,
+        "parentId": null,
+        "rootId": null,
+        "createdUser": null,
+        "createdUserName": "",
+        "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+        "createdDate": null,
+        "timelineGroupId": null,
+        "timelineGroupName": null,
+        "imagePath": null,
+        "header": null,
+        "comment": null
+      },
+      "attachedFiles": [],
+      "reactions": [],
+      "isFavorite": false,
+      "commentTimelines": [],
+      "updatedDate": null
+    },
+    {
+      "timelineId": 11257,
+      "parentId": null,
+      "rootId": null,
+      "timelineType": [
+        {
+          "timelineTypeId": 2
+        }
+      ],
+      "createdUser": 1,
+      "createdUserName": "確保 確保 確保する",
+      "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+      "createdDate": "2020-08-10T10:47:56Z",
+      "changedDate": "2020-08-10T10:47:56Z",
+      "timelineGroupId": null,
+      "timelineGroupName": null,
+      "color": null,
+      "imagePath": null,
+      "header": null,
+      "targetDelivers": [
+        {
+          "targetType": 4,
+          "targetId": 108,
+          "targetName": "what is his name ? ? ? 1231"
+        }
+      ],
+      "comment": {
+        "mode": 1,
+        "content": "<span>チャンネル名:</span> <span>what is his name ? ? ?</span><br/><span>公開:</span> <span>公開</span><br/><span>チャンネル名:</span> <span>不要</span>"
+      },
+      "sharedTimeline": {
+        "timelineId": null,
+        "parentId": null,
+        "rootId": null,
+        "createdUser": null,
+        "createdUserName": "",
+        "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+        "createdDate": null,
+        "timelineGroupId": null,
+        "timelineGroupName": null,
+        "imagePath": null,
+        "header": null,
+        "comment": null
+      },
+      "attachedFiles": [],
+      "reactions": [],
+      "isFavorite": false,
+      "commentTimelines": [],
+      "updatedDate": null
+    },
+    {
+      "timelineId": 11256,
+      "parentId": null,
+      "rootId": null,
+      "timelineType": [
+        {
+          "timelineTypeId": 2
+        }
+      ],
+      "createdUser": 1,
+      "createdUserName": "確保 確保 確保する",
+      "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+      "createdDate": "2020-08-10T10:47:01Z",
+      "changedDate": "2020-08-10T10:47:01Z",
+      "timelineGroupId": null,
+      "timelineGroupName": null,
+      "color": null,
+      "imagePath": null,
+      "header": null,
+      "targetDelivers": [
+        {
+          "targetType": 4,
+          "targetId": 108,
+          "targetName": "what is his name ? ? ? 1231"
+        }
+      ],
+      "comment": {
+        "mode": 1,
+        "content": "<span>チャンネル名:</span> <span>what is his name ? </span> &#8594; <span>what is his name ? ? ?</span><br/><span>公開:</span> <span>公開</span><br/><span>チャンネル名:</span> <span>不要</span>"
+      },
+      "sharedTimeline": {
+        "timelineId": null,
+        "parentId": null,
+        "rootId": null,
+        "createdUser": null,
+        "createdUserName": "",
+        "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+        "createdDate": null,
+        "timelineGroupId": null,
+        "timelineGroupName": null,
+        "imagePath": null,
+        "header": null,
+        "comment": null
+      },
+      "attachedFiles": [],
+      "reactions": [],
+      "isFavorite": false,
+      "commentTimelines": [],
+      "updatedDate": null
+    },
+    {
+      "timelineId": 11255,
+      "parentId": null,
+      "rootId": null,
+      "timelineType": [
+        {
+          "timelineTypeId": 2
+        }
+      ],
+      "createdUser": 1,
+      "createdUserName": "確保 確保 確保する",
+      "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+      "createdDate": "2020-08-10T10:42:47Z",
+      "changedDate": "2020-08-10T10:42:47Z",
+      "timelineGroupId": null,
+      "timelineGroupName": null,
+      "color": null,
+      "imagePath": null,
+      "header": null,
+      "targetDelivers": [
+        {
+          "targetType": 4,
+          "targetId": 108,
+          "targetName": "what is his name ? ? ? 1231"
+        }
+      ],
+      "comment": {
+        "mode": 1,
+        "content": "<span>チャンネル名:</span> <span>what do you main ?</span> &#8594; <span>what is his name ? </span><br/><span>公開:</span> <span>公開</span><br/><span>チャンネル名:</span> <span>不要</span>"
+      },
+      "sharedTimeline": {
+        "timelineId": null,
+        "parentId": null,
+        "rootId": null,
+        "createdUser": null,
+        "createdUserName": "",
+        "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+        "createdDate": null,
+        "timelineGroupId": null,
+        "timelineGroupName": null,
+        "imagePath": null,
+        "header": null,
+        "comment": null
+      },
+      "attachedFiles": [],
+      "reactions": [],
+      "isFavorite": false,
+      "commentTimelines": [],
+      "updatedDate": null
+    },
+    {
+      "timelineId": 11254,
+      "parentId": null,
+      "rootId": null,
+      "timelineType": [
+        {
+          "timelineTypeId": 2
+        }
+      ],
+      "createdUser": 1,
+      "createdUserName": "確保 確保 確保する",
+      "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+      "createdDate": "2020-08-10T10:40:24Z",
+      "changedDate": "2020-08-10T10:41:14Z",
+      "timelineGroupId": 108,
+      "timelineGroupName": "what is his name ? ? ? 1231",
+      "color": null,
+      "imagePath": "https://duytt.s3.ap-southeast-1.amazonaws.com/tenants/common16/service_data/timeline/1_s8ori_800x600_20200810174023869.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=26dc4365dabb71f6ae0358ae6b80ce585c5b53514d8dfb20c8669f83ddbcf575",
+      "header": null,
+      "targetDelivers": [
+        {
+          "targetType": 4,
+          "targetId": 108,
+          "targetName": "what is his name ? ? ? 1231"
+        }
+      ],
+      "comment": {
+        "mode": 0,
+        "content": "<span>チャンネル名:</span> <span>what do you main ?</span><br/><span>公開:</span> <span>非公開</span> &#8594; <span>公開</span><br/><span>チャンネル名:</span> <span>不要</span>"
+      },
+      "sharedTimeline": {
+        "timelineId": null,
+        "parentId": null,
+        "rootId": null,
+        "createdUser": null,
+        "createdUserName": "",
+        "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+        "createdDate": null,
+        "timelineGroupId": null,
+        "timelineGroupName": null,
+        "imagePath": null,
+        "header": null,
+        "comment": null
+      },
+      "attachedFiles": [],
+      "reactions": [],
+      "isFavorite": false,
+      "commentTimelines": [],
+      "updatedDate": "2020-08-10T10:40:24Z"
+    },
+    {
+      "timelineId": 11250,
+      "parentId": null,
+      "rootId": null,
+      "timelineType": [
+        {
+          "timelineTypeId": 2
+        }
+      ],
+      "createdUser": 1,
+      "createdUserName": "確保 確保 確保する",
+      "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+      "createdDate": "2020-08-10T10:30:17Z",
+      "changedDate": "2020-08-10T10:30:17Z",
+      "timelineGroupId": null,
+      "timelineGroupName": null,
+      "color": null,
+      "imagePath": null,
+      "header": null,
+      "targetDelivers": [
+        {
+          "targetType": 4,
+          "targetId": 28,
+          "targetName": "test_123%,_,\\,',--123"
+        }
+      ],
+      "comment": {
+        "mode": 0,
+        "content": "<span>チャンネル名:</span> <span>test_12%,_,\\,',--12</span> &#8594; <span>test_123%,_,\\,',--123</span><br/><span>公開:</span> <span>公開</span><br/><span>チャンネル名:</span> <span>不要</span>"
+      },
+      "sharedTimeline": {
+        "timelineId": null,
+        "parentId": null,
+        "rootId": null,
+        "createdUser": null,
+        "createdUserName": "",
+        "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+        "createdDate": null,
+        "timelineGroupId": null,
+        "timelineGroupName": null,
+        "imagePath": null,
+        "header": null,
+        "comment": null
+      },
+      "attachedFiles": [],
+      "reactions": [],
+      "isFavorite": false,
+      "commentTimelines": [],
+      "updatedDate": null
+    },
+    {
+      "timelineId": 11210,
+      "parentId": null,
+      "rootId": null,
+      "timelineType": [
+        {
+          "timelineTypeId": 4
+        }
+      ],
+      "createdUser": 1,
+      "createdUserName": "確保 確保 確保する",
+      "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+      "createdDate": "2020-08-10T08:19:54Z",
+      "changedDate": "2020-08-10T10:22:30Z",
+      "timelineGroupId": null,
+      "timelineGroupName": null,
+      "color": null,
+      "imagePath": null,
+      "header": null,
+      "targetDelivers": [
+        {
+          "targetType": 5,
+          "targetId": 1,
+          "targetName": null
+        },
+        {
+          "targetType": 5,
+          "targetId": 2,
+          "targetName": "KH_giang"
+        },
+        {
+          "targetType": 5,
+          "targetId": 1,
+          "targetName": null
+        }
+      ],
+      "comment": {
+        "mode": 2,
+        "content": "tao bai post trong cusstommer test 1"
+      },
+      "sharedTimeline": {
+        "timelineId": null,
+        "parentId": null,
+        "rootId": null,
+        "createdUser": null,
+        "createdUserName": "",
+        "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+        "createdDate": null,
+        "timelineGroupId": null,
+        "timelineGroupName": null,
+        "imagePath": null,
+        "header": null,
+        "comment": null
+      },
+      "attachedFiles": [],
+      "reactions": [],
+      "isFavorite": false,
+      "commentTimelines": [
+        {
+          "timelineId": 11215,
+          "parentId": 11210,
+          "rootId": 11210,
+          "createdUser": 1,
+          "createdUserName": "確保 確保 確保する",
+          "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+          "createdDate": "2020-08-10T08:22:06Z",
+          "targetDelivers": [
+            {
+              "targetType": 2,
+              "targetId": -100,
+              "targetName": null
+            }
+          ],
+          "comment": {
+            "mode": 0,
+            "content": "quote bai post lan 1 "
+          },
+          "quotedTimeline": {
+            "timelineId": 11210,
+            "parentId": null,
+            "rootId": null,
+            "comment": {
+              "mode": 2,
+              "content": "tao bai post trong cusstommer test 1"
+            },
+            "createdUser": 1,
+            "createdUserName": "確保 確保 確保する",
+            "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+            "createdDate": "2020-08-10T08:19:54Z"
+          },
+          "attachedFiles": [],
+          "reactions": [],
+          "replyTimelines": [
+            {
+              "timelineId": 11217,
+              "parentId": 11215,
+              "rootId": 11210,
+              "createdUser": 1,
+              "createdUserName": "確保 確保 確保する",
+              "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+              "createdDate": "2020-08-10T08:24:48Z",
+              "targetDelivers": [
+                {
+                  "targetType": 2,
+                  "targetId": -100,
+                  "targetName": null
+                }
+              ],
+              "comment": {
+                "mode": 0,
+                "content": "quote bai quote vua quote bai post lan 1 "
+              },
+              "quotedTimeline": {
+                "timelineId": 11215,
+                "parentId": 11210,
+                "rootId": 11210,
+                "comment": {
+                  "mode": 0,
+                  "content": "quote bai post lan 1 "
+                },
+                "createdUser": 1,
+                "createdUserName": "確保 確保 確保する",
+                "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+                "createdDate": "2020-08-10T08:22:06Z"
+              },
+              "attachedFiles": [],
+              "reactions": [],
+              "isFavorite": false,
+              "updatedDate": null
+            },
+            {
+              "timelineId": 11236,
+              "parentId": 11215,
+              "rootId": 11210,
+              "createdUser": 10002,
+              "createdUserName": "admin2@luvina.net admin2@luvina.net Manhnh",
+              "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+              "createdDate": "2020-08-10T09:45:40Z",
+              "targetDelivers": [
+                {
+                  "targetType": 2,
+                  "targetId": -100,
+                  "targetName": null
+                }
+              ],
+              "comment": {
+                "mode": 0,
+                "content": "quote bai quote vua quote bai post lan 2 boi user 10002"
+              },
+              "quotedTimeline": {
+                "timelineId": 11215,
+                "parentId": 11210,
+                "rootId": 11210,
+                "comment": {
+                  "mode": 0,
+                  "content": "quote bai post lan 1 "
+                },
+                "createdUser": 1,
+                "createdUserName": "確保 確保 確保する",
+                "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+                "createdDate": "2020-08-10T08:22:06Z"
+              },
+              "attachedFiles": [],
+              "reactions": [],
+              "isFavorite": false,
+              "updatedDate": null
+            },
+            {
+              "timelineId": 11239,
+              "parentId": 11215,
+              "rootId": 11210,
+              "createdUser": 10002,
+              "createdUserName": "admin2@luvina.net admin2@luvina.net Manhnh",
+              "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+              "createdDate": "2020-08-10T09:49:55Z",
+              "targetDelivers": [
+                {
+                  "targetType": 2,
+                  "targetId": -100,
+                  "targetName": null
+                }
+              ],
+              "comment": {
+                "mode": 0,
+                "content": "quote comment cua user 10002"
+              },
+              "quotedTimeline": {
+                "timelineId": 11215,
+                "parentId": 11210,
+                "rootId": 11210,
+                "comment": {
+                  "mode": 0,
+                  "content": "quote bai post lan 1 "
+                },
+                "createdUser": 1,
+                "createdUserName": "確保 確保 確保する",
+                "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+                "createdDate": "2020-08-10T08:22:06Z"
+              },
+              "attachedFiles": [],
+              "reactions": [],
+              "isFavorite": false,
+              "updatedDate": null
+            }
+          ],
+          "isFavorite": false,
+          "updatedDate": null
+        },
+        {
+          "timelineId": 11237,
+          "parentId": 11210,
+          "rootId": 11210,
+          "createdUser": 10002,
+          "createdUserName": "admin2@luvina.net admin2@luvina.net Manhnh",
+          "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+          "createdDate": "2020-08-10T09:47:19Z",
+          "targetDelivers": [
+            {
+              "targetType": 2,
+              "targetId": -100,
+              "targetName": null
+            }
+          ],
+          "comment": {
+            "mode": 0,
+            "content": "comment cua user 10002"
+          },
+          "quotedTimeline": null,
+          "attachedFiles": [],
+          "reactions": [],
+          "replyTimelines": [
+            {
+              "timelineId": 11238,
+              "parentId": 11237,
+              "rootId": 11210,
+              "createdUser": 10002,
+              "createdUserName": "admin2@luvina.net admin2@luvina.net Manhnh",
+              "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=9999&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=c9af3763f45a487db6495cd1676488fbfcd3c1d14b292121213876eb0899dac3",
+              "createdDate": "2020-08-10T09:48:25Z",
+              "targetDelivers": [
+                {
+                  "targetType": 2,
+                  "targetId": -100,
+                  "targetName": null
+                }
+              ],
+              "comment": {
+                "mode": 0,
+                "content": "reply cua user 10002"
+              },
+              "quotedTimeline": null,
+              "attachedFiles": [],
+              "reactions": [],
+              "isFavorite": false,
+              "updatedDate": null
+            }
+          ],
+          "isFavorite": false,
+          "updatedDate": null
+        },
+        {
+          "timelineId": 11249,
+          "parentId": 11210,
+          "rootId": 11210,
+          "createdUser": 1,
+          "createdUserName": "確保 確保 確保する",
+          "createdUserPhoto": "https://duytt.s3.ap-southeast-1.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122159Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fdaaa2fafe5c0c717c86810948f9cf1cc28f7bf10d84cc3560d6b01908bad6c7",
+          "createdDate": "2020-08-10T10:22:30Z",
+          "targetDelivers": [
+            {
+              "targetType": 1,
+              "targetId": 1,
+              "targetName": "確保 確保 確保する"
+            }
+          ],
+          "comment": {
+            "mode": 0,
+            "content": "123"
+          },
+          "quotedTimeline": null,
+          "attachedFiles": [
+            {
+              "fileName": "1_tải xuống (1)_20200810172230798.jpg",
+              "filePath": "tenants/common16/service_data/timeline/1_tải xuống (1)_20200810172230798.jpg",
+              "fileUrl": "https://duytt.s3.ap-southeast-1.amazonaws.com/tenants/common16/service_data/timeline/1_t%E1%BA%A3i%20xu%E1%BB%91ng%20%281%29_20200810172230798.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200810T122158Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=AKIAXLDUXPHQRPVVCGPT%2F20200810%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=dab33e2233155e1ee5a9a3d5cfc1874edac33b631de6b61cc9a5101d1eb65164"
+            }
+          ],
+          "reactions": [],
+          "replyTimelines": [],
+          "isFavorite": false,
+          "updatedDate": null
+        }
+      ],
+      "updatedDate": "2020-08-10T09:49:55Z"
+    }
+  ]
+}

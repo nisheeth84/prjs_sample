@@ -1,0 +1,57 @@
+###############################################################################
+# 外部設定項目のデフォルト値を設定
+## バッチ引数
+jobCode: (EMPTY)
+reportId: (EMPTY)
+logId: (EMPTY)
+
+## 環境変数
+# 並列処理
+# THREADPOOL_MAX_SIZE
+threadPool.max.size: 2
+# THREADPOOL_QUEUE_CAPACITY
+threadPool.queue.capacity: 50
+# THREADPOOL_TIMEOUT_MINUTES
+threadPool.timeout.minutes: 15
+
+# AWS
+# PREMEMBERS_AWS_REGION
+premembers.aws.region: ap-northeast-1
+
+# AWS S3
+# S3_REPORT_BUCKET
+s3.report.bucket: premembers-dev-report-bucket
+# S3_BATCH_LOG_BUCKET
+s3.batch.log.bucket: premembers-dev-batch-log-bucket
+# S3_SETTING_BUCKET
+s3.setting.bucket: premembers-dev-setting
+# S3_ENDPOINT
+s3.endpoint: https://s3-ap-northeast-1.amazonaws.com
+# S3_REGION
+s3.region: ${premembers.aws.region}
+
+# DynamoDB
+# DYNAMODB_ENDPOINT
+dynamodb.endpoint: https://dynamodb.ap-northeast-1.amazonaws.com
+# DYNAMODB_REGION
+dynamodb.region: ${premembers.aws.region}
+
+# AWS Batch
+# AWSBATCH_ENDPOINT
+awsbatch.endpoint: https://batch.ap-northeast-1.amazonaws.com
+# AWSBATCH_REGION
+awsbatch.region: ${premembers.aws.region}
+
+# 作業ディレクトリ
+temporary.directory: /var/tmp/premembers/report/
+
+###############################################################################
+## 固定設定項目
+report.schema.version.latest: 1.0
+report.excel.template.jajp.filepath.v.1.0: report/1.0/report_template_ja-JP.xlsx
+
+###############################################################################
+## テスト用
+# PREMEMBERS_ENV ("NO_AWS":AWSが使えない環境 / "local":ローカル開発環境 / "dev":開発環境 / "stg":ステージング環境 / "prd":本番環境）
+premembers.env: NO_AWS
+

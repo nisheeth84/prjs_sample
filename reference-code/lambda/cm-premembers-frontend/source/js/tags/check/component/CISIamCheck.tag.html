@@ -1,0 +1,246 @@
+<cis-iam-check>
+    <div class="card card-bordered card-outline-danger" if="{opts.list_iam.length > 0}">
+        <div class="card-block">
+            <div class="card-title">
+                <h3 class="text-left inline">{_t('cis_1_title')}</h3>
+                <p class="text-right inline float-right">
+                    {_t('check_date_time')}: {commonUtils.displayDate(opts.list_iam[0][0].executedDateTime)}
+                </p>
+            </div>
+        </div>
+        <virtual each="{results in opts.list_iam}">
+            <div class="card-block ">
+                <div class="card-title">
+                    <div class="vertical-align-middle">
+                        <h4>
+                            <i class="{commonUtils.getClassIconCheckCIS(results[0].checkItemCode)}"></i>
+                            {commonUtils.getItemCodeCheckItem(results[0].checkItemCode)}
+                            <span class="px-2 py-1 badge-setting badge-danger align-middle" if="{opts.list_manual.includes(results[0].checkItemCode)}">{_t('CheckResult.manual')}</span>
+                        </h4>
+                    </div>
+                </div>
+                <ul>
+                    <li each="{description in commonUtils.getDescriptionCheckItem(results[0].checkItemCode)}">{commonUtils.parseHtml(this, description)}</li>
+                </ul>
+                <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_CIS_ITEM_1_01'}">
+                    <thead>
+                        <tr>
+                            <th class="font-weight-900 check-header">{_t('organization')}</th>
+                            <th class="font-weight-900 check-header">{_t('project')}</th>
+                            <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                            <th class="font-weight-900 check-header">{_t('CISIamCheck.password_last_used_date')}</th>
+                            <th class="font-weight-900 check-header">{_t('CISIamCheck.access_key_1_last_use_date')}</th>
+                            <th class="font-weight-900 check-header">{_t('CISIamCheck.access_key_2_last_use_date')}</th>
+                        </tr>
+                    </thead>
+                    <tbody each="{result in results}">
+                        <tr class="child" each="{resource in result.resources}">
+                            <td class="word-break-all">{result.organizationName}</td>
+                            <td class="word-break-all">{result.projectName}</td>
+                            <td class="table-account-column">
+                                <p>{result.awsAccount}
+                                    <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                </p>
+                            </td>
+                            <td class="word-break-all">{commonUtils.displayDate(resource.DetectionItem.PasswordLastUsed)}</td>
+                            <td class="word-break-all">{commonUtils.displayDate(resource.DetectionItem.AccessKey1LastUsedDate)}</td>
+                            <td class="word-break-all">{commonUtils.displayDate(resource.DetectionItem.AccessKey2LastUsedDate)}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_CIS_ITEM_1_02'}">
+                    <thead>
+                        <tr>
+                            <th class="font-weight-900 check-header">{_t('organization')}</th>
+                            <th class="font-weight-900 check-header">{_t('project')}</th>
+                            <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                            <th class="font-weight-900 check-header">{_t('iam_user')}</th>
+                        </tr>
+                    </thead>
+                    <tbody each="{result in results}">
+                        <tr class="child" each="{abnormalityUser in result.resources[0].DetectionItem.AbnormalityUsers}">
+                            <td class="word-break-all">{result.organizationName}</td>
+                            <td class="word-break-all">{result.projectName}</td>
+                            <td class="table-account-column">
+                                <p>{result.awsAccount}
+                                    <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                </p>
+                            </td>
+                            <td class="word-break-all">{abnormalityUser}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_CIS_ITEM_1_03' || results[0].checkItemCode == 'CHECK_CIS_ITEM_1_04'}">
+                    <thead>
+                        <tr>
+                            <th class="font-weight-900 check-header">{_t('organization')}</th>
+                            <th class="font-weight-900 check-header">{_t('project')}</th>
+                            <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                            <th class="font-weight-900 check-header">{_t('iam_user')}</th>
+                        </tr>
+                    </thead>
+                    <tbody each="{result in results}">
+                        <tr class="child" each="{resource in result.resources}">
+                            <td class="word-break-all">{result.organizationName}</td>
+                            <td class="word-break-all">{result.projectName}</td>
+                            <td class="table-account-column">
+                                <p>{result.awsAccount}
+                                    <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                </p>
+                            </td>
+                            <td class="word-break-all">{resource.DetectionItem.User}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_CIS_ITEM_1_05' || results[0].checkItemCode == 'CHECK_CIS_ITEM_1_06' 
+                    || results[0].checkItemCode == 'CHECK_CIS_ITEM_1_07' || results[0].checkItemCode == 'CHECK_CIS_ITEM_1_08' || results[0].checkItemCode == 'CHECK_CIS_ITEM_1_09'
+                    || results[0].checkItemCode == 'CHECK_CIS_ITEM_1_10' || results[0].checkItemCode == 'CHECK_CIS_ITEM_1_11' || results[0].checkItemCode == 'CHECK_CIS_ITEM_1_12'
+                    || results[0].checkItemCode == 'CHECK_CIS_ITEM_1_13' || results[0].checkItemCode == 'CHECK_CIS_ITEM_1_14' || results[0].checkItemCode == 'CHECK_CIS_ITEM_1_18'}">
+                    <thead>
+                        <tr>
+                            <th class="font-weight-900 check-header">{_t('organization')}</th>
+                            <th class="font-weight-900 check-header">{_t('project')}</th>
+                            <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                        </tr>
+                    </thead>
+                    <tbody each="{result in results}">
+                        <tr class="child" each="{resource in result.resources}">
+                            <td class="word-break-all">{result.organizationName}</td>
+                            <td class="word-break-all">{result.projectName}</td>
+                            <td class="table-account-column">
+                                <p>{result.awsAccount}
+                                    <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_CIS_ITEM_1_16'}">
+                    <thead>
+                        <tr>
+                            <th class="font-weight-900 check-header">{_t('organization')}</th>
+                            <th class="font-weight-900 check-header">{_t('project')}</th>
+                            <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                            <th class="font-weight-900 check-header">{_t('iam_user')}</th>
+                        </tr>
+                    </thead>
+                    <tbody each="{result in results}">
+                        <tr class="child" each="{resource in result.resources}">
+                            <td class="word-break-all">{result.organizationName}</td>
+                            <td class="word-break-all">{result.projectName}</td>
+                            <td class="table-account-column">
+                                <p>{result.awsAccount}
+                                    <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                </p>
+                            </td>
+                            <td class="word-break-all">{resource.DetectionItem.UserName}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_CIS_ITEM_1_23'}">
+                    <thead>
+                        <tr>
+                            <th class="font-weight-900 check-header">{_t('organization')}</th>
+                            <th class="font-weight-900 check-header">{_t('project')}</th>
+                            <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                            <th class="font-weight-900 check-header">{_t('iam_user')}</th>
+                        </tr>
+                    </thead>
+                    <tbody each="{result in results}">
+                        <tr class="child" each="{abnormalityUser in result.resources[0].DetectionItem.AbnormalityUsers}">
+                            <td class="word-break-all">{result.organizationName}</td>
+                            <td class="word-break-all">{result.projectName}</td>
+                            <td class="table-account-column">
+                                <p>{result.awsAccount}
+                                    <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                </p>
+                            </td>
+                            <td class="word-break-all">{abnormalityUser}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_CIS_ITEM_1_24'}">
+                    <thead>
+                        <tr>
+                            <th class="font-weight-900 check-header">{_t('organization')}</th>
+                            <th class="font-weight-900 check-header">{_t('project')}</th>
+                            <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                            <th class="font-weight-900 check-header">{_t('policy')}</th>
+                            <th class="font-weight-900 check-header">{_t('iam_group')}</th>
+                            <th class="font-weight-900 check-header">{_t('iam_role')}</th>
+                            <th class="font-weight-900 check-header">{_t('iam_user')}</th>
+                        </tr>
+                    </thead>
+                    <tbody each="{result in results}">
+                        <tr class="child" each="{resource in result.resources}">
+                            <td class="word-break-all">{result.organizationName}</td>
+                            <td class="word-break-all">{result.projectName}</td>
+                            <td class="table-account-column">
+                                <p>{result.awsAccount}
+                                    <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                </p>
+                            </td>
+                            <td class="word-break-all">{resource.DetectionItem.PolicyName}</td>
+                            <td>
+                                <span class="d-block word-break-all" each="{abnormalityGroup in resource.DetectionItem.AbnormalityGroups}">{abnormalityGroup}</span>
+                            </td>
+                            <td>
+                                <span class="d-block word-break-all" each="{abnormalityRole in resource.DetectionItem.AbnormalityRoles}">{abnormalityRole}</span>
+                            </td>
+                            <td>
+                                <span class="d-block word-break-all" each="{abnormalityUser in resource.DetectionItem.AbnormalityUsers}">{abnormalityUser}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_CIS_ITEM_1_21'}">
+                    <thead>
+                        <tr>
+                            <th class="font-weight-900 check-header">{_t('organization')}</th>
+                            <th class="font-weight-900 check-header">{_t('project')}</th>
+                            <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                            <th class="font-weight-900 check-header">{_t('region')}</th>
+                            <th class="font-weight-900 check-header">{_t('name')}</th>
+                            <th class="font-weight-900 check-header">{_t('instance_id')}</th>
+                        </tr>
+                    </thead>
+                    <tbody each="{result in results}">
+                        <tr class="child" each="{resource in result.resources}">
+                            <td class="word-break-all">{result.organizationName}</td>
+                            <td class="word-break-all">{result.projectName}</td>
+                            <td class="table-account-column">
+                                <p>{result.awsAccount}
+                                    <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                </p>
+                            </td>
+                            <td class="word-break-all">{resource.Region}</td>
+                            <td class="word-break-all">{resource.DetectionItem.Name}</td>
+                            <td class="word-break-all">{resource.DetectionItem.InstanceId}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_CIS_ITEM_1_15' || results[0].checkItemCode == 'CHECK_CIS_ITEM_1_17'
+                    || results[0].checkItemCode == 'CHECK_CIS_ITEM_1_19' || results[0].checkItemCode == 'CHECK_CIS_ITEM_1_20'}">
+                    <thead>
+                        <tr>
+                            <th class="font-weight-900 check-header">{_t('organization')}</th>
+                            <th class="font-weight-900 check-header">{_t('project')}</th>
+                            <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                        </tr>
+                    </thead>
+                    <tbody each="{result in results}">
+                        <tr class="child" each="{resource in result.resources}">
+                            <td class="word-break-all">{result.organizationName}</td>
+                            <td class="word-break-all">{result.projectName}</td>
+                            <td class="table-account-column">
+                                <p>{result.awsAccount}
+                                    <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </virtual>
+    </div>
+</cis-iam-check>

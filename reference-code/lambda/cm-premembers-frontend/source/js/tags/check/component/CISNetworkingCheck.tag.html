@@ -1,0 +1,125 @@
+<cis-networking-check>
+    <div class="card card-bordered card-outline-danger" if="{opts.list_network.length > 0}">
+        <div class="card-block">
+            <div class="card-title">
+                <h3 class="text-left inline">{_t('cis_4_networking')}</h3>
+                <p class="text-right inline float-right">
+                    {_t('check_date_time')}: {commonUtils.displayDate(opts.list_network[0][0].executedDateTime)}
+                </p>
+            </div>
+        </div>
+        <virtual each="{results in opts.list_network}">
+            <div class="card-block">
+                <div class="card-title">
+                    <div class="vertical-align-middle">
+                        <h4>
+                            <i class="{commonUtils.getClassIconCheckCIS(results[0].checkItemCode)}"></i>
+                            {commonUtils.getItemCodeCheckItem(results[0].checkItemCode)}
+                            <span class="px-2 py-1 badge-setting badge-danger align-middle" if="{opts.list_manual.includes(results[0].checkItemCode)}">{_t('CheckResult.manual')}</span>
+                        </h4>
+                    </div>
+                </div>
+                <ul>
+                    <li each="{description in commonUtils.getDescriptionCheckItem(results[0].checkItemCode)}">{commonUtils.parseHtml(this, description)}</li>
+                </ul>
+                <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_CIS_ITEM_4_01' || results[0].checkItemCode == 'CHECK_CIS_ITEM_4_02'}">
+                    <thead>
+                        <tr>
+                            <th class="font-weight-900 check-header">{_t('organization')}</th>
+                            <th class="font-weight-900 check-header">{_t('project')}</th>
+                            <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                            <th class="font-weight-900 check-header">{_t('region')}</th>
+                            <th class="font-weight-900 check-header">{_t('CISNetworkingCheck.group_id')}</th>
+                            <th class="font-weight-900 check-header">{_t('CISNetworkingCheck.protocol')}</th>
+                            <th class="font-weight-900 check-header">{_t('CISNetworkingCheck.port_range')}</th>
+                            <th class="font-weight-900 check-header">{_t('CISNetworkingCheck.source')}</th>
+                        </tr>
+                    </thead>
+                    <tbody each="{result in results}">
+                        <tr class="child" each="{resource in result.resources}">
+                            <td class="word-break-all">{result.organizationName}</td>
+                            <td class="word-break-all">{result.projectName}</td>
+                            <td class="table-account-column">
+                                <p>{result.awsAccount}
+                                    <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                </p>
+                            </td>
+                            <td class="word-break-all">{resource.Region}</td>
+                            <td class="word-break-all">{resource.DetectionItem.GroupId}</td>
+                            <td class="word-break-all">{resource.DetectionItem.IpProtocol == -1 ? 'すべて' : resource.DetectionItem.IpProtocol}</td>
+                            <td class="word-break-all">{displayPortRange(resource.DetectionItem.FromPort, resource.DetectionItem.ToPort)}</td>
+                            <td class="word-break-all">{displayIpRange(resource.DetectionItem.IpRanges)}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_CIS_ITEM_4_03'}">
+                    <thead>
+                        <tr>
+                            <th class="font-weight-900 check-header">{_t('organization')}</th>
+                            <th class="font-weight-900 check-header">{_t('project')}</th>
+                            <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                            <th class="font-weight-900 check-header">{_t('region')}</th>
+                            <th class="font-weight-900 check-header">{_t('vpc_id')}</th>
+                        </tr>
+                    </thead>
+                    <tbody each="{result in results}">
+                        <tr class="child" each="{resource in result.resources}">
+                            <td class="word-break-all">{result.organizationName}</td>
+                            <td class="word-break-all">{result.projectName}</td>
+                            <td class="table-account-column">
+                                <p>{result.awsAccount}
+                                    <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                </p>
+                            </td>
+                            <td class="word-break-all">{resource.Region}</td>
+                            <td class="word-break-all">{resource.DetectionItem.AbnormalityVpc}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <cis-networking-check-cis-4-04 results="{results}" if="{results[0].checkItemCode == 'CHECK_CIS_ITEM_4_04'}">
+                </cis-networking-check-cis-4-04>
+                <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{results[0].checkItemCode == 'CHECK_CIS_ITEM_4_05'}">
+                    <thead>
+                        <tr>
+                            <th class="font-weight-900 check-header">{_t('organization')}</th>
+                            <th class="font-weight-900 check-header">{_t('project')}</th>
+                            <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                        </tr>
+                    </thead>
+                    <tbody each="{result in results}">
+                        <tr class="child" each="{resource in result.resources}">
+                            <td class="word-break-all">{result.organizationName}</td>
+                            <td class="word-break-all">{result.projectName}</td>
+                            <td class="table-account-column">
+                                <p>{result.awsAccount}
+                                    <span if="{result.awsAccountName}">| {result.awsAccountName}</span>
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </virtual>
+    </div>
+    <script>
+        const tag = this
+
+        tag.displayPortRange = displayPortRange
+        tag.displayIpRange = displayIpRange
+
+        function displayPortRange(fromPort, toPort) {
+            if (fromPort != "") {
+                return fromPort != toPort ? fromPort + "-" + toPort : fromPort
+            }
+            return tag._t('CISNetworkingCheck.all')
+        }
+
+        function displayIpRange(ipRanges) {
+            result = []
+            for (i = 0; i < ipRanges.length; i++) {
+                result.push(ipRanges[i].CidrIp);
+            }
+            return result.join(', ');
+        }
+    </script>
+</cis-networking-check>

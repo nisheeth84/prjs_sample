@@ -1,0 +1,23 @@
+/**
+ * The Language entity.
+ */
+@dto(mapstruct)
+@service(serviceImpl)
+entity Languages {
+    /** 
+     * The Language languageId
+     */
+    languageId Long required,
+    /** 
+     * The Language languageName
+     */
+    languageName String required maxlength(50),
+    /** 
+     * The Language languageCode
+     */
+    languageCode String required maxlength(5)
+    /** 
+     * The Language displayOrder
+     */
+    displayOrder Long
+}

@@ -1,0 +1,29 @@
+#temp {
+  height: 300px;
+  background-color: #efefef;
+}
+
+.box-tooltip-show a {
+  width: 100% !important;
+}
+
+.box-tooltip-show {
+  position: fixed !important;
+  right: 130px !important;
+  /*left: initial !important*/
+}
+
+.box-tooltip-show {
+  word-break: break-word;
+}
+.box-tooltip-show.mouse-enter {
+  display: block !important;
+}
+
+/*----css style bỏ đoạn này đi-----------*/
+.wrap-task .list-task-wrap .list-box ul li:hover .box-select-option,
+.wrap-task .list-task-wrap .list-user:hover .box-select-option,
+.wrap-task .list-task-wrap .list-user:hover .box-list-file,
+.wrap-task .list-task-wrap .list-box ul li:hover .box-list-file {
+  display: none;
+}

@@ -1,0 +1,226 @@
+{
+  "scenarios": {
+    "milestones": [
+      {
+        "milestoneId": 5,
+        "milestoneName": "Milestone Name 96",
+        "statusMilestoneId": 1,
+        "finishDate": "2020-08-01T23:59:00Z",
+        "memo": "Test 96",
+        "updatedDate": "2020-08-03T11:56:59.960555Z",
+        "taskIds": [8],
+        "tasks": [
+          {
+            "taskId": 8,
+            "taskName": "Task co product",
+            "memo": "memo",
+            "statusTaskId": 2,
+            "startDate": null,
+            "finishDate": "2020-08-01T05:00:00Z",
+            "updatedDate": "2020-08-04T04:56:40.725314Z",
+            "parentId": null,
+            "nestedOperators": [],
+            "operators": [],
+            "subTasks": []
+          }
+        ]
+      },
+      {
+        "milestoneId": 7,
+        "milestoneName": "Milestone Name 97",
+        "statusMilestoneId": 0,
+        "finishDate": "2020-08-02T18:00:00Z",
+        "memo": "Test 97",
+        "updatedDate": "2020-08-03T04:41:57.463117Z",
+        "taskIds": [36, 42, 44],
+        "tasks": [
+          {
+            "taskId": 36,
+            "taskName": "Task 03",
+            "memo": null,
+            "statusTaskId": 1,
+            "startDate": "2020-08-02T05:00:00Z",
+            "finishDate": "2020-08-04T05:00:00Z",
+            "updatedDate": "2020-08-04T04:56:10.017751Z",
+            "parentId": null,
+            "nestedOperators": [
+              {
+                "operatorDivision": 1,
+                "employeeId": 10002,
+                "employeeName": "Team VuLQ",
+                "employeeImage": "tenants/mercyrrczkni/service_data/employee/10002_images_20200801161437671.jpg",
+                "departmentId": null,
+                "departmentName": null,
+                "groupId": null,
+                "groupName": null
+              },
+              {
+                "operatorDivision": 1,
+                "employeeId": 10008,
+                "employeeName": "Nguyen Van B Empl_9",
+                "employeeImage": "tenants/mercyrrczkni/service_data/employee/10002_wartermelon_20200728111924589.jpg",
+                "departmentId": null,
+                "departmentName": null,
+                "groupId": null,
+                "groupName": null
+              }
+            ],
+            "operators": [
+              {
+                "employees": [
+                  {
+                    "employeeId": 10002,
+                    "employeeName": "Team VuLQ",
+                    "photoFilePath": "tenants/mercyrrczkni/service_data/employee/10002_images_20200801161437671.jpg",
+                    "fileUrl": "https://ms2-dev-files.s3.ap-northeast-1.amazonaws.com/tenants/mercyrrczkni/service_data/employee/10002_images_20200801161437671.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjENz%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDmFwLW5vcnRoZWFzdC0xIkYwRAIgbsyPWckb2DAuUEqrAYrj1mntgbbn3uLJvzDSMOnjm5oCIG4F2NdRDCvqD5VGzGCS6ZABYJ4aIzpVEt9tHX5pnN00KoAECKX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQARoMMDA4MDc2MzYzNTE2IgyW8Vq%2BDbPw4gr7Swwq1ANHmyckfDrS2xUt9Y7NQSk5PK33URq%2FBI%2FTFa2UI0yqjHo444R%2FYJbxAdh7yPTuRNvmQX%2BF6tlyYV7MvFJkEkWt1n7cl4VV45YtDJfdWA2zDZtP3U5W0ymyL48AkBdxIR%2FwVBxQiemGIbt2iphf%2F17fGCuLBg9j0ID7XIqYNNm4zpXCzzbroY44czY58xkVYVNikhOk86feFdvO8zkC3XaIwJnC9xHM%2BhQUxtQDAWC9oXjHj%2FapX9%2BTW4Qh%2FjwFh%2Bxilbc7yMrkFNo2MKL4FnwikxIPF8u2cr9BXKI3N7rVBk8RZKBLab%2Bbp5AqOrIheoXgQnC66RsVGPF5Hsncp7%2FoDfGRRs80Rk%2B2MVfUvOAWbqZK%2F3jY8EdN29EvGv7sfDxAChWBdDrFJucaU%2FmHXC6xy7hcVHmb%2FUGEDn8ZdIts2xk%2Bl%2Bkvm6chJdTIRN9pRFUw7tqLi6zrEbYsnAi7KMXgyr2m6fa2n0s%2BG4FDmNLQRdLx8uVm7FqCyRyP01rHx%2FhRIF0fHYlsomb9aRDlRNso3E7HssQwLsivjlIMYKocdWFtixhR1U5Wfy68k6FYjIgE1QInirWB5JSCsEGXhWwo2fHfpRHXP6bAQmfg3v9XcqsiQ20wwpil%2BQU68AG%2BHeqcD1WlWNX%2F%2B%2BXQPhu%2Bvo%2BpOb1t2geESiRDveG9h%2FHrXYGjUpWO1xV5Jyk608p2EJwA5sKmEMGurZcl53SyCBSSzyYIdNpAcB0QwqWMEuemnecNmzBPyecXXzlbtzuiTVmtW7q%2B7O6U89vZG7M6UHUn0sieBgRS%2Bx0FoxikH2%2FUaGP5g7zLeakGwtRB32%2FDeaZXGnK649ehjXQ53a8X3IC5Rh5LxfApcMN9ElXflfC1TCKHAGdX8UjyeTn2DO%2FWX1iRVwL6leVw62IaGZ4Ew6ltsOinSDy0dRAw85zFO2mZFePZOFJc%2FJ3%2BGgm6XQE%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200804T131019Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=ASIAQDYLDQ36DDMUDJPA%2F20200804%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Signature=9e587146ef0783c7d8a812e37c82eb4e770372ec989739ca5bae84be5d4beb57"
+                  },
+                  {
+                    "employeeId": 10008,
+                    "employeeName": "Nguyen Van B Empl_9",
+                    "photoFilePath": "tenants/mercyrrczkni/service_data/employee/10002_wartermelon_20200728111924589.jpg",
+                    "fileUrl": "https://ms2-dev-files.s3.ap-northeast-1.amazonaws.com/tenants/mercyrrczkni/service_data/employee/10002_wartermelon_20200728111924589.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjENz%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDmFwLW5vcnRoZWFzdC0xIkYwRAIgbsyPWckb2DAuUEqrAYrj1mntgbbn3uLJvzDSMOnjm5oCIG4F2NdRDCvqD5VGzGCS6ZABYJ4aIzpVEt9tHX5pnN00KoAECKX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQARoMMDA4MDc2MzYzNTE2IgyW8Vq%2BDbPw4gr7Swwq1ANHmyckfDrS2xUt9Y7NQSk5PK33URq%2FBI%2FTFa2UI0yqjHo444R%2FYJbxAdh7yPTuRNvmQX%2BF6tlyYV7MvFJkEkWt1n7cl4VV45YtDJfdWA2zDZtP3U5W0ymyL48AkBdxIR%2FwVBxQiemGIbt2iphf%2F17fGCuLBg9j0ID7XIqYNNm4zpXCzzbroY44czY58xkVYVNikhOk86feFdvO8zkC3XaIwJnC9xHM%2BhQUxtQDAWC9oXjHj%2FapX9%2BTW4Qh%2FjwFh%2Bxilbc7yMrkFNo2MKL4FnwikxIPF8u2cr9BXKI3N7rVBk8RZKBLab%2Bbp5AqOrIheoXgQnC66RsVGPF5Hsncp7%2FoDfGRRs80Rk%2B2MVfUvOAWbqZK%2F3jY8EdN29EvGv7sfDxAChWBdDrFJucaU%2FmHXC6xy7hcVHmb%2FUGEDn8ZdIts2xk%2Bl%2Bkvm6chJdTIRN9pRFUw7tqLi6zrEbYsnAi7KMXgyr2m6fa2n0s%2BG4FDmNLQRdLx8uVm7FqCyRyP01rHx%2FhRIF0fHYlsomb9aRDlRNso3E7HssQwLsivjlIMYKocdWFtixhR1U5Wfy68k6FYjIgE1QInirWB5JSCsEGXhWwo2fHfpRHXP6bAQmfg3v9XcqsiQ20wwpil%2BQU68AG%2BHeqcD1WlWNX%2F%2B%2BXQPhu%2Bvo%2BpOb1t2geESiRDveG9h%2FHrXYGjUpWO1xV5Jyk608p2EJwA5sKmEMGurZcl53SyCBSSzyYIdNpAcB0QwqWMEuemnecNmzBPyecXXzlbtzuiTVmtW7q%2B7O6U89vZG7M6UHUn0sieBgRS%2Bx0FoxikH2%2FUaGP5g7zLeakGwtRB32%2FDeaZXGnK649ehjXQ53a8X3IC5Rh5LxfApcMN9ElXflfC1TCKHAGdX8UjyeTn2DO%2FWX1iRVwL6leVw62IaGZ4Ew6ltsOinSDy0dRAw85zFO2mZFePZOFJc%2FJ3%2BGgm6XQE%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200804T131019Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=ASIAQDYLDQ36DDMUDJPA%2F20200804%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Signature=0a6f9c09100309227c5ab94dede1973015ab50aee6ef506e7ff0593bd8687484"
+                  }
+                ],
+                "departments": [],
+                "groups": []
+              }
+            ],
+            "subTasks": []
+          },
+          {
+            "taskId": 42,
+            "taskName": "Task Milestone 08",
+            "memo": null,
+            "statusTaskId": 2,
+            "startDate": "2020-08-11T05:00:00Z",
+            "finishDate": "2020-08-19T05:00:00Z",
+            "updatedDate": "2020-08-04T12:34:34.214755Z",
+            "parentId": null,
+            "nestedOperators": [
+              {
+                "operatorDivision": 1,
+                "employeeId": 10002,
+                "employeeName": "Team VuLQ",
+                "employeeImage": "tenants/mercyrrczkni/service_data/employee/10002_images_20200801161437671.jpg",
+                "departmentId": null,
+                "departmentName": null,
+                "groupId": null,
+                "groupName": null
+              },
+              {
+                "operatorDivision": 1,
+                "employeeId": 10006,
+                "employeeName": "Nguyen Danh Thuan Empl_2",
+                "employeeImage": null,
+                "departmentId": null,
+                "departmentName": null,
+                "groupId": null,
+                "groupName": null
+              },
+              {
+                "operatorDivision": 1,
+                "employeeId": 10005,
+                "employeeName": "Nguyen Duy Uan Empl_5",
+                "employeeImage": "",
+                "departmentId": null,
+                "departmentName": null,
+                "groupId": null,
+                "groupName": null
+              }
+            ],
+            "operators": [
+              {
+                "employees": [
+                  {
+                    "employeeId": 10002,
+                    "employeeName": "Team VuLQ",
+                    "photoFilePath": "tenants/mercyrrczkni/service_data/employee/10002_images_20200801161437671.jpg",
+                    "fileUrl": "https://ms2-dev-files.s3.ap-northeast-1.amazonaws.com/tenants/mercyrrczkni/service_data/employee/10002_images_20200801161437671.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjENz%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDmFwLW5vcnRoZWFzdC0xIkYwRAIgbsyPWckb2DAuUEqrAYrj1mntgbbn3uLJvzDSMOnjm5oCIG4F2NdRDCvqD5VGzGCS6ZABYJ4aIzpVEt9tHX5pnN00KoAECKX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQARoMMDA4MDc2MzYzNTE2IgyW8Vq%2BDbPw4gr7Swwq1ANHmyckfDrS2xUt9Y7NQSk5PK33URq%2FBI%2FTFa2UI0yqjHo444R%2FYJbxAdh7yPTuRNvmQX%2BF6tlyYV7MvFJkEkWt1n7cl4VV45YtDJfdWA2zDZtP3U5W0ymyL48AkBdxIR%2FwVBxQiemGIbt2iphf%2F17fGCuLBg9j0ID7XIqYNNm4zpXCzzbroY44czY58xkVYVNikhOk86feFdvO8zkC3XaIwJnC9xHM%2BhQUxtQDAWC9oXjHj%2FapX9%2BTW4Qh%2FjwFh%2Bxilbc7yMrkFNo2MKL4FnwikxIPF8u2cr9BXKI3N7rVBk8RZKBLab%2Bbp5AqOrIheoXgQnC66RsVGPF5Hsncp7%2FoDfGRRs80Rk%2B2MVfUvOAWbqZK%2F3jY8EdN29EvGv7sfDxAChWBdDrFJucaU%2FmHXC6xy7hcVHmb%2FUGEDn8ZdIts2xk%2Bl%2Bkvm6chJdTIRN9pRFUw7tqLi6zrEbYsnAi7KMXgyr2m6fa2n0s%2BG4FDmNLQRdLx8uVm7FqCyRyP01rHx%2FhRIF0fHYlsomb9aRDlRNso3E7HssQwLsivjlIMYKocdWFtixhR1U5Wfy68k6FYjIgE1QInirWB5JSCsEGXhWwo2fHfpRHXP6bAQmfg3v9XcqsiQ20wwpil%2BQU68AG%2BHeqcD1WlWNX%2F%2B%2BXQPhu%2Bvo%2BpOb1t2geESiRDveG9h%2FHrXYGjUpWO1xV5Jyk608p2EJwA5sKmEMGurZcl53SyCBSSzyYIdNpAcB0QwqWMEuemnecNmzBPyecXXzlbtzuiTVmtW7q%2B7O6U89vZG7M6UHUn0sieBgRS%2Bx0FoxikH2%2FUaGP5g7zLeakGwtRB32%2FDeaZXGnK649ehjXQ53a8X3IC5Rh5LxfApcMN9ElXflfC1TCKHAGdX8UjyeTn2DO%2FWX1iRVwL6leVw62IaGZ4Ew6ltsOinSDy0dRAw85zFO2mZFePZOFJc%2FJ3%2BGgm6XQE%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200804T131019Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=ASIAQDYLDQ36DDMUDJPA%2F20200804%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Signature=9e587146ef0783c7d8a812e37c82eb4e770372ec989739ca5bae84be5d4beb57"
+                  },
+                  {
+                    "employeeId": 10006,
+                    "employeeName": "Nguyen Danh Thuan Empl_2",
+                    "photoFilePath": null,
+                    "fileUrl": ""
+                  },
+                  {
+                    "employeeId": 10005,
+                    "employeeName": "Nguyen Duy Uan Empl_5",
+                    "photoFilePath": "",
+                    "fileUrl": ""
+                  }
+                ],
+                "departments": [],
+                "groups": []
+              }
+            ],
+            "subTasks": []
+          },
+          {
+            "taskId": 44,
+            "taskName": "Task Mile stone 10",
+            "memo": "rrrrrrrrrrrrrr",
+            "statusTaskId": 3,
+            "startDate": "2020-08-07T05:00:00Z",
+            "finishDate": "2020-08-14T05:00:00Z",
+            "updatedDate": "2020-08-04T12:33:04.460419Z",
+            "parentId": null,
+            "nestedOperators": [
+              {
+                "operatorDivision": 1,
+                "employeeId": 10002,
+                "employeeName": "Team VuLQ",
+                "employeeImage": "tenants/mercyrrczkni/service_data/employee/10002_images_20200801161437671.jpg",
+                "departmentId": null,
+                "departmentName": null,
+                "groupId": null,
+                "groupName": null
+              },
+              {
+                "operatorDivision": 1,
+                "employeeId": 10006,
+                "employeeName": "Nguyen Danh Thuan Empl_2",
+                "employeeImage": null,
+                "departmentId": null,
+                "departmentName": null,
+                "groupId": null,
+                "groupName": null
+              }
+            ],
+            "operators": [
+              {
+                "employees": [
+                  {
+                    "employeeId": 10002,
+                    "employeeName": "Team VuLQ",
+                    "photoFilePath": "tenants/mercyrrczkni/service_data/employee/10002_images_20200801161437671.jpg",
+                    "fileUrl": "https://ms2-dev-files.s3.ap-northeast-1.amazonaws.com/tenants/mercyrrczkni/service_data/employee/10002_images_20200801161437671.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjENz%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDmFwLW5vcnRoZWFzdC0xIkYwRAIgbsyPWckb2DAuUEqrAYrj1mntgbbn3uLJvzDSMOnjm5oCIG4F2NdRDCvqD5VGzGCS6ZABYJ4aIzpVEt9tHX5pnN00KoAECKX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQARoMMDA4MDc2MzYzNTE2IgyW8Vq%2BDbPw4gr7Swwq1ANHmyckfDrS2xUt9Y7NQSk5PK33URq%2FBI%2FTFa2UI0yqjHo444R%2FYJbxAdh7yPTuRNvmQX%2BF6tlyYV7MvFJkEkWt1n7cl4VV45YtDJfdWA2zDZtP3U5W0ymyL48AkBdxIR%2FwVBxQiemGIbt2iphf%2F17fGCuLBg9j0ID7XIqYNNm4zpXCzzbroY44czY58xkVYVNikhOk86feFdvO8zkC3XaIwJnC9xHM%2BhQUxtQDAWC9oXjHj%2FapX9%2BTW4Qh%2FjwFh%2Bxilbc7yMrkFNo2MKL4FnwikxIPF8u2cr9BXKI3N7rVBk8RZKBLab%2Bbp5AqOrIheoXgQnC66RsVGPF5Hsncp7%2FoDfGRRs80Rk%2B2MVfUvOAWbqZK%2F3jY8EdN29EvGv7sfDxAChWBdDrFJucaU%2FmHXC6xy7hcVHmb%2FUGEDn8ZdIts2xk%2Bl%2Bkvm6chJdTIRN9pRFUw7tqLi6zrEbYsnAi7KMXgyr2m6fa2n0s%2BG4FDmNLQRdLx8uVm7FqCyRyP01rHx%2FhRIF0fHYlsomb9aRDlRNso3E7HssQwLsivjlIMYKocdWFtixhR1U5Wfy68k6FYjIgE1QInirWB5JSCsEGXhWwo2fHfpRHXP6bAQmfg3v9XcqsiQ20wwpil%2BQU68AG%2BHeqcD1WlWNX%2F%2B%2BXQPhu%2Bvo%2BpOb1t2geESiRDveG9h%2FHrXYGjUpWO1xV5Jyk608p2EJwA5sKmEMGurZcl53SyCBSSzyYIdNpAcB0QwqWMEuemnecNmzBPyecXXzlbtzuiTVmtW7q%2B7O6U89vZG7M6UHUn0sieBgRS%2Bx0FoxikH2%2FUaGP5g7zLeakGwtRB32%2FDeaZXGnK649ehjXQ53a8X3IC5Rh5LxfApcMN9ElXflfC1TCKHAGdX8UjyeTn2DO%2FWX1iRVwL6leVw62IaGZ4Ew6ltsOinSDy0dRAw85zFO2mZFePZOFJc%2FJ3%2BGgm6XQE%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200804T131019Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10000&X-Amz-Credential=ASIAQDYLDQ36DDMUDJPA%2F20200804%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Signature=9e587146ef0783c7d8a812e37c82eb4e770372ec989739ca5bae84be5d4beb57"
+                  },
+                  {
+                    "employeeId": 10006,
+                    "employeeName": "Nguyen Danh Thuan Empl_2",
+                    "photoFilePath": null,
+                    "fileUrl": ""
+                  }
+                ],
+                "departments": [],
+                "groups": []
+              }
+            ],
+            "subTasks": []
+          }
+        ]
+      },
+      {
+        "milestoneId": 8,
+        "milestoneName": "Milestone Name 98",
+        "statusMilestoneId": 0,
+        "finishDate": "2020-08-05T05:00:00Z",
+        "memo": "Test 98",
+        "updatedDate": "2020-08-03T04:44:18.267679Z",
+        "taskIds": [],
+        "tasks": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+@startuml{API_チェック_セキュリティチェック結果詳細情報取得.png}
+title [チェックAPI_セキュリティチェック結果詳細情報取得]
+hide footbox
+
+boundary 画面 as view
+participant チェックAPI as api_check #cyan
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database 最新チェック結果 as table_latest_check <<dynamodb>> #royalblue
+database 個別チェック結果 as table_check_result_items <<dynamodb>> #royalblue
+database チェック結果ストレージ as storage <<s3>> #crimson
+
+view -> api_check :GET /check/securitycheck/{organization_id}/{project_id}/results
+activate api_check
+    api_check -> api_check :メールアドレス取得
+    |||
+    ref over api_check, table_affiliation :アクセス権限チェック
+    |||
+    alt パラメータ"チェック履歴ID"指定あり
+        note over api_check, table_latest_check :指定されたチェック履歴IDが正しいかチェックする
+        api_check -> table_latest_check :getItem（組織ID、プロジェクトIDをキーとする）
+        note right :フィルタにチェック履歴IDを追加する。
+        table_latest_check --> api_check
+        |||
+    else パラメータ"チェック履歴ID"指定なし
+        note over api_check, table_latest_check :最新のチェック結果の履歴IDを取得する
+        api_check -> table_latest_check :getItem（組織ID、プロジェクトIDをキーとする）
+        table_latest_check --> api_check
+        |||
+    end
+    |||
+    api_check -> api_check :チェック結果詳細情報を取得
+    activate api_check
+        api_check -> table_check_result_items :query（CheckHistoryIndex: チェック履歴IDをキーとする。）
+        note right :フィルタにチェック結果>=1を追加する。
+        table_check_result_items --> api_check
+        |||
+        opt パラメータ"チェックグループフィルタ"指定あり
+            api_check -> api_check :個別チェック結果を絞り込み
+            |||
+        end
+        |||
+        loop 1, 個別チェック結果レコード数
+            note over api_check, storage :チェック結果ごとに作成されたチェック結果ファイルを取得する
+            api_check -> storage :チェック結果ファイル取得
+            storage --> api_check
+            |||
+            api_check -> api_check :個別チェック結果レコードに、チェック結果ファイルの情報を追加
+            |||
+        end
+        api_check --> api_check
+    deactivate api_check
+    |||
+    api_check -> api_check :レスポンス作成
+    api_check --> view :200:チェック結果詳細情報
+
+deactivate api_check
+@enduml

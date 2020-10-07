@@ -1,0 +1,222 @@
+{
+  "activities": [
+    {
+      "activityId": 40,
+      "isDraft": false,
+      "contactDate": "2020-07-06T06:41:32Z",
+      "activityStartTime": "2020-07-06T06:01:27Z",
+      "activityEndTime": "2020-07-06T06:41:17Z",
+      "activityDuration": 40,
+      "employee": {
+        "employeeId": 1,
+        "employeeName": "Admin",
+        "employeeSurname": "Admin",
+        "employeePhoto": {
+          "filePath": "file/path",
+          "fileName": null
+        }
+      },
+      "businessCards": [
+        {
+          "customerName": null,
+          "businessCardId": 1,
+          "firstName": null,
+          "lastName": null,
+          "firstNameKana": null,
+          "lastNameKana": null,
+          "position": null,
+          "departmentName": null,
+          "businessCardImagePath": null,
+          "businessCardImageName": null
+        }
+      ],
+      "interviewers": ["Interviewer 1", "Interviewer 2"],
+      "customer": {
+        "customerId": 1,
+        "customerName": null
+      },
+      "productTradings": [
+        {
+          "productTradingId": 1,
+          "customerName": null,
+          "productId": 1,
+          "productName": "MeatDeli",
+          "productImagePath": "http://placehold.jp/30x30.png",
+          "productImageName": "30x30.png",
+          "quantity": 20,
+          "price": 20000.0,
+          "amount": 1.0,
+          "productTradingProgressId": null,
+          "progressName": null,
+          "endPlanDate": "2020-07-14T10:07:39Z",
+          "orderPlanDate": "2020-07-14T10:07:39Z",
+          "employee": {
+            "employeeId": 1,
+            "employeeName": "Admin",
+            "employeeSurname": "Admin",
+            "employeePhoto": {
+              "filePath": "file/path",
+              "fileName": null
+            }
+          },
+          "memo": "memo"
+        }
+      ],
+      "customerRelations": [
+        {
+          "customerRelationId": 1,
+          "customerName": null
+        }
+      ],
+      "memo": "memo",
+      "createdUser": {
+        "employeeId": 1,
+        "employeeName": "Admin",
+        "employeeSurname": "Admin",
+        "createdDate": null,
+        "employeePhoto": {
+          "filePath": "file/path",
+          "fileName": null
+        }
+      },
+      "updatedUser": {
+        "employeeId": 1,
+        "employeeName": "Admin",
+        "employeeSurname": "Admin",
+        "updatedDate": null,
+        "employeePhoto": {
+          "filePath": "file/path",
+          "fileName": null
+        }
+      },
+      "extTimeline": null,
+      "task": {
+        "taskId": 2,
+        "taskName": "task1"
+      },
+      "schedule": {
+        "scheduleId": 10,
+        "scheduleName": null
+      },
+      "milestone": {
+        "milestoneId": 1,
+        "milestoneName": null
+      },
+      "nextSchedule": {
+        "scheduleId": 1,
+        "scheduleName": null,
+        "finishDate": null
+      }
+    },
+    {
+      "activityId": 38,
+      "isDraft": false,
+      "contactDate": "2020-07-06T06:41:32Z",
+      "activityStartTime": "2020-07-06T06:01:27Z",
+      "activityEndTime": "2020-07-06T06:41:17Z",
+      "activityDuration": 40,
+      "employee": {
+        "employeeId": 1,
+        "employeeName": "Admin",
+        "employeeSurname": "Admin",
+        "employeePhoto": {
+          "filePath": "file/path",
+          "fileName": null
+        }
+      },
+      "businessCards": [
+        {
+          "customerName": null,
+          "businessCardId": 2,
+          "firstName": null,
+          "lastName": null,
+          "firstNameKana": null,
+          "lastNameKana": null,
+          "position": null,
+          "departmentName": null,
+          "businessCardImagePath": null,
+          "businessCardImageName": null
+        }
+      ],
+      "interviewers": ["Interviewer 2"],
+      "customer": {
+        "customerId": 1,
+        "customerName": null
+      },
+      "productTradings": [
+        {
+          "productTradingId": 2,
+          "customerName": null,
+          "productId": 2,
+          "productName": null,
+          "productImagePath": null,
+          "productImageName": null,
+          "quantity": 20,
+          "price": 20000.0,
+          "amount": 1.0,
+          "productTradingProgressId": null,
+          "progressName": null,
+          "endPlanDate": "2020-07-14T10:07:39Z",
+          "orderPlanDate": "2020-07-14T10:07:39Z",
+          "employee": {
+            "employeeId": 1,
+            "employeeName": "Admin",
+            "employeeSurname": "Admin",
+            "employeePhoto": {
+              "filePath": "file/path",
+              "fileName": null
+            }
+          },
+          "memo": "memo"
+        }
+      ],
+      "customerRelations": [
+        {
+          "customerRelationId": 1,
+          "customerName": null
+        }
+      ],
+      "memo": "memo",
+      "createdUser": {
+        "employeeId": 1,
+        "employeeName": "Admin",
+        "employeeSurname": "Admin",
+        "createdDate": null,
+        "employeePhoto": {
+          "filePath": "file/path",
+          "fileName": null
+        }
+      },
+      "updatedUser": {
+        "employeeId": 1,
+        "employeeName": "Admin",
+        "employeeSurname": "Admin",
+        "updatedDate": null,
+        "employeePhoto": {
+          "filePath": "file/path",
+          "fileName": null
+        }
+      },
+      "extTimeline": null,
+      "task": {
+        "taskId": 2,
+        "taskName": "task1"
+      },
+      "schedule": {
+        "scheduleId": 10,
+        "scheduleName": null
+      },
+      "milestone": {
+        "milestoneId": 1,
+        "milestoneName": null
+      },
+      "nextSchedule": {
+        "scheduleId": 1,
+        "scheduleName": null,
+        "finishDate": null
+      }
+    }
+  ],
+  "initializeInfo": null,
+  "total": 2
+}

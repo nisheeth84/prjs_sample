@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="8.819" viewBox="0 0 13 8.819">
+  <g id="Group_17151" data-name="Group 17151" transform="translate(-577 -175)">
+    <g id="ic_today_24px" transform="translate(577 175)">
+      <path id="ic_today_24px-2" data-name="ic_today_24px" d="M12.778,1.882h-.611V1H10.944v.882H6.056V1H4.833v.882H4.222c-.678,0-1.216.4-1.216.882L3,8.937c0,.485.544.882,1.222.882h8.556c.672,0,1.222-.4,1.222-.882V2.764C14,2.279,13.45,1.882,12.778,1.882Zm0,7.055H4.222V4.087h8.556ZM5.444,4.969H8.5v2.2H5.444Z" transform="translate(-3 -1)" fill="#ffab00"/>
+    </g>
+    <g id="Component_4_1" data-name="Component 4 – 1" transform="translate(582 175.819)">
+      <g id="Group_17111" data-name="Group 17111">
+        <g id="Ellipse_201" data-name="Ellipse 201" fill="#38c07c" stroke="#f4f5f6" stroke-miterlimit="10" stroke-width="1">
+          <circle cx="4" cy="4" r="4" stroke="none"/>
+          <circle cx="4" cy="4" r="3.5" fill="none"/>
+        </g>
+      </g>
+      <path id="Path_20242" data-name="Path 20242" d="M1795.191,1354.271l-.589-1.25-.473.877c0,.009-.01.011-.015.02l-.709,1.325-.062.115h0l-.736,1.375-1.2-2.387-.609,1.21,1.2,2.387.609,1.209.609-1.209.715-1.335h0Z" transform="translate(-1789 -1352.047)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

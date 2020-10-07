@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: fonts:FontTime:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/fonts/FontTime/1.0-SNAPSHOT/FontTime-1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/fonts/FontTime/1.0-SNAPSHOT/FontTime-1.0-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/fonts/FontTime/1.0-SNAPSHOT/FontTime-1.0-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

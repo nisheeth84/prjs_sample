@@ -1,0 +1,252 @@
+{
+  "products": {
+    "edit-simple-text": "が更新されます。",
+    "popup": {
+      "move-to-category": {
+        "title": "カテゴリの移動",
+        "parentId": "カテゴリ名",
+        "parentId.placeHolder": "カテゴリ名を選択",
+        "cancel": "キャンセル",
+        "confirm": "OK",
+        "confirmChanges": "変更内容"
+      }
+    },
+    "list-view": {
+      "sort": {
+        "label": "ソート",
+        "asc": "昇順",
+        "desc": "降順",
+        "product-code": "商品コード",
+        "product-name": "商品名",
+        "unit-price": "単価",
+        "product-category": "カテゴリ"
+      }
+    },
+    "create-set": {
+      "title": "セットを作成",
+      "title-edit": "セットを編集",
+      "product-linked": "商品内訳",
+      "product-linked-placeholder": "商品を追加",
+      "product-set-image": "セット商品画像",
+      "platehoder-upload": "クリックするか、ファイルをドロップしてください",
+      "isDisplay-label1": "表示フラグ",
+      "isDisplay-label2": "表示する",
+      "product-code": "自動で採番されます",
+      "category-name": "カテゴリ名を選択",
+      "date-create": "自動で登録されます",
+      "label-prefix": "セット",
+      "placeholder-category": "カテゴリ名を選択",
+      "placeholder-type-product": "商品タイプを選択",
+      "placeholder-type-product-set": "セット商品タイプを選択",
+      "btn-edit": "編集",
+      "btn-create": "作成",
+      "product-relation-id": "商品を追加",
+      "th-product": "商品情報",
+      "th-quantity": "数量",
+      "th-total": "合計"
+    },
+    "list": {
+      "label": {
+        "is-display": {
+          "true": "表示",
+          "false": "非表示"
+        }
+      }
+    },
+    "top": {
+      "is-contain-category-child": "サブカテゴリ以下の商品も表示",
+      "title": {
+        "btn-registration": "商品の登録",
+        "register-product": "商品の登録",
+
+        "create-product-set": "セットを作成",
+        "move-category": "カテゴリの移動",
+        "btn-export": "エクスポート",
+        "btn-delete": "消去",
+        "switch-display": "表示切り替え",
+        "switch-view": "ボードビュー",
+
+        "create-product-set-list": "商品セットの登録",
+        "edit-product-set": "セットを編集",
+        "create-category": "カテゴリの追加",
+        "import-product": "商品インポート",
+        "import-product-breakdown": "商品内訳インポート",
+        "btn-edit": "簡易編集",
+        "btn-cancel": "キャンセル",
+        "btn-save": "変更を保存"
+      },
+      "place-holder": {
+        "search": "商品を検索",
+        "searching": "詳細検索条件を編集"
+      },
+      "dialog": {
+        "title-delete-products": "削除",
+        "message-delete-products": "商品を削除します。本当によろしいですか？",
+        "confirm-delete-products": "削除",
+        "cancel-text": "キャンセル",
+        "confirm-delete-products1": "選択した商品を削除すると商品セットに含まれる商品がなくなる為、商品セットも削除します。本当に削除してよろしいですか？",
+        "confirm-delete-products2": "セットに含まれている商品を削除しようとしています。本当に削除してよろしいですか？"
+      }
+    },
+    "detail": {
+      "label": {
+        "title.create": "新規に登録されました。",
+        "title.update": "以下の項目が更新されました。",
+        "title.insert": "が追加されました。",
+        "title.updateSet": "が変更されました。",
+        "title.delete": " が変更されました。",
+        "title.reasonEdit": "変更理由",
+        "content.create": " なし",
+        "department.name": "のマネージャーが設定されています。",
+        "button.edit": "画面編集",
+        "button.cancel": "キャンセル",
+        "button.save": "保存",
+        "button.follow": "フォローする",
+        "button.unfollow": "フォローを外す",
+        "button-create": "登録",
+        "button-edit": "保存",
+        "button.delete": "DELETE",
+        "button.deleteSet": "商品とセットを削除",
+        "button.preview": "登録画面プレビュー",
+        "manager": "上司",
+        "subordinate": "部下",
+        "tab.customer": "顧客",
+        "tab.businessCard": "名刺",
+        "tab.calendar": "カレンダー",
+        "tab.task": "タスク",
+        "tab.group": "参加中グループ",
+
+        "tab.productSets": "この商品が含まれるセット",
+        "tab.productOfSets": "このセットに含まれている商品",
+        "tab.productTrading": "取引商品",
+        "tab.productHistory": "変更履歴",
+        "label.addSet": "セット",
+        "total": "合計",
+        "suffix.name": "を変更しました",
+
+        "product.id": "セット商品コード",
+        "product.name": "セット商品名",
+        "product.imagename": "セット商品画像",
+        "product.typeid": "セット商品タイプ",
+        "product.unitprice": "セット単価"
+      },
+      "title": {
+        "popupErrorMessage.delete": "削除",
+        "popupChangeStatus": "確認"
+      },
+      "warning": {
+        "popupErrorMessage.delete": "紐 づ い て い る デ ー タ が 存 在 す る た め 削 除 で き ま せ ん 。"
+      },
+      "suggest": {
+        "popupErrorMessage.delete": "デ ー タ を 削 除 し て か ら 再 度 削 除 を 行 っ て く だ さ い 。"
+      },
+      "error": {
+        "delete": {
+          "countCustomers": "{{employeeName}}が担当者に設定されている顧客：{{count}}件",
+          "countSchedules": "{{employeeName}}が参加者に設定されているスケジュール：{{count}}件",
+          "countSaleProducts": "{{employeeName}}が取引した商品：{{count}}件 ",
+          "countNameCards": "{{employeeName}}が受け取った名刺：{{count}}件",
+          "countTimeLines": "{{employeeName}}のタイムラインの投稿・コメントの件数：{{count}}件",
+          "countTimeLineGroups": "{{employeeName}}が参加しているタイムラインのグループの数：{{count}}件",
+          "countTimeLineGroupsFavorites": "{{employeeName}}のお気に入りのタイムラインのグループの数：{{count}}件",
+          "countTimeLineWatchs": "{{employeeName}}がフォローしているタイムラインの対象の数：{{count}}件",
+          "countTimeLineNotices": "{{employeeName}}のタイムラインに送信した通知の数：{{count}}件",
+          "countTimeLineStars": "{{employeeName}}のお気に入りのタイムライン投稿の数：{{count}}件",
+          "countTimeLineReactions": "{{employeeName}}のタイムラインのリアクション情報の件数：{{count}}件",
+          "countTimeLineFilters": "{{employeeName}}のタイムラインのフィルター情報の件数：{{count}}件",
+          "countActivities": "{{employeeName}}が報告した活動：{{count}}件",
+          "countAnalysisReports": "{{employeeName}}が参加者として報告したレポート：{{count}}件",
+          "countTodos": "{{employeeName}}が担当者に設定されているタスク：{{count}}件",
+          "countOcrNameCards": "{{employeeName}}がアプリから受け取った名刺：{{count}}件"
+        }
+      }
+    },
+    "sidebar": {
+      "title": {
+        "all-product": "全ての商品",
+        "categories": "カテゴリ"
+      }
+    },
+    "category": {
+      "form": {
+        "title": {
+          "regis": "カテゴリを作成",
+          "edit": "カテゴリを編集",
+          "createProduct": "商品登録",
+          "editProduct": "商品編集"
+        },
+        "button": {
+          "cancel": "キャンセル",
+          "regis": "作成",
+          "edit": "保存",
+          "create": "登録"
+        },
+        "name": "カテゴリ名 ",
+        "name-placeholder": "カテゴリ名を入力",
+        "parentId": " 親カテゴリ",
+        "category-placeholder": "カテゴリ名を選択",
+        "createDate": "登録日",
+        "createBy": "登録者",
+        "updateDate": "最終更新日",
+        "updateBy": "最終更新者",
+        "show-language": "他言語を表示",
+        "hide-language": "他言語を非表示"
+      },
+      "category-regist-edit": {
+        "form": {
+          "title.regist": "部署登録",
+          "title.edit": "部署編集",
+          "departmentName": "部署名",
+          "departmentName.placeholder": "部署名を入力",
+          "managerId": "マネージャー",
+          "managerId.default": "マネージャーを選択",
+          "parentId": "所属する部署",
+          "parentId.default": "所属する部署を選択",
+          "button.regist": "登録",
+          "button.edit": "保存",
+          "button.cancel": "キャンセル",
+          "button.confirm": "確認",
+          "button.close": "×",
+          "required": "必須"
+        }
+      }
+    },
+    "category-card": {
+      "submenu": {
+        "edit-category": "カテゴリ編集",
+        "delete-category": "カテゴリ削除",
+        "add-category-child": "サブカテゴリの追加"
+      }
+    },
+    "popupComfirm": {
+      "title": "セット編集を保存",
+      "label": "変更理由",
+      "CompareNamme": "商品名"
+    },
+    "product-view": {
+      "unit-price": "単価",
+      "product-code": "商品コード",
+      "category-name": "カテゴリ"
+    },
+    "displayCondition": {
+      "buttonShowCondition": "詳細検索条件",
+      "form": {
+        "conditionSearch": "詳細検索条件",
+        "filter": "フィルタ条件",
+        "conditionSave": "自動追加リストの保存条件"
+      },
+      "buttonShowScroll": "全て表示"
+    },
+    "japanese": "日本語",
+    "english": "English(US)",
+    "chinese": "中文（简体）",
+    "confirm-edit": "以下の変更点が反映されます。よろしいですか？",
+    "reason-edit": "変更理由",
+    "product-name": "セット商品名",
+    "set-name": "セット名",
+    "delete-product-and-set": "商品とセットを削除",
+    "item-drag": {
+      "list": " 件の商品を移動"
+    }
+  }
+}

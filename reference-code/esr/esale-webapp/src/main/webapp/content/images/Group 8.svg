@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0.11" stop-color="#aaa"/>
+      <stop offset="1" stop-color="#666"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1.003" gradientUnits="objectBoundingBox">
+      <stop offset="0.044" stop-color="#fff"/>
+      <stop offset="0.826" stop-color="#f9f9f9"/>
+      <stop offset="1" stop-color="#e5e5e5"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#00f4ff"/>
+      <stop offset="1" stop-color="#009ed4"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_8" data-name="Group 8" transform="translate(-1 -1)">
+    <image id="Rectangle_1" data-name="Rectangle 1" width="24" height="24" transform="translate(1 1)" opacity="0.35" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVEhL7ZZNLwNRFIZvFRGtr4qmFiRCBOlC2NiJX+E3+hW2NkQssBASFkSCUqEMrfe57klGqh0dtfMmT86dmdtzzj33zplmGo2GQ3OTxYwfOGc2rbzDk8trb30AOe/RuFcMBMt1GtXFm6hhFaSemS1NkHGfGBfToiD6RacrIeNXcSvOxY2ILMCQWBQbYknkRZoAj+JQbIsjUSUA5RgVa2IzWK47LRPlqYgdsRVsxZxgKRMrwTllSgO/xQe+vO94lpQEuPcbzI8XN/5U/wESFQ/Q6bn/kQiAY44Vby+2q4EIQO/h7BaD5bprQQhA5vShqWC57ppsD+gjwOveCpuTNNeee2UL+RzlIGte85IYFO+ClvsceBG0YcQz7j0FbA5jetGpOBAXokazy2owIspiXcyLnLB9sDLSa0gAXQnaMu2ZrBFZf9tNbQXxfbDTZM/GxIJYFmhfHIs7QRArS/P3IOGLRiBWNyNWxKpAu2JPnIl7EQnEar580bwjBjJMqgrqSBZkx5j6sxLqTGbAmHs8Yw5z+Q1jfETB5+c3uZW0MlYwLKg9e8ABQGwoDtmLBzmzFTQpKQBZxt9yK52tmJqTbUsnbQOgNn9n/A/bOXfOuQ/JOapXjKIWNQAAAABJRU5ErkJggg==" style="mix-blend-mode: multiply;isolation: isolate"/>
+    <g id="Group_7" data-name="Group 7">
+      <g id="Group_6" data-name="Group 6">
+        <g id="Group_4" data-name="Group 4">
+          <path id="Path_1" data-name="Path 1" d="M13,20V17H11v3H9v1h6V20Z" fill="url(#linear-gradient)"/>
+          <path id="Path_2" data-name="Path 2" d="M18.915,18H5.085A2,2,0,0,1,3.08,15.995V7a2,2,0,0,1,2-2H18.924a2,2,0,0,1,2,2v9A2,2,0,0,1,18.915,18Z" fill="#3173b9"/>
+          <path id="Path_3" data-name="Path 3" d="M19,17H5.005A2,2,0,0,1,3,14.995V5A2,2,0,0,1,5,3H19a2,2,0,0,1,2,2v10A2,2,0,0,1,19,17Z" fill="url(#linear-gradient-2)"/>
+          <g id="Group_1" data-name="Group 1">
+            <rect id="Rectangle_2" data-name="Rectangle 2" width="18" height="2" transform="translate(3 3)" fill="url(#linear-gradient-3)"/>
+          </g>
+          <g id="Group_3" data-name="Group 3">
+            <rect id="Rectangle_3" data-name="Rectangle 3" width="2" height="4" transform="translate(6 12)" fill="#ffec00"/>
+            <path id="Path_4" data-name="Path 4" d="M14,16V11l4,5" fill="#ddd"/>
+            <path id="Path_5" data-name="Path 5" d="M11,10l4,6H11Z" fill="#ddd"/>
+            <path id="Path_6" data-name="Path 6" d="M8,12l3,4H8Z" fill="#ddd"/>
+            <rect id="Rectangle_4" data-name="Rectangle 4" width="2" height="5" transform="translate(12 11)" fill="#ffa300"/>
+            <rect id="Rectangle_5" data-name="Rectangle 5" width="2" height="7" transform="translate(15 9)" fill="#ff156a"/>
+            <path id="Path_7" data-name="Path 7" d="M17,9l3,7H17Z" fill="#ddd"/>
+            <g id="Group_2" data-name="Group 2">
+              <rect id="Rectangle_6" data-name="Rectangle 6" width="2" height="6" transform="translate(9 10)" fill="#00f8e4"/>
+            </g>
+          </g>
+          <path id="Path_8" data-name="Path 8" d="M6.5,10.5,10,8l3,1,3.5-1.5" fill="none" stroke="#3173b9" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.5"/>
+        </g>
+        <g id="Group_5" data-name="Group 5">
+          <rect id="Rectangle_7" data-name="Rectangle 7" width="18" height="1" transform="translate(3 5)" fill="#00bab5"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

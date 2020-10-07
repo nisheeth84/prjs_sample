@@ -1,0 +1,26 @@
+@startuml{API_セキュリティチェック項目設定_マニュアル評価結果取得.png}
+title [セキュリティチェック項目設定API_マニュアル評価結果取得]
+hide footbox
+
+boundary 画面 as view
+participant セキュリティチェック項目設定API as api_url #cyan
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database 評価結果 as table_assessments <<dynamodb>> #royalblue
+
+view -> api_url :GET /check/securitycheck/{organization_id}/{project_id}/{coop_id}/assessments/{check_item_code}
+activate api_url
+    api_url -> api_url :メールアドレス取得
+    |||
+    ref over api_url, table_affiliation :アクセス権限チェック
+    |||
+    api_url -> api_url :マニュアル評価情報取得
+    activate api_url
+        api_url -> table_assessments :query
+        table_assessments --> api_url
+        api_url --> api_url
+    deactivate api_url
+    |||
+    api_url -> api_url :レスポンス作成
+    api_url --> view :200:マニュアル評価情報
+deactivate api_url
+@enduml

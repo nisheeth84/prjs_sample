@@ -1,0 +1,27 @@
+/**
+ * The EmployeesGroupParticipants entity.
+ */
+@dto(mapstruct)
+@service(serviceImpl)
+entity EmployeesGroupParticipants {
+    /** 
+     * The EmployeesGroupParticipants employeeGroupParticipantId
+     */
+    employeeGroupParticipantId Long required
+    /** 
+     * The EmployeesGroupParticipants groupId
+     */
+    groupId Long required
+    /** 
+     * The EmployeesGroupParticipants employeeId
+     */
+    employeeId Long required
+    /** 
+     * The EmployeesGroupParticipants departmentId
+     */
+    departmentId Long required
+    /** 
+   	 * The EmployeesGroupParticipants participantType
+   	 */
+    participantType Integer required
+}

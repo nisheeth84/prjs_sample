@@ -1,0 +1,149 @@
+<user-attribute-update-container>
+    <div class="page">
+        <div class="page-content container-fluid col-lg-8 pb-10">
+            <h1 class="page-title mt-2 pb-10">{_t('UserAttributeUpdate.change_info_attr_user')}</h1>
+            <div class="text-center">
+                <h5>{_t('notice_name_and_company_is_require')}</h5>
+            </div>
+        </div>
+        <div class="page-content container-fluid col-lg-8">
+            <form autocomplete="off" onsubmit={userAttributeUpdate} ref=form>
+                <div class="row">
+                    <div class="form-group floating col-lg-2">
+                        <label class="floating-label">{_t('name')}</label>
+                    </div>
+                    <div class="form-group floating col-lg-10">
+                        <input type="text" ref="userName" class="form-control" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group floating col-lg-2">
+                        <label class="floating-label">{_t('name_company')}</label>
+                    </div>
+                    <div class="form-group floating col-lg-10">
+                        <input type="text" ref="companyName" class="form-control" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group floating col-lg-2">
+                        <label class="floating-label">{_t('name_department')}</label>
+                    </div>
+                    <div class="form-group floating col-lg-10">
+                        <input type="text" ref="departmentName" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <button type="button" onclick="{back}" class="btn btn-block btn-default">{_t('back')}</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-block btn-success">{_t('regist')}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        const tag = this
+        tag.cognitoUser = riot.mixin('cognitoUser');
+        tag.back = back;
+        tag.userAttributeUpdate = userAttributeUpdate;
+        const obs = riot.observable()
+        tag.obs = obs
+        function back(event) {
+            window.location.href = '#/user/info/';
+        }
+        tag.on('mount', function() {
+            tag.cognitoUser.getSession(function(err, session) {
+                tag.obs.trigger("pm-loader-show");
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    const requestUserAttrUrl = tag.config.APIGATEWAY_ADDRESS + '/myself/attribute';
+                    var idToken = session.getIdToken().getJwtToken();
+                    let fetchResponse = null
+                    fetch(requestUserAttrUrl, {
+                        method: "GET",
+                        headers: {
+                            'Authorization': idToken
+                        },
+                    }).then(function(response) {
+                        fetchResponse = response
+                        return response
+                    }).then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            tag.obs.trigger("pm-loader-hide");
+                            return response.json();
+                        }).then(function(json) {
+                            if (json['userName']) {
+                                tag.refs.userName.value = json['userName']
+                            }
+                            if (json['companyName']) {
+                                tag.refs.companyName.value = json['companyName']
+                            }
+                            if (json['depertmentName']) {
+                                tag.refs.departmentName.value = json['depertmentName']
+                            }
+                        }).catch(function(error) {
+                            tag.obs.trigger("pm-loader-hide");
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                            })
+                            tag.obs.trigger("error-modal-open", error);
+                            tag.obs.one("error-modal-close", function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        });
+                }
+            });
+        })
+        function userAttributeUpdate(event) {
+            event.preventDefault();
+            tag.obs.trigger("pm-loader-show");
+            const form = tag.refs.form
+            tag.commonUtils.submitDisable(form);
+            const requestUserAttrUrl = tag.config.APIGATEWAY_ADDRESS + '/myself/attribute';
+            const userName = tag.refs.userName.value
+            const companyName = tag.refs.companyName.value
+            const departmentName = tag.refs.departmentName.value
+            const userInformation = {
+                "userName": userName,
+                "companyName": companyName,
+                "departmentName": departmentName
+            }
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    var fetchResponse = null
+                    fetch(requestUserAttrUrl, {
+                        method: "PUT",
+                        headers: {
+                            'Authorization': idToken
+                        },
+                        body: JSON.stringify(userInformation)
+                    }).then(function(response) {
+                        fetchResponse = response
+                        return response
+                    }).then(function() {
+                        tag.obs.trigger("pm-loader-hide");
+                        back()
+                    }).catch(function(error) {
+                        tag.obs.trigger("pm-loader-hide");
+                        tag.commonUtils.submitEnable(form);
+                        error.then(function(value) {
+                            value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                        })
+                        tag.obs.trigger("error-modal-open", error);
+                        tag.obs.one("error-modal-close", function(value) {
+                            tag.commonUtils.backHome(value)
+                        })
+                    });
+                }
+            });
+        }
+    </script>
+</user-attribute-update-container>

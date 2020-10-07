@@ -1,0 +1,125 @@
+<modal-setting-manual>
+    <div class="modal fade modal-info" id="modal-setting-manual" aria-hidden="true" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">{_t('manual_evaluation')}：{informationModalSettingManual.title}</h4>
+                </div>
+                <div class="modal-body">
+                    <p if="{informationModalSettingManual.check_item_code}">{commonUtils.getTitleCheckItem(informationModalSettingManual.check_item_code)}</p>
+                    <p if="{informationModalSettingManual.check_item_code}">{getQuestionModalSettingManual(informationModalSettingManual.check_item_code)}</p>
+                    <hr>
+                    <span class="text-decoration-underline">{_t('ModalSettingExcept.currently_set_of')}</span>
+                    <span class="badge badge-danger ml-10 mr-10" if="{informationModalSettingManual.isExistSettingManual == 'NotAssessment'}">{_t(settingCurrent[informationModalSettingManual.isExistSettingManual])}</span>
+                    <span class="badge badge-success ml-10 mr-10" if="{informationModalSettingManual.isExistSettingManual == 'Assessment'}">{_t(settingCurrent[informationModalSettingManual.isExistSettingManual])}</span>
+                    <span if="{informationModalSettingManual.createAt}">{commonUtils.displayDate(informationModalSettingManual.createAt,
+                        "YYYY/MM/DD")}</span>
+                    <span class="ml-10" if="{informationModalSettingManual.emailAddress}">({informationModalSettingManual.emailAddress})</span>
+                    <hr>
+                    <br>
+                    <input type="radio" name="radioManual" id="idRadioManualEvaluated" value="{_t('evaluated')}" ref="radioManual"
+                        checked="{informationModalSettingManual.isExistSettingManual == 'Assessment'}">
+                    <label class="ml-10" for="idRadioManualEvaluated">{_t('evaluated')}</label>
+                    <textarea class="form-control" rows="6" ref="assessmentComment" name="assessmentComment" value="{informationModalSettingManual.assessmentComment}"
+                        placeholder="{_t('notify_comment')}" maxlength="300"></textarea>
+                    <input type="radio" name="radioManual" id="idRadioManualDeleteEvaluation" value="{_t('ModalSettingExcept.evaluation_cancel')}" checked="{informationModalSettingManual.isExistSettingManual == 'NotAssessment'}">
+                    <label class="ml-10 mt-20" for="idRadioManualDeleteEvaluation">{_t('ModalSettingExcept.evaluation_cancel')}</label>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnCloseModalSettingManual" type="button" class="btn btn-default" data-dismiss="modal">{_t('cancel')}</button>
+                    <button type="button" class="btn btn-inverse bg-info" onclick="{doClickConfirm}">{_t('regist')}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const tag = this;
+        const obs = tag.parent.obs
+        tag.getQuestionModalSettingManual = getQuestionModalSettingManual
+        const dictionary = tag.commonUtils.getMyDictionary()
+        const information = {
+            'title': tag._t('title_info_modal_setting'),
+            'body': tag._t('body_info_modal_setting')
+        }
+        const informationModalSettingManualDefault = {
+            'title': '',
+            'isExistSettingManual': '',
+            'emailAddress': '',
+            'createAt': '',
+            'assessmentComment': ''
+        }
+
+        tag.observer = obs;
+        tag.doClickConfirm = doClickConfirm;
+        tag.settingCurrent = dictionary.SettingCurrent
+        tag.informationModalSettingManual = informationModalSettingManualDefault
+
+        tag.on('mount', function() {
+            tag.modal = $('#modal-setting-manual')
+            tag.observer.on("modal-setting-manual-open", function(informationModalSettingManual) {
+                tag.informationModalSettingManual = informationModalSettingManualDefault
+                tag.update();
+
+                tag.informationModalSettingManual = informationModalSettingManual
+                tag.refs.assessmentComment.value = informationModalSettingManual['assessmentComment']
+                tag.modal.modal()
+                tag.update();
+            });
+
+            tag.modal.on('hidden.bs.modal', function(e) {
+                tag.observer.trigger("modal-setting-manual-close");
+            });
+        })
+
+        tag.on('unmount', function() {
+            tag.modal.off('hidden.bs.modal');
+        })
+
+        function doClickConfirm(event) {
+            tag.modal.modal('hide')
+            if (tag.refs.radioManual.checked) {
+                createSettingManual(tag.informationModalSettingManual["check_item_code"], tag.refs.assessmentComment.value)
+            } else {
+                deleteSettingManual(tag.informationModalSettingManual["check_item_code"])
+            }
+        }
+
+        function createSettingManual(checkItemCode, assessmentComment) {
+            const body = {
+                'assessmentComment': assessmentComment
+            }
+
+            const requestCreateAssessmentItemUrl = tag.config.APIGATEWAY_ADDRESS + "/check/securitycheck/" + tag.parent.organizationId + "/" + tag.parent.projectId + "/" + tag.parent.coopId + "/assessments/" + checkItemCode
+            tag.commonUtils.callApiWithLoader(tag.parent, requestCreateAssessmentItemUrl, "POST", body).then(function(response) {
+                if (response) {
+                    tag.parent.obs.trigger('information-modal-open', information)
+                }
+            })
+        }
+
+        function deleteSettingManual(checkItemCode) {
+            const requestDeleteAssessmentItemUrl = tag.config.APIGATEWAY_ADDRESS + "/check/securitycheck/" + tag.parent.organizationId + "/" + tag.parent.projectId + "/" + tag.parent.coopId + "/assessments/" + checkItemCode
+            tag.commonUtils.callApiWithLoader(tag.parent, requestDeleteAssessmentItemUrl, "DELETE", null, false).then(function(response) {
+                tag.parent.obs.trigger('information-modal-open', information)
+            }).catch(function(errorPromise) {
+                errorPromise.then(function(value) {
+                    if (value.responseStatus == 404) {
+                        tag.parent.obs.trigger('information-modal-open', information)
+                    } else {
+                        tag.obs.trigger('error-modal-open', value);
+                        tag.obs.one('error-modal-close', function(value) {
+                            tag.commonUtils.backHome(value)
+                        })
+                    }
+                })
+            })
+        }
+
+        function getQuestionModalSettingManual(checkItemCode) {
+            return tag._t("ModalSettingManual." + checkItemCode + ".question")
+        }
+    </script>
+</modal-setting-manual>

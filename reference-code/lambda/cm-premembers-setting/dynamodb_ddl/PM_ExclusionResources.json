@@ -1,0 +1,92 @@
+{
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "ExclusionResourceID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "CheckItemCode",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "AccountRefineCode",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "CheckItemRefineCode",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "CreatedAt",
+            "AttributeType": "S"
+        }
+    ],
+    "TableName": "PM_ExclusionResources",
+    "KeySchema": [
+        {
+            "AttributeName": "ExclusionResourceID",
+            "KeyType": "HASH"
+        }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+        {
+            "IndexName": "AccountRefineIndex",
+            "KeySchema": [
+                {
+                    "AttributeName": "AccountRefineCode",
+                    "KeyType": "HASH"
+                },
+                {
+                    "AttributeName": "CheckItemCode",
+                    "KeyType": "RANGE"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "INCLUDE",
+                "NonKeyAttributes": [
+                    "OrganizationID",
+                    "ProjectID",
+                    "AWSAccount",
+                    "RegionName",
+                    "ResourceType",
+                    "ResourceName",
+                    "ExclusionComment",
+                    "UserID",
+                    "MailAddress",
+                    "CheckItemCode",
+                    "CreatedAt"
+                ]
+            }
+        },
+        {
+            "IndexName": "CheckItemRefineIndex",
+            "KeySchema": [
+                {
+                    "AttributeName": "CheckItemRefineCode",
+                    "KeyType": "HASH"
+                },
+                {
+                    "AttributeName": "CreatedAt",
+                    "KeyType": "RANGE"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "INCLUDE",
+                "NonKeyAttributes": [
+                     "OrganizationID",
+                    "ProjectID",
+                    "AWSAccount",
+                    "RegionName",
+                    "ResourceType",
+                    "ResourceName",
+                    "ExclusionComment",
+                    "UserID",
+                    "MailAddress",
+                    "CheckItemCode",
+                    "CreatedAt"
+                ]
+            }
+        }
+    ]
+}

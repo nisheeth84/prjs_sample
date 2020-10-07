@@ -1,0 +1,1 @@
+ALTER TABLE "customers_list_participants" ALTER COLUMN "customer_list_id" TYPE int8 USING ("customer_list_id"::int8);

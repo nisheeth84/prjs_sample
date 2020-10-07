@@ -1,0 +1,8 @@
+{
+  "timelineFilters": [
+    {
+      "employeeId": 100,
+      "timelineType": 1
+    }
+  ]
+}

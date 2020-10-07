@@ -1,0 +1,46 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.6.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'aws-securitycheck-report-generator'
+    manifest {
+        attributes('Implementation-Title': 'Premembers security check report batch')
+        attributes("Main-Class" : "jp.classmethod.premembers.check.security.Application")
+    }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral artifactUrls: [
+        'http://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/'
+    ]
+}
+
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-aop')
+    compile('org.springframework.retry:spring-retry')
+    compile('org.springframework.boot:spring-boot-starter')
+    compile('com.amazonaws:aws-java-sdk:1.11.252')
+    compile('org.json:json:20170516')
+    compileOnly "org.projectlombok:lombok:1.16.12"
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile group: 'net.sf.jasperreports', name: 'jasperreports', version: '6.7.0'
+    compile group: 'com.lowagie', name: 'itext', version: '4.2.1'
+    compile group: 'com.itextpdf', name: 'itext-asian', version: '5.2.0'
+}

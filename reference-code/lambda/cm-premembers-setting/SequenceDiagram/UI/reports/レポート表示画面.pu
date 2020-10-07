@@ -1,0 +1,52 @@
+@startuml{レポート表示画面.png}
+title [レポート作成画面]
+hide footbox
+
+actor ユーザー as user
+boundary レポート表示画面 as view_1
+boundary レポート一覧画面 as view_2
+participant レポートAPI as api_reports #cyan
+database レポートストレージ as storage <<s3>> #crimson
+
+== 表示 ==
+user -> view_1:表示
+activate view_1
+    view_1 -> api_reports :GET /organizations/{organization_id}/projects/{project_id}/reports/{report_id}
+    activate api_reports
+        api_reports --> view_1 :200:レポート情報
+    deactivate api_reports
+    view_1 -> view_1 :画面描画
+    view_1 --> user
+deactivate view_1
+
+== レポート表示 ==
+user -> view_1 :レポート表示
+activate view_1
+    view_1 -> api_reports :GET /organizations/{organization_id}/projects/{project_id}/reports/{report_id}/report
+    activate api_reports
+        api_reports --> view_1 :200:レポートHTML
+    deactivate api_reports
+    view_1 -> view_1 :画面描画
+    view_1 --> user
+deactivate view_1
+
+== レポート出力 ==
+user -> view_1 :レポート出力
+activate view_1
+    view_1 -> api_reports :POST /organizations/{organization_id}/projects/{project_id}/reports/{report_id}/report/output
+    api_reports --> view_1 :200
+    view_1 --> user
+deactivate view_1
+
+== レポートダウンロード ==
+user -> view_1 :レポート出力
+activate view_1
+    view_1 -> api_reports :GET /organizations/{organization_id}/projects/{project_id}/reports/{report_id}/report
+    api_reports --> view_1 :200:レポートファイルURL
+    |||
+    view_1 -> storage :ダウンロード
+    storage --> view_1 :200:レポートファイル
+    view_1 --> user
+deactivate view_1
+
+@enduml

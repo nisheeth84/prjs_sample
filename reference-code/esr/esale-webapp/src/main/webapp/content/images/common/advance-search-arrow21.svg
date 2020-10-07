@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="313.478" height="43.944" viewBox="0 0 313.478 43.944">
+  <g id="Group_25979" data-name="Group 25979" transform="translate(-389 -909.9)">
+    <rect id="Rectangle_12737" data-name="Rectangle 12737" width="41" height="2" rx="1" transform="translate(389 940.9)" fill="#999"/>
+    <g id="Group_25852" data-name="Group 25852" transform="translate(-10 -233.1)">
+      <g id="Group_1144" data-name="Group 1144" transform="translate(712.478 1186.944) rotate(180)">
+        <g id="矢印" transform="translate(5 5.943)">
+          <g id="Group_1143" data-name="Group 1143">
+            <path id="Path_331" data-name="Path 331" d="M15.5,5H7.061c.01-.312.042-2.687,0-4.147L6.354.146a.5.5,0,0,0-.708,0L1.207,4.586.146,5.646a.5.5,0,0,0,0,.707L1.207,7.414l4.439,4.439a.5.5,0,0,0,.708,0l.707-.706c.01-3.115-.005-3.49,0-4.147H15.5a.5.5,0,0,0,.5-.5v-1A.5.5,0,0,0,15.5,5Z" fill="#f92525"/>
+          </g>
+        </g>
+        <rect id="Rectangle_986" data-name="Rectangle 986" width="24" height="24" rx="8" transform="translate(0)" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_25853" data-name="Group 25853" transform="translate(72.32 -237.1)">
+      <rect id="Rectangle_10584" data-name="Rectangle 10584" width="253" height="2" rx="1" transform="translate(358.679 1178)" fill="#f92525"/>
+      <circle id="Ellipse_265" data-name="Ellipse 265" cx="4" cy="4" r="4" transform="translate(356.679 1175)" fill="#f92525"/>
+    </g>
+    <text id="_2005_01_01_9:30" data-name="2005/01/01 9:30" transform="translate(401 909.9)" fill="#171615" font-size="14" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="16">2005/01/01 9:30</tspan></text>
+  </g>
+</svg>

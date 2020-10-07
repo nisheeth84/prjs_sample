@@ -1,0 +1,61 @@
+.files-panel {
+  width: 100%;
+  padding-top: 50px;
+}
+
+.upload-wrap .btn--browse {
+  bottom: unset;
+  /* top: 0; */
+}
+
+.file-item {
+  background-color: #ececec;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.file-item div {
+  margin: 5px 5px;
+}
+
+.file-item div:first-child {
+  flex-shrink: 0;
+}
+
+.file-item div:nth-child(2) {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.file-item div button {
+  padding: 7px;
+  font-size: 13px;
+  outline: none;
+}
+
+.files-panel .col-lg-6 {
+  position: relative;
+}
+
+.files-panel .col-lg-6:last-child {
+  margin-bottom: 10px !important;
+}
+.files-panel .col-lg-6 .preview {
+  display: none;
+}
+.files-panel .col-lg-6:hover .preview {
+  display: block;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 10px;
+  z-index: 1000;
+  border-radius: 10px;
+  top: 45px;
+  box-shadow: 0 0 10px 2px #696b7659;
+}
+.files-panel .col-lg-6:hover .preview img {
+  object-fit: contain;
+}

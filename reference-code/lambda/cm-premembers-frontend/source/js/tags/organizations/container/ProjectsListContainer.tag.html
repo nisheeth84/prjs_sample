@@ -1,0 +1,100 @@
+<projects-list-container>
+    <div class="page">
+        <div class="page-header">
+            <a href="#/organizations/">&lt; {_t('back_organization')}</a>
+            <h1 class="page-title mt-2">{_t('ProjectsList.title')}</h1>
+            <div class="page-header-actions" show="{isOwner}">
+                <button class="btn btn-floating btn-sm btn-primary" onclick="{createProject}">+</button>
+            </div>
+        </div>
+        <div class="page-content container-fluid">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>{_t('project_name')}</th>
+                        <th>{_t('ProjectsList.aws_account_list')}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr each="{project in projects}">
+                        <td>
+                            <a href="#/organizations/{project.organizationId}/projects/{project.id}/">{project.name}</a>
+                        </td>
+                        <td>
+                            <a href="#/organizations/{project.organizationId}/projects/{project.id}/awsaccounts/">
+                                <i class="icon wb-list" aria-hidden="true"></i> {_t('ProjectsList.aws_account_list')}</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        const tag = this
+        tag.cognitoUser = riot.mixin('cognitoUser')
+        const obs = riot.observable()
+        tag.obs = obs
+        tag.organization_id = opts.organization_id
+        tag.createProject = createProject
+        tag.on('mount', function() {
+            tag.obs.trigger("pm-loader-show")
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    // alert('getSession()でエラー\n' + err);
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    requestInformation(idToken)
+                        .then(function(response) {
+                            return response
+                        }).then(function(result) {
+                            const projects = result[0];
+                            const organization = result[1]
+                            tag.obs.trigger("pm-loader-hide");
+                            tag.projects = projects;
+                            tag.isOwner = tag.commonUtils.isOwner(organization)
+                            tag.update();
+                        }).catch(function(error) {
+                            tag.obs.trigger("pm-loader-hide");
+                            tag.obs.trigger("error-modal-open", error);
+                            tag.obs.one("error-modal-close", function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            });
+        });
+        function requestInformation(idToken) {
+            let fetchResponse = null
+            const listRequest = [
+                requestProjectsPromise(idToken).then(function(response) {
+                    fetchResponse = response
+                    return response
+                }).then(tag.commonUtils.checkStatus).then(function(response) { return response.json() })
+                    .catch(function(error) {
+                        error.then(function(value) {
+                            value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                        })
+                        throw error
+                    }),
+                tag.commonUtils.getMyOrganization(idToken, tag.organization_id).then(function(response) { return response })
+            ]
+            return Promise.all(listRequest)
+        }
+        function requestProjectsPromise(idToken) {
+            const requestProjectUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + tag.organization_id + '/projects';
+            return fetch(requestProjectUrl, {
+                method: "GET",
+                headers: {
+                    'Authorization': idToken
+                }
+            })
+        }
+        function createProject(event) {
+            window.location.href = "#/organizations/" + tag.organization_id + "/projects/create/";
+        }
+
+    </script>
+</projects-list-container>

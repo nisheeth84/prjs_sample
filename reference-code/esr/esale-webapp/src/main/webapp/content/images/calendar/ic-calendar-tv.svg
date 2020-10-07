@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14.002" height="12.3" viewBox="0 0 14.002 12.3">
+  <g id="アイコン_種別_タスク" transform="translate(7.001 6.15)">
+    <g id="Group_28027" data-name="Group 28027" transform="translate(-7.001 -6.15)">
+      <g id="Group_28019" data-name="Group 28019" transform="translate(0 -0.9)">
+        <path id="Path_31199" data-name="Path 31199" d="M2.2,12.6A1.7,1.7,0,0,1,.5,10.9V3.1A1.7,1.7,0,0,1,2.2,1.4h9.4a1.9,1.9,0,0,1,1.9,1.9v7.5a1.9,1.9,0,0,1-1.9,1.9Z" fill="#fff"/>
+        <path id="Path_31200" data-name="Path 31200" d="M11.6,1.9A1.4,1.4,0,0,1,13,3.3v7.5a1.4,1.4,0,0,1-1.4,1.4H2.2A1.2,1.2,0,0,1,1,10.9V3.1A1.2,1.2,0,0,1,2.2,1.9h9.4m0-1H2.2A2.2,2.2,0,0,0,0,3.1V11a2.2,2.2,0,0,0,2.2,2.2h9.4A2.4,2.4,0,0,0,14,10.7V3.3A2.4,2.4,0,0,0,11.6.9Z" fill="#fff"/>
+      </g>
+      <g id="Group_28026" data-name="Group 28026" transform="translate(0 -0.9)">
+        <path id="Path_31201" data-name="Path 31201" d="M13,8.9l-.9,1.8H1.8v1.5h9.8A1.4,1.4,0,0,0,13,10.8h0Z" fill="#adc7e7"/>
+        <path id="Path_31202" data-name="Path 31202" d="M11,11.4H2V1.9h9a2,2,0,0,1,2,2V9.4A2,2,0,0,1,11,11.4Z" fill="#ededed"/>
+        <g id="Group_28025" data-name="Group 28025">
+          <g id="Group_28024" data-name="Group 28024">
+            <g id="Group_28020" data-name="Group 28020">
+              <path id="Path_31203" data-name="Path 31203" d="M8.2,4.7h3a.35.35,0,1,0,0-.7h-3a.35.35,0,0,0,0,.7Z" fill="#326dab"/>
+              <path id="Path_31204" data-name="Path 31204" d="M11.2,4h-3a.35.35,0,0,0,0,.7h3a.35.35,0,1,0,0-.7Z" fill="#255b9d"/>
+            </g>
+            <g id="Group_28021" data-name="Group 28021">
+              <path id="Path_31205" data-name="Path 31205" d="M11.2,7.4h-3a.35.35,0,1,0,0,.7h3a.35.35,0,0,0,0-.7Z" fill="#326dab"/>
+              <path id="Path_31206" data-name="Path 31206" d="M11.2,7.4h-3a.35.35,0,1,0,0,.7h3a.35.35,0,0,0,0-.7Z" fill="#255b9d"/>
+            </g>
+            <g id="Group_28022" data-name="Group 28022">
+              <path id="Path_31207" data-name="Path 31207" d="M11.2,5.7h-3a.35.35,0,0,0,0,.7h3a.35.35,0,0,0,0-.7Z" fill="#326dab"/>
+              <path id="Path_31208" data-name="Path 31208" d="M11.2,5.7h-3a.35.35,0,0,0,0,.7h3a.35.35,0,0,0,0-.7Z" fill="#255b9d"/>
+            </g>
+            <g id="Group_28023" data-name="Group 28023">
+              <path id="Path_31209" data-name="Path 31209" d="M11.2,9.1h-3a.35.35,0,1,0,0,.7h3a.35.35,0,0,0,0-.7Z" fill="#326dab"/>
+              <path id="Path_31210" data-name="Path 31210" d="M11.2,9.1h-3a.35.35,0,1,0,0,.7h3a.35.35,0,0,0,0-.7Z" fill="#255b9d"/>
+            </g>
+          </g>
+          <path id="Path_31211" data-name="Path 31211" d="M5,4.6l.6.6L6.8,4" fill="none" stroke="#cc4186" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.75"/>
+          <path id="Path_31212" data-name="Path 31212" d="M5,6.7l.6.6L6.8,6.1" fill="none" stroke="#cc4186" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.75"/>
+          <path id="Path_31213" data-name="Path 31213" d="M5,8.7l.6.6L6.8,8.1" fill="none" stroke="#cc4186" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.75"/>
+        </g>
+        <path id="Path_31214" data-name="Path 31214" d="M2.4,12.1H2a1,1,0,0,1-1-1V2.9a1,1,0,0,1,1-1h.4Z" fill="#47a0b2"/>
+        <path id="Path_31215" data-name="Path 31215" d="M2.7,9.4H1V4.7H2.7a1,1,0,0,1,1,1V8.4A1,1,0,0,1,2.7,9.4Z" fill="#47a0b2"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,157 @@
+<organization-information-container>
+    <div class="page">
+        <div class="page-content container-fluid">
+            <dl class="row">
+                <dt>{_t('organization_name')}: </dt>
+                <dd>{name}</dd>
+            </dl>
+            <dl class="row">
+                <dt>{_t('update_date')}:</dt>
+                <dd>{commonUtils.displayDate(updateDate)}</dd>
+            </dl>
+            <div class="row">
+                <div class="{createButtonClassObject(isOwner)}">
+                    <button type="button" class="btn btn-block btn-default" onclick={back}>{_t('back')}</button>
+                </div>
+                <div class="col-4" show="{isOwner}">
+                    <button type="button" class="btn btn-block btn-success" onclick={editOrganization}>{_t('edit')}</button>
+                </div>
+                <div class="col-4" show="{isOwner}">
+                    <button type="button" class="btn btn-block btn-danger" onclick={deleteOrganizationShowModal}>{_t('delete')}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <delete-confirm-modal-container></delete-confirm-modal-container>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        const tag = this;
+        tag.cognitoUser = riot.mixin('cognitoUser');
+        tag.organization_id = opts.organization_id
+        tag.name = ""
+        tag.update_date = ""
+        tag.editOrganization = editOrganization
+        tag.deleteOrganizationShowModal = deleteOrganizationShowModal
+        tag.deleteOrganization = deleteOrganization
+        tag.createButtonClassObject = createButtonClassObject
+        tag.back = back
+        tag.isOwner = false
+        const obs = riot.observable()
+        tag.obs = obs
+        tag.obs.on('delete-confirm-modal-close', function(e) {
+            // console.debug('close delete modal')
+            tag.obs.trigger('pm-loader-show')
+            deleteOrganization()
+        })
+        function editOrganization(event) {
+            window.location.href = '#/organizations/' + tag.organization_id + '/edit/';
+        }
+        function deleteOrganizationShowModal(event) {
+            tag.obs.trigger('delete-confirm-modal-open')
+        }
+        function deleteOrganization(event) {
+            tag.obs.trigger('pm-loader-show')
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    let fetchResponse = null
+                    fetch(requestOrganizationInformationUrl, {
+                        method: "DELETE",
+                        headers: {
+                            'Authorization': idToken
+                        },
+                    }).then(function(response) {
+                        fetchResponse = response
+                        return response
+                    })
+                        .then(tag.commonUtils.checkStatus)
+                        .then(function() {
+                            tag.obs.trigger('pm-loader-hide');
+                            back()
+                        }).catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                            })
+                            tag.obs.trigger("error-modal-open", error);
+                            tag.obs.one("error-modal-close", function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        });
+                }
+            });
+
+        }
+        function back(event) {
+            window.location.href = '#/organizations/';
+        }
+        const requestOrganizationInformationUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + tag.organization_id;
+
+        tag.on('mount', function() {
+            tag.cognitoUser.getSession(function(err, session) {
+                tag.obs.trigger("pm-loader-show");
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    requestInformation(idToken)
+                        .then(function(response) {
+                            return response
+                        }).then(function(result) {
+                            const organizationInformation = result[0]
+                            const organization = result[1]
+                            tag.obs.trigger("pm-loader-hide");
+                            tag.name = organizationInformation['name']
+                            tag.updateDate = organizationInformation['updatedAt']
+                            tag.isOwner = tag.commonUtils.isOwner(organization)
+                            tag.update();
+                        }).catch(function(error) {
+                            tag.obs.trigger("pm-loader-hide");
+                            tag.obs.trigger("error-modal-open", error);
+                            tag.obs.one("error-modal-close", function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        });
+                }
+            });
+        })
+
+        function requestInformation(idToken) {
+            let fetchResponse = null
+            const listRequest = [
+                getOrganizationInformationPromise(idToken).then(function(response) {
+                    fetchResponse = response
+                    return response
+                }).then(tag.commonUtils.checkStatus).then(function(response) { return response.json() }).catch(function(error) {
+                    error.then(function(value) {
+                        value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                    })
+                    throw error
+                }),
+                tag.commonUtils.getMyOrganization(idToken, tag.organization_id).then(function(response) { return response })
+            ]
+            return Promise.all(listRequest)
+        }
+
+        function getOrganizationInformationPromise(idToken) {
+            return fetch(requestOrganizationInformationUrl, {
+                method: "GET",
+                headers: {
+                    'Authorization': idToken
+                },
+            })
+        }
+
+        function createButtonClassObject(isOwner) {
+            const buttonClass = {
+                'col-4': isOwner,
+                'col-12': !isOwner
+            }
+            return buttonClass
+        }
+
+    </script>
+</organization-information-container>

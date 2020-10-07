@@ -1,0 +1,267 @@
+<sign_in-container>
+    <link rel="stylesheet" href="./assets/stylesheets/login.css">
+    <div class="page-login-v3 layout-full" style="animation-duration: 800ms; opacity: 1;">
+        <div class="page vertical-align text-center">
+            <div class="page-content vertical-align-middle">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="brand">
+                            <div class="beta">
+                                <img class="brand-img" src="./assets/images/iw_tate.svg" alt="..."></img>
+                            </div>
+                        </div>
+                        <div hide="{showMfa}">
+                            <form ref="form" autocomplete="off" onsubmit={submit} method="POST">
+                                <p class="text-danger" show="{isAuthError}">{_t('Signin.auth_incorrect')}
+                                    <br>{_t('retry')}</p>
+                                <p class="text-danger" show="{isErrorPasswordExpired}">{_t('Error_message.password_expired_error_message_1')}
+                                    <br>{_t('Error_message.password_expired_error_message_2')}</p>
+                                <div class="form-group form-material floating">
+                                    <input ref="email" type="email" onfocus="{trimEmpty}" oninput="{commonUtils.checkMessageInput}" onBlur="{addEmpty}" class="form-control" required="{submitted}"
+                                        name="email" />
+                                    <label class="floating-label">{_t('email')}</label>
+                                </div>
+                                <div class="form-group form-material floating">
+                                    <input ref="password" type="password" onfocus="{trimEmpty}" oninput="{commonUtils.checkMessageInput}" onBlur="{addEmpty}" class="form-control" required="{submitted}"
+                                        name="password" />
+                                    <label class="floating-label">{_t('password')}</label>
+                                </div>
+                                <div>{_t('Signin.forgot_password_1')}<a class="margin-left_0" href="#/reset_password/">{_t('Signin.forgot_password_2')}</a></div>
+                                <div class="form-group clearfix">
+                                </div>
+                                <button class="btn btn-primary btn-block btn-lg mt-40 margin-left_0" type="submit" onclick="{signInClick}">{_t('login')}
+                                </button>
+                            </form>
+                        </div>
+                        <div show="{showMfa}">
+                            <form ref="formMfa" autocomplete="off" onsubmit={submitMfaCode} method="POST">
+                                <p class="text-danger" show="{isMfaError}">{_t('Signin.auth_incorrect')}
+                                    <br>{_t('retry')}</p>
+                                <div class="form-group form-material floating">
+                                    <input ref="mfaCode" type="text" onfocus="{trimEmpty}" onBlur="{onBlurQRCode}" class="form-control empty" onkeyup="{onKeyupQRCode}"
+                                        name="mfaCode" maxlength="6" />
+                                    <label class="floating-label">{_t('Signin.mfa_code')}</label>
+                                </div>
+                                <button class="btn btn-primary btn-block btn-lg mt-40 margin-left_0" disabled="{isShowMFATokenSend}" type="submit">{_t('Signin.send')}</button>
+                                <button class="btn btn-inverse btn-block btn-lg mt-40 margin-left_0" onclick="{commonUtils.backSignin}" type="button">{_t('cancel')}</button>
+                            </form>
+                        </div>
+                        <!-- <hr /> -->
+                        <!-- <p><a href="#">パスワード再発行</a></p> -->
+                        <hr />
+                        <p>{_t('Signin.first_visit')}</p>
+                        <a href="#/sign_up/">{_t('Signin.regist_user')}</a>
+                        <script type="text/javascript">
+                            (function(d, t) {
+                                var s = d.createElement(t); s.type = 'text/javascript'; s.async = 1;
+                                s.setAttribute('data-cbid', '1c6eb8ea-bc5f-48f4-9e80-a6b151b49af1');
+                                s.src = 'https://consent.cookiebot.com/uc.js';
+                                s.id = "cookiebot"
+                                var c = d.getElementsByTagName(t)[0]; c.parentNode.insertBefore(s, c);
+                            })(document, 'script');
+                        </script>
+                    </div>
+                </div>
+                <!-- <error-modal></error-modal> -->
+
+                <footer class="page-copyright page-copyright-inverse">
+                    <p>{_t('copyright')}</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <pm-loading></pm-loading>
+    <script>
+        import {
+            AuthenticationDetails,
+            CognitoUserPool,
+            CognitoUser
+        } from 'amazon-cognito-identity-js';
+        const tag = this;
+        tag.cognitoUser = opts.cognitoUser;
+        tag.submit = submit;
+        tag.submitMfaCode = submitMfaCode;
+        tag.isAuthError = false
+        tag.isErrorPasswordExpired = false
+        tag.isMfaError = false
+        tag.isShowMFATokenSend = true
+        const obs = riot.observable()
+        tag.obs = obs
+        tag.trimEmpty = trimEmpty
+        tag.addEmpty = addEmpty
+        tag.signInClick = signInClick
+        tag.submitted = false
+        tag.showMfa = false
+        tag.onBlurQRCode = onBlurQRCode
+        tag.onKeyupQRCode = onKeyupQRCode
+
+        tag.on('mount', function() {
+            initForm()
+            tag.isAuthError = false
+            tag.isErrorPasswordExpired = false
+            tag.isMfaError = false
+            tag.submitted = false
+        })
+        tag.on('unmount', function() {
+            const cookiebotDom = document.getElementById("cookiebot");
+            cookiebotDom.parentNode.removeChild(cookiebotDom);
+        })
+
+        const poolData = {
+            UserPoolId: tag.config.COGNITO_USER_POOL_ID,
+            ClientId: tag.config.COGNITO_CLIENT_ID
+        };
+        const userPool = new CognitoUserPool(poolData);
+        function signInClick() {
+            tag.submitted = true
+            // console.info("Click")
+        }
+
+        function submit(event) {
+            tag.submitted = true
+            tag.refs.email.classList.remove('empty');
+            tag.refs.password.classList.remove('empty');
+            event.preventDefault()
+            const form = tag.refs.form;
+            if (tag.refs.email.value && tag.refs.password.value) {
+                tag.obs.trigger("pm-loader-show");
+                tag.commonUtils.submitDisable(form)
+                const userId = tag.refs.email.value;
+                const password = tag.refs.password.value;
+                var cognitoUser = new CognitoUser({
+                    Username: userId,
+                    Pool: userPool
+                });
+                var authenticationDetails =
+                    new AuthenticationDetails({
+                        UserName: userId,
+                        Password: password
+                    });
+                cognitoUser.authenticateUser(authenticationDetails, {
+                    onSuccess: () => {
+                        doChangeLanguageAndRedirectHome(cognitoUser)
+                    },
+                    onFailure: (err) => {
+                        if (err.code === 'NotAuthorizedException' && err.message === 'Temporary password has expired and must be reset by an administrator.') {
+                            tag.isErrorPasswordExpired = true
+                            tag.isAuthError = false
+                        } else {
+                            tag.isAuthError = true
+                            tag.isErrorPasswordExpired = false
+                        }
+                        tag.obs.trigger("pm-loader-hide");
+                        tag.commonUtils.submitEnable(form)
+                        tag.update()
+                    },
+                    totpRequired: () => {
+                        tag.cognitoUser = cognitoUser
+                        tag.showMfa = true
+                        tag.obs.trigger("pm-loader-hide");
+                        tag.update()
+                    },
+                    newPasswordRequired: (userAttributes) => {
+                        delete userAttributes.email_verified
+                        const forceChangePasswordParam = {
+                            'userAttributes': userAttributes,
+                            'cognitoUser': cognitoUser
+                        }
+                        tag.commonUtils.paramSender(forceChangePasswordParam)
+                        tag.obs.trigger("pm-loader-hide");
+                        window.location.href = "#/force_change_password/";
+                    }
+                });
+            }
+        }
+
+        function submitMfaCode(event) {
+            tag.refs.mfaCode.classList.remove('empty');
+            event.preventDefault()
+            const form = tag.refs.formMfa;
+            if (tag.refs.mfaCode.value) {
+                tag.obs.trigger("pm-loader-show");
+                tag.commonUtils.submitDisable(form)
+                const mfaCode = tag.refs.mfaCode.value;
+                tag.cognitoUser.sendMFACode(mfaCode, {
+                    onSuccess: () => {
+                        doChangeLanguageAndRedirectHome(tag.cognitoUser)
+                    },
+                    onFailure: (err) => {
+                        tag.isMfaError = true
+                        tag.obs.trigger("pm-loader-hide");
+                        tag.commonUtils.submitEnable(form)
+                        tag.update()
+                    }
+                }, 'SOFTWARE_TOKEN_MFA');
+            }
+        }
+
+        function handleEntryUrl(_location) {
+            let searchParams = new URLSearchParams(_location.search)
+            let entryPath = searchParams.get('entry')
+            if (entryPath) {
+                // e.g. https://insightwatch.io/app/?entry=%2Fuser%2Finfo%2F -> https://insightwatch.io/app/#/user/info/
+                _location.href = [_location.origin, _location.pathname, '#', entryPath].join('')
+            } else {
+                _location.href = [_location.origin, _location.pathname, '#/home/'].join('')
+            }
+        }
+
+        function doChangeLanguageAndRedirectHome(cognitoUser) {
+            cognitoUser.getUserAttributes(function(err, attributes) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, cognitoUser)
+                } else {
+                    attributes.forEach(function(attribute) {
+                        if (attribute.getName() == "locale") {
+                            const language = attribute.getValue().substr(0, 2)
+                            tag.commonUtils.setItemToLocalStorage("language", language)
+                            i18next.changeLanguage(language);
+                        }
+                    })
+                    handleEntryUrl(window.location)
+                    tag.obs.trigger("pm-loader-hide");
+                }
+            });
+        }
+
+        function initForm() {
+            initElem(tag.refs.email)
+            initElem(tag.refs.password)
+        }
+
+        function initElem(elem) {
+            elem.classList.add('empty');
+            const validationMessage = tag._t('Validation_message.invalid_require')
+            elem.setCustomValidity(validationMessage);
+        }
+
+        function trimEmpty(event) {
+            const elem = event.srcElement
+            elem.classList.remove('empty');
+            if (!elem.value && !tag.submitted) {
+                // console.info("validation Message is empty")
+                elem.setCustomValidity('');
+            }
+        }
+
+        function addEmpty(event) {
+            const elem = event.srcElement
+            if (!elem.value && !tag.submitted) {
+                elem.classList.add('empty');
+            }
+        }
+
+        function onBlurQRCode(event) {
+            const elem = event.srcElement
+            if (!elem.value) {
+                elem.classList.add('empty');
+            }
+        }
+
+        function onKeyupQRCode(e) {
+            e.target.value = e.target.value.replace(/[^0-9]/g, '')
+            tag.isShowMFATokenSend = e.target.value.length < 6
+            tag.update()
+        }
+    </script>
+</sign_in-container>

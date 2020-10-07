@@ -1,0 +1,154 @@
+.sales-check-box-custom {
+  position: relative;
+  margin-top: 0 !important;
+  width: 100%;
+
+  > .check-box-select {
+    right: 0 !important;
+    bottom: 0 !important;
+  }
+}
+
+// Custom sales list card
+.product-management .info-todo-list .items .contents-items {
+  &.sale-list-card__placeholder:hover {
+    border-style: dashed !important;
+  }
+
+  &.sales-list-card__disabled {
+    background-color: #f9f9f9;
+    &:hover {
+      border: none;
+    }
+  }
+}
+
+// Custom state dragging
+.wrap-product-management .card-is-dragging {
+  overflow: initial !important;
+}
+
+// IMPORTANT, NEED CONFIRM
+// allow drag horizontal
+.wrap-product-management .item-wrap {
+  overflow: overlay !important;
+}
+
+// Fix drag-drop
+.sale-list-card-droppable {
+  height: 100%;
+}
+
+.align-center-sales {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sales-card__employees-root {
+  display: block;
+  position: relative;
+
+  .sales-card__list-employees {
+    display: none;
+    position: absolute;
+    z-index: 99;
+
+    top: 10px !important;
+    min-width: 200px !important;
+    max-width: 300px !important;
+
+    &.is-show {
+      display: block;
+    }
+  }
+
+  .sales-card__employee {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+
+    position: relative;
+    &:hover {
+      background-color: #e9f0f7;
+      .sales-card__empoyee-detail {
+        display: block;
+      }
+    }
+
+    .sales-card__employee-avatar {
+      width: 35px;
+    }
+
+    .sales-card__employee-name {
+      color: #0f6eb5;
+      margin-left: 13px;
+    }
+
+    // Custom box-user-status
+    .sales-card__employee-info {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      > .box-user-status {
+        margin: 0 !important;
+      }
+    }
+  }
+}
+
+.sales-list-card__date-picker {
+  max-width: 100px;
+  .sales-list-card__date-picker-input {
+    max-width: 100px;
+    text-align: center;
+  }
+}
+
+// Mockup hint
+.box-select-option.box-highlight {
+  width: auto;
+  min-width: 600px !important;
+  top: 28px !important;
+  left: 0 !important;
+  .color-picker {
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    p {
+      display: flex;
+      justify-content: space-between;
+      width: 50%;
+      padding: 5px;
+    }
+  }
+  .box-color {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50px;
+    height: 20px;
+    line-height: 24px;
+  }
+}
+.text-red {
+  color: #fa5151 !important;
+}
+.control-top .left {
+  z-index: 2;
+}
+.box-gray {
+  background-color: #e9f0f7;
+}
+.box-blue {
+  background-color: #e9f0f7 !important;
+}
+.box-gray-bold {
+  background-color: #777777;
+}
+.box-pink {
+  background-color: #ffdede !important;
+}
+
+.sales-zindex {
+  z-index: 1 !important;
+}

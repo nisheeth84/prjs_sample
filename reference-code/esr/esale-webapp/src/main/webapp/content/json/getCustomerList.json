@@ -1,0 +1,58 @@
+{
+  "myList": [
+    {
+      "listId": "1",
+      "listName": "My group 1",
+      "isAutoList": "false"
+    },
+    {
+      "listId": "2",
+      "listName": "My group 2",
+      "isAutoList": "true"
+    }
+  ],
+  "sharedList": [
+    {
+      "listId": "5",
+      "listName": "Share list 1",
+      "isAutoList": "true"
+    },
+    {
+      "listId": "6",
+      "listName": "Share list 2",
+      "isAutoList": "false"
+    }
+  ],
+  "favouriteList": [
+    {
+      "listId": 2,
+      "listName": "favouriteList 1",
+      "isAutoList": "true"
+    },
+    {
+      "listId": 6,
+      "listName": "favouriteList 2",
+      "isAutoList": "false"
+    },
+    {
+      "listId": 68,
+      "listName": "favouriteList 3",
+      "isAutoList": "false"
+    },
+    {
+      "listId": 23,
+      "listName": "favouriteList 11",
+      "isAutoList": "true"
+    },
+    {
+      "listId": 62,
+      "listName": "favouriteList 21",
+      "isAutoList": "false"
+    },
+    {
+      "listId": 61,
+      "listName": "favouriteList 31",
+      "isAutoList": "false"
+    }
+  ]
+}

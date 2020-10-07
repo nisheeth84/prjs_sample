@@ -1,0 +1,101 @@
+@startuml{Batch_レポート_中間ファイル作成.png}
+title [レポートバッチ_中間ファイル作成]
+hide footbox
+
+participant 中間ファイル作成ジョブ as batch_report_job <<batch>> #darkorange
+database レポート as table_reports <<dynamodb>> #royalblue
+database レポートジョブ履歴 as table_report_joblog <<dynamodb>> #royalblue
+database レポートストレージ as storage <<s3>> #crimson
+->> batch_report_job
+note right :実行時引数としてレポートID、ログIDを受け取る
+|||
+activate batch_report_job
+    batch_report_job -> batch_report_job :引数のバリデーションチェック
+    |||
+    ref over batch_report_job, table_report_joblog :ログストリーム名取得
+    |||
+    batch_report_job -> batch_report_job :中間ファイル作成処理
+    activate batch_report_job
+        batch_report_job -> table_reports :レコード取得
+        table_reports --> batch_report_job
+        batch_report_job -> batch_report_job :ステータスチェック
+        note right :ステータスが情報収集完了(2)であることを確認する。
+        batch_report_job -> table_reports :レコード更新（ステータス＝変換中(3)）
+        table_reports --> batch_report_job
+        |||
+        group 生成順序 2
+        batch_report_job -> batch_report_job :二次中間ファイル作成処理
+        note over batch_report_job, storage :今回（v.0.3）の対応範囲では、ここの処理は実装しない
+        note over batch_report_job, storage :作成する中間ファイルの単位で並列処理を行う
+        activate batch_report_job
+            par ファイルA
+            batch_report_job -> storage :元となるファイルを取得
+            storage --> batch_report_job
+            batch_report_job -> batch_report_job :変換処理
+            batch_report_job -> storage :作成したファイルを保存
+            storage --> batch_report_job
+            batch_report_job -> batch_report_job :後始末
+            note right :実行環境上のテンポラリ領域のクリーンアップなど
+            |||
+            else ファイルB
+            |||
+            end
+            batch_report_job -> batch_report_job :全ての並列処理が終了するまで待つ
+            batch_report_job --> batch_report_job
+        deactivate batch_report_job
+        |||
+        end
+        group 生成順序 3
+        |||
+        batch_report_job -> batch_report_job :三次中間ファイル作成処理
+        note over batch_report_job, storage :今回（v.0.3）の対応範囲では、ここの処理は実装しない
+        note over batch_report_job, storage :作成する中間ファイルの単位で並列処理を行う
+        activate batch_report_job
+            par ファイルA
+            batch_report_job -> storage :元となるファイルを取得
+            storage --> batch_report_job
+            batch_report_job -> batch_report_job :変換処理
+            batch_report_job -> storage :作成したファイルを保存
+            storage --> batch_report_job
+            batch_report_job -> batch_report_job :後始末
+            note right :実行環境上のテンポラリ領域のクリーンアップなど
+            |||
+            else ファイルB
+            |||
+            end
+            batch_report_job -> batch_report_job :全ての並列処理が終了するまで待つ
+            batch_report_job --> batch_report_job
+        deactivate batch_report_job
+        |||
+        end
+        group 生成順序 4
+        batch_report_job -> batch_report_job :ソースファイル作成処理
+        note over batch_report_job, storage :作成する中間ファイルの単位で並列処理を行う
+        activate batch_report_job
+            par ファイルA
+            batch_report_job -> storage :元となるファイルを取得
+            storage --> batch_report_job
+            batch_report_job -> batch_report_job :変換処理
+            batch_report_job -> storage :作成したファイルを保存
+            storage --> batch_report_job
+            batch_report_job -> batch_report_job :後始末
+            note right :実行環境上のテンポラリ領域のクリーンアップなど
+            |||
+            else ファイルB
+            |||
+            end
+            batch_report_job -> batch_report_job :全ての並列処理が終了するまで待つ
+            batch_report_job --> batch_report_job
+        deactivate batch_report_job
+        |||
+        end
+        |||
+        batch_report_job -> table_reports :レコード更新（ステータス＝変換完了(4)、エラーコードを削除）
+        table_reports --> batch_report_job
+        |||
+        batch_report_job --> batch_report_job
+    deactivate batch_report_job
+    |||
+deactivate batch_report_job
+
+@enduml

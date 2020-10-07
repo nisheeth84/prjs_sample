@@ -1,0 +1,102 @@
+{
+  "data": {
+    "schedules": [
+      {
+        "scheduleId": 1,
+        "scheduleName": "カレンダー",
+        "scheduleTypeId": 1,
+        "startDate": "10/05/2020 10:00",
+        "endDate": "10/05/2020 11:30",
+        "productTradingId": 9,
+        "customerId": 2221,
+        "customerName": "customerAAAAb",
+        "parentCustomerName": "customerAAAAb"
+      },
+      {
+        "scheduleId": 2,
+        "scheduleName": "カレンダー 2",
+        "scheduleTypeId": 1,
+        "startDate": "10/05/2020 10:00",
+        "endDate": "10/05/2020 11:30",
+        "productTradingId": 9,
+        "customerId": 2221,
+        "customerName": "customerAAAAb",
+        "parentCustomerName": "customerAAAAb"
+      }
+    ],
+    "tasks": [
+      {
+        "taskId": 101,
+        "taskName": "契約書に署名する",
+        "milestone": {
+          "milestoneId": 2221,
+          "milestoneName": "契約契約契約契約"
+        },
+        "customer": {
+          "customerId": 2001,
+          "customerName": "未来会社未来会社"
+        },
+        "productTradings": [
+          {
+            "productTradingId": 7771,
+            "productTradingName": "カテゴカテゴ"
+          }
+        ],
+        "finishDate": "2019/02/01",
+        "finishType": 1,
+        "operatorNames": ["オペレーター名A", "オペレーター名B"]
+      },
+      {
+        "taskId": 101001,
+        "taskName": "契約書に署名する",
+        "milestone": {
+          "milestoneId": 2221,
+          "milestoneName": "契約契約契約契約"
+        },
+        "customer": {
+          "customerId": 2001,
+          "customerName": "未来会社未来会社"
+        },
+        "productTradings": [
+          {
+            "productTradingId": 7771,
+            "productTradingName": "カテゴカテゴ"
+          }
+        ],
+        "finishDate": "2020/04/17",
+        "finishType": -1,
+        "operatorNames": ["オペレーター名C", "オペレーター名D"]
+      },
+      {
+        "taskId": 101002,
+        "taskName": "契約書に署名する",
+        "milestone": {
+          "milestoneId": 2221,
+          "milestoneName": "契約契約契約契約"
+        },
+        "customer": {
+          "customerId": 2001,
+          "customerName": "未来会社未来会社"
+        },
+        "productTradings": [
+          {
+            "productTradingId": 7771,
+            "productTradingName": "カテゴカテゴ"
+          }
+        ],
+        "finishDate": "2020/04/17",
+        "operatorNames": ["オペレーター名C", "オペレーター名D"]
+      }
+    ],
+    "milestones": [
+      {
+        "milestoneId": 123,
+        "milestoneName": "マイルストーンA",
+        "endDate": "2020/01/03 00:00:00",
+        "customerId": 2221,
+        "customerName": "customerAAAAb",
+        "parentCustomerName": "parent Cus AA002"
+      }
+    ]
+  }
+}

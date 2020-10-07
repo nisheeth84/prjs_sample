@@ -1,0 +1,275 @@
+<check-item-settings-copy-container>
+    <div class="page">
+        <div class="page-header">
+            <a href="#/check/settings/">&lt; {_t('CheckItemSettingsCopy.back_item_setting')}</a>
+            <h1 class="page-title mt-2">{_t('CheckItemSettingsCopy.item_setting_copy')}</h1>
+            <p ref="description_item_setting_copy">{commonUtils.parseHtmlByRef(this.refs.description_item_setting_copy, _t('CheckItemSettingsCopy.description_item_setting_copy'))}</p>
+        </div>
+        <div class="page-content container-fluid">
+            <form ref="form" autocomplete="off" submit="{confirmCopyCheckItemSettingHandler}" method="POST">
+                <div class="row mb-30">
+                    <div class="col-4">
+                        <h4>{_t('organization')}</h4>
+                        <select ref="source" class="form-control check-background-none h-150"
+                            onchange="{changeOrganizationHandler.bind(this,'source')}" size="6">
+                            <option each="{organization in organizations.source}"
+                                value="{organization.organization.id}"
+                                selected="{organizationSelected.source.id == organization.organization.id}">{
+                                organization.organization.name}</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <h4>{_t('project')}</h4>
+                        <select ref="source" disabled="{projects.source.length == 0}"
+                            class="form-control check-background-none h-150"
+                            onchange="{changeProjectHandler.bind(this,'source')}" size="6">
+                            <option each="{project in projects.source}" value="{project.id}"
+                                selected="{projectSelected.source.id == project.id}">{project.name}</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <h4>{_t('aws_account')}</h4>
+                        <select ref="source" disabled="{awsCoops.source.length == 0}"
+                            class="form-control check-background-none h-150"
+                            onchange="{changeAwsCoopHandler.bind(this,'source')}" size="6">
+                            <option each="{awsCoop in awsCoops.source}" value="{awsCoop.id}">
+                                {commonUtils.getAwsAccount(awsCoop.awsAccount, awsCoop.awsAccountName)}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-30 ">
+                    <div class="col-12 text-center">
+                        <i class="icon oi-arrow-down font-size-80 color-primary" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="row mb-30">
+                    <div class="col-4">
+                        <h4>{_t('organization')}</h4>
+                        <select ref="destination" class="form-control check-background-none h-150"
+                            onchange="{changeOrganizationHandler.bind(this,'destination')}" size="6">
+                            <option each="{organization in organizations.destination}"
+                                value="{organization.organization.id}">{organization.organization.name}</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <h4>{_t('project')}</h4>
+                        <select ref="destination" disabled="{projects.destination.length == 0}"
+                            class="form-control check-background-none h-150"
+                            onchange="{changeProjectHandler.bind(this,'destination')}" size="6">
+                            <option each="{project in projects.destination}" value="{project.id}">{project.name}</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <h4>{_t('aws_account')}</h4>
+                        <select ref="destination" disabled="{awsCoops.destination.length == 0}"
+                            class="form-control check-background-none h-150"
+                            onchange="{changeAwsCoopHandler.bind(this,'destination')}" size="6">
+                            <option each="{awsCoop in awsCoops.destination}" value="{awsCoop.id}">
+                                {commonUtils.getAwsAccount(awsCoop.awsAccount, awsCoop.awsAccountName)}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-30">
+                    <div class="col-4 offset-4">
+                        <button type="submit" disabled={isDisableButtonCopy}
+                            class="btn btn-primary btn-block">{_t('CheckItemSettingsCopy.copy_item_setting')}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <confirm-check-setting-copy-modal></confirm-check-setting-copy-modal>
+    <information-modal></information-modal>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        const tag = this
+        tag.obs = riot.observable()
+        tag.cognitoUser = riot.mixin('cognitoUser')
+
+        tag.organizations = {
+            "source": [],
+            "destination": []
+        }
+        tag.projects = {
+            "source": [],
+            "destination": []
+        }
+        tag.awsCoops = {
+            "source": [],
+            "destination": []
+        }
+        tag.organizationSelected = {
+            "source": {
+                "id": '',
+                "name": ''
+            },
+            "destination": {
+                "id": '',
+                "name": ''
+            }
+        }
+        tag.projectSelected = {
+            "source": {
+                "id": '',
+                "name": ''
+            },
+            "destination": {
+                "id": '',
+                "name": ''
+            }
+        }
+        tag.awsCoopSelected = {
+            "source": {
+                "id": '',
+                "name": ''
+            },
+            "destination": {
+                "id": '',
+                "name": ''
+            }
+        }
+
+        tag.changeOrganizationHandler = changeOrganizationHandler
+        tag.changeProjectHandler = changeProjectHandler
+        tag.changeAwsCoopHandler = changeAwsCoopHandler
+        tag.confirmCopyCheckItemSettingHandler = confirmCopyCheckItemSettingHandler
+        tag.isDisableButtonCopy = true
+        tag.organizationSelected.source.id = tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkOrganization')) ? tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkOrganization')) : null
+        tag.projectSelected.source.id = tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkProject')) ? tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkProject')) : null
+
+        tag.on('mount', function() {
+            if (!tag.organizations || !tag.organizations.length) {
+                const requestOrganizationUrl = tag.config.APIGATEWAY_ADDRESS + '/myorganizations?inviteStatus=1'
+                tag.commonUtils.callApiWithLoader(tag, requestOrganizationUrl, "GET").then(function(response) {
+                    tag.organizations.source = response.filter(trimViewerOrganization)
+                    tag.organizations.destination = response.filter(trimViewerOrganization)
+                    if (tag.organizationSelected.source.id) {
+                        let organizationExisted = tag.organizations.source.find(function(organization) {
+                            return organization.organization.id === tag.organizationSelected.source.id
+                        })
+                        if (organizationExisted) {
+                            changeOrganization(tag.organizationSelected.source.id, "source")
+                            tag.organizationSelected.source.name = organizationExisted.organization.name
+                        }
+                    }
+                    tag.update()
+                })
+            }
+        })
+
+        function confirmCopyCheckItemSettingHandler(event) {
+            event.preventDefault()
+            if (validateInfoSourceDestination()) {
+                information = {
+                    'organization': tag.organizationSelected,
+                    'project': tag.projectSelected,
+                    'awsCoop': tag.awsCoopSelected
+                }
+                tag.obs.trigger('confirm-check-setting-copy-modal-open', information)
+            } else {
+                const errorObj = {
+                    'errorTitle': tag._t('error'),
+                    'message': tag._t('Error_message.aws_account_not_selected')
+                }
+                const promiseErrorObj = Promise.resolve(errorObj)
+                tag.obs.trigger('error-modal-open', promiseErrorObj)
+            }
+        }
+
+        function changeOrganizationHandler(type, event) {
+            const organizationId = event.target.value
+            tag.isDisableButtonCopy = true
+            tag.projects[type] = []
+            tag.awsCoops[type] = []
+            tag.projectSelected[type] = {
+                "id": '',
+                "name": ''
+            }
+            tag.awsCoopSelected[type] = {
+                "id": '',
+                "name": ''
+            }
+
+            if (organizationId) {
+                tag.organizationSelected[type].name = event.target.options[event.target.selectedIndex].label
+                changeOrganization(organizationId, type)
+            }
+        }
+
+        function changeOrganization(organizationId, type) {
+            if (organizationId) {
+                tag.organizationSelected[type].id = organizationId
+                const requestProjectUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + organizationId + '/projects'
+                tag.commonUtils.callApiWithLoader(tag, requestProjectUrl, "GET").then(function(response) {
+                    tag.projects[type] = response
+                    let projectExisted = tag.projects[type].find(function(project) {
+                        return tag.projectSelected[type].id === project.id
+                    })
+                    if (tag.projectSelected[type].id && projectExisted) {
+                        changeProject(tag.projectSelected[type].id, type)
+                        tag.projectSelected[type].name = projectExisted.name
+                    }
+                    tag.update()
+                })
+            }
+        }
+
+        function changeProjectHandler(type, event) {
+            const projectId = event.target.value
+            tag.isDisableButtonCopy = true
+            tag.awsCoops[type] = []
+            tag.awsCoopSelected[type] = {
+                "id": '',
+                "name": ''
+            }
+            if (projectId) {
+                tag.projectSelected[type].name = event.target.options[event.target.selectedIndex].label
+                changeProject(projectId, type)
+            }
+        }
+
+        function changeProject(projectId, type) {
+            if (projectId) {
+                tag.projectSelected[type].id = projectId
+                const requestAwsCoopsUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + tag.organizationSelected[type].id + '/projects/' + projectId + '/awscoops?effective=1'
+                tag.commonUtils.callApiWithLoader(tag, requestAwsCoopsUrl, "GET").then(function(response) {
+                    tag.awsCoops[type] = response
+                    if (type == "source") {
+                        tag.commonUtils.setItemToLocalStorage(tag.commonUtils.getLocalStorageKey('checkOrganization'), tag.organizationSelected[type].id)
+                        tag.commonUtils.setItemToLocalStorage(tag.commonUtils.getLocalStorageKey('checkProject'), projectId)
+                    }
+                    tag.update()
+                })
+            }
+        }
+
+        function changeAwsCoopHandler(type, event) {
+            tag.awsCoopSelected[type].id = event.target.value
+            tag.awsCoopSelected[type].name = event.target.options[event.target.selectedIndex].label
+            if (validateInfoSourceDestination()) {
+                tag.isDisableButtonCopy = false
+            }
+            tag.update()
+        }
+
+        function validateInfoSourceDestination() {
+           if (tag.awsCoopSelected.source.id && tag.awsCoopSelected.destination.id) {
+               return true
+           }
+
+           return false
+       }
+
+        function trimViewerOrganization(organization) {
+            if (tag.commonUtils.isEditor(organization)) {
+                return organization
+            }
+        }
+
+        require('../../check/component/ConfirmCheckItemSettingCopyModal.tag.html')
+        require('../../common/component/InformationModal.tag.html')
+    </script>
+</check-item-settings-copy-container>

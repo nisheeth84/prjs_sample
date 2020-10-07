@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SecurityCheckReport_Sub" pageWidth="595" pageHeight="842" columnWidth="475" leftMargin="60" rightMargin="60" topMargin="40" bottomMargin="40" uuid="038cc6fc-2af4-4a4e-b028-59a5b85f35c4">
+	<property name="ireport.zoom" value="1.2100000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="173"/>
+	<property name="net.sf.jasperreports.awt.ignore.missing.font" value="true"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\Projects\\prjo_AWSAccount\\30_implementation\\31_requirement\\VN\\Latest\\Luvina Design Require\\templatePdf\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="lsSecurityCheckReportSummaryDto" class="java.util.List"/>
+	<field name="lsCisSecurityCheckReportResultDto" class="java.util.List"/>
+	<field name="lsAscSecurityCheckReportResultDto" class="java.util.List"/>
+	<field name="lsIbpSecurityCheckReportResultDto" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="20">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="a918d657-b2ed-4ebb-b5b0-01c0c26b3bdd"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="IPAexGothic" size="10" isBold="false" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{common.insightwatch}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="609">
+			<subreport isUsingCache="false">
+				<reportElement x="0" y="1" width="475" height="100" uuid="df4462b9-f3f3-41f0-81cb-7f961d010963"/>
+				<subreportParameter name="REPORT_RESOURCE_BUNDLE">
+					<subreportParameterExpression><![CDATA[$P{REPORT_RESOURCE_BUNDLE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{lsSecurityCheckReportSummaryDto})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["Disclaimer_Page.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="101" width="100" height="1" uuid="57230252-3d30-41ef-b385-06e1666c3c67"/>
+			</break>
+			<subreport>
+				<reportElement x="0" y="102" width="475" height="100" uuid="a9b287e6-dbdd-4520-acb8-5c68f9b2c569"/>
+				<subreportParameter name="REPORT_RESOURCE_BUNDLE">
+					<subreportParameterExpression><![CDATA[$P{REPORT_RESOURCE_BUNDLE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{lsSecurityCheckReportSummaryDto})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["Summary_Page.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="202" width="100" height="1" uuid="b49b61e7-50da-47e6-abce-f038e50956d4"/>
+			</break>
+			<subreport isUsingCache="false">
+				<reportElement x="0" y="203" width="475" height="50" uuid="b39aa90a-7226-4d64-8917-1e918b2f0099"/>
+				<subreportParameter name="REPORT_RESOURCE_BUNDLE">
+					<subreportParameterExpression><![CDATA[$P{REPORT_RESOURCE_BUNDLE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{lsSecurityCheckReportSummaryDto})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["CIS_OverView_Page.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="253" width="100" height="1" uuid="919990d9-77bb-44d6-acd9-6a9335eabd46"/>
+			</break>
+			<subreport>
+				<reportElement x="0" y="254" width="475" height="50" uuid="3861e9d0-b97e-43a7-8ae0-cda004d2f8cc"/>
+				<subreportParameter name="REPORT_RESOURCE_BUNDLE">
+					<subreportParameterExpression><![CDATA[$P{REPORT_RESOURCE_BUNDLE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{lsCisSecurityCheckReportResultDto})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["CIS_Result_Page.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="304" width="100" height="1" uuid="f59ce5ae-1242-459e-bf0d-205ef521d6e2"/>
+			</break>
+			<subreport isUsingCache="false">
+				<reportElement x="0" y="305" width="475" height="50" uuid="979390af-1f06-4d8b-98f3-a818e55b712d"/>
+				<subreportParameter name="REPORT_RESOURCE_BUNDLE">
+					<subreportParameterExpression><![CDATA[$P{REPORT_RESOURCE_BUNDLE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{lsSecurityCheckReportSummaryDto})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["ASC_OverView_Page.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="355" width="100" height="1" uuid="a1d1f303-44a3-419d-ba70-61040c4637ca"/>
+			</break>
+			<subreport isUsingCache="false">
+				<reportElement x="0" y="356" width="475" height="50" uuid="581d605e-2367-4336-bbd5-08c37360ed3a"/>
+				<subreportParameter name="REPORT_RESOURCE_BUNDLE">
+					<subreportParameterExpression><![CDATA[$P{REPORT_RESOURCE_BUNDLE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{lsAscSecurityCheckReportResultDto})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["ASC_Result_Page.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="406" width="100" height="1" uuid="67a8dcf6-6b75-46f7-9d2b-00044c6df0a1"/>
+			</break>
+			<subreport isUsingCache="false">
+				<reportElement x="0" y="407" width="475" height="50" uuid="48ad55ee-a1b1-4aec-a398-86ce2bea55c9"/>
+				<subreportParameter name="REPORT_RESOURCE_BUNDLE">
+					<subreportParameterExpression><![CDATA[$P{REPORT_RESOURCE_BUNDLE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{lsSecurityCheckReportSummaryDto})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["IBP_OverView_Page.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="457" width="100" height="1" uuid="f564228c-ac94-4480-a8fb-b6694d5f14a1"/>
+			</break>
+			<subreport isUsingCache="false">
+				<reportElement x="0" y="458" width="475" height="50" uuid="3118c1c7-531e-4fc9-a6fb-6bbd3d68632b"/>
+				<subreportParameter name="REPORT_RESOURCE_BUNDLE">
+					<subreportParameterExpression><![CDATA[$P{REPORT_RESOURCE_BUNDLE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{lsIbpSecurityCheckReportResultDto})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["IBP_Result_Page.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="508" width="100" height="1" uuid="09ff543e-cf41-4bc6-bc29-2ab0239ecd96"/>
+			</break>
+			<subreport isUsingCache="false">
+				<reportElement x="0" y="509" width="475" height="100" uuid="c67deae8-92f9-49f3-a4b7-13dd344c0d33"/>
+				<subreportParameter name="REPORT_RESOURCE_BUNDLE">
+					<subreportParameterExpression><![CDATA[$P{REPORT_RESOURCE_BUNDLE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{lsSecurityCheckReportSummaryDto})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["Information_Page.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="318" y="0" width="157" height="20" uuid="719a2f37-88e5-4f18-b8f5-59257ca81988"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="IPAexGothic" size="10" isBold="false" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{front.copyright}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="157" y="0" width="80" height="20" uuid="496b62d8-df49-46f0-9419-ad0dafc894b2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["(" + $V{PAGE_NUMBER} +" /"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="237" y="0" width="40" height="20" uuid="f0c654c9-79ff-400c-957b-7cc95624b50d"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER} + ")"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

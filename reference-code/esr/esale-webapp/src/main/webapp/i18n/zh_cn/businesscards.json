@@ -1,0 +1,259 @@
+﻿{
+  "businesscards": {
+    "add-edit-list": {
+      "title": {
+        "show-language": "显示其他语言"
+      }
+    },
+    "list": {
+      "isWorking": {
+        "working": "正在工作",
+        "notWorking": "不再工作了"
+      },
+      "saveMode": "待更新",
+      "header": {
+        "companyName": "客户姓名/名片姓名",
+        "positionName": "部门/职务名称",
+        "contactName": "联系地址",
+        "address": "联系地址"
+      }
+    },
+    "list-view": {
+      "sort": {
+        "label": "排序",
+        "asc": "升序",
+        "desc": "降序",
+        "name": "名片姓名",
+        "first-name": "名字",
+        "last-name": "名前（姓）",
+        "position": "职务",
+        "receiver": "接收者",
+        "receiver-number": "接收者数",
+        "receive-date": "接收日期",
+        "updated-date": "最后更新日期",
+        "last-contact-date": "最后接触日期",
+        "receiver-info": "它将自动集成。"
+      }
+    },
+    "displayCondition": {
+      "buttonShowCondition": "详细的搜索条件",
+      "form": {
+        "conditionSearch": "详细的搜索条件",
+        "filter": "筛选条件",
+        "conditionSave": "保存自动添加列表的条件"
+      }
+    },
+    "top": {
+      "title": {
+        "btn-registration": "注册名片",
+        "btn-import": "导入名片",
+        "btn-operation": "列表操作",
+        "btn-add-to-list": "添加到列表",
+        "btn-create-my-list": "创建我的列表",
+        "btn-create-shared-list": "创建共享列表",
+        "btn-update-list": "更新列表",
+        "btn-move-list": "移至另一个列表",
+        "btn-remove-from-list": "从列表中删除",
+        "btn-edit": "简单编辑",
+        "btn-cancel": "取消",
+        "btn-save": "保存更改"
+      },
+      "place-holder.search": "搜索名片"
+    },
+    "sidebar": {
+      "title": {
+        "all-cards": "所有名片",
+        "receiver": "收到的名片",
+        "favorite-list": "喜爱的列表",
+        "my-list": "我的列表",
+        "shared-list": "共享列表"
+      },
+      "place-holder.search": "搜索名片",
+      "card": {
+        "btn-refresh-auto-list": "更新列表",
+        "btn-remove-from-favorite": "从喜爱的列表中移除",
+        "btn-add-to-favorite": "注册到喜爱的列表",
+        "btn-edit-list": "编辑列表",
+        "btn-delete-list": "删除列表",
+        "btn-duplicate-list": "复制列表",
+        "change-to-shared-list": "更改为共享列表"
+      }
+    },
+    "popup": {
+      "add-card-to-list": {
+        "title": "添加到列表",
+        "list-card": "移动的目的地列表",
+        "placeholder": "选择添加的列表",
+        "btn-submit": "添加",
+        "err-not-select": "必填项目。请填写值。"
+      },
+      "move-list": {
+        "title": "移动列表",
+        "list-card": "移动的列表",
+        "list-card-default": "选择移动的目的地列表",
+        "btn-submit": "移动",
+        "my-list": "我的列表",
+        "share-list": "共享列表",
+        "favorite-list": "喜爱的列表"
+      }
+    },
+    "mylist": {
+      "title": "创建我的列表",
+      "edit-title": "编辑我的列表",
+      "my-title": "列表名称",
+      "required": "必须",
+      "lable-language": "显示其他语言",
+      "lable-name-languageJp": "日本語",
+      "lable-name-languageEn": "English(US)",
+      "lable-name-languageZn": "中文（简体",
+      "button-create": "创建",
+      "button-edit": "更改",
+      "radio-auto": "自动添加",
+      "radio-manual": "手动",
+      "mylist-name-placeholder": "输入列表名称",
+      "mylist-radio-manual": "列表类型",
+      "mylist-radio-auto": "列表类型",
+      "setting-search-condition": "搜索条件的编辑",
+      "is-overwrite": "如果与更新时的条件不匹配，将从列表中进行删除",
+      "button-cancel": "×",
+      "mylist-type": "列表类型",
+      "auto-group-condition-search-title": "自动添加的搜索列表条件",
+      "list-update-time": "每天「{{0}}」点时自动进行列表更新",
+      "duplicate": "副本（{{n}}）",
+      "duplicate-check": "副本",
+      "search-condition-input-placeholder": "搜索项目"
+    },
+    "detail": {
+      "label": {
+        "button.save": "保存",
+        "button.cancel": "取消",
+        "button.confirm": "删除",
+        "button.confirmOnly": "仅删除名片",
+        "button.confirmMulti": "删除客户和名片",
+        "button.createFollowed": "关注",
+        "button.deleteFolloweds": "取消关注",
+        "button.displayArea": "显示范围",
+        "button.editMode": "编辑画面",
+        "button.optionAll": "全部显示",
+        "button.optionCost": "仅显示自己负责的部分",
+        "button.optionCustomer": "所有客户",
+        "button.optionOpen": "当前显示的客户",
+        "button.sampleData": "名片的样本数据",
+        "button.exampleData": "预览注册画面",
+        "title.activityHistories": "活动记录",
+        "title.productTradings": "交易产品",
+        "title.calendar": "日历",
+        "title.delete": "删除",
+        "active": "曾经见过",
+        "lastContactDate": "最后接触日期",
+        "lastContact": "最后接触者",
+        "more-receiver": "其他{{0}}个人",
+        "badges.empty": "没有计划"
+      }
+    },
+    "history": {
+      "title.info": "已被注册。",
+      "title.coherence": "已集成到。",
+      "title.update": "已被更改。"
+    },
+    "sharelist": {
+      "lbCreateShare": "创建共享列表",
+      "list-name-place-holder": "输入列表",
+      "lbEditShare": "编辑共享列表",
+      "lbSwitchShareType": "更改为分享组",
+      "lbCreateShareWith": "件将创建群组",
+      "btnUpdate": "更新",
+      "btnCreate": "创建",
+      "radHideOtherLanguage": "隐藏其他语言",
+      "radShowOtherLanguage": "显示其他语言",
+      "lbRequire": "必须",
+      "lbShareName": "列表名称",
+      "hintShareName": "输入列表名称",
+      "list-participants": "列表中的参与者",
+      "lbListParticipants": "列表中的参与者",
+      "hintListParticipants": "添加列表中的参与者",
+      "icCompany": "公司",
+      "lbSearchCondition": "自动添加的搜索列表条件",
+      "lbSettingSearch": "编辑搜索条件",
+      "lbNoteForCheckBox": "如果与更新时的条件不匹配，将从列表中进行删除",
+      "hintJapanese": "(日本語)",
+      "hintChinese": "(中文（简体）",
+      "hintEnglish": "(English （US）)",
+      "hintKorean": "(한국어)",
+      "lbGroupType": "列表类型",
+      "radManual": "手动",
+      "radAuto": "自动添加",
+      "permision.viewer": "阅览者",
+      "permision.owner": "所有者",
+      "list-update-time": "每天「{{0}}」点时自动进行群组更新",
+      "duplicate": "副本（{{n}}）",
+      "duplicate-check": "副本"
+    },
+    "transfer": {
+      "lbInput": "转移目的地的客户",
+      "placeholder": "选择要调换到的客户",
+      "tilte": "调换",
+      "buttomSubmit": "调换",
+      "buttomCancel": "取消"
+    },
+    "auto": {
+      "right": "添加新的",
+      "placeholder": "详细的搜索"
+    },
+    "create-edit": {
+      "modal-heading-create": "注册名片",
+      "modal-heading-edit": "编辑名片",
+      "label-name-group": "名片姓名",
+      "label-name-kana-group": "名片姓名（假名）",
+      "label-department-group": "部门/职务",
+      "employee-id": "接收者",
+      "employee-id-placeholder": "选择接收者",
+      "receive-date": "接收日期",
+      "receive-person": "接收者",
+      "receive-date-placeholder": "输入接收日期",
+      "button-create": "注册",
+      "button-edit": "保存",
+      "button-cancel": "取消",
+      "button-add-receive": "添加接收者",
+      "created-date": "注册日期",
+      "created-user": "注册者",
+      "updated-date": "最后更新日期",
+      "updated-user": "最终更新者",
+      "auto-generate": "自动注册",
+      "auto-update": "自动更新",
+      "last-contract-date": "最后接触日期",
+      "isWorking": "设置正在工作",
+      "notWorking": "未设置正在工作",
+      "working": "正在工作",
+      "isRequired": "必须",
+      "inputPlaceHolder": "",
+      "customer-name-placeholder": "选择客户名称",
+      "input": "输入"
+    },
+    "merge-business-card": {
+      "btn-merge": "集成",
+      "manual-input": "手动输入",
+      "placeholder": "添加名片",
+      "select-all": "全选",
+      "select-item": "选择集成时要保留的项目",
+      "union": "联合",
+      "cannot-enter": "无法输入价值"
+    },
+    "detailHistory": {
+      "titleOne": "此名片信息截至",
+      "titleTwo": "。",
+      "buttonBackToNow": "最新名片信息",
+      "comapnyName": "客户名称",
+      "urlTarget": "显示的文本",
+      "urlText": "目标链接URL",
+      "recievesDate": "(收货日期: ",
+      "recievesItem": "接收者"
+    },
+    "calendarTab": {
+      "month": "月",
+      "week": "周",
+      "list": "列表",
+      "now": "今天"
+    }
+  }
+}

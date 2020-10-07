@@ -1,0 +1,131 @@
+:root {
+    --menu-bg-color:#00918C;
+    --primary-bg-color:#ECECEC;
+}
+.container-fluid{
+    background-color: var(--primary-bg-color);
+}
+
+.active {
+    background-color: #f8f9fa !important;
+    color: #495057 !important;
+    border-color: #f8f9fa !important;
+}
+
+.menu-item{
+    background-color: var(--menu-bg-color);
+    color: white;
+}
+
+.bg-primary{
+    background-color: var(--menu-bg-color);
+}
+
+.btn-header{
+    background-color: var(--menu-bg-color);
+    border: 0;
+    color: white;
+    text-align: center;
+    margin: 0 0 0 20px;
+}
+
+.list-group-item {
+    border: 1.5px solid white
+}
+
+.col-6 {
+    padding: 0;
+}
+
+/* Bootstrap 4 text input with search icon */
+.has-search .form-control {
+    padding-left: 2.375rem;
+    margin-left: 0;
+    border: 0;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.input-search{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: var(--primary-bg-color);
+}
+/* End Bootstrap 4 text input with search icon */
+
+/* page control*/
+
+.btn-page-control{
+    background-color: var(--primary-bg-color);
+    border: none;
+    margin-left: 15px;
+}
+
+.page-control-wrapper{
+    position: relative;
+    height: 50px;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.select-page{
+    background-color: var(--primary-bg-color);
+    border: 0;
+    margin: 0 15px;
+}
+
+/* end page control*/
+.seperate{
+    clear: both;
+    border-bottom: 1px solid #56B5AC;
+}
+
+.table{
+    background-color: var(--primary-bg-color);
+}
+
+#wrapper{
+ background-color: var(--primary-bg-color);
+}
+
+.page-item.active .page-link{
+    background-color: #00918C;
+}
+
+th{
+    font-weight: normal;
+}
+
+form label.required:after {
+    color: red;
+    content: " *";
+}
+
+.th-table{
+    font-weight: bold;
+}
+
+.click {
+    background-color: var(--primary-bg-color);
+    color:#495057;
+}
+
+a {
+    display: inline-block;
+}

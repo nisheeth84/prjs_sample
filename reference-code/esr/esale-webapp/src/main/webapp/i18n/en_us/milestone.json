@@ -1,0 +1,78 @@
+{
+  "milestone": {
+    "create-edit": {
+      "title": "Register milestone",
+      "title-edit": "Edit milestone",
+      "menu": {
+        "menu-status-not-started": "Not started",
+        "menu-status-at-work": "Doing",
+        "menu-status-over": "Completed"
+      },
+      "form": {
+        "milestone-name": "Milestone name",
+        "milestone-name-placeholder": "Enter milestone name",
+        "finnish-date": "Completion date (estimated)",
+        "finnish-date-placeholder": "Add completion date (estimated)",
+        "isdone": "Completion settings",
+        "isdone-comment": "Complete this milestone",
+        "comment": "Memo",
+        "comment-placeholder": "Enter memo",
+        "create-date": "Registration date",
+        "create-per": "Registrant",
+        "update-date": "Last updated date",
+        "update-per": "Last updated person",
+        "default": "Automatically registered",
+        "required": "※",
+        "button-create": "Register",
+        "button-edit": "Save",
+        "button-cancel": "Cancel",
+        "message-required": "Please enter milestone name.",
+        "is-public-title": "Privacy setting",
+        "is-public-checkbox": "Public",
+        "customer": "Customer name",
+        "customer-placeholder": "Add customer"
+      }
+    },
+    "detail": {
+      "popup-delete": {
+        "title": "Delete",
+        "detail": "Are you sure you want to delete this milestone?",
+        "button-delete": "Delete",
+        "button-cancel": "Cancel"
+      },
+      "popup-update-status": {
+        "title": "Confirm",
+        "detail_1": "Completed milestone contains unfinished task.",
+        "detail_2": "Please select an action.",
+        "button-update": "Complete task",
+        "button-cancel": "Cancel"
+      },
+      "form": {
+        "regist": "Register activity",
+        "milestone-name": "Milestone name",
+        "comment": "Memo",
+        "task": "Task",
+        "isdone-title": "Completion Setting",
+        "isdone": "Completion Setting",
+        "undone": "Uncompleted",
+        "expected-date": "Completion date (estimated)",
+        "create-date": "Registration date : ",
+        "create-per": "Registrant : ",
+        "update-date": "Last updated date : ",
+        "update-per": "Last updated person : ",
+        "button-finish": "Complete",
+        "count-task": "{{countTask}} others",
+        "customer": "Customer",
+        "buton-activity-history": "Activity History",
+        "label-change-history-create": "Registered.",
+        "label-change-history-update": "The following items have been updated.",
+        "history-year": "/",
+        "history-month": "/",
+        "history-day": " ",
+        "change-history": "History",
+        "tab-summary": "Basic Info",
+        "tab-history": "Changed History"
+      }
+    }
+  }
+}

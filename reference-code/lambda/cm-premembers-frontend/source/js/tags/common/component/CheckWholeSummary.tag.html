@@ -1,0 +1,93 @@
+<check-whole-summary>
+    <div class="row m-0 px-30" data-by-row="true">
+        <div class="col-11">
+            <div class="row h-full">
+                <div class="card card-inverse card-primary" ref="managed">
+                    <div class="card-block p-30">
+                        <div class="row">
+                            <div>
+                                <div class="counter text-center card-title">
+                                    <div class="counter-label mt-10">
+                                        {_t('managed')}
+                                    </div>
+                                    <div class="counter-number font-size-40 mt-10 text-white mw-100">
+                                        {opts.resultchecksummary.managedCount}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card card-inverse card-success margin-left_20">
+                    <div class="card-block p-30">
+                        <div class="row">
+                            <div>
+                                <div class="counter text-center card-title">
+                                    <div class="counter-label mt-10">
+                                        {_t('normal')}
+                                    </div>
+                                    <div class="counter-number font-size-40 mt-10 text-white mw-100">
+                                        {opts.resultchecksummary.okCount}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card card-inverse card-warning margin-left_20"  ref="warning">
+                    <div class="card-block p-30">
+                        <div class="row">
+                            <div>
+                                <div class="counter text-center card-title">
+                                    <div class="counter-label mt-10">
+                                        {_t('warning')}
+                                    </div>
+                                    <div class="counter-number font-size-40 mt-10 text-white mw-100" >
+                                        {opts.resultchecksummary.ngCount}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card card-inverse card-danger margin-left_20"  ref="danger">
+                    <div class="card-block p-30">
+                        <div class="row">
+                            <div>
+                                <div class="counter text-center card-title">
+                                    <div class="counter-label mt-10">
+                                        {_t('critical')}
+                                    </div>
+                                    <div class="counter-number font-size-40 mt-10 text-white mw-100">
+                                        {opts.resultchecksummary.criticalCount}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script>
+        const tag = this;
+        const obs = tag.parent.obs
+        tag.observer = obs;
+        tag.on('mount', function() {
+            const managed = tag.refs.managed
+            const warning = tag.refs.warning
+            const danger = tag.refs.danger
+            $(managed).webuiPopover({content:tag._t('CheckWholeSummary.notify_managed'),trigger:'hover',placement:'top'});
+            $(warning).webuiPopover({content:tag._t('CheckWholeSummary.notify_warning'),trigger:'hover',placement:'top'});
+            $(danger).webuiPopover({content:tag._t('CheckWholeSummary.notify_critical'),trigger:'hover',placement:'top'});
+            tag.update()
+        })
+
+    </script>
+</check-whole-summary>

@@ -1,0 +1,219 @@
+{
+    "IBP": {
+        "check_group_name": "IBP",
+        "CHECK_IBP_ITEM_01_01": {
+            "title": "Lock Away Your AWS Account Root User Access Keys",
+            "number": "01",
+            "alert_criteria": "Alert criteria: If access key is set for root account",
+            "description_1": "The root account has strong privileges. Please use IAM users instead of the root account.",
+            "description_2": "Please delete the access key of root account and use IAM user",
+            "description_3": "The correspondence procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_delete-key\" target=\"_blank\">here</a>"
+        },
+        "CHECK_IBP_ITEM_02_01": {
+            "title": "Create Individual IAM Users",
+            "number": "02",
+            "alert_criteria": "Alert criteria: IAM user does not exist",
+            "description_1": "The root account has strong privileges. Please use IAM users instead of the root account.",
+            "description_2": "Please create an IAM user for people accessing your account",
+            "description_3": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_IBP_ITEM_03_01": {
+            "title": "Use Groups to Assign Permissions to IAM Users",
+            "number": "03",
+            "alert_criteria": "Alert criteria: IAM policy attached to IAM user",
+            "description_1": "Assigning permissions at the group level reduces the complexity of increasing users and reduces the risk of granting unautherized authority",
+            "description_2": "Make IAM user belong to group, attach policy to group, and delete policy from IAM user",
+            "description_3": "The response procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_IBP_ITEM_04_01": {
+            "title": "Get Started Using Permissions With AWS Managed Policies",
+            "number": "04",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "Use AWS administrative policy whenever possible to grant permission to IAM group or role",
+            "description_2": "AWS management policy is maintained and updated by AWS",
+            "description_3": "The response procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html\" target=\"_blank\">here</a>",
+            "description_4": "Additional information <ul><li><a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html\" target=\"_blank\">AWS management policy for job functions</a></li></ul>"
+        },
+        "CHECK_IBP_ITEM_05_01": {
+            "title": "Grant Least Privilege",
+            "number": "05",
+            "alert_criteria": "Alert criteria: Admin privilege if it is ( \"Effect\": \"Allow\", \"Action\": \"*\", \"Resource\": \"*\" )",
+            "description_1": "By giving minimum permissions to IAM, you will be able to perform only the tasks you need",
+            "description_2": "Please check the services used by the user and only grant necessary privileges",
+            "description_3": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege\" target=\"_blank\">here</a>",
+            "description_4": ""
+        },
+        "CHECK_IBP_ITEM_06_01": {
+            "title": "Use Access Levels to Review IAM Permissions",
+            "number": "06",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "Please refer to the access level of the service defined in the IAM policy, check the access authority to the service provided by the policy",
+            "description_2": "Grant minimum privilege for policy to execute only necessary action",
+            "description_3": "The response procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_understand-service-summary.html\" target=\"_blank\">here</a>",
+            "description_4": "Additional information <ul><li><a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_understand-policy-summary-access-level-summaries.html\" target=\"_blank\">About the summary of access levels in policy overview</a></li></ul>"
+        },
+        "CHECK_IBP_ITEM_07_01": {
+            "title": "Configure a Strong Password Policy for Your Users - Ensure IAM Password Policy Requires at Least One Uppercase Letter",
+            "number": "07-01",
+            "alert_criteria": "Alert criteria: When one or more uppercase letters are invalid in IAM's password policy",
+            "description_1": "This policy creates harder to guess passwords",
+            "description_2": "Please enable uppercase letter of one or more characters",
+            "description_3": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_IBP_ITEM_07_02": {
+            "title": "Configure a Strong Password Policy for Your Users - Ensure IAM Password Policy Requires at Least One Lowercase Letter",
+            "number": "07-02",
+            "alert_criteria": "Alert criteria: When one or more lowercase letters are invalid in IAM's password policy",
+            "description_1": "This policy creates harder to guess passwords",
+            "description_2": "Please enable one or more lowercase letters",
+            "description_3": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_IBP_ITEM_07_03": {
+            "title": "Configure a Strong Password Policy for Your Users - Ensure IAM Password Policy Requires at Least One Symbol",
+            "number": "07-03",
+            "alert_criteria": "Alert criteria: One or more letters is invalid in IAM's password policy",
+            "description_1": "This policy creates harder to guess passwords",
+            "description_2": "Please enable one or more letters",
+            "description_3": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_IBP_ITEM_07_04": {
+            "title": "Configure a Strong Password Policy for Your Users - Ensure IAM Password Policy Requires at Least One Number",
+            "number": "07-04",
+            "alert_criteria": "Alert criteria: When \"Require at least one number\" are invalid in IAM's password policy",
+            "description_1": "This policy creates harder to guess passwords",
+            "description_2": "Please enable \"Require at least one number\"",
+            "description_3": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_IBP_ITEM_07_05": {
+            "title": "Configure a Strong Password Policy for Your Users - Ensure IAM Password Policy Requires Minimum Length of 14 or More Characters",
+            "number": "07-05",
+            "alert_criteria": "Alert criteria: Password is 14 characters or more disabled in IAM password policy",
+            "description_1": "This policy creates harder to guess passwords",
+            "description_2": "Please enable Password is 14 characters or more",
+            "description_3": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_IBP_ITEM_07_06": {
+            "title": "Configure a Strong Password Policy for Your Users - Ensure IAM Password Policy Prevents Password Reuse",
+            "number": "07-06",
+            "alert_criteria": "Alert criteria <ul><li> Prohibited password reuse is disabled in IAM password policy</li><li> The number of passwords to remember is not 24</li></ul>",
+            "description_1": "This policy creates harder to guess passwords",
+            "description_2": "Please disable password reuse <ul><li> Please specify 24 for the number of passwords to remember. If you specify anything other than 24, it will be checked NG.</li></ul>",
+            "description_3": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_IBP_ITEM_07_07": {
+            "title": "Configure a Strong Password Policy for Your Users - Ensure IAM password policy expires passwords within 90 days or less",
+            "number": "07-07",
+            "alert_criteria": "Alert criteria: Password expiration within 90 days is invalid in IAM's password policy",
+            "description_1": "This policy creates harder to guess passwords",
+            "description_2": "Please enable Password expiration within 90 days",
+            "description_3": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_IBP_ITEM_07_08": {
+            "title": "Configure a Strong Password Policy for Your Users - Ensure IAM password policy allow users to change their own password",
+            "number": "07-08",
+            "alert_criteria": "Alert criteria: Allow user to change password is disabled in IAM password policy",
+            "description_1": "This policy creates harder to guess passwords",
+            "description_2": "Please enable allow user to change password",
+            "description_3": "Follow steps provided in <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html\" target=\"_blank\">this</a> article"
+        },
+        "CHECK_IBP_ITEM_08_01": {
+            "title": "Enable MFA for Privileged Users",
+            "number": "08",
+            "alert_criteria": "Alert criteria: MFA not set for IAM user",
+            "description_1": "Enable Multi-Factor Authentication (MFA) for IAM users to enhance security at login",
+            "description_2": "Activate MFA",
+            "description_3": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_IBP_ITEM_09_01": {
+            "title": "Use Roles for Applications That Run on Amazon EC2 Instances",
+            "number": "09",
+            "alert_criteria": "Alert criteria: When the IAM role is not attached to EC2",
+            "description_1": "Use a temporary key with a deadline in the IAM role",
+            "description_2": "Access to AWS resources from EC2 can reduce the risk of key leakage by using IAM role instead of access key",
+            "description_3": "Please create an IAM role with proper authority and attach it to EC2",
+            "description_4": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_IBP_ITEM_10_01": {
+            "title": "Use Roles to Delegate Permissions",
+            "number": "10",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "Do not share access key or secret key between accounts",
+            "description_2": "If you want to allow access to your AWS account from another AWS account, please use IAM role instead of access key share",
+            "description_3": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_policy-examples.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_IBP_ITEM_11_01": {
+            "title": "Rotate Credentials Regularly",
+            "number": "11",
+            "alert_criteria": "Alert criteria <ul><li>If there are access keys that have not been rotated more than 90 days</li><li> If there are access keys that have not been used since rotation</li></ul>",
+            "description_1": "Access key is authentication information for using AWS from the tool (AWS CLI, PowerShell, AWS SDK etc)",
+            "description_2": "Rotating regularly reduces the risk of access key theft and leakage",
+            "description_3": "Please rotate access key",
+            "description_4": "The response procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_RotateAccessKey\" target=\"_blank\">here</a>"
+        },
+        "CHECK_IBP_ITEM_12_01": {
+            "title": "Remove Unnecessary Credentials",
+            "number": "12",
+            "alert_criteria": "Alert criteria: When authentication information (IAM user, access key) is not used for more than 90 days",
+            "description_1": "Inventory periodic inventory of unused authentication information (IAM users, access keys), improve security",
+            "description_2": "Please invalidate or delete authentication information",
+            "description_3": "Response procedure <ul><li><a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html\" target=\"_blank\">IAM user</a></li><li> <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html\" target=\"_blank\">Access key</a></li></ul></li>"
+        },
+        "CHECK_IBP_ITEM_13_01": {
+            "title": "Use Policy Conditions for Extra Security",
+            "number": "13",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "Please define the conditions within the executable range for the created IAM policy",
+            "description_2": "You can restrict accessible resources etc. by defining conditions in the IAM policy",
+            "description_3": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_IBP_ITEM_14_01": {
+            "title": "Monitor Activity in Your AWS Account - Ensure CloudFront Access Log is Enabled",
+            "number": "14-01",
+            "alert_criteria": "Alert criteria: When logging of CloudFront distribution is not set",
+            "description_1": "CloudFront can create log files including detailed information on all user requests received",
+            "description_2": "Please enable logging for CloudFront distribution",
+            "description_3": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_IBP_ITEM_14_02": {
+            "title": "Monitor Activity in Your AWS Account - Ensure CloudTrail is Enabled In All Regions",
+            "number": "14-02",
+            "alert_criteria": "Alert criteria: When there are regions where CloudTrail is not enabled",
+            "description_1": "CloudTrail records AWS API call (IP, time, parameter)",
+            "description_2": "Required for security analysis, resource change tracking, or compliance audit",
+            "description_3": "Activate CloudTrail",
+            "description_4": "The response procedure is <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.html#creating-a-trail-in-the-console\" target=\"_blank\">here</a>",
+            "description_5": "Reference: <a href=\"https://aws.amazon.com/cloudtrail/pricing/\" target=\"_blank\">Charge</a> about AWS CloudTrail"
+        },
+        "CHECK_IBP_ITEM_14_03": {
+            "title": "Monitor Activity in Your AWS Account - Check CloudWatch Metrics",
+            "number": "14-03",
+            "alert_criteria_1": "Alert Criteria: The user hasn't checked this item manually within the last 180 days.",
+            "alert_criteria_2": "This item can't be accessed by insightwatch and needs to be checked manually.",
+            "description_1": "CloudWatch can monitor resources running on AWS in real time",
+            "description_2": "By checking the CloudWatch metrics, you can grasp which instances are not fully utilized",
+            "description_3": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html\" target=\"_blank\">here</a>"
+        },
+        "CHECK_IBP_ITEM_14_04": {
+            "title": "Monitor Activity in Your AWS Account - Ensure AWS Config is enabled in all regions",
+            "number": "14-04",
+            "alert_criteria": "Alert criteria: When there is a region where AWS Config is not enabled",
+            "description_1": "By enabling AWS Config, you can manage the configuration of supported resources and enable security analysis, resource change tracking, and compliance auditing",
+            "description_2": "Activate AWS Config settings <ul><li> The checkbox Enable this region to record all supported resources under all resources is enabled</li><li> The Include global resources (such as AWS IAM resources) under all resources means that check boxes are enabled for at least one region</li><li> The S3 bucket</li><li> Make sure SNS topic is set</li></u>",
+            "description_3": "The corresponding procedure is <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/gs-console.html\" target=\"_blank\">here</a>",
+            "description_4": "Reference: <a href=\"https://aws.amazon.com/config/pricing/\" target=\"_blank\">Charge</a> about AWS Config"
+        },
+        "CHECK_IBP_ITEM_14_05": {
+            "title": "Monitor Activity in Your AWS Account - Ensure S3 bucket access log is enabled",
+            "number": "14-05",
+            "alert_criteria": "Alert criteria: When access logging of S3 bucket is not enabled",
+            "description_1": "The access time of the S3 bucket, the resource to be operated, and operation details are recorded and it is valid as an audit log",
+            "description_2": "Activate S3 access log access log",
+            "description_3": "The response procedure is <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/user-guide/server-access-logging.html\" target=\"_blank\">here</a>",
+            "description_4": "Reference: <a href=\"https://aws.amazon.com/s3/pricing/\" target=\"_blank\">Charge</a> about Amazon S3"
+        }
+    }
+}

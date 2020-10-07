@@ -1,0 +1,8 @@
+{
+    "DeleteConfirmModal": {
+        "confirm_delete": "削除確認",
+        "deletion_target": "削除対象",
+        "delete_question": "削除しますか？",
+        "delete": "削除"
+    }
+}

@@ -1,0 +1,78 @@
+@startuml{Batch_組織_組織遅延削除.png}
+title [組織_組織遅延削除]
+hide footbox
+
+participant タスクコントローラ as controller <<lambda>> #violet
+participant 組織削除バッチ as batch_org_delete <<lambda>> #violet
+database 組織タスクキュー as queue_org_task <<sqs>> #gold
+database 組織タスク as table_org_task <<dynamodb>> #royalblue
+database プロジェクト as table_projects <<dynamodb>> #royalblue
+database AWSアカウント連携 as table_awsac_coops <<dynamodb>> #royalblue
+
+box "レポート"
+database レポート as table_reports <<dynamodb>> #royalblue
+database レポートジョブ履歴 as table_report_joblog <<dynamodb>> #royalblue
+database レポートストレージ as storage <<s3>> #crimson
+end box
+
+
+
+
+controller ->> batch_org_delete :invoke (InvocationType='Event')
+note right :タスクID、メッセージのメッセージIDと受信ハンドルを渡す
+activate batch_org_delete
+    batch_org_delete -> table_org_task :query
+    note right :タスクIDをキーとしてタスク情報を取得
+    table_org_task --> batch_org_delete
+    alt ステータス=0（待機中）
+        batch_org_delete -> table_org_task :更新
+        note right :タスクのステータスを1（実行中）に更新（更新条件：ステータスが0）
+        table_org_task --> batch_org_delete
+        |||
+    else ステータス=1（実行中）
+        note over batch_org_delete: 処理終了
+    else ステータス=2（完了）
+        note over batch_org_delete: 処理終了
+    else ステータス=-1（エラー）、かつリトライ回数=最大リトライ回数
+        note over batch_org_delete: 処理終了
+    else ステータス=-1（エラー）、かつリトライ回数<最大リトライ回数
+        batch_org_delete -> table_org_task :更新
+        note right :タスクのステータスを1（実行中）、リトライ回数+1に更新（更新条件：ステータスが-1）
+        table_org_task --> batch_org_delete
+        |||
+    end
+    |||
+    batch_org_delete -> batch_org_delete :タスク情報から処理対象（組織ID）を取得
+    batch_org_delete -> table_projects :query
+    note right :親組織が組織IDに該当するプロジェクトを取得
+    table_projects --> batch_org_delete
+    |||
+    loop , プロジェクト数
+        batch_org_delete -> batch_org_delete :プロジェクトID取得
+        |||
+        ref over batch_org_delete, storage :プロジェクト削除処理
+        |||
+        batch_org_delete -> table_projects :プロジェクト情報削除
+        table_projects --> batch_org_delete
+        |||
+    end
+    |||
+    alt 削除処理成功
+        batch_org_delete -> table_org_task :更新
+        note right :タスクのステータスを2（完了）に更新（更新条件：ステータスが1）
+        table_org_task --> batch_org_delete
+        batch_org_delete -> queue_org_task :処理済みのメッセージを削除
+        queue_org_task --> batch_org_delete
+        |||
+    else 削除処理エラー
+        batch_org_delete -> table_org_task :更新
+        note right :タスクのステータスを-1（エラー）に更新（更新条件：ステータスが1）
+        table_org_task --> batch_org_delete
+        |||
+    end
+deactivate batch_org_delete
+|||
+
+
+
+@enduml

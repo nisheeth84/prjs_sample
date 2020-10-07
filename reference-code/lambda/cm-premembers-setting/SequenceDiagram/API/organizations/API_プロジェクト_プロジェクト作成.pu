@@ -1,0 +1,30 @@
+@startuml{API_プロジェクト_プロジェクト作成.png}
+title [プロジェクトAPI_プロジェクト作成]
+hide footbox
+
+boundary 画面 as view
+participant プロジェクトAPI as api_projects #cyan
+'database ユーザープール as user_pools <<cognito>> #purple
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database プロジェクト as table_projects <<dynamodb>> #royalblue
+
+view -> api_projects :POST /organizations/{organization_id}/projects
+note right :bodyに追加するプロジェクト情報
+activate api_projects
+    api_projects -> api_projects :メールアドレス取得
+    |||
+    ref over api_projects, table_affiliation :アクセス権限チェック
+    |||
+    api_projects -> api_projects :バリデーションチェック
+    api_projects -> api_projects :新規プロジェクト作成
+    activate api_projects
+        api_projects -> table_projects :プロジェクトレコード作成
+        table_projects --> api_projects
+        api_projects --> api_projects
+    deactivate api_projects
+    |||
+    api_projects -> api_projects :レスポンス作成
+    api_projects --> view : 201:作成したプロジェクト情報
+deactivate api_projects
+
+@enduml

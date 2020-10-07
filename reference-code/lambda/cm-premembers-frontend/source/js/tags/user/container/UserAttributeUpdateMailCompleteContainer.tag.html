@@ -1,0 +1,65 @@
+<user-attribute-update-mail-complete-container>
+  <link rel="stylesheet" href="./assets/stylesheets/register.css">
+  <div class="animsition page-register-v3 layout-full" style="animation-duration: 800ms; opacity: 1;">
+    <div class="page vertical-align text-center">
+      <div class="page-content vertical-align-middle">
+        <div class="panel">
+          <div class="panel-body">
+            <div class="brand">
+              <div class="beta">
+                <img class="brand-img" src="./assets/images/iw_tate.svg" alt="..."></img>
+              </div>
+            </div>
+            <p>{_t('UserAttributeUpdateMailComplete.change_email_complete')}</p>
+            <p show="{!existsSession}">{_t('UserAttributeUpdateMailComplete.warning_login')}</p>
+            <button type="button" show="{existsSession}" onclick="{startInsightwatch}"
+              class="btn btn-primary btn-block btn-lg mt-40">{_t('UserAttributeUpdateMailComplete.start_insightwatch')}</button>
+          </div>
+        </div>
+        <footer class="page-copyright page-copyright-inverse">
+          <p>{_t('copyright')}</p>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <script>
+    import {
+      CognitoUserPool
+    } from 'amazon-cognito-identity-js'
+
+    const tag = this
+    const poolData = {
+      UserPoolId: tag.config.COGNITO_USER_POOL_ID,
+      ClientId: tag.config.COGNITO_CLIENT_ID
+    }
+
+    const userPool = new CognitoUserPool(poolData)
+    const cognitoUser = userPool.getCurrentUser()
+    tag.cognitoUser = cognitoUser
+    tag.existsSession = true
+    tag.startInsightwatch = startInsightwatch
+    tag.on('mount', function() {
+      if (tag.cognitoUser) {
+        tag.cognitoUser.getSession(function(err, session) {
+          if (err) {
+            tag.existsSession = false
+          } else {
+            tag.cognitoUser.refreshSession(session.getRefreshToken(), function(err, session) {
+              if (err) {
+                tag.existsSession = false
+                tag.update()
+              }
+            })
+          }
+        })
+      } else {
+        tag.existsSession = false
+      }
+      tag.update()
+    })
+
+    function startInsightwatch() {
+      window.location.href = "https://insightwatch.io/app/#/home/"
+    }
+  </script>
+</user-attribute-update-mail-complete-container>

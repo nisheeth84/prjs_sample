@@ -1,0 +1,31 @@
+@startuml{API_組織_組織名変更.png}
+title [組織_組織名変更]
+hide footbox
+
+boundary 画面 as view
+participant 組織API as api_organizations #cyan
+'atabase ユーザープール as user_pools <<cognito>> #purple
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database 組織 as table_organizations <<dynamodb>> #royalblue
+
+view -> api_organizations : PUT /organizations/{organization_id}/name
+note right :bodyに組織名
+activate api_organizations
+    api_organizations -> api_organizations :メールアドレス取得
+    |||
+    ref over api_organizations, table_affiliation :アクセス権限チェック
+    |||
+    api_organizations -> api_organizations :バリデーションチェック
+    |||
+    api_organizations -> api_organizations :組織名の変更
+    activate api_organizations
+        api_organizations -> table_organizations :レコード更新
+        table_organizations --> api_organizations
+        api_organizations --> api_organizations
+    deactivate api_organizations
+    |||
+    api_organizations -> api_organizations :レスポンス作成
+    api_organizations --> view :200:変更後の組織情報
+deactivate api_organizations
+
+@enduml

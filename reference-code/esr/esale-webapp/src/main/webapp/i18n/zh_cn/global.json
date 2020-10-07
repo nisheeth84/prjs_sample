@@ -1,0 +1,295 @@
+{
+  "global": {
+    "footer": {
+      "private.policy": "隐私政策",
+      "term.service": "使用规约",
+      "copyright": "@SOFTBRAIN CO.,Ltd."
+    },
+    "messages": {
+      "validate": {
+        "newpassword": {
+          "required": "请输入密码。",
+          "minlength": "请输入8个字符以上的密码。",
+          "maxlength": "请输入长度不超过32个字符的密码。"
+        },
+        "confirmpassword": {
+          "required": "请输入确认密码。",
+          "minlength": "请输入8个字符以上的确认密码。",
+          "maxlength": "请输入长度不超过32个字符的确认密码。",
+          "dontmatch": "密码不匹配!"
+        }
+      }
+    },
+    "layoutDateTime": {
+      "label.workDate": "（営業日数で算出-cn）",
+      "label.oneDayBefore": "（日前-cn）",
+      "label.oneDayAfter": "（日後-cn）"
+    },
+    "title": {
+      "confirm": "确认",
+      "search-detail": "详细的搜索"
+    },
+    "label": {
+      "local-filter": "搜索",
+      "record-on-page": "件显示",
+      "record-currentpage": "{{offsetDown}}-{{offsetUp}} 件 / {{totalRecords}} 件"
+    },
+    "placeholder": {
+      "find-item": "搜索项目"
+    },
+    "menu-context": {
+      "select-all": "全选",
+      "deselect-all": "取消选择",
+      "select-all-in-page": "选择页面中的全部",
+      "deselect-all-in-page": "取消选择页面中的全部"
+    },
+    "button": {
+      "confirm": "确认",
+      "cancel": "取消",
+      "select-all": "全选",
+      "deselect-all": "取消选择",
+      "selection-inversion": "反向选择",
+      "save-search-criteria": "保存搜索条件",
+      "edit-search-condition": "编辑搜索条件",
+      "search-all": "编辑项目",
+      "save-change": "保存更改",
+      "switch-display": "切换显示",
+      "next-page": "下一页",
+      "prev-page": "上一页"
+    },
+    "item-drag": {
+      "list": " 位员工被调动"
+    },
+    "over-flow-menu": {
+      "business-card": {
+        "history-activities": "活动历史",
+        "regist-activities": "活动注册",
+        "regist-schedules": "时间表注册",
+        "regist-task": "任务注册",
+        "post-data": "发布",
+        "create-mail": "创建电子邮件"
+      },
+      "customer": {
+        "history-activities": "活动历史",
+        "regist-activities": "活动注册",
+        "regist-schedules": "时间表注册",
+        "regist-task": "任务注册",
+        "post-data": "发布",
+        "create-mail": "创建电子邮件",
+        "regist-business-card": "名片注册",
+        "regist-business-child": "子客户注册"
+      },
+      "employee": {
+        "history-activities": "活动历史",
+        "regist-schedules": "时间表注册",
+        "regist-task": "任务注册",
+        "post-data": "发布",
+        "create-mail": "创建电子邮件"
+      },
+      "task": {
+        "regist-task": "子任务注册",
+        "regist-milestone": "里程碑注册",
+        "history-activities": "活动历史",
+        "regist-activities": "活动注册",
+        "post-data": "发布"
+      },
+      "sub-task": {
+        "history-activities": "活动历史",
+        "regist-activities": "活动注册",
+        "post-data": "发布"
+      },
+      "mile-stone": {
+        "regist-task": "子任务注册",
+        "history-activities": "活动历史",
+        "regist-activities": "活动注册",
+        "post-data": "发布"
+      },
+      "product-trading": {
+        "regist-activities": "活动注册",
+        "active-history": "活动历史",
+        "regist-task": "任务注册",
+        "regist-schedules": "时间表注册"
+      }
+    },
+    "dialog-dirtycheck": {
+      "parttern1": {
+        "title": "您确定要离开此页面吗？",
+        "confirm": "离开此页面",
+        "cancel": "在此页面上停留"
+      },
+      "parttern2": {
+        "title": "您确定要丢弃正在编辑的数据吗？",
+        "confirm": "OK",
+        "cancel": "取消"
+      }
+    },
+    "title-popup": {
+      "confirm": "您确定要离开此页面吗？",
+      "btn-cancel": "在此页面上停留",
+      "btn-confirm": "离开此页面"
+    },
+    "title-restart": {
+      "confirm": "您确定要丢弃正在编辑的数据吗？",
+      "btn-cancel": "取消",
+      "btn-confirm": "OK"
+    },
+    "tab-display-setting": {
+      "display-basic-info": "显示在基本信息中",
+      "not-display-basic-info": "没有显示在基本信息中",
+      "max-display-number": "最大显示件数",
+      "unit": "件"
+    },
+    "group": {
+      "customer-shared-list-modal": {
+        "title-add": "创建共享列表",
+        "title-edit": "编辑共享列表",
+        "title-switch": "更改为共享列表",
+        "lb-create-list-with-records": "将创建包含{{0}}件的列表。",
+        "list-name-label": "列表名称",
+        "required": "必须",
+        "lb-require": "必须",
+        "radio-manual": "手动",
+        "radio-auto": "自动添加",
+        "list-name-placeholder": "输入列表名称",
+        "list-search-placeholder": "添加列表中的参与者",
+        "list_type": "列表类型",
+        "is-overwrite": "如果与更新时的条件不匹配，将从列表中进行删除",
+        "lb-list-participants": "列表中的参与者",
+        "lb-list-participants-placeholder": "添加列表中的参与者",
+        "permision.viewer": "阅览者",
+        "permision.owner": "所有者",
+        "lb-search-condition": "自动添加组的搜索条件",
+        "lb-setting-search": "设置搜索条件",
+        "lb-note-for-checkbox": "如果与更新时的条件不匹配，将从列表中进行删除",
+        "list-update-time": "每天「{{0}}」点时自动进行群组更新",
+        "button-create": "创建",
+        "button-edit": "更新"
+      },
+      "customer-my-list-modal": {
+        "title-add": "创建我的列表",
+        "title-edit": "编辑我的列表",
+        "title-switch": "",
+        "lb-create-list-with-records": "将创建包含{{0}}件的列表。",
+        "list-name-label": "列表名称",
+        "required": "必须",
+        "lb-require": "必须",
+        "radio-manual": "手动",
+        "radio-auto": "自动添加",
+        "list-name-placeholder": "输入列表名称",
+        "list-search-placeholder": "",
+        "list_type": "列表类型",
+        "is-overwrite": "如果与更新时的条件不匹配，将从列表中进行删除",
+        "lb-list-participants": "",
+        "lb-list-participants-placeholder": "",
+        "permision.viewer": "",
+        "permision.owner": "",
+        "lb-search-condition": "自动添加组的搜索条件",
+        "lb-setting-search": "设置搜索条件",
+        "lb-note-for-checkbox": "如果与更新时的条件不匹配，将从列表中进行删除",
+        "list-update-time": "每天「{{0}}」点时自动进行群组更新",
+        "button-create": "创建",
+        "button-edit": "更新"
+      },
+      "employee-my-list-modal": {
+        "title-add": "创建我的群组",
+        "title-edit": "编辑我的群组",
+        "title-switch": "",
+        "lb-create-list-with-records": "{{0}}件将被创建成群组。",
+        "list-name-label": "群组名称",
+        "required": "必须",
+        "lb-require": "必须",
+        "radio-manual": "手动",
+        "radio-auto": "自动添加",
+        "list-name-placeholder": "输入群组名称",
+        "list-search-placeholder": "",
+        "list_type": "群组类型",
+        "is-overwrite": "如果与更新时的条件不匹配，将从群组中进行删除",
+        "lb-list-participants": "",
+        "lb-list-participants-placeholder": "",
+        "permision.viewer": "",
+        "permision.owner": "",
+        "lb-search-condition": "自动添加组的搜索条件",
+        "lb-setting-search": "设置搜索条件",
+        "lb-note-for-checkbox": "如果与更新时的条件不匹配，将从群组中进行删除",
+        "list-update-time": "每天{{0}}点时自动进行群组更新",
+        "button-create": "创建",
+        "button-edit": "更新"
+      },
+      "employee-shared-list-modal": {
+        "title-add": "创建分享组",
+        "title-edit": "编辑分享组",
+        "title-switch": "更改为分享组",
+        "lb-create-list-with-records": "{{0}}件将被创建成群组。",
+        "list-name-label": "群组名称",
+        "required": "必须",
+        "lb-require": "必须",
+        "radio-manual": "手动",
+        "radio-auto": "自动添加",
+        "list-name-placeholder": "输入群组名称",
+        "list-search-placeholder": "添加列表中的参与者",
+        "list_type": "群组类型",
+        "is-overwrite": "如果与更新时的条件不匹配，将从群组中进行删除",
+        "lb-list-participants": "列表中的参与者",
+        "lb-list-participants-placeholder": "添加列表中的参与者",
+        "permision.viewer": "阅览者",
+        "permision.owner": "所有者",
+        "lb-search-condition": "自动添加组的搜索条件",
+        "lb-setting-search": "设置搜索条件",
+        "lb-note-for-checkbox": "如果与更新时的条件不匹配，将从群组中进行删除",
+        "list-update-time": "每天{{0}}点时自动进行群组更新",
+        "button-create": "创建",
+        "button-edit": "更新"
+      },
+      "sales-shared-list-modal": {
+        "title-add": "创建共享列表",
+        "title-edit": "编辑分享清单",
+        "title-switch": "更改为共享列表",
+        "lb-create-list-with-records": "创建包含{{0}}个项目的列表。",
+        "list-name-label": "列表名称",
+        "required": "必须",
+        "lb-require": "必须",
+        "radio-manual": "手动",
+        "radio-auto": "自动添加",
+        "list-name-placeholder": "输入清单名称",
+        "list-search-placeholder": "添加列表参与者",
+        "list_type": "清单类型",
+        "is-overwrite": "如果更新时不满足条件，请从列表中删除",
+        "lb-list-participants": "列出参与者",
+        "lb-list-participants-placeholder": "添加列表参与者",
+        "permision.viewer": "检视器",
+        "permision.owner": "所有者",
+        "lb-search-condition": "自动添加列表的搜索条件",
+        "lb-setting-search": "编辑高级搜索条件",
+        "lb-note-for-checkbox": "如果更新时不满足条件，请从列表中删除",
+        "list-update-time": "该列表每天都会在{{0}}自动更新",
+        "button-create": "创造",
+        "button-edit": "更新"
+      },
+      "sales-my-list-modal": {
+        "title-add": "建立我的清单",
+        "title-edit": "编辑我的清单",
+        "title-switch": "更改为共享列表",
+        "lb-create-list-with-records": "创建包含{{0}}个项目的列表。",
+        "list-name-label": "列表名称",
+        "required": "需要",
+        "lb-require": "需要",
+        "radio-manual": "手册",
+        "radio-auto": "自动添加",
+        "list-name-placeholder": "输入清单名称",
+        "list-search-placeholder": "",
+        "list_type": "清单类型",
+        "is-overwrite": "如果不符合更新时的条件，请从组中将其删除",
+        "lb-list-participants": "列出参与者",
+        "lb-list-participants-placeholder": "列出参与者",
+        "permision.viewer": "检视器",
+        "permision.owner": "所有者",
+        "lb-search-condition": "自动添加列表的搜索条件",
+        "lb-setting-search": "编辑高级搜索条件",
+        "lb-note-for-checkbox": "如果更新时不满足条件，请从列表中删除",
+        "list-update-time": "该列表每天都会在{{0}}自动更新",
+        "button-create": "创造",
+        "button-edit": "更新"
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="20.5" viewBox="0 0 16 20.5">
+  <g id="Group_27992" data-name="Group 27992" transform="translate(-1204.5 -293)">
+    <g id="Group_27990" data-name="Group 27990" transform="translate(0 -1)">
+      <line id="Line_2952" data-name="Line 2952" y2="4" transform="translate(1219.5 309.5)" fill="none" stroke="#0f6db5" stroke-width="2"/>
+      <line id="Line_2953" data-name="Line 2953" y2="4" transform="translate(1205.5 309.5)" fill="none" stroke="#0f6db5" stroke-width="2"/>
+    </g>
+    <g id="Group_27991" data-name="Group 27991">
+      <g id="矢印" transform="translate(-2115 -515)">
+        <g id="Group_3186" data-name="Group 3186" transform="translate(2427 4036) rotate(-90)">
+          <path id="Path_4551" data-name="Path 4551" d="M3227.5,899h-11.879l3.439-3.44a.5.5,0,0,0,0-.707l-.706-.707a.5.5,0,0,0-.708,0l-4.439,4.44-1.061,1.06a.5.5,0,0,0,0,.708l1.061,1.06,4.439,4.44a.5.5,0,0,0,.708,0l.706-.707a.5.5,0,0,0,0-.708L3215.621,901H3227.5a.5.5,0,0,0,.5-.5v-1A.5.5,0,0,0,3227.5,899Z" fill="#0f6db5"/>
+        </g>
+      </g>
+      <line id="Line_2951" data-name="Line 2951" x2="16" transform="translate(1204.5 312.5)" fill="none" stroke="#0f6db5" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

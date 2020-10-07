@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="281.27" height="85" viewBox="0 0 281.27 85">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="281.27" height="85" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_25987" data-name="Group 25987" transform="translate(-404.766 -7858.443)">
+    <path id="Path_30991" data-name="Path 30991" d="M1,0H16.312c0,1.859,0,.063,0,2H1Z" transform="translate(505.266 7901.976) rotate(90)" fill="#171615"/>
+    <g id="Repeat_Grid_1" data-name="Repeat Grid 1" transform="translate(404.766 7858.443)" clip-path="url(#clip-path)">
+      <g id="Group_25986" data-name="Group 25986" transform="translate(-404.766 -7858.443)">
+        <g id="Group_25807" data-name="Group 25807" transform="translate(-9.234 6735.343)">
+          <rect id="Rectangle_10586" data-name="Rectangle 10586" width="83.792" height="2" rx="1" transform="translate(595 1174)" fill="#999"/>
+          <g id="Group_1144" data-name="Group 1144" transform="translate(695.27 1186.944) rotate(180)">
+            <rect id="Rectangle_986" data-name="Rectangle 986" width="24" height="24" rx="8" transform="translate(0)" fill="none"/>
+            <path id="Path_14127" data-name="Path 14127" d="M15.5,5H7.061c.01-.312.042-2.687,0-4.147L6.354.146a.5.5,0,0,0-.708,0L1.207,4.586.146,5.646a.5.5,0,0,0,0,.707L1.207,7.414l4.439,4.439a.5.5,0,0,0,.708,0l.707-.706c.01-3.115-.005-3.49,0-4.147H15.5a.5.5,0,0,0,.5-.5v-1A.5.5,0,0,0,15.5,5Z" transform="translate(3 5.943)" fill="#999"/>
+          </g>
+        </g>
+        <circle id="Ellipse_313" data-name="Ellipse 313" cx="4" cy="4" r="4" transform="translate(581.766 7906.343)" fill="#f92525"/>
+        <rect id="Rectangle_11496" data-name="Rectangle 11496" width="180" height="2" rx="1" transform="translate(404.766 7909.343)" fill="#f92525"/>
+        <text id="_5年" data-name="5年" transform="translate(531.766 7858.443)" fill="#171615" font-size="14" font-family="NotoSansCJKjp-Medium, Noto Sans CJK JP" font-weight="500"><tspan x="0" y="16">5年</tspan></text>
+        <text id="今日" transform="translate(489.766 7923.443)" fill="#171615" font-size="14" font-family="NotoSansCJKjp-Medium, Noto Sans CJK JP" font-weight="500"><tspan x="0" y="16">今日</tspan></text>
+        <g id="Group_25808" data-name="Group 25808" transform="translate(505.266 7879.297)">
+          <path id="Path_14138" data-name="Path 14138" d="M7185.7,2353.335s2.331-6.994,6.288-6.961,28.655,0,30.842,0,2.778-2.339,2.974-3.824a45.768,45.768,0,0,0,.136-4.7" transform="translate(-7185.7 -2337.853)" fill="none" stroke="#707070" stroke-width="1"/>
+          <path id="Path_14139" data-name="Path 14139" d="M7225.952,2353.335s-2.331-6.994-6.288-6.961-28.658,0-30.846,0-2.778-2.339-2.974-3.824a45.768,45.768,0,0,1-.136-4.7" transform="translate(-7145.452 -2337.853)" fill="none" stroke="#707070" stroke-width="1"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

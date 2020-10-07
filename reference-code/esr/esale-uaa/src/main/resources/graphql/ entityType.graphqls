@@ -1,0 +1,6 @@
+type IpAddress{
+    ipAddressId   : Long
+    ipAddress     : String
+    updatedDate   : DateTime
+}
+

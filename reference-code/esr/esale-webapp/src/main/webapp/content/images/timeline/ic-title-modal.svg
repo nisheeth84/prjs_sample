@@ -1,0 +1,12 @@
+<svg id="ic-sidebar-timeline" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <path id="path10" d="M46,192H33c-1.5,0-3,.9-3,2v11c0,1.1,1.5,2,3,2h9l4,3v-3c1.5,0,3-.9,3-2V194c0-1.1-1.5-2-3-2" transform="translate(-29 -190)" fill="#0b537f"/>
+  <path id="path9" d="M45,190H32c-1.5,0-3,.9-3,2v11c0,1.1,1.5,2,3,2h9l4,3v-3c1.5,0,3-.9,3-2V192c0-1.1-1.5-2-3-2" transform="translate(-29 -190)" fill="#f7f9f8"/>
+  <path id="path8" d="M33,193a1,1,0,1,1-1-1,1,1,0,0,1,1,1" transform="translate(-29 -190)" fill="#00ccaf" opacity="0.8"/>
+  <path id="path7" d="M33,196a1,1,0,1,1-1-1,1,1,0,0,1,1,1" transform="translate(-29 -190)" fill="#09f"/>
+  <path id="path6" d="M33,199a1,1,0,1,1-1-1,1,1,0,0,1,1,1" transform="translate(-29 -190)" fill="#c0c"/>
+  <rect id="path5" width="7" height="1" transform="translate(8 3)" fill="#666"/>
+  <rect id="path4" width="4" height="1" transform="translate(7 6)" fill="#666"/>
+  <rect id="path3" width="5" height="1" transform="translate(8 9)" fill="#666"/>
+  <path id="path2" d="M33,202a1,1,0,1,1-1-1,1,1,0,0,1,1,1" transform="translate(-29 -190)" fill="#f60"/>
+  <rect id="path1" width="3" height="1" transform="translate(7 12)" fill="#666"/>
+</svg>

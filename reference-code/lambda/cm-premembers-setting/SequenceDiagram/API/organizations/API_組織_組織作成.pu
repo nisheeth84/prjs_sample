@@ -1,0 +1,37 @@
+@startuml{API_組織_組織作成.png}
+title [組織_組織作成]
+hide footbox
+
+boundary 画面 as view
+participant 組織API as api_organizations #cyan
+'database ユーザープール as user_pools <<cognito>> #purple
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database 組織 as table_organizations <<dynamodb>> #royalblue
+
+view -> api_organizations : POST /organizations
+note right :bodyに追加する組織情報
+activate api_organizations
+    api_organizations -> api_organizations :メールアドレス取得
+    |||
+    api_organizations -> api_organizations :バリデーションチェック
+    |||
+    api_organizations -> api_organizations :新規組織作成
+    activate api_organizations
+        api_organizations -> table_organizations :組織レコード作成
+        table_organizations --> api_organizations
+        api_organizations -> table_affiliation :ユーザー所属レコード作成
+        note right :自分自身の所属レコードを作成
+        table_affiliation --> api_organizations
+        opt ユーザー所属レコード作成失敗
+            api_organizations -> table_organizations :組織レコード削除
+            table_organizations --> api_organizations
+            |||
+        end
+        api_organizations --> api_organizations
+    deactivate api_organizations
+    |||
+    api_organizations -> api_organizations :レスポンス作成
+    api_organizations --> view :201:作成した組織情報
+deactivate api_organizations
+
+@enduml

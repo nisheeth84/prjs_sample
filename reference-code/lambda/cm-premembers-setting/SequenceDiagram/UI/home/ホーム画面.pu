@@ -1,0 +1,10 @@
+@startuml{ホーム画面.png}
+title [ホーム画面]
+hide footbox
+
+actor ユーザー as user
+boundary ホーム画面 as view
+
+== 招待リスト表示 ==
+
+@enduml

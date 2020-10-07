@@ -1,0 +1,124 @@
+pipeline {
+    agent {
+        docker {
+            image 'jhipster/jhipster:v6.4.1'
+            label 'docker'
+            args '-v "/root/.m2:/root/.m2" -u root -e MAVEN_OPTS="-Duser.home=/root/"'
+        }
+    }
+    parameters {
+        string(name: 'MESSAGE_THREAD', defaultValue: '')
+    }
+    environment {
+        CI_REGISTRY = 'registry.luvina.net'
+        CI_REGISTRY_IMAGE = "${CI_REGISTRY}/esr/esale-docker-dev"
+        CI_REGISTRY_LOGIN = credentials('jenkins-luvina-esr-dev')
+        CI_REGISTRY_IMAGE_TAG = "commons__${CI_COMMIT_SHORT_SHA}"
+        CI_REGISTRY_IMAGE_EXTRA_TAGS = "commons__luvina-develop"
+        CI_COMMIT_SHORT_SHA = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
+        CI_COMMIT_MESSAGE = sh(returnStdout: true, script: 'git log -2 --pretty=format:"%h - %an, %ar : %s"').trim()
+        CI_COMMIT_MESSAGE_WITH_MENTION = sh(returnStdout: true, script: 'git log -2 --pretty=format:"%h - @%an, %ar : %s"').trim()
+        MESSAGE_PREFIX = "[<${BUILD_URL}|${JOB_NAME} #${BUILD_NUMBER}>] "
+    }
+    stages {
+        stage('notify started') {
+            steps {
+                echo 'Build started'
+                notifyStarted('Build started \n' + env.CI_COMMIT_MESSAGE)
+            }
+        }
+
+        stage('check java') {
+            steps {
+                sh "java -version"
+            }
+        }
+
+        stage('clean') {
+            steps {
+                sh "chmod +x mvnw"
+                sh "./mvnw -ntp clean"
+            }
+        }
+
+        // stage('backend tests') {
+        //     steps {
+        //         try {
+        //             sh "./mvnw -ntp verify"
+        //         } catch(err) {
+        //             throw err
+        //         } finally {
+        //             junit '**/target/test-results/**/TEST-*.xml'
+        //         }
+        //     }
+        // }
+
+        stage('packaging') {
+            steps {
+                sh "./mvnw -ntp verify -Pdev -DskipTests"
+                // archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+            }
+        }
+
+        // stage('quality analysis') {
+        //     steps {
+        //         withSonarQubeEnv('sonar') {
+        //             sh "./mvnw -ntp initialize sonar:sonar"
+        //         }
+        //     }
+        // }
+
+        stage('publish docker') {
+            when {
+                branch 'luvina-develop'
+            }
+            steps {
+                // A pre-requisite to this step is to setup authentication to the docker registry
+                // https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#authentication-methods
+                sh "./mvnw -ntp jib:build -Djib.to.image=$CI_REGISTRY_IMAGE:$CI_REGISTRY_IMAGE_TAG -Djib.to.tags=$CI_REGISTRY_IMAGE_EXTRA_TAGS -Djib.to.auth.username=$CI_REGISTRY_LOGIN_USR -Djib.to.auth.password=$CI_REGISTRY_LOGIN_PSW"
+            }
+        }
+
+        stage('deploy to develop') {
+            when {
+                branch 'luvina-develop'
+            }
+            environment {
+                _K8S_JOB = 'esale-k8s-dev'
+                _CI_DOCKER_IMAGE = "${CI_REGISTRY_IMAGE}:${CI_REGISTRY_IMAGE_TAG}"
+            }
+            steps {
+                build job: env._K8S_JOB, parameters: [[$class: 'StringParameterValue', name: 'CI_DOCKER_IMAGE', value: env._CI_DOCKER_IMAGE], [$class: 'StringParameterValue', name: 'MESSAGE_PREFIX', value: env.MESSAGE_PREFIX], [$class: 'StringParameterValue', name: 'MESSAGE_THREAD', value: env.MESSAGE_THREAD]], wait: false
+            }
+        }
+    }
+    post {
+        success {
+            echo 'Build success'
+            notify('Build success', '#00FF00')
+        }
+        failure {
+            echo 'Build failed'
+            notify('Build FAILED \n' + env.CI_COMMIT_MESSAGE_WITH_MENTION, '#FF0000')
+        }
+    }
+}
+
+// define funtions
+void notifyStarted(String message = 'Build started') {
+    def response = notify(message)
+    def messageThread = getSlackThread(response)
+    env.MESSAGE_THREAD = messageThread;
+}
+
+void notify(String message, String color = '#0000FF', boolean broadcast = true) {
+    def attachments = java.net.URLEncoder.encode('[{"text": "' + env.MESSAGE_PREFIX + message + '", "color": "' + color + '"}]', "UTF-8")
+    withCredentials([[$class: 'StringBinding', credentialsId: 'slack-token', variable: 'SLACK_TOKEN']]) {
+        return sh(returnStdout: true, script: 'curl -X POST -d "attachments=' + attachments + '&reply_broadcast=' + broadcast + '&thread_ts=' + env.MESSAGE_THREAD + '&link_names=true&channel=esr-jenkins&token=$SLACK_TOKEN" https://slack.com/api/chat.postMessage').trim()
+    }
+}
+
+void getSlackThread(String response = '') {
+    def matches = (response =~ /.+"ts"\:"([^"]+)".+/)
+    return matches.matches() ? "" + matches.group(1) : ''
+}

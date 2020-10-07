@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ddb2d1"/>
+      <stop offset="0.866" stop-color="#9865a6"/>
+      <stop offset="1" stop-color="#8e59a0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" y1="1" x2="0.5" y2="-0.003" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#d4a5ca"/>
+      <stop offset="0.546" stop-color="#f6f1f6"/>
+      <stop offset="0.589" stop-color="#f9f8fa"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0.403" stop-color="#f9f9fa"/>
+      <stop offset="1" stop-color="#e9e8f3"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" x1="0.5" y1="1" x2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0.001" stop-color="#744496"/>
+      <stop offset="1" stop-color="#deb3d2"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_7260" data-name="Group 7260" transform="translate(-1128 -152)">
+    <g id="Group_7259" data-name="Group 7259">
+      <g id="Group_7252" data-name="Group 7252" opacity="0.25" style="mix-blend-mode: multiply;isolation: isolate">
+        <path id="Path_4386" data-name="Path 4386" d="M1169.991,194h-27.982a4.009,4.009,0,0,1-4.009-4.009v-18a3.993,3.993,0,0,1,3.993-3.993h28.014a3.993,3.993,0,0,1,3.993,3.993v18A4.009,4.009,0,0,1,1169.991,194Z" fill="#231815"/>
+        <path id="Path_4387" data-name="Path 4387" d="M1169.991,192h-27.982a4.009,4.009,0,0,1-4.009-4.009v-18a3.993,3.993,0,0,1,3.993-3.993h28.014a3.993,3.993,0,0,1,3.993,3.993v18A4.009,4.009,0,0,1,1169.991,192Z" fill="#231815"/>
+        <path id="Path_4388" data-name="Path 4388" d="M1140,189.991v-18a3.992,3.992,0,0,1,3.993-3.992h28.014a3.952,3.952,0,0,1,1.635.358,3.986,3.986,0,0,0-3.635-2.358h-28.014a3.992,3.992,0,0,0-3.993,3.992v18a4,4,0,0,0,2.362,3.647A3.978,3.978,0,0,1,1140,189.991Z" fill="#231815"/>
+        <circle id="Ellipse_325" data-name="Ellipse 325" cx="3" cy="3" r="3" transform="translate(1146 173)" fill="#231815"/>
+        <path id="Path_4389" data-name="Path 4389" d="M1154,186h-10v-2a4,4,0,0,1,4-4h2a4,4,0,0,1,4,4Z" fill="#231815"/>
+        <rect id="Rectangle_5863" data-name="Rectangle 5863" width="12" height="2" rx="1" transform="translate(1158 179)" fill="#231815"/>
+        <rect id="Rectangle_5864" data-name="Rectangle 5864" width="12" height="2" rx="1" transform="translate(1158 175)" fill="#231815"/>
+        <rect id="Rectangle_5865" data-name="Rectangle 5865" width="12" height="2" rx="1" transform="translate(1158 183)" fill="#231815"/>
+      </g>
+      <g id="Group_7258" data-name="Group 7258">
+        <g id="Group_7257" data-name="Group 7257">
+          <path id="Path_4390" data-name="Path 4390" d="M1165.991,190h-27.982a4.009,4.009,0,0,1-4.009-4.009v-18a3.993,3.993,0,0,1,3.993-3.993h28.014a3.993,3.993,0,0,1,3.993,3.993v18A4.009,4.009,0,0,1,1165.991,190Z" fill="url(#linear-gradient)"/>
+          <path id="Path_4391" data-name="Path 4391" d="M1165.991,188h-27.982a4.009,4.009,0,0,1-4.009-4.009v-18a3.993,3.993,0,0,1,3.993-3.993h28.014a3.993,3.993,0,0,1,3.993,3.993v18A4.009,4.009,0,0,1,1165.991,188Z" fill="url(#linear-gradient-2)"/>
+          <path id="Path_4392" data-name="Path 4392" d="M1136,185.991v-18a3.992,3.992,0,0,1,3.993-3.992h28.014a3.952,3.952,0,0,1,1.635.358,3.986,3.986,0,0,0-3.635-2.358h-28.014a3.992,3.992,0,0,0-3.993,3.992v18a4,4,0,0,0,2.362,3.647A3.978,3.978,0,0,1,1136,185.991Z" fill="url(#linear-gradient-3)"/>
+          <g id="Group_7255" data-name="Group 7255">
+            <g id="Group_7253" data-name="Group 7253">
+              <circle id="Ellipse_326" data-name="Ellipse 326" cx="3" cy="3" r="3" transform="translate(1142 169)" fill="url(#linear-gradient-4)"/>
+            </g>
+            <g id="Group_7254" data-name="Group 7254">
+              <path id="Path_4393" data-name="Path 4393" d="M1150,182h-10v-2a4,4,0,0,1,4-4h2a4,4,0,0,1,4,4Z" fill="url(#linear-gradient-4)"/>
+            </g>
+          </g>
+          <g id="Group_7256" data-name="Group 7256">
+            <rect id="Rectangle_5866" data-name="Rectangle 5866" width="12" height="2" rx="1" transform="translate(1154 175)" fill="#6b56a1"/>
+            <rect id="Rectangle_5867" data-name="Rectangle 5867" width="12" height="2" rx="1" transform="translate(1154 171)" fill="#6b56a1"/>
+            <rect id="Rectangle_5868" data-name="Rectangle 5868" width="12" height="2" rx="1" transform="translate(1154 179)" fill="#6b56a1"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <rect id="Rectangle_5869" data-name="Rectangle 5869" width="48" height="48" transform="translate(1128 152)" fill="none"/>
+  </g>
+</svg>

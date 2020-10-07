@@ -1,0 +1,160 @@
+<error-common-modal>
+    <div class="modal fade modal-danger" id="error-common-modal" aria-hidden="true" aria-labelledby="exampleAccrodionModal" role="dialog"
+        tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="panel-group panel-group-continuous m-0" id="exampleAccrodion1" aria-multiselectable="true" role="tablist">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <h4 class="modal-title">{errorTitle}</h4>
+                    </div>
+                    <div class="modal-body pb-5">
+                        <dl if="{errorCode}" class="row pl-10">
+                            <dt>{_t('error_code')}:</dt>
+                            <dd>{errorCode}</dd>
+                        </dl>
+                        <dl if="{checkHistoryID}" class="row pl-10">
+                            <dt>{_t('check_history_id')}:</dt>
+                            <dd>{checkHistoryID}</dd>
+                        </dl>
+                        <dl if="{message}" class="row pl-10">
+                            <dt>{_t('message')}:</dt>
+                            <dd>{message}</dd>
+                        </dl>
+                        <dl if="{errorId}" class="row pl-10">
+                            <dt>{_t('error_id')}:</dt>
+                            <dd>{errorId}</dd>
+                        </dl>
+                        <dl if="{description}" class="row pl-10">
+                            <dt>{_t('description')}:</dt>
+                            <dd>{description}</dd>
+                        </dl>
+                        <dl class="row pl-10" if="{awsAccount}">
+                            <dt>{_t('aws_account')}:</dt>
+                            <dd class="font-weight-bold margin-left_5 table-account-column">
+                                <p>{awsAccount}
+                                    <span if="{awsAccountName}">| {awsAccountName}</span>
+                                </p>
+                            </dd>
+                        </dl>
+                        <dl class="row pl-10" if="{bucketName}">
+                            <dt>{_t('s3_bucket')}:</dt>
+                            <dd class="font-weight-bold margin-left_5 table-account-column">
+                                <p>{bucketName}</p>
+                            </dd>
+                        </dl>
+                        <dl class="row">
+                            <p class="pl-10" if="{clientWarning}" >{clientWarning}</p>
+                            <p class="pl-10 mb-0" visible="{clientWarningPlain}" ref="clientWarningPlain"></p>
+                            <ul class="px-30" if="{clientWarningDetails}">
+                                <li class="pt-10" each="{warning in clientWarningDetails}">{commonUtils.parseHtml(this,warning)}</li>
+                            </ul>
+                        </dl>
+                    </div>
+
+
+                    <div class="modal-footer" if="{!hasErrors}">
+                        <button type="button" class="btn btn-default float-right" data-dismiss="modal">{_t('close')}</button>
+                    </div>
+                    <div class="modal-footer inline-block" if="{hasErrors}">
+                        <button class="btn btn-default" style="margin-right: 430px" type="button" onclick="{showErrorDetail}">
+                            {_t('details')}
+                        </button>
+                        <button type="button" class="btn btn-default float-right" data-dismiss="modal">{_t('close')}</button>
+                    </div>
+                    <div class="{createErrorDetailClassObject(showDetail)}" if="{hasErrors}">
+                        <div class="card card-block">
+                            <div each="{error ,index in errors}">
+                                <hr>
+                                <dl if="{error.code}" class="row mx-0">
+                                    <dt>{_t('code')}:</dt>
+                                    <dd>{error.code}</dd>
+                                </dl>
+                                <dl if="{error.field}" class="row mx-0">
+                                    <dt>{_t('field')}:</dt>
+                                    <dd>{error.field}</dd>
+                                </dl>
+                                <dl if="{error.value}" class="row mx-0">
+                                    <dt>{_t('value')}:</dt>
+                                    <dd>{error.value}</dd>
+                                </dl>
+                                <dl if="{error.message}" class="row mx-0">
+                                    <dt>{_t('message')}:</dt>
+                                    <dd>{error.message}</dd>
+                                </dl>
+                                <hr show="{errors.length - 1 == index}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                const tag = this;
+                const obs = tag.parent.obs
+                tag.observer = obs;
+                tag.showDetail = false
+                tag.createErrorDetailClassObject = createErrorDetailClassObject
+                tag.showErrorDetail = showErrorDetail
+                tag.hasErrors = false
+                tag.on('mount', function() {
+                    tag.modal = $('#error-common-modal')
+                    tag.observer.on("error-common-modal-open", function(errorPromise) {
+                        errorPromise.then(function(value) {
+                            console.error(value)
+                            if(value['errorTitle']){
+                                tag.errorTitle = value['errorTitle']
+                            }else{
+                                tag.errorTitle = tag._t('error')
+                            }
+                            tag.errorCode = value.code;
+                            tag.responseCode = value.responseStatus
+                            tag.message = value.message;
+                            tag.errorId = value.errorId;
+                            tag.checkHistoryID = value.checkHistoryID
+                            tag.description = value.description;
+                            tag.clientWarning = value.clientWarning
+                            tag.clientWarningDetails = value.clientWarningDetails
+                            tag.clientWarningPlain = value.clientWarningPlain
+                            tag.awsAccountName = value.awsAccountName
+                            tag.awsAccount = value.awsAccount
+                            tag.bucketName = value.bucketName
+                            if(tag.clientWarningPlain){
+                                tag.refs.clientWarningPlain.innerHTML = tag.clientWarningPlain
+                            }
+                            if (value.errors) {
+                                tag.errors = value.errors
+                                tag.hasErrors = true
+                            } else {
+                                tag.hasErrors = false
+                            }
+                            tag.modal.modal();
+                            tag.update();
+                        })
+                    });
+                    tag.modal.on('hidden.bs.modal', function(e) {
+                        let errorResponse = {
+                            errorCode: tag.errorCode,
+                            responseCode: tag.responseCode
+                        }
+                        tag.observer.trigger("error-common-modal-close", errorResponse);
+                    });
+                })
+                tag.on('unmount', function() {
+                    tag.modal.off('hidden.bs.modal');
+                })
+                function showErrorDetail() {
+                    tag.showDetail = !tag.showDetail
+                    tag.update(tag.showDetail)
+                }
+
+                function createErrorDetailClassObject(showDetail) {
+                    const buttonClass = {
+                        'collapse': true,
+                        'show': showDetail
+                    }
+                    return buttonClass
+                }
+            </script>
+</error-common-modal>

@@ -1,0 +1,13 @@
+{
+    "CheckIntegrations": {
+        "description": "Generating a URL which receives security checkup requests.",
+        "generate_url": "Generate URL",
+        "regenerate_url": "Regenerate URL",
+        "url_label": "Integration URL",
+        "url_guide": "You can run security checkup by sending a POST request as the following.",
+        "enabled": "Enabled",
+        "disabled": "Disabled",
+        "enable": "Enable",
+        "disable": "Disable"
+    }
+}

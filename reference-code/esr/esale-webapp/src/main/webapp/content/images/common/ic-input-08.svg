@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+  <g id="Group_28309" data-name="Group 28309" transform="translate(-917 -561)">
+    <g id="Ellipse_265" data-name="Ellipse 265" transform="translate(917 561)" fill="#fff" stroke="#999" stroke-width="1.5">
+      <circle cx="9" cy="9" r="9" stroke="none"/>
+      <circle cx="9" cy="9" r="8.25" fill="none"/>
+    </g>
+    <g id="Path_30999" data-name="Path 30999" transform="translate(919.5 569.5)" fill="#fff">
+      <path d="M 1.200000047683716 1.200000047683716 L 0.300000011920929 1.200000047683716 L 0.300000011920929 0.300000011920929 L 1.200000047683716 0.300000011920929 L 1.200000047683716 1.200000047683716 Z" stroke="none"/>
+      <path d="M 0 0 L 1.5 0 L 1.5 1.5 L 0 1.5 L 0 0 Z" stroke="none" fill="#999"/>
+    </g>
+    <rect id="Rectangle_18223" data-name="Rectangle 18223" width="1.5" height="1.5" transform="translate(925.3 563.5)" fill="#999"/>
+    <rect id="Rectangle_18224" data-name="Rectangle 18224" width="1.5" height="1.5" transform="translate(931 569.5)" fill="#999"/>
+    <rect id="Rectangle_18225" data-name="Rectangle 18225" width="1.5" height="1.5" transform="translate(925.3 575)" fill="#999"/>
+    <line id="Line_2178" data-name="Line 2178" x2="5" y2="4" transform="translate(921.5 566.5)" fill="none" stroke="#999" stroke-width="1"/>
+    <path id="Path_30998" data-name="Path 30998" d="M-.656,4,3.458.757" transform="translate(926.5 566.5)" fill="none" stroke="#999" stroke-width="1"/>
+  </g>
+</svg>

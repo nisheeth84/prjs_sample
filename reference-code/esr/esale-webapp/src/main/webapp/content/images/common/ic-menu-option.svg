@@ -1,0 +1,11 @@
+<svg id="Component_35_2" data-name="Component 35 – 2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g id="Ellipse_140" data-name="Ellipse 140" fill="#fff" stroke="#0f6eb5" stroke-width="1">
+    <circle cx="8" cy="8" r="8" stroke="none"/>
+    <circle cx="8" cy="8" r="7.5" fill="none"/>
+  </g>
+  <g id="Group_25971" data-name="Group 25971" transform="translate(6.977 4.116)">
+    <circle id="Ellipse_133" data-name="Ellipse 133" cx="1" cy="1" r="1" fill="#0f6eb5"/>
+    <circle id="Ellipse_134" data-name="Ellipse 134" cx="1" cy="1" r="1" transform="translate(0 6)" fill="#0f6eb5"/>
+    <circle id="Ellipse_135" data-name="Ellipse 135" cx="1" cy="1" r="1" transform="translate(0 3)" fill="#0f6eb5"/>
+  </g>
+</svg>

@@ -1,0 +1,98 @@
+<cis-networking-check-cis-4-04>
+    <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{abnormalitySecurityGroups && abnormalitySecurityGroups.length > 0}">
+        <thead>
+            <tr>
+                <th class="font-weight-900 check-header">{_t('organization')}</th>
+                <th class="font-weight-900 check-header">{_t('project')}</th>
+                <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                <th class="font-weight-900 check-header">{_t('region')}</th>
+                <th class="font-weight-900 check-header">{_t('CISNetworkingCheckCIS4_04.security_group_id')}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="child" each="{abnormalitySecurityGroup in abnormalitySecurityGroups}">
+                <td class="word-break-all">{abnormalitySecurityGroup.organizationName}</td>
+                <td class="word-break-all">{abnormalitySecurityGroup.projectName}</td>
+                <td class="table-account-column">
+                    <p>{abnormalitySecurityGroup.awsAccount}
+                        <span if="{abnormalitySecurityGroup.awsAccountName}">| {abnormalitySecurityGroup.awsAccountName}</span>
+                    </p>
+                </td>
+                <td class="word-break-all">{abnormalitySecurityGroup.region}</td>
+                <td class="word-break-all">{abnormalitySecurityGroup.abnormalitySecurityGroup}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-hover table-bordered table-striped table-layout-fixed" if="{abnormalityEc2Instances && abnormalityEc2Instances.length > 0}">
+        <thead>
+            <tr>
+                <th class="font-weight-900 check-header">{_t('organization')}</th>
+                <th class="font-weight-900 check-header">{_t('project')}</th>
+                <th class="font-weight-900 check-header">{_t('aws_account')}</th>
+                <th class="font-weight-900 check-header">{_t('region')}</th>
+                <th class="font-weight-900 check-header">{_t('name')}</th>
+                <th class="font-weight-900 check-header">{_t('instance_id')}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="child" each="{abnormalityEc2Instance in abnormalityEc2Instances}">
+                <td class="word-break-all">{abnormalityEc2Instance.organizationName}</td>
+                <td class="word-break-all">{abnormalityEc2Instance.projectName}</td>
+                <td class="table-account-column">
+                    <p>{abnormalityEc2Instance.awsAccount}
+                        <span if="{abnormalityEc2Instance.awsAccountName}">| {abnormalityEc2Instance.awsAccountName}</span>
+                    </p>
+                </td>
+                <td class="word-break-all">{abnormalityEc2Instance.region}</td>
+                <td class="word-break-all">{abnormalityEc2Instance.instanceName}</td>
+                <td class="word-break-all">{abnormalityEc2Instance.instanceId}</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        const tag = this
+        const obs = tag.parent.obs
+        tag.obs = obs
+        tag.on('mount', function() {
+            const results = opts.results
+            const abnormalityEc2Instances = []
+            const abnormalitySecurityGroups = []
+            results.forEach(function(result) {
+                result.resources.forEach(function(resource) {
+                    if (resource.DetectionItem['AbnormalityEc2Instances']) {
+                        resource.DetectionItem.AbnormalityEc2Instances.forEach(function(abnormalityEc2Instance) {
+                            const ec2Instance = {}
+                            ec2Instance['organizationName'] = result.organizationName
+                            ec2Instance['projectName'] = result.projectName
+                            ec2Instance['awsAccount'] = result.awsAccount
+                            if (result['awsAccountName']) {
+                                ec2Instance['awsAccountName'] = result.awsAccountName
+                            }
+                            ec2Instance['region'] = resource.Region
+                            ec2Instance['instanceName'] = abnormalityEc2Instance.InstanceName
+                            ec2Instance['instanceId'] = abnormalityEc2Instance.InstanceId
+                            abnormalityEc2Instances.push(ec2Instance)
+                        })
+                    }
+                    if (resource.DetectionItem['AbnormalitySecurityGroups']) {
+                        resource.DetectionItem.AbnormalitySecurityGroups.forEach(function(abnormalitySecurityGroup) {
+                            const securityGroup = {}
+                            securityGroup['organizationName'] = result.organizationName
+                            securityGroup['projectName'] = result.projectName
+                            securityGroup['awsAccount'] = result.awsAccount
+                            if (result['awsAccountName']) {
+                                securityGroup['awsAccountName'] = result.awsAccountName
+                            }
+                            securityGroup['region'] = resource.Region
+                            securityGroup['abnormalitySecurityGroup'] = abnormalitySecurityGroup
+                            abnormalitySecurityGroups.push(securityGroup)
+                        })
+                    }
+                })
+            })
+            tag.abnormalityEc2Instances = abnormalityEc2Instances
+            tag.abnormalitySecurityGroups = abnormalitySecurityGroups
+            tag.update()
+        })
+    </script>
+</cis-networking-check-cis-4-04>

@@ -1,0 +1,18 @@
+@startuml{API_AWSアカウント連携_共通処理_AWSアカウントアクセス確認.png}
+title [AWSアカウント連携API_共通処理_AWSアカウントアクセス確認]
+hide footbox
+
+'boundary 画面 as view
+participant AWSアカウント連携API as api_awsac_coops #cyan
+'database ユーザープール as user_pools <<cognito>> #purple
+'database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+'database AWSアカウント連携 as table_awsac_coops <<dynamodb>> #royalblue
+box "ユーザーのAWS" #floralwhite
+participant AWS as users_aws #efaf27
+end box
+
+api_awsac_coops -> users_aws :ロールで読み取りアクセス確認
+users_aws --> api_awsac_coops
+|||
+
+@enduml

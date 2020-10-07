@@ -1,0 +1,82 @@
+{
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "SecurityCheckWebhookID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "WebhookPath",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "ProjectID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "UserID",
+            "AttributeType": "S"
+        }
+    ],
+    "ProvisionedThroughput": {
+        "WriteCapacityUnits": 5,
+        "ReadCapacityUnits": 5
+    },
+    "TableName": "PM_SecurityCheckWebhook",
+    "KeySchema": [
+        {
+            "AttributeName": "SecurityCheckWebhookID",
+            "KeyType": "HASH"
+        }
+    ],
+    "GlobalSecondaryIndexes": [
+        {
+            "IndexName": "WebhookPathIndex",
+            "KeySchema": [
+                {
+                    "AttributeName": "WebhookPath",
+                    "KeyType": "HASH"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "INCLUDE",
+                "NonKeyAttributes": [
+                    "UserID",
+                    "OrganizationID",
+                    "ProjectID",
+                    "Enabled",
+                    "UpdatedAt"
+                ]
+            },
+            "ProvisionedThroughput": {
+                "WriteCapacityUnits": 5,
+                "ReadCapacityUnits": 5
+            }
+        },
+        {
+            "IndexName": "ProjectIndex",
+            "KeySchema": [
+                {
+                    "AttributeName": "ProjectID",
+                    "KeyType": "HASH"
+                },
+                {
+                    "AttributeName": "UserID",
+                    "KeyType": "RANGE"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "INCLUDE",
+                "NonKeyAttributes": [
+                    "WebhookPath",
+                    "OrganizationID",
+                    "Enabled",
+                    "UpdatedAt"
+                ]
+            },
+            "ProvisionedThroughput": {
+                "WriteCapacityUnits": 5,
+                "ReadCapacityUnits": 5
+            }
+        }
+    ]
+}

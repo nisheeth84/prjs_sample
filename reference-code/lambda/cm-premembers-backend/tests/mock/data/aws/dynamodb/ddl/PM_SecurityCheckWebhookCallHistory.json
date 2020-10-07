@@ -1,0 +1,27 @@
+{
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "SecurityCheckWebhookID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "CreatedAt",
+            "AttributeType": "S"
+        }
+    ],
+    "TableName": "PM_SecurityCheckWebhookCallHistory",
+    "KeySchema": [
+        {
+            "AttributeName": "SecurityCheckWebhookID",
+            "KeyType": "HASH"
+        },
+        {
+            "AttributeName": "CreatedAt",
+            "KeyType": "RANGE"
+        }
+    ],
+    "ProvisionedThroughput": {
+        "WriteCapacityUnits": 5,
+        "ReadCapacityUnits": 5
+    }
+}

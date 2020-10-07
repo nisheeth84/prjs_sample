@@ -1,0 +1,14 @@
+{
+  "error": {
+    "title": "エラーページ!-cn",
+    "http": {
+      "400": "Bad request.-cn",
+      "403": "このページヘのアクセスは許可されていません。-cn",
+      "404": "ページが存在しません。-cn",
+      "405": "The HTTP verb you used is not supported for this URL.-cn",
+      "500": "Internal server error.-cn"
+    },
+    "concurrencyFailure": "Another user modified this data at the same time as you. Your changes were rejected.-cn",
+    "validation": "Validation error on the server.-cn"
+  }
+}

@@ -1,0 +1,235 @@
+$error-label-color: #ff5c5c;
+$error-bg-color: #ffdede;
+
+.wrap-calendar {
+  .popup-calendar-tool-1 {
+    .items .form-group .content-items {
+      .drop-down .active {
+        background-color: #ededed !important;
+      }
+
+      .box-title {
+        width: 55px;
+      }
+    }
+
+    .DayPickerInput {
+      width: auto !important;
+
+      .date {
+        width: 100px;
+      }
+    }
+
+    .rc-time-picker-input {
+      position: inherit !important;
+      font-size: 14px;
+      background-color: #f9f9f9;
+      padding: 5px 10px;
+      margin-right: 8px;
+      color: #707070;
+      width: 70px;
+      height: auto;
+      border-radius: 7px;
+      border: 1px solid #e5e5e5;
+    }
+
+    .dropzone-active {
+      border-radius: 12px;
+      border: 1px dashed #cdcdcd;
+      color: #0f6eb5 !important;
+      border-color: #0f6eb5 !important;
+      padding: 10px 0;
+      opacity: 0.5;
+
+      &.is-over {
+        background: #f9f9f9;
+      }
+    }
+
+    .weekdays {
+      .name {
+        cursor: pointer;
+      }
+    }
+
+    .error {
+      .title {
+        color: $error-label-color;
+      }
+
+      .select-option {
+        .select-text {
+          color: $error-label-color;
+          border-color: $error-label-color;
+          background-color: $error-bg-color;
+        }
+      }
+
+      input[type='text'] {
+        color: $error-label-color;
+        border-color: $error-label-color;
+        background-color: $error-bg-color;
+      }
+
+      .error-message {
+        color: $error-label-color;
+      }
+    }
+
+    .popup-esr2 .popup-esr2-content .popup-esr2-footer {
+      .button-cancel {
+        padding: 10px 25px;
+      }
+
+      .button-blue {
+        display: inline-block;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .rc-time-picker-panel-select {
+    max-height: 73px;
+
+    li {
+      padding: 0;
+      text-align: center;
+
+      &.rc-time-picker-panel-select-option-selected {
+        font-size: 17px;
+      }
+    }
+  }
+
+  .button-form-register.disabled {
+    opacity: 0.6;
+  }
+}
+
+.wrap-check .wrap-select .button-activity-registration {
+  margin-right: 8px;
+}
+
+//fix error layout: button cancel and ok in popup confirm
+.wrap-task .popup-esr2 .popup-esr2-content .popup-esr2-footer {
+  .button-cancel {
+    display: inline-flex;
+  }
+  .button-red {
+    margin-left: 5px;
+  }
+}
+
+// fix error layout when large number of item
+.modal-detail-schedule {
+  flex-wrap: wrap;
+  .modal-detail-schedule > * {
+    flex: 0 0 12.5%;
+  }
+}
+
+.table-calendar-schedule-wrap .list-hour .calendar-schedule {
+  position: absolute;
+}
+
+.table-calendar-schedule-wrap .calendar-schedule .calendar-schedule-content {
+  background: transparent;
+  border: 0px;
+  min-height: 24px !important;
+  line-height: 24px !important;
+  margin: 0;
+}
+.table-calendar-schedule-wrap .more {
+  // position: absolute;
+  min-height: 22px;
+  width: 100%;
+  text-align: center;
+}
+
+.table-calendar-schedule-wrap .calendar-schedule.calendar-schedule-blank {
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.table-calendar-area .table-list .calendar-schedule {
+  margin-bottom: 2px;
+}
+
+.react-autosuggest__container {
+  position: relative;
+}
+
+.react-autosuggest__input {
+  width: 240px;
+  height: 30px;
+  padding: 10px 20px;
+  font-family: Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.react-autosuggest__input--focused {
+  outline: none;
+}
+
+.react-autosuggest__input--open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.react-autosuggest__suggestions-container {
+  display: none;
+}
+
+.react-autosuggest__suggestions-container--open {
+  display: block;
+  position: absolute;
+  top: 51px;
+  width: 280px;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  font-family: Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  z-index: 2;
+}
+
+.react-autosuggest__suggestions-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.react-autosuggest__suggestion {
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.react-autosuggest__suggestion--highlighted {
+  background-color: #ddd;
+}
+.table-calendar-area .action-change-color .change-color .box-select-option-popup {
+  z-index: 1000;
+  left: -170px !important;
+}
+.wrap-task .box-list-user .box-user-status {
+  left: 100% !important;
+}
+
+.calendar-schedule-drag {
+  margin-bottom: 2px;
+}
+.calendar-schedule .icon-delete {
+  margin-right: 4px;
+}
+.calendar-schedule .icon-triangle {
+  margin-right: 4px;
+}
+.calendar-schedule.has-arrow-right .content-schedule {
+  max-width: calc(100% - 12px);
+}

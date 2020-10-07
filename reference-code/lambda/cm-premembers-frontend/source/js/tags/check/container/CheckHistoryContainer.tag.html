@@ -1,0 +1,370 @@
+<check-history-container>
+    <div class="page">
+        <div class="page-header">
+            <h1 class="page-title mt-2">{_t('check_history')}</h1>
+            <p>{_t('CheckHistory.description_check_history')}</p>
+        </div>
+        <div class="page-content container-fluid">
+            <div class="row mb-30">
+                <div class="col-5">
+                    <h4>{_t('organization')}</h4>
+                    <select ref="organization" class="form-control check-background-none h-150" onchange="{changeOrganizationHandler}" size="6">
+                        <option each="{organization in organizations}" value="{organization.organization.id}" selected="{organizationId == organization.organization.id}">{ organization.organization.name }</option>
+                    </select>
+                </div>
+                <div class="col-5">
+                    <h4>{_t('project')}</h4>
+                    <select ref="project" disabled="{!projectEnable}" class="form-control check-background-none h-150" onchange="{changeProjectHandler}" size="6">
+                        <option each="{project in projects}" value="{project.id}" selected="{projectId == project.id}">{project.name}</option>
+                    </select>
+                </div>
+                <div class="col-1 offset-1">
+                    <button class="btn btn-floating btn-sm btn-primary" disabled="{!reloadHistoryEnable}" onclick="{reloadHistoryHandler}">
+                        <i class="icon fa-refresh" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>{_t('organization')}</th>
+                        <th>{_t('project')}</th>
+                        <th>{_t('CheckHistory.execution_date_and_time')}</th>
+                        <th>{_t('CheckHistory.status')}</th>
+                        <th>{_t('CheckHistory.pdf')}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr each="{check_history in list_check_history}">
+                        <td>{findResultOrganization.organization.name}</td>
+                        <td>{projectName}</td>
+                        <td>{commonUtils.displayDate(check_history.executedDateTime)}</td>
+                        <td>
+                            <i show="{check_history.errorCode}" class="{createEffectiveClassObj(check_history.viewStatus)}" onclick="{showCheckHistoryError.bind(this, check_history.errorCode, check_history.id)}">{convertShowCheckHistoryStatus(check_history.viewStatus)}</i>
+                            <i hide="{check_history.errorCode}" class="{createEffectiveClassObj(check_history.viewStatus)}">{convertShowCheckHistoryStatus(check_history.viewStatus)}</i>
+                        </td>
+                        <td>
+                            <span hide="{check_history.checkStatus == 6}">{_t('CheckHistory.no_output')}</span>
+                            <button type="button" class="btn btn-sm btn-icon btn-flat btn-link p-0" show="{check_history.checkStatus == 6}" onclick="{getPDFDownloadHandler.bind(this, check_history.id)}">
+                                <i class="icon wb-download" aria-hidden="true"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        const tag = this;
+        const obs = riot.observable()
+        const requestOrganizationUrl = tag.config.APIGATEWAY_ADDRESS + '/myorganizations?inviteStatus=1';
+        tag.cognitoUser = riot.mixin('cognitoUser');
+        tag.obs = obs
+        tag.reloadHistoryHandler = reloadHistoryHandler
+        tag.changeOrganizationHandler = changeOrganizationHandler
+        tag.changeProjectHandler = changeProjectHandler
+        tag.reloadHistoryEnable = false
+        tag.createEffectiveClassObj = createEffectiveClassObj
+        tag.getPDFDownloadHandler = getPDFDownloadHandler
+        const CheckStatus = {
+            "-1": tag._t('error'),
+            "0": tag._t('CheckHistory.waiting'),
+            "1": tag._t('CheckHistory.checking_in_progress'),
+            "2": tag._t('CheckHistory.check_execution_completed'),
+            "3": tag._t('CheckHistory.aggregating'),
+            "4": tag._t('CheckHistory.aggregation_complete'),
+            "5": tag._t('CheckHistory.report_outputting'),
+            "6": tag._t('CheckHistory.report_output_complete')
+        }
+        tag.convertShowCheckHistoryStatus = convertShowCheckHistoryStatus
+        tag.CheckStatus = CheckStatus
+        tag.showCheckHistoryError = showCheckHistoryError
+        tag.organizations = []
+        tag.organizationId = tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkOrganization')) ? tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkOrganization')) : null
+        tag.projectId = tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkProject')) ? tag.commonUtils.getItemFromLocalStorage(tag.commonUtils.getLocalStorageKey('checkProject')) : null
+        tag.on('mount', function () {
+            if (!tag.organizations || !tag.organizations.length) {
+                tag.obs.trigger('pm-loader-show');
+                tag.cognitoUser.getSession(function (err, session) {
+                    if (err) {
+                        tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    } else {
+                        var idToken = session.getIdToken().getJwtToken();
+                        let fetchResponse = null
+                        fetch(requestOrganizationUrl, {
+                            method: 'GET',
+                            headers: {
+                                'Authorization': idToken
+                            }
+                        }).then(function (response) {
+                            fetchResponse = response
+                            return response
+                        }).then(tag.commonUtils.checkStatus)
+                        .then(function (response) {
+                            tag.obs.trigger('pm-loader-hide');
+                            return response.json();
+                        }).then(function (organizations) {
+                            tag.organizations = organizations
+                            tag.update();
+                            let isExistsOrganization = tag.organizations.find(function(organization) {
+                                return organization.organization.id === tag.organizationId
+                            })
+                            if(tag.organizationId && isExistsOrganization){
+                                changeOrganization(tag.organizationId)
+                            }
+                        }).catch(function (error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function (value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                            })
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function (value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                    }
+                });
+            }
+        })
+
+        function changeOrganization(organizationId){
+            tag.list_check_history = []
+            tag.organizationId = organizationId
+            if (organizationId) {
+                tag.obs.trigger('pm-loader-show');
+                let findResultOrganization = tag.organizations.find(function(organization) {
+                    if (organization.organization.id === tag.organizationId) {
+                        return true
+                    } else {
+                        return false
+                    }
+                })
+                if (findResultOrganization) {
+                    tag.findResultOrganization = findResultOrganization
+                }
+                tag.cognitoUser.getSession(function(err, session) {
+                    if (err) {
+                        tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    } else {
+                        var idToken = session.getIdToken().getJwtToken();
+                        const requestProjectUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + organizationId + '/projects';
+                        let fetchResponse = null
+                        fetch(requestProjectUrl, {
+                            method: 'GET',
+                            headers: {
+                                'Authorization': idToken
+                            }
+                        }).then(function (response) {
+                            fetchResponse = response
+                            return response
+                        })
+                        .then(tag.commonUtils.checkStatus)
+                        .then(function (response) {
+                            tag.obs.trigger('pm-loader-hide');
+                            return response.json();
+                        }).then(function (projects) {
+                            tag.projects = projects;
+                            tag.projectEnable = !!tag.projects.length
+                            tag.update();
+                            let isExistsProject = tag.projects.find(function(project) {
+                                return tag.projectId === project.id
+                            })
+                            if(tag.projectId && isExistsProject){
+                                changeProject(tag.projectId)
+                            }
+                        }).catch(function (error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function (value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                            })
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function (value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                    }
+                });
+            } else {
+                tag.projects = []
+                tag.projectEnable = !!tag.projects.length
+            }
+        }
+
+        function changeOrganizationHandler(event) {
+            const organizationId = event.target.value
+            tag.projectId = null
+            changeOrganization(organizationId)
+        }
+
+        function reloadHistoryHandler() {
+            changeProject(tag.projectId)
+        }
+
+        function changeProjectHandler(event) {
+            const projectId = event.target.value
+            if (projectId) {
+                changeProject(projectId)
+            } else {
+                tag.list_check_history = []
+                tag.reloadHistoryEnable = false
+            }
+            tag.update()
+        }
+
+        function changeProject(projectId) {
+            tag.projectId = projectId
+            const organizationId = tag.organizationId
+            let findProject = tag.projects.find(function(project) {
+                    if (project.id === tag.projectId) {
+                        return true
+                    } else {
+                        return false
+                    }
+                })
+            tag.projectName = findProject.name
+            tag.obs.trigger('pm-loader-show');
+            tag.cognitoUser.getSession(function (err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    const requestSecurityCheckHistoryResult = tag.config.APIGATEWAY_ADDRESS + "/check/securitycheck/" + organizationId + "/" + projectId + "/results/history";
+                    var idToken = session.getIdToken().getJwtToken()
+                    let fetchResponse = null
+                    fetch(requestSecurityCheckHistoryResult, {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': idToken
+                        }
+                    }).then(function (response) {
+                        fetchResponse = response
+                        return response
+                    })
+                        .then(tag.commonUtils.checkStatus)
+                        .then(function (response) {
+                            tag.obs.trigger('pm-loader-hide');
+                            return response.json();
+                        }).then(function (list_check_history) {
+                            list_check_history.forEach(function(check_history) {
+                                viewStatus = check_history['errorCode'] ? check_history['errorCode'] : check_history['checkStatus']
+                                check_history['viewStatus'] = viewStatus
+                            })
+                            tag.list_check_history = list_check_history;
+                            tag.reloadHistoryEnable = true
+                            tag.update();
+                            tag.commonUtils.setItemToLocalStorage(tag.commonUtils.getLocalStorageKey('checkOrganization'),tag.organizationId)
+                            tag.commonUtils.setItemToLocalStorage(tag.commonUtils.getLocalStorageKey('checkProject'),tag.projectId)
+                        }).catch(function (error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function (value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                            })
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function (value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            });
+        }
+
+        function createEffectiveClassObj(effective) {
+            const effectiveClass = {
+                'badge': true
+            }
+            switch (effective) {
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                    effectiveClass['badge-default'] = true
+                    break
+                case 6:
+                    effectiveClass['badge-success'] = true
+                    break
+                default:
+                    effectiveClass['badge-danger'] = true
+                    break
+            }
+            return effectiveClass
+        }
+
+        function convertShowCheckHistoryStatus(value) {
+            let message = CheckStatus[value]
+            if (!message) {
+                message = tag._t('error')
+            }
+            return message
+        }
+
+        function getPDFDownloadHandler(history_id, event) {
+            event.preventDefault()
+            tag.obs.trigger('pm-loader-show');
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    let fetchResponse = null
+                    getPDFDownload(idToken, history_id)
+                        .then(function(response) {
+                            fetchResponse = response
+                            return response
+                        })
+                        .then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            return response.json()
+                        })
+                        .then(function(result) {
+                            download(result['URL'])
+                            tag.obs.trigger('pm-loader-hide');
+                        }).catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                            })
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            });
+        }
+
+        function download(uri) {
+            var link = document.createElement('a');
+            link.target = '_blank'
+            link.href = uri;
+            link.click();
+        }
+
+        function getPDFDownload(idToken, history_id) {
+            const requestHistoryOutputUrl = tag.config.APIGATEWAY_ADDRESS + '/check/securitycheck/results/' + history_id + '/output'
+            return fetch(requestHistoryOutputUrl, {
+                method: 'GET',
+                headers: {
+                    'Authorization': idToken
+                }
+            })
+        }
+
+    function showCheckHistoryError(errorCode, checkHistoryID) {
+        const dictionary = tag.commonUtils.getMyDictionary()
+        const errorMessageObject = dictionary.CheckErrorMessage['CHECK_EXECUTE_ERROR']
+        const title = errorMessageObject.title
+        const description = errorMessageObject.description
+        const errorObj = {
+            "code": errorCode,
+            "checkHistoryID": checkHistoryID,
+            "errorTitle": title,
+            "clientWarningPlain": description
+        }
+        const promiseErrorObj = Promise.resolve(errorObj);
+        tag.obs.trigger('error-modal-open', promiseErrorObj);
+    }
+    </script>
+</check-history-container>

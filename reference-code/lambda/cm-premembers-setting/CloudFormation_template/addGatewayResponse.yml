@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: API Gateway Setting GatewayResponse
+Parameters:
+  ApiGateway:
+    Description: 'Target API Gateway'
+    Type: String
+Resources:
+  GatewayResponse401:
+    Type: 'AWS::ApiGateway::GatewayResponse'
+    Properties:
+      ResponseParameters:
+        gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+      ResponseType: UNAUTHORIZED
+      RestApiId: !Ref ApiGateway
+  GatewayResponse403:
+    Type: 'AWS::ApiGateway::GatewayResponse'
+    Properties:
+      ResponseParameters:
+        gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+      ResponseType: ACCESS_DENIED 
+      RestApiId: !Ref ApiGateway
+  GatewayResponse5xx:
+    Type: 'AWS::ApiGateway::GatewayResponse'
+    Properties:
+      ResponseParameters:
+        gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+      ResponseType: DEFAULT_5XX
+      RestApiId: !Ref ApiGateway
+      StatusCode: '500'

@@ -1,0 +1,478 @@
+<organization-notify-container>
+    <div class="page">
+        <div class="page-header">
+            <h1 class="page-title mt-2">{_t('OrganizationNotify.title')}</h1>
+        </div>
+        <div class="page-content container-fluid">
+            <div class="example-wrap">
+                <div class="nav-tabs-horizontal" data-plugin="tabs">
+                    <ul class="nav nav-tabs nav-tabs-line tabs-line-top">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#tab_mail_notify_settings">{_t('OrganizationNotify.mail_notify_settings')}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tab_slack_notify_settings" aria-controls="tab_slack_notify_settings">{_t('OrganizationNotify.slack_notify_setting')}</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content pt-20">
+                        <div class="tab-pane active" id="tab_mail_notify_settings">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class='custom-header'>
+                                        <h4>{_t('organization')}</h4>
+                                    </div>
+                                    <div class="org_select_wrap">
+                                        <select ref="organization" class="form-control h-300" onchange={changeOrganization} size="20">
+                                            <option each="{organization in organizations}" value="{organization.organization.id}">
+                                                { organization.organization.name }
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <select class="form-control col-8" id="OrgNotifyUserSelect">
+                                    <option each="{user in users}" id="{user.id}" value="{user.mailAddress}">
+                                        { user.mailAddress }
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="col-2 offset-10">
+                                    <button onclick="{changeOrganizationNotifyClickHandler}" disabled="{!submitEnable}" type="button" class="btn btn-success btn-outline float-right mt-10">{_t('OrganizationNotify.destination_setting')}</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab_slack_notify_settings">
+                            <form ref="form" method="post">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class='custom-header'>
+                                            <h4>{_t('organization')}</h4>
+                                        </div>
+                                        <div class="org_select_wrap">
+                                            <select ref="organizationSlackNotify" class="form-control h-300" size="20" onchange={changeOrganizationNotifySlack}>
+                                                <option each="{organization in organizations}" value="{organization.organization.id}">
+                                                    { organization.organization.name }
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="modal-body col-lg-8 mb--10 float-left">
+                                            <h4>{_t('OrganizationNotify.webhook_url')}</h4>
+                                            <input ref="slackWebhookUrl" name="slackWebhookUrl" class="form-control empty" type="text">
+                                        </div>
+                                        <div>
+                                            <a href="{_t('OrganizationNotify.user_guide_url')}" target="_blank">
+                                                <i class="icon wb-help-circle margin-left_10 font-size-30" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                        <div class="modal-footer col-lg-8">
+                                            <button type="button" class="btn btn-warning col-lg-3 float-right min-w-150 px-0 mr-10" disabled="{!testSendNotifySlackEnable}"
+                                                onclick="{testSendMessageToSlack}">{_t('OrganizationNotify.send_test')}</button>
+                                        </div>
+                                        <div class="modal-body col-lg-8">
+                                            <h4>{_t('OrganizationNotify.mentions')}</h4>
+                                            <p ref="explain_mentions">{commonUtils.parseHtmlByRef(this.refs.explain_mentions, _t('OrganizationNotify.explain_mentions'))}</p>
+                                            <input ref="mentions" name="mentions" class="form-control empty" type="text">
+                                        </div>
+                                        <div class="modal-footer col-lg-8">
+                                            <button type="button" class="btn btn-success col-lg-3 float-right min-w-150 px-0" disabled="{!createNotifySlackEnable}" onclick="{createNotifySlack}">{_t('OrganizationNotify.notify_setting')}</button>
+                                            <button type="button" class="btn btn-danger col-lg-3 float-right min-w-150 px-0" disabled="{!deleteNotifySlackEnable}" onclick="{deleteNotifySlack}">{_t('OrganizationNotify.delete_setting')}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <error-modal-customize></error-modal-customize>
+        <information-modal></information-modal>
+        <error-modal></error-modal>
+        <pm-loading></pm-loading>
+        <script>
+            require('../../common/component/InformationModal.tag.html')
+            require('../../common/component/ErrorModalCustomize.tag.html')
+            const tag = this;
+            tag.cognitoUser = riot.mixin('cognitoUser');
+            tag.organization_id = opts.organization_id
+            tag.changeOrganization = changeOrganization
+            tag.changeOrganizationNotifyClickHandler = changeOrganizationNotifyClickHandler
+            tag.changeOrganizationNotifySlack = changeOrganizationNotifySlack
+            tag.createNotifySlack = createNotifySlack
+            tag.deleteNotifySlack = deleteNotifySlack
+            tag.testSendMessageToSlack = testSendMessageToSlack
+            tag.testSendNotifySlackEnable = false
+            tag.deleteNotifySlackEnable = false
+            tag.createNotifySlackEnable = false
+            const obs = riot.observable()
+            const dictionary = tag.commonUtils.getMyDictionary()
+            const requestOrganizationUrl = tag.config.APIGATEWAY_ADDRESS + '/myorganizations?inviteStatus=1';
+            tag.obs = obs
+            tag.organizations = []
+            tag.users = []
+            tag.submitEnable = false
+            tag.on('mount', function() {
+                $('#OrgNotifyUserSelect').multiSelect({
+                    'cssClass': 'col-8 org_notif',
+                    selectableHeader: "<div class='custom-header'><h4>" + tag._t('OrganizationNotify.user') + "</h4></div>",
+                    selectionHeader: "<div class='custom-header'><h4>" + tag._t('OrganizationNotify.destination') + "</h4></div>",
+                })
+                $('#OrgNotifyUserSelect').multiSelect()
+                tag.cognitoUser.getSession(function(err, session) {
+                    if (err) {
+                        tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    } else {
+                        var idToken = session.getIdToken().getJwtToken();
+                        let fetchResponse = null
+                        tag.obs.trigger('pm-loader-show');
+                        fetch(requestOrganizationUrl, {
+                            method: 'GET',
+                            headers: {
+                                'Authorization': idToken
+                            }
+                        }).then(function(response) {
+                            fetchResponse = response
+                            return response
+                        }).then(tag.commonUtils.checkStatus)
+                            .then(function(response) {
+                                tag.obs.trigger('pm-loader-hide');
+                                return response.json();
+                            }).then(function(organizations) {
+                                tag.organizations = organizations.filter(trimOwnerOrganization)
+                                tag.update();
+                            }).catch(function(error) {
+                                tag.obs.trigger('pm-loader-hide');
+                                error.then(function(value) {
+                                    value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                                })
+                                tag.obs.trigger('error-modal-open', error);
+                                tag.obs.one('error-modal-close', function(value) {
+                                    tag.commonUtils.backHome(value)
+                                })
+                            })
+                    }
+                });
+            })
+
+            tag.on('updated', function() {
+                if (!tag.submitEnable) {
+                    $(".ms-selectable li").click(function(e) {
+                        tag.submitEnable = true
+                        tag.update()
+                    });
+                    $(".ms-selection li").click(function(e) {
+                        if ($('.ms-selection li:visible').toArray().length == 1) {
+                            tag.cognitoUser.getSession(function(err, session) {
+                                if (err) {
+                                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                                } else {
+                                    var idToken = session.getIdToken().getJwtToken();
+                                    getDestinations(idToken, tag.organizationId)
+                                        .then(function(response) {
+                                            return response
+                                        })
+                                        .then(function(result) {
+                                            tag.submitEnable = $.type(result) == 'object'
+                                            tag.update();
+                                        }).catch(function(error) {
+                                            tag.obs.trigger('pm-loader-hide');
+                                            tag.obs.trigger('error-modal-open', error);
+                                            tag.obs.one('error-modal-close', function(value) {
+                                                tag.commonUtils.backHome(value)
+                                            })
+                                        })
+                                }
+                            });
+                        }
+                    });
+                }
+            })
+
+            function testSendMessageToSlack() {
+                const organizationName = tag.refs.organizationSlackNotify.selectedOptions[0].innerText
+                const webhookURL = tag.refs.slackWebhookUrl.value
+                const text = `[${organizationName}] ` + tag._t('OrganizationNotify.message_test_slack')
+                const infoTestNotifySlack = {
+                    "username": dictionary.infoTestNotifySlack.userName,
+                    "icon_url": dictionary.infoTestNotifySlack.iconUrl,
+                    "text": text
+                }
+                fetch(webhookURL, {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: JSON.stringify(infoTestNotifySlack)
+                }).then(function(response) {
+                    if (response.status == 200 && response.ok == true) {
+                        const information = {
+                            'title': tag._t('OrganizationNotify.info_title_test_slack_completely'),
+                            'body': tag._t('OrganizationNotify.info_body_test_slack_completely')
+                        }
+                        tag.obs.trigger('information-modal-open', information)
+                    } else {
+                        throw new Error(tag._t('Error_message.test_slack_error_message'))
+                    }
+                }).catch(function() {
+                    const infoError = {
+                        'title': tag._t('error'),
+                        'body': tag._t('Error_message.test_slack_error_message')
+                    }
+                    tag.obs.trigger('error-modal-customize-open', infoError)
+                })
+            }
+
+            function changeOrganization(event) {
+                const organizationId = event.target.value
+                tag.organizationId = organizationId
+                tag.submitEnable = false
+                if (organizationId) {
+                    tag.obs.trigger('pm-loader-show');
+                    tag.cognitoUser.getSession(function(err, session) {
+                        if (err) {
+                            tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                        } else {
+                            var idToken = session.getIdToken().getJwtToken();
+                            getInfomationUsers(idToken, organizationId)
+                                .then(function(response) {
+                                    return response
+                                })
+                                .then(function(result) {
+                                    tag.obs.trigger('pm-loader-hide');
+                                    tag.users = result[0]
+                                    tag.update();
+                                    $('#OrgNotifyUserSelect').multiSelect('refresh')
+                                    $('#OrgNotifyUserSelect').multiSelect('deselect_all')
+                                    if ($.type(result[1]) == 'object') {
+                                        result[1]['destinations'].forEach(function(destination) {
+                                            $('#OrgNotifyUserSelect').multiSelect('select', destination['mailAddress'])
+                                        });
+                                        tag.submitEnable = true
+                                    }
+                                    tag.update();
+                                }).catch(function(error) {
+                                    tag.obs.trigger('pm-loader-hide');
+                                    tag.obs.trigger('error-modal-open', error);
+                                    tag.obs.one('error-modal-close', function(value) {
+                                        tag.commonUtils.backHome(value)
+                                    })
+                                })
+                        }
+                    });
+                }
+            }
+
+            function getInfomationUsers(idToken, organization_id) {
+                let listResponse = {}
+                const listRequest = [
+                    getUsersPromise(idToken, organization_id).then(function(response) {
+                        listResponse["listRequest"] = response
+                        return response
+                    }).then(tag.commonUtils.checkStatus).then(function(response) { return response.json() }).catch(function(error) {
+                        error.then(function(value) {
+                            value.responseStatus = listResponse["listRequest"].status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                        })
+                        throw error
+                    }),
+                    getDestinations(idToken, organization_id).then(function(response) {
+                        listResponse["getDestinations"] = response
+                        return response
+                    }).then(tag.commonUtils.checkStatus).then(function(response) { return response.json() }).catch(function(error) {
+                        error.then(function(value) {
+                            value.responseStatus = listResponse["getDestinations"].status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                        })
+                        throw error
+                    })
+                ]
+                return Promise.all(listRequest);
+            }
+
+            function getUsersPromise(idToken, organization_id) {
+                const requestUsersUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + organization_id + '/users?inviteStatus=1';
+                return fetch(requestUsersUrl, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': idToken
+                    }
+                })
+            }
+            function getDestinations(idToken, organization_id) {
+                const requestGetDestinationsUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + organization_id + '/nofitymail/destinations'
+                const requestNotifyCode = '?notifyCode=CHECK_CIS'
+                return fetch(requestGetDestinationsUrl + requestNotifyCode, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': idToken
+                    }
+                })
+            }
+
+            function changeOrganizationNotifySlack(event) {
+                const organizationIdNotifySlack = event.target.value
+                tag.organizationIdNotifySlack = organizationIdNotifySlack
+                if (organizationIdNotifySlack) {
+                    getNotifySlack(organizationIdNotifySlack)
+                }
+            }
+
+            function getNotifySlack(organizationIdNotifySlack) {
+                const requestGetNotifySlackUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + organizationIdNotifySlack + '/notifyslack/destinations?notifyCode=CHECK_CIS'
+                tag.commonUtils.callApiWithLoader(tag, requestGetNotifySlackUrl, "GET").then(function(response) {
+                    tag.refs.slackWebhookUrl.value = ""
+                    tag.refs.mentions.value = ""
+                    tag.deleteNotifySlackEnable = false
+                    if (response['organizationId']) {
+                        tag.refs.slackWebhookUrl.value = response['webhookUrl']
+                        tag.refs.mentions.value = response['mentions']
+                        tag.deleteNotifySlackEnable = true
+                    }
+                    tag.testSendNotifySlackEnable = true
+                    tag.createNotifySlackEnable = true
+                    tag.update()
+                })
+            }
+
+            function createNotifySlack() {
+                const requestCreateNotifySlackUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + tag.organizationIdNotifySlack + '/notifyslack/destinations'
+                const body = {
+                    'notifyCode': 'CHECK_CIS',
+                    'webhookUrl': tag.refs.slackWebhookUrl.value,
+                    'mentions': tag.refs.mentions.value
+                }
+                tag.commonUtils.callApiWithLoader(tag, requestCreateNotifySlackUrl, "POST", body).then(function() {
+                    const information = {
+                        'title': tag._t('OrganizationNotify.info_title'),
+                        'body': tag._t('OrganizationNotify.info_body_regist_success')
+                    }
+                    tag.obs.trigger('information-modal-open', information)
+                    tag.deleteNotifySlackEnable = true
+                    tag.update()
+                })
+            }
+
+            function deleteNotifySlack() {
+                const requestDeleteNotifySlackUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + tag.organizationIdNotifySlack + '/notifyslack/destinations?notifyCode=CHECK_CIS'
+                tag.commonUtils.callApiWithLoader(tag, requestDeleteNotifySlackUrl, "DELETE").then(function() {
+                    const information = {
+                        'title': tag._t('OrganizationNotify.info_title'),
+                        'body': tag._t('OrganizationNotify.info_body_delete_success')
+                    }
+                    tag.obs.trigger('information-modal-open', information)
+                    tag.deleteNotifySlackEnable = false
+                    tag.refs.slackWebhookUrl.value = ""
+                    tag.refs.mentions.value = ""
+                    tag.update()
+                })
+            }
+
+            function trimOwnerOrganization(organization) {
+                if (tag.commonUtils.isOwner(organization)) {
+                    return organization
+                }
+            }
+
+            function changeOrganizationNotifyClickHandler(event) {
+                const list_user = {}
+                $('#OrgNotifyUserSelect option').toArray().forEach(function(obj) {
+                    list_user[obj.text] = obj.id
+                });
+                const id_users = []
+                $('.ms-selection li:visible').toArray().forEach(function(obj) {
+                    id_users.push(list_user[obj.textContent.trim()])
+                });
+                if (id_users.length > 0) {
+                    createNofityMail(id_users)
+                } else {
+                    deleteNofityMail()
+                    tag.submitEnable = false
+                    tag.update()
+                }
+            }
+
+            function deleteNofityMail() {
+                const requestDeleteDestinationsUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + tag.organizationId + '/nofitymail/destinations'
+                const requestNotifyCode = '?notifyCode=CHECK_CIS'
+                tag.cognitoUser.getSession(function(err, session) {
+                    if (err) {
+                        tag.commonUtils.cognitoSessionError(tag.observer, tag.cognitoUser)
+                    } else {
+                        var idToken = session.getIdToken().getJwtToken();
+                        let fetchResponse = null
+                        fetch(requestDeleteDestinationsUrl + requestNotifyCode, {
+                            method: 'DELETE',
+                            headers: {
+                                'Authorization': idToken
+                            }
+                        }).then(function(response) {
+                            fetchResponse = response
+                            return response
+                        })
+                            .then(tag.commonUtils.checkStatus)
+                            .then(function(response) {
+                                tag.obs.trigger('pm-loader-hide');
+                                const information = {
+                                    'title': tag._t('OrganizationNotify.info_title'),
+                                    'body': tag._t('OrganizationNotify.info_body')
+                                }
+                                tag.obs.trigger('information-modal-open', information)
+                            }).catch(function(error) {
+                                tag.obs.trigger('pm-loader-hide');
+                                error.then(function(value) {
+                                    value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                                })
+                                tag.obs.trigger('error-modal-open', error);
+                                tag.obs.one('error-modal-close', function(value) {
+                                    tag.commonUtils.backHome(value)
+                                })
+                            })
+                    }
+                });
+            }
+
+            function createNofityMail(id_users) {
+                const requestCreateDestinationsUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + tag.organizationId + '/nofitymail/destinations'
+                const body = {
+                    "notifyCode": "CHECK_CIS",
+                    "users": id_users
+                }
+                tag.cognitoUser.getSession(function(err, session) {
+                    if (err) {
+                        tag.commonUtils.cognitoSessionError(tag.observer, tag.cognitoUser)
+                    } else {
+                        var idToken = session.getIdToken().getJwtToken();
+                        let fetchResponse = null
+                        fetch(requestCreateDestinationsUrl, {
+                            method: 'POST',
+                            headers: {
+                                'Authorization': idToken
+                            },
+                            body: JSON.stringify(body)
+                        }).then(function(response) {
+                            fetchResponse = response
+                            return response
+                        })
+                            .then(tag.commonUtils.checkStatus)
+                            .then(function(response) {
+                                tag.obs.trigger('pm-loader-hide');
+                                const information = {
+                                    'title': tag._t('OrganizationNotify.info_title'),
+                                    'body': tag._t('OrganizationNotify.info_body')
+                                }
+                                tag.obs.trigger('information-modal-open', information)
+                            }).catch(function(error) {
+                                tag.obs.trigger('pm-loader-hide');
+                                error.then(function(value) {
+                                    value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトからステータスコードを格納しておく
+                                })
+                                tag.obs.trigger('error-modal-open', error);
+                                tag.obs.one('error-modal-close', function(value) {
+                                    tag.commonUtils.backHome(value)
+                                })
+                            })
+                    }
+                });
+            }
+        </script>
+</organization-notify-container>

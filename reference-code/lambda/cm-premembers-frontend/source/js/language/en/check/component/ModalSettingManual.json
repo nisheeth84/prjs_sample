@@ -1,0 +1,52 @@
+{
+    "ModalSettingManual": {
+        "CHECK_CIS12_ITEM_1_15": {
+            "question": "Have you confirmed that it is set?"
+        },
+        "CHECK_CIS12_ITEM_1_17": {
+            "question": "Have you confirmed that the information is up to date?"
+        },
+        "CHECK_CIS12_ITEM_1_18": {
+            "question": "Have you confirmed that the information is up to date?"
+        },
+        "CHECK_CIS12_ITEM_4_04": {
+            "question": "Did you confirm that there are no unnecessary VPC peers?"
+        },
+        "CHECK_ASC_ITEM_02_02": {
+            "question": "Have you confirmed that the bucket is not open?"
+        },
+        "CHECK_ASC_ITEM_05_01": {
+            "question": "Did you confirm that you are using STS and roles?"
+        },
+        "CHECK_ASC_ITEM_06_01": {
+            "question": "Did you check the usage in the billing report?"
+        },
+        "CHECK_ASC_ITEM_09_01": {
+            "question": "Have you verified that the EC2 key pair is properly managed?"
+        },
+        "CHECK_ASC_ITEM_11_01": {
+            "question": "Have you verified that communication is controlled?"
+        },
+        "CHECK_ASC_ITEM_14_01": {
+            "question": "Have you verified that the traffic is encrypted?"
+        },
+        "CHECK_ASC_ITEM_15_01": {
+            "question": "Did you understand S3 version control, life cycle policy and confirmed that it is properly set?"
+        },
+        "CHECK_IBP_ITEM_04_01": {
+            "question": "Have you used AWS - defined policy for access authority?"
+        },
+        "CHECK_IBP_ITEM_06_01": {
+            "question": "Did you check the access rights to the services provided by the IAM policy?"
+        },
+        "CHECK_IBP_ITEM_10_01": {
+            "question": "Did you use the IAM role for access from other AWS accounts?"
+        },
+        "CHECK_IBP_ITEM_13_01": {
+            "question": "Have you defined the conditions for the IAM policy?"
+        },
+        "CHECK_IBP_ITEM_14_03": {
+            "question": "Have you checked CloudWatch metrics?"
+        }
+    }
+}

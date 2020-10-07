@@ -1,0 +1,250 @@
+import { Dimensions, StyleSheet } from "react-native";
+import { theme } from "../../../config/constants";
+
+const { width } = Dimensions.get("window");
+const { height } = Dimensions.get("window");
+
+export const TimelineListGroupStyles = StyleSheet.create({
+  imgPeople: {
+    width: 25,
+    height: 25,
+    backgroundColor: '#636363',
+    marginRight: theme.space[3],
+    borderRadius: 25 / 2,
+  },
+  container: {
+    flex: 1,
+    backgroundColor: theme.colors.white150,
+  },
+  viewSearch: {
+    padding: theme.space[3],
+    backgroundColor: theme.colors.white,
+    flexDirection: "row",
+    alignItems: "center",
+    width: "100%",
+  },
+  viewTxtInput: {
+    flexDirection: "row",
+    paddingHorizontal: theme.space[3],
+    borderWidth: 1,
+    borderColor: theme.colors.gray150,
+    alignItems: "center",
+    borderRadius: theme.borderRadius,
+    backgroundColor: theme.colors.white150,
+    width: "90%",
+    height: 50,
+  },
+  txtInput: {
+    fontSize: theme.fontSizes[4],
+    width: "90%",
+  },
+  icon: {
+    height: 18,
+    aspectRatio: 1,
+    marginRight: theme.space[3],
+  },
+  btnDown: {
+    padding: theme.space[4],
+  },
+  body: {
+    backgroundColor: theme.colors.gray50,
+    padding: theme.space[3],
+    flex: 1,
+  },
+  viewItem: {
+    borderRadius: 17,
+    // flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginVertical: theme.space[2],
+    marginHorizontal: theme.space[2],
+    width: (width - 12 - 8 - 8 - 8 - 8 - 8 - 4) * 0.5,
+    borderWidth: 0.5,
+    borderColor: theme.colors.gray100,
+  },
+  headerItem: {
+    borderTopLeftRadius: 17,
+    borderTopRightRadius: 17,
+    width: "100%",
+    alignItems: "center",
+    padding: 10,
+  },
+  viewHeader: {
+    alignItems: "center",
+    justifyContent: "flex-start",
+    marginBottom: theme.space[10],
+  },
+  txtHeader: {
+    fontSize: theme.space[5],
+    fontWeight: "700",
+    color: theme.colors.white,
+  },
+  comment: {
+    borderBottomLeftRadius: 17,
+    borderBottomRightRadius: 17,
+    padding: 10,
+    backgroundColor: theme.colors.white,
+    width: "100%",
+  },
+  people: { flexDirection: "row", marginVertical: 15 },
+  viewStart: { alignItems: "flex-end", width: "100%" },
+  btn: {
+    padding: 10,
+    borderWidth: 1,
+    borderRadius: 10,
+    alignItems: "center",
+    borderColor: theme.colors.gray100,
+  },
+  iconPeople: { marginRight: theme.space[2] },
+  length: {
+    height: 25,
+    width: 25,
+    borderRadius: 12.5,
+    backgroundColor: theme.colors.green,
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: theme.space[2],
+  },
+  lengthMember: {
+    height: 25,
+    width: 25,
+    borderRadius: 12.5,
+    backgroundColor: theme.colors.blue200,
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: theme.space[2],
+  },
+  txt: { fontSize: theme.fontSizes[1], color: "#fff" },
+  fab: {
+    position: "absolute",
+    top: 550,
+    alignItems: "flex-end",
+    width: "100%",
+  },
+  modal: { flex: 1, backgroundColor: "#fff" },
+  btnClose: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 15,
+    paddingVertical: 20,
+    borderBottomWidth: 2,
+    borderBottomColor: theme.colors.gray100,
+  },
+  viewTxt: { alignItems: "flex-start", flex: 1 },
+  viewIcon: {
+    alignItems: "flex-end",
+    flex: 1,
+  },
+  check: { width: 30, height: 30 },
+  text: { fontSize: theme.fontSizes[4] },
+  modalItem: {
+    flex: 1,
+    backgroundColor: theme.colors.blackDeep,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  card: {
+    // height: "48%",
+    // width: "60%",
+    backgroundColor: "#fff",
+    borderRadius: 30,
+    position: "absolute",
+    top: height * 0.3,
+    right: width * 0.2,
+    padding: theme.space[4],
+  },
+  avatar: {
+    height: 50,
+    width: 50,
+    borderRadius: 25,
+    backgroundColor: "#8AC891",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  img: { height: 50, width: 50 },
+  txtName: { fontSize: theme.fontSizes[3] },
+  status: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: theme.space[2],
+  },
+  circle: {
+    height: 16,
+    width: 16,
+    borderRadius: 8,
+    backgroundColor: "#15B50F",
+    marginRight: 10,
+  },
+  txtStatus: { fontSize: theme.fontSizes[3], color: "#15B50F" },
+  information: {
+    alignItems: "flex-start",
+    paddingHorizontal: theme.space[4],
+    marginTop: theme.space[4],
+  },
+  detail: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: theme.space[2],
+  },
+  iconDetail: { height: 18, width: 18, marginRight: theme.space[2] },
+  btnSend: {
+    paddingHorizontal: theme.space[1],
+    backgroundColor: "#0070C0",
+    paddingVertical: theme.space[3],
+    borderRadius: 12,
+    marginTop: theme.space[4],
+    alignItems: "center",
+  },
+  txtInfo: { fontSize: theme.space[4] },
+  textSend: { fontSize: theme.fontSizes[3], color: "#fff" },
+  txtIcon: {
+    fontSize: theme.space[3],
+    color: theme.colors.black,
+  },
+});
+
+export const TimelineListGroupModalStyles = StyleSheet.create({
+  container: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
+    zIndex: 2,
+    position: "absolute",
+
+    maxHeight: 200,
+    backgroundColor: theme.colors.white,
+    width: "82%",
+    left: theme.space[3] * 1.35,
+    top: 146,
+    borderRadius: theme.borderRadius,
+    paddingVertical: theme.space[2],
+  },
+  btnItem: {
+    flexDirection: "row",
+    paddingHorizontal: theme.space[5],
+    paddingVertical: theme.space[2],
+    alignItems: "center",
+  },
+  image: {
+    height: 32,
+    aspectRatio: 1,
+    borderRadius: 16,
+    marginRight: theme.space[3],
+  },
+  txt: {
+    fontSize: theme.fontSizes[4],
+    color: "#000",
+  },
+});
+
+export const ModalMemberStyles = StyleSheet.create({
+  container: {},
+});

@@ -1,0 +1,12 @@
+DROP TRIGGER IF EXISTS "cognito_settings_created_date" ON "cognito_settings";
+CREATE TRIGGER "cognito_settings_created_date" BEFORE INSERT ON "cognito_settings" FOR EACH ROW EXECUTE PROCEDURE "created_date"() ;
+DROP TRIGGER IF EXISTS "cognito_settings_updated_date" ON "cognito_settings" ;
+CREATE TRIGGER "cognito_settings_updated_date" BEFORE UPDATE ON "cognito_settings" FOR EACH ROW EXECUTE PROCEDURE "updated_date"();
+DROP TRIGGER IF EXISTS "authentication_saml_created_date" ON "authentication_saml";
+CREATE TRIGGER "authentication_saml_created_date" BEFORE INSERT ON "authentication_saml" FOR EACH ROW EXECUTE PROCEDURE "created_date"() ;
+DROP TRIGGER IF EXISTS "authentication_saml_updated_date" ON "authentication_saml" ;
+CREATE TRIGGER "authentication_saml_updated_date" BEFORE UPDATE ON "authentication_saml" FOR EACH ROW EXECUTE PROCEDURE "updated_date"();
+DROP TRIGGER IF EXISTS "ip_address_created_date" ON "ip_address";
+CREATE TRIGGER "ip_address_created_date" BEFORE INSERT ON "ip_address" FOR EACH ROW EXECUTE PROCEDURE "created_date"() ;
+DROP TRIGGER IF EXISTS "ip_address_updated_date" ON "ip_address" ;
+CREATE TRIGGER "ip_address_updated_date" BEFORE UPDATE ON "ip_address" FOR EACH ROW EXECUTE PROCEDURE "updated_date"();

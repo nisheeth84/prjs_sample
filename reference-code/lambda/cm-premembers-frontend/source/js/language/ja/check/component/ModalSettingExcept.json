@@ -1,0 +1,9 @@
+{
+    "ModalSettingExcept": {
+        "exclusion_setting": "除外設定",
+        "currently_set_of": "現在の設定",
+        "evaluation_cancel": "評価取消",
+        "exclude": "除外する",
+        "include": "除外しない"
+    }
+}

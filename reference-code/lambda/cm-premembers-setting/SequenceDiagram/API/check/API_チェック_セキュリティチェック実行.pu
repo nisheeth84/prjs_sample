@@ -1,0 +1,68 @@
+@startuml{API_チェック_セキュリティチェック実行.png}
+title [チェックAPI_セキュリティチェック実行]
+hide footbox
+
+boundary 画面 as view
+participant チェックAPI as api_check #cyan
+database ユーザー所属 as table_affiliation <<dynamodb>> #royalblue
+database プロジェクト as table_projects <<dynamodb>> #royalblue
+database チェック履歴 as table_check_history <<dynamodb>> #royalblue
+database バッチジョブ定義 as table_batch_jobdef <<dynamodb>> #royalblue
+database チェックジョブ履歴 as storage_check_joblog <<s3>> #crimson
+database チェックジョブキュー as batchqueue_check <<batch>> #darkorange
+
+view -> api_check :POST /check/securitycheck/{organization_id}/{project_id}/results
+activate api_check
+    api_check -> api_check :メールアドレス取得
+    |||
+    ref over api_check, table_affiliation :アクセス権限チェック
+    |||
+    api_check -> api_check :リソース関連性バリデーションチェック
+    activate api_check
+        api_check -> table_projects :query（プロジェクトIDをキーとする。フィルタに組織ID={organization_id}を追加する。）
+        table_projects --> api_check
+        api_check --> api_check
+    deactivate api_check
+    |||
+    api_check -> api_check :チェック処理実行
+    activate api_check
+        api_check -> table_check_history :レコード作成
+        note right :チェック実行ステータス=待機中(0)
+        table_check_history --> api_check
+        group チェック処理
+            api_check -> table_batch_jobdef :レコード取得
+            table_batch_jobdef --> api_check
+            api_check -> batchqueue_check :チェック処理をサブミット
+            batchqueue_check --> api_check
+            api_check -> storage_check_joblog :ファイル作成 {bucket}/check_batch/{CheckHistoryID}/{LogID}.json
+            storage_check_joblog --> api_check
+            |||
+        end
+        group 集計処理
+            api_check -> table_batch_jobdef :レコード取得
+            table_batch_jobdef --> api_check
+            api_check -> batchqueue_check :集計処理をサブミット
+            note right :チェック処理の後続処理として依存関係を設定
+            batchqueue_check --> api_check
+            api_check -> storage_check_joblog :ファイル作成 {bucket}/check_batch/{CheckHistoryID}/{LogID}.json
+            storage_check_joblog --> api_check
+            |||
+        end
+        group レポート出力処理
+            api_check -> table_batch_jobdef :レコード取得
+            table_batch_jobdef --> api_check
+            api_check -> batchqueue_check :レポート出力処理をサブミット
+            note right :集計処理の後続処理として依存関係を設定
+            batchqueue_check --> api_check
+            api_check -> storage_check_joblog :ファイル作成 {bucket}/check_batch/{CheckHistoryID}/{LogID}.json
+            storage_check_joblog --> api_check
+            |||
+        end
+        api_check --> api_check
+        |||
+    deactivate api_check
+    api_check -> api_check :レスポンス作成
+    api_check --> view :201:チェック履歴情報
+deactivate api_check
+
+@enduml

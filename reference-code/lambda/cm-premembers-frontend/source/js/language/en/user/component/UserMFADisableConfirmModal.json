@@ -1,0 +1,7 @@
+{
+    "UserMFADisableConfirmModal": {
+        "confirm_disable_mfa": "Disable MFA",
+        "confirm_deactivate_mfa": "Are you sure you want to disable MFA?",
+        "disable": "Disable"
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "CoopID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "AWSAccount",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "ProjectID",
+            "AttributeType": "S"
+        }
+    ],
+    "TableName": "PM_AWSAccountCoops",
+    "KeySchema": [
+        {
+            "AttributeName": "CoopID",
+            "KeyType": "HASH"
+        }
+    ],
+    "GlobalSecondaryIndexes": [
+        {
+            "IndexName": "ProjectIndex",
+            "KeySchema": [
+                {
+                    "AttributeName": "ProjectID",
+                    "KeyType": "HASH"
+                },
+                {
+                    "AttributeName": "AWSAccount",
+                    "KeyType": "RANGE"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "INCLUDE",
+                "NonKeyAttributes": [
+                    "AWSAccountName",
+                    "Members",
+                    "RoleName",
+                    "ExternalID",
+                    "Effective",
+                    "OrganizationID",
+                    "CreatedAt",
+                    "UpdatedAt"
+                ]
+            }
+        }
+    ],
+    "BillingMode": "PAY_PER_REQUEST"
+}

@@ -1,0 +1,90 @@
+{
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "CheckResultItemID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "CheckHistoryID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "CheckResultID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "CheckItemCode",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "SortCode",
+            "AttributeType": "S"
+        }
+    ],
+    "TableName": "PM_CheckResultItems",
+    "KeySchema": [
+        {
+            "AttributeName": "CheckResultItemID",
+            "KeyType": "HASH"
+        }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+        {
+            "IndexName": "CheckHistoryIndex",
+            "KeySchema": [
+                {
+                    "AttributeName": "CheckHistoryID",
+                    "KeyType": "HASH"
+                },
+                {
+                    "AttributeName": "SortCode",
+                    "KeyType": "RANGE"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "INCLUDE",
+                "NonKeyAttributes": [
+                    "CheckResultID",
+                    "CheckItemCode",
+                    "OrganizationName",
+                    "ProjectName",
+                    "AWSAccount",
+                    "AWSAccountName",
+                    "CheckResult",
+                    "ResultJsonPath",
+                    "ResultCsvPath",
+                    "ExecutedDateTime",
+                    "ExclusionFlag",
+                    "CreatedAt",
+                    "UpdatedAt"
+                ]
+            }
+        },
+        {
+            "IndexName": "CheckResultIndex",
+            "KeySchema": [
+                {
+                    "AttributeName": "CheckResultID",
+                    "KeyType": "HASH"
+                },
+                {
+                    "AttributeName": "CheckItemCode",
+                    "KeyType": "RANGE"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "INCLUDE",
+                "NonKeyAttributes": [
+                    "CheckHistoryID",
+                    "CheckResult",
+                    "ResultJsonPath",
+                    "AssessmentFlag",
+                    "ExclusionFlag",
+                    "CreatedAt",
+                    "UpdatedAt"
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,78 @@
+{
+  "milestone": {
+    "create-edit": {
+      "title": "注册里程碑",
+      "title-edit": "编辑里程碑",
+      "menu": {
+        "menu-status-not-started": "尚未开始",
+        "menu-status-at-work": "工作中",
+        "menu-status-over": "完成"
+      },
+      "form": {
+        "milestone-name": "里程碑名称",
+        "milestone-name-placeholder": "输入里程碑名称",
+        "finnish-date": "预计完成日期",
+        "finnish-date-placeholder": "添加预计完成日期",
+        "isdone": "完成设置",
+        "isdone-comment": "完成此里程碑",
+        "comment": "备忘录",
+        "comment-placeholder": "输入备忘录",
+        "create-date": "注册日期",
+        "create-per": "注册者",
+        "update-date": "最后更新日期",
+        "update-per": "最后更新者",
+        "default": "自动注册",
+        "required": "必须",
+        "button-create": "注册",
+        "button-edit": "保存",
+        "button-cancel": "取消",
+        "message-required": "请输入里程碑名称。",
+        "is-public-title": "公开设置",
+        "is-public-checkbox": "公开",
+        "customer": "客户名称",
+        "customer-placeholder": "添加客户"
+      }
+    },
+    "detail": {
+      "popup-delete": {
+        "title": "删除",
+        "detail": "您确定要删除里程碑吗？",
+        "button-delete": "删除",
+        "button-cancel": "取消"
+      },
+      "popup-update-status": {
+        "title": "确认",
+        "detail_1": "已完成的里程碑包括未完成的任务。",
+        "detail_2": "请选择处理。",
+        "button-update": "完成任务",
+        "button-cancel": "取消"
+      },
+      "form": {
+        "regist": "活动注册",
+        "milestone-name": "里程碑名称",
+        "comment": "备忘录",
+        "task": "任务",
+        "isdone-title": "完成设置",
+        "isdone": "完成",
+        "undone": "未完成",
+        "expected-date": "预计完成日期",
+        "create-date": "注册日期 : ",
+        "create-per": "注册者 : ",
+        "update-date": "最后更新日期 : ",
+        "update-per": "最后更新者 : ",
+        "button-finish": "更新为完成",
+        "count-task": "其他{{countTask}}个人",
+        "customer": "客户",
+        "buton-activity-history": "活动历史",
+        "label-change-history-create": "已进行新的注册。",
+        "label-change-history-update": "以下项目已得到更新。",
+        "history-year": "年",
+        "history-month": "月",
+        "history-day": "日",
+        "change-history": "修订记录",
+        "tab-summary": "基本信息",
+        "tab-history": "修订记录"
+      }
+    }
+  }
+}

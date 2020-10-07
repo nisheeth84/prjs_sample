@@ -1,0 +1,24 @@
+{
+    "OrganizationNotify": {
+        "title": "通知設定",
+        "user": "通知候補ユーザー",
+        "destination": "通知設定ユーザー",
+        "info_title": "設定しました",
+        "info_body": "組織の通知先を設定しました",
+        "destination_setting": "宛先設定",
+        "mail_notify_settings": "メール通知設定",
+        "slack_notify_setting": "Slack通知設定",
+        "delete_setting": "設定削除",
+        "webhook_url": "Webhook URL",
+        "notify_setting": "通知設定",
+        "mentions": "Mentions",
+        "info_body_regist_success": "Slack通知設定を登録しました",
+        "info_body_delete_success": "Slack通知設定を削除しました",
+        "explain_mentions": "チェック結果通知時に追記するメッセージを指定できます</br>@channel/@group/@here/@everyoneを指定した場合、Slackコマンドへ変換されます</br>詳しくはSlackの<a href=\"https://api.slack.com/docs/message-formatting\" target=\"_blank\">Formatting</a>を参照してください",
+        "info_body_test_slack_completely": "送信完了しました。",
+        "info_title_test_slack_completely": "送信完了",
+        "message_test_slack": "insightwatch Test Message",
+        "send_test": "テスト送信",
+        "user_guide_url": "https://insightwatch.zendesk.com/hc/ja/articles/360029191451"
+    }
+}

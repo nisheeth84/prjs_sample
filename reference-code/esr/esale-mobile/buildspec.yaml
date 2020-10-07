@@ -1,0 +1,62 @@
+version: 0.2
+
+#env:
+  #variables:
+     # key: "value"
+     # key: "value"
+  #parameter-store:
+     # key: "value"
+     # key: "value"
+  #secrets-manager:
+     # key: secret-id:json-key:version-stage:version-id
+     # key: secret-id:json-key:version-stage:version-id
+  #exported-variables:
+     # - variable
+     # - variable
+  #git-credential-helper: yes
+
+phases:
+  #install:
+    #If you use the Ubuntu standard image 2.0 or later, you must specify runtime-versions.
+    #If you specify runtime-versions and use an image other than Ubuntu standard image 2.0, the build fails.
+    #runtime-versions:
+      # name: version
+      # name: version
+    #commands:
+      # - command
+      # - command
+  #pre_build:
+    #commands:
+      # - command
+      # - command
+  build:
+    commands:
+      #- npm install
+      - npm install typescript@3.9.2
+      - npm install -g sonarqube-scanner
+      - sonar-scanner -Dsonar.host.url=http://sonar.luvina.pro:9000 -Dsonar.login=7b5fe79192c380154c83c4576fb041e3817ca6c4 -Dsonar.projectKey=esale-mobile
+      - curl http://sonar.luvina.pro:9000/api/qualitygates/project_status?projectKey=esale-mobile > result.json
+      - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then aws codebuild stop-build --id $CODEBUILD_BUILD_ID ;fi
+      #- npm run webpack:prod:main
+  #post_build:
+    #commands:
+      # - command
+      # - command
+#reports:
+  #report-name-or-arn:
+    #files:
+      # - location
+      # - location
+    #base-directory: location
+    #discard-paths: yes
+    #file-format: JunitXml | CucumberJson
+#artifacts:
+  #files:
+    # - location
+    # - location
+  #name: $(date +%Y-%m-%d)
+  #discard-paths: yes
+  #base-directory: location
+#cache:
+  #paths:
+    # - paths

@@ -1,0 +1,129 @@
+<project-edit-container>
+    <div class="page">
+        <div class="page-header">
+            <h1 class="page-title mt-2 ">{_t('ProjectEdit.title')}</h1>
+        </div>
+        <div class="page-content container-fluid">
+            <form ref="form" autocomplete="off" onsubmit={editProject}>
+                <div class="row">
+                    <div class="form-group floating col-lg-12">
+                        <label class="floating-label" for="project_name">{_t('project_name')}</label>
+                        <input type="text" class="form-control" id="project_name" ref="ProjectName" name="AccountID" value={project.name} required placeholder="{_t('project_name_example')}">
+                    </div>
+                    <div class="form-group floating col-lg-12">
+                        <label class="floating-label">{_t('description')}</label>
+                        <textarea class="form-control" rows="3" ref="description" name="textareaFloating" value={project.description}></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <button type="button" onclick={back} class="btn btn-block btn-default">{_t('back')}</button>
+                    </div>
+                    <div class="col-lg-6">
+                        <button type="submit" class="btn btn-block btn-success">{_t('edit')}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <error-modal></error-modal>
+    <pm-loading></pm-loading>
+    <script>
+        const tag = this
+        const obs = riot.observable()
+        tag.cognitoUser = riot.mixin('cognitoUser');
+        tag.obs = obs
+        tag.editProject = editProject
+        tag.back = back
+        tag.organization_id = opts.organization_id
+        tag.project_id = opts.project_id
+        tag.project = {}
+        const requestProjectUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + tag.organization_id + '/projects/' + tag.project_id;
+        tag.on('mount', function() {
+            tag.obs.trigger('pm-loader-show')
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                    // alert('getSession()でエラー\n' + err);
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    let fetchResponse = null
+                    fetch(requestProjectUrl, {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': idToken
+                        }
+                    }).then(function(response) {
+                        fetchResponse = response
+                        return response
+                    }).then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            tag.obs.trigger('pm-loader-hide');
+                            return response.json();
+                        })
+                        .then(function(project) {
+                            tag.project = project
+                            tag.update();
+                        })
+                        .catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                            })
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            })
+        })
+        function editProject(event) {
+            const form = tag.refs.form;
+            event.preventDefault()
+            tag.commonUtils.submitDisable(form)
+            tag.obs.trigger('pm-loader-show');
+            const projectName = tag.refs.ProjectName.value
+            const description = tag.refs.description.value
+            const project = {
+                'name': projectName,
+                'description': description
+            }
+            tag.cognitoUser.getSession(function(err, session) {
+                if (err) {
+                    tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+                } else {
+                    var idToken = session.getIdToken().getJwtToken();
+                    let fetchResponse = null
+                    fetch(requestProjectUrl, {
+                        method: 'PATCH',
+                        headers: {
+                            'Authorization': idToken
+                        },
+                        body: JSON.stringify(project)
+                    })
+                        .then(function(response) {
+                            fetchResponse = response
+                            return response
+                        }).then(tag.commonUtils.checkStatus)
+                        .then(function(response) {
+                            tag.obs.trigger('pm-loader-hide');
+                            tag.back()
+                        }).catch(function(error) {
+                            tag.obs.trigger('pm-loader-hide');
+                            error.then(function(value) {
+                                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+                            })
+                            tag.obs.trigger('error-modal-open', error);
+                            tag.obs.one('error-modal-close', function(value) {
+                                tag.commonUtils.backHome(value)
+                            })
+                        })
+                }
+            })
+        }
+        function back() {
+            window.location.href = '#/organizations/' + tag.organization_id + '/projects/' + tag.project_id + '/';
+        }
+    </script>
+</project-edit-container>

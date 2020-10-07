@@ -1,0 +1,123 @@
+{
+  "account": {
+    "common": {},
+    "login": {
+      "form": {
+        "username": "Email",
+        "username.placeholder": "Enter your email address",
+        "password": "Password",
+        "password.placeholder": "Enter your password",
+        "tenant": "Tenant ID",
+        "tenant.placeholder": "Enter Tenant ID",
+        "link.reset-password": "Please click <a href=\"{{tenant}}/account/reset/password\">here</a> if you forgot your password",
+        "rememberme": "Stay logged in",
+        "button.login": "Login",
+        "button.next": "Next",
+        "label.required": "※"
+      },
+      "messages": {
+        "errors": {
+          "trial-left-days": "Your trial period will expire in {{trial}} day(s).",
+          "trial-ended": "Trial period has expired. Please login and complete the registration to continue.",
+          "authentication": "URL, user ID or password is incorrect. If you are unable to log in, please contact the administrator.",
+          "username.required ": "User ID is required.",
+          "password.required ": "Password is required.",
+          "tenant.required ": "Tenant ID is required."
+        }
+      }
+    },
+    "password": {
+      "title": "Reset your password",
+      "messages": {
+        "errors": {
+          "update-failed": "<strong>Error!</strong> Your password has not been updated."
+        },
+        "success": "<strong>Your password has been updated.</strong>",
+        "info1": "An email for resetting your password will be sent to your email address.",
+        "info2": "Please set your new password.",
+        "suggest-info1": "Your password must follow the following conditions.",
+        "suggest-info2": "Password is valid for 90 days since being set.",
+        "suggest-info3": "Password must be between 8 and 32 characters.",
+        "suggest-info4": "Password must contain at least two of the following character types: half-width letters, half-width numbers, and half-width symbols.",
+        "suggest-info5": "Password must be different from your email.",
+        "expired-message": "Your password has expired.<br/>Please set a new password to continue."
+      },
+      "form": {
+        "current-password": "Current password",
+        "current-password-placeholder": "Enter your current password",
+        "new-password": "New password",
+        "new-password-placeholder": "Enter new password",
+        "new-password-confirm": "Confirm new password",
+        "new-password-confirm-placeholder": "Enter new password",
+        "button-update": "Update"
+      },
+      "reset": {
+        "messages": {
+          "info": "Password will now be reset."
+        },
+        "url-invalid": "URL is incorrect or invalid."
+      },
+      "change": {
+        "password-thesame-employee-id": "Password must be different from Employee’s ID.",
+        "password-old-incorrect": "Password is incorrect.",
+        "password-upto-three": "Last 3 passwords must not be reused."
+      },
+      "change-finish": {
+        "info": "Password has been changed.<br/>Please log in again from the login page.",
+        "button-back-login": "Login page"
+      }
+    },
+    "newPassword": {
+      "NotBlank": "Please enter your password.",
+      "Pattern": "Password must contain at least two of the following character types: half-width letters, half-width numbers, and half-width symbols.",
+      "Size": "Password must be between 8 and 32 characters."
+    },
+    "reset": {
+      "title": "Reset your password",
+      "init": {
+        "info1": "We have sent you a confirmation email for changing your password.",
+        "info2": "Please reset password from the email you received.",
+        "info3": "If you do not receive the email within 5 minutes, please contact the system administrator.",
+        "form": {
+          "username": "Email",
+          "username-placeholder": "Enter your email address",
+          "code": "Reset Code",
+          "code-placeholder": "Enter ResetCode",
+          "button-submit": "Submit",
+          "button-back": "Return"
+        },
+        "messages": {
+          "info": "An email for resetting your password will be sent to your mail address.",
+          "user-notfound": "User ID is incorrect.",
+          "errors": {
+            "username.required ": "User ID is required",
+            "code.required ": "Reset Code is required"
+          }
+        }
+      },
+      "finish": {
+        "info1": "URL is incorrect or invalid.",
+        "info2": "Please change your password from the login page.",
+        "button-back-login": "Login page"
+      }
+    },
+    "popup": {
+      "destination.title": "Confirm connection destination",
+      "destination.message": "Please select a target feature to connect after logging in.",
+      "btn-contract": "Contractor site",
+      "btn-back-login": "Login page",
+      "btn-esms": "esm's"
+    },
+    "tenant": {
+      "input-tenant.button": "Next",
+      "contract-info.title": "[Important] Environmental Suspension",
+      "contract-info.content1": "Your environment is currently suspended.",
+      "contract-info.content2": "Please refer to ",
+      "contract-info.content3": " for further information.",
+      "contract-info.content4": "To learn more about the reason, please login to the contractor's site."
+    },
+    "licenses": {
+      "error-licenses.message": "License is insufficent. Please contact the administrator."
+    }
+  }
+}

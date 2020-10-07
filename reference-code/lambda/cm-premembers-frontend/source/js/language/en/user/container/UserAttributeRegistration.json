@@ -1,0 +1,11 @@
+{
+    "UserAttributeRegistration": {
+        "regist_info_attr": "Register your profile",
+        "regist_info_attr_warning": "Please fill in your profile.",
+        "region": "Country / Region",
+        "label_require": "Required",
+        "purpose": "Type",
+        "corporate": "Business",
+        "personal": "Personal"
+    }
+}

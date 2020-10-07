@@ -1,0 +1,142 @@
+[
+    {
+        "EnableDate": {
+            "$date": 1488773649000
+        },
+        "SerialNumber": "arn:aws:iam::109054975408:mfa/cm-abe.shinya",
+        "UserName": "cm-abe.shinya"
+    },
+    {
+        "EnableDate": {
+            "$date": 1470808388000
+        },
+        "SerialNumber": "arn:aws:iam::109054975408:mfa/cm-honda_shuntaro",
+        "UserName": "cm-honda_shuntaro"
+    },
+    {
+        "EnableDate": {
+            "$date": 1470808418000
+        },
+        "SerialNumber": "arn:aws:iam::109054975408:mfa/cm-honda_tetsuyuki",
+        "UserName": "cm-honda_tetsuyuki"
+    },
+    {
+        "EnableDate": {
+            "$date": 1475144495000
+        },
+        "SerialNumber": "arn:aws:iam::109054975408:mfa/cm-inage.toru",
+        "UserName": "cm-inage.toru"
+    },
+    {
+        "EnableDate": {
+            "$date": 1495423328000
+        },
+        "SerialNumber": "arn:aws:iam::109054975408:mfa/cm-ishikawa.satoru",
+        "UserName": "cm-ishikawa.satoru"
+    },
+    {
+        "EnableDate": {
+            "$date": 1470794106000
+        },
+        "SerialNumber": "arn:aws:iam::109054975408:mfa/cm-kajiwara",
+        "UserName": "cm-kajiwara"
+    },
+    {
+        "EnableDate": {
+            "$date": 1497409295000
+        },
+        "SerialNumber": "arn:aws:iam::109054975408:mfa/cm-katsuki",
+        "UserName": "cm-katsuki"
+    },
+    {
+        "EnableDate": {
+            "$date": 1501036933000
+        },
+        "SerialNumber": "arn:aws:iam::109054975408:mfa/cm-kawasaki.teruo",
+        "UserName": "cm-kawasaki.teruo"
+    },
+    {
+        "EnableDate": {
+            "$date": 1504578992000
+        },
+        "SerialNumber": "arn:aws:iam::109054975408:mfa/cm-kondo.shigenori",
+        "UserName": "cm-kondo.shigenori"
+    },
+    {
+        "EnableDate": {
+            "$date": 1480645958000
+        },
+        "SerialNumber": "arn:aws:iam::109054975408:mfa/cm-mikami.yuki",
+        "UserName": "cm-mikami.yuki"
+    },
+    {
+        "EnableDate": {
+            "$date": 1491200464000
+        },
+        "SerialNumber": "arn:aws:iam::109054975408:mfa/cm-ootaki.kentaro",
+        "UserName": "cm-ootaki.kentaro"
+    },
+    {
+        "EnableDate": {
+            "$date": 1478053116000
+        },
+        "SerialNumber": "arn:aws:iam::109054975408:mfa/cm-ozawa",
+        "UserName": "cm-ozawa"
+    },
+    {
+        "EnableDate": {
+            "$date": 1484202967000
+        },
+        "SerialNumber": "arn:aws:iam::109054975408:mfa/cm-tago.masayuki",
+        "UserName": "cm-tago.masayuki"
+    },
+    {
+        "EnableDate": {
+            "$date": 1470729275000
+        },
+        "SerialNumber": "arn:aws:iam::109054975408:mfa/cm-tsukuma.hirokazu",
+        "UserName": "cm-tsukuma.hirokazu"
+    },
+    {
+        "EnableDate": {
+            "$date": 1471583584000
+        },
+        "SerialNumber": "arn:aws:iam::109054975408:mfa/cmp-aizawa",
+        "UserName": "cmp-aizawa"
+    },
+    {
+        "EnableDate": {
+            "$date": 1502098543000
+        },
+        "SerialNumber": "arn:aws:iam::109054975408:mfa/cmp-fukuhara.tomoki",
+        "UserName": "cmp-fukuhara.tomoki"
+    },
+    {
+        "EnableDate": {
+            "$date": 1470735583000
+        },
+        "SerialNumber": "arn:aws:iam::109054975408:mfa/cmp-honjo",
+        "UserName": "cmp-honjo"
+    },
+    {
+        "EnableDate": {
+            "$date": 1478491625000
+        },
+        "SerialNumber": "arn:aws:iam::109054975408:mfa/cmp-moriwaki",
+        "UserName": "cmp-moriwaki"
+    },
+    {
+        "EnableDate": {
+            "$date": 1470737284000
+        },
+        "SerialNumber": "arn:aws:iam::109054975408:mfa/cmp-ohama",
+        "UserName": "cmp-ohama"
+    },
+    {
+        "EnableDate": {
+            "$date": 1503378576000
+        },
+        "SerialNumber": "arn:aws:iam::109054975408:mfa/cmp-shono",
+        "UserName": "cmp-shono"
+    }
+]

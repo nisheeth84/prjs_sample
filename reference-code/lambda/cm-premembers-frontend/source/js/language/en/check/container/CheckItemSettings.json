@@ -1,0 +1,11 @@
+{
+    "CheckItemSettings": {
+        "item_setting": "Item settings",
+        "description_item_setting": "You can exclude items from the security checkup if they are not relevant.",
+        "check_item": "Description",
+        "item_exclusion": "Item Exclusion",
+        "copy_item_setting": "Copy this settings to another AWS account",
+        "user_guide_url": "https://insightwatch.zendesk.com/hc/ja/articles/360021813751",
+        "resources_exclusion": "Resources exclusion"
+    }
+}

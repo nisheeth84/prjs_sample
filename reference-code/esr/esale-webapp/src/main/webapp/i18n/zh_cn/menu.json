@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "searchGlobal": "全体搜索",
+    "userNew": "初学者",
+    "feedback": "反馈",
+    "setting": "设置"
+  },
+  "notification": {
+    "title": "通知",
+    "modelNoti": "查看全部",
+    "detail": {
+      "placehoder": "搜索通知"
+    }
+  },
+  "more": {
+    "employeeDetails": "员工详细",
+    "setting": "设置",
+    "logout": "登出"
+  },
+  "searchGlobal": {
+    "tittle": "全体搜索",
+    "tittle-snd": "搜索对象通过下拉菜单设置",
+    "search-all": "全部",
+    "placehoder": "搜索全体",
+    "more": "显示更多"
+  }
+}

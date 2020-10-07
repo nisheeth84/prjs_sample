@@ -1,0 +1,16 @@
+{
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "TaskID",
+            "AttributeType": "S"
+        }
+    ],
+    "TableName": "PM_OrganizationTasks",
+    "KeySchema": [
+        {
+            "AttributeName": "TaskID",
+            "KeyType": "HASH"
+        }
+    ],
+    "BillingMode": "PAY_PER_REQUEST"
+}

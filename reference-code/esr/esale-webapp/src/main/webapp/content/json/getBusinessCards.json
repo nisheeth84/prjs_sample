@@ -1,0 +1,12 @@
+{
+  "businessCards": [
+    {
+      "businessCardId": 1,
+      "firstName": "Name"
+    },
+    {
+      "businessCardId": 2,
+      "firstName": "firstName"
+    }
+  ]
+}

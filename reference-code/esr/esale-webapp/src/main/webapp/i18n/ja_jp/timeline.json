@@ -1,0 +1,253 @@
+{
+  "timeline": {
+    "title": "タイムライン",
+    "history": {
+      "title": {
+        "create": "新規に登録されました。",
+        "edit": "以下の項目が更新されました。"
+      }
+    },
+    "control": {
+      "sidebar": {
+        "all-timeline": "全てのタイムライン",
+        "my-timeline": "自分のタイムライン",
+        "favorite-timeline": "お気に入りのタイムライン",
+        "group-timeline": "",
+        "depart-timeline": "",
+        "search-customer-timeline": "顧客リストを検索",
+        "search-business-card-timeline": "名刺リストを検索",
+        "group-add-timeline": "チャンネル",
+        "all-group": "チャンネル一覧を表示",
+        "search-group": "チャンネルを検索",
+        "search-box": "部署を検索",
+        "customer-timeline": "顧客リストのタイムライン",
+        "business-card-timeline": "名刺リストのタイムライン",
+        "favorite-group": "お気に入りのチャンネル",
+        "joined-group": "参加中のチャンネル",
+        "request-to-join-group": "参加リクエスト中のチャンネル",
+        "department": "部署",
+        "taget": "宛先"
+      },
+      "local-tool": {
+        "add-timeline": "新規投稿",
+        "sort": "更新順",
+        "sort-created-date": "投稿順",
+        "sort-update-date": "更新順",
+        "filter": "フィルタ",
+        "filter-all": "全て表示",
+        "filter-not-seen": "未読のみ表示",
+        "btn-all": "全選択",
+        "btn-not-all": "選択解除",
+        "filter-1": "投稿",
+        "filter-2": "チャンネル投稿",
+        "filter-3": "活動報告",
+        "filter-4": "顧客",
+        "filter-5": "名刺",
+        "filter-6": "スケジュール",
+        "filter-78": "マイルストーン・タスク",
+        "filter-10": "ルールエンジン通知",
+        "filter-9": "タスク通知",
+        "filter-timeline": "タイムラインを史素",
+        "show-follow": "フォロー管理",
+        "search-value": "タイムラインを検索",
+        "not-select-group": "グループを選択しない",
+        "address-default": "宛先",
+        "placeholders-content": "投稿内容を入力",
+        "post": "投稿",
+        "btn-save-filter": "適用",
+        "post-comment": "返信",
+        "part-of-quote": "引用"
+      }
+    },
+    "group": {
+      "sorttype": {
+        "last-post-date-descending-order": "最終投稿日降順",
+        "registration-date-descending-order": "登録日降順",
+        "member-order": "メンバー",
+        "owner-order": "オーナー"
+      },
+      "participants": {
+        "modal-name": "チャンネルの参加者",
+        "requesting-participation": "参加リクエスト中",
+        "participating": "参加中",
+        "owner": "オーナー",
+        "member": "メンバー"
+      },
+      "participants-owner": {
+        "modal-name": "チャンネルの参加者",
+        "request-participation": "参加リクエスト中",
+        "approval-btn": "承認",
+        "reject-btn": "拒否",
+        "participant-permission": "参加中",
+        "button-add": "参加者を追加",
+        "owner": "オーナー",
+        "button-delete-member": "退出させる"
+      },
+      "add-member": {
+        "add-participants": "参加者を追加",
+        "group-member": "チャンネルのメンバー",
+        "search": "部署・グループ・社員を検索",
+        "owner": "オーナー",
+        "notification-content": "通知内容",
+        "enter-notification-content": "通知内容を入力",
+        "add": "追加"
+      },
+      "registration-date": "登録日",
+      "post-date": "投稿日",
+      "participate": "参加する",
+      "new-post": "新規投稿"
+    },
+    "message": {
+      "confirm": {},
+      "add-request": "グループに参加していません。",
+      "delete-member": "参加リクエスト中です。"
+    },
+    "list": {
+      "btn-expand-reply": "件の返信",
+      "btn-expand-comment": "過去の返信を表示",
+      "btn-show-comment": "続きを読む",
+      "body": {}
+    },
+    "modal": {
+      "title": "チャンネル登録",
+      "group-name-label": "チャンネル名",
+      "group-name-placeholder": "チャンネル名を入力",
+      "require": "必須",
+      "image-group-label": "チャンネル画像",
+      "image-group-placeholder": "チャンネル画像を選択",
+      "comment-label": "コメント",
+      "comment-placeholder": "コメントを入力",
+      "select-color-label": "チャンネルカラー",
+      "is-public-label": "公開",
+      "public": "公開",
+      "private": "非公開",
+      "approval-label": "承認要否",
+      "approval": "必要",
+      "reject": "不要",
+      "select-invite-label": "チャンネルのメンバー",
+      "select-invite-placeholder": "部署・グループ・社員を検索",
+      "button-create": "登録",
+      "button-update": "保存",
+      "title-update": "チャンネル編集"
+    },
+    "common": {
+      "target-all": "全員"
+    },
+    "popup-delete": {
+      "button-cancel": "キャンセル",
+      "button-delete": "削除",
+      "content": "投稿を削除します。よろしいですか？",
+      "content-modal": "編集中のデータが破棄されます。よろしいですか？"
+    },
+    "modal-confirm": {},
+    "local-tool": {
+      "search-group": {
+        "placeholder": "チャンネルを検索"
+      }
+    },
+    "sidebar-list-attached-file": {
+      "title": "ファイル一覧"
+    },
+    "no-data": "チャンネルを選択しない",
+    "popup-ok": {
+      "button-cancel": "Cancel",
+      "button-ok": "OK",
+      "content": "権限をオーナーからメンバーへ変更します。よろしいですか。"
+    },
+    "popup-privilege": {
+      "button-ok": "OK",
+      "content": "オーナー権限を持つユーザーがいなくなるため変更できません。"
+    },
+    "share-timeline-modal": {
+      "button-share": "投稿",
+      "share-modal-title": "共有"
+    },
+    "popup-group": {
+      "title": "チャンネルを削除",
+      "button-cancel": "キャンセル",
+      "button-delete": "削除",
+      "content": "チャンネルを削除すると、投稿された記事が全て削除されます。",
+      "contentBottom": "削除してよろしいですか？"
+    },
+    "popup-group-delete-member": {
+      "title": "チャンネルから退出",
+      "button-cancel": "キャンセル",
+      "button-delete": "退出",
+      "content": "チャンネルから退出してよろしいですか？"
+    },
+    "timeline-group": {
+      "join-request": "参加リクエスト中です。",
+      "have-invite-request": "{{0}}への参加リクエストが届いています。",
+      "not-join-request": "チャンネルに参加していません。",
+      "text-request": "参加のリクエスト確認",
+      "btn-show-comment": "続きを読む"
+    },
+    "following-management": {
+      "following-name": "フォロー管理",
+      "type": "種別",
+      "name": "名前",
+      "keep-date": "フォロー開始日",
+      "showing-results": "件表示",
+      "page": "件",
+      "employee": "社員",
+      "customer": "顧客",
+      "card": "名刺",
+      "first-record": "15件表示",
+      "center-record": "30件表示",
+      "last-record": "50件表示",
+      "message-delete": "削除しました。",
+      "message-no-data": "データがありません。"
+    },
+    "pulldown-channel": {
+      "place-holder": "投稿するチャンネルを選択"
+    },
+    "pulldown-target-deliver": {
+      "place-holder": "詳細検索",
+      "button-add-new": "新規追加"
+    },
+    "message-followes": {
+      "label-modal": "フォローの削除",
+      "message": "フォローを削除してよろしいですか?"
+    },
+    "button": {
+      "edit": "編集",
+      "delete": "消去",
+      "like": "お気に入りリストに登録",
+      "exit-group": "チャンネルから退出",
+      "addRequest": "参加リクエスト"
+    },
+    "authority": {
+      "member": "メンバー",
+      "owner": "オーナー"
+    },
+    "dirty-check": {
+      "title": "このページを離れますか？",
+      "button-cancel": "このページから離れる",
+      "button-ok": "このページにとどまる",
+      "content": "コメントを投稿せずに終了します。入力内容は破棄されます。よろしいですか?",
+      "content-create-timeline-group": "このページを離れると、入力中のデータが削除されます。本当に移動してもよろしいですか？",
+      "owner": "オーナー",
+      "member": "メンバー"
+    },
+    "reaction": {
+      "seach-placeholder": "絵文字を検索",
+      "recent": "よく使う絵文字",
+      "face": "顔",
+      "hand": "手",
+      "other": "他の",
+      "result-seach": "検索結果",
+      "clickFunction": "クリックでリアクションを",
+      "cancel": "取り消します。"
+    },
+    "popup-show-detail": {
+      "status": "オンライン",
+      "button-sent-mail": "相談"
+    },
+    "dialog-group-delete-member": {
+      "content": "チャンネルから退出させます。",
+      "contentBottom": "よろしいですか。？",
+      "button-cancel": "キャンセル",
+      "button-delete": "削除"
+    }
+  }
+}

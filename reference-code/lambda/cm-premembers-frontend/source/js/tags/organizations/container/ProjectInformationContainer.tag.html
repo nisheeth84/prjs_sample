@@ -1,0 +1,156 @@
+<project-information-container>
+  <div class="page">
+    <div class="page-content container-fluid">
+      <dl class="row">
+        <dt>{_t('project_name')}: </dt>
+        <dd>{project.name}</dd>
+      </dl>
+      <dl class="row">
+        <dt>{_t('description')}:</dt>
+        <dd>{project.description}</dd>
+      </dl>
+      <dl class="row">
+        <dt>{_t('update_date')}:</dt>
+        <dd>{commonUtils.displayDate(project.updatedAt)}</dd>
+      </dl>
+      <div class="row">
+        <div class="{createButtonClassObject(isOwner)}">
+          <button type="button" class="btn btn-block btn-default" onclick={back}>{_t('back')}</button>
+        </div>
+        <div class="col-4" show="{isOwner}">
+          <button type="button" class="btn btn-block btn-success" onclick={editProject}>{_t('edit')}</button>
+        </div>
+        <div class="col-4" show="{isOwner}">
+          <button type="button" class="btn btn-block btn-danger" onclick={deleteProjectShowModal}>{_t('delete')}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <error-modal></error-modal>
+  <pm-loading></pm-loading>
+  <delete-confirm-modal-container></delete-confirm-modal-container>
+  <script>
+    const tag = this;
+    tag.cognitoUser = riot.mixin('cognitoUser');
+    tag.back = back;
+    const obs = riot.observable()
+    tag.obs = obs
+    tag.editProject = editProject
+    tag.deleteProjectShowModal = deleteProjectShowModal
+    tag.deleteProject = deleteProject
+    tag.back = back
+    tag.organization_id = opts.organization_id
+    tag.createButtonClassObject = createButtonClassObject
+    tag.project_id = opts.project_id
+    tag.project = {}
+    const requestProjectUrl = tag.config.APIGATEWAY_ADDRESS + '/organizations/' + tag.organization_id + '/projects/' + tag.project_id;
+    tag.on('mount', function() {
+      tag.obs.trigger('pm-loader-show')
+      tag.cognitoUser.getSession(function(err, session) {
+        if (err) {
+          tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+          // alert('getSession()でエラー\n' + err);
+        } else {
+          var idToken = session.getIdToken().getJwtToken();
+          requestInformation(idToken).then(function(response) {
+            return response;
+          }).then(function(result) {
+            const project = result[0]
+            const organization = result[1]
+            tag.obs.trigger('pm-loader-hide');
+            tag.isOwner = tag.commonUtils.isOwner(organization)
+            tag.project = project
+            tag.update();
+            tag.obs.on('delete-confirm-modal-close', function(e) {
+              tag.obs.trigger('pm-loader-show')
+              deleteProject()
+            })
+          }).catch(function(error) {
+            tag.obs.trigger('pm-loader-hide');
+            tag.obs.trigger('error-modal-open', error);
+            tag.obs.one('error-modal-close', function(value) {
+              tag.commonUtils.backHome(value)
+            })
+          })
+        }
+      });
+
+    })
+
+    function requestInformation(idToken) {
+      let fetchResponse
+      const listRequest = [
+        requestProjectInformationPromise(idToken).then(function(response) {
+          fetchResponse = response
+          return response
+        }).then(tag.commonUtils.checkStatus).then(function(response) { return response.json() }).catch(function(error) {
+          error.then(function(value) {
+            value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+          })
+          throw error
+        }),
+        tag.commonUtils.getMyOrganization(idToken, tag.organization_id).then(function(response) { return response })
+      ]
+      return Promise.all(listRequest)
+    }
+
+    function requestProjectInformationPromise(idToken) {
+      return fetch(requestProjectUrl, {
+        method: 'GET',
+        headers: {
+          'Authorization': idToken
+        }
+      })
+    }
+
+    function back() {
+      window.location.href = '#/organizations/' + tag.organization_id + '/projects/';
+    }
+    function editProject() {
+      window.location.href = '#/organizations/' + tag.organization_id + '/projects/' + tag.project_id + '/edit/';
+    }
+    function deleteProjectShowModal() {
+      tag.obs.trigger('delete-confirm-modal-open')
+    }
+    function createButtonClassObject(isOwner) {
+      const buttonClass = {
+        'col-4': isOwner,
+        'col-12': !isOwner
+      }
+      return buttonClass
+    }
+    function deleteProject() {
+      tag.cognitoUser.getSession(function(err, session) {
+        if (err) {
+          tag.commonUtils.cognitoSessionError(tag.obs, tag.cognitoUser)
+        } else {
+          var idToken = session.getIdToken().getJwtToken();
+          let fetchResponse = null
+          fetch(requestProjectUrl, {
+            method: 'DELETE',
+            headers: {
+              'Authorization': idToken
+            }
+          }).then(function(response) {
+            fetchResponse = response
+            return response
+          })
+            .then(tag.commonUtils.checkStatus)
+            .then(function(response) {
+              tag.obs.trigger('pm-loader-hide');
+              tag.back()
+            }).catch(function(error) {
+              tag.obs.trigger('pm-loader-hide');
+              error.then(function(value) {
+                value.responseStatus = fetchResponse.status //エラー発生時にResponseを格納したオブジェクトから当該のresponseを取り出して、ステータスコードを格納しておく
+              })
+              tag.obs.trigger('error-modal-open', error);
+              tag.obs.one('error-modal-close', function(value) {
+                tag.commonUtils.backHome(value)
+              })
+            })
+        }
+      })
+    }
+  </script>
+</project-information-container>

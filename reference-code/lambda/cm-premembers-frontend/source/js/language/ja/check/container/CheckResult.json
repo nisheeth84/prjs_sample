@@ -1,0 +1,16 @@
+{
+    "CheckResult": {
+        "description_check_result": "最新のチェック結果を確認できます。チェックNGの項目が表示されます。",
+        "notification_check": "異常は検出されませんでした。",
+        "CheckS3ErrorMessage": {
+            "title": "S3情報の取得に失敗しました。",
+            "description" : "以下の場合はinsightwatchでのチェックは対応しておりません。<br> S3が公開設定になっていないか手動で<a href=\"https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/user-guide/bucket-permissions-check.html\" target=\"_blank\">確認</a>してください。",
+            "case_1": "別のAWSアカウント上のS3(クロスアカウント)を指定している場合",
+            "case_2": "S3のバケットポリシーでIPアドレス制限をかけている場合"
+        },
+        "manual": "マニュアル",
+        "user_guide_check_item_cis_url": "https://insightwatch.zendesk.com/hc/ja/articles/360002141251",
+        "user_guide_check_item_asc_url": "https://insightwatch.zendesk.com/hc/ja/articles/360012772952",
+        "user_guide_check_item_ibp_url": "https://insightwatch.zendesk.com/hc/ja/articles/360017951912"
+    }
+}
